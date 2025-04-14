@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Strength for filters.
         /// </summary>
-        [Input("inputStrength")]
+        [PolicyResourceProperty("inputStrength", "_mUnknown_InputStrength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputStrength;
-
-        public string? InputStrength => _mInputStrength.GetValue("inputStrength");
+        private string? _mValue_InputStrength;
+        private bool _mUnknown_InputStrength;
+        public string? InputStrength
+        {
+            get
+            {
+                if (!_mUnknown_InputStrength) return _mValue_InputStrength;
+                throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigFiltersConfig.InputStrength' is not present");
+            }
+        }
 
         /// <summary>
         /// Strength for filters.
         /// </summary>
-        [Input("outputStrength")]
+        [PolicyResourceProperty("outputStrength", "_mUnknown_OutputStrength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputStrength;
-
-        public string? OutputStrength => _mOutputStrength.GetValue("outputStrength");
+        private string? _mValue_OutputStrength;
+        private bool _mUnknown_OutputStrength;
+        public string? OutputStrength
+        {
+            get
+            {
+                if (!_mUnknown_OutputStrength) return _mValue_OutputStrength;
+                throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigFiltersConfig.OutputStrength' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of contextual grounding filter.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigFiltersConfig.Type' is not present");
+            }
+        }
     }
 }

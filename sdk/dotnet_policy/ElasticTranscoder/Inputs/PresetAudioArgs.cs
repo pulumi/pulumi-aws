@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Inputs
         /// <summary>
         /// The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
         /// </summary>
-        [Input("audioPackingMode")]
+        [PolicyResourceProperty("audioPackingMode", "_mUnknown_AudioPackingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioPackingMode;
-
-        public string? AudioPackingMode => _mAudioPackingMode.GetValue("audioPackingMode");
+        private string? _mValue_AudioPackingMode;
+        private bool _mUnknown_AudioPackingMode;
+        public string? AudioPackingMode
+        {
+            get
+            {
+                if (!_mUnknown_AudioPackingMode) return _mValue_AudioPackingMode;
+                throw new UndeferrableValueException("Value 'PresetAudioArgs.AudioPackingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
         /// </summary>
-        [Input("bitRate")]
+        [PolicyResourceProperty("bitRate", "_mUnknown_BitRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBitRate;
-
-        public string? BitRate => _mBitRate.GetValue("bitRate");
+        private string? _mValue_BitRate;
+        private bool _mUnknown_BitRate;
+        public string? BitRate
+        {
+            get
+            {
+                if (!_mUnknown_BitRate) return _mValue_BitRate;
+                throw new UndeferrableValueException("Value 'PresetAudioArgs.BitRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of audio channels in the output file
         /// </summary>
-        [Input("channels")]
+        [PolicyResourceProperty("channels", "_mUnknown_Channels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannels;
-
-        public string? Channels => _mChannels.GetValue("channels");
+        private string? _mValue_Channels;
+        private bool _mUnknown_Channels;
+        public string? Channels
+        {
+            get
+            {
+                if (!_mUnknown_Channels) return _mValue_Channels;
+                throw new UndeferrableValueException("Value 'PresetAudioArgs.Channels' is not present");
+            }
+        }
 
         /// <summary>
         /// The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
         /// </summary>
-        [Input("codec")]
+        [PolicyResourceProperty("codec", "_mUnknown_Codec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodec;
-
-        public string? Codec => _mCodec.GetValue("codec");
+        private string? _mValue_Codec;
+        private bool _mUnknown_Codec;
+        public string? Codec
+        {
+            get
+            {
+                if (!_mUnknown_Codec) return _mValue_Codec;
+                throw new UndeferrableValueException("Value 'PresetAudioArgs.Codec' is not present");
+            }
+        }
 
         /// <summary>
         /// The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
         /// </summary>
-        [Input("sampleRate")]
+        [PolicyResourceProperty("sampleRate", "_mUnknown_SampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSampleRate;
-
-        public string? SampleRate => _mSampleRate.GetValue("sampleRate");
+        private string? _mValue_SampleRate;
+        private bool _mUnknown_SampleRate;
+        public string? SampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SampleRate) return _mValue_SampleRate;
+                throw new UndeferrableValueException("Value 'PresetAudioArgs.SampleRate' is not present");
+            }
+        }
     }
 }

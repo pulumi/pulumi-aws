@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// The CloudFront origin access identity to associate with the origin.
         /// </summary>
-        [Input("originAccessIdentity")]
+        [PolicyResourceProperty("originAccessIdentity", "_mUnknown_OriginAccessIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginAccessIdentity;
-
-        public string? OriginAccessIdentity => _mOriginAccessIdentity.GetValue("originAccessIdentity");
+        private string? _mValue_OriginAccessIdentity;
+        private bool _mUnknown_OriginAccessIdentity;
+        public string? OriginAccessIdentity
+        {
+            get
+            {
+                if (!_mUnknown_OriginAccessIdentity) return _mValue_OriginAccessIdentity;
+                throw new UndeferrableValueException("Value 'DistributionOriginS3OriginConfig.OriginAccessIdentity' is not present");
+            }
+        }
     }
 }

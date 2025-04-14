@@ -16,25 +16,46 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend.Inputs
         /// Specifies how the input files should be processed.
         /// One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
         /// </summary>
-        [Input("inputFormat")]
+        [PolicyResourceProperty("inputFormat", "_mUnknown_InputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputFormat;
-
-        public string? InputFormat => _mInputFormat.GetValue("inputFormat");
+        private string? _mValue_InputFormat;
+        private bool _mUnknown_InputFormat;
+        public string? InputFormat
+        {
+            get
+            {
+                if (!_mUnknown_InputFormat) return _mValue_InputFormat;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigDocumentsArgs.InputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of training documents.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigDocumentsArgs.S3Uri' is not present");
+            }
+        }
 
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
-
-        [Input("testS3Uri")]
+        [PolicyResourceProperty("testS3Uri", "_mUnknown_TestS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTestS3Uri;
-
-        public string? TestS3Uri => _mTestS3Uri.GetValue("testS3Uri");
+        private string? _mValue_TestS3Uri;
+        private bool _mUnknown_TestS3Uri;
+        public string? TestS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_TestS3Uri) return _mValue_TestS3Uri;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigDocumentsArgs.TestS3Uri' is not present");
+            }
+        }
     }
 }

@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
         /// </summary>
-        [Input("deleteMarkerReplication")]
+        [PolicyResourceProperty("deleteMarkerReplication", "_mUnknown_DeleteMarkerReplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleDeleteMarkerReplication> _mDeleteMarkerReplication;
-
-        public Outputs.BucketReplicationConfigRuleDeleteMarkerReplication? DeleteMarkerReplication => _mDeleteMarkerReplication.GetValue("deleteMarkerReplication");
+        private Outputs.BucketReplicationConfigRuleDeleteMarkerReplication? _mValue_DeleteMarkerReplication;
+        private bool _mUnknown_DeleteMarkerReplication;
+        public Outputs.BucketReplicationConfigRuleDeleteMarkerReplication? DeleteMarkerReplication
+        {
+            get
+            {
+                if (!_mUnknown_DeleteMarkerReplication) return _mValue_DeleteMarkerReplication;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.DeleteMarkerReplication' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the destination for the rule. See below.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleDestination> _mDestination;
-
-        public Outputs.BucketReplicationConfigRuleDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.BucketReplicationConfigRuleDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.BucketReplicationConfigRuleDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Replicate existing objects in the source bucket according to the rule configurations. See below.
         /// </summary>
-        [Input("existingObjectReplication")]
+        [PolicyResourceProperty("existingObjectReplication", "_mUnknown_ExistingObjectReplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleExistingObjectReplication> _mExistingObjectReplication;
-
-        public Outputs.BucketReplicationConfigRuleExistingObjectReplication? ExistingObjectReplication => _mExistingObjectReplication.GetValue("existingObjectReplication");
+        private Outputs.BucketReplicationConfigRuleExistingObjectReplication? _mValue_ExistingObjectReplication;
+        private bool _mUnknown_ExistingObjectReplication;
+        public Outputs.BucketReplicationConfigRuleExistingObjectReplication? ExistingObjectReplication
+        {
+            get
+            {
+                if (!_mUnknown_ExistingObjectReplication) return _mValue_ExistingObjectReplication;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.ExistingObjectReplication' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleFilter> _mFilter;
-
-        public Outputs.BucketReplicationConfigRuleFilter? Filter => _mFilter.GetValue("filter");
+        private Outputs.BucketReplicationConfigRuleFilter? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Outputs.BucketReplicationConfigRuleFilter? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies special object selection criteria. See below.
         /// </summary>
-        [Input("sourceSelectionCriteria")]
+        [PolicyResourceProperty("sourceSelectionCriteria", "_mUnknown_SourceSelectionCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleSourceSelectionCriteria> _mSourceSelectionCriteria;
-
-        public Outputs.BucketReplicationConfigRuleSourceSelectionCriteria? SourceSelectionCriteria => _mSourceSelectionCriteria.GetValue("sourceSelectionCriteria");
+        private Outputs.BucketReplicationConfigRuleSourceSelectionCriteria? _mValue_SourceSelectionCriteria;
+        private bool _mUnknown_SourceSelectionCriteria;
+        public Outputs.BucketReplicationConfigRuleSourceSelectionCriteria? SourceSelectionCriteria
+        {
+            get
+            {
+                if (!_mUnknown_SourceSelectionCriteria) return _mValue_SourceSelectionCriteria;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.SourceSelectionCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRule.Status' is not present");
+            }
+        }
     }
 }

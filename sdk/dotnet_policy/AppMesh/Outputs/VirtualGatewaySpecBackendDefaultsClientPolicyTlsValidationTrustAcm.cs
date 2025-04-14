@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// One or more ACM ARNs.
         /// </summary>
-        [Input("certificateAuthorityArns")]
+        [PolicyResourceProperty("certificateAuthorityArns", "_mUnknown_CertificateAuthorityArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCertificateAuthorityArns;
-
-        public List<string>? CertificateAuthorityArns => _mCertificateAuthorityArns.GetValue("certificateAuthorityArns");
+        private List<string>? _mValue_CertificateAuthorityArns;
+        private bool _mUnknown_CertificateAuthorityArns;
+        public List<string>? CertificateAuthorityArns
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArns) return _mValue_CertificateAuthorityArns;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm.CertificateAuthorityArns' is not present");
+            }
+        }
     }
 }

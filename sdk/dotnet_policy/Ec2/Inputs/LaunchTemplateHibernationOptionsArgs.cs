@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// If set to `true`, the launched EC2 instance will hibernation enabled.
         /// </summary>
-        [Input("configured")]
+        [PolicyResourceProperty("configured", "_mUnknown_Configured")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConfigured;
-
-        public bool? Configured => _mConfigured.GetValue("configured");
+        private bool? _mValue_Configured;
+        private bool _mUnknown_Configured;
+        public bool? Configured
+        {
+            get
+            {
+                if (!_mUnknown_Configured) return _mValue_Configured;
+                throw new UndeferrableValueException("Value 'LaunchTemplateHibernationOptionsArgs.Configured' is not present");
+            }
+        }
     }
 }

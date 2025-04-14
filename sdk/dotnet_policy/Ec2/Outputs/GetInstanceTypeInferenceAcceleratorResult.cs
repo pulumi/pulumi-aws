@@ -12,31 +12,59 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetInstanceTypeInferenceAcceleratorResult
     {
-        [Input("count")]
+        [PolicyResourceProperty("count", "_mUnknown_Count")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCount;
+        private int? _mValue_Count;
+        private bool _mUnknown_Count;
+        public int? Count
+        {
+            get
+            {
+                if (!_mUnknown_Count) return _mValue_Count;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeInferenceAcceleratorResult.Count' is not present");
+            }
+        }
 
-        public int? Count => _mCount.GetValue("count");
-
-        [Input("manufacturer")]
+        [PolicyResourceProperty("manufacturer", "_mUnknown_Manufacturer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManufacturer;
-
-        public string? Manufacturer => _mManufacturer.GetValue("manufacturer");
+        private string? _mValue_Manufacturer;
+        private bool _mUnknown_Manufacturer;
+        public string? Manufacturer
+        {
+            get
+            {
+                if (!_mUnknown_Manufacturer) return _mValue_Manufacturer;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeInferenceAcceleratorResult.Manufacturer' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the instance memory, in MiB.
         /// </summary>
-        [Input("memorySize")]
+        [PolicyResourceProperty("memorySize", "_mUnknown_MemorySize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemorySize;
+        private int? _mValue_MemorySize;
+        private bool _mUnknown_MemorySize;
+        public int? MemorySize
+        {
+            get
+            {
+                if (!_mUnknown_MemorySize) return _mValue_MemorySize;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeInferenceAcceleratorResult.MemorySize' is not present");
+            }
+        }
 
-        public int? MemorySize => _mMemorySize.GetValue("memorySize");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeInferenceAcceleratorResult.Name' is not present");
+            }
+        }
     }
 }

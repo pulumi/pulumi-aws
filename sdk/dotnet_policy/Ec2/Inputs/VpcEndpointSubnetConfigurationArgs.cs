@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
         /// </summary>
-        [Input("ipv4")]
+        [PolicyResourceProperty("ipv4", "_mUnknown_Ipv4")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv4;
-
-        public string? Ipv4 => _mIpv4.GetValue("ipv4");
+        private string? _mValue_Ipv4;
+        private bool _mUnknown_Ipv4;
+        public string? Ipv4
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4) return _mValue_Ipv4;
+                throw new UndeferrableValueException("Value 'VpcEndpointSubnetConfigurationArgs.Ipv4' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
         /// </summary>
-        [Input("ipv6")]
+        [PolicyResourceProperty("ipv6", "_mUnknown_Ipv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6;
+        private string? _mValue_Ipv6;
+        private bool _mUnknown_Ipv6;
+        public string? Ipv6
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6) return _mValue_Ipv6;
+                throw new UndeferrableValueException("Value 'VpcEndpointSubnetConfigurationArgs.Ipv6' is not present");
+            }
+        }
 
-        public string? Ipv6 => _mIpv6.GetValue("ipv6");
-
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'VpcEndpointSubnetConfigurationArgs.SubnetId' is not present");
+            }
+        }
     }
 }

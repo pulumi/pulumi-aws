@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Any of the host devices to expose to the container.
         /// </summary>
-        [Input("devices")]
+        [PolicyResourceProperty("devices", "_mUnknown_Devices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult>> _mDevices;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult>? Devices => _mDevices.GetValue("devices");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult>? _mValue_Devices;
+        private bool _mUnknown_Devices;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceResult>? Devices
+        {
+            get
+            {
+                if (!_mUnknown_Devices) return _mValue_Devices;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult.Devices' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, run an init process inside the container that forwards signals and reaps processes.
         /// </summary>
-        [Input("initProcessEnabled")]
+        [PolicyResourceProperty("initProcessEnabled", "_mUnknown_InitProcessEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInitProcessEnabled;
-
-        public bool? InitProcessEnabled => _mInitProcessEnabled.GetValue("initProcessEnabled");
+        private bool? _mValue_InitProcessEnabled;
+        private bool _mUnknown_InitProcessEnabled;
+        public bool? InitProcessEnabled
+        {
+            get
+            {
+                if (!_mUnknown_InitProcessEnabled) return _mValue_InitProcessEnabled;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult.InitProcessEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The total amount of swap memory (in MiB) a container can use.
         /// </summary>
-        [Input("maxSwap")]
+        [PolicyResourceProperty("maxSwap", "_mUnknown_MaxSwap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSwap;
-
-        public int? MaxSwap => _mMaxSwap.GetValue("maxSwap");
+        private int? _mValue_MaxSwap;
+        private bool _mUnknown_MaxSwap;
+        public int? MaxSwap
+        {
+            get
+            {
+                if (!_mUnknown_MaxSwap) return _mValue_MaxSwap;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult.MaxSwap' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the size (in MiB) of the `/dev/shm` volume.
         /// </summary>
-        [Input("sharedMemorySize")]
+        [PolicyResourceProperty("sharedMemorySize", "_mUnknown_SharedMemorySize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSharedMemorySize;
-
-        public int? SharedMemorySize => _mSharedMemorySize.GetValue("sharedMemorySize");
+        private int? _mValue_SharedMemorySize;
+        private bool _mUnknown_SharedMemorySize;
+        public int? SharedMemorySize
+        {
+            get
+            {
+                if (!_mUnknown_SharedMemorySize) return _mValue_SharedMemorySize;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult.SharedMemorySize' is not present");
+            }
+        }
 
         /// <summary>
         /// You can use this parameter to tune a container's memory swappiness behavior.
         /// </summary>
-        [Input("swappiness")]
+        [PolicyResourceProperty("swappiness", "_mUnknown_Swappiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSwappiness;
-
-        public int? Swappiness => _mSwappiness.GetValue("swappiness");
+        private int? _mValue_Swappiness;
+        private bool _mUnknown_Swappiness;
+        public int? Swappiness
+        {
+            get
+            {
+                if (!_mUnknown_Swappiness) return _mValue_Swappiness;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult.Swappiness' is not present");
+            }
+        }
 
         /// <summary>
         /// The container path, mount options, and size (in MiB) of the tmpfs mount.
         /// </summary>
-        [Input("tmpfs")]
+        [PolicyResourceProperty("tmpfs", "_mUnknown_Tmpfs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult>> _mTmpfs;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult>? Tmpfs => _mTmpfs.GetValue("tmpfs");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult>? _mValue_Tmpfs;
+        private bool _mUnknown_Tmpfs;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult>? Tmpfs
+        {
+            get
+            {
+                if (!_mUnknown_Tmpfs) return _mValue_Tmpfs;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult.Tmpfs' is not present");
+            }
+        }
     }
 }

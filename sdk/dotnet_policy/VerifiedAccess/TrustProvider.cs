@@ -16,97 +16,174 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// A description for the AWS Verified Access trust provider.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrustProvider.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A block of options for device identity based trust providers.
         /// </summary>
-        [Input("deviceOptions")]
+        [PolicyResourceProperty("deviceOptions", "_mUnknown_DeviceOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderDeviceOptions> _mDeviceOptions;
-
-        public Outputs.TrustProviderDeviceOptions? DeviceOptions => _mDeviceOptions.GetValue("deviceOptions");
+        private Outputs.TrustProviderDeviceOptions? _mValue_DeviceOptions;
+        private bool _mUnknown_DeviceOptions;
+        public Outputs.TrustProviderDeviceOptions? DeviceOptions
+        {
+            get
+            {
+                if (!_mUnknown_DeviceOptions) return _mValue_DeviceOptions;
+                throw new UndeferrableValueException("Value 'TrustProvider.DeviceOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of device-based trust provider.
         /// </summary>
-        [Input("deviceTrustProviderType")]
+        [PolicyResourceProperty("deviceTrustProviderType", "_mUnknown_DeviceTrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTrustProviderType;
-
-        public string? DeviceTrustProviderType => _mDeviceTrustProviderType.GetValue("deviceTrustProviderType");
+        private string? _mValue_DeviceTrustProviderType;
+        private bool _mUnknown_DeviceTrustProviderType;
+        public string? DeviceTrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTrustProviderType) return _mValue_DeviceTrustProviderType;
+                throw new UndeferrableValueException("Value 'TrustProvider.DeviceTrustProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         /// </summary>
-        [Input("nativeApplicationOidcOptions")]
+        [PolicyResourceProperty("nativeApplicationOidcOptions", "_mUnknown_NativeApplicationOidcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderNativeApplicationOidcOptions> _mNativeApplicationOidcOptions;
-
-        public Outputs.TrustProviderNativeApplicationOidcOptions? NativeApplicationOidcOptions => _mNativeApplicationOidcOptions.GetValue("nativeApplicationOidcOptions");
+        private Outputs.TrustProviderNativeApplicationOidcOptions? _mValue_NativeApplicationOidcOptions;
+        private bool _mUnknown_NativeApplicationOidcOptions;
+        public Outputs.TrustProviderNativeApplicationOidcOptions? NativeApplicationOidcOptions
+        {
+            get
+            {
+                if (!_mUnknown_NativeApplicationOidcOptions) return _mValue_NativeApplicationOidcOptions;
+                throw new UndeferrableValueException("Value 'TrustProvider.NativeApplicationOidcOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         /// </summary>
-        [Input("oidcOptions")]
+        [PolicyResourceProperty("oidcOptions", "_mUnknown_OidcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderOidcOptions> _mOidcOptions;
-
-        public Outputs.TrustProviderOidcOptions? OidcOptions => _mOidcOptions.GetValue("oidcOptions");
+        private Outputs.TrustProviderOidcOptions? _mValue_OidcOptions;
+        private bool _mUnknown_OidcOptions;
+        public Outputs.TrustProviderOidcOptions? OidcOptions
+        {
+            get
+            {
+                if (!_mUnknown_OidcOptions) return _mValue_OidcOptions;
+                throw new UndeferrableValueException("Value 'TrustProvider.OidcOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier to be used when working with policy rules.
         /// </summary>
-        [Input("policyReferenceName")]
+        [PolicyResourceProperty("policyReferenceName", "_mUnknown_PolicyReferenceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyReferenceName;
+        private string? _mValue_PolicyReferenceName;
+        private bool _mUnknown_PolicyReferenceName;
+        public string? PolicyReferenceName
+        {
+            get
+            {
+                if (!_mUnknown_PolicyReferenceName) return _mValue_PolicyReferenceName;
+                throw new UndeferrableValueException("Value 'TrustProvider.PolicyReferenceName' is not present");
+            }
+        }
 
-        public string? PolicyReferenceName => _mPolicyReferenceName.GetValue("policyReferenceName");
-
-        [Input("sseSpecification")]
+        [PolicyResourceProperty("sseSpecification", "_mUnknown_SseSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustProviderSseSpecification> _mSseSpecification;
-
-        public Outputs.TrustProviderSseSpecification? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
+        private Outputs.TrustProviderSseSpecification? _mValue_SseSpecification;
+        private bool _mUnknown_SseSpecification;
+        public Outputs.TrustProviderSseSpecification? SseSpecification
+        {
+            get
+            {
+                if (!_mUnknown_SseSpecification) return _mValue_SseSpecification;
+                throw new UndeferrableValueException("Value 'TrustProvider.SseSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustProvider.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TrustProvider.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of trust provider can be either user or device-based.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("trustProviderType")]
+        [PolicyResourceProperty("trustProviderType", "_mUnknown_TrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustProviderType;
-
-        public string? TrustProviderType => _mTrustProviderType.GetValue("trustProviderType");
+        private string? _mValue_TrustProviderType;
+        private bool _mUnknown_TrustProviderType;
+        public string? TrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_TrustProviderType) return _mValue_TrustProviderType;
+                throw new UndeferrableValueException("Value 'TrustProvider.TrustProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of user-based trust provider.
         /// </summary>
-        [Input("userTrustProviderType")]
+        [PolicyResourceProperty("userTrustProviderType", "_mUnknown_UserTrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserTrustProviderType;
-
-        public string? UserTrustProviderType => _mUserTrustProviderType.GetValue("userTrustProviderType");
+        private string? _mValue_UserTrustProviderType;
+        private bool _mUnknown_UserTrustProviderType;
+        public string? UserTrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_UserTrustProviderType) return _mValue_UserTrustProviderType;
+                throw new UndeferrableValueException("Value 'TrustProvider.UserTrustProviderType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedaccess/trustProvider:TrustProvider")]
@@ -115,90 +192,160 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// A description for the AWS Verified Access trust provider.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A block of options for device identity based trust providers.
         /// </summary>
-        [Input("deviceOptions")]
+        [PolicyResourceProperty("deviceOptions", "_mUnknown_DeviceOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderDeviceOptionsArgs> _mDeviceOptions;
-
-        public Inputs.TrustProviderDeviceOptionsArgs? DeviceOptions => _mDeviceOptions.GetValue("deviceOptions");
+        private Inputs.TrustProviderDeviceOptionsArgs? _mValue_DeviceOptions;
+        private bool _mUnknown_DeviceOptions;
+        public Inputs.TrustProviderDeviceOptionsArgs? DeviceOptions
+        {
+            get
+            {
+                if (!_mUnknown_DeviceOptions) return _mValue_DeviceOptions;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.DeviceOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of device-based trust provider.
         /// </summary>
-        [Input("deviceTrustProviderType")]
+        [PolicyResourceProperty("deviceTrustProviderType", "_mUnknown_DeviceTrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceTrustProviderType;
-
-        public string? DeviceTrustProviderType => _mDeviceTrustProviderType.GetValue("deviceTrustProviderType");
+        private string? _mValue_DeviceTrustProviderType;
+        private bool _mUnknown_DeviceTrustProviderType;
+        public string? DeviceTrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_DeviceTrustProviderType) return _mValue_DeviceTrustProviderType;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.DeviceTrustProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
         /// </summary>
-        [Input("nativeApplicationOidcOptions")]
+        [PolicyResourceProperty("nativeApplicationOidcOptions", "_mUnknown_NativeApplicationOidcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderNativeApplicationOidcOptionsArgs> _mNativeApplicationOidcOptions;
-
-        public Inputs.TrustProviderNativeApplicationOidcOptionsArgs? NativeApplicationOidcOptions => _mNativeApplicationOidcOptions.GetValue("nativeApplicationOidcOptions");
+        private Inputs.TrustProviderNativeApplicationOidcOptionsArgs? _mValue_NativeApplicationOidcOptions;
+        private bool _mUnknown_NativeApplicationOidcOptions;
+        public Inputs.TrustProviderNativeApplicationOidcOptionsArgs? NativeApplicationOidcOptions
+        {
+            get
+            {
+                if (!_mUnknown_NativeApplicationOidcOptions) return _mValue_NativeApplicationOidcOptions;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.NativeApplicationOidcOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         /// </summary>
-        [Input("oidcOptions")]
+        [PolicyResourceProperty("oidcOptions", "_mUnknown_OidcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderOidcOptionsArgs> _mOidcOptions;
-
-        public Inputs.TrustProviderOidcOptionsArgs? OidcOptions => _mOidcOptions.GetValue("oidcOptions");
+        private Inputs.TrustProviderOidcOptionsArgs? _mValue_OidcOptions;
+        private bool _mUnknown_OidcOptions;
+        public Inputs.TrustProviderOidcOptionsArgs? OidcOptions
+        {
+            get
+            {
+                if (!_mUnknown_OidcOptions) return _mValue_OidcOptions;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.OidcOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier to be used when working with policy rules.
         /// </summary>
-        [Input("policyReferenceName")]
+        [PolicyResourceProperty("policyReferenceName", "_mUnknown_PolicyReferenceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyReferenceName;
+        private string? _mValue_PolicyReferenceName;
+        private bool _mUnknown_PolicyReferenceName;
+        public string? PolicyReferenceName
+        {
+            get
+            {
+                if (!_mUnknown_PolicyReferenceName) return _mValue_PolicyReferenceName;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.PolicyReferenceName' is not present");
+            }
+        }
 
-        public string? PolicyReferenceName => _mPolicyReferenceName.GetValue("policyReferenceName");
-
-        [Input("sseSpecification")]
+        [PolicyResourceProperty("sseSpecification", "_mUnknown_SseSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustProviderSseSpecificationArgs> _mSseSpecification;
-
-        public Inputs.TrustProviderSseSpecificationArgs? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
+        private Inputs.TrustProviderSseSpecificationArgs? _mValue_SseSpecification;
+        private bool _mUnknown_SseSpecification;
+        public Inputs.TrustProviderSseSpecificationArgs? SseSpecification
+        {
+            get
+            {
+                if (!_mUnknown_SseSpecification) return _mValue_SseSpecification;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.SseSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of trust provider can be either user or device-based.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("trustProviderType")]
+        [PolicyResourceProperty("trustProviderType", "_mUnknown_TrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustProviderType;
-
-        public string? TrustProviderType => _mTrustProviderType.GetValue("trustProviderType");
+        private string? _mValue_TrustProviderType;
+        private bool _mUnknown_TrustProviderType;
+        public string? TrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_TrustProviderType) return _mValue_TrustProviderType;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.TrustProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of user-based trust provider.
         /// </summary>
-        [Input("userTrustProviderType")]
+        [PolicyResourceProperty("userTrustProviderType", "_mUnknown_UserTrustProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserTrustProviderType;
-
-        public string? UserTrustProviderType => _mUserTrustProviderType.GetValue("userTrustProviderType");
+        private string? _mValue_UserTrustProviderType;
+        private bool _mUnknown_UserTrustProviderType;
+        public string? UserTrustProviderType
+        {
+            get
+            {
+                if (!_mUnknown_UserTrustProviderType) return _mValue_UserTrustProviderType;
+                throw new UndeferrableValueException("Value 'TrustProviderArgs.UserTrustProviderType' is not present");
+            }
+        }
     }
 }

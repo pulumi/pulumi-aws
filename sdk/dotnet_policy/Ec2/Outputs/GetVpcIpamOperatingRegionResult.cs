@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetVpcIpamOperatingRegionResult
     {
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'GetVpcIpamOperatingRegionResult.RegionName' is not present");
+            }
+        }
     }
 }

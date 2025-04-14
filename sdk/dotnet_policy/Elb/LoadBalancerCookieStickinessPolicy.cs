@@ -17,41 +17,69 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// The time period after which
         /// the session cookie should be considered stale, expressed in seconds.
         /// </summary>
-        [Input("cookieExpirationPeriod")]
+        [PolicyResourceProperty("cookieExpirationPeriod", "_mUnknown_CookieExpirationPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCookieExpirationPeriod;
-
-        public int? CookieExpirationPeriod => _mCookieExpirationPeriod.GetValue("cookieExpirationPeriod");
+        private int? _mValue_CookieExpirationPeriod;
+        private bool _mUnknown_CookieExpirationPeriod;
+        public int? CookieExpirationPeriod
+        {
+            get
+            {
+                if (!_mUnknown_CookieExpirationPeriod) return _mValue_CookieExpirationPeriod;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.CookieExpirationPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         /// </summary>
-        [Input("lbPort")]
+        [PolicyResourceProperty("lbPort", "_mUnknown_LbPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLbPort;
-
-        public int? LbPort => _mLbPort.GetValue("lbPort");
+        private int? _mValue_LbPort;
+        private bool _mUnknown_LbPort;
+        public int? LbPort
+        {
+            get
+            {
+                if (!_mUnknown_LbPort) return _mValue_LbPort;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.LbPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer to which the policy
         /// should be attached.
         /// </summary>
-        [Input("loadBalancer")]
+        [PolicyResourceProperty("loadBalancer", "_mUnknown_LoadBalancer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
-
-        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
+        private string? _mValue_LoadBalancer;
+        private bool _mUnknown_LoadBalancer;
+        public string? LoadBalancer
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancer) return _mValue_LoadBalancer;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.LoadBalancer' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the stickiness policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy")]
@@ -61,40 +89,68 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// The time period after which
         /// the session cookie should be considered stale, expressed in seconds.
         /// </summary>
-        [Input("cookieExpirationPeriod")]
+        [PolicyResourceProperty("cookieExpirationPeriod", "_mUnknown_CookieExpirationPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCookieExpirationPeriod;
-
-        public int? CookieExpirationPeriod => _mCookieExpirationPeriod.GetValue("cookieExpirationPeriod");
+        private int? _mValue_CookieExpirationPeriod;
+        private bool _mUnknown_CookieExpirationPeriod;
+        public int? CookieExpirationPeriod
+        {
+            get
+            {
+                if (!_mUnknown_CookieExpirationPeriod) return _mValue_CookieExpirationPeriod;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicyArgs.CookieExpirationPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         /// </summary>
-        [Input("lbPort")]
+        [PolicyResourceProperty("lbPort", "_mUnknown_LbPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLbPort;
-
-        public int? LbPort => _mLbPort.GetValue("lbPort");
+        private int? _mValue_LbPort;
+        private bool _mUnknown_LbPort;
+        public int? LbPort
+        {
+            get
+            {
+                if (!_mUnknown_LbPort) return _mValue_LbPort;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicyArgs.LbPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer to which the policy
         /// should be attached.
         /// </summary>
-        [Input("loadBalancer")]
+        [PolicyResourceProperty("loadBalancer", "_mUnknown_LoadBalancer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancer;
-
-        public string? LoadBalancer => _mLoadBalancer.GetValue("loadBalancer");
+        private string? _mValue_LoadBalancer;
+        private bool _mUnknown_LoadBalancer;
+        public string? LoadBalancer
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancer) return _mValue_LoadBalancer;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicyArgs.LoadBalancer' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the stickiness policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicyArgs.Name' is not present");
+            }
+        }
     }
 }

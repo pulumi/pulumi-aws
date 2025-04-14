@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
-        [Input("applianceModeSupport")]
+        [PolicyResourceProperty("applianceModeSupport", "_mUnknown_ApplianceModeSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplianceModeSupport;
-
-        public string? ApplianceModeSupport => _mApplianceModeSupport.GetValue("applianceModeSupport");
+        private string? _mValue_ApplianceModeSupport;
+        private bool _mUnknown_ApplianceModeSupport;
+        public string? ApplianceModeSupport
+        {
+            get
+            {
+                if (!_mUnknown_ApplianceModeSupport) return _mValue_ApplianceModeSupport;
+                throw new UndeferrableValueException("Value 'VpcAttachment.ApplianceModeSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the attachment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcAttachment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
-        [Input("dnsSupport")]
+        [PolicyResourceProperty("dnsSupport", "_mUnknown_DnsSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsSupport;
-
-        public string? DnsSupport => _mDnsSupport.GetValue("dnsSupport");
+        private string? _mValue_DnsSupport;
+        private bool _mUnknown_DnsSupport;
+        public string? DnsSupport
+        {
+            get
+            {
+                if (!_mUnknown_DnsSupport) return _mValue_DnsSupport;
+                throw new UndeferrableValueException("Value 'VpcAttachment.DnsSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
-        [Input("ipv6Support")]
+        [PolicyResourceProperty("ipv6Support", "_mUnknown_Ipv6Support")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6Support;
-
-        public string? Ipv6Support => _mIpv6Support.GetValue("ipv6Support");
+        private string? _mValue_Ipv6Support;
+        private bool _mUnknown_Ipv6Support;
+        public string? Ipv6Support
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Support) return _mValue_Ipv6Support;
+                throw new UndeferrableValueException("Value 'VpcAttachment.Ipv6Support' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
-        [Input("securityGroupReferencingSupport")]
+        [PolicyResourceProperty("securityGroupReferencingSupport", "_mUnknown_SecurityGroupReferencingSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupReferencingSupport;
-
-        public string? SecurityGroupReferencingSupport => _mSecurityGroupReferencingSupport.GetValue("securityGroupReferencingSupport");
+        private string? _mValue_SecurityGroupReferencingSupport;
+        private bool _mUnknown_SecurityGroupReferencingSupport;
+        public string? SecurityGroupReferencingSupport
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupReferencingSupport) return _mValue_SecurityGroupReferencingSupport;
+                throw new UndeferrableValueException("Value 'VpcAttachment.SecurityGroupReferencingSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifiers of EC2 Subnets.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'VpcAttachment.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcAttachment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcAttachment.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTableAssociation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTableAssociation", "_mUnknown_TransitGatewayDefaultRouteTableAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTableAssociation;
-
-        public bool? TransitGatewayDefaultRouteTableAssociation => _mTransitGatewayDefaultRouteTableAssociation.GetValue("transitGatewayDefaultRouteTableAssociation");
+        private bool? _mValue_TransitGatewayDefaultRouteTableAssociation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTableAssociation;
+        public bool? TransitGatewayDefaultRouteTableAssociation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTableAssociation) return _mValue_TransitGatewayDefaultRouteTableAssociation;
+                throw new UndeferrableValueException("Value 'VpcAttachment.TransitGatewayDefaultRouteTableAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTablePropagation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTablePropagation", "_mUnknown_TransitGatewayDefaultRouteTablePropagation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTablePropagation;
-
-        public bool? TransitGatewayDefaultRouteTablePropagation => _mTransitGatewayDefaultRouteTablePropagation.GetValue("transitGatewayDefaultRouteTablePropagation");
+        private bool? _mValue_TransitGatewayDefaultRouteTablePropagation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTablePropagation;
+        public bool? TransitGatewayDefaultRouteTablePropagation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTablePropagation) return _mValue_TransitGatewayDefaultRouteTablePropagation;
+                throw new UndeferrableValueException("Value 'VpcAttachment.TransitGatewayDefaultRouteTablePropagation' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'VpcAttachment.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcAttachment.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the AWS account that owns the EC2 VPC.
         /// </summary>
-        [Input("vpcOwnerId")]
+        [PolicyResourceProperty("vpcOwnerId", "_mUnknown_VpcOwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcOwnerId;
-
-        public string? VpcOwnerId => _mVpcOwnerId.GetValue("vpcOwnerId");
+        private string? _mValue_VpcOwnerId;
+        private bool _mUnknown_VpcOwnerId;
+        public string? VpcOwnerId
+        {
+            get
+            {
+                if (!_mUnknown_VpcOwnerId) return _mValue_VpcOwnerId;
+                throw new UndeferrableValueException("Value 'VpcAttachment.VpcOwnerId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/vpcAttachment:VpcAttachment")]
@@ -137,91 +228,161 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
-        [Input("applianceModeSupport")]
+        [PolicyResourceProperty("applianceModeSupport", "_mUnknown_ApplianceModeSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplianceModeSupport;
-
-        public string? ApplianceModeSupport => _mApplianceModeSupport.GetValue("applianceModeSupport");
+        private string? _mValue_ApplianceModeSupport;
+        private bool _mUnknown_ApplianceModeSupport;
+        public string? ApplianceModeSupport
+        {
+            get
+            {
+                if (!_mUnknown_ApplianceModeSupport) return _mValue_ApplianceModeSupport;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.ApplianceModeSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         /// </summary>
-        [Input("dnsSupport")]
+        [PolicyResourceProperty("dnsSupport", "_mUnknown_DnsSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsSupport;
-
-        public string? DnsSupport => _mDnsSupport.GetValue("dnsSupport");
+        private string? _mValue_DnsSupport;
+        private bool _mUnknown_DnsSupport;
+        public string? DnsSupport
+        {
+            get
+            {
+                if (!_mUnknown_DnsSupport) return _mValue_DnsSupport;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.DnsSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         /// </summary>
-        [Input("ipv6Support")]
+        [PolicyResourceProperty("ipv6Support", "_mUnknown_Ipv6Support")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6Support;
-
-        public string? Ipv6Support => _mIpv6Support.GetValue("ipv6Support");
+        private string? _mValue_Ipv6Support;
+        private bool _mUnknown_Ipv6Support;
+        public string? Ipv6Support
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Support) return _mValue_Ipv6Support;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.Ipv6Support' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         /// </summary>
-        [Input("securityGroupReferencingSupport")]
+        [PolicyResourceProperty("securityGroupReferencingSupport", "_mUnknown_SecurityGroupReferencingSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupReferencingSupport;
-
-        public string? SecurityGroupReferencingSupport => _mSecurityGroupReferencingSupport.GetValue("securityGroupReferencingSupport");
+        private string? _mValue_SecurityGroupReferencingSupport;
+        private bool _mUnknown_SecurityGroupReferencingSupport;
+        public string? SecurityGroupReferencingSupport
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupReferencingSupport) return _mValue_SecurityGroupReferencingSupport;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.SecurityGroupReferencingSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifiers of EC2 Subnets.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTableAssociation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTableAssociation", "_mUnknown_TransitGatewayDefaultRouteTableAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTableAssociation;
-
-        public bool? TransitGatewayDefaultRouteTableAssociation => _mTransitGatewayDefaultRouteTableAssociation.GetValue("transitGatewayDefaultRouteTableAssociation");
+        private bool? _mValue_TransitGatewayDefaultRouteTableAssociation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTableAssociation;
+        public bool? TransitGatewayDefaultRouteTableAssociation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTableAssociation) return _mValue_TransitGatewayDefaultRouteTableAssociation;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.TransitGatewayDefaultRouteTableAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTablePropagation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTablePropagation", "_mUnknown_TransitGatewayDefaultRouteTablePropagation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTablePropagation;
-
-        public bool? TransitGatewayDefaultRouteTablePropagation => _mTransitGatewayDefaultRouteTablePropagation.GetValue("transitGatewayDefaultRouteTablePropagation");
+        private bool? _mValue_TransitGatewayDefaultRouteTablePropagation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTablePropagation;
+        public bool? TransitGatewayDefaultRouteTablePropagation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTablePropagation) return _mValue_TransitGatewayDefaultRouteTablePropagation;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.TransitGatewayDefaultRouteTablePropagation' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.VpcId' is not present");
+            }
+        }
     }
 }

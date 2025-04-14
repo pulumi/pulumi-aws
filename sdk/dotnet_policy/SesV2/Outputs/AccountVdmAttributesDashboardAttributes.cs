@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("engagementMetrics")]
+        [PolicyResourceProperty("engagementMetrics", "_mUnknown_EngagementMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngagementMetrics;
-
-        public string? EngagementMetrics => _mEngagementMetrics.GetValue("engagementMetrics");
+        private string? _mValue_EngagementMetrics;
+        private bool _mUnknown_EngagementMetrics;
+        public string? EngagementMetrics
+        {
+            get
+            {
+                if (!_mUnknown_EngagementMetrics) return _mValue_EngagementMetrics;
+                throw new UndeferrableValueException("Value 'AccountVdmAttributesDashboardAttributes.EngagementMetrics' is not present");
+            }
+        }
     }
 }

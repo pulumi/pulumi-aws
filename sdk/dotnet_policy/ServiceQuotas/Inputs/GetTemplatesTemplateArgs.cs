@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.ServiceQuotas.Inputs
         /// <summary>
         /// Indicates whether the quota is global.
         /// </summary>
-        [Input("globalQuota")]
+        [PolicyResourceProperty("globalQuota", "_mUnknown_GlobalQuota")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mGlobalQuota;
-
-        public bool? GlobalQuota => _mGlobalQuota.GetValue("globalQuota");
+        private bool? _mValue_GlobalQuota;
+        private bool _mUnknown_GlobalQuota;
+        public bool? GlobalQuota
+        {
+            get
+            {
+                if (!_mUnknown_GlobalQuota) return _mValue_GlobalQuota;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.GlobalQuota' is not present");
+            }
+        }
 
         /// <summary>
         /// Quota identifier.
         /// </summary>
-        [Input("quotaCode")]
+        [PolicyResourceProperty("quotaCode", "_mUnknown_QuotaCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaCode;
-
-        public string? QuotaCode => _mQuotaCode.GetValue("quotaCode");
+        private string? _mValue_QuotaCode;
+        private bool _mUnknown_QuotaCode;
+        public string? QuotaCode
+        {
+            get
+            {
+                if (!_mUnknown_QuotaCode) return _mValue_QuotaCode;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.QuotaCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Quota name.
         /// </summary>
-        [Input("quotaName")]
+        [PolicyResourceProperty("quotaName", "_mUnknown_QuotaName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuotaName;
-
-        public string? QuotaName => _mQuotaName.GetValue("quotaName");
+        private string? _mValue_QuotaName;
+        private bool _mUnknown_QuotaName;
+        public string? QuotaName
+        {
+            get
+            {
+                if (!_mUnknown_QuotaName) return _mValue_QuotaName;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.QuotaName' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region to which the quota increases apply.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) Service identifier.
         /// </summary>
-        [Input("serviceCode")]
+        [PolicyResourceProperty("serviceCode", "_mUnknown_ServiceCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceCode;
-
-        public string? ServiceCode => _mServiceCode.GetValue("serviceCode");
+        private string? _mValue_ServiceCode;
+        private bool _mUnknown_ServiceCode;
+        public string? ServiceCode
+        {
+            get
+            {
+                if (!_mUnknown_ServiceCode) return _mValue_ServiceCode;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.ServiceCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Service name.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.ServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Unit of measurement.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.Unit' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The new, increased value for the quota.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mValue;
-
-        public double? Value => _mValue.GetValue("value");
+        private double? _mValue_Value;
+        private bool _mUnknown_Value;
+        public double? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetTemplatesTemplateInputArgs.Value' is not present");
+            }
+        }
     }
 }

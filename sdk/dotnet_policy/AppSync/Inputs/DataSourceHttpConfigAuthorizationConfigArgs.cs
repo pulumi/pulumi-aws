@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
         /// </summary>
-        [Input("authorizationType")]
+        [PolicyResourceProperty("authorizationType", "_mUnknown_AuthorizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationType;
-
-        public string? AuthorizationType => _mAuthorizationType.GetValue("authorizationType");
+        private string? _mValue_AuthorizationType;
+        private bool _mUnknown_AuthorizationType;
+        public string? AuthorizationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationType) return _mValue_AuthorizationType;
+                throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigArgs.AuthorizationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
         /// </summary>
-        [Input("awsIamConfig")]
+        [PolicyResourceProperty("awsIamConfig", "_mUnknown_AwsIamConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs> _mAwsIamConfig;
-
-        public Inputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs? AwsIamConfig => _mAwsIamConfig.GetValue("awsIamConfig");
+        private Inputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs? _mValue_AwsIamConfig;
+        private bool _mUnknown_AwsIamConfig;
+        public Inputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs? AwsIamConfig
+        {
+            get
+            {
+                if (!_mUnknown_AwsIamConfig) return _mValue_AwsIamConfig;
+                throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigArgs.AwsIamConfig' is not present");
+            }
+        }
     }
 }

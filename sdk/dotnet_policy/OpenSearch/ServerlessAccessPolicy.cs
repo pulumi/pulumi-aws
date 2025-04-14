@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Description of the policy. Typically used to store information about the permissions defined in the policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON policy document to use as the content for the new policy
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the policy.
         /// </summary>
-        [Input("policyVersion")]
+        [PolicyResourceProperty("policyVersion", "_mUnknown_PolicyVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyVersion;
-
-        public string? PolicyVersion => _mPolicyVersion.GetValue("policyVersion");
+        private string? _mValue_PolicyVersion;
+        private bool _mUnknown_PolicyVersion;
+        public string? PolicyVersion
+        {
+            get
+            {
+                if (!_mUnknown_PolicyVersion) return _mValue_PolicyVersion;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.PolicyVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of access policy. Must be `data`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy")]
@@ -67,39 +102,67 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Description of the policy. Typically used to store information about the permissions defined in the policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON policy document to use as the content for the new policy
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of access policy. Must be `data`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServerlessAccessPolicyArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
         /// </summary>
-        [Input("skipUnavailable")]
+        [PolicyResourceProperty("skipUnavailable", "_mUnknown_SkipUnavailable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSkipUnavailable;
-
-        public string? SkipUnavailable => _mSkipUnavailable.GetValue("skipUnavailable");
+        private string? _mValue_SkipUnavailable;
+        private bool _mUnknown_SkipUnavailable;
+        public string? SkipUnavailable
+        {
+            get
+            {
+                if (!_mUnknown_SkipUnavailable) return _mValue_SkipUnavailable;
+                throw new UndeferrableValueException("Value 'OutboundConnectionConnectionPropertiesCrossClusterSearch.SkipUnavailable' is not present");
+            }
+        }
     }
 }

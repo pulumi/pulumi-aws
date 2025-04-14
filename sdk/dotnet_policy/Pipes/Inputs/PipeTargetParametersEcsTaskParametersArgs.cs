@@ -15,136 +15,241 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
         /// </summary>
-        [Input("capacityProviderStrategies")]
+        [PolicyResourceProperty("capacityProviderStrategies", "_mUnknown_CapacityProviderStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>> _mCapacityProviderStrategies;
-
-        public List<Inputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>? CapacityProviderStrategies => _mCapacityProviderStrategies.GetValue("capacityProviderStrategies");
+        private List<Inputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>? _mValue_CapacityProviderStrategies;
+        private bool _mUnknown_CapacityProviderStrategies;
+        public List<Inputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>? CapacityProviderStrategies
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProviderStrategies) return _mValue_CapacityProviderStrategies;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.CapacityProviderStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
         /// </summary>
-        [Input("enableEcsManagedTags")]
+        [PolicyResourceProperty("enableEcsManagedTags", "_mUnknown_EnableEcsManagedTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableEcsManagedTags;
-
-        public bool? EnableEcsManagedTags => _mEnableEcsManagedTags.GetValue("enableEcsManagedTags");
+        private bool? _mValue_EnableEcsManagedTags;
+        private bool _mUnknown_EnableEcsManagedTags;
+        public bool? EnableEcsManagedTags
+        {
+            get
+            {
+                if (!_mUnknown_EnableEcsManagedTags) return _mValue_EnableEcsManagedTags;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.EnableEcsManagedTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
         /// </summary>
-        [Input("enableExecuteCommand")]
+        [PolicyResourceProperty("enableExecuteCommand", "_mUnknown_EnableExecuteCommand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableExecuteCommand;
-
-        public bool? EnableExecuteCommand => _mEnableExecuteCommand.GetValue("enableExecuteCommand");
+        private bool? _mValue_EnableExecuteCommand;
+        private bool _mUnknown_EnableExecuteCommand;
+        public bool? EnableExecuteCommand
+        {
+            get
+            {
+                if (!_mUnknown_EnableExecuteCommand) return _mValue_EnableExecuteCommand;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.EnableExecuteCommand' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
         /// </summary>
-        [Input("launchType")]
+        [PolicyResourceProperty("launchType", "_mUnknown_LaunchType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchType;
-
-        public string? LaunchType => _mLaunchType.GetValue("launchType");
+        private string? _mValue_LaunchType;
+        private bool _mUnknown_LaunchType;
+        public string? LaunchType
+        {
+            get
+            {
+                if (!_mUnknown_LaunchType) return _mValue_LaunchType;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.LaunchType' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs> _mNetworkConfiguration;
-
-        public Inputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Inputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Inputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The overrides that are associated with a task. Detailed below.
         /// </summary>
-        [Input("overrides")]
+        [PolicyResourceProperty("overrides", "_mUnknown_Overrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersEcsTaskParametersOverridesArgs> _mOverrides;
-
-        public Inputs.PipeTargetParametersEcsTaskParametersOverridesArgs? Overrides => _mOverrides.GetValue("overrides");
+        private Inputs.PipeTargetParametersEcsTaskParametersOverridesArgs? _mValue_Overrides;
+        private bool _mUnknown_Overrides;
+        public Inputs.PipeTargetParametersEcsTaskParametersOverridesArgs? Overrides
+        {
+            get
+            {
+                if (!_mUnknown_Overrides) return _mValue_Overrides;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.Overrides' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
         /// </summary>
-        [Input("placementConstraints")]
+        [PolicyResourceProperty("placementConstraints", "_mUnknown_PlacementConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>> _mPlacementConstraints;
-
-        public List<Inputs.PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>? PlacementConstraints => _mPlacementConstraints.GetValue("placementConstraints");
+        private List<Inputs.PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>? _mValue_PlacementConstraints;
+        private bool _mUnknown_PlacementConstraints;
+        public List<Inputs.PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>? PlacementConstraints
+        {
+            get
+            {
+                if (!_mUnknown_PlacementConstraints) return _mValue_PlacementConstraints;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.PlacementConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
         /// </summary>
-        [Input("placementStrategies")]
+        [PolicyResourceProperty("placementStrategies", "_mUnknown_PlacementStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>> _mPlacementStrategies;
-
-        public List<Inputs.PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>? PlacementStrategies => _mPlacementStrategies.GetValue("placementStrategies");
+        private List<Inputs.PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>? _mValue_PlacementStrategies;
+        private bool _mUnknown_PlacementStrategies;
+        public List<Inputs.PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>? PlacementStrategies
+        {
+            get
+            {
+                if (!_mUnknown_PlacementStrategies) return _mValue_PlacementStrategies;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.PlacementStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
         /// </summary>
-        [Input("platformVersion")]
+        [PolicyResourceProperty("platformVersion", "_mUnknown_PlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformVersion;
-
-        public string? PlatformVersion => _mPlatformVersion.GetValue("platformVersion");
+        private string? _mValue_PlatformVersion;
+        private bool _mUnknown_PlatformVersion;
+        public string? PlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_PlatformVersion) return _mValue_PlatformVersion;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.PlatformVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
         /// </summary>
-        [Input("propagateTags")]
+        [PolicyResourceProperty("propagateTags", "_mUnknown_PropagateTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPropagateTags;
-
-        public string? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+        private string? _mValue_PropagateTags;
+        private bool _mUnknown_PropagateTags;
+        public string? PropagateTags
+        {
+            get
+            {
+                if (!_mUnknown_PropagateTags) return _mValue_PropagateTags;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.PropagateTags' is not present");
+            }
+        }
 
         /// <summary>
         /// The reference ID to use for the task. Maximum length of 1,024.
         /// </summary>
-        [Input("referenceId")]
+        [PolicyResourceProperty("referenceId", "_mUnknown_ReferenceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceId;
-
-        public string? ReferenceId => _mReferenceId.GetValue("referenceId");
+        private string? _mValue_ReferenceId;
+        private bool _mUnknown_ReferenceId;
+        public string? ReferenceId
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceId) return _mValue_ReferenceId;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.ReferenceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of tasks to create based on TaskDefinition. The default is 1.
         /// </summary>
-        [Input("taskCount")]
+        [PolicyResourceProperty("taskCount", "_mUnknown_TaskCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTaskCount;
-
-        public int? TaskCount => _mTaskCount.GetValue("taskCount");
+        private int? _mValue_TaskCount;
+        private bool _mUnknown_TaskCount;
+        public int? TaskCount
+        {
+            get
+            {
+                if (!_mUnknown_TaskCount) return _mValue_TaskCount;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.TaskCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the task definition to use if the event target is an Amazon ECS task.
         /// </summary>
-        [Input("taskDefinitionArn")]
+        [PolicyResourceProperty("taskDefinitionArn", "_mUnknown_TaskDefinitionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskDefinitionArn;
-
-        public string? TaskDefinitionArn => _mTaskDefinitionArn.GetValue("taskDefinitionArn");
+        private string? _mValue_TaskDefinitionArn;
+        private bool _mUnknown_TaskDefinitionArn;
+        public string? TaskDefinitionArn
+        {
+            get
+            {
+                if (!_mUnknown_TaskDefinitionArn) return _mValue_TaskDefinitionArn;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersArgs.TaskDefinitionArn' is not present");
+            }
+        }
     }
 }

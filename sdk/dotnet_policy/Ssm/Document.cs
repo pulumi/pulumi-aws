@@ -16,209 +16,370 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The Amazon Resource Name (ARN) of the document.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Document.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         /// </summary>
-        [Input("attachmentsSources")]
+        [PolicyResourceProperty("attachmentsSources", "_mUnknown_AttachmentsSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DocumentAttachmentsSource>> _mAttachmentsSources;
-
-        public List<Outputs.DocumentAttachmentsSource>? AttachmentsSources => _mAttachmentsSources.GetValue("attachmentsSources");
+        private List<Outputs.DocumentAttachmentsSource>? _mValue_AttachmentsSources;
+        private bool _mUnknown_AttachmentsSources;
+        public List<Outputs.DocumentAttachmentsSource>? AttachmentsSources
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentsSources) return _mValue_AttachmentsSources;
+                throw new UndeferrableValueException("Value 'Document.AttachmentsSources' is not present");
+            }
+        }
 
         /// <summary>
         /// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'Document.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// The date the document was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'Document.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The default version of the document.
         /// </summary>
-        [Input("defaultVersion")]
+        [PolicyResourceProperty("defaultVersion", "_mUnknown_DefaultVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultVersion;
-
-        public string? DefaultVersion => _mDefaultVersion.GetValue("defaultVersion");
+        private string? _mValue_DefaultVersion;
+        private bool _mUnknown_DefaultVersion;
+        public string? DefaultVersion
+        {
+            get
+            {
+                if (!_mUnknown_DefaultVersion) return _mValue_DefaultVersion;
+                throw new UndeferrableValueException("Value 'Document.DefaultVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Document.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         /// </summary>
-        [Input("documentFormat")]
+        [PolicyResourceProperty("documentFormat", "_mUnknown_DocumentFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentFormat;
-
-        public string? DocumentFormat => _mDocumentFormat.GetValue("documentFormat");
+        private string? _mValue_DocumentFormat;
+        private bool _mUnknown_DocumentFormat;
+        public string? DocumentFormat
+        {
+            get
+            {
+                if (!_mUnknown_DocumentFormat) return _mValue_DocumentFormat;
+                throw new UndeferrableValueException("Value 'Document.DocumentFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         /// </summary>
-        [Input("documentType")]
+        [PolicyResourceProperty("documentType", "_mUnknown_DocumentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentType;
-
-        public string? DocumentType => _mDocumentType.GetValue("documentType");
+        private string? _mValue_DocumentType;
+        private bool _mUnknown_DocumentType;
+        public string? DocumentType
+        {
+            get
+            {
+                if (!_mUnknown_DocumentType) return _mValue_DocumentType;
+                throw new UndeferrableValueException("Value 'Document.DocumentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The document version.
         /// </summary>
-        [Input("documentVersion")]
+        [PolicyResourceProperty("documentVersion", "_mUnknown_DocumentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentVersion;
-
-        public string? DocumentVersion => _mDocumentVersion.GetValue("documentVersion");
+        private string? _mValue_DocumentVersion;
+        private bool _mUnknown_DocumentVersion;
+        public string? DocumentVersion
+        {
+            get
+            {
+                if (!_mUnknown_DocumentVersion) return _mValue_DocumentVersion;
+                throw new UndeferrableValueException("Value 'Document.DocumentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Sha256 or Sha1 hash created by the system when the document was created.
         /// </summary>
-        [Input("hash")]
+        [PolicyResourceProperty("hash", "_mUnknown_Hash")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHash;
-
-        public string? Hash => _mHash.GetValue("hash");
+        private string? _mValue_Hash;
+        private bool _mUnknown_Hash;
+        public string? Hash
+        {
+            get
+            {
+                if (!_mUnknown_Hash) return _mValue_Hash;
+                throw new UndeferrableValueException("Value 'Document.Hash' is not present");
+            }
+        }
 
         /// <summary>
         /// The hash type of the document. Valid values: `Sha256`, `Sha1`.
         /// </summary>
-        [Input("hashType")]
+        [PolicyResourceProperty("hashType", "_mUnknown_HashType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashType;
-
-        public string? HashType => _mHashType.GetValue("hashType");
+        private string? _mValue_HashType;
+        private bool _mUnknown_HashType;
+        public string? HashType
+        {
+            get
+            {
+                if (!_mUnknown_HashType) return _mValue_HashType;
+                throw new UndeferrableValueException("Value 'Document.HashType' is not present");
+            }
+        }
 
         /// <summary>
         /// The latest version of the document.
         /// </summary>
-        [Input("latestVersion")]
+        [PolicyResourceProperty("latestVersion", "_mUnknown_LatestVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatestVersion;
-
-        public string? LatestVersion => _mLatestVersion.GetValue("latestVersion");
+        private string? _mValue_LatestVersion;
+        private bool _mUnknown_LatestVersion;
+        public string? LatestVersion
+        {
+            get
+            {
+                if (!_mUnknown_LatestVersion) return _mValue_LatestVersion;
+                throw new UndeferrableValueException("Value 'Document.LatestVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the document.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Document.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services user that created the document.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'Document.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DocumentParameter>> _mParameters;
-
-        public List<Outputs.DocumentParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.DocumentParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.DocumentParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'Document.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional permissions to attach to the document. See Permissions below for details.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPermissions;
-
-        public Dictionary<string, string>? Permissions => _mPermissions.GetValue("permissions");
+        private Dictionary<string, string>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public Dictionary<string, string>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'Document.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
         /// </summary>
-        [Input("platformTypes")]
+        [PolicyResourceProperty("platformTypes", "_mUnknown_PlatformTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPlatformTypes;
-
-        public List<string>? PlatformTypes => _mPlatformTypes.GetValue("platformTypes");
+        private List<string>? _mValue_PlatformTypes;
+        private bool _mUnknown_PlatformTypes;
+        public List<string>? PlatformTypes
+        {
+            get
+            {
+                if (!_mUnknown_PlatformTypes) return _mValue_PlatformTypes;
+                throw new UndeferrableValueException("Value 'Document.PlatformTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The schema version of the document.
         /// </summary>
-        [Input("schemaVersion")]
+        [PolicyResourceProperty("schemaVersion", "_mUnknown_SchemaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaVersion;
-
-        public string? SchemaVersion => _mSchemaVersion.GetValue("schemaVersion");
+        private string? _mValue_SchemaVersion;
+        private bool _mUnknown_SchemaVersion;
+        public string? SchemaVersion
+        {
+            get
+            {
+                if (!_mUnknown_SchemaVersion) return _mValue_SchemaVersion;
+                throw new UndeferrableValueException("Value 'Document.SchemaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Document.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Document.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Document.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'Document.TargetType' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         /// </summary>
-        [Input("versionName")]
+        [PolicyResourceProperty("versionName", "_mUnknown_VersionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
-
-        public string? VersionName => _mVersionName.GetValue("versionName");
+        private string? _mValue_VersionName;
+        private bool _mUnknown_VersionName;
+        public string? VersionName
+        {
+            get
+            {
+                if (!_mUnknown_VersionName) return _mValue_VersionName;
+                throw new UndeferrableValueException("Value 'Document.VersionName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/document:Document")]
@@ -227,82 +388,145 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         /// </summary>
-        [Input("attachmentsSources")]
+        [PolicyResourceProperty("attachmentsSources", "_mUnknown_AttachmentsSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DocumentAttachmentsSourceArgs>> _mAttachmentsSources;
-
-        public List<Inputs.DocumentAttachmentsSourceArgs>? AttachmentsSources => _mAttachmentsSources.GetValue("attachmentsSources");
+        private List<Inputs.DocumentAttachmentsSourceArgs>? _mValue_AttachmentsSources;
+        private bool _mUnknown_AttachmentsSources;
+        public List<Inputs.DocumentAttachmentsSourceArgs>? AttachmentsSources
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentsSources) return _mValue_AttachmentsSources;
+                throw new UndeferrableValueException("Value 'DocumentArgs.AttachmentsSources' is not present");
+            }
+        }
 
         /// <summary>
         /// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'DocumentArgs.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         /// </summary>
-        [Input("documentFormat")]
+        [PolicyResourceProperty("documentFormat", "_mUnknown_DocumentFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentFormat;
-
-        public string? DocumentFormat => _mDocumentFormat.GetValue("documentFormat");
+        private string? _mValue_DocumentFormat;
+        private bool _mUnknown_DocumentFormat;
+        public string? DocumentFormat
+        {
+            get
+            {
+                if (!_mUnknown_DocumentFormat) return _mValue_DocumentFormat;
+                throw new UndeferrableValueException("Value 'DocumentArgs.DocumentFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         /// </summary>
-        [Input("documentType")]
+        [PolicyResourceProperty("documentType", "_mUnknown_DocumentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentType;
-
-        public string? DocumentType => _mDocumentType.GetValue("documentType");
+        private string? _mValue_DocumentType;
+        private bool _mUnknown_DocumentType;
+        public string? DocumentType
+        {
+            get
+            {
+                if (!_mUnknown_DocumentType) return _mValue_DocumentType;
+                throw new UndeferrableValueException("Value 'DocumentArgs.DocumentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the document.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DocumentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional permissions to attach to the document. See Permissions below for details.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPermissions;
-
-        public Dictionary<string, string>? Permissions => _mPermissions.GetValue("permissions");
+        private Dictionary<string, string>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public Dictionary<string, string>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'DocumentArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DocumentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         /// </summary>
-        [Input("targetType")]
+        [PolicyResourceProperty("targetType", "_mUnknown_TargetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetType;
-
-        public string? TargetType => _mTargetType.GetValue("targetType");
+        private string? _mValue_TargetType;
+        private bool _mUnknown_TargetType;
+        public string? TargetType
+        {
+            get
+            {
+                if (!_mUnknown_TargetType) return _mValue_TargetType;
+                throw new UndeferrableValueException("Value 'DocumentArgs.TargetType' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         /// </summary>
-        [Input("versionName")]
+        [PolicyResourceProperty("versionName", "_mUnknown_VersionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
-
-        public string? VersionName => _mVersionName.GetValue("versionName");
+        private string? _mValue_VersionName;
+        private bool _mUnknown_VersionName;
+        public string? VersionName
+        {
+            get
+            {
+                if (!_mUnknown_VersionName) return _mValue_VersionName;
+                throw new UndeferrableValueException("Value 'DocumentArgs.VersionName' is not present");
+            }
+        }
     }
 }

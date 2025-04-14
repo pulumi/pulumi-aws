@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Inputs
         /// <summary>
         /// The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
         /// </summary>
-        [Input("comparator")]
+        [PolicyResourceProperty("comparator", "_mUnknown_Comparator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparator;
-
-        public string? Comparator => _mComparator.GetValue("comparator");
+        private string? _mValue_Comparator;
+        private bool _mUnknown_Comparator;
+        public string? Comparator
+        {
+            get
+            {
+                if (!_mUnknown_Comparator) return _mValue_Comparator;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs.Comparator' is not present");
+            }
+        }
 
         /// <summary>
         /// The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
         /// </summary>
-        [Input("tagValues")]
+        [PolicyResourceProperty("tagValues", "_mUnknown_TagValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs>> _mTagValues;
-
-        public List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs>? TagValues => _mTagValues.GetValue("tagValues");
+        private List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs>? _mValue_TagValues;
+        private bool _mUnknown_TagValues;
+        public List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs>? TagValues
+        {
+            get
+            {
+                if (!_mUnknown_TagValues) return _mValue_TagValues;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs.TagValues' is not present");
+            }
+        }
     }
 }

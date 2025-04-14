@@ -15,57 +15,99 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend.Outputs
         /// <summary>
         /// Location of annotation files.
         /// </summary>
-        [Input("annotationDataS3Uri")]
+        [PolicyResourceProperty("annotationDataS3Uri", "_mUnknown_AnnotationDataS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnnotationDataS3Uri;
-
-        public string? AnnotationDataS3Uri => _mAnnotationDataS3Uri.GetValue("annotationDataS3Uri");
+        private string? _mValue_AnnotationDataS3Uri;
+        private bool _mUnknown_AnnotationDataS3Uri;
+        public string? AnnotationDataS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_AnnotationDataS3Uri) return _mValue_AnnotationDataS3Uri;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigAugmentedManifest.AnnotationDataS3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON attribute that contains the annotations for the training documents.
         /// </summary>
-        [Input("attributeNames")]
+        [PolicyResourceProperty("attributeNames", "_mUnknown_AttributeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAttributeNames;
-
-        public List<string>? AttributeNames => _mAttributeNames.GetValue("attributeNames");
+        private List<string>? _mValue_AttributeNames;
+        private bool _mUnknown_AttributeNames;
+        public List<string>? AttributeNames
+        {
+            get
+            {
+                if (!_mUnknown_AttributeNames) return _mValue_AttributeNames;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigAugmentedManifest.AttributeNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of augmented manifest.
         /// One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
         /// </summary>
-        [Input("documentType")]
+        [PolicyResourceProperty("documentType", "_mUnknown_DocumentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocumentType;
-
-        public string? DocumentType => _mDocumentType.GetValue("documentType");
+        private string? _mValue_DocumentType;
+        private bool _mUnknown_DocumentType;
+        public string? DocumentType
+        {
+            get
+            {
+                if (!_mUnknown_DocumentType) return _mValue_DocumentType;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigAugmentedManifest.DocumentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of augmented manifest file.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
-
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigAugmentedManifest.S3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of source PDF files.
         /// </summary>
-        [Input("sourceDocumentsS3Uri")]
+        [PolicyResourceProperty("sourceDocumentsS3Uri", "_mUnknown_SourceDocumentsS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDocumentsS3Uri;
-
-        public string? SourceDocumentsS3Uri => _mSourceDocumentsS3Uri.GetValue("sourceDocumentsS3Uri");
+        private string? _mValue_SourceDocumentsS3Uri;
+        private bool _mUnknown_SourceDocumentsS3Uri;
+        public string? SourceDocumentsS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_SourceDocumentsS3Uri) return _mValue_SourceDocumentsS3Uri;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigAugmentedManifest.SourceDocumentsS3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// Purpose of data in augmented manifest.
         /// One of `TRAIN` or `TEST`.
         /// </summary>
-        [Input("split")]
+        [PolicyResourceProperty("split", "_mUnknown_Split")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSplit;
-
-        public string? Split => _mSplit.GetValue("split");
+        private string? _mValue_Split;
+        private bool _mUnknown_Split;
+        public string? Split
+        {
+            get
+            {
+                if (!_mUnknown_Split) return _mValue_Split;
+                throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigAugmentedManifest.Split' is not present");
+            }
+        }
     }
 }

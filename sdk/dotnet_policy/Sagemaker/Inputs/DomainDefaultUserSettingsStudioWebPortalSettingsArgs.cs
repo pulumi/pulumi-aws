@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The Applications supported in Studio that are hidden from the Studio left navigation pane.
         /// </summary>
-        [Input("hiddenAppTypes")]
+        [PolicyResourceProperty("hiddenAppTypes", "_mUnknown_HiddenAppTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHiddenAppTypes;
-
-        public List<string>? HiddenAppTypes => _mHiddenAppTypes.GetValue("hiddenAppTypes");
+        private List<string>? _mValue_HiddenAppTypes;
+        private bool _mUnknown_HiddenAppTypes;
+        public List<string>? HiddenAppTypes
+        {
+            get
+            {
+                if (!_mUnknown_HiddenAppTypes) return _mValue_HiddenAppTypes;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsStudioWebPortalSettingsArgs.HiddenAppTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance types you are hiding from the Studio user interface.
         /// </summary>
-        [Input("hiddenInstanceTypes")]
+        [PolicyResourceProperty("hiddenInstanceTypes", "_mUnknown_HiddenInstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHiddenInstanceTypes;
-
-        public List<string>? HiddenInstanceTypes => _mHiddenInstanceTypes.GetValue("hiddenInstanceTypes");
+        private List<string>? _mValue_HiddenInstanceTypes;
+        private bool _mUnknown_HiddenInstanceTypes;
+        public List<string>? HiddenInstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_HiddenInstanceTypes) return _mValue_HiddenInstanceTypes;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsStudioWebPortalSettingsArgs.HiddenInstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The machine learning tools that are hidden from the Studio left navigation pane.
         /// </summary>
-        [Input("hiddenMlTools")]
+        [PolicyResourceProperty("hiddenMlTools", "_mUnknown_HiddenMlTools")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHiddenMlTools;
-
-        public List<string>? HiddenMlTools => _mHiddenMlTools.GetValue("hiddenMlTools");
+        private List<string>? _mValue_HiddenMlTools;
+        private bool _mUnknown_HiddenMlTools;
+        public List<string>? HiddenMlTools
+        {
+            get
+            {
+                if (!_mUnknown_HiddenMlTools) return _mValue_HiddenMlTools;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsStudioWebPortalSettingsArgs.HiddenMlTools' is not present");
+            }
+        }
     }
 }

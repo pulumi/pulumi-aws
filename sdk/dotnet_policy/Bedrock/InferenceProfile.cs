@@ -16,106 +16,190 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// The Amazon Resource Name (ARN) of the inference profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The time at which the inference profile was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'InferenceProfile.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the inference profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("modelSource")]
+        [PolicyResourceProperty("modelSource", "_mUnknown_ModelSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InferenceProfileModelSource> _mModelSource;
-
-        public Outputs.InferenceProfileModelSource? ModelSource => _mModelSource.GetValue("modelSource");
+        private Outputs.InferenceProfileModelSource? _mValue_ModelSource;
+        private bool _mUnknown_ModelSource;
+        public Outputs.InferenceProfileModelSource? ModelSource
+        {
+            get
+            {
+                if (!_mUnknown_ModelSource) return _mValue_ModelSource;
+                throw new UndeferrableValueException("Value 'InferenceProfile.ModelSource' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of information about each model in the inference profile. See `models`.
         /// </summary>
-        [Input("models")]
+        [PolicyResourceProperty("models", "_mUnknown_Models")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InferenceProfileModel>> _mModels;
-
-        public List<Outputs.InferenceProfileModel>? Models => _mModels.GetValue("models");
+        private List<Outputs.InferenceProfileModel>? _mValue_Models;
+        private bool _mUnknown_Models;
+        public List<Outputs.InferenceProfileModel>? Models
+        {
+            get
+            {
+                if (!_mUnknown_Models) return _mValue_Models;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Models' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the inference profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags for the inference profile.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'InferenceProfile.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InferenceProfileTimeouts> _mTimeouts;
-
-        public Outputs.InferenceProfileTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.InferenceProfileTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.InferenceProfileTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'InferenceProfile.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The time at which the inference profile was last updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'InferenceProfile.UpdatedAt' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/inferenceProfile:InferenceProfile")]
@@ -124,45 +208,80 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// The description of the inference profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InferenceProfileArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The source of the model this inference profile will track metrics and cost for. See `model_source`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("modelSource")]
+        [PolicyResourceProperty("modelSource", "_mUnknown_ModelSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InferenceProfileModelSourceArgs> _mModelSource;
-
-        public Inputs.InferenceProfileModelSourceArgs? ModelSource => _mModelSource.GetValue("modelSource");
+        private Inputs.InferenceProfileModelSourceArgs? _mValue_ModelSource;
+        private bool _mUnknown_ModelSource;
+        public Inputs.InferenceProfileModelSourceArgs? ModelSource
+        {
+            get
+            {
+                if (!_mUnknown_ModelSource) return _mValue_ModelSource;
+                throw new UndeferrableValueException("Value 'InferenceProfileArgs.ModelSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the inference profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InferenceProfileArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags for the inference profile.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InferenceProfileArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InferenceProfileTimeoutsArgs> _mTimeouts;
-
-        public Inputs.InferenceProfileTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.InferenceProfileTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.InferenceProfileTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'InferenceProfileArgs.Timeouts' is not present");
+            }
+        }
     }
 }

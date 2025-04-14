@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
         /// </summary>
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInterval;
-
-        public string? Interval => _mInterval.GetValue("interval");
+        private string? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public string? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.Interval' is not present");
+            }
+        }
 
         /// <summary>
         /// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
         /// </summary>
-        [Input("refreshOnDay")]
+        [PolicyResourceProperty("refreshOnDay", "_mUnknown_RefreshOnDay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay> _mRefreshOnDay;
-
-        public Outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay? RefreshOnDay => _mRefreshOnDay.GetValue("refreshOnDay");
+        private Outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay? _mValue_RefreshOnDay;
+        private bool _mUnknown_RefreshOnDay;
+        public Outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay? RefreshOnDay
+        {
+            get
+            {
+                if (!_mUnknown_RefreshOnDay) return _mValue_RefreshOnDay;
+                throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.RefreshOnDay' is not present");
+            }
+        }
 
         /// <summary>
         /// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
         /// </summary>
-        [Input("timeOfTheDay")]
+        [PolicyResourceProperty("timeOfTheDay", "_mUnknown_TimeOfTheDay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeOfTheDay;
-
-        public string? TimeOfTheDay => _mTimeOfTheDay.GetValue("timeOfTheDay");
+        private string? _mValue_TimeOfTheDay;
+        private bool _mUnknown_TimeOfTheDay;
+        public string? TimeOfTheDay
+        {
+            get
+            {
+                if (!_mUnknown_TimeOfTheDay) return _mValue_TimeOfTheDay;
+                throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.TimeOfTheDay' is not present");
+            }
+        }
 
         /// <summary>
         /// The timezone that you want the refresh schedule to use.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.Timezone' is not present");
+            }
+        }
     }
 }

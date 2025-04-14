@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Inputs
         /// <summary>
         /// The external ID used to estalish trust relationship with the AWS identity.
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
-
-        public string? ExternalId => _mExternalId.GetValue("externalId");
+        private string? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public string? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'CustomLogSourceConfigurationProviderIdentityArgs.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS identity principal.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'CustomLogSourceConfigurationProviderIdentityArgs.Principal' is not present");
+            }
+        }
     }
 }

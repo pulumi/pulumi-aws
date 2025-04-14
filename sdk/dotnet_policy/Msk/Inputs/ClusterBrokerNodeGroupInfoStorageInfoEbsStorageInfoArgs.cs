@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
         /// </summary>
-        [Input("provisionedThroughput")]
+        [PolicyResourceProperty("provisionedThroughput", "_mUnknown_ProvisionedThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs> _mProvisionedThroughput;
-
-        public Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs? ProvisionedThroughput => _mProvisionedThroughput.GetValue("provisionedThroughput");
+        private Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs? _mValue_ProvisionedThroughput;
+        private bool _mUnknown_ProvisionedThroughput;
+        public Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs? ProvisionedThroughput
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedThroughput) return _mValue_ProvisionedThroughput;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.ProvisionedThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
         /// </summary>
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
-
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs.VolumeSize' is not present");
+            }
+        }
     }
 }

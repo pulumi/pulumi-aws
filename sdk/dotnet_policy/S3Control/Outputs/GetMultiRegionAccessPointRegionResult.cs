@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// The name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'GetMultiRegionAccessPointRegionResult.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID that owns the bucket.
         /// </summary>
-        [Input("bucketAccountId")]
+        [PolicyResourceProperty("bucketAccountId", "_mUnknown_BucketAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketAccountId;
-
-        public string? BucketAccountId => _mBucketAccountId.GetValue("bucketAccountId");
+        private string? _mValue_BucketAccountId;
+        private bool _mUnknown_BucketAccountId;
+        public string? BucketAccountId
+        {
+            get
+            {
+                if (!_mUnknown_BucketAccountId) return _mValue_BucketAccountId;
+                throw new UndeferrableValueException("Value 'GetMultiRegionAccessPointRegionResult.BucketAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the region.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'GetMultiRegionAccessPointRegionResult.Region' is not present");
+            }
+        }
     }
 }

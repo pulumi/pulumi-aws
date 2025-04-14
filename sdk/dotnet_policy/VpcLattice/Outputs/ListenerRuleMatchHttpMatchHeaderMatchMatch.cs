@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// Specifies a contains type match.
         /// </summary>
-        [Input("contains")]
+        [PolicyResourceProperty("contains", "_mUnknown_Contains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContains;
-
-        public string? Contains => _mContains.GetValue("contains");
+        private string? _mValue_Contains;
+        private bool _mUnknown_Contains;
+        public string? Contains
+        {
+            get
+            {
+                if (!_mUnknown_Contains) return _mValue_Contains;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatchMatch.Contains' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an exact type match.
         /// </summary>
-        [Input("exact")]
+        [PolicyResourceProperty("exact", "_mUnknown_Exact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExact;
-
-        public string? Exact => _mExact.GetValue("exact");
+        private string? _mValue_Exact;
+        private bool _mUnknown_Exact;
+        public string? Exact
+        {
+            get
+            {
+                if (!_mUnknown_Exact) return _mValue_Exact;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatchMatch.Exact' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a prefix type match. Matches the value with the prefix.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatchMatch.Prefix' is not present");
+            }
+        }
     }
 }

@@ -15,40 +15,75 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         /// </summary>
-        [Input("eq")]
+        [PolicyResourceProperty("eq", "_mUnknown_Eq")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mEq;
+        private double? _mValue_Eq;
+        private bool _mUnknown_Eq;
+        public double? Eq
+        {
+            get
+            {
+                if (!_mUnknown_Eq) return _mValue_Eq;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.Eq' is not present");
+            }
+        }
 
-        public double? Eq => _mEq.GetValue("eq");
-
-        [Input("gt")]
+        [PolicyResourceProperty("gt", "_mUnknown_Gt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mGt;
-
-        public double? Gt => _mGt.GetValue("gt");
+        private double? _mValue_Gt;
+        private bool _mUnknown_Gt;
+        public double? Gt
+        {
+            get
+            {
+                if (!_mUnknown_Gt) return _mValue_Gt;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.Gt' is not present");
+            }
+        }
 
         /// <summary>
         /// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         /// </summary>
-        [Input("gte")]
+        [PolicyResourceProperty("gte", "_mUnknown_Gte")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mGte;
+        private double? _mValue_Gte;
+        private bool _mUnknown_Gte;
+        public double? Gte
+        {
+            get
+            {
+                if (!_mUnknown_Gte) return _mValue_Gte;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.Gte' is not present");
+            }
+        }
 
-        public double? Gte => _mGte.GetValue("gte");
-
-        [Input("lt")]
+        [PolicyResourceProperty("lt", "_mUnknown_Lt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLt;
-
-        public double? Lt => _mLt.GetValue("lt");
+        private double? _mValue_Lt;
+        private bool _mUnknown_Lt;
+        public double? Lt
+        {
+            get
+            {
+                if (!_mUnknown_Lt) return _mValue_Lt;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.Lt' is not present");
+            }
+        }
 
         /// <summary>
         /// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         /// </summary>
-        [Input("lte")]
+        [PolicyResourceProperty("lte", "_mUnknown_Lte")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLte;
-
-        public double? Lte => _mLte.GetValue("lte");
+        private double? _mValue_Lte;
+        private bool _mUnknown_Lte;
+        public double? Lte
+        {
+            get
+            {
+                if (!_mUnknown_Lte) return _mValue_Lte;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.Lte' is not present");
+            }
+        }
     }
 }

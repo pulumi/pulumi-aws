@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy endpoint.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
-        [Input("dbProxyEndpointName")]
+        [PolicyResourceProperty("dbProxyEndpointName", "_mUnknown_DbProxyEndpointName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyEndpointName;
-
-        public string? DbProxyEndpointName => _mDbProxyEndpointName.GetValue("dbProxyEndpointName");
+        private string? _mValue_DbProxyEndpointName;
+        private bool _mUnknown_DbProxyEndpointName;
+        public string? DbProxyEndpointName
+        {
+            get
+            {
+                if (!_mUnknown_DbProxyEndpointName) return _mValue_DbProxyEndpointName;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.DbProxyEndpointName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DB proxy associated with the DB proxy endpoint that you create.
         /// </summary>
-        [Input("dbProxyName")]
+        [PolicyResourceProperty("dbProxyName", "_mUnknown_DbProxyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
-
-        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
+        private string? _mValue_DbProxyName;
+        private bool _mUnknown_DbProxyName;
+        public string? DbProxyName
+        {
+            get
+            {
+                if (!_mUnknown_DbProxyName) return _mValue_DbProxyName;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.DbProxyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
         /// </summary>
-        [Input("isDefault")]
+        [PolicyResourceProperty("isDefault", "_mUnknown_IsDefault")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
-
-        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
+        private bool? _mValue_IsDefault;
+        private bool _mUnknown_IsDefault;
+        public bool? IsDefault
+        {
+            get
+            {
+                if (!_mUnknown_IsDefault) return _mValue_IsDefault;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.IsDefault' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         /// </summary>
-        [Input("targetRole")]
+        [PolicyResourceProperty("targetRole", "_mUnknown_TargetRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetRole;
-
-        public string? TargetRole => _mTargetRole.GetValue("targetRole");
+        private string? _mValue_TargetRole;
+        private bool _mUnknown_TargetRole;
+        public string? TargetRole
+        {
+            get
+            {
+                if (!_mUnknown_TargetRole) return _mValue_TargetRole;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.TargetRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC ID of the DB proxy endpoint.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security group IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSubnetIds")]
+        [PolicyResourceProperty("vpcSubnetIds", "_mUnknown_VpcSubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
-
-        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
+        private List<string>? _mValue_VpcSubnetIds;
+        private bool _mUnknown_VpcSubnetIds;
+        public List<string>? VpcSubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnetIds) return _mValue_VpcSubnetIds;
+                throw new UndeferrableValueException("Value 'ProxyEndpoint.VpcSubnetIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/proxyEndpoint:ProxyEndpoint")]
@@ -116,55 +193,97 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
-        [Input("dbProxyEndpointName")]
+        [PolicyResourceProperty("dbProxyEndpointName", "_mUnknown_DbProxyEndpointName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyEndpointName;
-
-        public string? DbProxyEndpointName => _mDbProxyEndpointName.GetValue("dbProxyEndpointName");
+        private string? _mValue_DbProxyEndpointName;
+        private bool _mUnknown_DbProxyEndpointName;
+        public string? DbProxyEndpointName
+        {
+            get
+            {
+                if (!_mUnknown_DbProxyEndpointName) return _mValue_DbProxyEndpointName;
+                throw new UndeferrableValueException("Value 'ProxyEndpointArgs.DbProxyEndpointName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DB proxy associated with the DB proxy endpoint that you create.
         /// </summary>
-        [Input("dbProxyName")]
+        [PolicyResourceProperty("dbProxyName", "_mUnknown_DbProxyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbProxyName;
-
-        public string? DbProxyName => _mDbProxyName.GetValue("dbProxyName");
+        private string? _mValue_DbProxyName;
+        private bool _mUnknown_DbProxyName;
+        public string? DbProxyName
+        {
+            get
+            {
+                if (!_mUnknown_DbProxyName) return _mValue_DbProxyName;
+                throw new UndeferrableValueException("Value 'ProxyEndpointArgs.DbProxyName' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProxyEndpointArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         /// </summary>
-        [Input("targetRole")]
+        [PolicyResourceProperty("targetRole", "_mUnknown_TargetRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetRole;
-
-        public string? TargetRole => _mTargetRole.GetValue("targetRole");
+        private string? _mValue_TargetRole;
+        private bool _mUnknown_TargetRole;
+        public string? TargetRole
+        {
+            get
+            {
+                if (!_mUnknown_TargetRole) return _mValue_TargetRole;
+                throw new UndeferrableValueException("Value 'ProxyEndpointArgs.TargetRole' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security group IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ProxyEndpointArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSubnetIds")]
+        [PolicyResourceProperty("vpcSubnetIds", "_mUnknown_VpcSubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
-
-        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
+        private List<string>? _mValue_VpcSubnetIds;
+        private bool _mUnknown_VpcSubnetIds;
+        public List<string>? VpcSubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnetIds) return _mValue_VpcSubnetIds;
+                throw new UndeferrableValueException("Value 'ProxyEndpointArgs.VpcSubnetIds' is not present");
+            }
+        }
     }
 }

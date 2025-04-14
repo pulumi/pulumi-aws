@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Inputs
         /// <summary>
         /// Maximum latency value that is allowed for any player.
         /// </summary>
-        [Input("maximumIndividualPlayerLatencyMilliseconds")]
+        [PolicyResourceProperty("maximumIndividualPlayerLatencyMilliseconds", "_mUnknown_MaximumIndividualPlayerLatencyMilliseconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumIndividualPlayerLatencyMilliseconds;
-
-        public int? MaximumIndividualPlayerLatencyMilliseconds => _mMaximumIndividualPlayerLatencyMilliseconds.GetValue("maximumIndividualPlayerLatencyMilliseconds");
+        private int? _mValue_MaximumIndividualPlayerLatencyMilliseconds;
+        private bool _mUnknown_MaximumIndividualPlayerLatencyMilliseconds;
+        public int? MaximumIndividualPlayerLatencyMilliseconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumIndividualPlayerLatencyMilliseconds) return _mValue_MaximumIndividualPlayerLatencyMilliseconds;
+                throw new UndeferrableValueException("Value 'GameSessionQueuePlayerLatencyPolicyArgs.MaximumIndividualPlayerLatencyMilliseconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
         /// </summary>
-        [Input("policyDurationSeconds")]
+        [PolicyResourceProperty("policyDurationSeconds", "_mUnknown_PolicyDurationSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPolicyDurationSeconds;
-
-        public int? PolicyDurationSeconds => _mPolicyDurationSeconds.GetValue("policyDurationSeconds");
+        private int? _mValue_PolicyDurationSeconds;
+        private bool _mUnknown_PolicyDurationSeconds;
+        public int? PolicyDurationSeconds
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDurationSeconds) return _mValue_PolicyDurationSeconds;
+                throw new UndeferrableValueException("Value 'GameSessionQueuePlayerLatencyPolicyArgs.PolicyDurationSeconds' is not present");
+            }
+        }
     }
 }

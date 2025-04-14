@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Outputs
         /// <summary>
         /// The job driver for job type.
         /// </summary>
-        [Input("sparkSqlJobDriver")]
+        [PolicyResourceProperty("sparkSqlJobDriver", "_mUnknown_SparkSqlJobDriver")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver> _mSparkSqlJobDriver;
-
-        public Outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver? SparkSqlJobDriver => _mSparkSqlJobDriver.GetValue("sparkSqlJobDriver");
+        private Outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver? _mValue_SparkSqlJobDriver;
+        private bool _mUnknown_SparkSqlJobDriver;
+        public Outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver? SparkSqlJobDriver
+        {
+            get
+            {
+                if (!_mUnknown_SparkSqlJobDriver) return _mValue_SparkSqlJobDriver;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriver.SparkSqlJobDriver' is not present");
+            }
+        }
 
         /// <summary>
         /// The job driver parameters specified for spark submit.
         /// </summary>
-        [Input("sparkSubmitJobDriver")]
+        [PolicyResourceProperty("sparkSubmitJobDriver", "_mUnknown_SparkSubmitJobDriver")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver> _mSparkSubmitJobDriver;
-
-        public Outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver? SparkSubmitJobDriver => _mSparkSubmitJobDriver.GetValue("sparkSubmitJobDriver");
+        private Outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver? _mValue_SparkSubmitJobDriver;
+        private bool _mUnknown_SparkSubmitJobDriver;
+        public Outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver? SparkSubmitJobDriver
+        {
+            get
+            {
+                if (!_mUnknown_SparkSubmitJobDriver) return _mValue_SparkSubmitJobDriver;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriver.SparkSubmitJobDriver' is not present");
+            }
+        }
     }
 }

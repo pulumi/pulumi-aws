@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
         /// </summary>
-        [Input("allocationStrategy")]
+        [PolicyResourceProperty("allocationStrategy", "_mUnknown_AllocationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationStrategy;
-
-        public string? AllocationStrategy => _mAllocationStrategy.GetValue("allocationStrategy");
+        private string? _mValue_AllocationStrategy;
+        private bool _mUnknown_AllocationStrategy;
+        public string? AllocationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AllocationStrategy) return _mValue_AllocationStrategy;
+                throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecification.AllocationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
         /// </summary>
-        [Input("blockDurationMinutes")]
+        [PolicyResourceProperty("blockDurationMinutes", "_mUnknown_BlockDurationMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockDurationMinutes;
-
-        public int? BlockDurationMinutes => _mBlockDurationMinutes.GetValue("blockDurationMinutes");
+        private int? _mValue_BlockDurationMinutes;
+        private bool _mUnknown_BlockDurationMinutes;
+        public int? BlockDurationMinutes
+        {
+            get
+            {
+                if (!_mUnknown_BlockDurationMinutes) return _mValue_BlockDurationMinutes;
+                throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecification.BlockDurationMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
         /// </summary>
-        [Input("timeoutAction")]
+        [PolicyResourceProperty("timeoutAction", "_mUnknown_TimeoutAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeoutAction;
-
-        public string? TimeoutAction => _mTimeoutAction.GetValue("timeoutAction");
+        private string? _mValue_TimeoutAction;
+        private bool _mUnknown_TimeoutAction;
+        public string? TimeoutAction
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutAction) return _mValue_TimeoutAction;
+                throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecification.TimeoutAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
         /// </summary>
-        [Input("timeoutDurationMinutes")]
+        [PolicyResourceProperty("timeoutDurationMinutes", "_mUnknown_TimeoutDurationMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutDurationMinutes;
-
-        public int? TimeoutDurationMinutes => _mTimeoutDurationMinutes.GetValue("timeoutDurationMinutes");
+        private int? _mValue_TimeoutDurationMinutes;
+        private bool _mUnknown_TimeoutDurationMinutes;
+        public int? TimeoutDurationMinutes
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutDurationMinutes) return _mValue_TimeoutDurationMinutes;
+                throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecification.TimeoutDurationMinutes' is not present");
+            }
+        }
     }
 }

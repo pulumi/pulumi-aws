@@ -15,49 +15,91 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// Specifies the cache deployment type. The only supported value is `CACHE_1`.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationArgs.DeploymentType' is not present");
+            }
+        }
 
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
-
-        [Input("logConfigurations")]
+        [PolicyResourceProperty("logConfigurations", "_mUnknown_LogConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FileCacheLustreConfigurationLogConfigurationArgs>> _mLogConfigurations;
-
-        public List<Inputs.FileCacheLustreConfigurationLogConfigurationArgs>? LogConfigurations => _mLogConfigurations.GetValue("logConfigurations");
+        private List<Inputs.FileCacheLustreConfigurationLogConfigurationArgs>? _mValue_LogConfigurations;
+        private bool _mUnknown_LogConfigurations;
+        public List<Inputs.FileCacheLustreConfigurationLogConfigurationArgs>? LogConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_LogConfigurations) return _mValue_LogConfigurations;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationArgs.LogConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
         /// </summary>
-        [Input("metadataConfigurations")]
+        [PolicyResourceProperty("metadataConfigurations", "_mUnknown_MetadataConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs>> _mMetadataConfigurations;
+        private List<Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs>? _mValue_MetadataConfigurations;
+        private bool _mUnknown_MetadataConfigurations;
+        public List<Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs>? MetadataConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_MetadataConfigurations) return _mValue_MetadataConfigurations;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationArgs.MetadataConfigurations' is not present");
+            }
+        }
 
-        public List<Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs>? MetadataConfigurations => _mMetadataConfigurations.GetValue("metadataConfigurations");
-
-        [Input("mountName")]
+        [PolicyResourceProperty("mountName", "_mUnknown_MountName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountName;
-
-        public string? MountName => _mMountName.GetValue("mountName");
+        private string? _mValue_MountName;
+        private bool _mUnknown_MountName;
+        public string? MountName
+        {
+            get
+            {
+                if (!_mUnknown_MountName) return _mValue_MountName;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationArgs.MountName' is not present");
+            }
+        }
 
         /// <summary>
         /// Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
         /// </summary>
-        [Input("perUnitStorageThroughput")]
+        [PolicyResourceProperty("perUnitStorageThroughput", "_mUnknown_PerUnitStorageThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPerUnitStorageThroughput;
-
-        public int? PerUnitStorageThroughput => _mPerUnitStorageThroughput.GetValue("perUnitStorageThroughput");
+        private int? _mValue_PerUnitStorageThroughput;
+        private bool _mUnknown_PerUnitStorageThroughput;
+        public int? PerUnitStorageThroughput
+        {
+            get
+            {
+                if (!_mUnknown_PerUnitStorageThroughput) return _mValue_PerUnitStorageThroughput;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationArgs.PerUnitStorageThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         /// </summary>
-        [Input("weeklyMaintenanceStartTime")]
+        [PolicyResourceProperty("weeklyMaintenanceStartTime", "_mUnknown_WeeklyMaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
-
-        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+        private string? _mValue_WeeklyMaintenanceStartTime;
+        private bool _mUnknown_WeeklyMaintenanceStartTime;
+        public string? WeeklyMaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceStartTime) return _mValue_WeeklyMaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationArgs.WeeklyMaintenanceStartTime' is not present");
+            }
+        }
     }
 }

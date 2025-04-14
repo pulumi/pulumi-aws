@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetPhysicalTableMapCustomSqlResult
     {
-        [Input("columns")]
+        [PolicyResourceProperty("columns", "_mUnknown_Columns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult>> _mColumns;
+        private List<Outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult>? _mValue_Columns;
+        private bool _mUnknown_Columns;
+        public List<Outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult>? Columns
+        {
+            get
+            {
+                if (!_mUnknown_Columns) return _mValue_Columns;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapCustomSqlResult.Columns' is not present");
+            }
+        }
 
-        public List<Outputs.GetDataSetPhysicalTableMapCustomSqlColumnResult>? Columns => _mColumns.GetValue("columns");
-
-        [Input("dataSourceArn")]
+        [PolicyResourceProperty("dataSourceArn", "_mUnknown_DataSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
+        private string? _mValue_DataSourceArn;
+        private bool _mUnknown_DataSourceArn;
+        public string? DataSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceArn) return _mValue_DataSourceArn;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapCustomSqlResult.DataSourceArn' is not present");
+            }
+        }
 
-        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapCustomSqlResult.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("sqlQuery")]
+        [PolicyResourceProperty("sqlQuery", "_mUnknown_SqlQuery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqlQuery;
-
-        public string? SqlQuery => _mSqlQuery.GetValue("sqlQuery");
+        private string? _mValue_SqlQuery;
+        private bool _mUnknown_SqlQuery;
+        public string? SqlQuery
+        {
+            get
+            {
+                if (!_mUnknown_SqlQuery) return _mValue_SqlQuery;
+                throw new UndeferrableValueException("Value 'GetDataSetPhysicalTableMapCustomSqlResult.SqlQuery' is not present");
+            }
+        }
     }
 }

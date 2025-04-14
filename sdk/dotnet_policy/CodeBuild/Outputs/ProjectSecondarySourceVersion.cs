@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// An identifier for a source in the build project.
         /// </summary>
-        [Input("sourceIdentifier")]
+        [PolicyResourceProperty("sourceIdentifier", "_mUnknown_SourceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIdentifier;
-
-        public string? SourceIdentifier => _mSourceIdentifier.GetValue("sourceIdentifier");
+        private string? _mValue_SourceIdentifier;
+        private bool _mUnknown_SourceIdentifier;
+        public string? SourceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceIdentifier) return _mValue_SourceIdentifier;
+                throw new UndeferrableValueException("Value 'ProjectSecondarySourceVersion.SourceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The source version for the corresponding source identifier.
         /// See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion)
         /// for more details.
         /// </summary>
-        [Input("sourceVersion")]
+        [PolicyResourceProperty("sourceVersion", "_mUnknown_SourceVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
-
-        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+        private string? _mValue_SourceVersion;
+        private bool _mUnknown_SourceVersion;
+        public string? SourceVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceVersion) return _mValue_SourceVersion;
+                throw new UndeferrableValueException("Value 'ProjectSecondarySourceVersion.SourceVersion' is not present");
+            }
+        }
     }
 }

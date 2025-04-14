@@ -12,46 +12,95 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerHealthCheckResult
     {
-        [Input("healthyThreshold")]
+        [PolicyResourceProperty("healthyThreshold", "_mUnknown_HealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthyThreshold;
+        private int? _mValue_HealthyThreshold;
+        private bool _mUnknown_HealthyThreshold;
+        public int? HealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_HealthyThreshold) return _mValue_HealthyThreshold;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerHealthCheckResult.HealthyThreshold' is not present");
+            }
+        }
 
-        public int? HealthyThreshold => _mHealthyThreshold.GetValue("healthyThreshold");
-
-        [Input("intervalMillis")]
+        [PolicyResourceProperty("intervalMillis", "_mUnknown_IntervalMillis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIntervalMillis;
+        private int? _mValue_IntervalMillis;
+        private bool _mUnknown_IntervalMillis;
+        public int? IntervalMillis
+        {
+            get
+            {
+                if (!_mUnknown_IntervalMillis) return _mValue_IntervalMillis;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerHealthCheckResult.IntervalMillis' is not present");
+            }
+        }
 
-        public int? IntervalMillis => _mIntervalMillis.GetValue("intervalMillis");
-
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerHealthCheckResult.Path' is not present");
+            }
+        }
 
-        public string? Path => _mPath.GetValue("path");
-
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerHealthCheckResult.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerHealthCheckResult.Protocol' is not present");
+            }
+        }
 
-        public string? Protocol => _mProtocol.GetValue("protocol");
-
-        [Input("timeoutMillis")]
+        [PolicyResourceProperty("timeoutMillis", "_mUnknown_TimeoutMillis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMillis;
+        private int? _mValue_TimeoutMillis;
+        private bool _mUnknown_TimeoutMillis;
+        public int? TimeoutMillis
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutMillis) return _mValue_TimeoutMillis;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerHealthCheckResult.TimeoutMillis' is not present");
+            }
+        }
 
-        public int? TimeoutMillis => _mTimeoutMillis.GetValue("timeoutMillis");
-
-        [Input("unhealthyThreshold")]
+        [PolicyResourceProperty("unhealthyThreshold", "_mUnknown_UnhealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyThreshold;
-
-        public int? UnhealthyThreshold => _mUnhealthyThreshold.GetValue("unhealthyThreshold");
+        private int? _mValue_UnhealthyThreshold;
+        private bool _mUnknown_UnhealthyThreshold;
+        public int? UnhealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyThreshold) return _mValue_UnhealthyThreshold;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerHealthCheckResult.UnhealthyThreshold' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Chime.Inputs
         /// <summary>
         /// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
         /// </summary>
-        [Input("lambdaArn")]
+        [PolicyResourceProperty("lambdaArn", "_mUnknown_LambdaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaArn;
-
-        public string? LambdaArn => _mLambdaArn.GetValue("lambdaArn");
+        private string? _mValue_LambdaArn;
+        private bool _mUnknown_LambdaArn;
+        public string? LambdaArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaArn) return _mValue_LambdaArn;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplicationEndpointsArgs.LambdaArn' is not present");
+            }
+        }
     }
 }

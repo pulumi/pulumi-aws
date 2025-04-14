@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
         /// </summary>
-        [Input("failoverConfig")]
+        [PolicyResourceProperty("failoverConfig", "_mUnknown_FailoverConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventEndpointRoutingConfigFailoverConfigArgs> _mFailoverConfig;
-
-        public Inputs.EventEndpointRoutingConfigFailoverConfigArgs? FailoverConfig => _mFailoverConfig.GetValue("failoverConfig");
+        private Inputs.EventEndpointRoutingConfigFailoverConfigArgs? _mValue_FailoverConfig;
+        private bool _mUnknown_FailoverConfig;
+        public Inputs.EventEndpointRoutingConfigFailoverConfigArgs? FailoverConfig
+        {
+            get
+            {
+                if (!_mUnknown_FailoverConfig) return _mValue_FailoverConfig;
+                throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigArgs.FailoverConfig' is not present");
+            }
+        }
     }
 }

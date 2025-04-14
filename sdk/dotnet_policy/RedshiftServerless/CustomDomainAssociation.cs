@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// ARN of the certificate for the custom domain association.
         /// </summary>
-        [Input("customDomainCertificateArn")]
+        [PolicyResourceProperty("customDomainCertificateArn", "_mUnknown_CustomDomainCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomainCertificateArn;
-
-        public string? CustomDomainCertificateArn => _mCustomDomainCertificateArn.GetValue("customDomainCertificateArn");
+        private string? _mValue_CustomDomainCertificateArn;
+        private bool _mUnknown_CustomDomainCertificateArn;
+        public string? CustomDomainCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomainCertificateArn) return _mValue_CustomDomainCertificateArn;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.CustomDomainCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Expiration time for the certificate.
         /// </summary>
-        [Input("customDomainCertificateExpiryTime")]
+        [PolicyResourceProperty("customDomainCertificateExpiryTime", "_mUnknown_CustomDomainCertificateExpiryTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomainCertificateExpiryTime;
-
-        public string? CustomDomainCertificateExpiryTime => _mCustomDomainCertificateExpiryTime.GetValue("customDomainCertificateExpiryTime");
+        private string? _mValue_CustomDomainCertificateExpiryTime;
+        private bool _mUnknown_CustomDomainCertificateExpiryTime;
+        public string? CustomDomainCertificateExpiryTime
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomainCertificateExpiryTime) return _mValue_CustomDomainCertificateExpiryTime;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.CustomDomainCertificateExpiryTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom domain to associate with the workgroup.
         /// </summary>
-        [Input("customDomainName")]
+        [PolicyResourceProperty("customDomainName", "_mUnknown_CustomDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomainName;
-
-        public string? CustomDomainName => _mCustomDomainName.GetValue("customDomainName");
+        private string? _mValue_CustomDomainName;
+        private bool _mUnknown_CustomDomainName;
+        public string? CustomDomainName
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomainName) return _mValue_CustomDomainName;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.CustomDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the workgroup.
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.WorkgroupName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless
         /// <summary>
         /// ARN of the certificate for the custom domain association.
         /// </summary>
-        [Input("customDomainCertificateArn")]
+        [PolicyResourceProperty("customDomainCertificateArn", "_mUnknown_CustomDomainCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomainCertificateArn;
-
-        public string? CustomDomainCertificateArn => _mCustomDomainCertificateArn.GetValue("customDomainCertificateArn");
+        private string? _mValue_CustomDomainCertificateArn;
+        private bool _mUnknown_CustomDomainCertificateArn;
+        public string? CustomDomainCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomainCertificateArn) return _mValue_CustomDomainCertificateArn;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.CustomDomainCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom domain to associate with the workgroup.
         /// </summary>
-        [Input("customDomainName")]
+        [PolicyResourceProperty("customDomainName", "_mUnknown_CustomDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomainName;
-
-        public string? CustomDomainName => _mCustomDomainName.GetValue("customDomainName");
+        private string? _mValue_CustomDomainName;
+        private bool _mUnknown_CustomDomainName;
+        public string? CustomDomainName
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomainName) return _mValue_CustomDomainName;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.CustomDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the workgroup.
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.WorkgroupName' is not present");
+            }
+        }
     }
 }

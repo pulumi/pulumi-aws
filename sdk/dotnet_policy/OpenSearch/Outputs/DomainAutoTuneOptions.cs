@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
         /// </summary>
-        [Input("desiredState")]
+        [PolicyResourceProperty("desiredState", "_mUnknown_DesiredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
-
-        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+        private string? _mValue_DesiredState;
+        private bool _mUnknown_DesiredState;
+        public string? DesiredState
+        {
+            get
+            {
+                if (!_mUnknown_DesiredState) return _mValue_DesiredState;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.DesiredState' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         /// 
         /// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
         /// </summary>
-        [Input("maintenanceSchedules")]
+        [PolicyResourceProperty("maintenanceSchedules", "_mUnknown_MaintenanceSchedules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DomainAutoTuneOptionsMaintenanceSchedule>> _mMaintenanceSchedules;
-
-        public List<Outputs.DomainAutoTuneOptionsMaintenanceSchedule>? MaintenanceSchedules => _mMaintenanceSchedules.GetValue("maintenanceSchedules");
+        private List<Outputs.DomainAutoTuneOptionsMaintenanceSchedule>? _mValue_MaintenanceSchedules;
+        private bool _mUnknown_MaintenanceSchedules;
+        public List<Outputs.DomainAutoTuneOptionsMaintenanceSchedule>? MaintenanceSchedules
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceSchedules) return _mValue_MaintenanceSchedules;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.MaintenanceSchedules' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
         /// </summary>
-        [Input("rollbackOnDisable")]
+        [PolicyResourceProperty("rollbackOnDisable", "_mUnknown_RollbackOnDisable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRollbackOnDisable;
-
-        public string? RollbackOnDisable => _mRollbackOnDisable.GetValue("rollbackOnDisable");
+        private string? _mValue_RollbackOnDisable;
+        private bool _mUnknown_RollbackOnDisable;
+        public string? RollbackOnDisable
+        {
+            get
+            {
+                if (!_mUnknown_RollbackOnDisable) return _mValue_RollbackOnDisable;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.RollbackOnDisable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
         /// </summary>
-        [Input("useOffPeakWindow")]
+        [PolicyResourceProperty("useOffPeakWindow", "_mUnknown_UseOffPeakWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseOffPeakWindow;
-
-        public bool? UseOffPeakWindow => _mUseOffPeakWindow.GetValue("useOffPeakWindow");
+        private bool? _mValue_UseOffPeakWindow;
+        private bool _mUnknown_UseOffPeakWindow;
+        public bool? UseOffPeakWindow
+        {
+            get
+            {
+                if (!_mUnknown_UseOffPeakWindow) return _mValue_UseOffPeakWindow;
+                throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.UseOffPeakWindow' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualServiceSpecResult
     {
-        [Input("providers")]
+        [PolicyResourceProperty("providers", "_mUnknown_Providers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualServiceSpecProviderResult>> _mProviders;
-
-        public List<Outputs.GetVirtualServiceSpecProviderResult>? Providers => _mProviders.GetValue("providers");
+        private List<Outputs.GetVirtualServiceSpecProviderResult>? _mValue_Providers;
+        private bool _mUnknown_Providers;
+        public List<Outputs.GetVirtualServiceSpecProviderResult>? Providers
+        {
+            get
+            {
+                if (!_mUnknown_Providers) return _mValue_Providers;
+                throw new UndeferrableValueException("Value 'GetVirtualServiceSpecResult.Providers' is not present");
+            }
+        }
     }
 }

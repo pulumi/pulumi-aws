@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The response headers policy ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         /// </summary>
-        [Input("corsConfig")]
+        [PolicyResourceProperty("corsConfig", "_mUnknown_CorsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCorsConfig> _mCorsConfig;
-
-        public Outputs.ResponseHeadersPolicyCorsConfig? CorsConfig => _mCorsConfig.GetValue("corsConfig");
+        private Outputs.ResponseHeadersPolicyCorsConfig? _mValue_CorsConfig;
+        private bool _mUnknown_CorsConfig;
+        public Outputs.ResponseHeadersPolicyCorsConfig? CorsConfig
+        {
+            get
+            {
+                if (!_mUnknown_CorsConfig) return _mValue_CorsConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.CorsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
-        [Input("customHeadersConfig")]
+        [PolicyResourceProperty("customHeadersConfig", "_mUnknown_CustomHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCustomHeadersConfig> _mCustomHeadersConfig;
-
-        public Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig => _mCustomHeadersConfig.GetValue("customHeadersConfig");
+        private Outputs.ResponseHeadersPolicyCustomHeadersConfig? _mValue_CustomHeadersConfig;
+        private bool _mUnknown_CustomHeadersConfig;
+        public Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_CustomHeadersConfig) return _mValue_CustomHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.CustomHeadersConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the response headers policy.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name to identify the response headers policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         /// </summary>
-        [Input("removeHeadersConfig")]
+        [PolicyResourceProperty("removeHeadersConfig", "_mUnknown_RemoveHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyRemoveHeadersConfig> _mRemoveHeadersConfig;
-
-        public Outputs.ResponseHeadersPolicyRemoveHeadersConfig? RemoveHeadersConfig => _mRemoveHeadersConfig.GetValue("removeHeadersConfig");
+        private Outputs.ResponseHeadersPolicyRemoveHeadersConfig? _mValue_RemoveHeadersConfig;
+        private bool _mUnknown_RemoveHeadersConfig;
+        public Outputs.ResponseHeadersPolicyRemoveHeadersConfig? RemoveHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_RemoveHeadersConfig) return _mValue_RemoveHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.RemoveHeadersConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         /// </summary>
-        [Input("securityHeadersConfig")]
+        [PolicyResourceProperty("securityHeadersConfig", "_mUnknown_SecurityHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicySecurityHeadersConfig> _mSecurityHeadersConfig;
-
-        public Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig => _mSecurityHeadersConfig.GetValue("securityHeadersConfig");
+        private Outputs.ResponseHeadersPolicySecurityHeadersConfig? _mValue_SecurityHeadersConfig;
+        private bool _mUnknown_SecurityHeadersConfig;
+        public Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_SecurityHeadersConfig) return _mValue_SecurityHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.SecurityHeadersConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         /// </summary>
-        [Input("serverTimingHeadersConfig")]
+        [PolicyResourceProperty("serverTimingHeadersConfig", "_mUnknown_ServerTimingHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyServerTimingHeadersConfig> _mServerTimingHeadersConfig;
-
-        public Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig => _mServerTimingHeadersConfig.GetValue("serverTimingHeadersConfig");
+        private Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? _mValue_ServerTimingHeadersConfig;
+        private bool _mUnknown_ServerTimingHeadersConfig;
+        public Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_ServerTimingHeadersConfig) return _mValue_ServerTimingHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.ServerTimingHeadersConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy")]
@@ -101,73 +164,129 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         /// </summary>
-        [Input("corsConfig")]
+        [PolicyResourceProperty("corsConfig", "_mUnknown_CorsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyCorsConfigArgs> _mCorsConfig;
-
-        public Inputs.ResponseHeadersPolicyCorsConfigArgs? CorsConfig => _mCorsConfig.GetValue("corsConfig");
+        private Inputs.ResponseHeadersPolicyCorsConfigArgs? _mValue_CorsConfig;
+        private bool _mUnknown_CorsConfig;
+        public Inputs.ResponseHeadersPolicyCorsConfigArgs? CorsConfig
+        {
+            get
+            {
+                if (!_mUnknown_CorsConfig) return _mValue_CorsConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.CorsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
-        [Input("customHeadersConfig")]
+        [PolicyResourceProperty("customHeadersConfig", "_mUnknown_CustomHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs> _mCustomHeadersConfig;
-
-        public Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs? CustomHeadersConfig => _mCustomHeadersConfig.GetValue("customHeadersConfig");
+        private Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs? _mValue_CustomHeadersConfig;
+        private bool _mUnknown_CustomHeadersConfig;
+        public Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs? CustomHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_CustomHeadersConfig) return _mValue_CustomHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.CustomHeadersConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the response headers policy.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name to identify the response headers policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         /// </summary>
-        [Input("removeHeadersConfig")]
+        [PolicyResourceProperty("removeHeadersConfig", "_mUnknown_RemoveHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs> _mRemoveHeadersConfig;
-
-        public Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs? RemoveHeadersConfig => _mRemoveHeadersConfig.GetValue("removeHeadersConfig");
+        private Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs? _mValue_RemoveHeadersConfig;
+        private bool _mUnknown_RemoveHeadersConfig;
+        public Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs? RemoveHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_RemoveHeadersConfig) return _mValue_RemoveHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.RemoveHeadersConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         /// </summary>
-        [Input("securityHeadersConfig")]
+        [PolicyResourceProperty("securityHeadersConfig", "_mUnknown_SecurityHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs> _mSecurityHeadersConfig;
-
-        public Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs? SecurityHeadersConfig => _mSecurityHeadersConfig.GetValue("securityHeadersConfig");
+        private Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs? _mValue_SecurityHeadersConfig;
+        private bool _mUnknown_SecurityHeadersConfig;
+        public Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs? SecurityHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_SecurityHeadersConfig) return _mValue_SecurityHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.SecurityHeadersConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         /// </summary>
-        [Input("serverTimingHeadersConfig")]
+        [PolicyResourceProperty("serverTimingHeadersConfig", "_mUnknown_ServerTimingHeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs> _mServerTimingHeadersConfig;
-
-        public Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs? ServerTimingHeadersConfig => _mServerTimingHeadersConfig.GetValue("serverTimingHeadersConfig");
+        private Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs? _mValue_ServerTimingHeadersConfig;
+        private bool _mUnknown_ServerTimingHeadersConfig;
+        public Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs? ServerTimingHeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_ServerTimingHeadersConfig) return _mValue_ServerTimingHeadersConfig;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.ServerTimingHeadersConfig' is not present");
+            }
+        }
     }
 }

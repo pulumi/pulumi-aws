@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
         /// </summary>
-        [Input("partitionDateSource")]
+        [PolicyResourceProperty("partitionDateSource", "_mUnknown_PartitionDateSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartitionDateSource;
-
-        public string? PartitionDateSource => _mPartitionDateSource.GetValue("partitionDateSource");
+        private string? _mValue_PartitionDateSource;
+        private bool _mUnknown_PartitionDateSource;
+        public string? PartitionDateSource
+        {
+            get
+            {
+                if (!_mUnknown_PartitionDateSource) return _mValue_PartitionDateSource;
+                throw new UndeferrableValueException("Value 'BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs.PartitionDateSource' is not present");
+            }
+        }
     }
 }

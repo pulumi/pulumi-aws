@@ -16,305 +16,536 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("autoImportPolicy")]
+        [PolicyResourceProperty("autoImportPolicy", "_mUnknown_AutoImportPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoImportPolicy;
-
-        public string? AutoImportPolicy => _mAutoImportPolicy.GetValue("autoImportPolicy");
+        private string? _mValue_AutoImportPolicy;
+        private bool _mUnknown_AutoImportPolicy;
+        public string? AutoImportPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoImportPolicy) return _mValue_AutoImportPolicy;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.AutoImportPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         /// </summary>
-        [Input("automaticBackupRetentionDays")]
+        [PolicyResourceProperty("automaticBackupRetentionDays", "_mUnknown_AutomaticBackupRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
-
-        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
+        private int? _mValue_AutomaticBackupRetentionDays;
+        private bool _mUnknown_AutomaticBackupRetentionDays;
+        public int? AutomaticBackupRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticBackupRetentionDays) return _mValue_AutomaticBackupRetentionDays;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.AutomaticBackupRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source backup to create the filesystem from.
         /// </summary>
-        [Input("backupId")]
+        [PolicyResourceProperty("backupId", "_mUnknown_BackupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
-
-        public string? BackupId => _mBackupId.GetValue("backupId");
+        private string? _mValue_BackupId;
+        private bool _mUnknown_BackupId;
+        public string? BackupId
+        {
+            get
+            {
+                if (!_mUnknown_BackupId) return _mValue_BackupId;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.BackupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
         /// </summary>
-        [Input("dailyAutomaticBackupStartTime")]
+        [PolicyResourceProperty("dailyAutomaticBackupStartTime", "_mUnknown_DailyAutomaticBackupStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
-
-        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
+        private string? _mValue_DailyAutomaticBackupStartTime;
+        private bool _mUnknown_DailyAutomaticBackupStartTime;
+        public string? DailyAutomaticBackupStartTime
+        {
+            get
+            {
+                if (!_mUnknown_DailyAutomaticBackupStartTime) return _mValue_DailyAutomaticBackupStartTime;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.DailyAutomaticBackupStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         /// </summary>
-        [Input("dataCompressionType")]
+        [PolicyResourceProperty("dataCompressionType", "_mUnknown_DataCompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataCompressionType;
-
-        public string? DataCompressionType => _mDataCompressionType.GetValue("dataCompressionType");
+        private string? _mValue_DataCompressionType;
+        private bool _mUnknown_DataCompressionType;
+        public string? DataCompressionType
+        {
+            get
+            {
+                if (!_mUnknown_DataCompressionType) return _mValue_DataCompressionType;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.DataCompressionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         /// </summary>
-        [Input("driveCacheType")]
+        [PolicyResourceProperty("driveCacheType", "_mUnknown_DriveCacheType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDriveCacheType;
-
-        public string? DriveCacheType => _mDriveCacheType.GetValue("driveCacheType");
+        private string? _mValue_DriveCacheType;
+        private bool _mUnknown_DriveCacheType;
+        public string? DriveCacheType
+        {
+            get
+            {
+                if (!_mUnknown_DriveCacheType) return _mValue_DriveCacheType;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.DriveCacheType' is not present");
+            }
+        }
 
         /// <summary>
         /// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         /// </summary>
-        [Input("efaEnabled")]
+        [PolicyResourceProperty("efaEnabled", "_mUnknown_EfaEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEfaEnabled;
-
-        public bool? EfaEnabled => _mEfaEnabled.GetValue("efaEnabled");
+        private bool? _mValue_EfaEnabled;
+        private bool _mUnknown_EfaEnabled;
+        public bool? EfaEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EfaEnabled) return _mValue_EfaEnabled;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.EfaEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("exportPath")]
+        [PolicyResourceProperty("exportPath", "_mUnknown_ExportPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportPath;
-
-        public string? ExportPath => _mExportPath.GetValue("exportPath");
+        private string? _mValue_ExportPath;
+        private bool _mUnknown_ExportPath;
+        public string? ExportPath
+        {
+            get
+            {
+                if (!_mUnknown_ExportPath) return _mValue_ExportPath;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.ExportPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
         /// </summary>
-        [Input("fileSystemTypeVersion")]
+        [PolicyResourceProperty("fileSystemTypeVersion", "_mUnknown_FileSystemTypeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemTypeVersion;
-
-        public string? FileSystemTypeVersion => _mFileSystemTypeVersion.GetValue("fileSystemTypeVersion");
+        private string? _mValue_FileSystemTypeVersion;
+        private bool _mUnknown_FileSystemTypeVersion;
+        public string? FileSystemTypeVersion
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemTypeVersion) return _mValue_FileSystemTypeVersion;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.FileSystemTypeVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the file system's final backup.
         /// 
         /// **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("importPath")]
+        [PolicyResourceProperty("importPath", "_mUnknown_ImportPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImportPath;
-
-        public string? ImportPath => _mImportPath.GetValue("importPath");
+        private string? _mValue_ImportPath;
+        private bool _mUnknown_ImportPath;
+        public string? ImportPath
+        {
+            get
+            {
+                if (!_mUnknown_ImportPath) return _mValue_ImportPath;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.ImportPath' is not present");
+            }
+        }
 
         /// <summary>
         /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("importedFileChunkSize")]
+        [PolicyResourceProperty("importedFileChunkSize", "_mUnknown_ImportedFileChunkSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImportedFileChunkSize;
-
-        public int? ImportedFileChunkSize => _mImportedFileChunkSize.GetValue("importedFileChunkSize");
+        private int? _mValue_ImportedFileChunkSize;
+        private bool _mUnknown_ImportedFileChunkSize;
+        public int? ImportedFileChunkSize
+        {
+            get
+            {
+                if (!_mUnknown_ImportedFileChunkSize) return _mValue_ImportedFileChunkSize;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.ImportedFileChunkSize' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LustreFileSystemLogConfiguration> _mLogConfiguration;
-
-        public Outputs.LustreFileSystemLogConfiguration? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Outputs.LustreFileSystemLogConfiguration? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Outputs.LustreFileSystemLogConfiguration? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
         /// </summary>
-        [Input("metadataConfiguration")]
+        [PolicyResourceProperty("metadataConfiguration", "_mUnknown_MetadataConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LustreFileSystemMetadataConfiguration> _mMetadataConfiguration;
-
-        public Outputs.LustreFileSystemMetadataConfiguration? MetadataConfiguration => _mMetadataConfiguration.GetValue("metadataConfiguration");
+        private Outputs.LustreFileSystemMetadataConfiguration? _mValue_MetadataConfiguration;
+        private bool _mUnknown_MetadataConfiguration;
+        public Outputs.LustreFileSystemMetadataConfiguration? MetadataConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MetadataConfiguration) return _mValue_MetadataConfiguration;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.MetadataConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The value to be used when mounting the filesystem.
         /// </summary>
-        [Input("mountName")]
+        [PolicyResourceProperty("mountName", "_mUnknown_MountName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountName;
-
-        public string? MountName => _mMountName.GetValue("mountName");
+        private string? _mValue_MountName;
+        private bool _mUnknown_MountName;
+        public string? MountName
+        {
+            get
+            {
+                if (!_mUnknown_MountName) return _mValue_MountName;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.MountName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
         /// </summary>
-        [Input("networkInterfaceIds")]
+        [PolicyResourceProperty("networkInterfaceIds", "_mUnknown_NetworkInterfaceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
-
-        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
+        private List<string>? _mValue_NetworkInterfaceIds;
+        private bool _mUnknown_NetworkInterfaceIds;
+        public List<string>? NetworkInterfaceIds
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceIds) return _mValue_NetworkInterfaceIds;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.NetworkInterfaceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
         /// </summary>
-        [Input("perUnitStorageThroughput")]
+        [PolicyResourceProperty("perUnitStorageThroughput", "_mUnknown_PerUnitStorageThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPerUnitStorageThroughput;
-
-        public int? PerUnitStorageThroughput => _mPerUnitStorageThroughput.GetValue("perUnitStorageThroughput");
+        private int? _mValue_PerUnitStorageThroughput;
+        private bool _mUnknown_PerUnitStorageThroughput;
+        public int? PerUnitStorageThroughput
+        {
+            get
+            {
+                if (!_mUnknown_PerUnitStorageThroughput) return _mValue_PerUnitStorageThroughput;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.PerUnitStorageThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
         /// </summary>
-        [Input("rootSquashConfiguration")]
+        [PolicyResourceProperty("rootSquashConfiguration", "_mUnknown_RootSquashConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LustreFileSystemRootSquashConfiguration> _mRootSquashConfiguration;
-
-        public Outputs.LustreFileSystemRootSquashConfiguration? RootSquashConfiguration => _mRootSquashConfiguration.GetValue("rootSquashConfiguration");
+        private Outputs.LustreFileSystemRootSquashConfiguration? _mValue_RootSquashConfiguration;
+        private bool _mUnknown_RootSquashConfiguration;
+        public Outputs.LustreFileSystemRootSquashConfiguration? RootSquashConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RootSquashConfiguration) return _mValue_RootSquashConfiguration;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.RootSquashConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
         /// 
         /// **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
-        [Input("storageCapacity")]
+        [PolicyResourceProperty("storageCapacity", "_mUnknown_StorageCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
-
-        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+        private int? _mValue_StorageCapacity;
+        private bool _mUnknown_StorageCapacity;
+        public int? StorageCapacity
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacity) return _mValue_StorageCapacity;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.StorageCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetIds;
-
-        public string? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private string? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public string? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        [Input("weeklyMaintenanceStartTime")]
+        [PolicyResourceProperty("weeklyMaintenanceStartTime", "_mUnknown_WeeklyMaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
-
-        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+        private string? _mValue_WeeklyMaintenanceStartTime;
+        private bool _mUnknown_WeeklyMaintenanceStartTime;
+        public string? WeeklyMaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceStartTime) return _mValue_WeeklyMaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'LustreFileSystem.WeeklyMaintenanceStartTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:fsx/lustreFileSystem:LustreFileSystem")]
@@ -323,241 +554,423 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("autoImportPolicy")]
+        [PolicyResourceProperty("autoImportPolicy", "_mUnknown_AutoImportPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoImportPolicy;
-
-        public string? AutoImportPolicy => _mAutoImportPolicy.GetValue("autoImportPolicy");
+        private string? _mValue_AutoImportPolicy;
+        private bool _mUnknown_AutoImportPolicy;
+        public string? AutoImportPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AutoImportPolicy) return _mValue_AutoImportPolicy;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.AutoImportPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         /// </summary>
-        [Input("automaticBackupRetentionDays")]
+        [PolicyResourceProperty("automaticBackupRetentionDays", "_mUnknown_AutomaticBackupRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
-
-        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
+        private int? _mValue_AutomaticBackupRetentionDays;
+        private bool _mUnknown_AutomaticBackupRetentionDays;
+        public int? AutomaticBackupRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticBackupRetentionDays) return _mValue_AutomaticBackupRetentionDays;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.AutomaticBackupRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source backup to create the filesystem from.
         /// </summary>
-        [Input("backupId")]
+        [PolicyResourceProperty("backupId", "_mUnknown_BackupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
-
-        public string? BackupId => _mBackupId.GetValue("backupId");
+        private string? _mValue_BackupId;
+        private bool _mUnknown_BackupId;
+        public string? BackupId
+        {
+            get
+            {
+                if (!_mUnknown_BackupId) return _mValue_BackupId;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.BackupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
         /// </summary>
-        [Input("dailyAutomaticBackupStartTime")]
+        [PolicyResourceProperty("dailyAutomaticBackupStartTime", "_mUnknown_DailyAutomaticBackupStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
-
-        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
+        private string? _mValue_DailyAutomaticBackupStartTime;
+        private bool _mUnknown_DailyAutomaticBackupStartTime;
+        public string? DailyAutomaticBackupStartTime
+        {
+            get
+            {
+                if (!_mUnknown_DailyAutomaticBackupStartTime) return _mValue_DailyAutomaticBackupStartTime;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.DailyAutomaticBackupStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         /// </summary>
-        [Input("dataCompressionType")]
+        [PolicyResourceProperty("dataCompressionType", "_mUnknown_DataCompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataCompressionType;
-
-        public string? DataCompressionType => _mDataCompressionType.GetValue("dataCompressionType");
+        private string? _mValue_DataCompressionType;
+        private bool _mUnknown_DataCompressionType;
+        public string? DataCompressionType
+        {
+            get
+            {
+                if (!_mUnknown_DataCompressionType) return _mValue_DataCompressionType;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.DataCompressionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         /// </summary>
-        [Input("driveCacheType")]
+        [PolicyResourceProperty("driveCacheType", "_mUnknown_DriveCacheType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDriveCacheType;
-
-        public string? DriveCacheType => _mDriveCacheType.GetValue("driveCacheType");
+        private string? _mValue_DriveCacheType;
+        private bool _mUnknown_DriveCacheType;
+        public string? DriveCacheType
+        {
+            get
+            {
+                if (!_mUnknown_DriveCacheType) return _mValue_DriveCacheType;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.DriveCacheType' is not present");
+            }
+        }
 
         /// <summary>
         /// Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
         /// </summary>
-        [Input("efaEnabled")]
+        [PolicyResourceProperty("efaEnabled", "_mUnknown_EfaEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEfaEnabled;
-
-        public bool? EfaEnabled => _mEfaEnabled.GetValue("efaEnabled");
+        private bool? _mValue_EfaEnabled;
+        private bool _mUnknown_EfaEnabled;
+        public bool? EfaEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EfaEnabled) return _mValue_EfaEnabled;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.EfaEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("exportPath")]
+        [PolicyResourceProperty("exportPath", "_mUnknown_ExportPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportPath;
-
-        public string? ExportPath => _mExportPath.GetValue("exportPath");
+        private string? _mValue_ExportPath;
+        private bool _mUnknown_ExportPath;
+        public string? ExportPath
+        {
+            get
+            {
+                if (!_mUnknown_ExportPath) return _mValue_ExportPath;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.ExportPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the Lustre version for the file system that you're creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
         /// </summary>
-        [Input("fileSystemTypeVersion")]
+        [PolicyResourceProperty("fileSystemTypeVersion", "_mUnknown_FileSystemTypeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemTypeVersion;
-
-        public string? FileSystemTypeVersion => _mFileSystemTypeVersion.GetValue("fileSystemTypeVersion");
+        private string? _mValue_FileSystemTypeVersion;
+        private bool _mUnknown_FileSystemTypeVersion;
+        public string? FileSystemTypeVersion
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemTypeVersion) return _mValue_FileSystemTypeVersion;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.FileSystemTypeVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the file system's final backup.
         /// 
         /// **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("importPath")]
+        [PolicyResourceProperty("importPath", "_mUnknown_ImportPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImportPath;
-
-        public string? ImportPath => _mImportPath.GetValue("importPath");
+        private string? _mValue_ImportPath;
+        private bool _mUnknown_ImportPath;
+        public string? ImportPath
+        {
+            get
+            {
+                if (!_mUnknown_ImportPath) return _mValue_ImportPath;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.ImportPath' is not present");
+            }
+        }
 
         /// <summary>
         /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("importedFileChunkSize")]
+        [PolicyResourceProperty("importedFileChunkSize", "_mUnknown_ImportedFileChunkSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImportedFileChunkSize;
-
-        public int? ImportedFileChunkSize => _mImportedFileChunkSize.GetValue("importedFileChunkSize");
+        private int? _mValue_ImportedFileChunkSize;
+        private bool _mUnknown_ImportedFileChunkSize;
+        public int? ImportedFileChunkSize
+        {
+            get
+            {
+                if (!_mUnknown_ImportedFileChunkSize) return _mValue_ImportedFileChunkSize;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.ImportedFileChunkSize' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LustreFileSystemLogConfigurationArgs> _mLogConfiguration;
-
-        public Inputs.LustreFileSystemLogConfigurationArgs? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Inputs.LustreFileSystemLogConfigurationArgs? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Inputs.LustreFileSystemLogConfigurationArgs? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
         /// </summary>
-        [Input("metadataConfiguration")]
+        [PolicyResourceProperty("metadataConfiguration", "_mUnknown_MetadataConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LustreFileSystemMetadataConfigurationArgs> _mMetadataConfiguration;
-
-        public Inputs.LustreFileSystemMetadataConfigurationArgs? MetadataConfiguration => _mMetadataConfiguration.GetValue("metadataConfiguration");
+        private Inputs.LustreFileSystemMetadataConfigurationArgs? _mValue_MetadataConfiguration;
+        private bool _mUnknown_MetadataConfiguration;
+        public Inputs.LustreFileSystemMetadataConfigurationArgs? MetadataConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MetadataConfiguration) return _mValue_MetadataConfiguration;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.MetadataConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and ` SSD` storage_type are 125, 250, 500, 1000.
         /// </summary>
-        [Input("perUnitStorageThroughput")]
+        [PolicyResourceProperty("perUnitStorageThroughput", "_mUnknown_PerUnitStorageThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPerUnitStorageThroughput;
-
-        public int? PerUnitStorageThroughput => _mPerUnitStorageThroughput.GetValue("perUnitStorageThroughput");
+        private int? _mValue_PerUnitStorageThroughput;
+        private bool _mUnknown_PerUnitStorageThroughput;
+        public int? PerUnitStorageThroughput
+        {
+            get
+            {
+                if (!_mUnknown_PerUnitStorageThroughput) return _mValue_PerUnitStorageThroughput;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.PerUnitStorageThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
         /// </summary>
-        [Input("rootSquashConfiguration")]
+        [PolicyResourceProperty("rootSquashConfiguration", "_mUnknown_RootSquashConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LustreFileSystemRootSquashConfigurationArgs> _mRootSquashConfiguration;
-
-        public Inputs.LustreFileSystemRootSquashConfigurationArgs? RootSquashConfiguration => _mRootSquashConfiguration.GetValue("rootSquashConfiguration");
+        private Inputs.LustreFileSystemRootSquashConfigurationArgs? _mValue_RootSquashConfiguration;
+        private bool _mUnknown_RootSquashConfiguration;
+        public Inputs.LustreFileSystemRootSquashConfigurationArgs? RootSquashConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RootSquashConfiguration) return _mValue_RootSquashConfiguration;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.RootSquashConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `true`.
         /// 
         /// **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
-        [Input("storageCapacity")]
+        [PolicyResourceProperty("storageCapacity", "_mUnknown_StorageCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
-
-        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+        private int? _mValue_StorageCapacity;
+        private bool _mUnknown_StorageCapacity;
+        public int? StorageCapacity
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacity) return _mValue_StorageCapacity;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.StorageCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetIds;
-
-        public string? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private string? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public string? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        [Input("weeklyMaintenanceStartTime")]
+        [PolicyResourceProperty("weeklyMaintenanceStartTime", "_mUnknown_WeeklyMaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
-
-        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+        private string? _mValue_WeeklyMaintenanceStartTime;
+        private bool _mUnknown_WeeklyMaintenanceStartTime;
+        public string? WeeklyMaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceStartTime) return _mValue_WeeklyMaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'LustreFileSystemArgs.WeeklyMaintenanceStartTime' is not present");
+            }
+        }
     }
 }

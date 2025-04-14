@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The ARN of the maintenance window task.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         /// </summary>
-        [Input("cutoffBehavior")]
+        [PolicyResourceProperty("cutoffBehavior", "_mUnknown_CutoffBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCutoffBehavior;
-
-        public string? CutoffBehavior => _mCutoffBehavior.GetValue("cutoffBehavior");
+        private string? _mValue_CutoffBehavior;
+        private bool _mUnknown_CutoffBehavior;
+        public string? CutoffBehavior
+        {
+            get
+            {
+                if (!_mUnknown_CutoffBehavior) return _mValue_CutoffBehavior;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.CutoffBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the maintenance window task.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
         /// </summary>
-        [Input("maxConcurrency")]
+        [PolicyResourceProperty("maxConcurrency", "_mUnknown_MaxConcurrency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxConcurrency;
-
-        public string? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+        private string? _mValue_MaxConcurrency;
+        private bool _mUnknown_MaxConcurrency;
+        public string? MaxConcurrency
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrency) return _mValue_MaxConcurrency;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.MaxConcurrency' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of errors allowed before this task stops being scheduled.
         /// </summary>
-        [Input("maxErrors")]
+        [PolicyResourceProperty("maxErrors", "_mUnknown_MaxErrors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxErrors;
-
-        public string? MaxErrors => _mMaxErrors.GetValue("maxErrors");
+        private string? _mValue_MaxErrors;
+        private bool _mUnknown_MaxErrors;
+        public string? MaxErrors
+        {
+            get
+            {
+                if (!_mUnknown_MaxErrors) return _mValue_MaxErrors;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.MaxErrors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the maintenance window task.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MaintenanceWindowTaskTarget>> _mTargets;
-
-        public List<Outputs.MaintenanceWindowTaskTarget>? Targets => _mTargets.GetValue("targets");
+        private List<Outputs.MaintenanceWindowTaskTarget>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Outputs.MaintenanceWindowTaskTarget>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.Targets' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the task to execute.
         /// </summary>
-        [Input("taskArn")]
+        [PolicyResourceProperty("taskArn", "_mUnknown_TaskArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskArn;
-
-        public string? TaskArn => _mTaskArn.GetValue("taskArn");
+        private string? _mValue_TaskArn;
+        private bool _mUnknown_TaskArn;
+        public string? TaskArn
+        {
+            get
+            {
+                if (!_mUnknown_TaskArn) return _mValue_TaskArn;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.TaskArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with parameters for task execution.
         /// </summary>
-        [Input("taskInvocationParameters")]
+        [PolicyResourceProperty("taskInvocationParameters", "_mUnknown_TaskInvocationParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParameters> _mTaskInvocationParameters;
-
-        public Outputs.MaintenanceWindowTaskTaskInvocationParameters? TaskInvocationParameters => _mTaskInvocationParameters.GetValue("taskInvocationParameters");
+        private Outputs.MaintenanceWindowTaskTaskInvocationParameters? _mValue_TaskInvocationParameters;
+        private bool _mUnknown_TaskInvocationParameters;
+        public Outputs.MaintenanceWindowTaskTaskInvocationParameters? TaskInvocationParameters
+        {
+            get
+            {
+                if (!_mUnknown_TaskInvocationParameters) return _mValue_TaskInvocationParameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.TaskInvocationParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         /// </summary>
-        [Input("taskType")]
+        [PolicyResourceProperty("taskType", "_mUnknown_TaskType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskType;
-
-        public string? TaskType => _mTaskType.GetValue("taskType");
+        private string? _mValue_TaskType;
+        private bool _mUnknown_TaskType;
+        public string? TaskType
+        {
+            get
+            {
+                if (!_mUnknown_TaskType) return _mValue_TaskType;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.TaskType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Id of the maintenance window to register the task with.
         /// </summary>
-        [Input("windowId")]
+        [PolicyResourceProperty("windowId", "_mUnknown_WindowId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
-
-        public string? WindowId => _mWindowId.GetValue("windowId");
+        private string? _mValue_WindowId;
+        private bool _mUnknown_WindowId;
+        public string? WindowId
+        {
+            get
+            {
+                if (!_mUnknown_WindowId) return _mValue_WindowId;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.WindowId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the maintenance window task.
         /// </summary>
-        [Input("windowTaskId")]
+        [PolicyResourceProperty("windowTaskId", "_mUnknown_WindowTaskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWindowTaskId;
-
-        public string? WindowTaskId => _mWindowTaskId.GetValue("windowTaskId");
+        private string? _mValue_WindowTaskId;
+        private bool _mUnknown_WindowTaskId;
+        public string? WindowTaskId
+        {
+            get
+            {
+                if (!_mUnknown_WindowTaskId) return _mValue_WindowTaskId;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTask.WindowTaskId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")]
@@ -146,109 +244,193 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         /// </summary>
-        [Input("cutoffBehavior")]
+        [PolicyResourceProperty("cutoffBehavior", "_mUnknown_CutoffBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCutoffBehavior;
-
-        public string? CutoffBehavior => _mCutoffBehavior.GetValue("cutoffBehavior");
+        private string? _mValue_CutoffBehavior;
+        private bool _mUnknown_CutoffBehavior;
+        public string? CutoffBehavior
+        {
+            get
+            {
+                if (!_mUnknown_CutoffBehavior) return _mValue_CutoffBehavior;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.CutoffBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the maintenance window task.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of targets this task can be run for in parallel.
         /// </summary>
-        [Input("maxConcurrency")]
+        [PolicyResourceProperty("maxConcurrency", "_mUnknown_MaxConcurrency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxConcurrency;
-
-        public string? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+        private string? _mValue_MaxConcurrency;
+        private bool _mUnknown_MaxConcurrency;
+        public string? MaxConcurrency
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrency) return _mValue_MaxConcurrency;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.MaxConcurrency' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of errors allowed before this task stops being scheduled.
         /// </summary>
-        [Input("maxErrors")]
+        [PolicyResourceProperty("maxErrors", "_mUnknown_MaxErrors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxErrors;
-
-        public string? MaxErrors => _mMaxErrors.GetValue("maxErrors");
+        private string? _mValue_MaxErrors;
+        private bool _mUnknown_MaxErrors;
+        public string? MaxErrors
+        {
+            get
+            {
+                if (!_mUnknown_MaxErrors) return _mValue_MaxErrors;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.MaxErrors' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the maintenance window task.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MaintenanceWindowTaskTargetArgs>> _mTargets;
-
-        public List<Inputs.MaintenanceWindowTaskTargetArgs>? Targets => _mTargets.GetValue("targets");
+        private List<Inputs.MaintenanceWindowTaskTargetArgs>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Inputs.MaintenanceWindowTaskTargetArgs>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.Targets' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the task to execute.
         /// </summary>
-        [Input("taskArn")]
+        [PolicyResourceProperty("taskArn", "_mUnknown_TaskArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskArn;
-
-        public string? TaskArn => _mTaskArn.GetValue("taskArn");
+        private string? _mValue_TaskArn;
+        private bool _mUnknown_TaskArn;
+        public string? TaskArn
+        {
+            get
+            {
+                if (!_mUnknown_TaskArn) return _mValue_TaskArn;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.TaskArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with parameters for task execution.
         /// </summary>
-        [Input("taskInvocationParameters")]
+        [PolicyResourceProperty("taskInvocationParameters", "_mUnknown_TaskInvocationParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs> _mTaskInvocationParameters;
-
-        public Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs? TaskInvocationParameters => _mTaskInvocationParameters.GetValue("taskInvocationParameters");
+        private Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs? _mValue_TaskInvocationParameters;
+        private bool _mUnknown_TaskInvocationParameters;
+        public Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs? TaskInvocationParameters
+        {
+            get
+            {
+                if (!_mUnknown_TaskInvocationParameters) return _mValue_TaskInvocationParameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.TaskInvocationParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         /// </summary>
-        [Input("taskType")]
+        [PolicyResourceProperty("taskType", "_mUnknown_TaskType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskType;
-
-        public string? TaskType => _mTaskType.GetValue("taskType");
+        private string? _mValue_TaskType;
+        private bool _mUnknown_TaskType;
+        public string? TaskType
+        {
+            get
+            {
+                if (!_mUnknown_TaskType) return _mValue_TaskType;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.TaskType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Id of the maintenance window to register the task with.
         /// </summary>
-        [Input("windowId")]
+        [PolicyResourceProperty("windowId", "_mUnknown_WindowId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWindowId;
-
-        public string? WindowId => _mWindowId.GetValue("windowId");
+        private string? _mValue_WindowId;
+        private bool _mUnknown_WindowId;
+        public string? WindowId
+        {
+            get
+            {
+                if (!_mUnknown_WindowId) return _mValue_WindowId;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskArgs.WindowId' is not present");
+            }
+        }
     }
 }

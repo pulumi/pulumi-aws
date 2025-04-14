@@ -16,146 +16,258 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// ARN of the certificate authority.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing algorithms and certificate subject information. Defined below.
         /// </summary>
-        [Input("certificateAuthorityConfiguration")]
+        [PolicyResourceProperty("certificateAuthorityConfiguration", "_mUnknown_CertificateAuthorityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateAuthorityCertificateAuthorityConfiguration> _mCertificateAuthorityConfiguration;
-
-        public Outputs.CertificateAuthorityCertificateAuthorityConfiguration? CertificateAuthorityConfiguration => _mCertificateAuthorityConfiguration.GetValue("certificateAuthorityConfiguration");
+        private Outputs.CertificateAuthorityCertificateAuthorityConfiguration? _mValue_CertificateAuthorityConfiguration;
+        private bool _mUnknown_CertificateAuthorityConfiguration;
+        public Outputs.CertificateAuthorityCertificateAuthorityConfiguration? CertificateAuthorityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityConfiguration) return _mValue_CertificateAuthorityConfiguration;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.CertificateAuthorityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
         /// </summary>
-        [Input("certificateSigningRequest")]
+        [PolicyResourceProperty("certificateSigningRequest", "_mUnknown_CertificateSigningRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateSigningRequest;
-
-        public string? CertificateSigningRequest => _mCertificateSigningRequest.GetValue("certificateSigningRequest");
+        private string? _mValue_CertificateSigningRequest;
+        private bool _mUnknown_CertificateSigningRequest;
+        public string? CertificateSigningRequest
+        {
+            get
+            {
+                if (!_mUnknown_CertificateSigningRequest) return _mValue_CertificateSigningRequest;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.CertificateSigningRequest' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         /// </summary>
-        [Input("keyStorageSecurityStandard")]
+        [PolicyResourceProperty("keyStorageSecurityStandard", "_mUnknown_KeyStorageSecurityStandard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyStorageSecurityStandard;
-
-        public string? KeyStorageSecurityStandard => _mKeyStorageSecurityStandard.GetValue("keyStorageSecurityStandard");
+        private string? _mValue_KeyStorageSecurityStandard;
+        private bool _mUnknown_KeyStorageSecurityStandard;
+        public string? KeyStorageSecurityStandard
+        {
+            get
+            {
+                if (!_mUnknown_KeyStorageSecurityStandard) return _mValue_KeyStorageSecurityStandard;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.KeyStorageSecurityStandard' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        [Input("notAfter")]
+        [PolicyResourceProperty("notAfter", "_mUnknown_NotAfter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotAfter;
-
-        public string? NotAfter => _mNotAfter.GetValue("notAfter");
+        private string? _mValue_NotAfter;
+        private bool _mUnknown_NotAfter;
+        public string? NotAfter
+        {
+            get
+            {
+                if (!_mUnknown_NotAfter) return _mValue_NotAfter;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.NotAfter' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        [Input("notBefore")]
+        [PolicyResourceProperty("notBefore", "_mUnknown_NotBefore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotBefore;
-
-        public string? NotBefore => _mNotBefore.GetValue("notBefore");
+        private string? _mValue_NotBefore;
+        private bool _mUnknown_NotBefore;
+        public string? NotBefore
+        {
+            get
+            {
+                if (!_mUnknown_NotBefore) return _mValue_NotBefore;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.NotBefore' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         /// </summary>
-        [Input("permanentDeletionTimeInDays")]
+        [PolicyResourceProperty("permanentDeletionTimeInDays", "_mUnknown_PermanentDeletionTimeInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPermanentDeletionTimeInDays;
-
-        public int? PermanentDeletionTimeInDays => _mPermanentDeletionTimeInDays.GetValue("permanentDeletionTimeInDays");
+        private int? _mValue_PermanentDeletionTimeInDays;
+        private bool _mUnknown_PermanentDeletionTimeInDays;
+        public int? PermanentDeletionTimeInDays
+        {
+            get
+            {
+                if (!_mUnknown_PermanentDeletionTimeInDays) return _mValue_PermanentDeletionTimeInDays;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.PermanentDeletionTimeInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing revocation configuration. Defined below.
         /// </summary>
-        [Input("revocationConfiguration")]
+        [PolicyResourceProperty("revocationConfiguration", "_mUnknown_RevocationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateAuthorityRevocationConfiguration> _mRevocationConfiguration;
-
-        public Outputs.CertificateAuthorityRevocationConfiguration? RevocationConfiguration => _mRevocationConfiguration.GetValue("revocationConfiguration");
+        private Outputs.CertificateAuthorityRevocationConfiguration? _mValue_RevocationConfiguration;
+        private bool _mUnknown_RevocationConfiguration;
+        public Outputs.CertificateAuthorityRevocationConfiguration? RevocationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RevocationConfiguration) return _mValue_RevocationConfiguration;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.RevocationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
         /// </summary>
-        [Input("serial")]
+        [PolicyResourceProperty("serial", "_mUnknown_Serial")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSerial;
-
-        public string? Serial => _mSerial.GetValue("serial");
+        private string? _mValue_Serial;
+        private bool _mUnknown_Serial;
+        public string? Serial
+        {
+            get
+            {
+                if (!_mUnknown_Serial) return _mValue_Serial;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.Serial' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         /// </summary>
-        [Input("usageMode")]
+        [PolicyResourceProperty("usageMode", "_mUnknown_UsageMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsageMode;
-
-        public string? UsageMode => _mUsageMode.GetValue("usageMode");
+        private string? _mValue_UsageMode;
+        private bool _mUnknown_UsageMode;
+        public string? UsageMode
+        {
+            get
+            {
+                if (!_mUnknown_UsageMode) return _mValue_UsageMode;
+                throw new UndeferrableValueException("Value 'CertificateAuthority.UsageMode' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:acmpca/certificateAuthority:CertificateAuthority")]
@@ -164,73 +276,129 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// Nested argument containing algorithms and certificate subject information. Defined below.
         /// </summary>
-        [Input("certificateAuthorityConfiguration")]
+        [PolicyResourceProperty("certificateAuthorityConfiguration", "_mUnknown_CertificateAuthorityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs> _mCertificateAuthorityConfiguration;
-
-        public Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs? CertificateAuthorityConfiguration => _mCertificateAuthorityConfiguration.GetValue("certificateAuthorityConfiguration");
+        private Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs? _mValue_CertificateAuthorityConfiguration;
+        private bool _mUnknown_CertificateAuthorityConfiguration;
+        public Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs? CertificateAuthorityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityConfiguration) return _mValue_CertificateAuthorityConfiguration;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.CertificateAuthorityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
         /// </summary>
-        [Input("keyStorageSecurityStandard")]
+        [PolicyResourceProperty("keyStorageSecurityStandard", "_mUnknown_KeyStorageSecurityStandard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyStorageSecurityStandard;
-
-        public string? KeyStorageSecurityStandard => _mKeyStorageSecurityStandard.GetValue("keyStorageSecurityStandard");
+        private string? _mValue_KeyStorageSecurityStandard;
+        private bool _mUnknown_KeyStorageSecurityStandard;
+        public string? KeyStorageSecurityStandard
+        {
+            get
+            {
+                if (!_mUnknown_KeyStorageSecurityStandard) return _mValue_KeyStorageSecurityStandard;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.KeyStorageSecurityStandard' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         /// </summary>
-        [Input("permanentDeletionTimeInDays")]
+        [PolicyResourceProperty("permanentDeletionTimeInDays", "_mUnknown_PermanentDeletionTimeInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPermanentDeletionTimeInDays;
-
-        public int? PermanentDeletionTimeInDays => _mPermanentDeletionTimeInDays.GetValue("permanentDeletionTimeInDays");
+        private int? _mValue_PermanentDeletionTimeInDays;
+        private bool _mUnknown_PermanentDeletionTimeInDays;
+        public int? PermanentDeletionTimeInDays
+        {
+            get
+            {
+                if (!_mUnknown_PermanentDeletionTimeInDays) return _mValue_PermanentDeletionTimeInDays;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.PermanentDeletionTimeInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing revocation configuration. Defined below.
         /// </summary>
-        [Input("revocationConfiguration")]
+        [PolicyResourceProperty("revocationConfiguration", "_mUnknown_RevocationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateAuthorityRevocationConfigurationArgs> _mRevocationConfiguration;
-
-        public Inputs.CertificateAuthorityRevocationConfigurationArgs? RevocationConfiguration => _mRevocationConfiguration.GetValue("revocationConfiguration");
+        private Inputs.CertificateAuthorityRevocationConfigurationArgs? _mValue_RevocationConfiguration;
+        private bool _mUnknown_RevocationConfiguration;
+        public Inputs.CertificateAuthorityRevocationConfigurationArgs? RevocationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RevocationConfiguration) return _mValue_RevocationConfiguration;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.RevocationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
         /// </summary>
-        [Input("usageMode")]
+        [PolicyResourceProperty("usageMode", "_mUnknown_UsageMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsageMode;
-
-        public string? UsageMode => _mUsageMode.GetValue("usageMode");
+        private string? _mValue_UsageMode;
+        private bool _mUnknown_UsageMode;
+        public string? UsageMode
+        {
+            get
+            {
+                if (!_mUnknown_UsageMode) return _mValue_UsageMode;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.UsageMode' is not present");
+            }
+        }
     }
 }

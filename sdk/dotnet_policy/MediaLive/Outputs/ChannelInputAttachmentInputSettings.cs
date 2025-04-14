@@ -15,97 +15,174 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
         /// </summary>
-        [Input("audioSelectors")]
+        [PolicyResourceProperty("audioSelectors", "_mUnknown_AudioSelectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelInputAttachmentInputSettingsAudioSelector>> _mAudioSelectors;
-
-        public List<Outputs.ChannelInputAttachmentInputSettingsAudioSelector>? AudioSelectors => _mAudioSelectors.GetValue("audioSelectors");
+        private List<Outputs.ChannelInputAttachmentInputSettingsAudioSelector>? _mValue_AudioSelectors;
+        private bool _mUnknown_AudioSelectors;
+        public List<Outputs.ChannelInputAttachmentInputSettingsAudioSelector>? AudioSelectors
+        {
+            get
+            {
+                if (!_mUnknown_AudioSelectors) return _mValue_AudioSelectors;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.AudioSelectors' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
         /// </summary>
-        [Input("captionSelectors")]
+        [PolicyResourceProperty("captionSelectors", "_mUnknown_CaptionSelectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelInputAttachmentInputSettingsCaptionSelector>> _mCaptionSelectors;
-
-        public List<Outputs.ChannelInputAttachmentInputSettingsCaptionSelector>? CaptionSelectors => _mCaptionSelectors.GetValue("captionSelectors");
+        private List<Outputs.ChannelInputAttachmentInputSettingsCaptionSelector>? _mValue_CaptionSelectors;
+        private bool _mUnknown_CaptionSelectors;
+        public List<Outputs.ChannelInputAttachmentInputSettingsCaptionSelector>? CaptionSelectors
+        {
+            get
+            {
+                if (!_mUnknown_CaptionSelectors) return _mValue_CaptionSelectors;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.CaptionSelectors' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable or disable the deblock filter when filtering.
         /// </summary>
-        [Input("deblockFilter")]
+        [PolicyResourceProperty("deblockFilter", "_mUnknown_DeblockFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeblockFilter;
-
-        public string? DeblockFilter => _mDeblockFilter.GetValue("deblockFilter");
+        private string? _mValue_DeblockFilter;
+        private bool _mUnknown_DeblockFilter;
+        public string? DeblockFilter
+        {
+            get
+            {
+                if (!_mUnknown_DeblockFilter) return _mValue_DeblockFilter;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.DeblockFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable or disable the denoise filter when filtering.
         /// </summary>
-        [Input("denoiseFilter")]
+        [PolicyResourceProperty("denoiseFilter", "_mUnknown_DenoiseFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDenoiseFilter;
-
-        public string? DenoiseFilter => _mDenoiseFilter.GetValue("denoiseFilter");
+        private string? _mValue_DenoiseFilter;
+        private bool _mUnknown_DenoiseFilter;
+        public string? DenoiseFilter
+        {
+            get
+            {
+                if (!_mUnknown_DenoiseFilter) return _mValue_DenoiseFilter;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.DenoiseFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
         /// </summary>
-        [Input("filterStrength")]
+        [PolicyResourceProperty("filterStrength", "_mUnknown_FilterStrength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFilterStrength;
-
-        public int? FilterStrength => _mFilterStrength.GetValue("filterStrength");
+        private int? _mValue_FilterStrength;
+        private bool _mUnknown_FilterStrength;
+        public int? FilterStrength
+        {
+            get
+            {
+                if (!_mUnknown_FilterStrength) return _mValue_FilterStrength;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.FilterStrength' is not present");
+            }
+        }
 
         /// <summary>
         /// Turns on the filter for the input.
         /// </summary>
-        [Input("inputFilter")]
+        [PolicyResourceProperty("inputFilter", "_mUnknown_InputFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputFilter;
-
-        public string? InputFilter => _mInputFilter.GetValue("inputFilter");
+        private string? _mValue_InputFilter;
+        private bool _mUnknown_InputFilter;
+        public string? InputFilter
+        {
+            get
+            {
+                if (!_mUnknown_InputFilter) return _mValue_InputFilter;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.InputFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Input settings. See Network Input Settings for more details.
         /// </summary>
-        [Input("networkInputSettings")]
+        [PolicyResourceProperty("networkInputSettings", "_mUnknown_NetworkInputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings> _mNetworkInputSettings;
-
-        public Outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings? NetworkInputSettings => _mNetworkInputSettings.GetValue("networkInputSettings");
+        private Outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings? _mValue_NetworkInputSettings;
+        private bool _mUnknown_NetworkInputSettings;
+        public Outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings? NetworkInputSettings
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInputSettings) return _mValue_NetworkInputSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.NetworkInputSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// PID from which to read SCTE-35 messages.
         /// </summary>
-        [Input("scte35Pid")]
+        [PolicyResourceProperty("scte35Pid", "_mUnknown_Scte35Pid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScte35Pid;
-
-        public int? Scte35Pid => _mScte35Pid.GetValue("scte35Pid");
+        private int? _mValue_Scte35Pid;
+        private bool _mUnknown_Scte35Pid;
+        public int? Scte35Pid
+        {
+            get
+            {
+                if (!_mUnknown_Scte35Pid) return _mValue_Scte35Pid;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.Scte35Pid' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
         /// </summary>
-        [Input("smpte2038DataPreference")]
+        [PolicyResourceProperty("smpte2038DataPreference", "_mUnknown_Smpte2038DataPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmpte2038DataPreference;
-
-        public string? Smpte2038DataPreference => _mSmpte2038DataPreference.GetValue("smpte2038DataPreference");
+        private string? _mValue_Smpte2038DataPreference;
+        private bool _mUnknown_Smpte2038DataPreference;
+        public string? Smpte2038DataPreference
+        {
+            get
+            {
+                if (!_mUnknown_Smpte2038DataPreference) return _mValue_Smpte2038DataPreference;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.Smpte2038DataPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// Loop input if it is a file.
         /// </summary>
-        [Input("sourceEndBehavior")]
+        [PolicyResourceProperty("sourceEndBehavior", "_mUnknown_SourceEndBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceEndBehavior;
+        private string? _mValue_SourceEndBehavior;
+        private bool _mUnknown_SourceEndBehavior;
+        public string? SourceEndBehavior
+        {
+            get
+            {
+                if (!_mUnknown_SourceEndBehavior) return _mValue_SourceEndBehavior;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.SourceEndBehavior' is not present");
+            }
+        }
 
-        public string? SourceEndBehavior => _mSourceEndBehavior.GetValue("sourceEndBehavior");
-
-        [Input("videoSelector")]
+        [PolicyResourceProperty("videoSelector", "_mUnknown_VideoSelector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsVideoSelector> _mVideoSelector;
-
-        public Outputs.ChannelInputAttachmentInputSettingsVideoSelector? VideoSelector => _mVideoSelector.GetValue("videoSelector");
+        private Outputs.ChannelInputAttachmentInputSettingsVideoSelector? _mValue_VideoSelector;
+        private bool _mUnknown_VideoSelector;
+        public Outputs.ChannelInputAttachmentInputSettingsVideoSelector? VideoSelector
+        {
+            get
+            {
+                if (!_mUnknown_VideoSelector) return _mValue_VideoSelector;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettings.VideoSelector' is not present");
+            }
+        }
     }
 }

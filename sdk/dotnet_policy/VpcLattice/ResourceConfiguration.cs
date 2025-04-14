@@ -16,109 +16,193 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// Allow or Deny the association of this resource to a shareable service network.
         /// </summary>
-        [Input("allowAssociationToShareableServiceNetwork")]
+        [PolicyResourceProperty("allowAssociationToShareableServiceNetwork", "_mUnknown_AllowAssociationToShareableServiceNetwork")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAssociationToShareableServiceNetwork;
-
-        public bool? AllowAssociationToShareableServiceNetwork => _mAllowAssociationToShareableServiceNetwork.GetValue("allowAssociationToShareableServiceNetwork");
+        private bool? _mValue_AllowAssociationToShareableServiceNetwork;
+        private bool _mUnknown_AllowAssociationToShareableServiceNetwork;
+        public bool? AllowAssociationToShareableServiceNetwork
+        {
+            get
+            {
+                if (!_mUnknown_AllowAssociationToShareableServiceNetwork) return _mValue_AllowAssociationToShareableServiceNetwork;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.AllowAssociationToShareableServiceNetwork' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource gateway.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the Resource Configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Port ranges to access the Resource either single port `80` or range `80-81` range.
         /// </summary>
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPortRanges;
-
-        public List<string>? PortRanges => _mPortRanges.GetValue("portRanges");
+        private List<string>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<string>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.PortRanges' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceConfigurationDefinition")]
+        [PolicyResourceProperty("resourceConfigurationDefinition", "_mUnknown_ResourceConfigurationDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceConfigurationResourceConfigurationDefinition> _mResourceConfigurationDefinition;
-
-        public Outputs.ResourceConfigurationResourceConfigurationDefinition? ResourceConfigurationDefinition => _mResourceConfigurationDefinition.GetValue("resourceConfigurationDefinition");
+        private Outputs.ResourceConfigurationResourceConfigurationDefinition? _mValue_ResourceConfigurationDefinition;
+        private bool _mUnknown_ResourceConfigurationDefinition;
+        public Outputs.ResourceConfigurationResourceConfigurationDefinition? ResourceConfigurationDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ResourceConfigurationDefinition) return _mValue_ResourceConfigurationDefinition;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.ResourceConfigurationDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of Resource Configuration where `type` is `CHILD`.
         /// </summary>
-        [Input("resourceConfigurationGroupId")]
+        [PolicyResourceProperty("resourceConfigurationGroupId", "_mUnknown_ResourceConfigurationGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationGroupId;
-
-        public string? ResourceConfigurationGroupId => _mResourceConfigurationGroupId.GetValue("resourceConfigurationGroupId");
+        private string? _mValue_ResourceConfigurationGroupId;
+        private bool _mUnknown_ResourceConfigurationGroupId;
+        public string? ResourceConfigurationGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceConfigurationGroupId) return _mValue_ResourceConfigurationGroupId;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.ResourceConfigurationGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
         /// </summary>
-        [Input("resourceGatewayIdentifier")]
+        [PolicyResourceProperty("resourceGatewayIdentifier", "_mUnknown_ResourceGatewayIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGatewayIdentifier;
-
-        public string? ResourceGatewayIdentifier => _mResourceGatewayIdentifier.GetValue("resourceGatewayIdentifier");
+        private string? _mValue_ResourceGatewayIdentifier;
+        private bool _mUnknown_ResourceGatewayIdentifier;
+        public string? ResourceGatewayIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceGatewayIdentifier) return _mValue_ResourceGatewayIdentifier;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.ResourceGatewayIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceConfigurationTimeouts> _mTimeouts;
-
-        public Outputs.ResourceConfigurationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ResourceConfigurationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ResourceConfigurationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ResourceConfiguration.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/resourceConfiguration:ResourceConfiguration")]
@@ -127,90 +211,160 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// Allow or Deny the association of this resource to a shareable service network.
         /// </summary>
-        [Input("allowAssociationToShareableServiceNetwork")]
+        [PolicyResourceProperty("allowAssociationToShareableServiceNetwork", "_mUnknown_AllowAssociationToShareableServiceNetwork")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAssociationToShareableServiceNetwork;
-
-        public bool? AllowAssociationToShareableServiceNetwork => _mAllowAssociationToShareableServiceNetwork.GetValue("allowAssociationToShareableServiceNetwork");
+        private bool? _mValue_AllowAssociationToShareableServiceNetwork;
+        private bool _mUnknown_AllowAssociationToShareableServiceNetwork;
+        public bool? AllowAssociationToShareableServiceNetwork
+        {
+            get
+            {
+                if (!_mUnknown_AllowAssociationToShareableServiceNetwork) return _mValue_AllowAssociationToShareableServiceNetwork;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.AllowAssociationToShareableServiceNetwork' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the Resource Configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Port ranges to access the Resource either single port `80` or range `80-81` range.
         /// </summary>
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPortRanges;
-
-        public List<string>? PortRanges => _mPortRanges.GetValue("portRanges");
+        private List<string>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<string>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.PortRanges' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the Resource Configuration. See `resource_configuration_definition` Block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceConfigurationDefinition")]
+        [PolicyResourceProperty("resourceConfigurationDefinition", "_mUnknown_ResourceConfigurationDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs> _mResourceConfigurationDefinition;
-
-        public Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs? ResourceConfigurationDefinition => _mResourceConfigurationDefinition.GetValue("resourceConfigurationDefinition");
+        private Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs? _mValue_ResourceConfigurationDefinition;
+        private bool _mUnknown_ResourceConfigurationDefinition;
+        public Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs? ResourceConfigurationDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ResourceConfigurationDefinition) return _mValue_ResourceConfigurationDefinition;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.ResourceConfigurationDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of Resource Configuration where `type` is `CHILD`.
         /// </summary>
-        [Input("resourceConfigurationGroupId")]
+        [PolicyResourceProperty("resourceConfigurationGroupId", "_mUnknown_ResourceConfigurationGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationGroupId;
-
-        public string? ResourceConfigurationGroupId => _mResourceConfigurationGroupId.GetValue("resourceConfigurationGroupId");
+        private string? _mValue_ResourceConfigurationGroupId;
+        private bool _mUnknown_ResourceConfigurationGroupId;
+        public string? ResourceConfigurationGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceConfigurationGroupId) return _mValue_ResourceConfigurationGroupId;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.ResourceConfigurationGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
         /// </summary>
-        [Input("resourceGatewayIdentifier")]
+        [PolicyResourceProperty("resourceGatewayIdentifier", "_mUnknown_ResourceGatewayIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGatewayIdentifier;
-
-        public string? ResourceGatewayIdentifier => _mResourceGatewayIdentifier.GetValue("resourceGatewayIdentifier");
+        private string? _mValue_ResourceGatewayIdentifier;
+        private bool _mUnknown_ResourceGatewayIdentifier;
+        public string? ResourceGatewayIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ResourceGatewayIdentifier) return _mValue_ResourceGatewayIdentifier;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.ResourceGatewayIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResourceConfigurationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ResourceConfigurationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ResourceConfigurationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ResourceConfigurationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.Type' is not present");
+            }
+        }
     }
 }

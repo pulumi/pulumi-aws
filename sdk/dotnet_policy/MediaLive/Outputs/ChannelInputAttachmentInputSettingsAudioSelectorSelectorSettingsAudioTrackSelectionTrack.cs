@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// 1-based integer value that maps to a specific audio track.
         /// </summary>
-        [Input("track")]
+        [PolicyResourceProperty("track", "_mUnknown_Track")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTrack;
-
-        public int? Track => _mTrack.GetValue("track");
+        private int? _mValue_Track;
+        private bool _mUnknown_Track;
+        public int? Track
+        {
+            get
+            {
+                if (!_mUnknown_Track) return _mValue_Track;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack.Track' is not present");
+            }
+        }
     }
 }

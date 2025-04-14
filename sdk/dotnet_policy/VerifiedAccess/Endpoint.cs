@@ -16,166 +16,299 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
-        [Input("applicationDomain")]
+        [PolicyResourceProperty("applicationDomain", "_mUnknown_ApplicationDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationDomain;
-
-        public string? ApplicationDomain => _mApplicationDomain.GetValue("applicationDomain");
+        private string? _mValue_ApplicationDomain;
+        private bool _mUnknown_ApplicationDomain;
+        public string? ApplicationDomain
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationDomain) return _mValue_ApplicationDomain;
+                throw new UndeferrableValueException("Value 'Endpoint.ApplicationDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of attachment. Currently, only `vpc` is supported.
         /// </summary>
-        [Input("attachmentType")]
+        [PolicyResourceProperty("attachmentType", "_mUnknown_AttachmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
-
-        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
+        private string? _mValue_AttachmentType;
+        private bool _mUnknown_AttachmentType;
+        public string? AttachmentType
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentType) return _mValue_AttachmentType;
+                throw new UndeferrableValueException("Value 'Endpoint.AttachmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         /// </summary>
-        [Input("cidrOptions")]
+        [PolicyResourceProperty("cidrOptions", "_mUnknown_CidrOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointCidrOptions> _mCidrOptions;
-
-        public Outputs.EndpointCidrOptions? CidrOptions => _mCidrOptions.GetValue("cidrOptions");
+        private Outputs.EndpointCidrOptions? _mValue_CidrOptions;
+        private bool _mUnknown_CidrOptions;
+        public Outputs.EndpointCidrOptions? CidrOptions
+        {
+            get
+            {
+                if (!_mUnknown_CidrOptions) return _mValue_CidrOptions;
+                throw new UndeferrableValueException("Value 'Endpoint.CidrOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the Verified Access endpoint.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Endpoint.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Returned if endpoint has a device trust provider attached.
         /// </summary>
-        [Input("deviceValidationDomain")]
+        [PolicyResourceProperty("deviceValidationDomain", "_mUnknown_DeviceValidationDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceValidationDomain;
-
-        public string? DeviceValidationDomain => _mDeviceValidationDomain.GetValue("deviceValidationDomain");
+        private string? _mValue_DeviceValidationDomain;
+        private bool _mUnknown_DeviceValidationDomain;
+        public string? DeviceValidationDomain
+        {
+            get
+            {
+                if (!_mUnknown_DeviceValidationDomain) return _mValue_DeviceValidationDomain;
+                throw new UndeferrableValueException("Value 'Endpoint.DeviceValidationDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
-        [Input("domainCertificateArn")]
+        [PolicyResourceProperty("domainCertificateArn", "_mUnknown_DomainCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainCertificateArn;
-
-        public string? DomainCertificateArn => _mDomainCertificateArn.GetValue("domainCertificateArn");
+        private string? _mValue_DomainCertificateArn;
+        private bool _mUnknown_DomainCertificateArn;
+        public string? DomainCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_DomainCertificateArn) return _mValue_DomainCertificateArn;
+                throw new UndeferrableValueException("Value 'Endpoint.DomainCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A DNS name that is generated for the endpoint.
         /// </summary>
-        [Input("endpointDomain")]
+        [PolicyResourceProperty("endpointDomain", "_mUnknown_EndpointDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointDomain;
-
-        public string? EndpointDomain => _mEndpointDomain.GetValue("endpointDomain");
+        private string? _mValue_EndpointDomain;
+        private bool _mUnknown_EndpointDomain;
+        public string? EndpointDomain
+        {
+            get
+            {
+                if (!_mUnknown_EndpointDomain) return _mValue_EndpointDomain;
+                throw new UndeferrableValueException("Value 'Endpoint.EndpointDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         /// </summary>
-        [Input("endpointDomainPrefix")]
+        [PolicyResourceProperty("endpointDomainPrefix", "_mUnknown_EndpointDomainPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointDomainPrefix;
-
-        public string? EndpointDomainPrefix => _mEndpointDomainPrefix.GetValue("endpointDomainPrefix");
+        private string? _mValue_EndpointDomainPrefix;
+        private bool _mUnknown_EndpointDomainPrefix;
+        public string? EndpointDomainPrefix
+        {
+            get
+            {
+                if (!_mUnknown_EndpointDomainPrefix) return _mValue_EndpointDomainPrefix;
+                throw new UndeferrableValueException("Value 'Endpoint.EndpointDomainPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'Endpoint.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         /// </summary>
-        [Input("loadBalancerOptions")]
+        [PolicyResourceProperty("loadBalancerOptions", "_mUnknown_LoadBalancerOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointLoadBalancerOptions> _mLoadBalancerOptions;
-
-        public Outputs.EndpointLoadBalancerOptions? LoadBalancerOptions => _mLoadBalancerOptions.GetValue("loadBalancerOptions");
+        private Outputs.EndpointLoadBalancerOptions? _mValue_LoadBalancerOptions;
+        private bool _mUnknown_LoadBalancerOptions;
+        public Outputs.EndpointLoadBalancerOptions? LoadBalancerOptions
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerOptions) return _mValue_LoadBalancerOptions;
+                throw new UndeferrableValueException("Value 'Endpoint.LoadBalancerOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The network interface details. This parameter is required if the endpoint type is `network-interface`.
         /// </summary>
-        [Input("networkInterfaceOptions")]
+        [PolicyResourceProperty("networkInterfaceOptions", "_mUnknown_NetworkInterfaceOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointNetworkInterfaceOptions> _mNetworkInterfaceOptions;
-
-        public Outputs.EndpointNetworkInterfaceOptions? NetworkInterfaceOptions => _mNetworkInterfaceOptions.GetValue("networkInterfaceOptions");
+        private Outputs.EndpointNetworkInterfaceOptions? _mValue_NetworkInterfaceOptions;
+        private bool _mUnknown_NetworkInterfaceOptions;
+        public Outputs.EndpointNetworkInterfaceOptions? NetworkInterfaceOptions
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceOptions) return _mValue_NetworkInterfaceOptions;
+                throw new UndeferrableValueException("Value 'Endpoint.NetworkInterfaceOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document that is associated with this resource.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'Endpoint.PolicyDocument' is not present");
+            }
+        }
 
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
-
-        [Input("rdsOptions")]
+        [PolicyResourceProperty("rdsOptions", "_mUnknown_RdsOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointRdsOptions> _mRdsOptions;
-
-        public Outputs.EndpointRdsOptions? RdsOptions => _mRdsOptions.GetValue("rdsOptions");
+        private Outputs.EndpointRdsOptions? _mValue_RdsOptions;
+        private bool _mUnknown_RdsOptions;
+        public Outputs.EndpointRdsOptions? RdsOptions
+        {
+            get
+            {
+                if (!_mUnknown_RdsOptions) return _mValue_RdsOptions;
+                throw new UndeferrableValueException("Value 'Endpoint.RdsOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the the security groups IDs to associate with the Verified Access endpoint.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Endpoint.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The options in use for server side encryption.
         /// </summary>
-        [Input("sseSpecification")]
+        [PolicyResourceProperty("sseSpecification", "_mUnknown_SseSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointSseSpecification> _mSseSpecification;
-
-        public Outputs.EndpointSseSpecification? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
+        private Outputs.EndpointSseSpecification? _mValue_SseSpecification;
+        private bool _mUnknown_SseSpecification;
+        public Outputs.EndpointSseSpecification? SseSpecification
+        {
+            get
+            {
+                if (!_mUnknown_SseSpecification) return _mValue_SseSpecification;
+                throw new UndeferrableValueException("Value 'Endpoint.SseSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Endpoint.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Endpoint.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Verified Access group to associate the endpoint with.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("verifiedAccessGroupId")]
+        [PolicyResourceProperty("verifiedAccessGroupId", "_mUnknown_VerifiedAccessGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedAccessGroupId;
+        private string? _mValue_VerifiedAccessGroupId;
+        private bool _mUnknown_VerifiedAccessGroupId;
+        public string? VerifiedAccessGroupId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedAccessGroupId) return _mValue_VerifiedAccessGroupId;
+                throw new UndeferrableValueException("Value 'Endpoint.VerifiedAccessGroupId' is not present");
+            }
+        }
 
-        public string? VerifiedAccessGroupId => _mVerifiedAccessGroupId.GetValue("verifiedAccessGroupId");
-
-        [Input("verifiedAccessInstanceId")]
+        [PolicyResourceProperty("verifiedAccessInstanceId", "_mUnknown_VerifiedAccessInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedAccessInstanceId;
-
-        public string? VerifiedAccessInstanceId => _mVerifiedAccessInstanceId.GetValue("verifiedAccessInstanceId");
+        private string? _mValue_VerifiedAccessInstanceId;
+        private bool _mUnknown_VerifiedAccessInstanceId;
+        public string? VerifiedAccessInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedAccessInstanceId) return _mValue_VerifiedAccessInstanceId;
+                throw new UndeferrableValueException("Value 'Endpoint.VerifiedAccessInstanceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedaccess/endpoint:Endpoint")]
@@ -184,135 +317,240 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
-        [Input("applicationDomain")]
+        [PolicyResourceProperty("applicationDomain", "_mUnknown_ApplicationDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationDomain;
-
-        public string? ApplicationDomain => _mApplicationDomain.GetValue("applicationDomain");
+        private string? _mValue_ApplicationDomain;
+        private bool _mUnknown_ApplicationDomain;
+        public string? ApplicationDomain
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationDomain) return _mValue_ApplicationDomain;
+                throw new UndeferrableValueException("Value 'EndpointArgs.ApplicationDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of attachment. Currently, only `vpc` is supported.
         /// </summary>
-        [Input("attachmentType")]
+        [PolicyResourceProperty("attachmentType", "_mUnknown_AttachmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
-
-        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
+        private string? _mValue_AttachmentType;
+        private bool _mUnknown_AttachmentType;
+        public string? AttachmentType
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentType) return _mValue_AttachmentType;
+                throw new UndeferrableValueException("Value 'EndpointArgs.AttachmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block details. This parameter is required if the endpoint type is `cidr`.
         /// </summary>
-        [Input("cidrOptions")]
+        [PolicyResourceProperty("cidrOptions", "_mUnknown_CidrOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointCidrOptionsArgs> _mCidrOptions;
-
-        public Inputs.EndpointCidrOptionsArgs? CidrOptions => _mCidrOptions.GetValue("cidrOptions");
+        private Inputs.EndpointCidrOptionsArgs? _mValue_CidrOptions;
+        private bool _mUnknown_CidrOptions;
+        public Inputs.EndpointCidrOptionsArgs? CidrOptions
+        {
+            get
+            {
+                if (!_mUnknown_CidrOptions) return _mValue_CidrOptions;
+                throw new UndeferrableValueException("Value 'EndpointArgs.CidrOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the Verified Access endpoint.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EndpointArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
         /// </summary>
-        [Input("domainCertificateArn")]
+        [PolicyResourceProperty("domainCertificateArn", "_mUnknown_DomainCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainCertificateArn;
-
-        public string? DomainCertificateArn => _mDomainCertificateArn.GetValue("domainCertificateArn");
+        private string? _mValue_DomainCertificateArn;
+        private bool _mUnknown_DomainCertificateArn;
+        public string? DomainCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_DomainCertificateArn) return _mValue_DomainCertificateArn;
+                throw new UndeferrableValueException("Value 'EndpointArgs.DomainCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         /// </summary>
-        [Input("endpointDomainPrefix")]
+        [PolicyResourceProperty("endpointDomainPrefix", "_mUnknown_EndpointDomainPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointDomainPrefix;
-
-        public string? EndpointDomainPrefix => _mEndpointDomainPrefix.GetValue("endpointDomainPrefix");
+        private string? _mValue_EndpointDomainPrefix;
+        private bool _mUnknown_EndpointDomainPrefix;
+        public string? EndpointDomainPrefix
+        {
+            get
+            {
+                if (!_mUnknown_EndpointDomainPrefix) return _mValue_EndpointDomainPrefix;
+                throw new UndeferrableValueException("Value 'EndpointArgs.EndpointDomainPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'EndpointArgs.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         /// </summary>
-        [Input("loadBalancerOptions")]
+        [PolicyResourceProperty("loadBalancerOptions", "_mUnknown_LoadBalancerOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointLoadBalancerOptionsArgs> _mLoadBalancerOptions;
-
-        public Inputs.EndpointLoadBalancerOptionsArgs? LoadBalancerOptions => _mLoadBalancerOptions.GetValue("loadBalancerOptions");
+        private Inputs.EndpointLoadBalancerOptionsArgs? _mValue_LoadBalancerOptions;
+        private bool _mUnknown_LoadBalancerOptions;
+        public Inputs.EndpointLoadBalancerOptionsArgs? LoadBalancerOptions
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerOptions) return _mValue_LoadBalancerOptions;
+                throw new UndeferrableValueException("Value 'EndpointArgs.LoadBalancerOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The network interface details. This parameter is required if the endpoint type is `network-interface`.
         /// </summary>
-        [Input("networkInterfaceOptions")]
+        [PolicyResourceProperty("networkInterfaceOptions", "_mUnknown_NetworkInterfaceOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointNetworkInterfaceOptionsArgs> _mNetworkInterfaceOptions;
-
-        public Inputs.EndpointNetworkInterfaceOptionsArgs? NetworkInterfaceOptions => _mNetworkInterfaceOptions.GetValue("networkInterfaceOptions");
+        private Inputs.EndpointNetworkInterfaceOptionsArgs? _mValue_NetworkInterfaceOptions;
+        private bool _mUnknown_NetworkInterfaceOptions;
+        public Inputs.EndpointNetworkInterfaceOptionsArgs? NetworkInterfaceOptions
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceOptions) return _mValue_NetworkInterfaceOptions;
+                throw new UndeferrableValueException("Value 'EndpointArgs.NetworkInterfaceOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document that is associated with this resource.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'EndpointArgs.PolicyDocument' is not present");
+            }
+        }
 
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
-
-        [Input("rdsOptions")]
+        [PolicyResourceProperty("rdsOptions", "_mUnknown_RdsOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointRdsOptionsArgs> _mRdsOptions;
-
-        public Inputs.EndpointRdsOptionsArgs? RdsOptions => _mRdsOptions.GetValue("rdsOptions");
+        private Inputs.EndpointRdsOptionsArgs? _mValue_RdsOptions;
+        private bool _mUnknown_RdsOptions;
+        public Inputs.EndpointRdsOptionsArgs? RdsOptions
+        {
+            get
+            {
+                if (!_mUnknown_RdsOptions) return _mValue_RdsOptions;
+                throw new UndeferrableValueException("Value 'EndpointArgs.RdsOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the the security groups IDs to associate with the Verified Access endpoint.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'EndpointArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The options in use for server side encryption.
         /// </summary>
-        [Input("sseSpecification")]
+        [PolicyResourceProperty("sseSpecification", "_mUnknown_SseSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointSseSpecificationArgs> _mSseSpecification;
-
-        public Inputs.EndpointSseSpecificationArgs? SseSpecification => _mSseSpecification.GetValue("sseSpecification");
+        private Inputs.EndpointSseSpecificationArgs? _mValue_SseSpecification;
+        private bool _mUnknown_SseSpecification;
+        public Inputs.EndpointSseSpecificationArgs? SseSpecification
+        {
+            get
+            {
+                if (!_mUnknown_SseSpecification) return _mValue_SseSpecification;
+                throw new UndeferrableValueException("Value 'EndpointArgs.SseSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EndpointArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Verified Access group to associate the endpoint with.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("verifiedAccessGroupId")]
+        [PolicyResourceProperty("verifiedAccessGroupId", "_mUnknown_VerifiedAccessGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedAccessGroupId;
-
-        public string? VerifiedAccessGroupId => _mVerifiedAccessGroupId.GetValue("verifiedAccessGroupId");
+        private string? _mValue_VerifiedAccessGroupId;
+        private bool _mUnknown_VerifiedAccessGroupId;
+        public string? VerifiedAccessGroupId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedAccessGroupId) return _mValue_VerifiedAccessGroupId;
+                throw new UndeferrableValueException("Value 'EndpointArgs.VerifiedAccessGroupId' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Grafana.Outputs
         /// <summary>
         /// An array of prefix list IDs.
         /// </summary>
-        [Input("prefixListIds")]
+        [PolicyResourceProperty("prefixListIds", "_mUnknown_PrefixListIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrefixListIds;
-
-        public List<string>? PrefixListIds => _mPrefixListIds.GetValue("prefixListIds");
+        private List<string>? _mValue_PrefixListIds;
+        private bool _mUnknown_PrefixListIds;
+        public List<string>? PrefixListIds
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListIds) return _mValue_PrefixListIds;
+                throw new UndeferrableValueException("Value 'WorkspaceNetworkAccessControl.PrefixListIds' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
         /// </summary>
-        [Input("vpceIds")]
+        [PolicyResourceProperty("vpceIds", "_mUnknown_VpceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpceIds;
-
-        public List<string>? VpceIds => _mVpceIds.GetValue("vpceIds");
+        private List<string>? _mValue_VpceIds;
+        private bool _mUnknown_VpceIds;
+        public List<string>? VpceIds
+        {
+            get
+            {
+                if (!_mUnknown_VpceIds) return _mValue_VpceIds;
+                throw new UndeferrableValueException("Value 'WorkspaceNetworkAccessControl.VpceIds' is not present");
+            }
+        }
     }
 }

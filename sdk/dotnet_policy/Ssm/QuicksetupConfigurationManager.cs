@@ -16,73 +16,129 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         /// </summary>
-        [Input("configurationDefinition")]
+        [PolicyResourceProperty("configurationDefinition", "_mUnknown_ConfigurationDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.QuicksetupConfigurationManagerConfigurationDefinition> _mConfigurationDefinition;
-
-        public Outputs.QuicksetupConfigurationManagerConfigurationDefinition? ConfigurationDefinition => _mConfigurationDefinition.GetValue("configurationDefinition");
+        private Outputs.QuicksetupConfigurationManagerConfigurationDefinition? _mValue_ConfigurationDefinition;
+        private bool _mUnknown_ConfigurationDefinition;
+        public Outputs.QuicksetupConfigurationManagerConfigurationDefinition? ConfigurationDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationDefinition) return _mValue_ConfigurationDefinition;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.ConfigurationDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration manager.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Configuration Manager.
         /// </summary>
-        [Input("managerArn")]
+        [PolicyResourceProperty("managerArn", "_mUnknown_ManagerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagerArn;
-
-        public string? ManagerArn => _mManagerArn.GetValue("managerArn");
+        private string? _mValue_ManagerArn;
+        private bool _mUnknown_ManagerArn;
+        public string? ManagerArn
+        {
+            get
+            {
+                if (!_mUnknown_ManagerArn) return _mValue_ManagerArn;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.ManagerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration manager name.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
         /// </summary>
-        [Input("statusSummaries")]
+        [PolicyResourceProperty("statusSummaries", "_mUnknown_StatusSummaries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.QuicksetupConfigurationManagerStatusSummary>> _mStatusSummaries;
-
-        public List<Outputs.QuicksetupConfigurationManagerStatusSummary>? StatusSummaries => _mStatusSummaries.GetValue("statusSummaries");
+        private List<Outputs.QuicksetupConfigurationManagerStatusSummary>? _mValue_StatusSummaries;
+        private bool _mUnknown_StatusSummaries;
+        public List<Outputs.QuicksetupConfigurationManagerStatusSummary>? StatusSummaries
+        {
+            get
+            {
+                if (!_mUnknown_StatusSummaries) return _mValue_StatusSummaries;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.StatusSummaries' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.QuicksetupConfigurationManagerTimeouts> _mTimeouts;
-
-        public Outputs.QuicksetupConfigurationManagerTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.QuicksetupConfigurationManagerTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.QuicksetupConfigurationManagerTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager")]
@@ -91,45 +147,80 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
         /// </summary>
-        [Input("configurationDefinition")]
+        [PolicyResourceProperty("configurationDefinition", "_mUnknown_ConfigurationDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs> _mConfigurationDefinition;
-
-        public Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs? ConfigurationDefinition => _mConfigurationDefinition.GetValue("configurationDefinition");
+        private Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs? _mValue_ConfigurationDefinition;
+        private bool _mUnknown_ConfigurationDefinition;
+        public Inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs? ConfigurationDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationDefinition) return _mValue_ConfigurationDefinition;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.ConfigurationDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration manager.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration manager name.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.QuicksetupConfigurationManagerTimeoutsArgs> _mTimeouts;
-
-        public Inputs.QuicksetupConfigurationManagerTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.QuicksetupConfigurationManagerTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.QuicksetupConfigurationManagerTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.Timeouts' is not present");
+            }
+        }
     }
 }

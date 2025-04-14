@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
         /// </summary>
-        [Input("attachments")]
+        [PolicyResourceProperty("attachments", "_mUnknown_Attachments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs>> _mAttachments;
-
-        public List<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs>? Attachments => _mAttachments.GetValue("attachments");
+        private List<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs>? _mValue_Attachments;
+        private bool _mUnknown_Attachments;
+        public List<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs>? Attachments
+        {
+            get
+            {
+                if (!_mUnknown_Attachments) return _mValue_Attachments;
+                throw new UndeferrableValueException("Value 'FirewallFirewallStatusSyncStateArgs.Attachments' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone where the subnet is configured.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'FirewallFirewallStatusSyncStateArgs.AvailabilityZone' is not present");
+            }
+        }
     }
 }

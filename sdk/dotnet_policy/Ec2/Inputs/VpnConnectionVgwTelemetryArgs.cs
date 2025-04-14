@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The number of accepted routes.
         /// </summary>
-        [Input("acceptedRouteCount")]
+        [PolicyResourceProperty("acceptedRouteCount", "_mUnknown_AcceptedRouteCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAcceptedRouteCount;
-
-        public int? AcceptedRouteCount => _mAcceptedRouteCount.GetValue("acceptedRouteCount");
+        private int? _mValue_AcceptedRouteCount;
+        private bool _mUnknown_AcceptedRouteCount;
+        public int? AcceptedRouteCount
+        {
+            get
+            {
+                if (!_mUnknown_AcceptedRouteCount) return _mValue_AcceptedRouteCount;
+                throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetryArgs.AcceptedRouteCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetryArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time of the last change in status.
         /// </summary>
-        [Input("lastStatusChange")]
+        [PolicyResourceProperty("lastStatusChange", "_mUnknown_LastStatusChange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastStatusChange;
-
-        public string? LastStatusChange => _mLastStatusChange.GetValue("lastStatusChange");
+        private string? _mValue_LastStatusChange;
+        private bool _mUnknown_LastStatusChange;
+        public string? LastStatusChange
+        {
+            get
+            {
+                if (!_mUnknown_LastStatusChange) return _mValue_LastStatusChange;
+                throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetryArgs.LastStatusChange' is not present");
+            }
+        }
 
         /// <summary>
         /// The Internet-routable IP address of the virtual private gateway's outside interface.
         /// </summary>
-        [Input("outsideIpAddress")]
+        [PolicyResourceProperty("outsideIpAddress", "_mUnknown_OutsideIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutsideIpAddress;
-
-        public string? OutsideIpAddress => _mOutsideIpAddress.GetValue("outsideIpAddress");
+        private string? _mValue_OutsideIpAddress;
+        private bool _mUnknown_OutsideIpAddress;
+        public string? OutsideIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_OutsideIpAddress) return _mValue_OutsideIpAddress;
+                throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetryArgs.OutsideIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the VPN tunnel.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetryArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// If an error occurs, a description of the error.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
-
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetryArgs.StatusMessage' is not present");
+            }
+        }
     }
 }

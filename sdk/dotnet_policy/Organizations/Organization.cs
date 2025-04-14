@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
         /// </summary>
-        [Input("accounts")]
+        [PolicyResourceProperty("accounts", "_mUnknown_Accounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationAccount>> _mAccounts;
-
-        public List<Outputs.OrganizationAccount>? Accounts => _mAccounts.GetValue("accounts");
+        private List<Outputs.OrganizationAccount>? _mValue_Accounts;
+        private bool _mUnknown_Accounts;
+        public List<Outputs.OrganizationAccount>? Accounts
+        {
+            get
+            {
+                if (!_mUnknown_Accounts) return _mValue_Accounts;
+                throw new UndeferrableValueException("Value 'Organization.Accounts' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the root
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Organization.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         /// </summary>
-        [Input("awsServiceAccessPrincipals")]
+        [PolicyResourceProperty("awsServiceAccessPrincipals", "_mUnknown_AwsServiceAccessPrincipals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAwsServiceAccessPrincipals;
-
-        public List<string>? AwsServiceAccessPrincipals => _mAwsServiceAccessPrincipals.GetValue("awsServiceAccessPrincipals");
+        private List<string>? _mValue_AwsServiceAccessPrincipals;
+        private bool _mUnknown_AwsServiceAccessPrincipals;
+        public List<string>? AwsServiceAccessPrincipals
+        {
+            get
+            {
+                if (!_mUnknown_AwsServiceAccessPrincipals) return _mValue_AwsServiceAccessPrincipals;
+                throw new UndeferrableValueException("Value 'Organization.AwsServiceAccessPrincipals' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
-        [Input("enabledPolicyTypes")]
+        [PolicyResourceProperty("enabledPolicyTypes", "_mUnknown_EnabledPolicyTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledPolicyTypes;
-
-        public List<string>? EnabledPolicyTypes => _mEnabledPolicyTypes.GetValue("enabledPolicyTypes");
+        private List<string>? _mValue_EnabledPolicyTypes;
+        private bool _mUnknown_EnabledPolicyTypes;
+        public List<string>? EnabledPolicyTypes
+        {
+            get
+            {
+                if (!_mUnknown_EnabledPolicyTypes) return _mValue_EnabledPolicyTypes;
+                throw new UndeferrableValueException("Value 'Organization.EnabledPolicyTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         /// </summary>
-        [Input("featureSet")]
+        [PolicyResourceProperty("featureSet", "_mUnknown_FeatureSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureSet;
-
-        public string? FeatureSet => _mFeatureSet.GetValue("featureSet");
+        private string? _mValue_FeatureSet;
+        private bool _mUnknown_FeatureSet;
+        public string? FeatureSet
+        {
+            get
+            {
+                if (!_mUnknown_FeatureSet) return _mValue_FeatureSet;
+                throw new UndeferrableValueException("Value 'Organization.FeatureSet' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the master account
         /// </summary>
-        [Input("masterAccountArn")]
+        [PolicyResourceProperty("masterAccountArn", "_mUnknown_MasterAccountArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountArn;
-
-        public string? MasterAccountArn => _mMasterAccountArn.GetValue("masterAccountArn");
+        private string? _mValue_MasterAccountArn;
+        private bool _mUnknown_MasterAccountArn;
+        public string? MasterAccountArn
+        {
+            get
+            {
+                if (!_mUnknown_MasterAccountArn) return _mValue_MasterAccountArn;
+                throw new UndeferrableValueException("Value 'Organization.MasterAccountArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the master account
         /// </summary>
-        [Input("masterAccountEmail")]
+        [PolicyResourceProperty("masterAccountEmail", "_mUnknown_MasterAccountEmail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountEmail;
-
-        public string? MasterAccountEmail => _mMasterAccountEmail.GetValue("masterAccountEmail");
+        private string? _mValue_MasterAccountEmail;
+        private bool _mUnknown_MasterAccountEmail;
+        public string? MasterAccountEmail
+        {
+            get
+            {
+                if (!_mUnknown_MasterAccountEmail) return _mValue_MasterAccountEmail;
+                throw new UndeferrableValueException("Value 'Organization.MasterAccountEmail' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the master account
         /// </summary>
-        [Input("masterAccountId")]
+        [PolicyResourceProperty("masterAccountId", "_mUnknown_MasterAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountId;
-
-        public string? MasterAccountId => _mMasterAccountId.GetValue("masterAccountId");
+        private string? _mValue_MasterAccountId;
+        private bool _mUnknown_MasterAccountId;
+        public string? MasterAccountId
+        {
+            get
+            {
+                if (!_mUnknown_MasterAccountId) return _mValue_MasterAccountId;
+                throw new UndeferrableValueException("Value 'Organization.MasterAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the master account
         /// </summary>
-        [Input("masterAccountName")]
+        [PolicyResourceProperty("masterAccountName", "_mUnknown_MasterAccountName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterAccountName;
-
-        public string? MasterAccountName => _mMasterAccountName.GetValue("masterAccountName");
+        private string? _mValue_MasterAccountName;
+        private bool _mUnknown_MasterAccountName;
+        public string? MasterAccountName
+        {
+            get
+            {
+                if (!_mUnknown_MasterAccountName) return _mValue_MasterAccountName;
+                throw new UndeferrableValueException("Value 'Organization.MasterAccountName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         /// </summary>
-        [Input("nonMasterAccounts")]
+        [PolicyResourceProperty("nonMasterAccounts", "_mUnknown_NonMasterAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationNonMasterAccount>> _mNonMasterAccounts;
-
-        public List<Outputs.OrganizationNonMasterAccount>? NonMasterAccounts => _mNonMasterAccounts.GetValue("nonMasterAccounts");
+        private List<Outputs.OrganizationNonMasterAccount>? _mValue_NonMasterAccounts;
+        private bool _mUnknown_NonMasterAccounts;
+        public List<Outputs.OrganizationNonMasterAccount>? NonMasterAccounts
+        {
+            get
+            {
+                if (!_mUnknown_NonMasterAccounts) return _mValue_NonMasterAccounts;
+                throw new UndeferrableValueException("Value 'Organization.NonMasterAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// List of organization roots. All elements have these attributes:
         /// </summary>
-        [Input("roots")]
+        [PolicyResourceProperty("roots", "_mUnknown_Roots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationRoot>> _mRoots;
-
-        public List<Outputs.OrganizationRoot>? Roots => _mRoots.GetValue("roots");
+        private List<Outputs.OrganizationRoot>? _mValue_Roots;
+        private bool _mUnknown_Roots;
+        public List<Outputs.OrganizationRoot>? Roots
+        {
+            get
+            {
+                if (!_mUnknown_Roots) return _mValue_Roots;
+                throw new UndeferrableValueException("Value 'Organization.Roots' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:organizations/organization:Organization")]
@@ -119,28 +196,49 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         /// </summary>
-        [Input("awsServiceAccessPrincipals")]
+        [PolicyResourceProperty("awsServiceAccessPrincipals", "_mUnknown_AwsServiceAccessPrincipals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAwsServiceAccessPrincipals;
-
-        public List<string>? AwsServiceAccessPrincipals => _mAwsServiceAccessPrincipals.GetValue("awsServiceAccessPrincipals");
+        private List<string>? _mValue_AwsServiceAccessPrincipals;
+        private bool _mUnknown_AwsServiceAccessPrincipals;
+        public List<string>? AwsServiceAccessPrincipals
+        {
+            get
+            {
+                if (!_mUnknown_AwsServiceAccessPrincipals) return _mValue_AwsServiceAccessPrincipals;
+                throw new UndeferrableValueException("Value 'OrganizationArgs.AwsServiceAccessPrincipals' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
-        [Input("enabledPolicyTypes")]
+        [PolicyResourceProperty("enabledPolicyTypes", "_mUnknown_EnabledPolicyTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledPolicyTypes;
-
-        public List<string>? EnabledPolicyTypes => _mEnabledPolicyTypes.GetValue("enabledPolicyTypes");
+        private List<string>? _mValue_EnabledPolicyTypes;
+        private bool _mUnknown_EnabledPolicyTypes;
+        public List<string>? EnabledPolicyTypes
+        {
+            get
+            {
+                if (!_mUnknown_EnabledPolicyTypes) return _mValue_EnabledPolicyTypes;
+                throw new UndeferrableValueException("Value 'OrganizationArgs.EnabledPolicyTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         /// </summary>
-        [Input("featureSet")]
+        [PolicyResourceProperty("featureSet", "_mUnknown_FeatureSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureSet;
-
-        public string? FeatureSet => _mFeatureSet.GetValue("featureSet");
+        private string? _mValue_FeatureSet;
+        private bool _mUnknown_FeatureSet;
+        public string? FeatureSet
+        {
+            get
+            {
+                if (!_mUnknown_FeatureSet) return _mValue_FeatureSet;
+                throw new UndeferrableValueException("Value 'OrganizationArgs.FeatureSet' is not present");
+            }
+        }
     }
 }

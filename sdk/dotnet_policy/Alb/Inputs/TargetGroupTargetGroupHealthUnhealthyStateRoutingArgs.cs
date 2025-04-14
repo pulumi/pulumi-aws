@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Inputs
         /// <summary>
         /// The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
         /// </summary>
-        [Input("minimumHealthyTargetsCount")]
+        [PolicyResourceProperty("minimumHealthyTargetsCount", "_mUnknown_MinimumHealthyTargetsCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumHealthyTargetsCount;
-
-        public int? MinimumHealthyTargetsCount => _mMinimumHealthyTargetsCount.GetValue("minimumHealthyTargetsCount");
+        private int? _mValue_MinimumHealthyTargetsCount;
+        private bool _mUnknown_MinimumHealthyTargetsCount;
+        public int? MinimumHealthyTargetsCount
+        {
+            get
+            {
+                if (!_mUnknown_MinimumHealthyTargetsCount) return _mValue_MinimumHealthyTargetsCount;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.MinimumHealthyTargetsCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
         /// </summary>
-        [Input("minimumHealthyTargetsPercentage")]
+        [PolicyResourceProperty("minimumHealthyTargetsPercentage", "_mUnknown_MinimumHealthyTargetsPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumHealthyTargetsPercentage;
-
-        public string? MinimumHealthyTargetsPercentage => _mMinimumHealthyTargetsPercentage.GetValue("minimumHealthyTargetsPercentage");
+        private string? _mValue_MinimumHealthyTargetsPercentage;
+        private bool _mUnknown_MinimumHealthyTargetsPercentage;
+        public string? MinimumHealthyTargetsPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MinimumHealthyTargetsPercentage) return _mValue_MinimumHealthyTargetsPercentage;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.MinimumHealthyTargetsPercentage' is not present");
+            }
+        }
     }
 }

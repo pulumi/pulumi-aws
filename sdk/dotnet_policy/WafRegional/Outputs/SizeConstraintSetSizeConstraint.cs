@@ -17,30 +17,51 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Outputs
         /// e.g., `EQ`, `NE`, `LT`, `GT`.
         /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         /// </summary>
-        [Input("comparisonOperator")]
+        [PolicyResourceProperty("comparisonOperator", "_mUnknown_ComparisonOperator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparisonOperator;
-
-        public string? ComparisonOperator => _mComparisonOperator.GetValue("comparisonOperator");
+        private string? _mValue_ComparisonOperator;
+        private bool _mUnknown_ComparisonOperator;
+        public string? ComparisonOperator
+        {
+            get
+            {
+                if (!_mUnknown_ComparisonOperator) return _mValue_ComparisonOperator;
+                throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraint.ComparisonOperator' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies where in a web request to look for the size constraint.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SizeConstraintSetSizeConstraintFieldToMatch> _mFieldToMatch;
-
-        public Outputs.SizeConstraintSetSizeConstraintFieldToMatch? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Outputs.SizeConstraintSetSizeConstraintFieldToMatch? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Outputs.SizeConstraintSetSizeConstraintFieldToMatch? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraint.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// The size in bytes that you want to compare against the size of the specified `field_to_match`.
         /// Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraint.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -50,10 +71,17 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Outputs
         /// for all supported values.
         /// **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
         /// </summary>
-        [Input("textTransformation")]
+        [PolicyResourceProperty("textTransformation", "_mUnknown_TextTransformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextTransformation;
-
-        public string? TextTransformation => _mTextTransformation.GetValue("textTransformation");
+        private string? _mValue_TextTransformation;
+        private bool _mUnknown_TextTransformation;
+        public string? TextTransformation
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformation) return _mValue_TextTransformation;
+                throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraint.TextTransformation' is not present");
+            }
+        }
     }
 }

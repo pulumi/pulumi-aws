@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SdkvoiceSipMediaApplicationEndpoints> _mEndpoints;
-
-        public Outputs.SdkvoiceSipMediaApplicationEndpoints? Endpoints => _mEndpoints.GetValue("endpoints");
+        private Outputs.SdkvoiceSipMediaApplicationEndpoints? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public Outputs.SdkvoiceSipMediaApplicationEndpoints? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS Chime SDK Voice Sip Media Application.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication")]
@@ -76,39 +118,67 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplicationArgs.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SdkvoiceSipMediaApplicationEndpointsArgs> _mEndpoints;
-
-        public Inputs.SdkvoiceSipMediaApplicationEndpointsArgs? Endpoints => _mEndpoints.GetValue("endpoints");
+        private Inputs.SdkvoiceSipMediaApplicationEndpointsArgs? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public Inputs.SdkvoiceSipMediaApplicationEndpointsArgs? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplicationArgs.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS Chime SDK Voice Sip Media Application.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplicationArgs.Tags' is not present");
+            }
+        }
     }
 }

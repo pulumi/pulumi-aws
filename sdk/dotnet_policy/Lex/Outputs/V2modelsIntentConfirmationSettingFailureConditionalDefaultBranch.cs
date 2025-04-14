@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the next step in the conversation. See `next_step`.
         /// </summary>
-        [Input("nextStep")]
+        [PolicyResourceProperty("nextStep", "_mUnknown_NextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep> _mNextStep;
-
-        public Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep? NextStep => _mNextStep.GetValue("nextStep");
+        private Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep? _mValue_NextStep;
+        private bool _mUnknown_NextStep;
+        public Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStep? NextStep
+        {
+            get
+            {
+                if (!_mUnknown_NextStep) return _mValue_NextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch.NextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         /// </summary>
-        [Input("response")]
+        [PolicyResourceProperty("response", "_mUnknown_Response")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponse> _mResponse;
-
-        public Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponse? Response => _mResponse.GetValue("response");
+        private Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponse? _mValue_Response;
+        private bool _mUnknown_Response;
+        public Outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponse? Response
+        {
+            get
+            {
+                if (!_mUnknown_Response) return _mValue_Response;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch.Response' is not present");
+            }
+        }
     }
 }

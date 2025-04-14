@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecResult
     {
-        [Input("backendDefaults")]
+        [PolicyResourceProperty("backendDefaults", "_mUnknown_BackendDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultResult>> _mBackendDefaults;
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultResult>? _mValue_BackendDefaults;
+        private bool _mUnknown_BackendDefaults;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultResult>? BackendDefaults
+        {
+            get
+            {
+                if (!_mUnknown_BackendDefaults) return _mValue_BackendDefaults;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecResult.BackendDefaults' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultResult>? BackendDefaults => _mBackendDefaults.GetValue("backendDefaults");
-
-        [Input("backends")]
+        [PolicyResourceProperty("backends", "_mUnknown_Backends")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendResult>> _mBackends;
+        private List<Outputs.GetVirtualNodeSpecBackendResult>? _mValue_Backends;
+        private bool _mUnknown_Backends;
+        public List<Outputs.GetVirtualNodeSpecBackendResult>? Backends
+        {
+            get
+            {
+                if (!_mUnknown_Backends) return _mValue_Backends;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecResult.Backends' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendResult>? Backends => _mBackends.GetValue("backends");
-
-        [Input("listeners")]
+        [PolicyResourceProperty("listeners", "_mUnknown_Listeners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerResult>> _mListeners;
+        private List<Outputs.GetVirtualNodeSpecListenerResult>? _mValue_Listeners;
+        private bool _mUnknown_Listeners;
+        public List<Outputs.GetVirtualNodeSpecListenerResult>? Listeners
+        {
+            get
+            {
+                if (!_mUnknown_Listeners) return _mValue_Listeners;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecResult.Listeners' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerResult>? Listeners => _mListeners.GetValue("listeners");
-
-        [Input("loggings")]
+        [PolicyResourceProperty("loggings", "_mUnknown_Loggings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecLoggingResult>> _mLoggings;
+        private List<Outputs.GetVirtualNodeSpecLoggingResult>? _mValue_Loggings;
+        private bool _mUnknown_Loggings;
+        public List<Outputs.GetVirtualNodeSpecLoggingResult>? Loggings
+        {
+            get
+            {
+                if (!_mUnknown_Loggings) return _mValue_Loggings;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecResult.Loggings' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecLoggingResult>? Loggings => _mLoggings.GetValue("loggings");
-
-        [Input("serviceDiscoveries")]
+        [PolicyResourceProperty("serviceDiscoveries", "_mUnknown_ServiceDiscoveries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecServiceDiscoveryResult>> _mServiceDiscoveries;
-
-        public List<Outputs.GetVirtualNodeSpecServiceDiscoveryResult>? ServiceDiscoveries => _mServiceDiscoveries.GetValue("serviceDiscoveries");
+        private List<Outputs.GetVirtualNodeSpecServiceDiscoveryResult>? _mValue_ServiceDiscoveries;
+        private bool _mUnknown_ServiceDiscoveries;
+        public List<Outputs.GetVirtualNodeSpecServiceDiscoveryResult>? ServiceDiscoveries
+        {
+            get
+            {
+                if (!_mUnknown_ServiceDiscoveries) return _mValue_ServiceDiscoveries;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecResult.ServiceDiscoveries' is not present");
+            }
+        }
     }
 }

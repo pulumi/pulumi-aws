@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'RecorderRecordingGroupExclusionByResourceType.ResourceTypes' is not present");
+            }
+        }
     }
 }

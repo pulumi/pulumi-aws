@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Inputs
         /// <summary>
         /// Key to extract cost category values.
         /// </summary>
-        [Input("dimensionKey")]
+        [PolicyResourceProperty("dimensionKey", "_mUnknown_DimensionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimensionKey;
-
-        public string? DimensionKey => _mDimensionKey.GetValue("dimensionKey");
+        private string? _mValue_DimensionKey;
+        private bool _mUnknown_DimensionKey;
+        public string? DimensionKey
+        {
+            get
+            {
+                if (!_mUnknown_DimensionKey) return _mValue_DimensionKey;
+                throw new UndeferrableValueException("Value 'CostCategoryRuleInheritedValueArgs.DimensionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
         /// </summary>
-        [Input("dimensionName")]
+        [PolicyResourceProperty("dimensionName", "_mUnknown_DimensionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimensionName;
-
-        public string? DimensionName => _mDimensionName.GetValue("dimensionName");
+        private string? _mValue_DimensionName;
+        private bool _mUnknown_DimensionName;
+        public string? DimensionName
+        {
+            get
+            {
+                if (!_mUnknown_DimensionName) return _mValue_DimensionName;
+                throw new UndeferrableValueException("Value 'CostCategoryRuleInheritedValueArgs.DimensionName' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         /// </summary>
-        [Input("payer")]
+        [PolicyResourceProperty("payer", "_mUnknown_Payer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayer;
-
-        public string? Payer => _mPayer.GetValue("payer");
+        private string? _mValue_Payer;
+        private bool _mUnknown_Payer;
+        public string? Payer
+        {
+            get
+            {
+                if (!_mUnknown_Payer) return _mValue_Payer;
+                throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2.Payer' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2Args.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
         /// </summary>
-        [Input("payer")]
+        [PolicyResourceProperty("payer", "_mUnknown_Payer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayer;
-
-        public string? Payer => _mPayer.GetValue("payer");
+        private string? _mValue_Payer;
+        private bool _mUnknown_Payer;
+        public string? Payer
+        {
+            get
+            {
+                if (!_mUnknown_Payer) return _mValue_Payer;
+                throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2Args.Payer' is not present");
+            }
+        }
     }
 }

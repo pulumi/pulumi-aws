@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
         /// </summary>
-        [Input("automaticInputFailoverSettings")]
+        [PolicyResourceProperty("automaticInputFailoverSettings", "_mUnknown_AutomaticInputFailoverSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentAutomaticInputFailoverSettings> _mAutomaticInputFailoverSettings;
-
-        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettings? AutomaticInputFailoverSettings => _mAutomaticInputFailoverSettings.GetValue("automaticInputFailoverSettings");
+        private Outputs.ChannelInputAttachmentAutomaticInputFailoverSettings? _mValue_AutomaticInputFailoverSettings;
+        private bool _mUnknown_AutomaticInputFailoverSettings;
+        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettings? AutomaticInputFailoverSettings
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticInputFailoverSettings) return _mValue_AutomaticInputFailoverSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachment.AutomaticInputFailoverSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// User-specified name for the attachment.
         /// </summary>
-        [Input("inputAttachmentName")]
+        [PolicyResourceProperty("inputAttachmentName", "_mUnknown_InputAttachmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputAttachmentName;
-
-        public string? InputAttachmentName => _mInputAttachmentName.GetValue("inputAttachmentName");
+        private string? _mValue_InputAttachmentName;
+        private bool _mUnknown_InputAttachmentName;
+        public string? InputAttachmentName
+        {
+            get
+            {
+                if (!_mUnknown_InputAttachmentName) return _mValue_InputAttachmentName;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachment.InputAttachmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the input.
         /// </summary>
-        [Input("inputId")]
+        [PolicyResourceProperty("inputId", "_mUnknown_InputId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputId;
-
-        public string? InputId => _mInputId.GetValue("inputId");
+        private string? _mValue_InputId;
+        private bool _mUnknown_InputId;
+        public string? InputId
+        {
+            get
+            {
+                if (!_mUnknown_InputId) return _mValue_InputId;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachment.InputId' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings of an input. See Input Settings for more details.
         /// </summary>
-        [Input("inputSettings")]
+        [PolicyResourceProperty("inputSettings", "_mUnknown_InputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettings> _mInputSettings;
-
-        public Outputs.ChannelInputAttachmentInputSettings? InputSettings => _mInputSettings.GetValue("inputSettings");
+        private Outputs.ChannelInputAttachmentInputSettings? _mValue_InputSettings;
+        private bool _mUnknown_InputSettings;
+        public Outputs.ChannelInputAttachmentInputSettings? InputSettings
+        {
+            get
+            {
+                if (!_mUnknown_InputSettings) return _mValue_InputSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachment.InputSettings' is not present");
+            }
+        }
     }
 }

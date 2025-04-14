@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
 {
     public sealed class GetBrokerUserResult
     {
-        [Input("consoleAccess")]
+        [PolicyResourceProperty("consoleAccess", "_mUnknown_ConsoleAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConsoleAccess;
+        private bool? _mValue_ConsoleAccess;
+        private bool _mUnknown_ConsoleAccess;
+        public bool? ConsoleAccess
+        {
+            get
+            {
+                if (!_mUnknown_ConsoleAccess) return _mValue_ConsoleAccess;
+                throw new UndeferrableValueException("Value 'GetBrokerUserResult.ConsoleAccess' is not present");
+            }
+        }
 
-        public bool? ConsoleAccess => _mConsoleAccess.GetValue("consoleAccess");
-
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
+        private List<string>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<string>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'GetBrokerUserResult.Groups' is not present");
+            }
+        }
 
-        public List<string>? Groups => _mGroups.GetValue("groups");
-
-        [Input("replicationUser")]
+        [PolicyResourceProperty("replicationUser", "_mUnknown_ReplicationUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReplicationUser;
+        private bool? _mValue_ReplicationUser;
+        private bool _mUnknown_ReplicationUser;
+        public bool? ReplicationUser
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationUser) return _mValue_ReplicationUser;
+                throw new UndeferrableValueException("Value 'GetBrokerUserResult.ReplicationUser' is not present");
+            }
+        }
 
-        public bool? ReplicationUser => _mReplicationUser.GetValue("replicationUser");
-
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'GetBrokerUserResult.Username' is not present");
+            }
+        }
     }
 }

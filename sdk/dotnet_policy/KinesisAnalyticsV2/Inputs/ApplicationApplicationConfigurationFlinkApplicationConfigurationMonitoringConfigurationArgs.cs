@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
         /// </summary>
-        [Input("configurationType")]
+        [PolicyResourceProperty("configurationType", "_mUnknown_ConfigurationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationType;
-
-        public string? ConfigurationType => _mConfigurationType.GetValue("configurationType");
+        private string? _mValue_ConfigurationType;
+        private bool _mUnknown_ConfigurationType;
+        public string? ConfigurationType
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationType) return _mValue_ConfigurationType;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs.ConfigurationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
         /// </summary>
-        [Input("logLevel")]
+        [PolicyResourceProperty("logLevel", "_mUnknown_LogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogLevel;
-
-        public string? LogLevel => _mLogLevel.GetValue("logLevel");
+        private string? _mValue_LogLevel;
+        private bool _mUnknown_LogLevel;
+        public string? LogLevel
+        {
+            get
+            {
+                if (!_mUnknown_LogLevel) return _mValue_LogLevel;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs.LogLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
         /// </summary>
-        [Input("metricsLevel")]
+        [PolicyResourceProperty("metricsLevel", "_mUnknown_MetricsLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricsLevel;
-
-        public string? MetricsLevel => _mMetricsLevel.GetValue("metricsLevel");
+        private string? _mValue_MetricsLevel;
+        private bool _mUnknown_MetricsLevel;
+        public string? MetricsLevel
+        {
+            get
+            {
+                if (!_mUnknown_MetricsLevel) return _mValue_MetricsLevel;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs.MetricsLevel' is not present");
+            }
+        }
     }
 }

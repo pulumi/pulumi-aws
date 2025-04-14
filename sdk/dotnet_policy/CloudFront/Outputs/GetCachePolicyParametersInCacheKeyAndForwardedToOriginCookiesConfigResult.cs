@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
         /// </summary>
-        [Input("cookieBehavior")]
+        [PolicyResourceProperty("cookieBehavior", "_mUnknown_CookieBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCookieBehavior;
-
-        public string? CookieBehavior => _mCookieBehavior.GetValue("cookieBehavior");
+        private string? _mValue_CookieBehavior;
+        private bool _mUnknown_CookieBehavior;
+        public string? CookieBehavior
+        {
+            get
+            {
+                if (!_mUnknown_CookieBehavior) return _mValue_CookieBehavior;
+                throw new UndeferrableValueException("Value 'GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult.CookieBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains a list of cookie names. See Items for more information.
         /// </summary>
-        [Input("cookies")]
+        [PolicyResourceProperty("cookies", "_mUnknown_Cookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult>> _mCookies;
-
-        public List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult>? Cookies => _mCookies.GetValue("cookies");
+        private List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult>? _mValue_Cookies;
+        private bool _mUnknown_Cookies;
+        public List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult>? Cookies
+        {
+            get
+            {
+                if (!_mUnknown_Cookies) return _mValue_Cookies;
+                throw new UndeferrableValueException("Value 'GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult.Cookies' is not present");
+            }
+        }
     }
 }

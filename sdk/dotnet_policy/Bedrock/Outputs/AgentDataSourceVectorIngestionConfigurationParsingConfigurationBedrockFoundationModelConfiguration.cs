@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The ARN of the model used to parse documents
         /// </summary>
-        [Input("modelArn")]
+        [PolicyResourceProperty("modelArn", "_mUnknown_ModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
-
-        public string? ModelArn => _mModelArn.GetValue("modelArn");
+        private string? _mValue_ModelArn;
+        private bool _mUnknown_ModelArn;
+        public string? ModelArn
+        {
+            get
+            {
+                if (!_mUnknown_ModelArn) return _mValue_ModelArn;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration.ModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
         /// </summary>
-        [Input("parsingPrompt")]
+        [PolicyResourceProperty("parsingPrompt", "_mUnknown_ParsingPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt> _mParsingPrompt;
-
-        public Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? ParsingPrompt => _mParsingPrompt.GetValue("parsingPrompt");
+        private Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? _mValue_ParsingPrompt;
+        private bool _mUnknown_ParsingPrompt;
+        public Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? ParsingPrompt
+        {
+            get
+            {
+                if (!_mUnknown_ParsingPrompt) return _mValue_ParsingPrompt;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration.ParsingPrompt' is not present");
+            }
+        }
     }
 }

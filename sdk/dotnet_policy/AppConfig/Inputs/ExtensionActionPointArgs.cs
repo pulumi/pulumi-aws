@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig.Inputs
         /// <summary>
         /// An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExtensionActionPointActionArgs>> _mActions;
-
-        public List<Inputs.ExtensionActionPointActionArgs>? Actions => _mActions.GetValue("actions");
+        private List<Inputs.ExtensionActionPointActionArgs>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Inputs.ExtensionActionPointActionArgs>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'ExtensionActionPointArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
         /// </summary>
-        [Input("point")]
+        [PolicyResourceProperty("point", "_mUnknown_Point")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPoint;
-
-        public string? Point => _mPoint.GetValue("point");
+        private string? _mValue_Point;
+        private bool _mUnknown_Point;
+        public string? Point
+        {
+            get
+            {
+                if (!_mUnknown_Point) return _mValue_Point;
+                throw new UndeferrableValueException("Value 'ExtensionActionPointArgs.Point' is not present");
+            }
+        }
     }
 }

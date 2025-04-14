@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// - Configuration set used for sending emails.
         /// </summary>
-        [Input("configurationSet")]
+        [PolicyResourceProperty("configurationSet", "_mUnknown_ConfigurationSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSet;
-
-        public string? ConfigurationSet => _mConfigurationSet.GetValue("configurationSet");
+        private string? _mValue_ConfigurationSet;
+        private bool _mUnknown_ConfigurationSet;
+        public string? ConfigurationSet
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSet) return _mValue_ConfigurationSet;
+                throw new UndeferrableValueException("Value 'GetUserPoolEmailConfigurationResult.ConfigurationSet' is not present");
+            }
+        }
 
         /// <summary>
         /// - Email sending account.
         /// </summary>
-        [Input("emailSendingAccount")]
+        [PolicyResourceProperty("emailSendingAccount", "_mUnknown_EmailSendingAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailSendingAccount;
-
-        public string? EmailSendingAccount => _mEmailSendingAccount.GetValue("emailSendingAccount");
+        private string? _mValue_EmailSendingAccount;
+        private bool _mUnknown_EmailSendingAccount;
+        public string? EmailSendingAccount
+        {
+            get
+            {
+                if (!_mUnknown_EmailSendingAccount) return _mValue_EmailSendingAccount;
+                throw new UndeferrableValueException("Value 'GetUserPoolEmailConfigurationResult.EmailSendingAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// - Email sender address.
         /// </summary>
-        [Input("from")]
+        [PolicyResourceProperty("from", "_mUnknown_From")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrom;
-
-        public string? From => _mFrom.GetValue("from");
+        private string? _mValue_From;
+        private bool _mUnknown_From;
+        public string? From
+        {
+            get
+            {
+                if (!_mUnknown_From) return _mValue_From;
+                throw new UndeferrableValueException("Value 'GetUserPoolEmailConfigurationResult.From' is not present");
+            }
+        }
 
         /// <summary>
         /// - Reply-to email address.
         /// </summary>
-        [Input("replyToEmailAddress")]
+        [PolicyResourceProperty("replyToEmailAddress", "_mUnknown_ReplyToEmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplyToEmailAddress;
-
-        public string? ReplyToEmailAddress => _mReplyToEmailAddress.GetValue("replyToEmailAddress");
+        private string? _mValue_ReplyToEmailAddress;
+        private bool _mUnknown_ReplyToEmailAddress;
+        public string? ReplyToEmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_ReplyToEmailAddress) return _mValue_ReplyToEmailAddress;
+                throw new UndeferrableValueException("Value 'GetUserPoolEmailConfigurationResult.ReplyToEmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// - Source Amazon Resource Name (ARN) for emails.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'GetUserPoolEmailConfigurationResult.SourceArn' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
         /// </summary>
-        [Input("caseSensitive")]
+        [PolicyResourceProperty("caseSensitive", "_mUnknown_CaseSensitive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCaseSensitive;
-
-        public bool? CaseSensitive => _mCaseSensitive.GetValue("caseSensitive");
+        private bool? _mValue_CaseSensitive;
+        private bool _mUnknown_CaseSensitive;
+        public bool? CaseSensitive
+        {
+            get
+            {
+                if (!_mUnknown_CaseSensitive) return _mValue_CaseSensitive;
+                throw new UndeferrableValueException("Value 'UserPoolUsernameConfigurationArgs.CaseSensitive' is not present");
+            }
+        }
     }
 }

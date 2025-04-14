@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ARN of the LAG.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an existing dedicated connection to migrate to the LAG.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
         /// </summary>
-        [Input("connectionsBandwidth")]
+        [PolicyResourceProperty("connectionsBandwidth", "_mUnknown_ConnectionsBandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionsBandwidth;
-
-        public string? ConnectionsBandwidth => _mConnectionsBandwidth.GetValue("connectionsBandwidth");
+        private string? _mValue_ConnectionsBandwidth;
+        private bool _mUnknown_ConnectionsBandwidth;
+        public string? ConnectionsBandwidth
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionsBandwidth) return _mValue_ConnectionsBandwidth;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.ConnectionsBandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
-        [Input("hasLogicalRedundancy")]
+        [PolicyResourceProperty("hasLogicalRedundancy", "_mUnknown_HasLogicalRedundancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHasLogicalRedundancy;
-
-        public string? HasLogicalRedundancy => _mHasLogicalRedundancy.GetValue("hasLogicalRedundancy");
+        private string? _mValue_HasLogicalRedundancy;
+        private bool _mUnknown_HasLogicalRedundancy;
+        public string? HasLogicalRedundancy
+        {
+            get
+            {
+                if (!_mUnknown_HasLogicalRedundancy) return _mValue_HasLogicalRedundancy;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.HasLogicalRedundancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether jumbo frames (9001 MTU) are supported.
         /// </summary>
-        [Input("jumboFrameCapable")]
+        [PolicyResourceProperty("jumboFrameCapable", "_mUnknown_JumboFrameCapable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mJumboFrameCapable;
-
-        public bool? JumboFrameCapable => _mJumboFrameCapable.GetValue("jumboFrameCapable");
+        private bool? _mValue_JumboFrameCapable;
+        private bool _mUnknown_JumboFrameCapable;
+        public bool? JumboFrameCapable
+        {
+            get
+            {
+                if (!_mUnknown_JumboFrameCapable) return _mValue_JumboFrameCapable;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.JumboFrameCapable' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the LAG.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the LAG.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service provider associated with the LAG.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/linkAggregationGroup:LinkAggregationGroup")]
@@ -128,64 +212,113 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ID of an existing dedicated connection to migrate to the LAG.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroupArgs.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
         /// </summary>
-        [Input("connectionsBandwidth")]
+        [PolicyResourceProperty("connectionsBandwidth", "_mUnknown_ConnectionsBandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionsBandwidth;
-
-        public string? ConnectionsBandwidth => _mConnectionsBandwidth.GetValue("connectionsBandwidth");
+        private string? _mValue_ConnectionsBandwidth;
+        private bool _mUnknown_ConnectionsBandwidth;
+        public string? ConnectionsBandwidth
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionsBandwidth) return _mValue_ConnectionsBandwidth;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroupArgs.ConnectionsBandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroupArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroupArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the LAG.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service provider associated with the LAG.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroupArgs.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LinkAggregationGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
         /// </summary>
-        [Input("defaultSubscriptionStatus")]
+        [PolicyResourceProperty("defaultSubscriptionStatus", "_mUnknown_DefaultSubscriptionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSubscriptionStatus;
-
-        public string? DefaultSubscriptionStatus => _mDefaultSubscriptionStatus.GetValue("defaultSubscriptionStatus");
+        private string? _mValue_DefaultSubscriptionStatus;
+        private bool _mUnknown_DefaultSubscriptionStatus;
+        public string? DefaultSubscriptionStatus
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSubscriptionStatus) return _mValue_DefaultSubscriptionStatus;
+                throw new UndeferrableValueException("Value 'ContactListTopic.DefaultSubscriptionStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of what the topic is about, which the contact will see.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ContactListTopic.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the topic the contact will see.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ContactListTopic.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the topic.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("topicName")]
+        [PolicyResourceProperty("topicName", "_mUnknown_TopicName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicName;
-
-        public string? TopicName => _mTopicName.GetValue("topicName");
+        private string? _mValue_TopicName;
+        private bool _mUnknown_TopicName;
+        public string? TopicName
+        {
+            get
+            {
+                if (!_mUnknown_TopicName) return _mValue_TopicName;
+                throw new UndeferrableValueException("Value 'ContactListTopic.TopicName' is not present");
+            }
+        }
     }
 }

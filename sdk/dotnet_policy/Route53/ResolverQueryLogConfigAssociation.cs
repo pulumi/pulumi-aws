@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         /// </summary>
-        [Input("resolverQueryLogConfigId")]
+        [PolicyResourceProperty("resolverQueryLogConfigId", "_mUnknown_ResolverQueryLogConfigId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverQueryLogConfigId;
-
-        public string? ResolverQueryLogConfigId => _mResolverQueryLogConfigId.GetValue("resolverQueryLogConfigId");
+        private string? _mValue_ResolverQueryLogConfigId;
+        private bool _mUnknown_ResolverQueryLogConfigId;
+        public string? ResolverQueryLogConfigId
+        {
+            get
+            {
+                if (!_mUnknown_ResolverQueryLogConfigId) return _mValue_ResolverQueryLogConfigId;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfigAssociation.ResolverQueryLogConfigId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a VPC that you want this query logging configuration to log queries for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfigAssociation.ResourceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         /// </summary>
-        [Input("resolverQueryLogConfigId")]
+        [PolicyResourceProperty("resolverQueryLogConfigId", "_mUnknown_ResolverQueryLogConfigId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverQueryLogConfigId;
-
-        public string? ResolverQueryLogConfigId => _mResolverQueryLogConfigId.GetValue("resolverQueryLogConfigId");
+        private string? _mValue_ResolverQueryLogConfigId;
+        private bool _mUnknown_ResolverQueryLogConfigId;
+        public string? ResolverQueryLogConfigId
+        {
+            get
+            {
+                if (!_mUnknown_ResolverQueryLogConfigId) return _mValue_ResolverQueryLogConfigId;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfigAssociationArgs.ResolverQueryLogConfigId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a VPC that you want this query logging configuration to log queries for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverQueryLogConfigAssociationArgs.ResourceId' is not present");
+            }
+        }
     }
 }

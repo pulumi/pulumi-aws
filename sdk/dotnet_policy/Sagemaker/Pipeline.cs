@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Pipeline.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         /// </summary>
-        [Input("parallelismConfiguration")]
+        [PolicyResourceProperty("parallelismConfiguration", "_mUnknown_ParallelismConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineParallelismConfiguration> _mParallelismConfiguration;
-
-        public Outputs.PipelineParallelismConfiguration? ParallelismConfiguration => _mParallelismConfiguration.GetValue("parallelismConfiguration");
+        private Outputs.PipelineParallelismConfiguration? _mValue_ParallelismConfiguration;
+        private bool _mUnknown_ParallelismConfiguration;
+        public Outputs.PipelineParallelismConfiguration? ParallelismConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ParallelismConfiguration) return _mValue_ParallelismConfiguration;
+                throw new UndeferrableValueException("Value 'Pipeline.ParallelismConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         /// </summary>
-        [Input("pipelineDefinition")]
+        [PolicyResourceProperty("pipelineDefinition", "_mUnknown_PipelineDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDefinition;
-
-        public string? PipelineDefinition => _mPipelineDefinition.GetValue("pipelineDefinition");
+        private string? _mValue_PipelineDefinition;
+        private bool _mUnknown_PipelineDefinition;
+        public string? PipelineDefinition
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDefinition) return _mValue_PipelineDefinition;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         /// </summary>
-        [Input("pipelineDefinitionS3Location")]
+        [PolicyResourceProperty("pipelineDefinitionS3Location", "_mUnknown_PipelineDefinitionS3Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelinePipelineDefinitionS3Location> _mPipelineDefinitionS3Location;
-
-        public Outputs.PipelinePipelineDefinitionS3Location? PipelineDefinitionS3Location => _mPipelineDefinitionS3Location.GetValue("pipelineDefinitionS3Location");
+        private Outputs.PipelinePipelineDefinitionS3Location? _mValue_PipelineDefinitionS3Location;
+        private bool _mUnknown_PipelineDefinitionS3Location;
+        public Outputs.PipelinePipelineDefinitionS3Location? PipelineDefinitionS3Location
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDefinitionS3Location) return _mValue_PipelineDefinitionS3Location;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineDefinitionS3Location' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the pipeline.
         /// </summary>
-        [Input("pipelineDescription")]
+        [PolicyResourceProperty("pipelineDescription", "_mUnknown_PipelineDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDescription;
-
-        public string? PipelineDescription => _mPipelineDescription.GetValue("pipelineDescription");
+        private string? _mValue_PipelineDescription;
+        private bool _mUnknown_PipelineDescription;
+        public string? PipelineDescription
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDescription) return _mValue_PipelineDescription;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the pipeline.
         /// </summary>
-        [Input("pipelineDisplayName")]
+        [PolicyResourceProperty("pipelineDisplayName", "_mUnknown_PipelineDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDisplayName;
-
-        public string? PipelineDisplayName => _mPipelineDisplayName.GetValue("pipelineDisplayName");
+        private string? _mValue_PipelineDisplayName;
+        private bool _mUnknown_PipelineDisplayName;
+        public string? PipelineDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDisplayName) return _mValue_PipelineDisplayName;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
-        [Input("pipelineName")]
+        [PolicyResourceProperty("pipelineName", "_mUnknown_PipelineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
-
-        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
+        private string? _mValue_PipelineName;
+        private bool _mUnknown_PipelineName;
+        public string? PipelineName
+        {
+            get
+            {
+                if (!_mUnknown_PipelineName) return _mValue_PipelineName;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Pipeline.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Pipeline.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Pipeline.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/pipeline:Pipeline")]
@@ -110,73 +180,129 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         /// </summary>
-        [Input("parallelismConfiguration")]
+        [PolicyResourceProperty("parallelismConfiguration", "_mUnknown_ParallelismConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineParallelismConfigurationArgs> _mParallelismConfiguration;
-
-        public Inputs.PipelineParallelismConfigurationArgs? ParallelismConfiguration => _mParallelismConfiguration.GetValue("parallelismConfiguration");
+        private Inputs.PipelineParallelismConfigurationArgs? _mValue_ParallelismConfiguration;
+        private bool _mUnknown_ParallelismConfiguration;
+        public Inputs.PipelineParallelismConfigurationArgs? ParallelismConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ParallelismConfiguration) return _mValue_ParallelismConfiguration;
+                throw new UndeferrableValueException("Value 'PipelineArgs.ParallelismConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         /// </summary>
-        [Input("pipelineDefinition")]
+        [PolicyResourceProperty("pipelineDefinition", "_mUnknown_PipelineDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDefinition;
-
-        public string? PipelineDefinition => _mPipelineDefinition.GetValue("pipelineDefinition");
+        private string? _mValue_PipelineDefinition;
+        private bool _mUnknown_PipelineDefinition;
+        public string? PipelineDefinition
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDefinition) return _mValue_PipelineDefinition;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         /// </summary>
-        [Input("pipelineDefinitionS3Location")]
+        [PolicyResourceProperty("pipelineDefinitionS3Location", "_mUnknown_PipelineDefinitionS3Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelinePipelineDefinitionS3LocationArgs> _mPipelineDefinitionS3Location;
-
-        public Inputs.PipelinePipelineDefinitionS3LocationArgs? PipelineDefinitionS3Location => _mPipelineDefinitionS3Location.GetValue("pipelineDefinitionS3Location");
+        private Inputs.PipelinePipelineDefinitionS3LocationArgs? _mValue_PipelineDefinitionS3Location;
+        private bool _mUnknown_PipelineDefinitionS3Location;
+        public Inputs.PipelinePipelineDefinitionS3LocationArgs? PipelineDefinitionS3Location
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDefinitionS3Location) return _mValue_PipelineDefinitionS3Location;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineDefinitionS3Location' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the pipeline.
         /// </summary>
-        [Input("pipelineDescription")]
+        [PolicyResourceProperty("pipelineDescription", "_mUnknown_PipelineDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDescription;
-
-        public string? PipelineDescription => _mPipelineDescription.GetValue("pipelineDescription");
+        private string? _mValue_PipelineDescription;
+        private bool _mUnknown_PipelineDescription;
+        public string? PipelineDescription
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDescription) return _mValue_PipelineDescription;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the pipeline.
         /// </summary>
-        [Input("pipelineDisplayName")]
+        [PolicyResourceProperty("pipelineDisplayName", "_mUnknown_PipelineDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineDisplayName;
-
-        public string? PipelineDisplayName => _mPipelineDisplayName.GetValue("pipelineDisplayName");
+        private string? _mValue_PipelineDisplayName;
+        private bool _mUnknown_PipelineDisplayName;
+        public string? PipelineDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_PipelineDisplayName) return _mValue_PipelineDisplayName;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
-        [Input("pipelineName")]
+        [PolicyResourceProperty("pipelineName", "_mUnknown_PipelineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
-
-        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
+        private string? _mValue_PipelineName;
+        private bool _mUnknown_PipelineName;
+        public string? PipelineName
+        {
+            get
+            {
+                if (!_mUnknown_PipelineName) return _mValue_PipelineName;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role the pipeline will execute as.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'PipelineArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Tags' is not present");
+            }
+        }
     }
 }

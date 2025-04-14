@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapResult
     {
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapResult.Alias' is not present");
+            }
+        }
 
-        public string? Alias => _mAlias.GetValue("alias");
-
-        [Input("dataTransforms")]
+        [PolicyResourceProperty("dataTransforms", "_mUnknown_DataTransforms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetLogicalTableMapDataTransformResult>> _mDataTransforms;
+        private List<Outputs.GetDataSetLogicalTableMapDataTransformResult>? _mValue_DataTransforms;
+        private bool _mUnknown_DataTransforms;
+        public List<Outputs.GetDataSetLogicalTableMapDataTransformResult>? DataTransforms
+        {
+            get
+            {
+                if (!_mUnknown_DataTransforms) return _mValue_DataTransforms;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapResult.DataTransforms' is not present");
+            }
+        }
 
-        public List<Outputs.GetDataSetLogicalTableMapDataTransformResult>? DataTransforms => _mDataTransforms.GetValue("dataTransforms");
-
-        [Input("logicalTableMapId")]
+        [PolicyResourceProperty("logicalTableMapId", "_mUnknown_LogicalTableMapId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogicalTableMapId;
+        private string? _mValue_LogicalTableMapId;
+        private bool _mUnknown_LogicalTableMapId;
+        public string? LogicalTableMapId
+        {
+            get
+            {
+                if (!_mUnknown_LogicalTableMapId) return _mValue_LogicalTableMapId;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapResult.LogicalTableMapId' is not present");
+            }
+        }
 
-        public string? LogicalTableMapId => _mLogicalTableMapId.GetValue("logicalTableMapId");
-
-        [Input("sources")]
+        [PolicyResourceProperty("sources", "_mUnknown_Sources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetLogicalTableMapSourceResult>> _mSources;
-
-        public List<Outputs.GetDataSetLogicalTableMapSourceResult>? Sources => _mSources.GetValue("sources");
+        private List<Outputs.GetDataSetLogicalTableMapSourceResult>? _mValue_Sources;
+        private bool _mUnknown_Sources;
+        public List<Outputs.GetDataSetLogicalTableMapSourceResult>? Sources
+        {
+            get
+            {
+                if (!_mUnknown_Sources) return _mValue_Sources;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapResult.Sources' is not present");
+            }
+        }
     }
 }

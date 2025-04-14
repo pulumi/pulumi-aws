@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The refresh configuration for the data set. See refresh_configuration.
         /// </summary>
-        [Input("refreshConfiguration")]
+        [PolicyResourceProperty("refreshConfiguration", "_mUnknown_RefreshConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetRefreshPropertiesRefreshConfigurationArgs> _mRefreshConfiguration;
-
-        public Inputs.DataSetRefreshPropertiesRefreshConfigurationArgs? RefreshConfiguration => _mRefreshConfiguration.GetValue("refreshConfiguration");
+        private Inputs.DataSetRefreshPropertiesRefreshConfigurationArgs? _mValue_RefreshConfiguration;
+        private bool _mUnknown_RefreshConfiguration;
+        public Inputs.DataSetRefreshPropertiesRefreshConfigurationArgs? RefreshConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RefreshConfiguration) return _mValue_RefreshConfiguration;
+                throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesArgs.RefreshConfiguration' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerTimeoutTcpResult
     {
-        [Input("idles")]
+        [PolicyResourceProperty("idles", "_mUnknown_Idles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult>> _mIdles;
-
-        public List<Outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult>? Idles => _mIdles.GetValue("idles");
+        private List<Outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult>? _mValue_Idles;
+        private bool _mUnknown_Idles;
+        public List<Outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult>? Idles
+        {
+            get
+            {
+                if (!_mUnknown_Idles) return _mValue_Idles;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTimeoutTcpResult.Idles' is not present");
+            }
+        }
     }
 }

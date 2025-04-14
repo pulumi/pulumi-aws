@@ -18,118 +18,209 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("actionGroupExecutor")]
+        [PolicyResourceProperty("actionGroupExecutor", "_mUnknown_ActionGroupExecutor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupActionGroupExecutor> _mActionGroupExecutor;
-
-        public Outputs.AgentAgentActionGroupActionGroupExecutor? ActionGroupExecutor => _mActionGroupExecutor.GetValue("actionGroupExecutor");
+        private Outputs.AgentAgentActionGroupActionGroupExecutor? _mValue_ActionGroupExecutor;
+        private bool _mUnknown_ActionGroupExecutor;
+        public Outputs.AgentAgentActionGroupActionGroupExecutor? ActionGroupExecutor
+        {
+            get
+            {
+                if (!_mUnknown_ActionGroupExecutor) return _mValue_ActionGroupExecutor;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.ActionGroupExecutor' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the action group.
         /// </summary>
-        [Input("actionGroupId")]
+        [PolicyResourceProperty("actionGroupId", "_mUnknown_ActionGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupId;
-
-        public string? ActionGroupId => _mActionGroupId.GetValue("actionGroupId");
+        private string? _mValue_ActionGroupId;
+        private bool _mUnknown_ActionGroupId;
+        public string? ActionGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ActionGroupId) return _mValue_ActionGroupId;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.ActionGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the action group.
         /// </summary>
-        [Input("actionGroupName")]
+        [PolicyResourceProperty("actionGroupName", "_mUnknown_ActionGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupName;
-
-        public string? ActionGroupName => _mActionGroupName.GetValue("actionGroupName");
+        private string? _mValue_ActionGroupName;
+        private bool _mUnknown_ActionGroupName;
+        public string? ActionGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ActionGroupName) return _mValue_ActionGroupName;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.ActionGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("actionGroupState")]
+        [PolicyResourceProperty("actionGroupState", "_mUnknown_ActionGroupState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupState;
-
-        public string? ActionGroupState => _mActionGroupState.GetValue("actionGroupState");
+        private string? _mValue_ActionGroupState;
+        private bool _mUnknown_ActionGroupState;
+        public string? ActionGroupState
+        {
+            get
+            {
+                if (!_mUnknown_ActionGroupState) return _mValue_ActionGroupState;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.ActionGroupState' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the agent for which to create the action group.
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
-
-        public string? AgentId => _mAgentId.GetValue("agentId");
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.AgentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
         /// </summary>
-        [Input("apiSchema")]
+        [PolicyResourceProperty("apiSchema", "_mUnknown_ApiSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupApiSchema> _mApiSchema;
-
-        public Outputs.AgentAgentActionGroupApiSchema? ApiSchema => _mApiSchema.GetValue("apiSchema");
+        private Outputs.AgentAgentActionGroupApiSchema? _mValue_ApiSchema;
+        private bool _mUnknown_ApiSchema;
+        public Outputs.AgentAgentActionGroupApiSchema? ApiSchema
+        {
+            get
+            {
+                if (!_mUnknown_ApiSchema) return _mValue_ApiSchema;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.ApiSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the action group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the function schema for the action group.
         /// Each function represents an action in an action group.
         /// See `function_schema` Block for details.
         /// </summary>
-        [Input("functionSchema")]
+        [PolicyResourceProperty("functionSchema", "_mUnknown_FunctionSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupFunctionSchema> _mFunctionSchema;
-
-        public Outputs.AgentAgentActionGroupFunctionSchema? FunctionSchema => _mFunctionSchema.GetValue("functionSchema");
+        private Outputs.AgentAgentActionGroupFunctionSchema? _mValue_FunctionSchema;
+        private bool _mUnknown_FunctionSchema;
+        public Outputs.AgentAgentActionGroupFunctionSchema? FunctionSchema
+        {
+            get
+            {
+                if (!_mUnknown_FunctionSchema) return _mValue_FunctionSchema;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.FunctionSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         /// </summary>
-        [Input("parentActionGroupSignature")]
+        [PolicyResourceProperty("parentActionGroupSignature", "_mUnknown_ParentActionGroupSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentActionGroupSignature;
-
-        public string? ParentActionGroupSignature => _mParentActionGroupSignature.GetValue("parentActionGroupSignature");
+        private string? _mValue_ParentActionGroupSignature;
+        private bool _mUnknown_ParentActionGroupSignature;
+        public string? ParentActionGroupSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentActionGroupSignature) return _mValue_ParentActionGroupSignature;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.ParentActionGroupSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
-        [Input("prepareAgent")]
+        [PolicyResourceProperty("prepareAgent", "_mUnknown_PrepareAgent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
-
-        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+        private bool? _mValue_PrepareAgent;
+        private bool _mUnknown_PrepareAgent;
+        public bool? PrepareAgent
+        {
+            get
+            {
+                if (!_mUnknown_PrepareAgent) return _mValue_PrepareAgent;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.PrepareAgent' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
-        [Input("skipResourceInUseCheck")]
+        [PolicyResourceProperty("skipResourceInUseCheck", "_mUnknown_SkipResourceInUseCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
+        private bool? _mValue_SkipResourceInUseCheck;
+        private bool _mUnknown_SkipResourceInUseCheck;
+        public bool? SkipResourceInUseCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipResourceInUseCheck) return _mValue_SkipResourceInUseCheck;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.SkipResourceInUseCheck' is not present");
+            }
+        }
 
-        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentActionGroupTimeouts> _mTimeouts;
-
-        public Outputs.AgentAgentActionGroupTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AgentAgentActionGroupTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AgentAgentActionGroupTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroup.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup")]
@@ -140,108 +231,192 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("actionGroupExecutor")]
+        [PolicyResourceProperty("actionGroupExecutor", "_mUnknown_ActionGroupExecutor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupActionGroupExecutorArgs> _mActionGroupExecutor;
-
-        public Inputs.AgentAgentActionGroupActionGroupExecutorArgs? ActionGroupExecutor => _mActionGroupExecutor.GetValue("actionGroupExecutor");
+        private Inputs.AgentAgentActionGroupActionGroupExecutorArgs? _mValue_ActionGroupExecutor;
+        private bool _mUnknown_ActionGroupExecutor;
+        public Inputs.AgentAgentActionGroupActionGroupExecutorArgs? ActionGroupExecutor
+        {
+            get
+            {
+                if (!_mUnknown_ActionGroupExecutor) return _mValue_ActionGroupExecutor;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.ActionGroupExecutor' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the action group.
         /// </summary>
-        [Input("actionGroupName")]
+        [PolicyResourceProperty("actionGroupName", "_mUnknown_ActionGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupName;
-
-        public string? ActionGroupName => _mActionGroupName.GetValue("actionGroupName");
+        private string? _mValue_ActionGroupName;
+        private bool _mUnknown_ActionGroupName;
+        public string? ActionGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ActionGroupName) return _mValue_ActionGroupName;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.ActionGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("actionGroupState")]
+        [PolicyResourceProperty("actionGroupState", "_mUnknown_ActionGroupState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionGroupState;
-
-        public string? ActionGroupState => _mActionGroupState.GetValue("actionGroupState");
+        private string? _mValue_ActionGroupState;
+        private bool _mUnknown_ActionGroupState;
+        public string? ActionGroupState
+        {
+            get
+            {
+                if (!_mUnknown_ActionGroupState) return _mValue_ActionGroupState;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.ActionGroupState' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the agent for which to create the action group.
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
-
-        public string? AgentId => _mAgentId.GetValue("agentId");
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.AgentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
         /// </summary>
-        [Input("apiSchema")]
+        [PolicyResourceProperty("apiSchema", "_mUnknown_ApiSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupApiSchemaArgs> _mApiSchema;
-
-        public Inputs.AgentAgentActionGroupApiSchemaArgs? ApiSchema => _mApiSchema.GetValue("apiSchema");
+        private Inputs.AgentAgentActionGroupApiSchemaArgs? _mValue_ApiSchema;
+        private bool _mUnknown_ApiSchema;
+        public Inputs.AgentAgentActionGroupApiSchemaArgs? ApiSchema
+        {
+            get
+            {
+                if (!_mUnknown_ApiSchema) return _mValue_ApiSchema;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.ApiSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the action group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the function schema for the action group.
         /// Each function represents an action in an action group.
         /// See `function_schema` Block for details.
         /// </summary>
-        [Input("functionSchema")]
+        [PolicyResourceProperty("functionSchema", "_mUnknown_FunctionSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupFunctionSchemaArgs> _mFunctionSchema;
-
-        public Inputs.AgentAgentActionGroupFunctionSchemaArgs? FunctionSchema => _mFunctionSchema.GetValue("functionSchema");
+        private Inputs.AgentAgentActionGroupFunctionSchemaArgs? _mValue_FunctionSchema;
+        private bool _mUnknown_FunctionSchema;
+        public Inputs.AgentAgentActionGroupFunctionSchemaArgs? FunctionSchema
+        {
+            get
+            {
+                if (!_mUnknown_FunctionSchema) return _mValue_FunctionSchema;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.FunctionSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         /// </summary>
-        [Input("parentActionGroupSignature")]
+        [PolicyResourceProperty("parentActionGroupSignature", "_mUnknown_ParentActionGroupSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentActionGroupSignature;
-
-        public string? ParentActionGroupSignature => _mParentActionGroupSignature.GetValue("parentActionGroupSignature");
+        private string? _mValue_ParentActionGroupSignature;
+        private bool _mUnknown_ParentActionGroupSignature;
+        public string? ParentActionGroupSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentActionGroupSignature) return _mValue_ParentActionGroupSignature;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.ParentActionGroupSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
-        [Input("prepareAgent")]
+        [PolicyResourceProperty("prepareAgent", "_mUnknown_PrepareAgent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
-
-        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+        private bool? _mValue_PrepareAgent;
+        private bool _mUnknown_PrepareAgent;
+        public bool? PrepareAgent
+        {
+            get
+            {
+                if (!_mUnknown_PrepareAgent) return _mValue_PrepareAgent;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.PrepareAgent' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the action group.
         /// </summary>
-        [Input("skipResourceInUseCheck")]
+        [PolicyResourceProperty("skipResourceInUseCheck", "_mUnknown_SkipResourceInUseCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
+        private bool? _mValue_SkipResourceInUseCheck;
+        private bool _mUnknown_SkipResourceInUseCheck;
+        public bool? SkipResourceInUseCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipResourceInUseCheck) return _mValue_SkipResourceInUseCheck;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.SkipResourceInUseCheck' is not present");
+            }
+        }
 
-        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentActionGroupTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AgentAgentActionGroupTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AgentAgentActionGroupTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AgentAgentActionGroupTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.Timeouts' is not present");
+            }
+        }
     }
 }

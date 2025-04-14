@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventConnection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         /// </summary>
-        [Input("authParameters")]
+        [PolicyResourceProperty("authParameters", "_mUnknown_AuthParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionAuthParameters> _mAuthParameters;
-
-        public Outputs.EventConnectionAuthParameters? AuthParameters => _mAuthParameters.GetValue("authParameters");
+        private Outputs.EventConnectionAuthParameters? _mValue_AuthParameters;
+        private bool _mUnknown_AuthParameters;
+        public Outputs.EventConnectionAuthParameters? AuthParameters
+        {
+            get
+            {
+                if (!_mUnknown_AuthParameters) return _mValue_AuthParameters;
+                throw new UndeferrableValueException("Value 'EventConnection.AuthParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
-        [Input("authorizationType")]
+        [PolicyResourceProperty("authorizationType", "_mUnknown_AuthorizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationType;
-
-        public string? AuthorizationType => _mAuthorizationType.GetValue("authorizationType");
+        private string? _mValue_AuthorizationType;
+        private bool _mUnknown_AuthorizationType;
+        public string? AuthorizationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationType) return _mValue_AuthorizationType;
+                throw new UndeferrableValueException("Value 'EventConnection.AuthorizationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Enter a description for the connection. Maximum of 512 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventConnection.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters to use for invoking a private API. Documented below.
         /// </summary>
-        [Input("invocationConnectivityParameters")]
+        [PolicyResourceProperty("invocationConnectivityParameters", "_mUnknown_InvocationConnectivityParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventConnectionInvocationConnectivityParameters> _mInvocationConnectivityParameters;
-
-        public Outputs.EventConnectionInvocationConnectivityParameters? InvocationConnectivityParameters => _mInvocationConnectivityParameters.GetValue("invocationConnectivityParameters");
+        private Outputs.EventConnectionInvocationConnectivityParameters? _mValue_InvocationConnectivityParameters;
+        private bool _mUnknown_InvocationConnectivityParameters;
+        public Outputs.EventConnectionInvocationConnectivityParameters? InvocationConnectivityParameters
+        {
+            get
+            {
+                if (!_mUnknown_InvocationConnectivityParameters) return _mValue_InvocationConnectivityParameters;
+                throw new UndeferrableValueException("Value 'EventConnection.InvocationConnectivityParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventConnection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'EventConnection.SecretArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/eventConnection:EventConnection")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         /// </summary>
-        [Input("authParameters")]
+        [PolicyResourceProperty("authParameters", "_mUnknown_AuthParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventConnectionAuthParametersArgs> _mAuthParameters;
-
-        public Inputs.EventConnectionAuthParametersArgs? AuthParameters => _mAuthParameters.GetValue("authParameters");
+        private Inputs.EventConnectionAuthParametersArgs? _mValue_AuthParameters;
+        private bool _mUnknown_AuthParameters;
+        public Inputs.EventConnectionAuthParametersArgs? AuthParameters
+        {
+            get
+            {
+                if (!_mUnknown_AuthParameters) return _mValue_AuthParameters;
+                throw new UndeferrableValueException("Value 'EventConnectionArgs.AuthParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         /// </summary>
-        [Input("authorizationType")]
+        [PolicyResourceProperty("authorizationType", "_mUnknown_AuthorizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationType;
-
-        public string? AuthorizationType => _mAuthorizationType.GetValue("authorizationType");
+        private string? _mValue_AuthorizationType;
+        private bool _mUnknown_AuthorizationType;
+        public string? AuthorizationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationType) return _mValue_AuthorizationType;
+                throw new UndeferrableValueException("Value 'EventConnectionArgs.AuthorizationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Enter a description for the connection. Maximum of 512 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventConnectionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters to use for invoking a private API. Documented below.
         /// </summary>
-        [Input("invocationConnectivityParameters")]
+        [PolicyResourceProperty("invocationConnectivityParameters", "_mUnknown_InvocationConnectivityParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventConnectionInvocationConnectivityParametersArgs> _mInvocationConnectivityParameters;
-
-        public Inputs.EventConnectionInvocationConnectivityParametersArgs? InvocationConnectivityParameters => _mInvocationConnectivityParameters.GetValue("invocationConnectivityParameters");
+        private Inputs.EventConnectionInvocationConnectivityParametersArgs? _mValue_InvocationConnectivityParameters;
+        private bool _mUnknown_InvocationConnectivityParameters;
+        public Inputs.EventConnectionInvocationConnectivityParametersArgs? InvocationConnectivityParameters
+        {
+            get
+            {
+                if (!_mUnknown_InvocationConnectivityParameters) return _mValue_InvocationConnectivityParameters;
+                throw new UndeferrableValueException("Value 'EventConnectionArgs.InvocationConnectivityParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventConnectionArgs.Name' is not present");
+            }
+        }
     }
 }

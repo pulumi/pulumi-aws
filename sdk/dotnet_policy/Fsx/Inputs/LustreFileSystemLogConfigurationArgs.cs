@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'LustreFileSystemLogConfigurationArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
         /// </summary>
-        [Input("level")]
+        [PolicyResourceProperty("level", "_mUnknown_Level")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
-
-        public string? Level => _mLevel.GetValue("level");
+        private string? _mValue_Level;
+        private bool _mUnknown_Level;
+        public string? Level
+        {
+            get
+            {
+                if (!_mUnknown_Level) return _mValue_Level;
+                throw new UndeferrableValueException("Value 'LustreFileSystemLogConfigurationArgs.Level' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Unique identifier of the guardrail.
         /// </summary>
-        [Input("guardrailIdentifier")]
+        [PolicyResourceProperty("guardrailIdentifier", "_mUnknown_GuardrailIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailIdentifier;
-
-        public string? GuardrailIdentifier => _mGuardrailIdentifier.GetValue("guardrailIdentifier");
+        private string? _mValue_GuardrailIdentifier;
+        private bool _mUnknown_GuardrailIdentifier;
+        public string? GuardrailIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailIdentifier) return _mValue_GuardrailIdentifier;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationInputArgs.GuardrailIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the guardrail.
         /// </summary>
-        [Input("guardrailVersion")]
+        [PolicyResourceProperty("guardrailVersion", "_mUnknown_GuardrailVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuardrailVersion;
-
-        public string? GuardrailVersion => _mGuardrailVersion.GetValue("guardrailVersion");
+        private string? _mValue_GuardrailVersion;
+        private bool _mUnknown_GuardrailVersion;
+        public string? GuardrailVersion
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailVersion) return _mValue_GuardrailVersion;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationInputArgs.GuardrailVersion' is not present");
+            }
+        }
     }
 }

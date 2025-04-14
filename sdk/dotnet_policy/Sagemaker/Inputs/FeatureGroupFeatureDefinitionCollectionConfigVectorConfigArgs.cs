@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
 {
     public sealed class FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs
     {
-        [Input("dimension")]
+        [PolicyResourceProperty("dimension", "_mUnknown_Dimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDimension;
-
-        public int? Dimension => _mDimension.GetValue("dimension");
+        private int? _mValue_Dimension;
+        private bool _mUnknown_Dimension;
+        public int? Dimension
+        {
+            get
+            {
+                if (!_mUnknown_Dimension) return _mValue_Dimension;
+                throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs.Dimension' is not present");
+            }
+        }
     }
 }

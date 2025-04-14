@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
         /// </summary>
-        [Input("dnsIps")]
+        [PolicyResourceProperty("dnsIps", "_mUnknown_DnsIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDnsIps;
-
-        public List<string>? DnsIps => _mDnsIps.GetValue("dnsIps");
+        private List<string>? _mValue_DnsIps;
+        private bool _mUnknown_DnsIps;
+        public List<string>? DnsIps
+        {
+            get
+            {
+                if (!_mUnknown_DnsIps) return _mValue_DnsIps;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.DnsIps' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         /// </summary>
-        [Input("fileSystemAdministratorsGroup")]
+        [PolicyResourceProperty("fileSystemAdministratorsGroup", "_mUnknown_FileSystemAdministratorsGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemAdministratorsGroup;
-
-        public string? FileSystemAdministratorsGroup => _mFileSystemAdministratorsGroup.GetValue("fileSystemAdministratorsGroup");
+        private string? _mValue_FileSystemAdministratorsGroup;
+        private bool _mUnknown_FileSystemAdministratorsGroup;
+        public string? FileSystemAdministratorsGroup
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemAdministratorsGroup) return _mValue_FileSystemAdministratorsGroup;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.FileSystemAdministratorsGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         /// </summary>
-        [Input("organizationalUnitDistinguishedName")]
+        [PolicyResourceProperty("organizationalUnitDistinguishedName", "_mUnknown_OrganizationalUnitDistinguishedName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitDistinguishedName;
-
-        public string? OrganizationalUnitDistinguishedName => _mOrganizationalUnitDistinguishedName.GetValue("organizationalUnitDistinguishedName");
+        private string? _mValue_OrganizationalUnitDistinguishedName;
+        private bool _mUnknown_OrganizationalUnitDistinguishedName;
+        public string? OrganizationalUnitDistinguishedName
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitDistinguishedName) return _mValue_OrganizationalUnitDistinguishedName;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.OrganizationalUnitDistinguishedName' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.Username' is not present");
+            }
+        }
     }
 }

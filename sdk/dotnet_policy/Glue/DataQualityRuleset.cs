@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ARN of the Glue Data Quality Ruleset.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The time and date that this data quality ruleset was created.
         /// </summary>
-        [Input("createdOn")]
+        [PolicyResourceProperty("createdOn", "_mUnknown_CreatedOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedOn;
-
-        public string? CreatedOn => _mCreatedOn.GetValue("createdOn");
+        private string? _mValue_CreatedOn;
+        private bool _mUnknown_CreatedOn;
+        public string? CreatedOn
+        {
+            get
+            {
+                if (!_mUnknown_CreatedOn) return _mValue_CreatedOn;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.CreatedOn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the data quality ruleset.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The time and date that this data quality ruleset was created.
         /// </summary>
-        [Input("lastModifiedOn")]
+        [PolicyResourceProperty("lastModifiedOn", "_mUnknown_LastModifiedOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedOn;
-
-        public string? LastModifiedOn => _mLastModifiedOn.GetValue("lastModifiedOn");
+        private string? _mValue_LastModifiedOn;
+        private bool _mUnknown_LastModifiedOn;
+        public string? LastModifiedOn
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedOn) return _mValue_LastModifiedOn;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.LastModifiedOn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the data quality ruleset.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
         /// </summary>
-        [Input("recommendationRunId")]
+        [PolicyResourceProperty("recommendationRunId", "_mUnknown_RecommendationRunId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecommendationRunId;
-
-        public string? RecommendationRunId => _mRecommendationRunId.GetValue("recommendationRunId");
+        private string? _mValue_RecommendationRunId;
+        private bool _mUnknown_RecommendationRunId;
+        public string? RecommendationRunId
+        {
+            get
+            {
+                if (!_mUnknown_RecommendationRunId) return _mValue_RecommendationRunId;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.RecommendationRunId' is not present");
+            }
+        }
 
         /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
-        [Input("ruleset")]
+        [PolicyResourceProperty("ruleset", "_mUnknown_Ruleset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleset;
-
-        public string? Ruleset => _mRuleset.GetValue("ruleset");
+        private string? _mValue_Ruleset;
+        private bool _mUnknown_Ruleset;
+        public string? Ruleset
+        {
+            get
+            {
+                if (!_mUnknown_Ruleset) return _mValue_Ruleset;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.Ruleset' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         /// </summary>
-        [Input("targetTable")]
+        [PolicyResourceProperty("targetTable", "_mUnknown_TargetTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityRulesetTargetTable> _mTargetTable;
-
-        public Outputs.DataQualityRulesetTargetTable? TargetTable => _mTargetTable.GetValue("targetTable");
+        private Outputs.DataQualityRulesetTargetTable? _mValue_TargetTable;
+        private bool _mUnknown_TargetTable;
+        public Outputs.DataQualityRulesetTargetTable? TargetTable
+        {
+            get
+            {
+                if (!_mUnknown_TargetTable) return _mValue_TargetTable;
+                throw new UndeferrableValueException("Value 'DataQualityRuleset.TargetTable' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/dataQualityRuleset:DataQualityRuleset")]
@@ -110,46 +180,81 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Description of the data quality ruleset.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataQualityRulesetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the data quality ruleset.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataQualityRulesetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         /// </summary>
-        [Input("ruleset")]
+        [PolicyResourceProperty("ruleset", "_mUnknown_Ruleset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleset;
-
-        public string? Ruleset => _mRuleset.GetValue("ruleset");
+        private string? _mValue_Ruleset;
+        private bool _mUnknown_Ruleset;
+        public string? Ruleset
+        {
+            get
+            {
+                if (!_mUnknown_Ruleset) return _mValue_Ruleset;
+                throw new UndeferrableValueException("Value 'DataQualityRulesetArgs.Ruleset' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataQualityRulesetArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         /// </summary>
-        [Input("targetTable")]
+        [PolicyResourceProperty("targetTable", "_mUnknown_TargetTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityRulesetTargetTableArgs> _mTargetTable;
-
-        public Inputs.DataQualityRulesetTargetTableArgs? TargetTable => _mTargetTable.GetValue("targetTable");
+        private Inputs.DataQualityRulesetTargetTableArgs? _mValue_TargetTable;
+        private bool _mUnknown_TargetTable;
+        public Inputs.DataQualityRulesetTargetTableArgs? TargetTable
+        {
+            get
+            {
+                if (!_mUnknown_TargetTable) return _mValue_TargetTable;
+                throw new UndeferrableValueException("Value 'DataQualityRulesetArgs.TargetTable' is not present");
+            }
+        }
     }
 }

@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The account alias
         /// </summary>
-        [Input("accountAlias")]
+        [PolicyResourceProperty("accountAlias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("accountAlias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'AccountAlias.Alias' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/accountAlias:AccountAlias")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The account alias
         /// </summary>
-        [Input("accountAlias")]
+        [PolicyResourceProperty("accountAlias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("accountAlias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'AccountAliasArgs.Alias' is not present");
+            }
+        }
     }
 }

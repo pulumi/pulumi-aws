@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Sets the colorspace metadata to be passed through.
         /// </summary>
-        [Input("colorSpacePassthroughSettings")]
+        [PolicyResourceProperty("colorSpacePassthroughSettings", "_mUnknown_ColorSpacePassthroughSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs> _mColorSpacePassthroughSettings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs? ColorSpacePassthroughSettings => _mColorSpacePassthroughSettings.GetValue("colorSpacePassthroughSettings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs? _mValue_ColorSpacePassthroughSettings;
+        private bool _mUnknown_ColorSpacePassthroughSettings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs? ColorSpacePassthroughSettings
+        {
+            get
+            {
+                if (!_mUnknown_ColorSpacePassthroughSettings) return _mValue_ColorSpacePassthroughSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs.ColorSpacePassthroughSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Set the colorspace to Dolby Vision81.
         /// </summary>
-        [Input("dolbyVision81Settings")]
+        [PolicyResourceProperty("dolbyVision81Settings", "_mUnknown_DolbyVision81Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs> _mDolbyVision81Settings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs? DolbyVision81Settings => _mDolbyVision81Settings.GetValue("dolbyVision81Settings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs? _mValue_DolbyVision81Settings;
+        private bool _mUnknown_DolbyVision81Settings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs? DolbyVision81Settings
+        {
+            get
+            {
+                if (!_mUnknown_DolbyVision81Settings) return _mValue_DolbyVision81Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs.DolbyVision81Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
         /// </summary>
-        [Input("hdr10Settings")]
+        [PolicyResourceProperty("hdr10Settings", "_mUnknown_Hdr10Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs> _mHdr10Settings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs? Hdr10Settings => _mHdr10Settings.GetValue("hdr10Settings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs? _mValue_Hdr10Settings;
+        private bool _mUnknown_Hdr10Settings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs? Hdr10Settings
+        {
+            get
+            {
+                if (!_mUnknown_Hdr10Settings) return _mValue_Hdr10Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs.Hdr10Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Set the colorspace to Rec. 601.
         /// </summary>
-        [Input("rec601Settings")]
+        [PolicyResourceProperty("rec601Settings", "_mUnknown_Rec601Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs> _mRec601Settings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs? Rec601Settings => _mRec601Settings.GetValue("rec601Settings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs? _mValue_Rec601Settings;
+        private bool _mUnknown_Rec601Settings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs? Rec601Settings
+        {
+            get
+            {
+                if (!_mUnknown_Rec601Settings) return _mValue_Rec601Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs.Rec601Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Set the colorspace to Rec. 709.
         /// </summary>
-        [Input("rec709Settings")]
+        [PolicyResourceProperty("rec709Settings", "_mUnknown_Rec709Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs> _mRec709Settings;
-
-        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs? Rec709Settings => _mRec709Settings.GetValue("rec709Settings");
+        private Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs? _mValue_Rec709Settings;
+        private bool _mUnknown_Rec709Settings;
+        public Inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs? Rec709Settings
+        {
+            get
+            {
+                if (!_mUnknown_Rec709Settings) return _mValue_Rec709Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs.Rec709Settings' is not present");
+            }
+        }
     }
 }

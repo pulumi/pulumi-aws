@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Outputs
         /// <summary>
         /// The launch command for the container. A list of string.
         /// </summary>
-        [Input("commands")]
+        [PolicyResourceProperty("commands", "_mUnknown_Commands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCommands;
-
-        public List<string>? Commands => _mCommands.GetValue("commands");
+        private List<string>? _mValue_Commands;
+        private bool _mUnknown_Commands;
+        public List<string>? Commands
+        {
+            get
+            {
+                if (!_mUnknown_Commands) return _mValue_Commands;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.Commands' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the container.
         /// </summary>
-        [Input("containerName")]
+        [PolicyResourceProperty("containerName", "_mUnknown_ContainerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerName;
-
-        public string? ContainerName => _mContainerName.GetValue("containerName");
+        private string? _mValue_ContainerName;
+        private bool _mUnknown_ContainerName;
+        public string? ContainerName
+        {
+            get
+            {
+                if (!_mUnknown_ContainerName) return _mValue_ContainerName;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.ContainerName' is not present");
+            }
+        }
 
         /// <summary>
         /// A key-value map of the environment variables of the container.
         /// </summary>
-        [Input("environment")]
+        [PolicyResourceProperty("environment", "_mUnknown_Environment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironment;
-
-        public Dictionary<string, string>? Environment => _mEnvironment.GetValue("environment");
+        private Dictionary<string, string>? _mValue_Environment;
+        private bool _mUnknown_Environment;
+        public Dictionary<string, string>? Environment
+        {
+            get
+            {
+                if (!_mUnknown_Environment) return _mValue_Environment;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.Environment' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
         /// </summary>
-        [Input("image")]
+        [PolicyResourceProperty("image", "_mUnknown_Image")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImage;
-
-        public string? Image => _mImage.GetValue("image");
+        private string? _mValue_Image;
+        private bool _mUnknown_Image;
+        public string? Image
+        {
+            get
+            {
+                if (!_mUnknown_Image) return _mValue_Image;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.Image' is not present");
+            }
+        }
 
         /// <summary>
         /// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
         /// </summary>
-        [Input("ports")]
+        [PolicyResourceProperty("ports", "_mUnknown_Ports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPorts;
-
-        public Dictionary<string, string>? Ports => _mPorts.GetValue("ports");
+        private Dictionary<string, string>? _mValue_Ports;
+        private bool _mUnknown_Ports;
+        public Dictionary<string, string>? Ports
+        {
+            get
+            {
+                if (!_mUnknown_Ports) return _mValue_Ports;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.Ports' is not present");
+            }
+        }
     }
 }

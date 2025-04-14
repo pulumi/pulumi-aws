@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Instructs AWS WAF to allow the web request. See `allow` below for details.
         /// </summary>
-        [Input("allow")]
+        [PolicyResourceProperty("allow", "_mUnknown_Allow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleActionAllowArgs> _mAllow;
-
-        public Inputs.WebAclRuleActionAllowArgs? Allow => _mAllow.GetValue("allow");
+        private Inputs.WebAclRuleActionAllowArgs? _mValue_Allow;
+        private bool _mUnknown_Allow;
+        public Inputs.WebAclRuleActionAllowArgs? Allow
+        {
+            get
+            {
+                if (!_mUnknown_Allow) return _mValue_Allow;
+                throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.Allow' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to block the web request. See `block` below for details.
         /// </summary>
-        [Input("block")]
+        [PolicyResourceProperty("block", "_mUnknown_Block")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleActionBlockArgs> _mBlock;
-
-        public Inputs.WebAclRuleActionBlockArgs? Block => _mBlock.GetValue("block");
+        private Inputs.WebAclRuleActionBlockArgs? _mValue_Block;
+        private bool _mUnknown_Block;
+        public Inputs.WebAclRuleActionBlockArgs? Block
+        {
+            get
+            {
+                if (!_mUnknown_Block) return _mValue_Block;
+                throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.Block' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
         /// </summary>
-        [Input("captcha")]
+        [PolicyResourceProperty("captcha", "_mUnknown_Captcha")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleActionCaptchaArgs> _mCaptcha;
-
-        public Inputs.WebAclRuleActionCaptchaArgs? Captcha => _mCaptcha.GetValue("captcha");
+        private Inputs.WebAclRuleActionCaptchaArgs? _mValue_Captcha;
+        private bool _mUnknown_Captcha;
+        public Inputs.WebAclRuleActionCaptchaArgs? Captcha
+        {
+            get
+            {
+                if (!_mUnknown_Captcha) return _mValue_Captcha;
+                throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.Captcha' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         /// </summary>
-        [Input("challenge")]
+        [PolicyResourceProperty("challenge", "_mUnknown_Challenge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleActionChallengeArgs> _mChallenge;
-
-        public Inputs.WebAclRuleActionChallengeArgs? Challenge => _mChallenge.GetValue("challenge");
+        private Inputs.WebAclRuleActionChallengeArgs? _mValue_Challenge;
+        private bool _mUnknown_Challenge;
+        public Inputs.WebAclRuleActionChallengeArgs? Challenge
+        {
+            get
+            {
+                if (!_mUnknown_Challenge) return _mValue_Challenge;
+                throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.Challenge' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         /// </summary>
-        [Input("count")]
+        [PolicyResourceProperty("count", "_mUnknown_Count")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleActionCountArgs> _mCount;
-
-        public Inputs.WebAclRuleActionCountArgs? Count => _mCount.GetValue("count");
+        private Inputs.WebAclRuleActionCountArgs? _mValue_Count;
+        private bool _mUnknown_Count;
+        public Inputs.WebAclRuleActionCountArgs? Count
+        {
+            get
+            {
+                if (!_mUnknown_Count) return _mValue_Count;
+                throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.Count' is not present");
+            }
+        }
     }
 }

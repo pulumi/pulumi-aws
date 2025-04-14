@@ -16,97 +16,174 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// ARN of the Domain.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Domain.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the Domain.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Domain.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the role used by DataZone to configure the Domain.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainExecutionRole")]
+        [PolicyResourceProperty("domainExecutionRole", "_mUnknown_DomainExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainExecutionRole;
-
-        public string? DomainExecutionRole => _mDomainExecutionRole.GetValue("domainExecutionRole");
+        private string? _mValue_DomainExecutionRole;
+        private bool _mUnknown_DomainExecutionRole;
+        public string? DomainExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_DomainExecutionRole) return _mValue_DomainExecutionRole;
+                throw new UndeferrableValueException("Value 'Domain.DomainExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'Domain.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Domain.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Domain.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the data portal for the Domain.
         /// </summary>
-        [Input("portalUrl")]
+        [PolicyResourceProperty("portalUrl", "_mUnknown_PortalUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortalUrl;
-
-        public string? PortalUrl => _mPortalUrl.GetValue("portalUrl");
+        private string? _mValue_PortalUrl;
+        private bool _mUnknown_PortalUrl;
+        public string? PortalUrl
+        {
+            get
+            {
+                if (!_mUnknown_PortalUrl) return _mValue_PortalUrl;
+                throw new UndeferrableValueException("Value 'Domain.PortalUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         /// </summary>
-        [Input("singleSignOn")]
+        [PolicyResourceProperty("singleSignOn", "_mUnknown_SingleSignOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainSingleSignOn> _mSingleSignOn;
-
-        public Outputs.DomainSingleSignOn? SingleSignOn => _mSingleSignOn.GetValue("singleSignOn");
+        private Outputs.DomainSingleSignOn? _mValue_SingleSignOn;
+        private bool _mUnknown_SingleSignOn;
+        public Outputs.DomainSingleSignOn? SingleSignOn
+        {
+            get
+            {
+                if (!_mUnknown_SingleSignOn) return _mValue_SingleSignOn;
+                throw new UndeferrableValueException("Value 'Domain.SingleSignOn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to skip the deletion check for the Domain.
         /// </summary>
-        [Input("skipDeletionCheck")]
+        [PolicyResourceProperty("skipDeletionCheck", "_mUnknown_SkipDeletionCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDeletionCheck;
+        private bool? _mValue_SkipDeletionCheck;
+        private bool _mUnknown_SkipDeletionCheck;
+        public bool? SkipDeletionCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipDeletionCheck) return _mValue_SkipDeletionCheck;
+                throw new UndeferrableValueException("Value 'Domain.SkipDeletionCheck' is not present");
+            }
+        }
 
-        public bool? SkipDeletionCheck => _mSkipDeletionCheck.GetValue("skipDeletionCheck");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Domain.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Domain.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainTimeouts> _mTimeouts;
-
-        public Outputs.DomainTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DomainTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DomainTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Domain.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datazone/domain:Domain")]
@@ -115,69 +192,125 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Description of the Domain.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DomainArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the role used by DataZone to configure the Domain.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainExecutionRole")]
+        [PolicyResourceProperty("domainExecutionRole", "_mUnknown_DomainExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainExecutionRole;
-
-        public string? DomainExecutionRole => _mDomainExecutionRole.GetValue("domainExecutionRole");
+        private string? _mValue_DomainExecutionRole;
+        private bool _mUnknown_DomainExecutionRole;
+        public string? DomainExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_DomainExecutionRole) return _mValue_DomainExecutionRole;
+                throw new UndeferrableValueException("Value 'DomainArgs.DomainExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         /// </summary>
-        [Input("kmsKeyIdentifier")]
+        [PolicyResourceProperty("kmsKeyIdentifier", "_mUnknown_KmsKeyIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyIdentifier;
-
-        public string? KmsKeyIdentifier => _mKmsKeyIdentifier.GetValue("kmsKeyIdentifier");
+        private string? _mValue_KmsKeyIdentifier;
+        private bool _mUnknown_KmsKeyIdentifier;
+        public string? KmsKeyIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyIdentifier) return _mValue_KmsKeyIdentifier;
+                throw new UndeferrableValueException("Value 'DomainArgs.KmsKeyIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Domain.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         /// </summary>
-        [Input("singleSignOn")]
+        [PolicyResourceProperty("singleSignOn", "_mUnknown_SingleSignOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSingleSignOnArgs> _mSingleSignOn;
-
-        public Inputs.DomainSingleSignOnArgs? SingleSignOn => _mSingleSignOn.GetValue("singleSignOn");
+        private Inputs.DomainSingleSignOnArgs? _mValue_SingleSignOn;
+        private bool _mUnknown_SingleSignOn;
+        public Inputs.DomainSingleSignOnArgs? SingleSignOn
+        {
+            get
+            {
+                if (!_mUnknown_SingleSignOn) return _mValue_SingleSignOn;
+                throw new UndeferrableValueException("Value 'DomainArgs.SingleSignOn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to skip the deletion check for the Domain.
         /// </summary>
-        [Input("skipDeletionCheck")]
+        [PolicyResourceProperty("skipDeletionCheck", "_mUnknown_SkipDeletionCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDeletionCheck;
+        private bool? _mValue_SkipDeletionCheck;
+        private bool _mUnknown_SkipDeletionCheck;
+        public bool? SkipDeletionCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipDeletionCheck) return _mValue_SkipDeletionCheck;
+                throw new UndeferrableValueException("Value 'DomainArgs.SkipDeletionCheck' is not present");
+            }
+        }
 
-        public bool? SkipDeletionCheck => _mSkipDeletionCheck.GetValue("skipDeletionCheck");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DomainTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DomainTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DomainTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DomainArgs.Timeouts' is not present");
+            }
+        }
     }
 }

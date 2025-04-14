@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
         /// </summary>
-        [Input("nfs")]
+        [PolicyResourceProperty("nfs", "_mUnknown_Nfs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FsxOpenZfsFileSystemProtocolNfs> _mNfs;
-
-        public Outputs.FsxOpenZfsFileSystemProtocolNfs? Nfs => _mNfs.GetValue("nfs");
+        private Outputs.FsxOpenZfsFileSystemProtocolNfs? _mValue_Nfs;
+        private bool _mUnknown_Nfs;
+        public Outputs.FsxOpenZfsFileSystemProtocolNfs? Nfs
+        {
+            get
+            {
+                if (!_mUnknown_Nfs) return _mValue_Nfs;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemProtocol.Nfs' is not present");
+            }
+        }
     }
 }

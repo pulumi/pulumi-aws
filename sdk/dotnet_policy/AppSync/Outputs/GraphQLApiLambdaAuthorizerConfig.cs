@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
         /// </summary>
-        [Input("authorizerResultTtlInSeconds")]
+        [PolicyResourceProperty("authorizerResultTtlInSeconds", "_mUnknown_AuthorizerResultTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAuthorizerResultTtlInSeconds;
-
-        public int? AuthorizerResultTtlInSeconds => _mAuthorizerResultTtlInSeconds.GetValue("authorizerResultTtlInSeconds");
+        private int? _mValue_AuthorizerResultTtlInSeconds;
+        private bool _mUnknown_AuthorizerResultTtlInSeconds;
+        public int? AuthorizerResultTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerResultTtlInSeconds) return _mValue_AuthorizerResultTtlInSeconds;
+                throw new UndeferrableValueException("Value 'GraphQLApiLambdaAuthorizerConfig.AuthorizerResultTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
         /// </summary>
-        [Input("authorizerUri")]
+        [PolicyResourceProperty("authorizerUri", "_mUnknown_AuthorizerUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerUri;
-
-        public string? AuthorizerUri => _mAuthorizerUri.GetValue("authorizerUri");
+        private string? _mValue_AuthorizerUri;
+        private bool _mUnknown_AuthorizerUri;
+        public string? AuthorizerUri
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerUri) return _mValue_AuthorizerUri;
+                throw new UndeferrableValueException("Value 'GraphQLApiLambdaAuthorizerConfig.AuthorizerUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Regular expression for validation of tokens before the Lambda function is called.
         /// </summary>
-        [Input("identityValidationExpression")]
+        [PolicyResourceProperty("identityValidationExpression", "_mUnknown_IdentityValidationExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityValidationExpression;
-
-        public string? IdentityValidationExpression => _mIdentityValidationExpression.GetValue("identityValidationExpression");
+        private string? _mValue_IdentityValidationExpression;
+        private bool _mUnknown_IdentityValidationExpression;
+        public string? IdentityValidationExpression
+        {
+            get
+            {
+                if (!_mUnknown_IdentityValidationExpression) return _mValue_IdentityValidationExpression;
+                throw new UndeferrableValueException("Value 'GraphQLApiLambdaAuthorizerConfig.IdentityValidationExpression' is not present");
+            }
+        }
     }
 }

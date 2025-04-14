@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// The policy ID attached.
         /// </summary>
-        [Input("policyId")]
+        [PolicyResourceProperty("policyId", "_mUnknown_PolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
-
-        public string? PolicyId => _mPolicyId.GetValue("policyId");
+        private string? _mValue_PolicyId;
+        private bool _mUnknown_PolicyId;
+        public string? PolicyId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyId) return _mValue_PolicyId;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinitionScpActionDefinition.PolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of target IDs.
         /// </summary>
-        [Input("targetIds")]
+        [PolicyResourceProperty("targetIds", "_mUnknown_TargetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetIds;
-
-        public List<string>? TargetIds => _mTargetIds.GetValue("targetIds");
+        private List<string>? _mValue_TargetIds;
+        private bool _mUnknown_TargetIds;
+        public List<string>? TargetIds
+        {
+            get
+            {
+                if (!_mUnknown_TargetIds) return _mValue_TargetIds;
+                throw new UndeferrableValueException("Value 'BudgetActionDefinitionScpActionDefinition.TargetIds' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
         /// </summary>
-        [Input("comparisonOperator")]
+        [PolicyResourceProperty("comparisonOperator", "_mUnknown_ComparisonOperator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparisonOperator;
-
-        public string? ComparisonOperator => _mComparisonOperator.GetValue("comparisonOperator");
+        private string? _mValue_ComparisonOperator;
+        private bool _mUnknown_ComparisonOperator;
+        public string? ComparisonOperator
+        {
+            get
+            {
+                if (!_mUnknown_ComparisonOperator) return _mValue_ComparisonOperator;
+                throw new UndeferrableValueException("Value 'GetBudgetNotificationResult.ComparisonOperator' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
         /// </summary>
-        [Input("notificationType")]
+        [PolicyResourceProperty("notificationType", "_mUnknown_NotificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
-
-        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+        private string? _mValue_NotificationType;
+        private bool _mUnknown_NotificationType;
+        public string? NotificationType
+        {
+            get
+            {
+                if (!_mUnknown_NotificationType) return _mValue_NotificationType;
+                throw new UndeferrableValueException("Value 'GetBudgetNotificationResult.NotificationType' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
         /// </summary>
-        [Input("subscriberEmailAddresses")]
+        [PolicyResourceProperty("subscriberEmailAddresses", "_mUnknown_SubscriberEmailAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubscriberEmailAddresses;
-
-        public List<string>? SubscriberEmailAddresses => _mSubscriberEmailAddresses.GetValue("subscriberEmailAddresses");
+        private List<string>? _mValue_SubscriberEmailAddresses;
+        private bool _mUnknown_SubscriberEmailAddresses;
+        public List<string>? SubscriberEmailAddresses
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberEmailAddresses) return _mValue_SubscriberEmailAddresses;
+                throw new UndeferrableValueException("Value 'GetBudgetNotificationResult.SubscriberEmailAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         /// </summary>
-        [Input("subscriberSnsTopicArns")]
+        [PolicyResourceProperty("subscriberSnsTopicArns", "_mUnknown_SubscriberSnsTopicArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubscriberSnsTopicArns;
-
-        public List<string>? SubscriberSnsTopicArns => _mSubscriberSnsTopicArns.GetValue("subscriberSnsTopicArns");
+        private List<string>? _mValue_SubscriberSnsTopicArns;
+        private bool _mUnknown_SubscriberSnsTopicArns;
+        public List<string>? SubscriberSnsTopicArns
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberSnsTopicArns) return _mValue_SubscriberSnsTopicArns;
+                throw new UndeferrableValueException("Value 'GetBudgetNotificationResult.SubscriberSnsTopicArns' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) Threshold when the notification should be sent.
         /// </summary>
-        [Input("threshold")]
+        [PolicyResourceProperty("threshold", "_mUnknown_Threshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mThreshold;
-
-        public double? Threshold => _mThreshold.GetValue("threshold");
+        private double? _mValue_Threshold;
+        private bool _mUnknown_Threshold;
+        public double? Threshold
+        {
+            get
+            {
+                if (!_mUnknown_Threshold) return _mValue_Threshold;
+                throw new UndeferrableValueException("Value 'GetBudgetNotificationResult.Threshold' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
         /// </summary>
-        [Input("thresholdType")]
+        [PolicyResourceProperty("thresholdType", "_mUnknown_ThresholdType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThresholdType;
-
-        public string? ThresholdType => _mThresholdType.GetValue("thresholdType");
+        private string? _mValue_ThresholdType;
+        private bool _mUnknown_ThresholdType;
+        public string? ThresholdType
+        {
+            get
+            {
+                if (!_mUnknown_ThresholdType) return _mValue_ThresholdType;
+                throw new UndeferrableValueException("Value 'GetBudgetNotificationResult.ThresholdType' is not present");
+            }
+        }
     }
 }

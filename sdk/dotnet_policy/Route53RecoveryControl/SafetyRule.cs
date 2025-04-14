@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// <summary>
         /// ARN of the safety rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SafetyRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         /// </summary>
-        [Input("assertedControls")]
+        [PolicyResourceProperty("assertedControls", "_mUnknown_AssertedControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAssertedControls;
-
-        public List<string>? AssertedControls => _mAssertedControls.GetValue("assertedControls");
+        private List<string>? _mValue_AssertedControls;
+        private bool _mUnknown_AssertedControls;
+        public List<string>? AssertedControls
+        {
+            get
+            {
+                if (!_mUnknown_AssertedControls) return _mValue_AssertedControls;
+                throw new UndeferrableValueException("Value 'SafetyRule.AssertedControls' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the control panel in which this safety rule will reside.
         /// </summary>
-        [Input("controlPanelArn")]
+        [PolicyResourceProperty("controlPanelArn", "_mUnknown_ControlPanelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
-
-        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
+        private string? _mValue_ControlPanelArn;
+        private bool _mUnknown_ControlPanelArn;
+        public string? ControlPanelArn
+        {
+            get
+            {
+                if (!_mUnknown_ControlPanelArn) return _mValue_ControlPanelArn;
+                throw new UndeferrableValueException("Value 'SafetyRule.ControlPanelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         /// </summary>
-        [Input("gatingControls")]
+        [PolicyResourceProperty("gatingControls", "_mUnknown_GatingControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGatingControls;
-
-        public List<string>? GatingControls => _mGatingControls.GetValue("gatingControls");
+        private List<string>? _mValue_GatingControls;
+        private bool _mUnknown_GatingControls;
+        public List<string>? GatingControls
+        {
+            get
+            {
+                if (!_mUnknown_GatingControls) return _mValue_GatingControls;
+                throw new UndeferrableValueException("Value 'SafetyRule.GatingControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Name describing the safety rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SafetyRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for safety rule criteria. See below.
         /// </summary>
-        [Input("ruleConfig")]
+        [PolicyResourceProperty("ruleConfig", "_mUnknown_RuleConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SafetyRuleRuleConfig> _mRuleConfig;
-
-        public Outputs.SafetyRuleRuleConfig? RuleConfig => _mRuleConfig.GetValue("ruleConfig");
+        private Outputs.SafetyRuleRuleConfig? _mValue_RuleConfig;
+        private bool _mUnknown_RuleConfig;
+        public Outputs.SafetyRuleRuleConfig? RuleConfig
+        {
+            get
+            {
+                if (!_mUnknown_RuleConfig) return _mValue_RuleConfig;
+                throw new UndeferrableValueException("Value 'SafetyRule.RuleConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SafetyRule.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         /// </summary>
-        [Input("targetControls")]
+        [PolicyResourceProperty("targetControls", "_mUnknown_TargetControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetControls;
-
-        public List<string>? TargetControls => _mTargetControls.GetValue("targetControls");
+        private List<string>? _mValue_TargetControls;
+        private bool _mUnknown_TargetControls;
+        public List<string>? TargetControls
+        {
+            get
+            {
+                if (!_mUnknown_TargetControls) return _mValue_TargetControls;
+                throw new UndeferrableValueException("Value 'SafetyRule.TargetControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("waitPeriodMs")]
+        [PolicyResourceProperty("waitPeriodMs", "_mUnknown_WaitPeriodMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitPeriodMs;
-
-        public int? WaitPeriodMs => _mWaitPeriodMs.GetValue("waitPeriodMs");
+        private int? _mValue_WaitPeriodMs;
+        private bool _mUnknown_WaitPeriodMs;
+        public int? WaitPeriodMs
+        {
+            get
+            {
+                if (!_mUnknown_WaitPeriodMs) return _mValue_WaitPeriodMs;
+                throw new UndeferrableValueException("Value 'SafetyRule.WaitPeriodMs' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53recoverycontrol/safetyRule:SafetyRule")]
@@ -103,66 +166,115 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// <summary>
         /// Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
         /// </summary>
-        [Input("assertedControls")]
+        [PolicyResourceProperty("assertedControls", "_mUnknown_AssertedControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAssertedControls;
-
-        public List<string>? AssertedControls => _mAssertedControls.GetValue("assertedControls");
+        private List<string>? _mValue_AssertedControls;
+        private bool _mUnknown_AssertedControls;
+        public List<string>? AssertedControls
+        {
+            get
+            {
+                if (!_mUnknown_AssertedControls) return _mValue_AssertedControls;
+                throw new UndeferrableValueException("Value 'SafetyRuleArgs.AssertedControls' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the control panel in which this safety rule will reside.
         /// </summary>
-        [Input("controlPanelArn")]
+        [PolicyResourceProperty("controlPanelArn", "_mUnknown_ControlPanelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
-
-        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
+        private string? _mValue_ControlPanelArn;
+        private bool _mUnknown_ControlPanelArn;
+        public string? ControlPanelArn
+        {
+            get
+            {
+                if (!_mUnknown_ControlPanelArn) return _mValue_ControlPanelArn;
+                throw new UndeferrableValueException("Value 'SafetyRuleArgs.ControlPanelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         /// </summary>
-        [Input("gatingControls")]
+        [PolicyResourceProperty("gatingControls", "_mUnknown_GatingControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGatingControls;
-
-        public List<string>? GatingControls => _mGatingControls.GetValue("gatingControls");
+        private List<string>? _mValue_GatingControls;
+        private bool _mUnknown_GatingControls;
+        public List<string>? GatingControls
+        {
+            get
+            {
+                if (!_mUnknown_GatingControls) return _mValue_GatingControls;
+                throw new UndeferrableValueException("Value 'SafetyRuleArgs.GatingControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Name describing the safety rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SafetyRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for safety rule criteria. See below.
         /// </summary>
-        [Input("ruleConfig")]
+        [PolicyResourceProperty("ruleConfig", "_mUnknown_RuleConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SafetyRuleRuleConfigArgs> _mRuleConfig;
-
-        public Inputs.SafetyRuleRuleConfigArgs? RuleConfig => _mRuleConfig.GetValue("ruleConfig");
+        private Inputs.SafetyRuleRuleConfigArgs? _mValue_RuleConfig;
+        private bool _mUnknown_RuleConfig;
+        public Inputs.SafetyRuleRuleConfigArgs? RuleConfig
+        {
+            get
+            {
+                if (!_mUnknown_RuleConfig) return _mValue_RuleConfig;
+                throw new UndeferrableValueException("Value 'SafetyRuleArgs.RuleConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         /// </summary>
-        [Input("targetControls")]
+        [PolicyResourceProperty("targetControls", "_mUnknown_TargetControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetControls;
-
-        public List<string>? TargetControls => _mTargetControls.GetValue("targetControls");
+        private List<string>? _mValue_TargetControls;
+        private bool _mUnknown_TargetControls;
+        public List<string>? TargetControls
+        {
+            get
+            {
+                if (!_mUnknown_TargetControls) return _mValue_TargetControls;
+                throw new UndeferrableValueException("Value 'SafetyRuleArgs.TargetControls' is not present");
+            }
+        }
 
         /// <summary>
         /// Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("waitPeriodMs")]
+        [PolicyResourceProperty("waitPeriodMs", "_mUnknown_WaitPeriodMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitPeriodMs;
-
-        public int? WaitPeriodMs => _mWaitPeriodMs.GetValue("waitPeriodMs");
+        private int? _mValue_WaitPeriodMs;
+        private bool _mUnknown_WaitPeriodMs;
+        public int? WaitPeriodMs
+        {
+            get
+            {
+                if (!_mUnknown_WaitPeriodMs) return _mValue_WaitPeriodMs;
+                throw new UndeferrableValueException("Value 'SafetyRuleArgs.WaitPeriodMs' is not present");
+            }
+        }
     }
 }

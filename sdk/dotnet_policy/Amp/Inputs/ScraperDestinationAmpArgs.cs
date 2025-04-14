@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Amp.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the prometheus workspace.
         /// </summary>
-        [Input("workspaceArn")]
+        [PolicyResourceProperty("workspaceArn", "_mUnknown_WorkspaceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceArn;
-
-        public string? WorkspaceArn => _mWorkspaceArn.GetValue("workspaceArn");
+        private string? _mValue_WorkspaceArn;
+        private bool _mUnknown_WorkspaceArn;
+        public string? WorkspaceArn
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceArn) return _mValue_WorkspaceArn;
+                throw new UndeferrableValueException("Value 'ScraperDestinationAmpArgs.WorkspaceArn' is not present");
+            }
+        }
     }
 }

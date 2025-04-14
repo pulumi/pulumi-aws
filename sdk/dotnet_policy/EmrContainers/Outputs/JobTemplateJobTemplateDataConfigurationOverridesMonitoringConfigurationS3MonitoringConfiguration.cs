@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Outputs
         /// <summary>
         /// Amazon S3 destination URI for log publishing.
         /// </summary>
-        [Input("logUri")]
+        [PolicyResourceProperty("logUri", "_mUnknown_LogUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogUri;
-
-        public string? LogUri => _mLogUri.GetValue("logUri");
+        private string? _mValue_LogUri;
+        private bool _mUnknown_LogUri;
+        public string? LogUri
+        {
+            get
+            {
+                if (!_mUnknown_LogUri) return _mValue_LogUri;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration.LogUri' is not present");
+            }
+        }
     }
 }

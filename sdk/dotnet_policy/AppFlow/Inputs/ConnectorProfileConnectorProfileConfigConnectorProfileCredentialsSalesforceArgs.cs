@@ -12,46 +12,88 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs
     {
-        [Input("accessToken")]
+        [PolicyResourceProperty("accessToken", "_mUnknown_AccessToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessToken;
-
-        public string? AccessToken => _mAccessToken.GetValue("accessToken");
+        private string? _mValue_AccessToken;
+        private bool _mUnknown_AccessToken;
+        public string? AccessToken
+        {
+            get
+            {
+                if (!_mUnknown_AccessToken) return _mValue_AccessToken;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs.AccessToken' is not present");
+            }
+        }
 
         /// <summary>
         /// The secret manager ARN, which contains the client ID and client secret of the connected app.
         /// </summary>
-        [Input("clientCredentialsArn")]
+        [PolicyResourceProperty("clientCredentialsArn", "_mUnknown_ClientCredentialsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientCredentialsArn;
-
-        public string? ClientCredentialsArn => _mClientCredentialsArn.GetValue("clientCredentialsArn");
+        private string? _mValue_ClientCredentialsArn;
+        private bool _mUnknown_ClientCredentialsArn;
+        public string? ClientCredentialsArn
+        {
+            get
+            {
+                if (!_mUnknown_ClientCredentialsArn) return _mValue_ClientCredentialsArn;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs.ClientCredentialsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A JSON web token (JWT) that authorizes access to Salesforce records.
         /// </summary>
-        [Input("jwtToken")]
+        [PolicyResourceProperty("jwtToken", "_mUnknown_JwtToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJwtToken;
+        private string? _mValue_JwtToken;
+        private bool _mUnknown_JwtToken;
+        public string? JwtToken
+        {
+            get
+            {
+                if (!_mUnknown_JwtToken) return _mValue_JwtToken;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs.JwtToken' is not present");
+            }
+        }
 
-        public string? JwtToken => _mJwtToken.GetValue("jwtToken");
-
-        [Input("oauth2GrantType")]
+        [PolicyResourceProperty("oauth2GrantType", "_mUnknown_Oauth2GrantType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOauth2GrantType;
+        private string? _mValue_Oauth2GrantType;
+        private bool _mUnknown_Oauth2GrantType;
+        public string? Oauth2GrantType
+        {
+            get
+            {
+                if (!_mUnknown_Oauth2GrantType) return _mValue_Oauth2GrantType;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs.Oauth2GrantType' is not present");
+            }
+        }
 
-        public string? Oauth2GrantType => _mOauth2GrantType.GetValue("oauth2GrantType");
-
-        [Input("oauthRequest")]
+        [PolicyResourceProperty("oauthRequest", "_mUnknown_OauthRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs> _mOauthRequest;
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs? _mValue_OauthRequest;
+        private bool _mUnknown_OauthRequest;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs? OauthRequest
+        {
+            get
+            {
+                if (!_mUnknown_OauthRequest) return _mValue_OauthRequest;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs.OauthRequest' is not present");
+            }
+        }
 
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs? OauthRequest => _mOauthRequest.GetValue("oauthRequest");
-
-        [Input("refreshToken")]
+        [PolicyResourceProperty("refreshToken", "_mUnknown_RefreshToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRefreshToken;
-
-        public string? RefreshToken => _mRefreshToken.GetValue("refreshToken");
+        private string? _mValue_RefreshToken;
+        private bool _mUnknown_RefreshToken;
+        public string? RefreshToken
+        {
+            get
+            {
+                if (!_mUnknown_RefreshToken) return _mValue_RefreshToken;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs.RefreshToken' is not present");
+            }
+        }
     }
 }

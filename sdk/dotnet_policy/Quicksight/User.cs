@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Amazon Resource Name (ARN) for the user.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'User.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'User.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the user that you want to register.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'User.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         /// </summary>
-        [Input("iamArn")]
+        [PolicyResourceProperty("iamArn", "_mUnknown_IamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamArn;
-
-        public string? IamArn => _mIamArn.GetValue("iamArn");
+        private string? _mValue_IamArn;
+        private bool _mUnknown_IamArn;
+        public string? IamArn
+        {
+            get
+            {
+                if (!_mUnknown_IamArn) return _mValue_IamArn;
+                throw new UndeferrableValueException("Value 'User.IamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
         /// </summary>
-        [Input("identityType")]
+        [PolicyResourceProperty("identityType", "_mUnknown_IdentityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityType;
-
-        public string? IdentityType => _mIdentityType.GetValue("identityType");
+        private string? _mValue_IdentityType;
+        private bool _mUnknown_IdentityType;
+        public string? IdentityType
+        {
+            get
+            {
+                if (!_mUnknown_IdentityType) return _mValue_IdentityType;
+                throw new UndeferrableValueException("Value 'User.IdentityType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'User.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         /// </summary>
-        [Input("sessionName")]
+        [PolicyResourceProperty("sessionName", "_mUnknown_SessionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionName;
-
-        public string? SessionName => _mSessionName.GetValue("sessionName");
+        private string? _mValue_SessionName;
+        private bool _mUnknown_SessionName;
+        public string? SessionName
+        {
+            get
+            {
+                if (!_mUnknown_SessionName) return _mValue_SessionName;
+                throw new UndeferrableValueException("Value 'User.SessionName' is not present");
+            }
+        }
 
         /// <summary>
         /// URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
         /// </summary>
-        [Input("userInvitationUrl")]
+        [PolicyResourceProperty("userInvitationUrl", "_mUnknown_UserInvitationUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserInvitationUrl;
-
-        public string? UserInvitationUrl => _mUserInvitationUrl.GetValue("userInvitationUrl");
+        private string? _mValue_UserInvitationUrl;
+        private bool _mUnknown_UserInvitationUrl;
+        public string? UserInvitationUrl
+        {
+            get
+            {
+                if (!_mUnknown_UserInvitationUrl) return _mValue_UserInvitationUrl;
+                throw new UndeferrableValueException("Value 'User.UserInvitationUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'User.UserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userRole")]
+        [PolicyResourceProperty("userRole", "_mUnknown_UserRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserRole;
-
-        public string? UserRole => _mUserRole.GetValue("userRole");
+        private string? _mValue_UserRole;
+        private bool _mUnknown_UserRole;
+        public string? UserRole
+        {
+            get
+            {
+                if (!_mUnknown_UserRole) return _mValue_UserRole;
+                throw new UndeferrableValueException("Value 'User.UserRole' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/user:User")]
@@ -112,75 +182,131 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'UserArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the user that you want to register.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'UserArgs.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         /// </summary>
-        [Input("iamArn")]
+        [PolicyResourceProperty("iamArn", "_mUnknown_IamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamArn;
-
-        public string? IamArn => _mIamArn.GetValue("iamArn");
+        private string? _mValue_IamArn;
+        private bool _mUnknown_IamArn;
+        public string? IamArn
+        {
+            get
+            {
+                if (!_mUnknown_IamArn) return _mValue_IamArn;
+                throw new UndeferrableValueException("Value 'UserArgs.IamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
         /// </summary>
-        [Input("identityType")]
+        [PolicyResourceProperty("identityType", "_mUnknown_IdentityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityType;
-
-        public string? IdentityType => _mIdentityType.GetValue("identityType");
+        private string? _mValue_IdentityType;
+        private bool _mUnknown_IdentityType;
+        public string? IdentityType
+        {
+            get
+            {
+                if (!_mUnknown_IdentityType) return _mValue_IdentityType;
+                throw new UndeferrableValueException("Value 'UserArgs.IdentityType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'UserArgs.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         /// </summary>
-        [Input("sessionName")]
+        [PolicyResourceProperty("sessionName", "_mUnknown_SessionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionName;
-
-        public string? SessionName => _mSessionName.GetValue("sessionName");
+        private string? _mValue_SessionName;
+        private bool _mUnknown_SessionName;
+        public string? SessionName
+        {
+            get
+            {
+                if (!_mUnknown_SessionName) return _mValue_SessionName;
+                throw new UndeferrableValueException("Value 'UserArgs.SessionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserArgs.UserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userRole")]
+        [PolicyResourceProperty("userRole", "_mUnknown_UserRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserRole;
-
-        public string? UserRole => _mUserRole.GetValue("userRole");
+        private string? _mValue_UserRole;
+        private bool _mUnknown_UserRole;
+        public string? UserRole
+        {
+            get
+            {
+                if (!_mUnknown_UserRole) return _mValue_UserRole;
+                throw new UndeferrableValueException("Value 'UserArgs.UserRole' is not present");
+            }
+        }
     }
 }

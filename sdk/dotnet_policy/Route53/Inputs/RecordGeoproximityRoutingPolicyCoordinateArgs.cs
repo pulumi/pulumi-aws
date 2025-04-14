@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
 {
     public sealed class RecordGeoproximityRoutingPolicyCoordinateArgs
     {
-        [Input("latitude")]
+        [PolicyResourceProperty("latitude", "_mUnknown_Latitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatitude;
+        private string? _mValue_Latitude;
+        private bool _mUnknown_Latitude;
+        public string? Latitude
+        {
+            get
+            {
+                if (!_mUnknown_Latitude) return _mValue_Latitude;
+                throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyCoordinateArgs.Latitude' is not present");
+            }
+        }
 
-        public string? Latitude => _mLatitude.GetValue("latitude");
-
-        [Input("longitude")]
+        [PolicyResourceProperty("longitude", "_mUnknown_Longitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLongitude;
-
-        public string? Longitude => _mLongitude.GetValue("longitude");
+        private string? _mValue_Longitude;
+        private bool _mUnknown_Longitude;
+        public string? Longitude
+        {
+            get
+            {
+                if (!_mUnknown_Longitude) return _mValue_Longitude;
+                throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyCoordinateArgs.Longitude' is not present");
+            }
+        }
     }
 }

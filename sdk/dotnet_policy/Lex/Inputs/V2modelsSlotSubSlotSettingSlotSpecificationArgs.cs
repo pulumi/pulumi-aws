@@ -12,29 +12,50 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationArgs
     {
-        [Input("mapBlockKey")]
+        [PolicyResourceProperty("mapBlockKey", "_mUnknown_MapBlockKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapBlockKey;
-
-        public string? MapBlockKey => _mMapBlockKey.GetValue("mapBlockKey");
+        private string? _mValue_MapBlockKey;
+        private bool _mUnknown_MapBlockKey;
+        public string? MapBlockKey
+        {
+            get
+            {
+                if (!_mUnknown_MapBlockKey) return _mValue_MapBlockKey;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationArgs.MapBlockKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier assigned to the slot type.
         /// </summary>
-        [Input("slotTypeId")]
+        [PolicyResourceProperty("slotTypeId", "_mUnknown_SlotTypeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotTypeId;
-
-        public string? SlotTypeId => _mSlotTypeId.GetValue("slotTypeId");
+        private string? _mValue_SlotTypeId;
+        private bool _mUnknown_SlotTypeId;
+        public string? SlotTypeId
+        {
+            get
+            {
+                if (!_mUnknown_SlotTypeId) return _mValue_SlotTypeId;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationArgs.SlotTypeId' is not present");
+            }
+        }
 
         /// <summary>
         /// Elicitation setting details for constituent sub slots of a composite slot.
         /// See the `value_elicitation_setting` argument reference below.
         /// </summary>
-        [Input("valueElicitationSettings")]
+        [PolicyResourceProperty("valueElicitationSettings", "_mUnknown_ValueElicitationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>> _mValueElicitationSettings;
-
-        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>? ValueElicitationSettings => _mValueElicitationSettings.GetValue("valueElicitationSettings");
+        private List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>? _mValue_ValueElicitationSettings;
+        private bool _mUnknown_ValueElicitationSettings;
+        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs>? ValueElicitationSettings
+        {
+            get
+            {
+                if (!_mUnknown_ValueElicitationSettings) return _mValue_ValueElicitationSettings;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationArgs.ValueElicitationSettings' is not present");
+            }
+        }
     }
 }

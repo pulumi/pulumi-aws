@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// Download speed in Mbps.
         /// </summary>
-        [Input("downloadSpeed")]
+        [PolicyResourceProperty("downloadSpeed", "_mUnknown_DownloadSpeed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownloadSpeed;
-
-        public int? DownloadSpeed => _mDownloadSpeed.GetValue("downloadSpeed");
+        private int? _mValue_DownloadSpeed;
+        private bool _mUnknown_DownloadSpeed;
+        public int? DownloadSpeed
+        {
+            get
+            {
+                if (!_mUnknown_DownloadSpeed) return _mValue_DownloadSpeed;
+                throw new UndeferrableValueException("Value 'LinkBandwidthArgs.DownloadSpeed' is not present");
+            }
+        }
 
         /// <summary>
         /// Upload speed in Mbps.
         /// </summary>
-        [Input("uploadSpeed")]
+        [PolicyResourceProperty("uploadSpeed", "_mUnknown_UploadSpeed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUploadSpeed;
-
-        public int? UploadSpeed => _mUploadSpeed.GetValue("uploadSpeed");
+        private int? _mValue_UploadSpeed;
+        private bool _mUnknown_UploadSpeed;
+        public int? UploadSpeed
+        {
+            get
+            {
+                if (!_mUnknown_UploadSpeed) return _mValue_UploadSpeed;
+                throw new UndeferrableValueException("Value 'LinkBandwidthArgs.UploadSpeed' is not present");
+            }
+        }
     }
 }

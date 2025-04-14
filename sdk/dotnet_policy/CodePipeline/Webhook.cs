@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline
         /// <summary>
         /// The CodePipeline webhook's ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Webhook.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         /// </summary>
-        [Input("authentication")]
+        [PolicyResourceProperty("authentication", "_mUnknown_Authentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
-
-        public string? Authentication => _mAuthentication.GetValue("authentication");
+        private string? _mValue_Authentication;
+        private bool _mUnknown_Authentication;
+        public string? Authentication
+        {
+            get
+            {
+                if (!_mUnknown_Authentication) return _mValue_Authentication;
+                throw new UndeferrableValueException("Value 'Webhook.Authentication' is not present");
+            }
+        }
 
         /// <summary>
         /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         /// </summary>
-        [Input("authenticationConfiguration")]
+        [PolicyResourceProperty("authenticationConfiguration", "_mUnknown_AuthenticationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebhookAuthenticationConfiguration> _mAuthenticationConfiguration;
-
-        public Outputs.WebhookAuthenticationConfiguration? AuthenticationConfiguration => _mAuthenticationConfiguration.GetValue("authenticationConfiguration");
+        private Outputs.WebhookAuthenticationConfiguration? _mValue_AuthenticationConfiguration;
+        private bool _mUnknown_AuthenticationConfiguration;
+        public Outputs.WebhookAuthenticationConfiguration? AuthenticationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationConfiguration) return _mValue_AuthenticationConfiguration;
+                throw new UndeferrableValueException("Value 'Webhook.AuthenticationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `filter` blocks. Filter blocks are documented below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebhookFilter>> _mFilters;
-
-        public List<Outputs.WebhookFilter>? Filters => _mFilters.GetValue("filters");
+        private List<Outputs.WebhookFilter>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Outputs.WebhookFilter>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'Webhook.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the webhook.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Webhook.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Webhook.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Webhook.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         /// </summary>
-        [Input("targetAction")]
+        [PolicyResourceProperty("targetAction", "_mUnknown_TargetAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetAction;
-
-        public string? TargetAction => _mTargetAction.GetValue("targetAction");
+        private string? _mValue_TargetAction;
+        private bool _mUnknown_TargetAction;
+        public string? TargetAction
+        {
+            get
+            {
+                if (!_mUnknown_TargetAction) return _mValue_TargetAction;
+                throw new UndeferrableValueException("Value 'Webhook.TargetAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
-        [Input("targetPipeline")]
+        [PolicyResourceProperty("targetPipeline", "_mUnknown_TargetPipeline")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetPipeline;
-
-        public string? TargetPipeline => _mTargetPipeline.GetValue("targetPipeline");
+        private string? _mValue_TargetPipeline;
+        private bool _mUnknown_TargetPipeline;
+        public string? TargetPipeline
+        {
+            get
+            {
+                if (!_mUnknown_TargetPipeline) return _mValue_TargetPipeline;
+                throw new UndeferrableValueException("Value 'Webhook.TargetPipeline' is not present");
+            }
+        }
 
         /// <summary>
         /// The CodePipeline webhook's URL. POST events to this endpoint to trigger the target.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Webhook.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codepipeline/webhook:Webhook")]
@@ -110,64 +180,113 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline
         /// <summary>
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         /// </summary>
-        [Input("authentication")]
+        [PolicyResourceProperty("authentication", "_mUnknown_Authentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthentication;
-
-        public string? Authentication => _mAuthentication.GetValue("authentication");
+        private string? _mValue_Authentication;
+        private bool _mUnknown_Authentication;
+        public string? Authentication
+        {
+            get
+            {
+                if (!_mUnknown_Authentication) return _mValue_Authentication;
+                throw new UndeferrableValueException("Value 'WebhookArgs.Authentication' is not present");
+            }
+        }
 
         /// <summary>
         /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         /// </summary>
-        [Input("authenticationConfiguration")]
+        [PolicyResourceProperty("authenticationConfiguration", "_mUnknown_AuthenticationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebhookAuthenticationConfigurationArgs> _mAuthenticationConfiguration;
-
-        public Inputs.WebhookAuthenticationConfigurationArgs? AuthenticationConfiguration => _mAuthenticationConfiguration.GetValue("authenticationConfiguration");
+        private Inputs.WebhookAuthenticationConfigurationArgs? _mValue_AuthenticationConfiguration;
+        private bool _mUnknown_AuthenticationConfiguration;
+        public Inputs.WebhookAuthenticationConfigurationArgs? AuthenticationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationConfiguration) return _mValue_AuthenticationConfiguration;
+                throw new UndeferrableValueException("Value 'WebhookArgs.AuthenticationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more `filter` blocks. Filter blocks are documented below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebhookFilterArgs>> _mFilters;
-
-        public List<Inputs.WebhookFilterArgs>? Filters => _mFilters.GetValue("filters");
+        private List<Inputs.WebhookFilterArgs>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Inputs.WebhookFilterArgs>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'WebhookArgs.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the webhook.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WebhookArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WebhookArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         /// </summary>
-        [Input("targetAction")]
+        [PolicyResourceProperty("targetAction", "_mUnknown_TargetAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetAction;
-
-        public string? TargetAction => _mTargetAction.GetValue("targetAction");
+        private string? _mValue_TargetAction;
+        private bool _mUnknown_TargetAction;
+        public string? TargetAction
+        {
+            get
+            {
+                if (!_mUnknown_TargetAction) return _mValue_TargetAction;
+                throw new UndeferrableValueException("Value 'WebhookArgs.TargetAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline.
         /// </summary>
-        [Input("targetPipeline")]
+        [PolicyResourceProperty("targetPipeline", "_mUnknown_TargetPipeline")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetPipeline;
-
-        public string? TargetPipeline => _mTargetPipeline.GetValue("targetPipeline");
+        private string? _mValue_TargetPipeline;
+        private bool _mUnknown_TargetPipeline;
+        public string? TargetPipeline
+        {
+            get
+            {
+                if (!_mUnknown_TargetPipeline) return _mValue_TargetPipeline;
+                throw new UndeferrableValueException("Value 'WebhookArgs.TargetPipeline' is not present");
+            }
+        }
     }
 }

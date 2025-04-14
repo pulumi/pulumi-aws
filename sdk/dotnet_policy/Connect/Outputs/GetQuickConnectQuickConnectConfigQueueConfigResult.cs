@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// Identifier of the contact flow.
         /// </summary>
-        [Input("contactFlowId")]
+        [PolicyResourceProperty("contactFlowId", "_mUnknown_ContactFlowId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactFlowId;
-
-        public string? ContactFlowId => _mContactFlowId.GetValue("contactFlowId");
+        private string? _mValue_ContactFlowId;
+        private bool _mUnknown_ContactFlowId;
+        public string? ContactFlowId
+        {
+            get
+            {
+                if (!_mUnknown_ContactFlowId) return _mValue_ContactFlowId;
+                throw new UndeferrableValueException("Value 'GetQuickConnectQuickConnectConfigQueueConfigResult.ContactFlowId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the queue.
         /// </summary>
-        [Input("queueId")]
+        [PolicyResourceProperty("queueId", "_mUnknown_QueueId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueId;
-
-        public string? QueueId => _mQueueId.GetValue("queueId");
+        private string? _mValue_QueueId;
+        private bool _mUnknown_QueueId;
+        public string? QueueId
+        {
+            get
+            {
+                if (!_mUnknown_QueueId) return _mValue_QueueId;
+                throw new UndeferrableValueException("Value 'GetQuickConnectQuickConnectConfigQueueConfigResult.QueueId' is not present");
+            }
+        }
     }
 }

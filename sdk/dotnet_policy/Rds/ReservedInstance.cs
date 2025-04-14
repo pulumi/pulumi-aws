@@ -16,166 +16,292 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// ARN for the reserved DB instance.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReservedInstance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Currency code for the reserved DB instance.
         /// </summary>
-        [Input("currencyCode")]
+        [PolicyResourceProperty("currencyCode", "_mUnknown_CurrencyCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCurrencyCode;
-
-        public string? CurrencyCode => _mCurrencyCode.GetValue("currencyCode");
+        private string? _mValue_CurrencyCode;
+        private bool _mUnknown_CurrencyCode;
+        public string? CurrencyCode
+        {
+            get
+            {
+                if (!_mUnknown_CurrencyCode) return _mValue_CurrencyCode;
+                throw new UndeferrableValueException("Value 'ReservedInstance.CurrencyCode' is not present");
+            }
+        }
 
         /// <summary>
         /// DB instance class for the reserved DB instance.
         /// </summary>
-        [Input("dbInstanceClass")]
+        [PolicyResourceProperty("dbInstanceClass", "_mUnknown_DbInstanceClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceClass;
-
-        public string? DbInstanceClass => _mDbInstanceClass.GetValue("dbInstanceClass");
+        private string? _mValue_DbInstanceClass;
+        private bool _mUnknown_DbInstanceClass;
+        public string? DbInstanceClass
+        {
+            get
+            {
+                if (!_mUnknown_DbInstanceClass) return _mValue_DbInstanceClass;
+                throw new UndeferrableValueException("Value 'ReservedInstance.DbInstanceClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration of the reservation in seconds.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
-
-        public int? Duration => _mDuration.GetValue("duration");
+        private int? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public int? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'ReservedInstance.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// Fixed price charged for this reserved DB instance.
         /// </summary>
-        [Input("fixedPrice")]
+        [PolicyResourceProperty("fixedPrice", "_mUnknown_FixedPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mFixedPrice;
-
-        public double? FixedPrice => _mFixedPrice.GetValue("fixedPrice");
+        private double? _mValue_FixedPrice;
+        private bool _mUnknown_FixedPrice;
+        public double? FixedPrice
+        {
+            get
+            {
+                if (!_mUnknown_FixedPrice) return _mValue_FixedPrice;
+                throw new UndeferrableValueException("Value 'ReservedInstance.FixedPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of instances to reserve. Default value is `1`.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'ReservedInstance.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
         /// </summary>
-        [Input("leaseId")]
+        [PolicyResourceProperty("leaseId", "_mUnknown_LeaseId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLeaseId;
-
-        public string? LeaseId => _mLeaseId.GetValue("leaseId");
+        private string? _mValue_LeaseId;
+        private bool _mUnknown_LeaseId;
+        public string? LeaseId
+        {
+            get
+            {
+                if (!_mUnknown_LeaseId) return _mValue_LeaseId;
+                throw new UndeferrableValueException("Value 'ReservedInstance.LeaseId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the reservation applies to Multi-AZ deployments.
         /// </summary>
-        [Input("multiAz")]
+        [PolicyResourceProperty("multiAz", "_mUnknown_MultiAz")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
-
-        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
+        private bool? _mValue_MultiAz;
+        private bool _mUnknown_MultiAz;
+        public bool? MultiAz
+        {
+            get
+            {
+                if (!_mUnknown_MultiAz) return _mValue_MultiAz;
+                throw new UndeferrableValueException("Value 'ReservedInstance.MultiAz' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("offeringId")]
+        [PolicyResourceProperty("offeringId", "_mUnknown_OfferingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingId;
-
-        public string? OfferingId => _mOfferingId.GetValue("offeringId");
+        private string? _mValue_OfferingId;
+        private bool _mUnknown_OfferingId;
+        public string? OfferingId
+        {
+            get
+            {
+                if (!_mUnknown_OfferingId) return _mValue_OfferingId;
+                throw new UndeferrableValueException("Value 'ReservedInstance.OfferingId' is not present");
+            }
+        }
 
         /// <summary>
         /// Offering type of this reserved DB instance.
         /// </summary>
-        [Input("offeringType")]
+        [PolicyResourceProperty("offeringType", "_mUnknown_OfferingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingType;
-
-        public string? OfferingType => _mOfferingType.GetValue("offeringType");
+        private string? _mValue_OfferingType;
+        private bool _mUnknown_OfferingType;
+        public string? OfferingType
+        {
+            get
+            {
+                if (!_mUnknown_OfferingType) return _mValue_OfferingType;
+                throw new UndeferrableValueException("Value 'ReservedInstance.OfferingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the reserved DB instance.
         /// </summary>
-        [Input("productDescription")]
+        [PolicyResourceProperty("productDescription", "_mUnknown_ProductDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductDescription;
-
-        public string? ProductDescription => _mProductDescription.GetValue("productDescription");
+        private string? _mValue_ProductDescription;
+        private bool _mUnknown_ProductDescription;
+        public string? ProductDescription
+        {
+            get
+            {
+                if (!_mUnknown_ProductDescription) return _mValue_ProductDescription;
+                throw new UndeferrableValueException("Value 'ReservedInstance.ProductDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Recurring price charged to run this reserved DB instance.
         /// </summary>
-        [Input("recurringCharges")]
+        [PolicyResourceProperty("recurringCharges", "_mUnknown_RecurringCharges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReservedInstanceRecurringCharge>> _mRecurringCharges;
-
-        public List<Outputs.ReservedInstanceRecurringCharge>? RecurringCharges => _mRecurringCharges.GetValue("recurringCharges");
+        private List<Outputs.ReservedInstanceRecurringCharge>? _mValue_RecurringCharges;
+        private bool _mUnknown_RecurringCharges;
+        public List<Outputs.ReservedInstanceRecurringCharge>? RecurringCharges
+        {
+            get
+            {
+                if (!_mUnknown_RecurringCharges) return _mValue_RecurringCharges;
+                throw new UndeferrableValueException("Value 'ReservedInstance.RecurringCharges' is not present");
+            }
+        }
 
         /// <summary>
         /// Customer-specified identifier to track this reservation.
         /// </summary>
-        [Input("reservationId")]
+        [PolicyResourceProperty("reservationId", "_mUnknown_ReservationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReservationId;
-
-        public string? ReservationId => _mReservationId.GetValue("reservationId");
+        private string? _mValue_ReservationId;
+        private bool _mUnknown_ReservationId;
+        public string? ReservationId
+        {
+            get
+            {
+                if (!_mUnknown_ReservationId) return _mValue_ReservationId;
+                throw new UndeferrableValueException("Value 'ReservedInstance.ReservationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Time the reservation started.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ReservedInstance.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the reserved DB instance.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ReservedInstance.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReservedInstance.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReservedInstance.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Hourly price charged for this reserved DB instance.
         /// </summary>
-        [Input("usagePrice")]
+        [PolicyResourceProperty("usagePrice", "_mUnknown_UsagePrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mUsagePrice;
-
-        public double? UsagePrice => _mUsagePrice.GetValue("usagePrice");
+        private double? _mValue_UsagePrice;
+        private bool _mUnknown_UsagePrice;
+        public double? UsagePrice
+        {
+            get
+            {
+                if (!_mUnknown_UsagePrice) return _mValue_UsagePrice;
+                throw new UndeferrableValueException("Value 'ReservedInstance.UsagePrice' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/reservedInstance:ReservedInstance")]
@@ -184,39 +310,67 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Number of instances to reserve. Default value is `1`.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'ReservedInstanceArgs.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("offeringId")]
+        [PolicyResourceProperty("offeringId", "_mUnknown_OfferingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOfferingId;
-
-        public string? OfferingId => _mOfferingId.GetValue("offeringId");
+        private string? _mValue_OfferingId;
+        private bool _mUnknown_OfferingId;
+        public string? OfferingId
+        {
+            get
+            {
+                if (!_mUnknown_OfferingId) return _mValue_OfferingId;
+                throw new UndeferrableValueException("Value 'ReservedInstanceArgs.OfferingId' is not present");
+            }
+        }
 
         /// <summary>
         /// Customer-specified identifier to track this reservation.
         /// </summary>
-        [Input("reservationId")]
+        [PolicyResourceProperty("reservationId", "_mUnknown_ReservationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReservationId;
-
-        public string? ReservationId => _mReservationId.GetValue("reservationId");
+        private string? _mValue_ReservationId;
+        private bool _mUnknown_ReservationId;
+        public string? ReservationId
+        {
+            get
+            {
+                if (!_mUnknown_ReservationId) return _mValue_ReservationId;
+                throw new UndeferrableValueException("Value 'ReservedInstanceArgs.ReservationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReservedInstanceArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecGrpcRouteResult
     {
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecGrpcRouteActionResult>> _mActions;
+        private List<Outputs.GetGatewayRouteSpecGrpcRouteActionResult>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Outputs.GetGatewayRouteSpecGrpcRouteActionResult>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecGrpcRouteResult.Actions' is not present");
+            }
+        }
 
-        public List<Outputs.GetGatewayRouteSpecGrpcRouteActionResult>? Actions => _mActions.GetValue("actions");
-
-        [Input("matches")]
+        [PolicyResourceProperty("matches", "_mUnknown_Matches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecGrpcRouteMatchResult>> _mMatches;
-
-        public List<Outputs.GetGatewayRouteSpecGrpcRouteMatchResult>? Matches => _mMatches.GetValue("matches");
+        private List<Outputs.GetGatewayRouteSpecGrpcRouteMatchResult>? _mValue_Matches;
+        private bool _mUnknown_Matches;
+        public List<Outputs.GetGatewayRouteSpecGrpcRouteMatchResult>? Matches
+        {
+            get
+            {
+                if (!_mUnknown_Matches) return _mValue_Matches;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecGrpcRouteResult.Matches' is not present");
+            }
+        }
     }
 }

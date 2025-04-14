@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Outputs
         /// <summary>
         /// Name of the Amazon Web Service.
         /// </summary>
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'AssessmentScopeAwsService.ServiceName' is not present");
+            }
+        }
     }
 }

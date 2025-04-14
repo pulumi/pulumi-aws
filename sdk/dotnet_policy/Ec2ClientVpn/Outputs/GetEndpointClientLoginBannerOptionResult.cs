@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn.Outputs
 {
     public sealed class GetEndpointClientLoginBannerOptionResult
     {
-        [Input("bannerText")]
+        [PolicyResourceProperty("bannerText", "_mUnknown_BannerText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBannerText;
+        private string? _mValue_BannerText;
+        private bool _mUnknown_BannerText;
+        public string? BannerText
+        {
+            get
+            {
+                if (!_mUnknown_BannerText) return _mValue_BannerText;
+                throw new UndeferrableValueException("Value 'GetEndpointClientLoginBannerOptionResult.BannerText' is not present");
+            }
+        }
 
-        public string? BannerText => _mBannerText.GetValue("bannerText");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetEndpointClientLoginBannerOptionResult.Enabled' is not present");
+            }
+        }
     }
 }

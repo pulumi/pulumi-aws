@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy
         /// <summary>
         /// The ARN of the deployment config.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DeploymentConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         /// </summary>
-        [Input("computePlatform")]
+        [PolicyResourceProperty("computePlatform", "_mUnknown_ComputePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
-
-        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
+        private string? _mValue_ComputePlatform;
+        private bool _mUnknown_ComputePlatform;
+        public string? ComputePlatform
+        {
+            get
+            {
+                if (!_mUnknown_ComputePlatform) return _mValue_ComputePlatform;
+                throw new UndeferrableValueException("Value 'DeploymentConfig.ComputePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Assigned deployment config id
         /// </summary>
-        [Input("deploymentConfigId")]
+        [PolicyResourceProperty("deploymentConfigId", "_mUnknown_DeploymentConfigId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigId;
-
-        public string? DeploymentConfigId => _mDeploymentConfigId.GetValue("deploymentConfigId");
+        private string? _mValue_DeploymentConfigId;
+        private bool _mUnknown_DeploymentConfigId;
+        public string? DeploymentConfigId
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentConfigId) return _mValue_DeploymentConfigId;
+                throw new UndeferrableValueException("Value 'DeploymentConfig.DeploymentConfigId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the deployment config.
         /// </summary>
-        [Input("deploymentConfigName")]
+        [PolicyResourceProperty("deploymentConfigName", "_mUnknown_DeploymentConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
-
-        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
+        private string? _mValue_DeploymentConfigName;
+        private bool _mUnknown_DeploymentConfigName;
+        public string? DeploymentConfigName
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentConfigName) return _mValue_DeploymentConfigName;
+                throw new UndeferrableValueException("Value 'DeploymentConfig.DeploymentConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         /// </summary>
-        [Input("minimumHealthyHosts")]
+        [PolicyResourceProperty("minimumHealthyHosts", "_mUnknown_MinimumHealthyHosts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigMinimumHealthyHosts> _mMinimumHealthyHosts;
-
-        public Outputs.DeploymentConfigMinimumHealthyHosts? MinimumHealthyHosts => _mMinimumHealthyHosts.GetValue("minimumHealthyHosts");
+        private Outputs.DeploymentConfigMinimumHealthyHosts? _mValue_MinimumHealthyHosts;
+        private bool _mUnknown_MinimumHealthyHosts;
+        public Outputs.DeploymentConfigMinimumHealthyHosts? MinimumHealthyHosts
+        {
+            get
+            {
+                if (!_mUnknown_MinimumHealthyHosts) return _mValue_MinimumHealthyHosts;
+                throw new UndeferrableValueException("Value 'DeploymentConfig.MinimumHealthyHosts' is not present");
+            }
+        }
 
         /// <summary>
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
         /// </summary>
-        [Input("trafficRoutingConfig")]
+        [PolicyResourceProperty("trafficRoutingConfig", "_mUnknown_TrafficRoutingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigTrafficRoutingConfig> _mTrafficRoutingConfig;
-
-        public Outputs.DeploymentConfigTrafficRoutingConfig? TrafficRoutingConfig => _mTrafficRoutingConfig.GetValue("trafficRoutingConfig");
+        private Outputs.DeploymentConfigTrafficRoutingConfig? _mValue_TrafficRoutingConfig;
+        private bool _mUnknown_TrafficRoutingConfig;
+        public Outputs.DeploymentConfigTrafficRoutingConfig? TrafficRoutingConfig
+        {
+            get
+            {
+                if (!_mUnknown_TrafficRoutingConfig) return _mValue_TrafficRoutingConfig;
+                throw new UndeferrableValueException("Value 'DeploymentConfig.TrafficRoutingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A zonal_config block. Zonal Config is documented below.
         /// </summary>
-        [Input("zonalConfig")]
+        [PolicyResourceProperty("zonalConfig", "_mUnknown_ZonalConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigZonalConfig> _mZonalConfig;
-
-        public Outputs.DeploymentConfigZonalConfig? ZonalConfig => _mZonalConfig.GetValue("zonalConfig");
+        private Outputs.DeploymentConfigZonalConfig? _mValue_ZonalConfig;
+        private bool _mUnknown_ZonalConfig;
+        public Outputs.DeploymentConfigZonalConfig? ZonalConfig
+        {
+            get
+            {
+                if (!_mUnknown_ZonalConfig) return _mValue_ZonalConfig;
+                throw new UndeferrableValueException("Value 'DeploymentConfig.ZonalConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codedeploy/deploymentConfig:DeploymentConfig")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy
         /// <summary>
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         /// </summary>
-        [Input("computePlatform")]
+        [PolicyResourceProperty("computePlatform", "_mUnknown_ComputePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
-
-        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
+        private string? _mValue_ComputePlatform;
+        private bool _mUnknown_ComputePlatform;
+        public string? ComputePlatform
+        {
+            get
+            {
+                if (!_mUnknown_ComputePlatform) return _mValue_ComputePlatform;
+                throw new UndeferrableValueException("Value 'DeploymentConfigArgs.ComputePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the deployment config.
         /// </summary>
-        [Input("deploymentConfigName")]
+        [PolicyResourceProperty("deploymentConfigName", "_mUnknown_DeploymentConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentConfigName;
-
-        public string? DeploymentConfigName => _mDeploymentConfigName.GetValue("deploymentConfigName");
+        private string? _mValue_DeploymentConfigName;
+        private bool _mUnknown_DeploymentConfigName;
+        public string? DeploymentConfigName
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentConfigName) return _mValue_DeploymentConfigName;
+                throw new UndeferrableValueException("Value 'DeploymentConfigArgs.DeploymentConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         /// </summary>
-        [Input("minimumHealthyHosts")]
+        [PolicyResourceProperty("minimumHealthyHosts", "_mUnknown_MinimumHealthyHosts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentConfigMinimumHealthyHostsArgs> _mMinimumHealthyHosts;
-
-        public Inputs.DeploymentConfigMinimumHealthyHostsArgs? MinimumHealthyHosts => _mMinimumHealthyHosts.GetValue("minimumHealthyHosts");
+        private Inputs.DeploymentConfigMinimumHealthyHostsArgs? _mValue_MinimumHealthyHosts;
+        private bool _mUnknown_MinimumHealthyHosts;
+        public Inputs.DeploymentConfigMinimumHealthyHostsArgs? MinimumHealthyHosts
+        {
+            get
+            {
+                if (!_mUnknown_MinimumHealthyHosts) return _mValue_MinimumHealthyHosts;
+                throw new UndeferrableValueException("Value 'DeploymentConfigArgs.MinimumHealthyHosts' is not present");
+            }
+        }
 
         /// <summary>
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
         /// </summary>
-        [Input("trafficRoutingConfig")]
+        [PolicyResourceProperty("trafficRoutingConfig", "_mUnknown_TrafficRoutingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentConfigTrafficRoutingConfigArgs> _mTrafficRoutingConfig;
-
-        public Inputs.DeploymentConfigTrafficRoutingConfigArgs? TrafficRoutingConfig => _mTrafficRoutingConfig.GetValue("trafficRoutingConfig");
+        private Inputs.DeploymentConfigTrafficRoutingConfigArgs? _mValue_TrafficRoutingConfig;
+        private bool _mUnknown_TrafficRoutingConfig;
+        public Inputs.DeploymentConfigTrafficRoutingConfigArgs? TrafficRoutingConfig
+        {
+            get
+            {
+                if (!_mUnknown_TrafficRoutingConfig) return _mValue_TrafficRoutingConfig;
+                throw new UndeferrableValueException("Value 'DeploymentConfigArgs.TrafficRoutingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A zonal_config block. Zonal Config is documented below.
         /// </summary>
-        [Input("zonalConfig")]
+        [PolicyResourceProperty("zonalConfig", "_mUnknown_ZonalConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentConfigZonalConfigArgs> _mZonalConfig;
-
-        public Inputs.DeploymentConfigZonalConfigArgs? ZonalConfig => _mZonalConfig.GetValue("zonalConfig");
+        private Inputs.DeploymentConfigZonalConfigArgs? _mValue_ZonalConfig;
+        private bool _mUnknown_ZonalConfig;
+        public Inputs.DeploymentConfigZonalConfigArgs? ZonalConfig
+        {
+            get
+            {
+                if (!_mUnknown_ZonalConfig) return _mValue_ZonalConfig;
+                throw new UndeferrableValueException("Value 'DeploymentConfigArgs.ZonalConfig' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'LbHttpsRedirectionPolicy.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the load balancer to which you want to enable http to https redirection.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbHttpsRedirectionPolicy.LbName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'LbHttpsRedirectionPolicyArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the load balancer to which you want to enable http to https redirection.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbHttpsRedirectionPolicyArgs.LbName' is not present");
+            }
+        }
     }
 }

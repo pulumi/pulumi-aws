@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Outputs
         /// <summary>
         /// Maximum number of game sessions that an individual can create during the policy period.
         /// </summary>
-        [Input("newGameSessionsPerCreator")]
+        [PolicyResourceProperty("newGameSessionsPerCreator", "_mUnknown_NewGameSessionsPerCreator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNewGameSessionsPerCreator;
-
-        public int? NewGameSessionsPerCreator => _mNewGameSessionsPerCreator.GetValue("newGameSessionsPerCreator");
+        private int? _mValue_NewGameSessionsPerCreator;
+        private bool _mUnknown_NewGameSessionsPerCreator;
+        public int? NewGameSessionsPerCreator
+        {
+            get
+            {
+                if (!_mUnknown_NewGameSessionsPerCreator) return _mValue_NewGameSessionsPerCreator;
+                throw new UndeferrableValueException("Value 'FleetResourceCreationLimitPolicy.NewGameSessionsPerCreator' is not present");
+            }
+        }
 
         /// <summary>
         /// Time span used in evaluating the resource creation limit policy.
         /// </summary>
-        [Input("policyPeriodInMinutes")]
+        [PolicyResourceProperty("policyPeriodInMinutes", "_mUnknown_PolicyPeriodInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPolicyPeriodInMinutes;
-
-        public int? PolicyPeriodInMinutes => _mPolicyPeriodInMinutes.GetValue("policyPeriodInMinutes");
+        private int? _mValue_PolicyPeriodInMinutes;
+        private bool _mUnknown_PolicyPeriodInMinutes;
+        public int? PolicyPeriodInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_PolicyPeriodInMinutes) return _mValue_PolicyPeriodInMinutes;
+                throw new UndeferrableValueException("Value 'FleetResourceCreationLimitPolicy.PolicyPeriodInMinutes' is not present");
+            }
+        }
     }
 }

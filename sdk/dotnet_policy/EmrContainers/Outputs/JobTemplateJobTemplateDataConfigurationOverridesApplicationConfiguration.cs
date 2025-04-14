@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Outputs
         /// <summary>
         /// The classification within a configuration.
         /// </summary>
-        [Input("classification")]
+        [PolicyResourceProperty("classification", "_mUnknown_Classification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClassification;
-
-        public string? Classification => _mClassification.GetValue("classification");
+        private string? _mValue_Classification;
+        private bool _mUnknown_Classification;
+        public string? Classification
+        {
+            get
+            {
+                if (!_mUnknown_Classification) return _mValue_Classification;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration.Classification' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of additional configurations to apply within a configuration object.
         /// </summary>
-        [Input("configurations")]
+        [PolicyResourceProperty("configurations", "_mUnknown_Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration>> _mConfigurations;
-
-        public List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration>? Configurations => _mConfigurations.GetValue("configurations");
+        private List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration>? _mValue_Configurations;
+        private bool _mUnknown_Configurations;
+        public List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration>? Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Configurations) return _mValue_Configurations;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration.Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of properties specified within a configuration classification.
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProperties;
-
-        public Dictionary<string, string>? Properties => _mProperties.GetValue("properties");
+        private Dictionary<string, string>? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public Dictionary<string, string>? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration.Properties' is not present");
+            }
+        }
     }
 }

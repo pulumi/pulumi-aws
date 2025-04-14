@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoStorageInfoResult
     {
-        [Input("ebsStorageInfos")]
+        [PolicyResourceProperty("ebsStorageInfos", "_mUnknown_EbsStorageInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult>> _mEbsStorageInfos;
-
-        public List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult>? EbsStorageInfos => _mEbsStorageInfos.GetValue("ebsStorageInfos");
+        private List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult>? _mValue_EbsStorageInfos;
+        private bool _mUnknown_EbsStorageInfos;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoResult>? EbsStorageInfos
+        {
+            get
+            {
+                if (!_mUnknown_EbsStorageInfos) return _mValue_EbsStorageInfos;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoStorageInfoResult.EbsStorageInfos' is not present");
+            }
+        }
     }
 }

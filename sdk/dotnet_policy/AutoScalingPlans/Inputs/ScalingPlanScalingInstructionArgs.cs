@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans.Inputs
         /// Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
         /// </summary>
-        [Input("customizedLoadMetricSpecification")]
+        [PolicyResourceProperty("customizedLoadMetricSpecification", "_mUnknown_CustomizedLoadMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs> _mCustomizedLoadMetricSpecification;
-
-        public Inputs.ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs? CustomizedLoadMetricSpecification => _mCustomizedLoadMetricSpecification.GetValue("customizedLoadMetricSpecification");
+        private Inputs.ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs? _mValue_CustomizedLoadMetricSpecification;
+        private bool _mUnknown_CustomizedLoadMetricSpecification;
+        public Inputs.ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs? CustomizedLoadMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CustomizedLoadMetricSpecification) return _mValue_CustomizedLoadMetricSpecification;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.CustomizedLoadMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
         /// </summary>
-        [Input("disableDynamicScaling")]
+        [PolicyResourceProperty("disableDynamicScaling", "_mUnknown_DisableDynamicScaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableDynamicScaling;
-
-        public bool? DisableDynamicScaling => _mDisableDynamicScaling.GetValue("disableDynamicScaling");
+        private bool? _mValue_DisableDynamicScaling;
+        private bool _mUnknown_DisableDynamicScaling;
+        public bool? DisableDynamicScaling
+        {
+            get
+            {
+                if (!_mUnknown_DisableDynamicScaling) return _mValue_DisableDynamicScaling;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.DisableDynamicScaling' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum capacity of the resource.
         /// </summary>
-        [Input("minCapacity")]
+        [PolicyResourceProperty("minCapacity", "_mUnknown_MinCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinCapacity;
-
-        public int? MinCapacity => _mMinCapacity.GetValue("minCapacity");
+        private int? _mValue_MinCapacity;
+        private bool _mUnknown_MinCapacity;
+        public int? MinCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacity) return _mValue_MinCapacity;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.MinCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
         /// </summary>
-        [Input("predefinedLoadMetricSpecification")]
+        [PolicyResourceProperty("predefinedLoadMetricSpecification", "_mUnknown_PredefinedLoadMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs> _mPredefinedLoadMetricSpecification;
-
-        public Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs? PredefinedLoadMetricSpecification => _mPredefinedLoadMetricSpecification.GetValue("predefinedLoadMetricSpecification");
+        private Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs? _mValue_PredefinedLoadMetricSpecification;
+        private bool _mUnknown_PredefinedLoadMetricSpecification;
+        public Inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs? PredefinedLoadMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedLoadMetricSpecification) return _mValue_PredefinedLoadMetricSpecification;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.PredefinedLoadMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity specified for the resource.
         /// Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
         /// </summary>
-        [Input("predictiveScalingMaxCapacityBehavior")]
+        [PolicyResourceProperty("predictiveScalingMaxCapacityBehavior", "_mUnknown_PredictiveScalingMaxCapacityBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPredictiveScalingMaxCapacityBehavior;
-
-        public string? PredictiveScalingMaxCapacityBehavior => _mPredictiveScalingMaxCapacityBehavior.GetValue("predictiveScalingMaxCapacityBehavior");
+        private string? _mValue_PredictiveScalingMaxCapacityBehavior;
+        private bool _mUnknown_PredictiveScalingMaxCapacityBehavior;
+        public string? PredictiveScalingMaxCapacityBehavior
+        {
+            get
+            {
+                if (!_mUnknown_PredictiveScalingMaxCapacityBehavior) return _mValue_PredictiveScalingMaxCapacityBehavior;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.PredictiveScalingMaxCapacityBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
         /// </summary>
-        [Input("predictiveScalingMaxCapacityBuffer")]
+        [PolicyResourceProperty("predictiveScalingMaxCapacityBuffer", "_mUnknown_PredictiveScalingMaxCapacityBuffer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPredictiveScalingMaxCapacityBuffer;
-
-        public int? PredictiveScalingMaxCapacityBuffer => _mPredictiveScalingMaxCapacityBuffer.GetValue("predictiveScalingMaxCapacityBuffer");
+        private int? _mValue_PredictiveScalingMaxCapacityBuffer;
+        private bool _mUnknown_PredictiveScalingMaxCapacityBuffer;
+        public int? PredictiveScalingMaxCapacityBuffer
+        {
+            get
+            {
+                if (!_mUnknown_PredictiveScalingMaxCapacityBuffer) return _mValue_PredictiveScalingMaxCapacityBuffer;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.PredictiveScalingMaxCapacityBuffer' is not present");
+            }
+        }
 
         /// <summary>
         /// Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
         /// </summary>
-        [Input("predictiveScalingMode")]
+        [PolicyResourceProperty("predictiveScalingMode", "_mUnknown_PredictiveScalingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPredictiveScalingMode;
-
-        public string? PredictiveScalingMode => _mPredictiveScalingMode.GetValue("predictiveScalingMode");
+        private string? _mValue_PredictiveScalingMode;
+        private bool _mUnknown_PredictiveScalingMode;
+        public string? PredictiveScalingMode
+        {
+            get
+            {
+                if (!_mUnknown_PredictiveScalingMode) return _mValue_PredictiveScalingMode;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.PredictiveScalingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the resource. This string consists of the resource type and unique identifier.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
         /// </summary>
-        [Input("scalableDimension")]
+        [PolicyResourceProperty("scalableDimension", "_mUnknown_ScalableDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
-
-        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+        private string? _mValue_ScalableDimension;
+        private bool _mUnknown_ScalableDimension;
+        public string? ScalableDimension
+        {
+            get
+            {
+                if (!_mUnknown_ScalableDimension) return _mValue_ScalableDimension;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.ScalableDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls whether a resource's externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
         /// </summary>
-        [Input("scalingPolicyUpdateBehavior")]
+        [PolicyResourceProperty("scalingPolicyUpdateBehavior", "_mUnknown_ScalingPolicyUpdateBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalingPolicyUpdateBehavior;
-
-        public string? ScalingPolicyUpdateBehavior => _mScalingPolicyUpdateBehavior.GetValue("scalingPolicyUpdateBehavior");
+        private string? _mValue_ScalingPolicyUpdateBehavior;
+        private bool _mUnknown_ScalingPolicyUpdateBehavior;
+        public string? ScalingPolicyUpdateBehavior
+        {
+            get
+            {
+                if (!_mUnknown_ScalingPolicyUpdateBehavior) return _mValue_ScalingPolicyUpdateBehavior;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.ScalingPolicyUpdateBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
         /// </summary>
-        [Input("scheduledActionBufferTime")]
+        [PolicyResourceProperty("scheduledActionBufferTime", "_mUnknown_ScheduledActionBufferTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScheduledActionBufferTime;
-
-        public int? ScheduledActionBufferTime => _mScheduledActionBufferTime.GetValue("scheduledActionBufferTime");
+        private int? _mValue_ScheduledActionBufferTime;
+        private bool _mUnknown_ScheduledActionBufferTime;
+        public int? ScheduledActionBufferTime
+        {
+            get
+            {
+                if (!_mUnknown_ScheduledActionBufferTime) return _mValue_ScheduledActionBufferTime;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.ScheduledActionBufferTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
         /// </summary>
-        [Input("serviceNamespace")]
+        [PolicyResourceProperty("serviceNamespace", "_mUnknown_ServiceNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
-
-        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+        private string? _mValue_ServiceNamespace;
+        private bool _mUnknown_ServiceNamespace;
+        public string? ServiceNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNamespace) return _mValue_ServiceNamespace;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.ServiceNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
         /// </summary>
-        [Input("targetTrackingConfigurations")]
+        [PolicyResourceProperty("targetTrackingConfigurations", "_mUnknown_TargetTrackingConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs>> _mTargetTrackingConfigurations;
-
-        public List<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs>? TargetTrackingConfigurations => _mTargetTrackingConfigurations.GetValue("targetTrackingConfigurations");
+        private List<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs>? _mValue_TargetTrackingConfigurations;
+        private bool _mUnknown_TargetTrackingConfigurations;
+        public List<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs>? TargetTrackingConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingConfigurations) return _mValue_TargetTrackingConfigurations;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.TargetTrackingConfigurations' is not present");
+            }
+        }
     }
 }

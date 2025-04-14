@@ -15,61 +15,110 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
         /// </summary>
-        [Input("appLifecycleManagement")]
+        [PolicyResourceProperty("appLifecycleManagement", "_mUnknown_AppLifecycleManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement> _mAppLifecycleManagement;
-
-        public Outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement? AppLifecycleManagement => _mAppLifecycleManagement.GetValue("appLifecycleManagement");
+        private Outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement? _mValue_AppLifecycleManagement;
+        private bool _mUnknown_AppLifecycleManagement;
+        public Outputs.UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagement? AppLifecycleManagement
+        {
+            get
+            {
+                if (!_mUnknown_AppLifecycleManagement) return _mValue_AppLifecycleManagement;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettings.AppLifecycleManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
         /// </summary>
-        [Input("builtInLifecycleConfigArn")]
+        [PolicyResourceProperty("builtInLifecycleConfigArn", "_mUnknown_BuiltInLifecycleConfigArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuiltInLifecycleConfigArn;
-
-        public string? BuiltInLifecycleConfigArn => _mBuiltInLifecycleConfigArn.GetValue("builtInLifecycleConfigArn");
+        private string? _mValue_BuiltInLifecycleConfigArn;
+        private bool _mUnknown_BuiltInLifecycleConfigArn;
+        public string? BuiltInLifecycleConfigArn
+        {
+            get
+            {
+                if (!_mUnknown_BuiltInLifecycleConfigArn) return _mValue_BuiltInLifecycleConfigArn;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettings.BuiltInLifecycleConfigArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         /// </summary>
-        [Input("codeRepositories")]
+        [PolicyResourceProperty("codeRepositories", "_mUnknown_CodeRepositories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository>> _mCodeRepositories;
+        private List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository>? _mValue_CodeRepositories;
+        private bool _mUnknown_CodeRepositories;
+        public List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository>? CodeRepositories
+        {
+            get
+            {
+                if (!_mUnknown_CodeRepositories) return _mValue_CodeRepositories;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettings.CodeRepositories' is not present");
+            }
+        }
 
-        public List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository>? CodeRepositories => _mCodeRepositories.GetValue("codeRepositories");
-
-        [Input("customImages")]
+        [PolicyResourceProperty("customImages", "_mUnknown_CustomImages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImage>> _mCustomImages;
-
-        public List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImage>? CustomImages => _mCustomImages.GetValue("customImages");
+        private List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImage>? _mValue_CustomImages;
+        private bool _mUnknown_CustomImages;
+        public List<Outputs.UserProfileUserSettingsJupyterLabAppSettingsCustomImage>? CustomImages
+        {
+            get
+            {
+                if (!_mUnknown_CustomImages) return _mValue_CustomImages;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettings.CustomImages' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec> _mDefaultResourceSpec;
-
-        public Outputs.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Outputs.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Outputs.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettings.DefaultResourceSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
         /// </summary>
-        [Input("emrSettings")]
+        [PolicyResourceProperty("emrSettings", "_mUnknown_EmrSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings> _mEmrSettings;
-
-        public Outputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings? EmrSettings => _mEmrSettings.GetValue("emrSettings");
+        private Outputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings? _mValue_EmrSettings;
+        private bool _mUnknown_EmrSettings;
+        public Outputs.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings? EmrSettings
+        {
+            get
+            {
+                if (!_mUnknown_EmrSettings) return _mValue_EmrSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettings.EmrSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         /// </summary>
-        [Input("lifecycleConfigArns")]
+        [PolicyResourceProperty("lifecycleConfigArns", "_mUnknown_LifecycleConfigArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLifecycleConfigArns;
-
-        public List<string>? LifecycleConfigArns => _mLifecycleConfigArns.GetValue("lifecycleConfigArns");
+        private List<string>? _mValue_LifecycleConfigArns;
+        private bool _mUnknown_LifecycleConfigArns;
+        public List<string>? LifecycleConfigArns
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigArns) return _mValue_LifecycleConfigArns;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettings.LifecycleConfigArns' is not present");
+            }
+        }
     }
 }

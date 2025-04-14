@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Creation time of the model.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'GetCustomModelsModelSummaryResult.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the custom model.
         /// </summary>
-        [Input("modelArn")]
+        [PolicyResourceProperty("modelArn", "_mUnknown_ModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
-
-        public string? ModelArn => _mModelArn.GetValue("modelArn");
+        private string? _mValue_ModelArn;
+        private bool _mUnknown_ModelArn;
+        public string? ModelArn
+        {
+            get
+            {
+                if (!_mUnknown_ModelArn) return _mValue_ModelArn;
+                throw new UndeferrableValueException("Value 'GetCustomModelsModelSummaryResult.ModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the custom model.
         /// </summary>
-        [Input("modelName")]
+        [PolicyResourceProperty("modelName", "_mUnknown_ModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelName;
-
-        public string? ModelName => _mModelName.GetValue("modelName");
+        private string? _mValue_ModelName;
+        private bool _mUnknown_ModelName;
+        public string? ModelName
+        {
+            get
+            {
+                if (!_mUnknown_ModelName) return _mValue_ModelName;
+                throw new UndeferrableValueException("Value 'GetCustomModelsModelSummaryResult.ModelName' is not present");
+            }
+        }
     }
 }

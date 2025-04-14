@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Configuration block for the person being granted permissions. See below.
         /// </summary>
-        [Input("grantee")]
+        [PolicyResourceProperty("grantee", "_mUnknown_Grantee")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketAclV2AccessControlPolicyGrantGrantee> _mGrantee;
-
-        public Outputs.BucketAclV2AccessControlPolicyGrantGrantee? Grantee => _mGrantee.GetValue("grantee");
+        private Outputs.BucketAclV2AccessControlPolicyGrantGrantee? _mValue_Grantee;
+        private bool _mUnknown_Grantee;
+        public Outputs.BucketAclV2AccessControlPolicyGrantGrantee? Grantee
+        {
+            get
+            {
+                if (!_mUnknown_Grantee) return _mValue_Grantee;
+                throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicyGrant.Grantee' is not present");
+            }
+        }
 
         /// <summary>
         /// Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
         /// </summary>
-        [Input("permission")]
+        [PolicyResourceProperty("permission", "_mUnknown_Permission")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
-
-        public string? Permission => _mPermission.GetValue("permission");
+        private string? _mValue_Permission;
+        private bool _mUnknown_Permission;
+        public string? Permission
+        {
+            get
+            {
+                if (!_mUnknown_Permission) return _mValue_Permission;
+                throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicyGrant.Permission' is not present");
+            }
+        }
     }
 }

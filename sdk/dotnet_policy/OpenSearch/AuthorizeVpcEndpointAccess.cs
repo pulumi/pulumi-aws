@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// AWS account ID to grant access to.
         /// </summary>
-        [Input("account")]
+        [PolicyResourceProperty("account", "_mUnknown_Account")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
-
-        public string? Account => _mAccount.GetValue("account");
+        private string? _mValue_Account;
+        private bool _mUnknown_Account;
+        public string? Account
+        {
+            get
+            {
+                if (!_mUnknown_Account) return _mValue_Account;
+                throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccess.Account' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
         /// </summary>
-        [Input("authorizedPrincipals")]
+        [PolicyResourceProperty("authorizedPrincipals", "_mUnknown_AuthorizedPrincipals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>> _mAuthorizedPrincipals;
-
-        public List<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>? AuthorizedPrincipals => _mAuthorizedPrincipals.GetValue("authorizedPrincipals");
+        private List<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>? _mValue_AuthorizedPrincipals;
+        private bool _mUnknown_AuthorizedPrincipals;
+        public List<Outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal>? AuthorizedPrincipals
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizedPrincipals) return _mValue_AuthorizedPrincipals;
+                throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccess.AuthorizedPrincipals' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of OpenSearch Service domain to provide access to.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccess.DomainName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// AWS account ID to grant access to.
         /// </summary>
-        [Input("account")]
+        [PolicyResourceProperty("account", "_mUnknown_Account")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
-
-        public string? Account => _mAccount.GetValue("account");
+        private string? _mValue_Account;
+        private bool _mUnknown_Account;
+        public string? Account
+        {
+            get
+            {
+                if (!_mUnknown_Account) return _mValue_Account;
+                throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccessArgs.Account' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of OpenSearch Service domain to provide access to.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccessArgs.DomainName' is not present");
+            }
+        }
     }
 }

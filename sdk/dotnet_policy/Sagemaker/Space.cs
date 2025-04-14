@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The space's Amazon Resource Name (ARN).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Space.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'Space.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the space's profile in the Amazon Elastic File System volume.
         /// </summary>
-        [Input("homeEfsFileSystemUid")]
+        [PolicyResourceProperty("homeEfsFileSystemUid", "_mUnknown_HomeEfsFileSystemUid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomeEfsFileSystemUid;
-
-        public string? HomeEfsFileSystemUid => _mHomeEfsFileSystemUid.GetValue("homeEfsFileSystemUid");
+        private string? _mValue_HomeEfsFileSystemUid;
+        private bool _mUnknown_HomeEfsFileSystemUid;
+        public string? HomeEfsFileSystemUid
+        {
+            get
+            {
+                if (!_mUnknown_HomeEfsFileSystemUid) return _mValue_HomeEfsFileSystemUid;
+                throw new UndeferrableValueException("Value 'Space.HomeEfsFileSystemUid' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         /// </summary>
-        [Input("ownershipSettings")]
+        [PolicyResourceProperty("ownershipSettings", "_mUnknown_OwnershipSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceOwnershipSettings> _mOwnershipSettings;
-
-        public Outputs.SpaceOwnershipSettings? OwnershipSettings => _mOwnershipSettings.GetValue("ownershipSettings");
+        private Outputs.SpaceOwnershipSettings? _mValue_OwnershipSettings;
+        private bool _mUnknown_OwnershipSettings;
+        public Outputs.SpaceOwnershipSettings? OwnershipSettings
+        {
+            get
+            {
+                if (!_mUnknown_OwnershipSettings) return _mValue_OwnershipSettings;
+                throw new UndeferrableValueException("Value 'Space.OwnershipSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
-        [Input("spaceDisplayName")]
+        [PolicyResourceProperty("spaceDisplayName", "_mUnknown_SpaceDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceDisplayName;
-
-        public string? SpaceDisplayName => _mSpaceDisplayName.GetValue("spaceDisplayName");
+        private string? _mValue_SpaceDisplayName;
+        private bool _mUnknown_SpaceDisplayName;
+        public string? SpaceDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceDisplayName) return _mValue_SpaceDisplayName;
+                throw new UndeferrableValueException("Value 'Space.SpaceDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'Space.SpaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of space settings. See `space_settings` Block below.
         /// </summary>
-        [Input("spaceSettings")]
+        [PolicyResourceProperty("spaceSettings", "_mUnknown_SpaceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSettings> _mSpaceSettings;
-
-        public Outputs.SpaceSpaceSettings? SpaceSettings => _mSpaceSettings.GetValue("spaceSettings");
+        private Outputs.SpaceSpaceSettings? _mValue_SpaceSettings;
+        private bool _mUnknown_SpaceSettings;
+        public Outputs.SpaceSpaceSettings? SpaceSettings
+        {
+            get
+            {
+                if (!_mUnknown_SpaceSettings) return _mValue_SpaceSettings;
+                throw new UndeferrableValueException("Value 'Space.SpaceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         /// </summary>
-        [Input("spaceSharingSettings")]
+        [PolicyResourceProperty("spaceSharingSettings", "_mUnknown_SpaceSharingSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSharingSettings> _mSpaceSharingSettings;
-
-        public Outputs.SpaceSpaceSharingSettings? SpaceSharingSettings => _mSpaceSharingSettings.GetValue("spaceSharingSettings");
+        private Outputs.SpaceSpaceSharingSettings? _mValue_SpaceSharingSettings;
+        private bool _mUnknown_SpaceSharingSettings;
+        public Outputs.SpaceSpaceSharingSettings? SpaceSharingSettings
+        {
+            get
+            {
+                if (!_mUnknown_SpaceSharingSettings) return _mValue_SpaceSharingSettings;
+                throw new UndeferrableValueException("Value 'Space.SpaceSharingSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Space.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Space.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Space.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/space:Space")]
@@ -119,64 +196,113 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The ID of the associated Domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'SpaceArgs.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         /// </summary>
-        [Input("ownershipSettings")]
+        [PolicyResourceProperty("ownershipSettings", "_mUnknown_OwnershipSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceOwnershipSettingsArgs> _mOwnershipSettings;
-
-        public Inputs.SpaceOwnershipSettingsArgs? OwnershipSettings => _mOwnershipSettings.GetValue("ownershipSettings");
+        private Inputs.SpaceOwnershipSettingsArgs? _mValue_OwnershipSettings;
+        private bool _mUnknown_OwnershipSettings;
+        public Inputs.SpaceOwnershipSettingsArgs? OwnershipSettings
+        {
+            get
+            {
+                if (!_mUnknown_OwnershipSettings) return _mValue_OwnershipSettings;
+                throw new UndeferrableValueException("Value 'SpaceArgs.OwnershipSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space that appears in the SageMaker AI Studio UI.
         /// </summary>
-        [Input("spaceDisplayName")]
+        [PolicyResourceProperty("spaceDisplayName", "_mUnknown_SpaceDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceDisplayName;
-
-        public string? SpaceDisplayName => _mSpaceDisplayName.GetValue("spaceDisplayName");
+        private string? _mValue_SpaceDisplayName;
+        private bool _mUnknown_SpaceDisplayName;
+        public string? SpaceDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceDisplayName) return _mValue_SpaceDisplayName;
+                throw new UndeferrableValueException("Value 'SpaceArgs.SpaceDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'SpaceArgs.SpaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of space settings. See `space_settings` Block below.
         /// </summary>
-        [Input("spaceSettings")]
+        [PolicyResourceProperty("spaceSettings", "_mUnknown_SpaceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsArgs> _mSpaceSettings;
-
-        public Inputs.SpaceSpaceSettingsArgs? SpaceSettings => _mSpaceSettings.GetValue("spaceSettings");
+        private Inputs.SpaceSpaceSettingsArgs? _mValue_SpaceSettings;
+        private bool _mUnknown_SpaceSettings;
+        public Inputs.SpaceSpaceSettingsArgs? SpaceSettings
+        {
+            get
+            {
+                if (!_mUnknown_SpaceSettings) return _mValue_SpaceSettings;
+                throw new UndeferrableValueException("Value 'SpaceArgs.SpaceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
         /// </summary>
-        [Input("spaceSharingSettings")]
+        [PolicyResourceProperty("spaceSharingSettings", "_mUnknown_SpaceSharingSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSharingSettingsArgs> _mSpaceSharingSettings;
-
-        public Inputs.SpaceSpaceSharingSettingsArgs? SpaceSharingSettings => _mSpaceSharingSettings.GetValue("spaceSharingSettings");
+        private Inputs.SpaceSpaceSharingSettingsArgs? _mValue_SpaceSharingSettings;
+        private bool _mUnknown_SpaceSharingSettings;
+        public Inputs.SpaceSpaceSharingSettingsArgs? SpaceSharingSettings
+        {
+            get
+            {
+                if (!_mUnknown_SpaceSharingSettings) return _mValue_SpaceSharingSettings;
+                throw new UndeferrableValueException("Value 'SpaceArgs.SpaceSharingSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SpaceArgs.Tags' is not present");
+            }
+        }
     }
 }

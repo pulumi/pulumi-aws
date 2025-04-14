@@ -12,37 +12,72 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetInstanceTypeNeuronDeviceResult
     {
-        [Input("coreCount")]
+        [PolicyResourceProperty("coreCount", "_mUnknown_CoreCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCoreCount;
+        private int? _mValue_CoreCount;
+        private bool _mUnknown_CoreCount;
+        public int? CoreCount
+        {
+            get
+            {
+                if (!_mUnknown_CoreCount) return _mValue_CoreCount;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNeuronDeviceResult.CoreCount' is not present");
+            }
+        }
 
-        public int? CoreCount => _mCoreCount.GetValue("coreCount");
-
-        [Input("coreVersion")]
+        [PolicyResourceProperty("coreVersion", "_mUnknown_CoreVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCoreVersion;
+        private int? _mValue_CoreVersion;
+        private bool _mUnknown_CoreVersion;
+        public int? CoreVersion
+        {
+            get
+            {
+                if (!_mUnknown_CoreVersion) return _mValue_CoreVersion;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNeuronDeviceResult.CoreVersion' is not present");
+            }
+        }
 
-        public int? CoreVersion => _mCoreVersion.GetValue("coreVersion");
-
-        [Input("count")]
+        [PolicyResourceProperty("count", "_mUnknown_Count")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCount;
-
-        public int? Count => _mCount.GetValue("count");
+        private int? _mValue_Count;
+        private bool _mUnknown_Count;
+        public int? Count
+        {
+            get
+            {
+                if (!_mUnknown_Count) return _mValue_Count;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNeuronDeviceResult.Count' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the instance memory, in MiB.
         /// </summary>
-        [Input("memorySize")]
+        [PolicyResourceProperty("memorySize", "_mUnknown_MemorySize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemorySize;
+        private int? _mValue_MemorySize;
+        private bool _mUnknown_MemorySize;
+        public int? MemorySize
+        {
+            get
+            {
+                if (!_mUnknown_MemorySize) return _mValue_MemorySize;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNeuronDeviceResult.MemorySize' is not present");
+            }
+        }
 
-        public int? MemorySize => _mMemorySize.GetValue("memorySize");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetInstanceTypeNeuronDeviceResult.Name' is not present");
+            }
+        }
     }
 }

@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// A description of the bot. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Directs Lex the order in which to elicit this slot value from the user.
@@ -36,70 +50,119 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// the slot with priority 1. If multiple slots share the same priority, the order in which Lex elicits
         /// values is arbitrary. Must be between 1 and 100.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The response card. Amazon Lex will substitute session attributes and
         /// slot values into the response card. For more information, see
         /// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
         /// </summary>
-        [Input("responseCard")]
+        [PolicyResourceProperty("responseCard", "_mUnknown_ResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseCard;
-
-        public string? ResponseCard => _mResponseCard.GetValue("responseCard");
+        private string? _mValue_ResponseCard;
+        private bool _mUnknown_ResponseCard;
+        public string? ResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ResponseCard) return _mValue_ResponseCard;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.ResponseCard' is not present");
+            }
+        }
 
         /// <summary>
         /// If you know a specific pattern with which users might respond to
         /// an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
         /// is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("sampleUtterances")]
+        [PolicyResourceProperty("sampleUtterances", "_mUnknown_SampleUtterances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSampleUtterances;
-
-        public List<string>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+        private List<string>? _mValue_SampleUtterances;
+        private bool _mUnknown_SampleUtterances;
+        public List<string>? SampleUtterances
+        {
+            get
+            {
+                if (!_mUnknown_SampleUtterances) return _mValue_SampleUtterances;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.SampleUtterances' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the slot is required or optional.
         /// </summary>
-        [Input("slotConstraint")]
+        [PolicyResourceProperty("slotConstraint", "_mUnknown_SlotConstraint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotConstraint;
-
-        public string? SlotConstraint => _mSlotConstraint.GetValue("slotConstraint");
+        private string? _mValue_SlotConstraint;
+        private bool _mUnknown_SlotConstraint;
+        public string? SlotConstraint
+        {
+            get
+            {
+                if (!_mUnknown_SlotConstraint) return _mValue_SlotConstraint;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.SlotConstraint' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the slot, either a custom slot type that you defined or one of
         /// the built-in slot types. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("slotType")]
+        [PolicyResourceProperty("slotType", "_mUnknown_SlotType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotType;
-
-        public string? SlotType => _mSlotType.GetValue("slotType");
+        private string? _mValue_SlotType;
+        private bool _mUnknown_SlotType;
+        public string? SlotType
+        {
+            get
+            {
+                if (!_mUnknown_SlotType) return _mValue_SlotType;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.SlotType' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the slot type. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("slotTypeVersion")]
+        [PolicyResourceProperty("slotTypeVersion", "_mUnknown_SlotTypeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotTypeVersion;
-
-        public string? SlotTypeVersion => _mSlotTypeVersion.GetValue("slotTypeVersion");
+        private string? _mValue_SlotTypeVersion;
+        private bool _mUnknown_SlotTypeVersion;
+        public string? SlotTypeVersion
+        {
+            get
+            {
+                if (!_mUnknown_SlotTypeVersion) return _mValue_SlotTypeVersion;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.SlotTypeVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The prompt that Amazon Lex uses to elicit the slot value
         /// from the user. Attributes are documented under prompt.
         /// </summary>
-        [Input("valueElicitationPrompt")]
+        [PolicyResourceProperty("valueElicitationPrompt", "_mUnknown_ValueElicitationPrompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntentSlotValueElicitationPromptArgs> _mValueElicitationPrompt;
-
-        public Inputs.IntentSlotValueElicitationPromptArgs? ValueElicitationPrompt => _mValueElicitationPrompt.GetValue("valueElicitationPrompt");
+        private Inputs.IntentSlotValueElicitationPromptArgs? _mValue_ValueElicitationPrompt;
+        private bool _mUnknown_ValueElicitationPrompt;
+        public Inputs.IntentSlotValueElicitationPromptArgs? ValueElicitationPrompt
+        {
+            get
+            {
+                if (!_mUnknown_ValueElicitationPrompt) return _mValue_ValueElicitationPrompt;
+                throw new UndeferrableValueException("Value 'IntentSlotArgs.ValueElicitationPrompt' is not present");
+            }
+        }
     }
 }

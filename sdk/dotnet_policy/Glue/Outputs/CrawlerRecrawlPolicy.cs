@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
         /// </summary>
-        [Input("recrawlBehavior")]
+        [PolicyResourceProperty("recrawlBehavior", "_mUnknown_RecrawlBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecrawlBehavior;
-
-        public string? RecrawlBehavior => _mRecrawlBehavior.GetValue("recrawlBehavior");
+        private string? _mValue_RecrawlBehavior;
+        private bool _mUnknown_RecrawlBehavior;
+        public string? RecrawlBehavior
+        {
+            get
+            {
+                if (!_mUnknown_RecrawlBehavior) return _mValue_RecrawlBehavior;
+                throw new UndeferrableValueException("Value 'CrawlerRecrawlPolicy.RecrawlBehavior' is not present");
+            }
+        }
     }
 }

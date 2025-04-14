@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
         /// </summary>
-        [Input("autoRollbackConfiguration")]
+        [PolicyResourceProperty("autoRollbackConfiguration", "_mUnknown_AutoRollbackConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointDeploymentConfigAutoRollbackConfigurationArgs> _mAutoRollbackConfiguration;
-
-        public Inputs.EndpointDeploymentConfigAutoRollbackConfigurationArgs? AutoRollbackConfiguration => _mAutoRollbackConfiguration.GetValue("autoRollbackConfiguration");
+        private Inputs.EndpointDeploymentConfigAutoRollbackConfigurationArgs? _mValue_AutoRollbackConfiguration;
+        private bool _mUnknown_AutoRollbackConfiguration;
+        public Inputs.EndpointDeploymentConfigAutoRollbackConfigurationArgs? AutoRollbackConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoRollbackConfiguration) return _mValue_AutoRollbackConfiguration;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigArgs.AutoRollbackConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
         /// </summary>
-        [Input("blueGreenUpdatePolicy")]
+        [PolicyResourceProperty("blueGreenUpdatePolicy", "_mUnknown_BlueGreenUpdatePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> _mBlueGreenUpdatePolicy;
-
-        public Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyArgs? BlueGreenUpdatePolicy => _mBlueGreenUpdatePolicy.GetValue("blueGreenUpdatePolicy");
+        private Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyArgs? _mValue_BlueGreenUpdatePolicy;
+        private bool _mUnknown_BlueGreenUpdatePolicy;
+        public Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyArgs? BlueGreenUpdatePolicy
+        {
+            get
+            {
+                if (!_mUnknown_BlueGreenUpdatePolicy) return _mValue_BlueGreenUpdatePolicy;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigArgs.BlueGreenUpdatePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
         /// </summary>
-        [Input("rollingUpdatePolicy")]
+        [PolicyResourceProperty("rollingUpdatePolicy", "_mUnknown_RollingUpdatePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointDeploymentConfigRollingUpdatePolicyArgs> _mRollingUpdatePolicy;
-
-        public Inputs.EndpointDeploymentConfigRollingUpdatePolicyArgs? RollingUpdatePolicy => _mRollingUpdatePolicy.GetValue("rollingUpdatePolicy");
+        private Inputs.EndpointDeploymentConfigRollingUpdatePolicyArgs? _mValue_RollingUpdatePolicy;
+        private bool _mUnknown_RollingUpdatePolicy;
+        public Inputs.EndpointDeploymentConfigRollingUpdatePolicyArgs? RollingUpdatePolicy
+        {
+            get
+            {
+                if (!_mUnknown_RollingUpdatePolicy) return _mValue_RollingUpdatePolicy;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigArgs.RollingUpdatePolicy' is not present");
+            }
+        }
     }
 }

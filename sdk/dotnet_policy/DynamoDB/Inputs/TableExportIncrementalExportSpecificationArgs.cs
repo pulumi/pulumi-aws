@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Inputs
 {
     public sealed class TableExportIncrementalExportSpecificationArgs
     {
-        [Input("exportFromTime")]
+        [PolicyResourceProperty("exportFromTime", "_mUnknown_ExportFromTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportFromTime;
+        private string? _mValue_ExportFromTime;
+        private bool _mUnknown_ExportFromTime;
+        public string? ExportFromTime
+        {
+            get
+            {
+                if (!_mUnknown_ExportFromTime) return _mValue_ExportFromTime;
+                throw new UndeferrableValueException("Value 'TableExportIncrementalExportSpecificationArgs.ExportFromTime' is not present");
+            }
+        }
 
-        public string? ExportFromTime => _mExportFromTime.GetValue("exportFromTime");
-
-        [Input("exportToTime")]
+        [PolicyResourceProperty("exportToTime", "_mUnknown_ExportToTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportToTime;
+        private string? _mValue_ExportToTime;
+        private bool _mUnknown_ExportToTime;
+        public string? ExportToTime
+        {
+            get
+            {
+                if (!_mUnknown_ExportToTime) return _mValue_ExportToTime;
+                throw new UndeferrableValueException("Value 'TableExportIncrementalExportSpecificationArgs.ExportToTime' is not present");
+            }
+        }
 
-        public string? ExportToTime => _mExportToTime.GetValue("exportToTime");
-
-        [Input("exportViewType")]
+        [PolicyResourceProperty("exportViewType", "_mUnknown_ExportViewType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportViewType;
-
-        public string? ExportViewType => _mExportViewType.GetValue("exportViewType");
+        private string? _mValue_ExportViewType;
+        private bool _mUnknown_ExportViewType;
+        public string? ExportViewType
+        {
+            get
+            {
+                if (!_mUnknown_ExportViewType) return _mValue_ExportViewType;
+                throw new UndeferrableValueException("Value 'TableExportIncrementalExportSpecificationArgs.ExportViewType' is not present");
+            }
+        }
     }
 }

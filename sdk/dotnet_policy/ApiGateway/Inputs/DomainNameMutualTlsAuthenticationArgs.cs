@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Inputs
         /// <summary>
         /// Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
         /// </summary>
-        [Input("truststoreUri")]
+        [PolicyResourceProperty("truststoreUri", "_mUnknown_TruststoreUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTruststoreUri;
-
-        public string? TruststoreUri => _mTruststoreUri.GetValue("truststoreUri");
+        private string? _mValue_TruststoreUri;
+        private bool _mUnknown_TruststoreUri;
+        public string? TruststoreUri
+        {
+            get
+            {
+                if (!_mUnknown_TruststoreUri) return _mValue_TruststoreUri;
+                throw new UndeferrableValueException("Value 'DomainNameMutualTlsAuthenticationArgs.TruststoreUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         /// </summary>
-        [Input("truststoreVersion")]
+        [PolicyResourceProperty("truststoreVersion", "_mUnknown_TruststoreVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTruststoreVersion;
-
-        public string? TruststoreVersion => _mTruststoreVersion.GetValue("truststoreVersion");
+        private string? _mValue_TruststoreVersion;
+        private bool _mUnknown_TruststoreVersion;
+        public string? TruststoreVersion
+        {
+            get
+            {
+                if (!_mUnknown_TruststoreVersion) return _mValue_TruststoreVersion;
+                throw new UndeferrableValueException("Value 'DomainNameMutualTlsAuthenticationArgs.TruststoreVersion' is not present");
+            }
+        }
     }
 }

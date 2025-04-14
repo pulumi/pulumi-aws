@@ -15,92 +15,162 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The DNS host name for the container.
         /// </summary>
-        [Input("containerHostname")]
+        [PolicyResourceProperty("containerHostname", "_mUnknown_ContainerHostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerHostname;
-
-        public string? ContainerHostname => _mContainerHostname.GetValue("containerHostname");
+        private string? _mValue_ContainerHostname;
+        private bool _mUnknown_ContainerHostname;
+        public string? ContainerHostname
+        {
+            get
+            {
+                if (!_mUnknown_ContainerHostname) return _mValue_ContainerHostname;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.ContainerHostname' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables for the Docker container.
         /// A list of key value pairs.
         /// </summary>
-        [Input("environment")]
+        [PolicyResourceProperty("environment", "_mUnknown_Environment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironment;
-
-        public Dictionary<string, string>? Environment => _mEnvironment.GetValue("environment");
+        private Dictionary<string, string>? _mValue_Environment;
+        private bool _mUnknown_Environment;
+        public Dictionary<string, string>? Environment
+        {
+            get
+            {
+                if (!_mUnknown_Environment) return _mValue_Environment;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.Environment' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry path where the inference code image is stored in Amazon ECR.
         /// </summary>
-        [Input("image")]
+        [PolicyResourceProperty("image", "_mUnknown_Image")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImage;
-
-        public string? Image => _mImage.GetValue("image");
+        private string? _mValue_Image;
+        private bool _mUnknown_Image;
+        public string? Image
+        {
+            get
+            {
+                if (!_mUnknown_Image) return _mValue_Image;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.Image' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         /// </summary>
-        [Input("imageConfig")]
+        [PolicyResourceProperty("imageConfig", "_mUnknown_ImageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelContainerImageConfigArgs> _mImageConfig;
-
-        public Inputs.ModelContainerImageConfigArgs? ImageConfig => _mImageConfig.GetValue("imageConfig");
+        private Inputs.ModelContainerImageConfigArgs? _mValue_ImageConfig;
+        private bool _mUnknown_ImageConfig;
+        public Inputs.ModelContainerImageConfigArgs? ImageConfig
+        {
+            get
+            {
+                if (!_mUnknown_ImageConfig) return _mValue_ImageConfig;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.ImageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The inference specification name in the model package version.
         /// </summary>
-        [Input("inferenceSpecificationName")]
+        [PolicyResourceProperty("inferenceSpecificationName", "_mUnknown_InferenceSpecificationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInferenceSpecificationName;
-
-        public string? InferenceSpecificationName => _mInferenceSpecificationName.GetValue("inferenceSpecificationName");
+        private string? _mValue_InferenceSpecificationName;
+        private bool _mUnknown_InferenceSpecificationName;
+        public string? InferenceSpecificationName
+        {
+            get
+            {
+                if (!_mUnknown_InferenceSpecificationName) return _mValue_InferenceSpecificationName;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.InferenceSpecificationName' is not present");
+            }
+        }
 
         /// <summary>
         /// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
         /// </summary>
-        [Input("modelDataSource")]
+        [PolicyResourceProperty("modelDataSource", "_mUnknown_ModelDataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelContainerModelDataSourceArgs> _mModelDataSource;
-
-        public Inputs.ModelContainerModelDataSourceArgs? ModelDataSource => _mModelDataSource.GetValue("modelDataSource");
+        private Inputs.ModelContainerModelDataSourceArgs? _mValue_ModelDataSource;
+        private bool _mUnknown_ModelDataSource;
+        public Inputs.ModelContainerModelDataSourceArgs? ModelDataSource
+        {
+            get
+            {
+                if (!_mUnknown_ModelDataSource) return _mValue_ModelDataSource;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.ModelDataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL for the S3 location where model artifacts are stored.
         /// </summary>
-        [Input("modelDataUrl")]
+        [PolicyResourceProperty("modelDataUrl", "_mUnknown_ModelDataUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelDataUrl;
-
-        public string? ModelDataUrl => _mModelDataUrl.GetValue("modelDataUrl");
+        private string? _mValue_ModelDataUrl;
+        private bool _mUnknown_ModelDataUrl;
+        public string? ModelDataUrl
+        {
+            get
+            {
+                if (!_mUnknown_ModelDataUrl) return _mValue_ModelDataUrl;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.ModelDataUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the model package to use to create the model.
         /// </summary>
-        [Input("modelPackageName")]
+        [PolicyResourceProperty("modelPackageName", "_mUnknown_ModelPackageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageName;
-
-        public string? ModelPackageName => _mModelPackageName.GetValue("modelPackageName");
+        private string? _mValue_ModelPackageName;
+        private bool _mUnknown_ModelPackageName;
+        public string? ModelPackageName
+        {
+            get
+            {
+                if (!_mUnknown_ModelPackageName) return _mValue_ModelPackageName;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.ModelPackageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies additional configuration for multi-model endpoints. see Multi Model Config.
         /// </summary>
-        [Input("multiModelConfig")]
+        [PolicyResourceProperty("multiModelConfig", "_mUnknown_MultiModelConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ModelContainerMultiModelConfigArgs> _mMultiModelConfig;
-
-        public Inputs.ModelContainerMultiModelConfigArgs? MultiModelConfig => _mMultiModelConfig.GetValue("multiModelConfig");
+        private Inputs.ModelContainerMultiModelConfigArgs? _mValue_MultiModelConfig;
+        private bool _mUnknown_MultiModelConfig;
+        public Inputs.ModelContainerMultiModelConfigArgs? MultiModelConfig
+        {
+            get
+            {
+                if (!_mUnknown_MultiModelConfig) return _mValue_MultiModelConfig;
+                throw new UndeferrableValueException("Value 'ModelContainerArgs.MultiModelConfig' is not present");
+            }
+        }
     }
 }

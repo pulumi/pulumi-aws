@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the model.
         /// </summary>
-        [Input("copyFrom")]
+        [PolicyResourceProperty("copyFrom", "_mUnknown_CopyFrom")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyFrom;
-
-        public string? CopyFrom => _mCopyFrom.GetValue("copyFrom");
+        private string? _mValue_CopyFrom;
+        private bool _mUnknown_CopyFrom;
+        public string? CopyFrom
+        {
+            get
+            {
+                if (!_mUnknown_CopyFrom) return _mValue_CopyFrom;
+                throw new UndeferrableValueException("Value 'InferenceProfileModelSourceArgs.CopyFrom' is not present");
+            }
+        }
     }
 }

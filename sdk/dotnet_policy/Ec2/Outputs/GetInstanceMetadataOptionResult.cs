@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// State of the metadata service: `enabled`, `disabled`.
         /// </summary>
-        [Input("httpEndpoint")]
+        [PolicyResourceProperty("httpEndpoint", "_mUnknown_HttpEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpEndpoint;
-
-        public string? HttpEndpoint => _mHttpEndpoint.GetValue("httpEndpoint");
+        private string? _mValue_HttpEndpoint;
+        private bool _mUnknown_HttpEndpoint;
+        public string? HttpEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpoint) return _mValue_HttpEndpoint;
+                throw new UndeferrableValueException("Value 'GetInstanceMetadataOptionResult.HttpEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
         /// </summary>
-        [Input("httpProtocolIpv6")]
+        [PolicyResourceProperty("httpProtocolIpv6", "_mUnknown_HttpProtocolIpv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpProtocolIpv6;
-
-        public string? HttpProtocolIpv6 => _mHttpProtocolIpv6.GetValue("httpProtocolIpv6");
+        private string? _mValue_HttpProtocolIpv6;
+        private bool _mUnknown_HttpProtocolIpv6;
+        public string? HttpProtocolIpv6
+        {
+            get
+            {
+                if (!_mUnknown_HttpProtocolIpv6) return _mValue_HttpProtocolIpv6;
+                throw new UndeferrableValueException("Value 'GetInstanceMetadataOptionResult.HttpProtocolIpv6' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired HTTP PUT response hop limit for instance metadata requests.
         /// </summary>
-        [Input("httpPutResponseHopLimit")]
+        [PolicyResourceProperty("httpPutResponseHopLimit", "_mUnknown_HttpPutResponseHopLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpPutResponseHopLimit;
-
-        public int? HttpPutResponseHopLimit => _mHttpPutResponseHopLimit.GetValue("httpPutResponseHopLimit");
+        private int? _mValue_HttpPutResponseHopLimit;
+        private bool _mUnknown_HttpPutResponseHopLimit;
+        public int? HttpPutResponseHopLimit
+        {
+            get
+            {
+                if (!_mUnknown_HttpPutResponseHopLimit) return _mValue_HttpPutResponseHopLimit;
+                throw new UndeferrableValueException("Value 'GetInstanceMetadataOptionResult.HttpPutResponseHopLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// If session tokens are required: `optional`, `required`.
         /// </summary>
-        [Input("httpTokens")]
+        [PolicyResourceProperty("httpTokens", "_mUnknown_HttpTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpTokens;
-
-        public string? HttpTokens => _mHttpTokens.GetValue("httpTokens");
+        private string? _mValue_HttpTokens;
+        private bool _mUnknown_HttpTokens;
+        public string? HttpTokens
+        {
+            get
+            {
+                if (!_mUnknown_HttpTokens) return _mValue_HttpTokens;
+                throw new UndeferrableValueException("Value 'GetInstanceMetadataOptionResult.HttpTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
         /// </summary>
-        [Input("instanceMetadataTags")]
+        [PolicyResourceProperty("instanceMetadataTags", "_mUnknown_InstanceMetadataTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceMetadataTags;
-
-        public string? InstanceMetadataTags => _mInstanceMetadataTags.GetValue("instanceMetadataTags");
+        private string? _mValue_InstanceMetadataTags;
+        private bool _mUnknown_InstanceMetadataTags;
+        public string? InstanceMetadataTags
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataTags) return _mValue_InstanceMetadataTags;
+                throw new UndeferrableValueException("Value 'GetInstanceMetadataOptionResult.InstanceMetadataTags' is not present");
+            }
+        }
     }
 }

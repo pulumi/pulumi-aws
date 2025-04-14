@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// 
         /// NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
         /// </summary>
-        [Input("enaSrdUdpEnabled")]
+        [PolicyResourceProperty("enaSrdUdpEnabled", "_mUnknown_EnaSrdUdpEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnaSrdUdpEnabled;
-
-        public bool? EnaSrdUdpEnabled => _mEnaSrdUdpEnabled.GetValue("enaSrdUdpEnabled");
+        private bool? _mValue_EnaSrdUdpEnabled;
+        private bool _mUnknown_EnaSrdUdpEnabled;
+        public bool? EnaSrdUdpEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EnaSrdUdpEnabled) return _mValue_EnaSrdUdpEnabled;
+                throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification.EnaSrdUdpEnabled' is not present");
+            }
+        }
     }
 }

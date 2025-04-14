@@ -16,166 +16,292 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Amazon Resource Name (ARN) of the image.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Image.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
-        [Input("containerRecipeArn")]
+        [PolicyResourceProperty("containerRecipeArn", "_mUnknown_ContainerRecipeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerRecipeArn;
-
-        public string? ContainerRecipeArn => _mContainerRecipeArn.GetValue("containerRecipeArn");
+        private string? _mValue_ContainerRecipeArn;
+        private bool _mUnknown_ContainerRecipeArn;
+        public string? ContainerRecipeArn
+        {
+            get
+            {
+                if (!_mUnknown_ContainerRecipeArn) return _mValue_ContainerRecipeArn;
+                throw new UndeferrableValueException("Value 'Image.ContainerRecipeArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date the image was created.
         /// </summary>
-        [Input("dateCreated")]
+        [PolicyResourceProperty("dateCreated", "_mUnknown_DateCreated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
-
-        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
+        private string? _mValue_DateCreated;
+        private bool _mUnknown_DateCreated;
+        public string? DateCreated
+        {
+            get
+            {
+                if (!_mUnknown_DateCreated) return _mValue_DateCreated;
+                throw new UndeferrableValueException("Value 'Image.DateCreated' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         /// </summary>
-        [Input("distributionConfigurationArn")]
+        [PolicyResourceProperty("distributionConfigurationArn", "_mUnknown_DistributionConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionConfigurationArn;
-
-        public string? DistributionConfigurationArn => _mDistributionConfigurationArn.GetValue("distributionConfigurationArn");
+        private string? _mValue_DistributionConfigurationArn;
+        private bool _mUnknown_DistributionConfigurationArn;
+        public string? DistributionConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_DistributionConfigurationArn) return _mValue_DistributionConfigurationArn;
+                throw new UndeferrableValueException("Value 'Image.DistributionConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether additional information about the image being created is collected. Defaults to `true`.
         /// </summary>
-        [Input("enhancedImageMetadataEnabled")]
+        [PolicyResourceProperty("enhancedImageMetadataEnabled", "_mUnknown_EnhancedImageMetadataEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedImageMetadataEnabled;
-
-        public bool? EnhancedImageMetadataEnabled => _mEnhancedImageMetadataEnabled.GetValue("enhancedImageMetadataEnabled");
+        private bool? _mValue_EnhancedImageMetadataEnabled;
+        private bool _mUnknown_EnhancedImageMetadataEnabled;
+        public bool? EnhancedImageMetadataEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedImageMetadataEnabled) return _mValue_EnhancedImageMetadataEnabled;
+                throw new UndeferrableValueException("Value 'Image.EnhancedImageMetadataEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'Image.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
-        [Input("imageRecipeArn")]
+        [PolicyResourceProperty("imageRecipeArn", "_mUnknown_ImageRecipeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageRecipeArn;
-
-        public string? ImageRecipeArn => _mImageRecipeArn.GetValue("imageRecipeArn");
+        private string? _mValue_ImageRecipeArn;
+        private bool _mUnknown_ImageRecipeArn;
+        public string? ImageRecipeArn
+        {
+            get
+            {
+                if (!_mUnknown_ImageRecipeArn) return _mValue_ImageRecipeArn;
+                throw new UndeferrableValueException("Value 'Image.ImageRecipeArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with image scanning configuration. Detailed below.
         /// </summary>
-        [Input("imageScanningConfiguration")]
+        [PolicyResourceProperty("imageScanningConfiguration", "_mUnknown_ImageScanningConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageImageScanningConfiguration> _mImageScanningConfiguration;
-
-        public Outputs.ImageImageScanningConfiguration? ImageScanningConfiguration => _mImageScanningConfiguration.GetValue("imageScanningConfiguration");
+        private Outputs.ImageImageScanningConfiguration? _mValue_ImageScanningConfiguration;
+        private bool _mUnknown_ImageScanningConfiguration;
+        public Outputs.ImageImageScanningConfiguration? ImageScanningConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageScanningConfiguration) return _mValue_ImageScanningConfiguration;
+                throw new UndeferrableValueException("Value 'Image.ImageScanningConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
-        [Input("imageTestsConfiguration")]
+        [PolicyResourceProperty("imageTestsConfiguration", "_mUnknown_ImageTestsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ImageImageTestsConfiguration> _mImageTestsConfiguration;
-
-        public Outputs.ImageImageTestsConfiguration? ImageTestsConfiguration => _mImageTestsConfiguration.GetValue("imageTestsConfiguration");
+        private Outputs.ImageImageTestsConfiguration? _mValue_ImageTestsConfiguration;
+        private bool _mUnknown_ImageTestsConfiguration;
+        public Outputs.ImageImageTestsConfiguration? ImageTestsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageTestsConfiguration) return _mValue_ImageTestsConfiguration;
+                throw new UndeferrableValueException("Value 'Image.ImageTestsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("infrastructureConfigurationArn")]
+        [PolicyResourceProperty("infrastructureConfigurationArn", "_mUnknown_InfrastructureConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureConfigurationArn;
-
-        public string? InfrastructureConfigurationArn => _mInfrastructureConfigurationArn.GetValue("infrastructureConfigurationArn");
+        private string? _mValue_InfrastructureConfigurationArn;
+        private bool _mUnknown_InfrastructureConfigurationArn;
+        public string? InfrastructureConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_InfrastructureConfigurationArn) return _mValue_InfrastructureConfigurationArn;
+                throw new UndeferrableValueException("Value 'Image.InfrastructureConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the AMI.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Image.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating System version of the image.
         /// </summary>
-        [Input("osVersion")]
+        [PolicyResourceProperty("osVersion", "_mUnknown_OsVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOsVersion;
-
-        public string? OsVersion => _mOsVersion.GetValue("osVersion");
+        private string? _mValue_OsVersion;
+        private bool _mUnknown_OsVersion;
+        public string? OsVersion
+        {
+            get
+            {
+                if (!_mUnknown_OsVersion) return _mValue_OsVersion;
+                throw new UndeferrableValueException("Value 'Image.OsVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects with resources created by the image.
         /// </summary>
-        [Input("outputResources")]
+        [PolicyResourceProperty("outputResources", "_mUnknown_OutputResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageOutputResource>> _mOutputResources;
-
-        public List<Outputs.ImageOutputResource>? OutputResources => _mOutputResources.GetValue("outputResources");
+        private List<Outputs.ImageOutputResource>? _mValue_OutputResources;
+        private bool _mUnknown_OutputResources;
+        public List<Outputs.ImageOutputResource>? OutputResources
+        {
+            get
+            {
+                if (!_mUnknown_OutputResources) return _mValue_OutputResources;
+                throw new UndeferrableValueException("Value 'Image.OutputResources' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform of the image.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'Image.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Image.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Image.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the image.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Image.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with the workflow configuration. Detailed below.
         /// </summary>
-        [Input("workflows")]
+        [PolicyResourceProperty("workflows", "_mUnknown_Workflows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ImageWorkflow>> _mWorkflows;
-
-        public List<Outputs.ImageWorkflow>? Workflows => _mWorkflows.GetValue("workflows");
+        private List<Outputs.ImageWorkflow>? _mValue_Workflows;
+        private bool _mUnknown_Workflows;
+        public List<Outputs.ImageWorkflow>? Workflows
+        {
+            get
+            {
+                if (!_mUnknown_Workflows) return _mValue_Workflows;
+                throw new UndeferrableValueException("Value 'Image.Workflows' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:imagebuilder/image:Image")]
@@ -184,93 +310,163 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Amazon Resource Name (ARN) of the container recipe.
         /// </summary>
-        [Input("containerRecipeArn")]
+        [PolicyResourceProperty("containerRecipeArn", "_mUnknown_ContainerRecipeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerRecipeArn;
-
-        public string? ContainerRecipeArn => _mContainerRecipeArn.GetValue("containerRecipeArn");
+        private string? _mValue_ContainerRecipeArn;
+        private bool _mUnknown_ContainerRecipeArn;
+        public string? ContainerRecipeArn
+        {
+            get
+            {
+                if (!_mUnknown_ContainerRecipeArn) return _mValue_ContainerRecipeArn;
+                throw new UndeferrableValueException("Value 'ImageArgs.ContainerRecipeArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         /// </summary>
-        [Input("distributionConfigurationArn")]
+        [PolicyResourceProperty("distributionConfigurationArn", "_mUnknown_DistributionConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionConfigurationArn;
-
-        public string? DistributionConfigurationArn => _mDistributionConfigurationArn.GetValue("distributionConfigurationArn");
+        private string? _mValue_DistributionConfigurationArn;
+        private bool _mUnknown_DistributionConfigurationArn;
+        public string? DistributionConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_DistributionConfigurationArn) return _mValue_DistributionConfigurationArn;
+                throw new UndeferrableValueException("Value 'ImageArgs.DistributionConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether additional information about the image being created is collected. Defaults to `true`.
         /// </summary>
-        [Input("enhancedImageMetadataEnabled")]
+        [PolicyResourceProperty("enhancedImageMetadataEnabled", "_mUnknown_EnhancedImageMetadataEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnhancedImageMetadataEnabled;
-
-        public bool? EnhancedImageMetadataEnabled => _mEnhancedImageMetadataEnabled.GetValue("enhancedImageMetadataEnabled");
+        private bool? _mValue_EnhancedImageMetadataEnabled;
+        private bool _mUnknown_EnhancedImageMetadataEnabled;
+        public bool? EnhancedImageMetadataEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedImageMetadataEnabled) return _mValue_EnhancedImageMetadataEnabled;
+                throw new UndeferrableValueException("Value 'ImageArgs.EnhancedImageMetadataEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'ImageArgs.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
-        [Input("imageRecipeArn")]
+        [PolicyResourceProperty("imageRecipeArn", "_mUnknown_ImageRecipeArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageRecipeArn;
-
-        public string? ImageRecipeArn => _mImageRecipeArn.GetValue("imageRecipeArn");
+        private string? _mValue_ImageRecipeArn;
+        private bool _mUnknown_ImageRecipeArn;
+        public string? ImageRecipeArn
+        {
+            get
+            {
+                if (!_mUnknown_ImageRecipeArn) return _mValue_ImageRecipeArn;
+                throw new UndeferrableValueException("Value 'ImageArgs.ImageRecipeArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with image scanning configuration. Detailed below.
         /// </summary>
-        [Input("imageScanningConfiguration")]
+        [PolicyResourceProperty("imageScanningConfiguration", "_mUnknown_ImageScanningConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageImageScanningConfigurationArgs> _mImageScanningConfiguration;
-
-        public Inputs.ImageImageScanningConfigurationArgs? ImageScanningConfiguration => _mImageScanningConfiguration.GetValue("imageScanningConfiguration");
+        private Inputs.ImageImageScanningConfigurationArgs? _mValue_ImageScanningConfiguration;
+        private bool _mUnknown_ImageScanningConfiguration;
+        public Inputs.ImageImageScanningConfigurationArgs? ImageScanningConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageScanningConfiguration) return _mValue_ImageScanningConfiguration;
+                throw new UndeferrableValueException("Value 'ImageArgs.ImageScanningConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with image tests configuration. Detailed below.
         /// </summary>
-        [Input("imageTestsConfiguration")]
+        [PolicyResourceProperty("imageTestsConfiguration", "_mUnknown_ImageTestsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ImageImageTestsConfigurationArgs> _mImageTestsConfiguration;
-
-        public Inputs.ImageImageTestsConfigurationArgs? ImageTestsConfiguration => _mImageTestsConfiguration.GetValue("imageTestsConfiguration");
+        private Inputs.ImageImageTestsConfigurationArgs? _mValue_ImageTestsConfiguration;
+        private bool _mUnknown_ImageTestsConfiguration;
+        public Inputs.ImageImageTestsConfigurationArgs? ImageTestsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageTestsConfiguration) return _mValue_ImageTestsConfiguration;
+                throw new UndeferrableValueException("Value 'ImageArgs.ImageTestsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("infrastructureConfigurationArn")]
+        [PolicyResourceProperty("infrastructureConfigurationArn", "_mUnknown_InfrastructureConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureConfigurationArn;
-
-        public string? InfrastructureConfigurationArn => _mInfrastructureConfigurationArn.GetValue("infrastructureConfigurationArn");
+        private string? _mValue_InfrastructureConfigurationArn;
+        private bool _mUnknown_InfrastructureConfigurationArn;
+        public string? InfrastructureConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_InfrastructureConfigurationArn) return _mValue_InfrastructureConfigurationArn;
+                throw new UndeferrableValueException("Value 'ImageArgs.InfrastructureConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ImageArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with the workflow configuration. Detailed below.
         /// </summary>
-        [Input("workflows")]
+        [PolicyResourceProperty("workflows", "_mUnknown_Workflows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageWorkflowArgs>> _mWorkflows;
-
-        public List<Inputs.ImageWorkflowArgs>? Workflows => _mWorkflows.GetValue("workflows");
+        private List<Inputs.ImageWorkflowArgs>? _mValue_Workflows;
+        private bool _mUnknown_Workflows;
+        public List<Inputs.ImageWorkflowArgs>? Workflows
+        {
+            get
+            {
+                if (!_mUnknown_Workflows) return _mValue_Workflows;
+                throw new UndeferrableValueException("Value 'ImageArgs.Workflows' is not present");
+            }
+        }
     }
 }

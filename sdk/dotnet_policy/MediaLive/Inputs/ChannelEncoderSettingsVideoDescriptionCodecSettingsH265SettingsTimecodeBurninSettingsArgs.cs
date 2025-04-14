@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Set a prefix on the burned in timecode.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the size of the burned in timecode.
         /// </summary>
-        [Input("timecodeBurninFontSize")]
+        [PolicyResourceProperty("timecodeBurninFontSize", "_mUnknown_TimecodeBurninFontSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimecodeBurninFontSize;
-
-        public string? TimecodeBurninFontSize => _mTimecodeBurninFontSize.GetValue("timecodeBurninFontSize");
+        private string? _mValue_TimecodeBurninFontSize;
+        private bool _mUnknown_TimecodeBurninFontSize;
+        public string? TimecodeBurninFontSize
+        {
+            get
+            {
+                if (!_mUnknown_TimecodeBurninFontSize) return _mValue_TimecodeBurninFontSize;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs.TimecodeBurninFontSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the position of the burned in timecode.
         /// </summary>
-        [Input("timecodeBurninPosition")]
+        [PolicyResourceProperty("timecodeBurninPosition", "_mUnknown_TimecodeBurninPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimecodeBurninPosition;
-
-        public string? TimecodeBurninPosition => _mTimecodeBurninPosition.GetValue("timecodeBurninPosition");
+        private string? _mValue_TimecodeBurninPosition;
+        private bool _mUnknown_TimecodeBurninPosition;
+        public string? TimecodeBurninPosition
+        {
+            get
+            {
+                if (!_mUnknown_TimecodeBurninPosition) return _mValue_TimecodeBurninPosition;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs.TimecodeBurninPosition' is not present");
+            }
+        }
     }
 }

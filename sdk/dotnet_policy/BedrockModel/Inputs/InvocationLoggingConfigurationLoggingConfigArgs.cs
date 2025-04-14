@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.BedrockModel.Inputs
         /// <summary>
         /// CloudWatch logging configuration. See `cloudwatch_config` Block for details.
         /// </summary>
-        [Input("cloudwatchConfig")]
+        [PolicyResourceProperty("cloudwatchConfig", "_mUnknown_CloudwatchConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs> _mCloudwatchConfig;
-
-        public Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs? CloudwatchConfig => _mCloudwatchConfig.GetValue("cloudwatchConfig");
+        private Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs? _mValue_CloudwatchConfig;
+        private bool _mUnknown_CloudwatchConfig;
+        public Inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs? CloudwatchConfig
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchConfig) return _mValue_CloudwatchConfig;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigArgs.CloudwatchConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to include embeddings data in the log delivery. Defaults to `true`.
         /// </summary>
-        [Input("embeddingDataDeliveryEnabled")]
+        [PolicyResourceProperty("embeddingDataDeliveryEnabled", "_mUnknown_EmbeddingDataDeliveryEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEmbeddingDataDeliveryEnabled;
-
-        public bool? EmbeddingDataDeliveryEnabled => _mEmbeddingDataDeliveryEnabled.GetValue("embeddingDataDeliveryEnabled");
+        private bool? _mValue_EmbeddingDataDeliveryEnabled;
+        private bool _mUnknown_EmbeddingDataDeliveryEnabled;
+        public bool? EmbeddingDataDeliveryEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EmbeddingDataDeliveryEnabled) return _mValue_EmbeddingDataDeliveryEnabled;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigArgs.EmbeddingDataDeliveryEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to include image data in the log delivery. Defaults to `true`.
         /// </summary>
-        [Input("imageDataDeliveryEnabled")]
+        [PolicyResourceProperty("imageDataDeliveryEnabled", "_mUnknown_ImageDataDeliveryEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mImageDataDeliveryEnabled;
-
-        public bool? ImageDataDeliveryEnabled => _mImageDataDeliveryEnabled.GetValue("imageDataDeliveryEnabled");
+        private bool? _mValue_ImageDataDeliveryEnabled;
+        private bool _mUnknown_ImageDataDeliveryEnabled;
+        public bool? ImageDataDeliveryEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ImageDataDeliveryEnabled) return _mValue_ImageDataDeliveryEnabled;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigArgs.ImageDataDeliveryEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 configuration for storing log data. See `s3_config` Block for details.
         /// </summary>
-        [Input("s3Config")]
+        [PolicyResourceProperty("s3Config", "_mUnknown_S3Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs> _mS3Config;
-
-        public Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs? S3Config => _mS3Config.GetValue("s3Config");
+        private Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs? _mValue_S3Config;
+        private bool _mUnknown_S3Config;
+        public Inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs? S3Config
+        {
+            get
+            {
+                if (!_mUnknown_S3Config) return _mValue_S3Config;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigArgs.S3Config' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to include text data in the log delivery. Defaults to `true`.
         /// </summary>
-        [Input("textDataDeliveryEnabled")]
+        [PolicyResourceProperty("textDataDeliveryEnabled", "_mUnknown_TextDataDeliveryEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTextDataDeliveryEnabled;
-
-        public bool? TextDataDeliveryEnabled => _mTextDataDeliveryEnabled.GetValue("textDataDeliveryEnabled");
+        private bool? _mValue_TextDataDeliveryEnabled;
+        private bool _mUnknown_TextDataDeliveryEnabled;
+        public bool? TextDataDeliveryEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TextDataDeliveryEnabled) return _mValue_TextDataDeliveryEnabled;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigArgs.TextDataDeliveryEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to include text data in the log delivery. Defaults to `true`.
         /// </summary>
-        [Input("videoDataDeliveryEnabled")]
+        [PolicyResourceProperty("videoDataDeliveryEnabled", "_mUnknown_VideoDataDeliveryEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVideoDataDeliveryEnabled;
-
-        public bool? VideoDataDeliveryEnabled => _mVideoDataDeliveryEnabled.GetValue("videoDataDeliveryEnabled");
+        private bool? _mValue_VideoDataDeliveryEnabled;
+        private bool _mUnknown_VideoDataDeliveryEnabled;
+        public bool? VideoDataDeliveryEnabled
+        {
+            get
+            {
+                if (!_mUnknown_VideoDataDeliveryEnabled) return _mValue_VideoDataDeliveryEnabled;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigArgs.VideoDataDeliveryEnabled' is not present");
+            }
+        }
     }
 }

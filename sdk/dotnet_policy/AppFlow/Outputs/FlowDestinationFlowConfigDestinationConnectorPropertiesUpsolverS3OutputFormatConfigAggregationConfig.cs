@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
         /// </summary>
-        [Input("aggregationType")]
+        [PolicyResourceProperty("aggregationType", "_mUnknown_AggregationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAggregationType;
-
-        public string? AggregationType => _mAggregationType.GetValue("aggregationType");
+        private string? _mValue_AggregationType;
+        private bool _mUnknown_AggregationType;
+        public string? AggregationType
+        {
+            get
+            {
+                if (!_mUnknown_AggregationType) return _mValue_AggregationType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig.AggregationType' is not present");
+            }
+        }
     }
 }

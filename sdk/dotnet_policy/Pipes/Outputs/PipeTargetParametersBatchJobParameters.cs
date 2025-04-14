@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
         /// </summary>
-        [Input("arrayProperties")]
+        [PolicyResourceProperty("arrayProperties", "_mUnknown_ArrayProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeTargetParametersBatchJobParametersArrayProperties> _mArrayProperties;
-
-        public Outputs.PipeTargetParametersBatchJobParametersArrayProperties? ArrayProperties => _mArrayProperties.GetValue("arrayProperties");
+        private Outputs.PipeTargetParametersBatchJobParametersArrayProperties? _mValue_ArrayProperties;
+        private bool _mUnknown_ArrayProperties;
+        public Outputs.PipeTargetParametersBatchJobParametersArrayProperties? ArrayProperties
+        {
+            get
+            {
+                if (!_mUnknown_ArrayProperties) return _mValue_ArrayProperties;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParameters.ArrayProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The overrides that are sent to a container. Detailed below.
         /// </summary>
-        [Input("containerOverrides")]
+        [PolicyResourceProperty("containerOverrides", "_mUnknown_ContainerOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeTargetParametersBatchJobParametersContainerOverrides> _mContainerOverrides;
-
-        public Outputs.PipeTargetParametersBatchJobParametersContainerOverrides? ContainerOverrides => _mContainerOverrides.GetValue("containerOverrides");
+        private Outputs.PipeTargetParametersBatchJobParametersContainerOverrides? _mValue_ContainerOverrides;
+        private bool _mUnknown_ContainerOverrides;
+        public Outputs.PipeTargetParametersBatchJobParametersContainerOverrides? ContainerOverrides
+        {
+            get
+            {
+                if (!_mUnknown_ContainerOverrides) return _mValue_ContainerOverrides;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParameters.ContainerOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
         /// </summary>
-        [Input("dependsOns")]
+        [PolicyResourceProperty("dependsOns", "_mUnknown_DependsOns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipeTargetParametersBatchJobParametersDependsOn>> _mDependsOns;
-
-        public List<Outputs.PipeTargetParametersBatchJobParametersDependsOn>? DependsOns => _mDependsOns.GetValue("dependsOns");
+        private List<Outputs.PipeTargetParametersBatchJobParametersDependsOn>? _mValue_DependsOns;
+        private bool _mUnknown_DependsOns;
+        public List<Outputs.PipeTargetParametersBatchJobParametersDependsOn>? DependsOns
+        {
+            get
+            {
+                if (!_mUnknown_DependsOns) return _mValue_DependsOns;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParameters.DependsOns' is not present");
+            }
+        }
 
         /// <summary>
         /// The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
         /// </summary>
-        [Input("jobDefinition")]
+        [PolicyResourceProperty("jobDefinition", "_mUnknown_JobDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobDefinition;
-
-        public string? JobDefinition => _mJobDefinition.GetValue("jobDefinition");
+        private string? _mValue_JobDefinition;
+        private bool _mUnknown_JobDefinition;
+        public string? JobDefinition
+        {
+            get
+            {
+                if (!_mUnknown_JobDefinition) return _mValue_JobDefinition;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParameters.JobDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the job. It can be up to 128 letters long.
         /// </summary>
-        [Input("jobName")]
+        [PolicyResourceProperty("jobName", "_mUnknown_JobName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
-
-        public string? JobName => _mJobName.GetValue("jobName");
+        private string? _mValue_JobName;
+        private bool _mUnknown_JobName;
+        public string? JobName
+        {
+            get
+            {
+                if (!_mUnknown_JobName) return _mValue_JobName;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParameters.JobName' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParameters.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
         /// </summary>
-        [Input("retryStrategy")]
+        [PolicyResourceProperty("retryStrategy", "_mUnknown_RetryStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeTargetParametersBatchJobParametersRetryStrategy> _mRetryStrategy;
-
-        public Outputs.PipeTargetParametersBatchJobParametersRetryStrategy? RetryStrategy => _mRetryStrategy.GetValue("retryStrategy");
+        private Outputs.PipeTargetParametersBatchJobParametersRetryStrategy? _mValue_RetryStrategy;
+        private bool _mUnknown_RetryStrategy;
+        public Outputs.PipeTargetParametersBatchJobParametersRetryStrategy? RetryStrategy
+        {
+            get
+            {
+                if (!_mUnknown_RetryStrategy) return _mValue_RetryStrategy;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParameters.RetryStrategy' is not present");
+            }
+        }
     }
 }

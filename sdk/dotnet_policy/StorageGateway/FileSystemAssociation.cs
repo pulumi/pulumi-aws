@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// Amazon Resource Name (ARN) of the newly created file system association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
         /// </summary>
-        [Input("auditDestinationArn")]
+        [PolicyResourceProperty("auditDestinationArn", "_mUnknown_AuditDestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuditDestinationArn;
-
-        public string? AuditDestinationArn => _mAuditDestinationArn.GetValue("auditDestinationArn");
+        private string? _mValue_AuditDestinationArn;
+        private bool _mUnknown_AuditDestinationArn;
+        public string? AuditDestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_AuditDestinationArn) return _mValue_AuditDestinationArn;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.AuditDestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
         /// </summary>
-        [Input("cacheAttributes")]
+        [PolicyResourceProperty("cacheAttributes", "_mUnknown_CacheAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FileSystemAssociationCacheAttributes> _mCacheAttributes;
-
-        public Outputs.FileSystemAssociationCacheAttributes? CacheAttributes => _mCacheAttributes.GetValue("cacheAttributes");
+        private Outputs.FileSystemAssociationCacheAttributes? _mValue_CacheAttributes;
+        private bool _mUnknown_CacheAttributes;
+        public Outputs.FileSystemAssociationCacheAttributes? CacheAttributes
+        {
+            get
+            {
+                if (!_mUnknown_CacheAttributes) return _mValue_CacheAttributes;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.CacheAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
-        [Input("gatewayArn")]
+        [PolicyResourceProperty("gatewayArn", "_mUnknown_GatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
-
-        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+        private string? _mValue_GatewayArn;
+        private bool _mUnknown_GatewayArn;
+        public string? GatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_GatewayArn) return _mValue_GatewayArn;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.GatewayArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         /// </summary>
-        [Input("locationArn")]
+        [PolicyResourceProperty("locationArn", "_mUnknown_LocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationArn;
-
-        public string? LocationArn => _mLocationArn.GetValue("locationArn");
+        private string? _mValue_LocationArn;
+        private bool _mUnknown_LocationArn;
+        public string? LocationArn
+        {
+            get
+            {
+                if (!_mUnknown_LocationArn) return _mValue_LocationArn;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.LocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the user credential.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'FileSystemAssociation.Username' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:storagegateway/fileSystemAssociation:FileSystemAssociation")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
         /// </summary>
-        [Input("auditDestinationArn")]
+        [PolicyResourceProperty("auditDestinationArn", "_mUnknown_AuditDestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuditDestinationArn;
-
-        public string? AuditDestinationArn => _mAuditDestinationArn.GetValue("auditDestinationArn");
+        private string? _mValue_AuditDestinationArn;
+        private bool _mUnknown_AuditDestinationArn;
+        public string? AuditDestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_AuditDestinationArn) return _mValue_AuditDestinationArn;
+                throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.AuditDestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
         /// </summary>
-        [Input("cacheAttributes")]
+        [PolicyResourceProperty("cacheAttributes", "_mUnknown_CacheAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FileSystemAssociationCacheAttributesArgs> _mCacheAttributes;
-
-        public Inputs.FileSystemAssociationCacheAttributesArgs? CacheAttributes => _mCacheAttributes.GetValue("cacheAttributes");
+        private Inputs.FileSystemAssociationCacheAttributesArgs? _mValue_CacheAttributes;
+        private bool _mUnknown_CacheAttributes;
+        public Inputs.FileSystemAssociationCacheAttributesArgs? CacheAttributes
+        {
+            get
+            {
+                if (!_mUnknown_CacheAttributes) return _mValue_CacheAttributes;
+                throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.CacheAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
-        [Input("gatewayArn")]
+        [PolicyResourceProperty("gatewayArn", "_mUnknown_GatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
-
-        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+        private string? _mValue_GatewayArn;
+        private bool _mUnknown_GatewayArn;
+        public string? GatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_GatewayArn) return _mValue_GatewayArn;
+                throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.GatewayArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         /// </summary>
-        [Input("locationArn")]
+        [PolicyResourceProperty("locationArn", "_mUnknown_LocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationArn;
-
-        public string? LocationArn => _mLocationArn.GetValue("locationArn");
+        private string? _mValue_LocationArn;
+        private bool _mUnknown_LocationArn;
+        public string? LocationArn
+        {
+            get
+            {
+                if (!_mUnknown_LocationArn) return _mValue_LocationArn;
+                throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.LocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the user credential.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.Username' is not present");
+            }
+        }
     }
 }

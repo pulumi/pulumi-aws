@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TapePool.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the new custom tape pool.
         /// </summary>
-        [Input("poolName")]
+        [PolicyResourceProperty("poolName", "_mUnknown_PoolName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPoolName;
-
-        public string? PoolName => _mPoolName.GetValue("poolName");
+        private string? _mValue_PoolName;
+        private bool _mUnknown_PoolName;
+        public string? PoolName
+        {
+            get
+            {
+                if (!_mUnknown_PoolName) return _mValue_PoolName;
+                throw new UndeferrableValueException("Value 'TapePool.PoolName' is not present");
+            }
+        }
 
         /// <summary>
         /// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         /// </summary>
-        [Input("retentionLockTimeInDays")]
+        [PolicyResourceProperty("retentionLockTimeInDays", "_mUnknown_RetentionLockTimeInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionLockTimeInDays;
-
-        public int? RetentionLockTimeInDays => _mRetentionLockTimeInDays.GetValue("retentionLockTimeInDays");
+        private int? _mValue_RetentionLockTimeInDays;
+        private bool _mUnknown_RetentionLockTimeInDays;
+        public int? RetentionLockTimeInDays
+        {
+            get
+            {
+                if (!_mUnknown_RetentionLockTimeInDays) return _mValue_RetentionLockTimeInDays;
+                throw new UndeferrableValueException("Value 'TapePool.RetentionLockTimeInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         /// </summary>
-        [Input("retentionLockType")]
+        [PolicyResourceProperty("retentionLockType", "_mUnknown_RetentionLockType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetentionLockType;
-
-        public string? RetentionLockType => _mRetentionLockType.GetValue("retentionLockType");
+        private string? _mValue_RetentionLockType;
+        private bool _mUnknown_RetentionLockType;
+        public string? RetentionLockType
+        {
+            get
+            {
+                if (!_mUnknown_RetentionLockType) return _mValue_RetentionLockType;
+                throw new UndeferrableValueException("Value 'TapePool.RetentionLockType' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'TapePool.StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TapePool.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TapePool.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:storagegateway/tapePool:TapePool")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// The name of the new custom tape pool.
         /// </summary>
-        [Input("poolName")]
+        [PolicyResourceProperty("poolName", "_mUnknown_PoolName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPoolName;
-
-        public string? PoolName => _mPoolName.GetValue("poolName");
+        private string? _mValue_PoolName;
+        private bool _mUnknown_PoolName;
+        public string? PoolName
+        {
+            get
+            {
+                if (!_mUnknown_PoolName) return _mValue_PoolName;
+                throw new UndeferrableValueException("Value 'TapePoolArgs.PoolName' is not present");
+            }
+        }
 
         /// <summary>
         /// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         /// </summary>
-        [Input("retentionLockTimeInDays")]
+        [PolicyResourceProperty("retentionLockTimeInDays", "_mUnknown_RetentionLockTimeInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionLockTimeInDays;
-
-        public int? RetentionLockTimeInDays => _mRetentionLockTimeInDays.GetValue("retentionLockTimeInDays");
+        private int? _mValue_RetentionLockTimeInDays;
+        private bool _mUnknown_RetentionLockTimeInDays;
+        public int? RetentionLockTimeInDays
+        {
+            get
+            {
+                if (!_mUnknown_RetentionLockTimeInDays) return _mValue_RetentionLockTimeInDays;
+                throw new UndeferrableValueException("Value 'TapePoolArgs.RetentionLockTimeInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         /// </summary>
-        [Input("retentionLockType")]
+        [PolicyResourceProperty("retentionLockType", "_mUnknown_RetentionLockType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetentionLockType;
-
-        public string? RetentionLockType => _mRetentionLockType.GetValue("retentionLockType");
+        private string? _mValue_RetentionLockType;
+        private bool _mUnknown_RetentionLockType;
+        public string? RetentionLockType
+        {
+            get
+            {
+                if (!_mUnknown_RetentionLockType) return _mValue_RetentionLockType;
+                throw new UndeferrableValueException("Value 'TapePoolArgs.RetentionLockType' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'TapePoolArgs.StorageClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TapePoolArgs.Tags' is not present");
+            }
+        }
     }
 }

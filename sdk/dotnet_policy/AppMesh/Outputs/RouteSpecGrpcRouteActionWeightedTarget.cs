@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// The targeted port of the weighted object.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteActionWeightedTarget.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("virtualNode")]
+        [PolicyResourceProperty("virtualNode", "_mUnknown_VirtualNode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualNode;
-
-        public string? VirtualNode => _mVirtualNode.GetValue("virtualNode");
+        private string? _mValue_VirtualNode;
+        private bool _mUnknown_VirtualNode;
+        public string? VirtualNode
+        {
+            get
+            {
+                if (!_mUnknown_VirtualNode) return _mValue_VirtualNode;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteActionWeightedTarget.VirtualNode' is not present");
+            }
+        }
 
         /// <summary>
         /// Relative weight of the weighted target. An integer between 0 and 100.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteActionWeightedTarget.Weight' is not present");
+            }
+        }
     }
 }

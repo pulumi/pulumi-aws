@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
         /// </summary>
-        [Input("dataSourceIds")]
+        [PolicyResourceProperty("dataSourceIds", "_mUnknown_DataSourceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDataSourceIds;
-
-        public List<string>? DataSourceIds => _mDataSourceIds.GetValue("dataSourceIds");
+        private List<string>? _mValue_DataSourceIds;
+        private bool _mUnknown_DataSourceIds;
+        public List<string>? DataSourceIds
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceIds) return _mValue_DataSourceIds;
+                throw new UndeferrableValueException("Value 'ExperienceConfigurationContentSourceConfiguration.DataSourceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
         /// </summary>
-        [Input("directPutContent")]
+        [PolicyResourceProperty("directPutContent", "_mUnknown_DirectPutContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDirectPutContent;
-
-        public bool? DirectPutContent => _mDirectPutContent.GetValue("directPutContent");
+        private bool? _mValue_DirectPutContent;
+        private bool _mUnknown_DirectPutContent;
+        public bool? DirectPutContent
+        {
+            get
+            {
+                if (!_mUnknown_DirectPutContent) return _mValue_DirectPutContent;
+                throw new UndeferrableValueException("Value 'ExperienceConfigurationContentSourceConfiguration.DirectPutContent' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
         /// </summary>
-        [Input("faqIds")]
+        [PolicyResourceProperty("faqIds", "_mUnknown_FaqIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFaqIds;
-
-        public List<string>? FaqIds => _mFaqIds.GetValue("faqIds");
+        private List<string>? _mValue_FaqIds;
+        private bool _mUnknown_FaqIds;
+        public List<string>? FaqIds
+        {
+            get
+            {
+                if (!_mUnknown_FaqIds) return _mValue_FaqIds;
+                throw new UndeferrableValueException("Value 'ExperienceConfigurationContentSourceConfiguration.FaqIds' is not present");
+            }
+        }
     }
 }

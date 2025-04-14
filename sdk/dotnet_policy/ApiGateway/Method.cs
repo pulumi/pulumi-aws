@@ -16,104 +16,181 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Specify if the method requires an API key
         /// </summary>
-        [Input("apiKeyRequired")]
+        [PolicyResourceProperty("apiKeyRequired", "_mUnknown_ApiKeyRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApiKeyRequired;
-
-        public bool? ApiKeyRequired => _mApiKeyRequired.GetValue("apiKeyRequired");
+        private bool? _mValue_ApiKeyRequired;
+        private bool _mUnknown_ApiKeyRequired;
+        public bool? ApiKeyRequired
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeyRequired) return _mValue_ApiKeyRequired;
+                throw new UndeferrableValueException("Value 'Method.ApiKeyRequired' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         /// </summary>
-        [Input("authorization")]
+        [PolicyResourceProperty("authorization", "_mUnknown_Authorization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorization;
-
-        public string? Authorization => _mAuthorization.GetValue("authorization");
+        private string? _mValue_Authorization;
+        private bool _mUnknown_Authorization;
+        public string? Authorization
+        {
+            get
+            {
+                if (!_mUnknown_Authorization) return _mValue_Authorization;
+                throw new UndeferrableValueException("Value 'Method.Authorization' is not present");
+            }
+        }
 
         /// <summary>
         /// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         /// </summary>
-        [Input("authorizationScopes")]
+        [PolicyResourceProperty("authorizationScopes", "_mUnknown_AuthorizationScopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizationScopes;
-
-        public List<string>? AuthorizationScopes => _mAuthorizationScopes.GetValue("authorizationScopes");
+        private List<string>? _mValue_AuthorizationScopes;
+        private bool _mUnknown_AuthorizationScopes;
+        public List<string>? AuthorizationScopes
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationScopes) return _mValue_AuthorizationScopes;
+                throw new UndeferrableValueException("Value 'Method.AuthorizationScopes' is not present");
+            }
+        }
 
         /// <summary>
         /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
-        [Input("authorizerId")]
+        [PolicyResourceProperty("authorizerId", "_mUnknown_AuthorizerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerId;
-
-        public string? AuthorizerId => _mAuthorizerId.GetValue("authorizerId");
+        private string? _mValue_AuthorizerId;
+        private bool _mUnknown_AuthorizerId;
+        public string? AuthorizerId
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerId) return _mValue_AuthorizerId;
+                throw new UndeferrableValueException("Value 'Method.AuthorizerId' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'Method.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         /// </summary>
-        [Input("operationName")]
+        [PolicyResourceProperty("operationName", "_mUnknown_OperationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperationName;
-
-        public string? OperationName => _mOperationName.GetValue("operationName");
+        private string? _mValue_OperationName;
+        private bool _mUnknown_OperationName;
+        public string? OperationName
+        {
+            get
+            {
+                if (!_mUnknown_OperationName) return _mValue_OperationName;
+                throw new UndeferrableValueException("Value 'Method.OperationName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of the API models used for the request's content type
         /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
-        [Input("requestModels")]
+        [PolicyResourceProperty("requestModels", "_mUnknown_RequestModels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestModels;
-
-        public Dictionary<string, string>? RequestModels => _mRequestModels.GetValue("requestModels");
+        private Dictionary<string, string>? _mValue_RequestModels;
+        private bool _mUnknown_RequestModels;
+        public Dictionary<string, string>? RequestModels
+        {
+            get
+            {
+                if (!_mUnknown_RequestModels) return _mValue_RequestModels;
+                throw new UndeferrableValueException("Value 'Method.RequestModels' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         /// For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         /// </summary>
-        [Input("requestParameters")]
+        [PolicyResourceProperty("requestParameters", "_mUnknown_RequestParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mRequestParameters;
-
-        public Dictionary<string, bool>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
+        private Dictionary<string, bool>? _mValue_RequestParameters;
+        private bool _mUnknown_RequestParameters;
+        public Dictionary<string, bool>? RequestParameters
+        {
+            get
+            {
+                if (!_mUnknown_RequestParameters) return _mValue_RequestParameters;
+                throw new UndeferrableValueException("Value 'Method.RequestParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of a `aws.apigateway.RequestValidator`
         /// </summary>
-        [Input("requestValidatorId")]
+        [PolicyResourceProperty("requestValidatorId", "_mUnknown_RequestValidatorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestValidatorId;
-
-        public string? RequestValidatorId => _mRequestValidatorId.GetValue("requestValidatorId");
+        private string? _mValue_RequestValidatorId;
+        private bool _mUnknown_RequestValidatorId;
+        public string? RequestValidatorId
+        {
+            get
+            {
+                if (!_mUnknown_RequestValidatorId) return _mValue_RequestValidatorId;
+                throw new UndeferrableValueException("Value 'Method.RequestValidatorId' is not present");
+            }
+        }
 
         /// <summary>
         /// API resource ID
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'Method.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'Method.RestApi' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/method:Method")]
@@ -122,103 +199,180 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Specify if the method requires an API key
         /// </summary>
-        [Input("apiKeyRequired")]
+        [PolicyResourceProperty("apiKeyRequired", "_mUnknown_ApiKeyRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApiKeyRequired;
-
-        public bool? ApiKeyRequired => _mApiKeyRequired.GetValue("apiKeyRequired");
+        private bool? _mValue_ApiKeyRequired;
+        private bool _mUnknown_ApiKeyRequired;
+        public bool? ApiKeyRequired
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeyRequired) return _mValue_ApiKeyRequired;
+                throw new UndeferrableValueException("Value 'MethodArgs.ApiKeyRequired' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
         /// </summary>
-        [Input("authorization")]
+        [PolicyResourceProperty("authorization", "_mUnknown_Authorization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorization;
-
-        public string? Authorization => _mAuthorization.GetValue("authorization");
+        private string? _mValue_Authorization;
+        private bool _mUnknown_Authorization;
+        public string? Authorization
+        {
+            get
+            {
+                if (!_mUnknown_Authorization) return _mValue_Authorization;
+                throw new UndeferrableValueException("Value 'MethodArgs.Authorization' is not present");
+            }
+        }
 
         /// <summary>
         /// Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         /// </summary>
-        [Input("authorizationScopes")]
+        [PolicyResourceProperty("authorizationScopes", "_mUnknown_AuthorizationScopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizationScopes;
-
-        public List<string>? AuthorizationScopes => _mAuthorizationScopes.GetValue("authorizationScopes");
+        private List<string>? _mValue_AuthorizationScopes;
+        private bool _mUnknown_AuthorizationScopes;
+        public List<string>? AuthorizationScopes
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationScopes) return _mValue_AuthorizationScopes;
+                throw new UndeferrableValueException("Value 'MethodArgs.AuthorizationScopes' is not present");
+            }
+        }
 
         /// <summary>
         /// Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         /// </summary>
-        [Input("authorizerId")]
+        [PolicyResourceProperty("authorizerId", "_mUnknown_AuthorizerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizerId;
-
-        public string? AuthorizerId => _mAuthorizerId.GetValue("authorizerId");
+        private string? _mValue_AuthorizerId;
+        private bool _mUnknown_AuthorizerId;
+        public string? AuthorizerId
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerId) return _mValue_AuthorizerId;
+                throw new UndeferrableValueException("Value 'MethodArgs.AuthorizerId' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'MethodArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         /// </summary>
-        [Input("operationName")]
+        [PolicyResourceProperty("operationName", "_mUnknown_OperationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperationName;
-
-        public string? OperationName => _mOperationName.GetValue("operationName");
+        private string? _mValue_OperationName;
+        private bool _mUnknown_OperationName;
+        public string? OperationName
+        {
+            get
+            {
+                if (!_mUnknown_OperationName) return _mValue_OperationName;
+                throw new UndeferrableValueException("Value 'MethodArgs.OperationName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of the API models used for the request's content type
         /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
-        [Input("requestModels")]
+        [PolicyResourceProperty("requestModels", "_mUnknown_RequestModels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestModels;
-
-        public Dictionary<string, string>? RequestModels => _mRequestModels.GetValue("requestModels");
+        private Dictionary<string, string>? _mValue_RequestModels;
+        private bool _mUnknown_RequestModels;
+        public Dictionary<string, string>? RequestModels
+        {
+            get
+            {
+                if (!_mUnknown_RequestModels) return _mValue_RequestModels;
+                throw new UndeferrableValueException("Value 'MethodArgs.RequestModels' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
         /// For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
         /// </summary>
-        [Input("requestParameters")]
+        [PolicyResourceProperty("requestParameters", "_mUnknown_RequestParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mRequestParameters;
-
-        public Dictionary<string, bool>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
+        private Dictionary<string, bool>? _mValue_RequestParameters;
+        private bool _mUnknown_RequestParameters;
+        public Dictionary<string, bool>? RequestParameters
+        {
+            get
+            {
+                if (!_mUnknown_RequestParameters) return _mValue_RequestParameters;
+                throw new UndeferrableValueException("Value 'MethodArgs.RequestParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of a `aws.apigateway.RequestValidator`
         /// </summary>
-        [Input("requestValidatorId")]
+        [PolicyResourceProperty("requestValidatorId", "_mUnknown_RequestValidatorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestValidatorId;
-
-        public string? RequestValidatorId => _mRequestValidatorId.GetValue("requestValidatorId");
+        private string? _mValue_RequestValidatorId;
+        private bool _mUnknown_RequestValidatorId;
+        public string? RequestValidatorId
+        {
+            get
+            {
+                if (!_mUnknown_RequestValidatorId) return _mValue_RequestValidatorId;
+                throw new UndeferrableValueException("Value 'MethodArgs.RequestValidatorId' is not present");
+            }
+        }
 
         /// <summary>
         /// API resource ID
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'MethodArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'MethodArgs.RestApi' is not present");
+            }
+        }
     }
 }

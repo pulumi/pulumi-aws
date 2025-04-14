@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// <summary>
         /// Command App Runner runs to build your application.
         /// </summary>
-        [Input("buildCommand")]
+        [PolicyResourceProperty("buildCommand", "_mUnknown_BuildCommand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildCommand;
-
-        public string? BuildCommand => _mBuildCommand.GetValue("buildCommand");
+        private string? _mValue_BuildCommand;
+        private bool _mUnknown_BuildCommand;
+        public string? BuildCommand
+        {
+            get
+            {
+                if (!_mUnknown_BuildCommand) return _mValue_BuildCommand;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues.BuildCommand' is not present");
+            }
+        }
 
         /// <summary>
         /// Port that your application listens to in the container. Defaults to `"8080"`.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPort;
-
-        public string? Port => _mPort.GetValue("port");
+        private string? _mValue_Port;
+        private bool _mUnknown_Port;
+        public string? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`, `NODEJS_14`, `NODEJS_16`, `CORRETTO_8`, `CORRETTO_11`, `GO_1`, `DOTNET_6`, `PHP_81`, `RUBY_31`.
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
-
-        public string? Runtime => _mRuntime.GetValue("runtime");
+        private string? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public string? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues.Runtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
         /// </summary>
-        [Input("runtimeEnvironmentSecrets")]
+        [PolicyResourceProperty("runtimeEnvironmentSecrets", "_mUnknown_RuntimeEnvironmentSecrets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRuntimeEnvironmentSecrets;
-
-        public Dictionary<string, string>? RuntimeEnvironmentSecrets => _mRuntimeEnvironmentSecrets.GetValue("runtimeEnvironmentSecrets");
+        private Dictionary<string, string>? _mValue_RuntimeEnvironmentSecrets;
+        private bool _mUnknown_RuntimeEnvironmentSecrets;
+        public Dictionary<string, string>? RuntimeEnvironmentSecrets
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeEnvironmentSecrets) return _mValue_RuntimeEnvironmentSecrets;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues.RuntimeEnvironmentSecrets' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
         /// </summary>
-        [Input("runtimeEnvironmentVariables")]
+        [PolicyResourceProperty("runtimeEnvironmentVariables", "_mUnknown_RuntimeEnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRuntimeEnvironmentVariables;
-
-        public Dictionary<string, string>? RuntimeEnvironmentVariables => _mRuntimeEnvironmentVariables.GetValue("runtimeEnvironmentVariables");
+        private Dictionary<string, string>? _mValue_RuntimeEnvironmentVariables;
+        private bool _mUnknown_RuntimeEnvironmentVariables;
+        public Dictionary<string, string>? RuntimeEnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeEnvironmentVariables) return _mValue_RuntimeEnvironmentVariables;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues.RuntimeEnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// Command App Runner runs to start your application.
         /// </summary>
-        [Input("startCommand")]
+        [PolicyResourceProperty("startCommand", "_mUnknown_StartCommand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartCommand;
-
-        public string? StartCommand => _mStartCommand.GetValue("startCommand");
+        private string? _mValue_StartCommand;
+        private bool _mUnknown_StartCommand;
+        public string? StartCommand
+        {
+            get
+            {
+                if (!_mUnknown_StartCommand) return _mValue_StartCommand;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues.StartCommand' is not present");
+            }
+        }
     }
 }

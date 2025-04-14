@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Outputs
         /// <summary>
         /// The ID of the global node group.
         /// </summary>
-        [Input("globalNodeGroupId")]
+        [PolicyResourceProperty("globalNodeGroupId", "_mUnknown_GlobalNodeGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNodeGroupId;
-
-        public string? GlobalNodeGroupId => _mGlobalNodeGroupId.GetValue("globalNodeGroupId");
+        private string? _mValue_GlobalNodeGroupId;
+        private bool _mUnknown_GlobalNodeGroupId;
+        public string? GlobalNodeGroupId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNodeGroupId) return _mValue_GlobalNodeGroupId;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupGlobalNodeGroup.GlobalNodeGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The keyspace for this node group.
         /// </summary>
-        [Input("slots")]
+        [PolicyResourceProperty("slots", "_mUnknown_Slots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlots;
-
-        public string? Slots => _mSlots.GetValue("slots");
+        private string? _mValue_Slots;
+        private bool _mUnknown_Slots;
+        public string? Slots
+        {
+            get
+            {
+                if (!_mUnknown_Slots) return _mValue_Slots;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupGlobalNodeGroup.Slots' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
         /// </summary>
-        [Input("gatewayId")]
+        [PolicyResourceProperty("gatewayId", "_mUnknown_GatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
-
-        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+        private string? _mValue_GatewayId;
+        private bool _mUnknown_GatewayId;
+        public string? GatewayId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayId) return _mValue_GatewayId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.GatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the routing table to associate with.
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet ID to create an association. Conflicts with `gateway_id`.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociation.SubnetId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/routeTableAssociation:RouteTableAssociation")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
         /// </summary>
-        [Input("gatewayId")]
+        [PolicyResourceProperty("gatewayId", "_mUnknown_GatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
-
-        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+        private string? _mValue_GatewayId;
+        private bool _mUnknown_GatewayId;
+        public string? GatewayId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayId) return _mValue_GatewayId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.GatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the routing table to associate with.
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet ID to create an association. Conflicts with `gateway_id`.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.SubnetId' is not present");
+            }
+        }
     }
 }

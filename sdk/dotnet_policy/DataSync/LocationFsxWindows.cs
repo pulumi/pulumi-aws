@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the FSx for Windows location was created.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for Windows file system.
         /// </summary>
-        [Input("fsxFilesystemArn")]
+        [PolicyResourceProperty("fsxFilesystemArn", "_mUnknown_FsxFilesystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFsxFilesystemArn;
-
-        public string? FsxFilesystemArn => _mFsxFilesystemArn.GetValue("fsxFilesystemArn");
+        private string? _mValue_FsxFilesystemArn;
+        private bool _mUnknown_FsxFilesystemArn;
+        public string? FsxFilesystemArn
+        {
+            get
+            {
+                if (!_mUnknown_FsxFilesystemArn) return _mValue_FsxFilesystemArn;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.FsxFilesystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the FSx for Windows location that was described.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// The user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'LocationFsxWindows.User' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/locationFsxWindows:LocationFsxWindows")]
@@ -119,64 +196,113 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// The name of the Windows domain that the FSx for Windows server belongs to.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for Windows file system.
         /// </summary>
-        [Input("fsxFilesystemArn")]
+        [PolicyResourceProperty("fsxFilesystemArn", "_mUnknown_FsxFilesystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFsxFilesystemArn;
-
-        public string? FsxFilesystemArn => _mFsxFilesystemArn.GetValue("fsxFilesystemArn");
+        private string? _mValue_FsxFilesystemArn;
+        private bool _mUnknown_FsxFilesystemArn;
+        public string? FsxFilesystemArn
+        {
+            get
+            {
+                if (!_mUnknown_FsxFilesystemArn) return _mValue_FsxFilesystemArn;
+                throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.FsxFilesystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.User' is not present");
+            }
+        }
     }
 }

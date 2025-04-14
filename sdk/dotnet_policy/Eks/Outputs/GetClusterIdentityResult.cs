@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
         /// </summary>
-        [Input("oidcs")]
+        [PolicyResourceProperty("oidcs", "_mUnknown_Oidcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterIdentityOidcResult>> _mOidcs;
-
-        public List<Outputs.GetClusterIdentityOidcResult>? Oidcs => _mOidcs.GetValue("oidcs");
+        private List<Outputs.GetClusterIdentityOidcResult>? _mValue_Oidcs;
+        private bool _mUnknown_Oidcs;
+        public List<Outputs.GetClusterIdentityOidcResult>? Oidcs
+        {
+            get
+            {
+                if (!_mUnknown_Oidcs) return _mValue_Oidcs;
+                throw new UndeferrableValueException("Value 'GetClusterIdentityResult.Oidcs' is not present");
+            }
+        }
     }
 }

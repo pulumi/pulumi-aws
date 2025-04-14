@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// The SAPOData basic authentication credentials.
         /// </summary>
-        [Input("basicAuthCredentials")]
+        [PolicyResourceProperty("basicAuthCredentials", "_mUnknown_BasicAuthCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs> _mBasicAuthCredentials;
-
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs? _mValue_BasicAuthCredentials;
+        private bool _mUnknown_BasicAuthCredentials;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs? BasicAuthCredentials
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthCredentials) return _mValue_BasicAuthCredentials;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs.BasicAuthCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The SAPOData OAuth type authentication credentials.
         /// </summary>
-        [Input("oauthCredentials")]
+        [PolicyResourceProperty("oauthCredentials", "_mUnknown_OauthCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs> _mOauthCredentials;
-
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs? OauthCredentials => _mOauthCredentials.GetValue("oauthCredentials");
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs? _mValue_OauthCredentials;
+        private bool _mUnknown_OauthCredentials;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs? OauthCredentials
+        {
+            get
+            {
+                if (!_mUnknown_OauthCredentials) return _mValue_OauthCredentials;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs.OauthCredentials' is not present");
+            }
+        }
     }
 }

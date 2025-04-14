@@ -16,115 +16,206 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest
         /// <summary>
         /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
         /// </summary>
-        [Input("bufferOptions")]
+        [PolicyResourceProperty("bufferOptions", "_mUnknown_BufferOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineBufferOptions> _mBufferOptions;
-
-        public Outputs.PipelineBufferOptions? BufferOptions => _mBufferOptions.GetValue("bufferOptions");
+        private Outputs.PipelineBufferOptions? _mValue_BufferOptions;
+        private bool _mUnknown_BufferOptions;
+        public Outputs.PipelineBufferOptions? BufferOptions
+        {
+            get
+            {
+                if (!_mUnknown_BufferOptions) return _mValue_BufferOptions;
+                throw new UndeferrableValueException("Value 'Pipeline.BufferOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
         /// </summary>
-        [Input("encryptionAtRestOptions")]
+        [PolicyResourceProperty("encryptionAtRestOptions", "_mUnknown_EncryptionAtRestOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineEncryptionAtRestOptions> _mEncryptionAtRestOptions;
-
-        public Outputs.PipelineEncryptionAtRestOptions? EncryptionAtRestOptions => _mEncryptionAtRestOptions.GetValue("encryptionAtRestOptions");
+        private Outputs.PipelineEncryptionAtRestOptions? _mValue_EncryptionAtRestOptions;
+        private bool _mUnknown_EncryptionAtRestOptions;
+        public Outputs.PipelineEncryptionAtRestOptions? EncryptionAtRestOptions
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAtRestOptions) return _mValue_EncryptionAtRestOptions;
+                throw new UndeferrableValueException("Value 'Pipeline.EncryptionAtRestOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of ingestion endpoints for the pipeline, which you can send data to.
         /// </summary>
-        [Input("ingestEndpointUrls")]
+        [PolicyResourceProperty("ingestEndpointUrls", "_mUnknown_IngestEndpointUrls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIngestEndpointUrls;
-
-        public List<string>? IngestEndpointUrls => _mIngestEndpointUrls.GetValue("ingestEndpointUrls");
+        private List<string>? _mValue_IngestEndpointUrls;
+        private bool _mUnknown_IngestEndpointUrls;
+        public List<string>? IngestEndpointUrls
+        {
+            get
+            {
+                if (!_mUnknown_IngestEndpointUrls) return _mValue_IngestEndpointUrls;
+                throw new UndeferrableValueException("Value 'Pipeline.IngestEndpointUrls' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
         /// </summary>
-        [Input("logPublishingOptions")]
+        [PolicyResourceProperty("logPublishingOptions", "_mUnknown_LogPublishingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineLogPublishingOptions> _mLogPublishingOptions;
-
-        public Outputs.PipelineLogPublishingOptions? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
+        private Outputs.PipelineLogPublishingOptions? _mValue_LogPublishingOptions;
+        private bool _mUnknown_LogPublishingOptions;
+        public Outputs.PipelineLogPublishingOptions? LogPublishingOptions
+        {
+            get
+            {
+                if (!_mUnknown_LogPublishingOptions) return _mValue_LogPublishingOptions;
+                throw new UndeferrableValueException("Value 'Pipeline.LogPublishingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         /// </summary>
-        [Input("maxUnits")]
+        [PolicyResourceProperty("maxUnits", "_mUnknown_MaxUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUnits;
-
-        public int? MaxUnits => _mMaxUnits.GetValue("maxUnits");
+        private int? _mValue_MaxUnits;
+        private bool _mUnknown_MaxUnits;
+        public int? MaxUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaxUnits) return _mValue_MaxUnits;
+                throw new UndeferrableValueException("Value 'Pipeline.MaxUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         /// </summary>
-        [Input("minUnits")]
+        [PolicyResourceProperty("minUnits", "_mUnknown_MinUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinUnits;
-
-        public int? MinUnits => _mMinUnits.GetValue("minUnits");
+        private int? _mValue_MinUnits;
+        private bool _mUnknown_MinUnits;
+        public int? MinUnits
+        {
+            get
+            {
+                if (!_mUnknown_MinUnits) return _mValue_MinUnits;
+                throw new UndeferrableValueException("Value 'Pipeline.MinUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the pipeline.
         /// </summary>
-        [Input("pipelineArn")]
+        [PolicyResourceProperty("pipelineArn", "_mUnknown_PipelineArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineArn;
-
-        public string? PipelineArn => _mPipelineArn.GetValue("pipelineArn");
+        private string? _mValue_PipelineArn;
+        private bool _mUnknown_PipelineArn;
+        public string? PipelineArn
+        {
+            get
+            {
+                if (!_mUnknown_PipelineArn) return _mValue_PipelineArn;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
         /// </summary>
-        [Input("pipelineConfigurationBody")]
+        [PolicyResourceProperty("pipelineConfigurationBody", "_mUnknown_PipelineConfigurationBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineConfigurationBody;
-
-        public string? PipelineConfigurationBody => _mPipelineConfigurationBody.GetValue("pipelineConfigurationBody");
+        private string? _mValue_PipelineConfigurationBody;
+        private bool _mUnknown_PipelineConfigurationBody;
+        public string? PipelineConfigurationBody
+        {
+            get
+            {
+                if (!_mUnknown_PipelineConfigurationBody) return _mValue_PipelineConfigurationBody;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineConfigurationBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("pipelineName")]
+        [PolicyResourceProperty("pipelineName", "_mUnknown_PipelineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
-
-        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
+        private string? _mValue_PipelineName;
+        private bool _mUnknown_PipelineName;
+        public string? PipelineName
+        {
+            get
+            {
+                if (!_mUnknown_PipelineName) return _mValue_PipelineName;
+                throw new UndeferrableValueException("Value 'Pipeline.PipelineName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Pipeline.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Pipeline.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineTimeouts> _mTimeouts;
-
-        public Outputs.PipelineTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.PipelineTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.PipelineTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Pipeline.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         /// </summary>
-        [Input("vpcOptions")]
+        [PolicyResourceProperty("vpcOptions", "_mUnknown_VpcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineVpcOptions> _mVpcOptions;
-
-        public Outputs.PipelineVpcOptions? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+        private Outputs.PipelineVpcOptions? _mValue_VpcOptions;
+        private bool _mUnknown_VpcOptions;
+        public Outputs.PipelineVpcOptions? VpcOptions
+        {
+            get
+            {
+                if (!_mUnknown_VpcOptions) return _mValue_VpcOptions;
+                throw new UndeferrableValueException("Value 'Pipeline.VpcOptions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearchingest/pipeline:Pipeline")]
@@ -133,90 +224,160 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest
         /// <summary>
         /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
         /// </summary>
-        [Input("bufferOptions")]
+        [PolicyResourceProperty("bufferOptions", "_mUnknown_BufferOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineBufferOptionsArgs> _mBufferOptions;
-
-        public Inputs.PipelineBufferOptionsArgs? BufferOptions => _mBufferOptions.GetValue("bufferOptions");
+        private Inputs.PipelineBufferOptionsArgs? _mValue_BufferOptions;
+        private bool _mUnknown_BufferOptions;
+        public Inputs.PipelineBufferOptionsArgs? BufferOptions
+        {
+            get
+            {
+                if (!_mUnknown_BufferOptions) return _mValue_BufferOptions;
+                throw new UndeferrableValueException("Value 'PipelineArgs.BufferOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
         /// </summary>
-        [Input("encryptionAtRestOptions")]
+        [PolicyResourceProperty("encryptionAtRestOptions", "_mUnknown_EncryptionAtRestOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineEncryptionAtRestOptionsArgs> _mEncryptionAtRestOptions;
-
-        public Inputs.PipelineEncryptionAtRestOptionsArgs? EncryptionAtRestOptions => _mEncryptionAtRestOptions.GetValue("encryptionAtRestOptions");
+        private Inputs.PipelineEncryptionAtRestOptionsArgs? _mValue_EncryptionAtRestOptions;
+        private bool _mUnknown_EncryptionAtRestOptions;
+        public Inputs.PipelineEncryptionAtRestOptionsArgs? EncryptionAtRestOptions
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAtRestOptions) return _mValue_EncryptionAtRestOptions;
+                throw new UndeferrableValueException("Value 'PipelineArgs.EncryptionAtRestOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
         /// </summary>
-        [Input("logPublishingOptions")]
+        [PolicyResourceProperty("logPublishingOptions", "_mUnknown_LogPublishingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineLogPublishingOptionsArgs> _mLogPublishingOptions;
-
-        public Inputs.PipelineLogPublishingOptionsArgs? LogPublishingOptions => _mLogPublishingOptions.GetValue("logPublishingOptions");
+        private Inputs.PipelineLogPublishingOptionsArgs? _mValue_LogPublishingOptions;
+        private bool _mUnknown_LogPublishingOptions;
+        public Inputs.PipelineLogPublishingOptionsArgs? LogPublishingOptions
+        {
+            get
+            {
+                if (!_mUnknown_LogPublishingOptions) return _mValue_LogPublishingOptions;
+                throw new UndeferrableValueException("Value 'PipelineArgs.LogPublishingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         /// </summary>
-        [Input("maxUnits")]
+        [PolicyResourceProperty("maxUnits", "_mUnknown_MaxUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUnits;
-
-        public int? MaxUnits => _mMaxUnits.GetValue("maxUnits");
+        private int? _mValue_MaxUnits;
+        private bool _mUnknown_MaxUnits;
+        public int? MaxUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaxUnits) return _mValue_MaxUnits;
+                throw new UndeferrableValueException("Value 'PipelineArgs.MaxUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         /// </summary>
-        [Input("minUnits")]
+        [PolicyResourceProperty("minUnits", "_mUnknown_MinUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinUnits;
-
-        public int? MinUnits => _mMinUnits.GetValue("minUnits");
+        private int? _mValue_MinUnits;
+        private bool _mUnknown_MinUnits;
+        public int? MinUnits
+        {
+            get
+            {
+                if (!_mUnknown_MinUnits) return _mValue_MinUnits;
+                throw new UndeferrableValueException("Value 'PipelineArgs.MinUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
         /// </summary>
-        [Input("pipelineConfigurationBody")]
+        [PolicyResourceProperty("pipelineConfigurationBody", "_mUnknown_PipelineConfigurationBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineConfigurationBody;
-
-        public string? PipelineConfigurationBody => _mPipelineConfigurationBody.GetValue("pipelineConfigurationBody");
+        private string? _mValue_PipelineConfigurationBody;
+        private bool _mUnknown_PipelineConfigurationBody;
+        public string? PipelineConfigurationBody
+        {
+            get
+            {
+                if (!_mUnknown_PipelineConfigurationBody) return _mValue_PipelineConfigurationBody;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineConfigurationBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("pipelineName")]
+        [PolicyResourceProperty("pipelineName", "_mUnknown_PipelineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineName;
-
-        public string? PipelineName => _mPipelineName.GetValue("pipelineName");
+        private string? _mValue_PipelineName;
+        private bool _mUnknown_PipelineName;
+        public string? PipelineName
+        {
+            get
+            {
+                if (!_mUnknown_PipelineName) return _mValue_PipelineName;
+                throw new UndeferrableValueException("Value 'PipelineArgs.PipelineName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineTimeoutsArgs> _mTimeouts;
-
-        public Inputs.PipelineTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.PipelineTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.PipelineTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         /// </summary>
-        [Input("vpcOptions")]
+        [PolicyResourceProperty("vpcOptions", "_mUnknown_VpcOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineVpcOptionsArgs> _mVpcOptions;
-
-        public Inputs.PipelineVpcOptionsArgs? VpcOptions => _mVpcOptions.GetValue("vpcOptions");
+        private Inputs.PipelineVpcOptionsArgs? _mValue_VpcOptions;
+        private bool _mUnknown_VpcOptions;
+        public Inputs.PipelineVpcOptionsArgs? VpcOptions
+        {
+            get
+            {
+                if (!_mUnknown_VpcOptions) return _mValue_VpcOptions;
+                throw new UndeferrableValueException("Value 'PipelineArgs.VpcOptions' is not present");
+            }
+        }
     }
 }

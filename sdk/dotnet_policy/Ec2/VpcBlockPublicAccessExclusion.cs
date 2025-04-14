@@ -18,62 +18,111 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("internetGatewayExclusionMode")]
+        [PolicyResourceProperty("internetGatewayExclusionMode", "_mUnknown_InternetGatewayExclusionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayExclusionMode;
-
-        public string? InternetGatewayExclusionMode => _mInternetGatewayExclusionMode.GetValue("internetGatewayExclusionMode");
+        private string? _mValue_InternetGatewayExclusionMode;
+        private bool _mUnknown_InternetGatewayExclusionMode;
+        public string? InternetGatewayExclusionMode
+        {
+            get
+            {
+                if (!_mUnknown_InternetGatewayExclusionMode) return _mValue_InternetGatewayExclusionMode;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.InternetGatewayExclusionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) the excluded resource.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcBlockPublicAccessExclusionTimeouts> _mTimeouts;
-
-        public Outputs.VpcBlockPublicAccessExclusionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.VpcBlockPublicAccessExclusionTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.VpcBlockPublicAccessExclusionTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion")]
@@ -84,43 +133,78 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("internetGatewayExclusionMode")]
+        [PolicyResourceProperty("internetGatewayExclusionMode", "_mUnknown_InternetGatewayExclusionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInternetGatewayExclusionMode;
-
-        public string? InternetGatewayExclusionMode => _mInternetGatewayExclusionMode.GetValue("internetGatewayExclusionMode");
+        private string? _mValue_InternetGatewayExclusionMode;
+        private bool _mUnknown_InternetGatewayExclusionMode;
+        public string? InternetGatewayExclusionMode
+        {
+            get
+            {
+                if (!_mUnknown_InternetGatewayExclusionMode) return _mValue_InternetGatewayExclusionMode;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.InternetGatewayExclusionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcBlockPublicAccessExclusionTimeoutsArgs> _mTimeouts;
-
-        public Inputs.VpcBlockPublicAccessExclusionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.VpcBlockPublicAccessExclusionTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.VpcBlockPublicAccessExclusionTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.VpcId' is not present");
+            }
+        }
     }
 }

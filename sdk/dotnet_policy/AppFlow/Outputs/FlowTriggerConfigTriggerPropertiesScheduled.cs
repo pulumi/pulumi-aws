@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
         /// </summary>
-        [Input("dataPullMode")]
+        [PolicyResourceProperty("dataPullMode", "_mUnknown_DataPullMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataPullMode;
-
-        public string? DataPullMode => _mDataPullMode.GetValue("dataPullMode");
+        private string? _mValue_DataPullMode;
+        private bool _mUnknown_DataPullMode;
+        public string? DataPullMode
+        {
+            get
+            {
+                if (!_mUnknown_DataPullMode) return _mValue_DataPullMode;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduled.DataPullMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
         /// </summary>
-        [Input("firstExecutionFrom")]
+        [PolicyResourceProperty("firstExecutionFrom", "_mUnknown_FirstExecutionFrom")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstExecutionFrom;
-
-        public string? FirstExecutionFrom => _mFirstExecutionFrom.GetValue("firstExecutionFrom");
+        private string? _mValue_FirstExecutionFrom;
+        private bool _mUnknown_FirstExecutionFrom;
+        public string? FirstExecutionFrom
+        {
+            get
+            {
+                if (!_mUnknown_FirstExecutionFrom) return _mValue_FirstExecutionFrom;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduled.FirstExecutionFrom' is not present");
+            }
+        }
 
         /// <summary>
         /// Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
         /// </summary>
-        [Input("scheduleEndTime")]
+        [PolicyResourceProperty("scheduleEndTime", "_mUnknown_ScheduleEndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleEndTime;
-
-        public string? ScheduleEndTime => _mScheduleEndTime.GetValue("scheduleEndTime");
+        private string? _mValue_ScheduleEndTime;
+        private bool _mUnknown_ScheduleEndTime;
+        public string? ScheduleEndTime
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleEndTime) return _mValue_ScheduleEndTime;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduled.ScheduleEndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduled.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
         /// </summary>
-        [Input("scheduleOffset")]
+        [PolicyResourceProperty("scheduleOffset", "_mUnknown_ScheduleOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScheduleOffset;
-
-        public int? ScheduleOffset => _mScheduleOffset.GetValue("scheduleOffset");
+        private int? _mValue_ScheduleOffset;
+        private bool _mUnknown_ScheduleOffset;
+        public int? ScheduleOffset
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleOffset) return _mValue_ScheduleOffset;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduled.ScheduleOffset' is not present");
+            }
+        }
 
         /// <summary>
         /// Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
         /// </summary>
-        [Input("scheduleStartTime")]
+        [PolicyResourceProperty("scheduleStartTime", "_mUnknown_ScheduleStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleStartTime;
-
-        public string? ScheduleStartTime => _mScheduleStartTime.GetValue("scheduleStartTime");
+        private string? _mValue_ScheduleStartTime;
+        private bool _mUnknown_ScheduleStartTime;
+        public string? ScheduleStartTime
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleStartTime) return _mValue_ScheduleStartTime;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduled.ScheduleStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduled.Timezone' is not present");
+            }
+        }
     }
 }

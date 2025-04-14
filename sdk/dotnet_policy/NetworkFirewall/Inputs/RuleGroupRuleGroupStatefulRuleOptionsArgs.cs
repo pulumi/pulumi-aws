@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         /// </summary>
-        [Input("ruleOrder")]
+        [PolicyResourceProperty("ruleOrder", "_mUnknown_RuleOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleOrder;
-
-        public string? RuleOrder => _mRuleOrder.GetValue("ruleOrder");
+        private string? _mValue_RuleOrder;
+        private bool _mUnknown_RuleOrder;
+        public string? RuleOrder
+        {
+            get
+            {
+                if (!_mUnknown_RuleOrder) return _mValue_RuleOrder;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupStatefulRuleOptionsArgs.RuleOrder' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Configures inspection of the response body. See `body_contains` for more details.
         /// </summary>
-        [Input("bodyContains")]
+        [PolicyResourceProperty("bodyContains", "_mUnknown_BodyContains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains> _mBodyContains;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains? BodyContains => _mBodyContains.GetValue("bodyContains");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains? _mValue_BodyContains;
+        private bool _mUnknown_BodyContains;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains? BodyContains
+        {
+            get
+            {
+                if (!_mUnknown_BodyContains) return _mValue_BodyContains;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection.BodyContains' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures inspection of the response header.See `header` for more details.
         /// </summary>
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader> _mHeader;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader? Header => _mHeader.GetValue("header");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader? _mValue_Header;
+        private bool _mUnknown_Header;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection.Header' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures inspection of the response JSON. See `json` for more details.
         /// </summary>
-        [Input("json")]
+        [PolicyResourceProperty("json", "_mUnknown_Json")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson> _mJson;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson? Json => _mJson.GetValue("json");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson? _mValue_Json;
+        private bool _mUnknown_Json;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson? Json
+        {
+            get
+            {
+                if (!_mUnknown_Json) return _mValue_Json;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection.Json' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures inspection of the response status code.See `status_code` for more details.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode> _mStatusCode;
-
-        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode? StatusCode => _mStatusCode.GetValue("statusCode");
+        private Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection.StatusCode' is not present");
+            }
+        }
     }
 }

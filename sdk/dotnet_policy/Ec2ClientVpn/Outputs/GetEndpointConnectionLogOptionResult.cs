@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn.Outputs
 {
     public sealed class GetEndpointConnectionLogOptionResult
     {
-        [Input("cloudwatchLogGroup")]
+        [PolicyResourceProperty("cloudwatchLogGroup", "_mUnknown_CloudwatchLogGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroup;
+        private string? _mValue_CloudwatchLogGroup;
+        private bool _mUnknown_CloudwatchLogGroup;
+        public string? CloudwatchLogGroup
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroup) return _mValue_CloudwatchLogGroup;
+                throw new UndeferrableValueException("Value 'GetEndpointConnectionLogOptionResult.CloudwatchLogGroup' is not present");
+            }
+        }
 
-        public string? CloudwatchLogGroup => _mCloudwatchLogGroup.GetValue("cloudwatchLogGroup");
-
-        [Input("cloudwatchLogStream")]
+        [PolicyResourceProperty("cloudwatchLogStream", "_mUnknown_CloudwatchLogStream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogStream;
+        private string? _mValue_CloudwatchLogStream;
+        private bool _mUnknown_CloudwatchLogStream;
+        public string? CloudwatchLogStream
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogStream) return _mValue_CloudwatchLogStream;
+                throw new UndeferrableValueException("Value 'GetEndpointConnectionLogOptionResult.CloudwatchLogStream' is not present");
+            }
+        }
 
-        public string? CloudwatchLogStream => _mCloudwatchLogStream.GetValue("cloudwatchLogStream");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetEndpointConnectionLogOptionResult.Enabled' is not present");
+            }
+        }
     }
 }

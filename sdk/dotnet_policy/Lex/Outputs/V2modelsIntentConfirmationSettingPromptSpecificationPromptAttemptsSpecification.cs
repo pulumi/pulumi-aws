@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether the user can interrupt a speech prompt attempt from the bot.
         /// </summary>
-        [Input("allowInterrupt")]
+        [PolicyResourceProperty("allowInterrupt", "_mUnknown_AllowInterrupt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowInterrupt;
-
-        public bool? AllowInterrupt => _mAllowInterrupt.GetValue("allowInterrupt");
+        private bool? _mValue_AllowInterrupt;
+        private bool _mUnknown_AllowInterrupt;
+        public bool? AllowInterrupt
+        {
+            get
+            {
+                if (!_mUnknown_AllowInterrupt) return _mValue_AllowInterrupt;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.AllowInterrupt' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
         /// </summary>
-        [Input("allowedInputTypes")]
+        [PolicyResourceProperty("allowedInputTypes", "_mUnknown_AllowedInputTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes> _mAllowedInputTypes;
-
-        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? AllowedInputTypes => _mAllowedInputTypes.GetValue("allowedInputTypes");
+        private Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? _mValue_AllowedInputTypes;
+        private bool _mUnknown_AllowedInputTypes;
+        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? AllowedInputTypes
+        {
+            get
+            {
+                if (!_mUnknown_AllowedInputTypes) return _mValue_AllowedInputTypes;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.AllowedInputTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
         /// </summary>
-        [Input("audioAndDtmfInputSpecification")]
+        [PolicyResourceProperty("audioAndDtmfInputSpecification", "_mUnknown_AudioAndDtmfInputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification> _mAudioAndDtmfInputSpecification;
-
-        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? AudioAndDtmfInputSpecification => _mAudioAndDtmfInputSpecification.GetValue("audioAndDtmfInputSpecification");
+        private Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? _mValue_AudioAndDtmfInputSpecification;
+        private bool _mUnknown_AudioAndDtmfInputSpecification;
+        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? AudioAndDtmfInputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_AudioAndDtmfInputSpecification) return _mValue_AudioAndDtmfInputSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.AudioAndDtmfInputSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         /// </summary>
-        [Input("mapBlockKey")]
+        [PolicyResourceProperty("mapBlockKey", "_mUnknown_MapBlockKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapBlockKey;
-
-        public string? MapBlockKey => _mMapBlockKey.GetValue("mapBlockKey");
+        private string? _mValue_MapBlockKey;
+        private bool _mUnknown_MapBlockKey;
+        public string? MapBlockKey
+        {
+            get
+            {
+                if (!_mUnknown_MapBlockKey) return _mValue_MapBlockKey;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.MapBlockKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the settings on text input. See `text_input_specification`.
         /// </summary>
-        [Input("textInputSpecification")]
+        [PolicyResourceProperty("textInputSpecification", "_mUnknown_TextInputSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification> _mTextInputSpecification;
-
-        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? TextInputSpecification => _mTextInputSpecification.GetValue("textInputSpecification");
+        private Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? _mValue_TextInputSpecification;
+        private bool _mUnknown_TextInputSpecification;
+        public Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? TextInputSpecification
+        {
+            get
+            {
+                if (!_mUnknown_TextInputSpecification) return _mValue_TextInputSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.TextInputSpecification' is not present");
+            }
+        }
     }
 }

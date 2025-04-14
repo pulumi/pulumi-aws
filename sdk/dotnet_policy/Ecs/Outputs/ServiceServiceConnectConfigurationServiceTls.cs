@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Details of the certificate authority which will issue the certificate.
         /// </summary>
-        [Input("issuerCertAuthority")]
+        [PolicyResourceProperty("issuerCertAuthority", "_mUnknown_IssuerCertAuthority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority> _mIssuerCertAuthority;
-
-        public Outputs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority? IssuerCertAuthority => _mIssuerCertAuthority.GetValue("issuerCertAuthority");
+        private Outputs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority? _mValue_IssuerCertAuthority;
+        private bool _mUnknown_IssuerCertAuthority;
+        public Outputs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority? IssuerCertAuthority
+        {
+            get
+            {
+                if (!_mUnknown_IssuerCertAuthority) return _mValue_IssuerCertAuthority;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTls.IssuerCertAuthority' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key used to encrypt the private key in Secrets Manager.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTls.KmsKey' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM Role that's associated with the Service Connect TLS.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTls.RoleArn' is not present");
+            }
+        }
     }
 }

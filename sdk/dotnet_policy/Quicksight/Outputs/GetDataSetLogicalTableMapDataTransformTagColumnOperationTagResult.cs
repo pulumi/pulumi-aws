@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult
     {
-        [Input("columnDescriptions")]
+        [PolicyResourceProperty("columnDescriptions", "_mUnknown_ColumnDescriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult>> _mColumnDescriptions;
+        private List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult>? _mValue_ColumnDescriptions;
+        private bool _mUnknown_ColumnDescriptions;
+        public List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult>? ColumnDescriptions
+        {
+            get
+            {
+                if (!_mUnknown_ColumnDescriptions) return _mValue_ColumnDescriptions;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult.ColumnDescriptions' is not present");
+            }
+        }
 
-        public List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionResult>? ColumnDescriptions => _mColumnDescriptions.GetValue("columnDescriptions");
-
-        [Input("columnGeographicRole")]
+        [PolicyResourceProperty("columnGeographicRole", "_mUnknown_ColumnGeographicRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnGeographicRole;
-
-        public string? ColumnGeographicRole => _mColumnGeographicRole.GetValue("columnGeographicRole");
+        private string? _mValue_ColumnGeographicRole;
+        private bool _mUnknown_ColumnGeographicRole;
+        public string? ColumnGeographicRole
+        {
+            get
+            {
+                if (!_mUnknown_ColumnGeographicRole) return _mValue_ColumnGeographicRole;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult.ColumnGeographicRole' is not present");
+            }
+        }
     }
 }

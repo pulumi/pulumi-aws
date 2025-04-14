@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the rule
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS account identifiers to exclude from the rule
         /// </summary>
-        [Input("excludedAccounts")]
+        [PolicyResourceProperty("excludedAccounts", "_mUnknown_ExcludedAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedAccounts;
-
-        public List<string>? ExcludedAccounts => _mExcludedAccounts.GetValue("excludedAccounts");
+        private List<string>? _mValue_ExcludedAccounts;
+        private bool _mUnknown_ExcludedAccounts;
+        public List<string>? ExcludedAccounts
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedAccounts) return _mValue_ExcludedAccounts;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.ExcludedAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
         /// </summary>
-        [Input("inputParameters")]
+        [PolicyResourceProperty("inputParameters", "_mUnknown_InputParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
-
-        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
+        private string? _mValue_InputParameters;
+        private bool _mUnknown_InputParameters;
+        public string? InputParameters
+        {
+            get
+            {
+                if (!_mUnknown_InputParameters) return _mValue_InputParameters;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.InputParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule Lambda Function
         /// </summary>
-        [Input("lambdaFunctionArn")]
+        [PolicyResourceProperty("lambdaFunctionArn", "_mUnknown_LambdaFunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFunctionArn;
-
-        public string? LambdaFunctionArn => _mLambdaFunctionArn.GetValue("lambdaFunctionArn");
+        private string? _mValue_LambdaFunctionArn;
+        private bool _mUnknown_LambdaFunctionArn;
+        public string? LambdaFunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionArn) return _mValue_LambdaFunctionArn;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.LambdaFunctionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         /// </summary>
-        [Input("maximumExecutionFrequency")]
+        [PolicyResourceProperty("maximumExecutionFrequency", "_mUnknown_MaximumExecutionFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
-
-        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
+        private string? _mValue_MaximumExecutionFrequency;
+        private bool _mUnknown_MaximumExecutionFrequency;
+        public string? MaximumExecutionFrequency
+        {
+            get
+            {
+                if (!_mUnknown_MaximumExecutionFrequency) return _mValue_MaximumExecutionFrequency;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.MaximumExecutionFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the AWS resource to evaluate
         /// </summary>
-        [Input("resourceIdScope")]
+        [PolicyResourceProperty("resourceIdScope", "_mUnknown_ResourceIdScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdScope;
-
-        public string? ResourceIdScope => _mResourceIdScope.GetValue("resourceIdScope");
+        private string? _mValue_ResourceIdScope;
+        private bool _mUnknown_ResourceIdScope;
+        public string? ResourceIdScope
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIdScope) return _mValue_ResourceIdScope;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.ResourceIdScope' is not present");
+            }
+        }
 
         /// <summary>
         /// List of types of AWS resources to evaluate
         /// </summary>
-        [Input("resourceTypesScopes")]
+        [PolicyResourceProperty("resourceTypesScopes", "_mUnknown_ResourceTypesScopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypesScopes;
-
-        public List<string>? ResourceTypesScopes => _mResourceTypesScopes.GetValue("resourceTypesScopes");
+        private List<string>? _mValue_ResourceTypesScopes;
+        private bool _mUnknown_ResourceTypesScopes;
+        public List<string>? ResourceTypesScopes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypesScopes) return _mValue_ResourceTypesScopes;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.ResourceTypesScopes' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag key of AWS resources to evaluate
         /// </summary>
-        [Input("tagKeyScope")]
+        [PolicyResourceProperty("tagKeyScope", "_mUnknown_TagKeyScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagKeyScope;
-
-        public string? TagKeyScope => _mTagKeyScope.GetValue("tagKeyScope");
+        private string? _mValue_TagKeyScope;
+        private bool _mUnknown_TagKeyScope;
+        public string? TagKeyScope
+        {
+            get
+            {
+                if (!_mUnknown_TagKeyScope) return _mValue_TagKeyScope;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.TagKeyScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag value of AWS resources to evaluate
         /// </summary>
-        [Input("tagValueScope")]
+        [PolicyResourceProperty("tagValueScope", "_mUnknown_TagValueScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagValueScope;
-
-        public string? TagValueScope => _mTagValueScope.GetValue("tagValueScope");
+        private string? _mValue_TagValueScope;
+        private bool _mUnknown_TagValueScope;
+        public string? TagValueScope
+        {
+            get
+            {
+                if (!_mUnknown_TagValueScope) return _mValue_TagValueScope;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.TagValueScope' is not present");
+            }
+        }
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         /// </summary>
-        [Input("triggerTypes")]
+        [PolicyResourceProperty("triggerTypes", "_mUnknown_TriggerTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggerTypes;
-
-        public List<string>? TriggerTypes => _mTriggerTypes.GetValue("triggerTypes");
+        private List<string>? _mValue_TriggerTypes;
+        private bool _mUnknown_TriggerTypes;
+        public List<string>? TriggerTypes
+        {
+            get
+            {
+                if (!_mUnknown_TriggerTypes) return _mValue_TriggerTypes;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRule.TriggerTypes' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cfg/organizationCustomRule:OrganizationCustomRule")]
@@ -128,100 +212,177 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// Description of the rule
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS account identifiers to exclude from the rule
         /// </summary>
-        [Input("excludedAccounts")]
+        [PolicyResourceProperty("excludedAccounts", "_mUnknown_ExcludedAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedAccounts;
-
-        public List<string>? ExcludedAccounts => _mExcludedAccounts.GetValue("excludedAccounts");
+        private List<string>? _mValue_ExcludedAccounts;
+        private bool _mUnknown_ExcludedAccounts;
+        public List<string>? ExcludedAccounts
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedAccounts) return _mValue_ExcludedAccounts;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.ExcludedAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
         /// </summary>
-        [Input("inputParameters")]
+        [PolicyResourceProperty("inputParameters", "_mUnknown_InputParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputParameters;
-
-        public string? InputParameters => _mInputParameters.GetValue("inputParameters");
+        private string? _mValue_InputParameters;
+        private bool _mUnknown_InputParameters;
+        public string? InputParameters
+        {
+            get
+            {
+                if (!_mUnknown_InputParameters) return _mValue_InputParameters;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.InputParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the rule Lambda Function
         /// </summary>
-        [Input("lambdaFunctionArn")]
+        [PolicyResourceProperty("lambdaFunctionArn", "_mUnknown_LambdaFunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFunctionArn;
-
-        public string? LambdaFunctionArn => _mLambdaFunctionArn.GetValue("lambdaFunctionArn");
+        private string? _mValue_LambdaFunctionArn;
+        private bool _mUnknown_LambdaFunctionArn;
+        public string? LambdaFunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionArn) return _mValue_LambdaFunctionArn;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.LambdaFunctionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         /// </summary>
-        [Input("maximumExecutionFrequency")]
+        [PolicyResourceProperty("maximumExecutionFrequency", "_mUnknown_MaximumExecutionFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumExecutionFrequency;
-
-        public string? MaximumExecutionFrequency => _mMaximumExecutionFrequency.GetValue("maximumExecutionFrequency");
+        private string? _mValue_MaximumExecutionFrequency;
+        private bool _mUnknown_MaximumExecutionFrequency;
+        public string? MaximumExecutionFrequency
+        {
+            get
+            {
+                if (!_mUnknown_MaximumExecutionFrequency) return _mValue_MaximumExecutionFrequency;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.MaximumExecutionFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the AWS resource to evaluate
         /// </summary>
-        [Input("resourceIdScope")]
+        [PolicyResourceProperty("resourceIdScope", "_mUnknown_ResourceIdScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceIdScope;
-
-        public string? ResourceIdScope => _mResourceIdScope.GetValue("resourceIdScope");
+        private string? _mValue_ResourceIdScope;
+        private bool _mUnknown_ResourceIdScope;
+        public string? ResourceIdScope
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIdScope) return _mValue_ResourceIdScope;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.ResourceIdScope' is not present");
+            }
+        }
 
         /// <summary>
         /// List of types of AWS resources to evaluate
         /// </summary>
-        [Input("resourceTypesScopes")]
+        [PolicyResourceProperty("resourceTypesScopes", "_mUnknown_ResourceTypesScopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypesScopes;
-
-        public List<string>? ResourceTypesScopes => _mResourceTypesScopes.GetValue("resourceTypesScopes");
+        private List<string>? _mValue_ResourceTypesScopes;
+        private bool _mUnknown_ResourceTypesScopes;
+        public List<string>? ResourceTypesScopes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypesScopes) return _mValue_ResourceTypesScopes;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.ResourceTypesScopes' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag key of AWS resources to evaluate
         /// </summary>
-        [Input("tagKeyScope")]
+        [PolicyResourceProperty("tagKeyScope", "_mUnknown_TagKeyScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagKeyScope;
-
-        public string? TagKeyScope => _mTagKeyScope.GetValue("tagKeyScope");
+        private string? _mValue_TagKeyScope;
+        private bool _mUnknown_TagKeyScope;
+        public string? TagKeyScope
+        {
+            get
+            {
+                if (!_mUnknown_TagKeyScope) return _mValue_TagKeyScope;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.TagKeyScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag value of AWS resources to evaluate
         /// </summary>
-        [Input("tagValueScope")]
+        [PolicyResourceProperty("tagValueScope", "_mUnknown_TagValueScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagValueScope;
-
-        public string? TagValueScope => _mTagValueScope.GetValue("tagValueScope");
+        private string? _mValue_TagValueScope;
+        private bool _mUnknown_TagValueScope;
+        public string? TagValueScope
+        {
+            get
+            {
+                if (!_mUnknown_TagValueScope) return _mValue_TagValueScope;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.TagValueScope' is not present");
+            }
+        }
 
         /// <summary>
         /// List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         /// </summary>
-        [Input("triggerTypes")]
+        [PolicyResourceProperty("triggerTypes", "_mUnknown_TriggerTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggerTypes;
-
-        public List<string>? TriggerTypes => _mTriggerTypes.GetValue("triggerTypes");
+        private List<string>? _mValue_TriggerTypes;
+        private bool _mUnknown_TriggerTypes;
+        public List<string>? TriggerTypes
+        {
+            get
+            {
+                if (!_mUnknown_TriggerTypes) return _mValue_TriggerTypes;
+                throw new UndeferrableValueException("Value 'OrganizationCustomRuleArgs.TriggerTypes' is not present");
+            }
+        }
     }
 }

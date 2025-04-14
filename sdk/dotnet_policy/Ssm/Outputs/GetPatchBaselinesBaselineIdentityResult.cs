@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// Description of the patch baseline.
         /// </summary>
-        [Input("baselineDescription")]
+        [PolicyResourceProperty("baselineDescription", "_mUnknown_BaselineDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineDescription;
-
-        public string? BaselineDescription => _mBaselineDescription.GetValue("baselineDescription");
+        private string? _mValue_BaselineDescription;
+        private bool _mUnknown_BaselineDescription;
+        public string? BaselineDescription
+        {
+            get
+            {
+                if (!_mUnknown_BaselineDescription) return _mValue_BaselineDescription;
+                throw new UndeferrableValueException("Value 'GetPatchBaselinesBaselineIdentityResult.BaselineDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the patch baseline.
         /// </summary>
-        [Input("baselineId")]
+        [PolicyResourceProperty("baselineId", "_mUnknown_BaselineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineId;
-
-        public string? BaselineId => _mBaselineId.GetValue("baselineId");
+        private string? _mValue_BaselineId;
+        private bool _mUnknown_BaselineId;
+        public string? BaselineId
+        {
+            get
+            {
+                if (!_mUnknown_BaselineId) return _mValue_BaselineId;
+                throw new UndeferrableValueException("Value 'GetPatchBaselinesBaselineIdentityResult.BaselineId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the patch baseline.
         /// </summary>
-        [Input("baselineName")]
+        [PolicyResourceProperty("baselineName", "_mUnknown_BaselineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaselineName;
-
-        public string? BaselineName => _mBaselineName.GetValue("baselineName");
+        private string? _mValue_BaselineName;
+        private bool _mUnknown_BaselineName;
+        public string? BaselineName
+        {
+            get
+            {
+                if (!_mUnknown_BaselineName) return _mValue_BaselineName;
+                throw new UndeferrableValueException("Value 'GetPatchBaselinesBaselineIdentityResult.BaselineName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this is the default baseline. AWS Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
         /// </summary>
-        [Input("defaultBaseline")]
+        [PolicyResourceProperty("defaultBaseline", "_mUnknown_DefaultBaseline")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDefaultBaseline;
-
-        public bool? DefaultBaseline => _mDefaultBaseline.GetValue("defaultBaseline");
+        private bool? _mValue_DefaultBaseline;
+        private bool _mUnknown_DefaultBaseline;
+        public bool? DefaultBaseline
+        {
+            get
+            {
+                if (!_mUnknown_DefaultBaseline) return _mValue_DefaultBaseline;
+                throw new UndeferrableValueException("Value 'GetPatchBaselinesBaselineIdentityResult.DefaultBaseline' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating system the patch baseline applies to.
         /// </summary>
-        [Input("operatingSystem")]
+        [PolicyResourceProperty("operatingSystem", "_mUnknown_OperatingSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
-
-        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+        private string? _mValue_OperatingSystem;
+        private bool _mUnknown_OperatingSystem;
+        public string? OperatingSystem
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystem) return _mValue_OperatingSystem;
+                throw new UndeferrableValueException("Value 'GetPatchBaselinesBaselineIdentityResult.OperatingSystem' is not present");
+            }
+        }
     }
 }

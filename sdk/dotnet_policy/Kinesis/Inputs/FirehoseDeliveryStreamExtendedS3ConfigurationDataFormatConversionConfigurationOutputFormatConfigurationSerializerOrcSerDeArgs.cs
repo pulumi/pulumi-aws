@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
         /// </summary>
-        [Input("blockSizeBytes")]
+        [PolicyResourceProperty("blockSizeBytes", "_mUnknown_BlockSizeBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockSizeBytes;
-
-        public int? BlockSizeBytes => _mBlockSizeBytes.GetValue("blockSizeBytes");
+        private int? _mValue_BlockSizeBytes;
+        private bool _mUnknown_BlockSizeBytes;
+        public int? BlockSizeBytes
+        {
+            get
+            {
+                if (!_mUnknown_BlockSizeBytes) return _mValue_BlockSizeBytes;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.BlockSizeBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
         /// </summary>
-        [Input("bloomFilterColumns")]
+        [PolicyResourceProperty("bloomFilterColumns", "_mUnknown_BloomFilterColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBloomFilterColumns;
-
-        public List<string>? BloomFilterColumns => _mBloomFilterColumns.GetValue("bloomFilterColumns");
+        private List<string>? _mValue_BloomFilterColumns;
+        private bool _mUnknown_BloomFilterColumns;
+        public List<string>? BloomFilterColumns
+        {
+            get
+            {
+                if (!_mUnknown_BloomFilterColumns) return _mValue_BloomFilterColumns;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.BloomFilterColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
         /// </summary>
-        [Input("bloomFilterFalsePositiveProbability")]
+        [PolicyResourceProperty("bloomFilterFalsePositiveProbability", "_mUnknown_BloomFilterFalsePositiveProbability")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBloomFilterFalsePositiveProbability;
-
-        public double? BloomFilterFalsePositiveProbability => _mBloomFilterFalsePositiveProbability.GetValue("bloomFilterFalsePositiveProbability");
+        private double? _mValue_BloomFilterFalsePositiveProbability;
+        private bool _mUnknown_BloomFilterFalsePositiveProbability;
+        public double? BloomFilterFalsePositiveProbability
+        {
+            get
+            {
+                if (!_mUnknown_BloomFilterFalsePositiveProbability) return _mValue_BloomFilterFalsePositiveProbability;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.BloomFilterFalsePositiveProbability' is not present");
+            }
+        }
 
         /// <summary>
         /// The compression code to use over data blocks. The default is `SNAPPY`.
         /// </summary>
-        [Input("compression")]
+        [PolicyResourceProperty("compression", "_mUnknown_Compression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
-
-        public string? Compression => _mCompression.GetValue("compression");
+        private string? _mValue_Compression;
+        private bool _mUnknown_Compression;
+        public string? Compression
+        {
+            get
+            {
+                if (!_mUnknown_Compression) return _mValue_Compression;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.Compression' is not present");
+            }
+        }
 
         /// <summary>
         /// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
         /// </summary>
-        [Input("dictionaryKeyThreshold")]
+        [PolicyResourceProperty("dictionaryKeyThreshold", "_mUnknown_DictionaryKeyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mDictionaryKeyThreshold;
-
-        public double? DictionaryKeyThreshold => _mDictionaryKeyThreshold.GetValue("dictionaryKeyThreshold");
+        private double? _mValue_DictionaryKeyThreshold;
+        private bool _mUnknown_DictionaryKeyThreshold;
+        public double? DictionaryKeyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_DictionaryKeyThreshold) return _mValue_DictionaryKeyThreshold;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.DictionaryKeyThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
         /// </summary>
-        [Input("enablePadding")]
+        [PolicyResourceProperty("enablePadding", "_mUnknown_EnablePadding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePadding;
-
-        public bool? EnablePadding => _mEnablePadding.GetValue("enablePadding");
+        private bool? _mValue_EnablePadding;
+        private bool _mUnknown_EnablePadding;
+        public bool? EnablePadding
+        {
+            get
+            {
+                if (!_mUnknown_EnablePadding) return _mValue_EnablePadding;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.EnablePadding' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
         /// </summary>
-        [Input("formatVersion")]
+        [PolicyResourceProperty("formatVersion", "_mUnknown_FormatVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormatVersion;
-
-        public string? FormatVersion => _mFormatVersion.GetValue("formatVersion");
+        private string? _mValue_FormatVersion;
+        private bool _mUnknown_FormatVersion;
+        public string? FormatVersion
+        {
+            get
+            {
+                if (!_mUnknown_FormatVersion) return _mValue_FormatVersion;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.FormatVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
         /// </summary>
-        [Input("paddingTolerance")]
+        [PolicyResourceProperty("paddingTolerance", "_mUnknown_PaddingTolerance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mPaddingTolerance;
-
-        public double? PaddingTolerance => _mPaddingTolerance.GetValue("paddingTolerance");
+        private double? _mValue_PaddingTolerance;
+        private bool _mUnknown_PaddingTolerance;
+        public double? PaddingTolerance
+        {
+            get
+            {
+                if (!_mUnknown_PaddingTolerance) return _mValue_PaddingTolerance;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.PaddingTolerance' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
         /// </summary>
-        [Input("rowIndexStride")]
+        [PolicyResourceProperty("rowIndexStride", "_mUnknown_RowIndexStride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRowIndexStride;
-
-        public int? RowIndexStride => _mRowIndexStride.GetValue("rowIndexStride");
+        private int? _mValue_RowIndexStride;
+        private bool _mUnknown_RowIndexStride;
+        public int? RowIndexStride
+        {
+            get
+            {
+                if (!_mUnknown_RowIndexStride) return _mValue_RowIndexStride;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.RowIndexStride' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
         /// </summary>
-        [Input("stripeSizeBytes")]
+        [PolicyResourceProperty("stripeSizeBytes", "_mUnknown_StripeSizeBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStripeSizeBytes;
-
-        public int? StripeSizeBytes => _mStripeSizeBytes.GetValue("stripeSizeBytes");
+        private int? _mValue_StripeSizeBytes;
+        private bool _mUnknown_StripeSizeBytes;
+        public int? StripeSizeBytes
+        {
+            get
+            {
+                if (!_mUnknown_StripeSizeBytes) return _mValue_StripeSizeBytes;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.StripeSizeBytes' is not present");
+            }
+        }
     }
 }

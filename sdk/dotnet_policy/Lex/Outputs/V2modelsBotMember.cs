@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// (Required) - Alias ID of a bot that is a member of this network of bots.
         /// </summary>
-        [Input("aliasId")]
+        [PolicyResourceProperty("aliasId", "_mUnknown_AliasId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAliasId;
-
-        public string? AliasId => _mAliasId.GetValue("aliasId");
+        private string? _mValue_AliasId;
+        private bool _mUnknown_AliasId;
+        public string? AliasId
+        {
+            get
+            {
+                if (!_mUnknown_AliasId) return _mValue_AliasId;
+                throw new UndeferrableValueException("Value 'V2modelsBotMember.AliasId' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) - Alias name of a bot that is a member of this network of bots.
         /// </summary>
-        [Input("aliasName")]
+        [PolicyResourceProperty("aliasName", "_mUnknown_AliasName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
-
-        public string? AliasName => _mAliasName.GetValue("aliasName");
+        private string? _mValue_AliasName;
+        private bool _mUnknown_AliasName;
+        public string? AliasName
+        {
+            get
+            {
+                if (!_mUnknown_AliasName) return _mValue_AliasName;
+                throw new UndeferrableValueException("Value 'V2modelsBotMember.AliasName' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) - Unique ID of a bot that is a member of this network of bots.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'V2modelsBotMember.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsBotMember.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) - Version of a bot that is a member of this network of bots.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'V2modelsBotMember.Version' is not present");
+            }
+        }
     }
 }

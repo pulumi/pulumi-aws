@@ -16,53 +16,95 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces
         /// <summary>
         /// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
         /// </summary>
-        [Input("connectionString")]
+        [PolicyResourceProperty("connectionString", "_mUnknown_ConnectionString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionString;
-
-        public string? ConnectionString => _mConnectionString.GetValue("connectionString");
+        private string? _mValue_ConnectionString;
+        private bool _mUnknown_ConnectionString;
+        public string? ConnectionString
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionString) return _mValue_ConnectionString;
+                throw new UndeferrableValueException("Value 'ConnectionAlias.ConnectionString' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the Amazon Web Services account that owns the connection alias.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'ConnectionAlias.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the connection alias.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ConnectionAlias.State' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectionAlias.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ConnectionAlias.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectionAliasTimeouts> _mTimeouts;
-
-        public Outputs.ConnectionAliasTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ConnectionAliasTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ConnectionAliasTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ConnectionAlias.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:workspaces/connectionAlias:ConnectionAlias")]
@@ -71,25 +113,46 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces
         /// <summary>
         /// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
         /// </summary>
-        [Input("connectionString")]
+        [PolicyResourceProperty("connectionString", "_mUnknown_ConnectionString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionString;
-
-        public string? ConnectionString => _mConnectionString.GetValue("connectionString");
+        private string? _mValue_ConnectionString;
+        private bool _mUnknown_ConnectionString;
+        public string? ConnectionString
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionString) return _mValue_ConnectionString;
+                throw new UndeferrableValueException("Value 'ConnectionAliasArgs.ConnectionString' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectionAliasArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectionAliasTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ConnectionAliasTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ConnectionAliasTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ConnectionAliasTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ConnectionAliasArgs.Timeouts' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
         /// </summary>
-        [Input("appLifecycleManagement")]
+        [PolicyResourceProperty("appLifecycleManagement", "_mUnknown_AppLifecycleManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement> _mAppLifecycleManagement;
-
-        public Outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement? AppLifecycleManagement => _mAppLifecycleManagement.GetValue("appLifecycleManagement");
+        private Outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement? _mValue_AppLifecycleManagement;
+        private bool _mUnknown_AppLifecycleManagement;
+        public Outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement? AppLifecycleManagement
+        {
+            get
+            {
+                if (!_mUnknown_AppLifecycleManagement) return _mValue_AppLifecycleManagement;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettings.AppLifecycleManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
         /// </summary>
-        [Input("codeRepositories")]
+        [PolicyResourceProperty("codeRepositories", "_mUnknown_CodeRepositories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>> _mCodeRepositories;
-
-        public List<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>? CodeRepositories => _mCodeRepositories.GetValue("codeRepositories");
+        private List<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>? _mValue_CodeRepositories;
+        private bool _mUnknown_CodeRepositories;
+        public List<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>? CodeRepositories
+        {
+            get
+            {
+                if (!_mUnknown_CodeRepositories) return _mValue_CodeRepositories;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettings.CodeRepositories' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec> _mDefaultResourceSpec;
-
-        public Outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettings.DefaultResourceSpec' is not present");
+            }
+        }
     }
 }

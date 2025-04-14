@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
         /// </summary>
-        [Input("columnId")]
+        [PolicyResourceProperty("columnId", "_mUnknown_ColumnId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnId;
-
-        public string? ColumnId => _mColumnId.GetValue("columnId");
+        private string? _mValue_ColumnId;
+        private bool _mUnknown_ColumnId;
+        public string? ColumnId
+        {
+            get
+            {
+                if (!_mUnknown_ColumnId) return _mValue_ColumnId;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.ColumnId' is not present");
+            }
+        }
 
         /// <summary>
         /// Column name.
         /// </summary>
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
-
-        public string? ColumnName => _mColumnName.GetValue("columnName");
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.ColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// An expression that defines the calculated column.
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.Expression' is not present");
+            }
+        }
     }
 }

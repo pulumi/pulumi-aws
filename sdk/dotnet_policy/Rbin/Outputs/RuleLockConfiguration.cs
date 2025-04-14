@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Rbin.Outputs
         /// <summary>
         /// Information about the retention rule unlock delay. See `unlock_delay` below.
         /// </summary>
-        [Input("unlockDelay")]
+        [PolicyResourceProperty("unlockDelay", "_mUnknown_UnlockDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleLockConfigurationUnlockDelay> _mUnlockDelay;
-
-        public Outputs.RuleLockConfigurationUnlockDelay? UnlockDelay => _mUnlockDelay.GetValue("unlockDelay");
+        private Outputs.RuleLockConfigurationUnlockDelay? _mValue_UnlockDelay;
+        private bool _mUnknown_UnlockDelay;
+        public Outputs.RuleLockConfigurationUnlockDelay? UnlockDelay
+        {
+            get
+            {
+                if (!_mUnknown_UnlockDelay) return _mValue_UnlockDelay;
+                throw new UndeferrableValueException("Value 'RuleLockConfiguration.UnlockDelay' is not present");
+            }
+        }
     }
 }

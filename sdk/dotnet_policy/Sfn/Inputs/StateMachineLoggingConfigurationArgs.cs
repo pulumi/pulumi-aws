@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sfn.Inputs
         /// <summary>
         /// Determines whether execution data is included in your log. When set to `false`, data is excluded.
         /// </summary>
-        [Input("includeExecutionData")]
+        [PolicyResourceProperty("includeExecutionData", "_mUnknown_IncludeExecutionData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeExecutionData;
-
-        public bool? IncludeExecutionData => _mIncludeExecutionData.GetValue("includeExecutionData");
+        private bool? _mValue_IncludeExecutionData;
+        private bool _mUnknown_IncludeExecutionData;
+        public bool? IncludeExecutionData
+        {
+            get
+            {
+                if (!_mUnknown_IncludeExecutionData) return _mValue_IncludeExecutionData;
+                throw new UndeferrableValueException("Value 'StateMachineLoggingConfigurationArgs.IncludeExecutionData' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
         /// </summary>
-        [Input("level")]
+        [PolicyResourceProperty("level", "_mUnknown_Level")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
-
-        public string? Level => _mLevel.GetValue("level");
+        private string? _mValue_Level;
+        private bool _mUnknown_Level;
+        public string? Level
+        {
+            get
+            {
+                if (!_mUnknown_Level) return _mValue_Level;
+                throw new UndeferrableValueException("Value 'StateMachineLoggingConfigurationArgs.Level' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         /// </summary>
-        [Input("logDestination")]
+        [PolicyResourceProperty("logDestination", "_mUnknown_LogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestination;
-
-        public string? LogDestination => _mLogDestination.GetValue("logDestination");
+        private string? _mValue_LogDestination;
+        private bool _mUnknown_LogDestination;
+        public string? LogDestination
+        {
+            get
+            {
+                if (!_mUnknown_LogDestination) return _mValue_LogDestination;
+                throw new UndeferrableValueException("Value 'StateMachineLoggingConfigurationArgs.LogDestination' is not present");
+            }
+        }
     }
 }

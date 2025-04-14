@@ -15,145 +15,257 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
         /// </summary>
-        [Input("amplitude")]
+        [PolicyResourceProperty("amplitude", "_mUnknown_Amplitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmplitude;
-
-        public string? Amplitude => _mAmplitude.GetValue("amplitude");
+        private string? _mValue_Amplitude;
+        private bool _mUnknown_Amplitude;
+        public string? Amplitude
+        {
+            get
+            {
+                if (!_mUnknown_Amplitude) return _mValue_Amplitude;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Amplitude' is not present");
+            }
+        }
 
         /// <summary>
         /// Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("customConnector")]
+        [PolicyResourceProperty("customConnector", "_mUnknown_CustomConnector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomConnector;
-
-        public string? CustomConnector => _mCustomConnector.GetValue("customConnector");
+        private string? _mValue_CustomConnector;
+        private bool _mUnknown_CustomConnector;
+        public string? CustomConnector
+        {
+            get
+            {
+                if (!_mUnknown_CustomConnector) return _mValue_CustomConnector;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.CustomConnector' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("datadog")]
+        [PolicyResourceProperty("datadog", "_mUnknown_Datadog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatadog;
-
-        public string? Datadog => _mDatadog.GetValue("datadog");
+        private string? _mValue_Datadog;
+        private bool _mUnknown_Datadog;
+        public string? Datadog
+        {
+            get
+            {
+                if (!_mUnknown_Datadog) return _mValue_Datadog;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Datadog' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("dynatrace")]
+        [PolicyResourceProperty("dynatrace", "_mUnknown_Dynatrace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDynatrace;
-
-        public string? Dynatrace => _mDynatrace.GetValue("dynatrace");
+        private string? _mValue_Dynatrace;
+        private bool _mUnknown_Dynatrace;
+        public string? Dynatrace
+        {
+            get
+            {
+                if (!_mUnknown_Dynatrace) return _mValue_Dynatrace;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Dynatrace' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
         /// </summary>
-        [Input("googleAnalytics")]
+        [PolicyResourceProperty("googleAnalytics", "_mUnknown_GoogleAnalytics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGoogleAnalytics;
-
-        public string? GoogleAnalytics => _mGoogleAnalytics.GetValue("googleAnalytics");
+        private string? _mValue_GoogleAnalytics;
+        private bool _mUnknown_GoogleAnalytics;
+        public string? GoogleAnalytics
+        {
+            get
+            {
+                if (!_mUnknown_GoogleAnalytics) return _mValue_GoogleAnalytics;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.GoogleAnalytics' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("inforNexus")]
+        [PolicyResourceProperty("inforNexus", "_mUnknown_InforNexus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInforNexus;
-
-        public string? InforNexus => _mInforNexus.GetValue("inforNexus");
+        private string? _mValue_InforNexus;
+        private bool _mUnknown_InforNexus;
+        public string? InforNexus
+        {
+            get
+            {
+                if (!_mUnknown_InforNexus) return _mValue_InforNexus;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.InforNexus' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("marketo")]
+        [PolicyResourceProperty("marketo", "_mUnknown_Marketo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMarketo;
-
-        public string? Marketo => _mMarketo.GetValue("marketo");
+        private string? _mValue_Marketo;
+        private bool _mUnknown_Marketo;
+        public string? Marketo
+        {
+            get
+            {
+                if (!_mUnknown_Marketo) return _mValue_Marketo;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Marketo' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3;
-
-        public string? S3 => _mS3.GetValue("s3");
+        private string? _mValue_S3;
+        private bool _mUnknown_S3;
+        public string? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("salesforce")]
+        [PolicyResourceProperty("salesforce", "_mUnknown_Salesforce")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSalesforce;
-
-        public string? Salesforce => _mSalesforce.GetValue("salesforce");
+        private string? _mValue_Salesforce;
+        private bool _mUnknown_Salesforce;
+        public string? Salesforce
+        {
+            get
+            {
+                if (!_mUnknown_Salesforce) return _mValue_Salesforce;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Salesforce' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("sapoData")]
+        [PolicyResourceProperty("sapoData", "_mUnknown_SapoData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSapoData;
-
-        public string? SapoData => _mSapoData.GetValue("sapoData");
+        private string? _mValue_SapoData;
+        private bool _mUnknown_SapoData;
+        public string? SapoData
+        {
+            get
+            {
+                if (!_mUnknown_SapoData) return _mValue_SapoData;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.SapoData' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("serviceNow")]
+        [PolicyResourceProperty("serviceNow", "_mUnknown_ServiceNow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNow;
-
-        public string? ServiceNow => _mServiceNow.GetValue("serviceNow");
+        private string? _mValue_ServiceNow;
+        private bool _mUnknown_ServiceNow;
+        public string? ServiceNow
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNow) return _mValue_ServiceNow;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.ServiceNow' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("singular")]
+        [PolicyResourceProperty("singular", "_mUnknown_Singular")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSingular;
-
-        public string? Singular => _mSingular.GetValue("singular");
+        private string? _mValue_Singular;
+        private bool _mUnknown_Singular;
+        public string? Singular
+        {
+            get
+            {
+                if (!_mUnknown_Singular) return _mValue_Singular;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Singular' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("slack")]
+        [PolicyResourceProperty("slack", "_mUnknown_Slack")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlack;
-
-        public string? Slack => _mSlack.GetValue("slack");
+        private string? _mValue_Slack;
+        private bool _mUnknown_Slack;
+        public string? Slack
+        {
+            get
+            {
+                if (!_mUnknown_Slack) return _mValue_Slack;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Slack' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("trendmicro")]
+        [PolicyResourceProperty("trendmicro", "_mUnknown_Trendmicro")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrendmicro;
-
-        public string? Trendmicro => _mTrendmicro.GetValue("trendmicro");
+        private string? _mValue_Trendmicro;
+        private bool _mUnknown_Trendmicro;
+        public string? Trendmicro
+        {
+            get
+            {
+                if (!_mUnknown_Trendmicro) return _mValue_Trendmicro;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Trendmicro' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("veeva")]
+        [PolicyResourceProperty("veeva", "_mUnknown_Veeva")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVeeva;
-
-        public string? Veeva => _mVeeva.GetValue("veeva");
+        private string? _mValue_Veeva;
+        private bool _mUnknown_Veeva;
+        public string? Veeva
+        {
+            get
+            {
+                if (!_mUnknown_Veeva) return _mValue_Veeva;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Veeva' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("zendesk")]
+        [PolicyResourceProperty("zendesk", "_mUnknown_Zendesk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZendesk;
-
-        public string? Zendesk => _mZendesk.GetValue("zendesk");
+        private string? _mValue_Zendesk;
+        private bool _mUnknown_Zendesk;
+        public string? Zendesk
+        {
+            get
+            {
+                if (!_mUnknown_Zendesk) return _mValue_Zendesk;
+                throw new UndeferrableValueException("Value 'FlowTaskConnectorOperatorArgs.Zendesk' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether a conditional branch is active. When active is false, the conditions are not evaluated.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditional.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         /// </summary>
-        [Input("conditionalBranches")]
+        [PolicyResourceProperty("conditionalBranches", "_mUnknown_ConditionalBranches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch>> _mConditionalBranches;
-
-        public List<Outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch>? ConditionalBranches => _mConditionalBranches.GetValue("conditionalBranches");
+        private List<Outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch>? _mValue_ConditionalBranches;
+        private bool _mUnknown_ConditionalBranches;
+        public List<Outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch>? ConditionalBranches
+        {
+            get
+            {
+                if (!_mUnknown_ConditionalBranches) return _mValue_ConditionalBranches;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditional.ConditionalBranches' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         /// </summary>
-        [Input("defaultBranch")]
+        [PolicyResourceProperty("defaultBranch", "_mUnknown_DefaultBranch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch> _mDefaultBranch;
-
-        public Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch? DefaultBranch => _mDefaultBranch.GetValue("defaultBranch");
+        private Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch? _mValue_DefaultBranch;
+        private bool _mUnknown_DefaultBranch;
+        public Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch? DefaultBranch
+        {
+            get
+            {
+                if (!_mUnknown_DefaultBranch) return _mValue_DefaultBranch;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditional.DefaultBranch' is not present");
+            }
+        }
     }
 }

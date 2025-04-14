@@ -12,37 +12,65 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness.Outputs
 {
     public sealed class ResourceSetResource
     {
-        [Input("componentId")]
+        [PolicyResourceProperty("componentId", "_mUnknown_ComponentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComponentId;
-
-        public string? ComponentId => _mComponentId.GetValue("componentId");
+        private string? _mValue_ComponentId;
+        private bool _mUnknown_ComponentId;
+        public string? ComponentId
+        {
+            get
+            {
+                if (!_mUnknown_ComponentId) return _mValue_ComponentId;
+                throw new UndeferrableValueException("Value 'ResourceSetResource.ComponentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Component for DNS/Routing Control Readiness Checks.
         /// </summary>
-        [Input("dnsTargetResource")]
+        [PolicyResourceProperty("dnsTargetResource", "_mUnknown_DnsTargetResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceSetResourceDnsTargetResource> _mDnsTargetResource;
-
-        public Outputs.ResourceSetResourceDnsTargetResource? DnsTargetResource => _mDnsTargetResource.GetValue("dnsTargetResource");
+        private Outputs.ResourceSetResourceDnsTargetResource? _mValue_DnsTargetResource;
+        private bool _mUnknown_DnsTargetResource;
+        public Outputs.ResourceSetResourceDnsTargetResource? DnsTargetResource
+        {
+            get
+            {
+                if (!_mUnknown_DnsTargetResource) return _mValue_DnsTargetResource;
+                throw new UndeferrableValueException("Value 'ResourceSetResource.DnsTargetResource' is not present");
+            }
+        }
 
         /// <summary>
         /// Recovery group ARN or cell ARN that contains this resource set.
         /// </summary>
-        [Input("readinessScopes")]
+        [PolicyResourceProperty("readinessScopes", "_mUnknown_ReadinessScopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReadinessScopes;
-
-        public List<string>? ReadinessScopes => _mReadinessScopes.GetValue("readinessScopes");
+        private List<string>? _mValue_ReadinessScopes;
+        private bool _mUnknown_ReadinessScopes;
+        public List<string>? ReadinessScopes
+        {
+            get
+            {
+                if (!_mUnknown_ReadinessScopes) return _mValue_ReadinessScopes;
+                throw new UndeferrableValueException("Value 'ResourceSetResource.ReadinessScopes' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ResourceSetResource.ResourceArn' is not present");
+            }
+        }
     }
 }

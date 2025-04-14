@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
         /// </summary>
-        [Input("cloudwatchLogsRoleArn")]
+        [PolicyResourceProperty("cloudwatchLogsRoleArn", "_mUnknown_CloudwatchLogsRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogsRoleArn;
-
-        public string? CloudwatchLogsRoleArn => _mCloudwatchLogsRoleArn.GetValue("cloudwatchLogsRoleArn");
+        private string? _mValue_CloudwatchLogsRoleArn;
+        private bool _mUnknown_CloudwatchLogsRoleArn;
+        public string? CloudwatchLogsRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogsRoleArn) return _mValue_CloudwatchLogsRoleArn;
+                throw new UndeferrableValueException("Value 'GraphQLApiLogConfig.CloudwatchLogsRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
         /// </summary>
-        [Input("excludeVerboseContent")]
+        [PolicyResourceProperty("excludeVerboseContent", "_mUnknown_ExcludeVerboseContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExcludeVerboseContent;
-
-        public bool? ExcludeVerboseContent => _mExcludeVerboseContent.GetValue("excludeVerboseContent");
+        private bool? _mValue_ExcludeVerboseContent;
+        private bool _mUnknown_ExcludeVerboseContent;
+        public bool? ExcludeVerboseContent
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeVerboseContent) return _mValue_ExcludeVerboseContent;
+                throw new UndeferrableValueException("Value 'GraphQLApiLogConfig.ExcludeVerboseContent' is not present");
+            }
+        }
 
         /// <summary>
         /// Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
         /// </summary>
-        [Input("fieldLogLevel")]
+        [PolicyResourceProperty("fieldLogLevel", "_mUnknown_FieldLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFieldLogLevel;
-
-        public string? FieldLogLevel => _mFieldLogLevel.GetValue("fieldLogLevel");
+        private string? _mValue_FieldLogLevel;
+        private bool _mUnknown_FieldLogLevel;
+        public string? FieldLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_FieldLogLevel) return _mValue_FieldLogLevel;
+                throw new UndeferrableValueException("Value 'GraphQLApiLogConfig.FieldLogLevel' is not present");
+            }
+        }
     }
 }

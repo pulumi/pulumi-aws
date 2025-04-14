@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         /// </summary>
-        [Input("desiredNumberOfDomainControllers")]
+        [PolicyResourceProperty("desiredNumberOfDomainControllers", "_mUnknown_DesiredNumberOfDomainControllers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
-
-        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
+        private int? _mValue_DesiredNumberOfDomainControllers;
+        private bool _mUnknown_DesiredNumberOfDomainControllers;
+        public int? DesiredNumberOfDomainControllers
+        {
+            get
+            {
+                if (!_mUnknown_DesiredNumberOfDomainControllers) return _mValue_DesiredNumberOfDomainControllers;
+                throw new UndeferrableValueException("Value 'ServiceRegion.DesiredNumberOfDomainControllers' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the directory to which you want to add Region replication.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'ServiceRegion.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Region where you want to add domain controllers for replication.
         /// </summary>
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'ServiceRegion.RegionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceRegion.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServiceRegion.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC information in the replicated Region. Detailed below.
         /// </summary>
-        [Input("vpcSettings")]
+        [PolicyResourceProperty("vpcSettings", "_mUnknown_VpcSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceRegionVpcSettings> _mVpcSettings;
-
-        public Outputs.ServiceRegionVpcSettings? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
+        private Outputs.ServiceRegionVpcSettings? _mValue_VpcSettings;
+        private bool _mUnknown_VpcSettings;
+        public Outputs.ServiceRegionVpcSettings? VpcSettings
+        {
+            get
+            {
+                if (!_mUnknown_VpcSettings) return _mValue_VpcSettings;
+                throw new UndeferrableValueException("Value 'ServiceRegion.VpcSettings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directoryservice/serviceRegion:ServiceRegion")]
@@ -74,46 +116,81 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         /// </summary>
-        [Input("desiredNumberOfDomainControllers")]
+        [PolicyResourceProperty("desiredNumberOfDomainControllers", "_mUnknown_DesiredNumberOfDomainControllers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredNumberOfDomainControllers;
-
-        public int? DesiredNumberOfDomainControllers => _mDesiredNumberOfDomainControllers.GetValue("desiredNumberOfDomainControllers");
+        private int? _mValue_DesiredNumberOfDomainControllers;
+        private bool _mUnknown_DesiredNumberOfDomainControllers;
+        public int? DesiredNumberOfDomainControllers
+        {
+            get
+            {
+                if (!_mUnknown_DesiredNumberOfDomainControllers) return _mValue_DesiredNumberOfDomainControllers;
+                throw new UndeferrableValueException("Value 'ServiceRegionArgs.DesiredNumberOfDomainControllers' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the directory to which you want to add Region replication.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'ServiceRegionArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Region where you want to add domain controllers for replication.
         /// </summary>
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'ServiceRegionArgs.RegionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceRegionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC information in the replicated Region. Detailed below.
         /// </summary>
-        [Input("vpcSettings")]
+        [PolicyResourceProperty("vpcSettings", "_mUnknown_VpcSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceRegionVpcSettingsArgs> _mVpcSettings;
-
-        public Inputs.ServiceRegionVpcSettingsArgs? VpcSettings => _mVpcSettings.GetValue("vpcSettings");
+        private Inputs.ServiceRegionVpcSettingsArgs? _mValue_VpcSettings;
+        private bool _mUnknown_VpcSettings;
+        public Inputs.ServiceRegionVpcSettingsArgs? VpcSettings
+        {
+            get
+            {
+                if (!_mUnknown_VpcSettings) return _mValue_VpcSettings;
+                throw new UndeferrableValueException("Value 'ServiceRegionArgs.VpcSettings' is not present");
+            }
+        }
     }
 }

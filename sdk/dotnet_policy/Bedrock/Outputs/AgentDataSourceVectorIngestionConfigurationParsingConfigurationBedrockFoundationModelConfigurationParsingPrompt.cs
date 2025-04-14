@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Instructions for interpreting the contents of the document.
         /// </summary>
-        [Input("parsingPromptString")]
+        [PolicyResourceProperty("parsingPromptString", "_mUnknown_ParsingPromptString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParsingPromptString;
-
-        public string? ParsingPromptString => _mParsingPromptString.GetValue("parsingPromptString");
+        private string? _mValue_ParsingPromptString;
+        private bool _mUnknown_ParsingPromptString;
+        public string? ParsingPromptString
+        {
+            get
+            {
+                if (!_mUnknown_ParsingPromptString) return _mValue_ParsingPromptString;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt.ParsingPromptString' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// Your secret ARN, which you can create in AWS Secrets Manager. The credentials are optional. You use a secret if web proxy credentials are required to connect to a website host. Amazon Kendra currently support basic authentication to connect to a web proxy server. The secret stores your credentials.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentials;
-
-        public string? Credentials => _mCredentials.GetValue("credentials");
+        private string? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public string? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
         /// </summary>
-        [Input("host")]
+        [PolicyResourceProperty("host", "_mUnknown_Host")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
-
-        public string? Host => _mHost.GetValue("host");
+        private string? _mValue_Host;
+        private bool _mUnknown_Host;
+        public string? Host
+        {
+            get
+            {
+                if (!_mUnknown_Host) return _mValue_Host;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration.Host' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration.Port' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         /// </summary>
-        [Input("putItem")]
+        [PolicyResourceProperty("putItem", "_mUnknown_PutItem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TopicRuleDynamodbv2PutItemArgs> _mPutItem;
-
-        public Inputs.TopicRuleDynamodbv2PutItemArgs? PutItem => _mPutItem.GetValue("putItem");
+        private Inputs.TopicRuleDynamodbv2PutItemArgs? _mValue_PutItem;
+        private bool _mUnknown_PutItem;
+        public Inputs.TopicRuleDynamodbv2PutItemArgs? PutItem
+        {
+            get
+            {
+                if (!_mUnknown_PutItem) return _mValue_PutItem;
+                throw new UndeferrableValueException("Value 'TopicRuleDynamodbv2Args.PutItem' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access to the DynamoDB table.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleDynamodbv2Args.RoleArn' is not present");
+            }
+        }
     }
 }

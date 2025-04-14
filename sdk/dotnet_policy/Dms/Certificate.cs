@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// <summary>
         /// The Amazon Resource Name (ARN) for the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate identifier.
         /// 
         /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
         /// </summary>
-        [Input("certificateId")]
+        [PolicyResourceProperty("certificateId", "_mUnknown_CertificateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
-
-        public string? CertificateId => _mCertificateId.GetValue("certificateId");
+        private string? _mValue_CertificateId;
+        private bool _mUnknown_CertificateId;
+        public string? CertificateId
+        {
+            get
+            {
+                if (!_mUnknown_CertificateId) return _mValue_CertificateId;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateId' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificatePem")]
+        [PolicyResourceProperty("certificatePem", "_mUnknown_CertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
-
-        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
+        private string? _mValue_CertificatePem;
+        private bool _mUnknown_CertificatePem;
+        public string? CertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_CertificatePem) return _mValue_CertificatePem;
+                throw new UndeferrableValueException("Value 'Certificate.CertificatePem' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificateWallet")]
+        [PolicyResourceProperty("certificateWallet", "_mUnknown_CertificateWallet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateWallet;
-
-        public string? CertificateWallet => _mCertificateWallet.GetValue("certificateWallet");
+        private string? _mValue_CertificateWallet;
+        private bool _mUnknown_CertificateWallet;
+        public string? CertificateWallet
+        {
+            get
+            {
+                if (!_mUnknown_CertificateWallet) return _mValue_CertificateWallet;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateWallet' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Certificate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Certificate.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dms/certificate:Certificate")]
@@ -78,37 +120,65 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// 
         /// - Must contain from 1 to 255 alphanumeric characters and hyphens.
         /// </summary>
-        [Input("certificateId")]
+        [PolicyResourceProperty("certificateId", "_mUnknown_CertificateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
-
-        public string? CertificateId => _mCertificateId.GetValue("certificateId");
+        private string? _mValue_CertificateId;
+        private bool _mUnknown_CertificateId;
+        public string? CertificateId
+        {
+            get
+            {
+                if (!_mUnknown_CertificateId) return _mValue_CertificateId;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateId' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificatePem")]
+        [PolicyResourceProperty("certificatePem", "_mUnknown_CertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
-
-        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
+        private string? _mValue_CertificatePem;
+        private bool _mUnknown_CertificatePem;
+        public string? CertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_CertificatePem) return _mValue_CertificatePem;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificatePem' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
         /// </summary>
-        [Input("certificateWallet")]
+        [PolicyResourceProperty("certificateWallet", "_mUnknown_CertificateWallet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateWallet;
-
-        public string? CertificateWallet => _mCertificateWallet.GetValue("certificateWallet");
+        private string? _mValue_CertificateWallet;
+        private bool _mUnknown_CertificateWallet;
+        public string? CertificateWallet
+        {
+            get
+            {
+                if (!_mUnknown_CertificateWallet) return _mValue_CertificateWallet;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateWallet' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Tags' is not present");
+            }
+        }
     }
 }

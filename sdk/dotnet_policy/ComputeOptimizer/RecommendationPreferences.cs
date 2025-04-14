@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer
         /// <summary>
         /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         /// </summary>
-        [Input("enhancedInfrastructureMetrics")]
+        [PolicyResourceProperty("enhancedInfrastructureMetrics", "_mUnknown_EnhancedInfrastructureMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedInfrastructureMetrics;
-
-        public string? EnhancedInfrastructureMetrics => _mEnhancedInfrastructureMetrics.GetValue("enhancedInfrastructureMetrics");
+        private string? _mValue_EnhancedInfrastructureMetrics;
+        private bool _mUnknown_EnhancedInfrastructureMetrics;
+        public string? EnhancedInfrastructureMetrics
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedInfrastructureMetrics) return _mValue_EnhancedInfrastructureMetrics;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.EnhancedInfrastructureMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
         /// </summary>
-        [Input("externalMetricsPreference")]
+        [PolicyResourceProperty("externalMetricsPreference", "_mUnknown_ExternalMetricsPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecommendationPreferencesExternalMetricsPreference> _mExternalMetricsPreference;
-
-        public Outputs.RecommendationPreferencesExternalMetricsPreference? ExternalMetricsPreference => _mExternalMetricsPreference.GetValue("externalMetricsPreference");
+        private Outputs.RecommendationPreferencesExternalMetricsPreference? _mValue_ExternalMetricsPreference;
+        private bool _mUnknown_ExternalMetricsPreference;
+        public Outputs.RecommendationPreferencesExternalMetricsPreference? ExternalMetricsPreference
+        {
+            get
+            {
+                if (!_mUnknown_ExternalMetricsPreference) return _mValue_ExternalMetricsPreference;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.ExternalMetricsPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         /// </summary>
-        [Input("inferredWorkloadTypes")]
+        [PolicyResourceProperty("inferredWorkloadTypes", "_mUnknown_InferredWorkloadTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInferredWorkloadTypes;
-
-        public string? InferredWorkloadTypes => _mInferredWorkloadTypes.GetValue("inferredWorkloadTypes");
+        private string? _mValue_InferredWorkloadTypes;
+        private bool _mUnknown_InferredWorkloadTypes;
+        public string? InferredWorkloadTypes
+        {
+            get
+            {
+                if (!_mUnknown_InferredWorkloadTypes) return _mValue_InferredWorkloadTypes;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.InferredWorkloadTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         /// </summary>
-        [Input("lookBackPeriod")]
+        [PolicyResourceProperty("lookBackPeriod", "_mUnknown_LookBackPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLookBackPeriod;
-
-        public string? LookBackPeriod => _mLookBackPeriod.GetValue("lookBackPeriod");
+        private string? _mValue_LookBackPeriod;
+        private bool _mUnknown_LookBackPeriod;
+        public string? LookBackPeriod
+        {
+            get
+            {
+                if (!_mUnknown_LookBackPeriod) return _mValue_LookBackPeriod;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.LookBackPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         /// </summary>
-        [Input("preferredResources")]
+        [PolicyResourceProperty("preferredResources", "_mUnknown_PreferredResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecommendationPreferencesPreferredResource>> _mPreferredResources;
-
-        public List<Outputs.RecommendationPreferencesPreferredResource>? PreferredResources => _mPreferredResources.GetValue("preferredResources");
+        private List<Outputs.RecommendationPreferencesPreferredResource>? _mValue_PreferredResources;
+        private bool _mUnknown_PreferredResources;
+        public List<Outputs.RecommendationPreferencesPreferredResource>? PreferredResources
+        {
+            get
+            {
+                if (!_mUnknown_PreferredResources) return _mValue_PreferredResources;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.PreferredResources' is not present");
+            }
+        }
 
         /// <summary>
         /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         /// </summary>
-        [Input("savingsEstimationMode")]
+        [PolicyResourceProperty("savingsEstimationMode", "_mUnknown_SavingsEstimationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSavingsEstimationMode;
-
-        public string? SavingsEstimationMode => _mSavingsEstimationMode.GetValue("savingsEstimationMode");
+        private string? _mValue_SavingsEstimationMode;
+        private bool _mUnknown_SavingsEstimationMode;
+        public string? SavingsEstimationMode
+        {
+            get
+            {
+                if (!_mUnknown_SavingsEstimationMode) return _mValue_SavingsEstimationMode;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.SavingsEstimationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The scope of the recommendation preferences. See Scope below.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecommendationPreferencesScope> _mScope;
-
-        public Outputs.RecommendationPreferencesScope? Scope => _mScope.GetValue("scope");
+        private Outputs.RecommendationPreferencesScope? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public Outputs.RecommendationPreferencesScope? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
         /// </summary>
-        [Input("utilizationPreferences")]
+        [PolicyResourceProperty("utilizationPreferences", "_mUnknown_UtilizationPreferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecommendationPreferencesUtilizationPreference>> _mUtilizationPreferences;
-
-        public List<Outputs.RecommendationPreferencesUtilizationPreference>? UtilizationPreferences => _mUtilizationPreferences.GetValue("utilizationPreferences");
+        private List<Outputs.RecommendationPreferencesUtilizationPreference>? _mValue_UtilizationPreferences;
+        private bool _mUnknown_UtilizationPreferences;
+        public List<Outputs.RecommendationPreferencesUtilizationPreference>? UtilizationPreferences
+        {
+            get
+            {
+                if (!_mUnknown_UtilizationPreferences) return _mValue_UtilizationPreferences;
+                throw new UndeferrableValueException("Value 'RecommendationPreferences.UtilizationPreferences' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:computeoptimizer/recommendationPreferences:RecommendationPreferences")]
@@ -101,82 +164,145 @@ namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer
         /// <summary>
         /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         /// </summary>
-        [Input("enhancedInfrastructureMetrics")]
+        [PolicyResourceProperty("enhancedInfrastructureMetrics", "_mUnknown_EnhancedInfrastructureMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnhancedInfrastructureMetrics;
-
-        public string? EnhancedInfrastructureMetrics => _mEnhancedInfrastructureMetrics.GetValue("enhancedInfrastructureMetrics");
+        private string? _mValue_EnhancedInfrastructureMetrics;
+        private bool _mUnknown_EnhancedInfrastructureMetrics;
+        public string? EnhancedInfrastructureMetrics
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedInfrastructureMetrics) return _mValue_EnhancedInfrastructureMetrics;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.EnhancedInfrastructureMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
         /// </summary>
-        [Input("externalMetricsPreference")]
+        [PolicyResourceProperty("externalMetricsPreference", "_mUnknown_ExternalMetricsPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs> _mExternalMetricsPreference;
-
-        public Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs? ExternalMetricsPreference => _mExternalMetricsPreference.GetValue("externalMetricsPreference");
+        private Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs? _mValue_ExternalMetricsPreference;
+        private bool _mUnknown_ExternalMetricsPreference;
+        public Inputs.RecommendationPreferencesExternalMetricsPreferenceArgs? ExternalMetricsPreference
+        {
+            get
+            {
+                if (!_mUnknown_ExternalMetricsPreference) return _mValue_ExternalMetricsPreference;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.ExternalMetricsPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         /// </summary>
-        [Input("inferredWorkloadTypes")]
+        [PolicyResourceProperty("inferredWorkloadTypes", "_mUnknown_InferredWorkloadTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInferredWorkloadTypes;
-
-        public string? InferredWorkloadTypes => _mInferredWorkloadTypes.GetValue("inferredWorkloadTypes");
+        private string? _mValue_InferredWorkloadTypes;
+        private bool _mUnknown_InferredWorkloadTypes;
+        public string? InferredWorkloadTypes
+        {
+            get
+            {
+                if (!_mUnknown_InferredWorkloadTypes) return _mValue_InferredWorkloadTypes;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.InferredWorkloadTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         /// </summary>
-        [Input("lookBackPeriod")]
+        [PolicyResourceProperty("lookBackPeriod", "_mUnknown_LookBackPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLookBackPeriod;
-
-        public string? LookBackPeriod => _mLookBackPeriod.GetValue("lookBackPeriod");
+        private string? _mValue_LookBackPeriod;
+        private bool _mUnknown_LookBackPeriod;
+        public string? LookBackPeriod
+        {
+            get
+            {
+                if (!_mUnknown_LookBackPeriod) return _mValue_LookBackPeriod;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.LookBackPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         /// </summary>
-        [Input("preferredResources")]
+        [PolicyResourceProperty("preferredResources", "_mUnknown_PreferredResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecommendationPreferencesPreferredResourceArgs>> _mPreferredResources;
-
-        public List<Inputs.RecommendationPreferencesPreferredResourceArgs>? PreferredResources => _mPreferredResources.GetValue("preferredResources");
+        private List<Inputs.RecommendationPreferencesPreferredResourceArgs>? _mValue_PreferredResources;
+        private bool _mUnknown_PreferredResources;
+        public List<Inputs.RecommendationPreferencesPreferredResourceArgs>? PreferredResources
+        {
+            get
+            {
+                if (!_mUnknown_PreferredResources) return _mValue_PreferredResources;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.PreferredResources' is not present");
+            }
+        }
 
         /// <summary>
         /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         /// </summary>
-        [Input("savingsEstimationMode")]
+        [PolicyResourceProperty("savingsEstimationMode", "_mUnknown_SavingsEstimationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSavingsEstimationMode;
-
-        public string? SavingsEstimationMode => _mSavingsEstimationMode.GetValue("savingsEstimationMode");
+        private string? _mValue_SavingsEstimationMode;
+        private bool _mUnknown_SavingsEstimationMode;
+        public string? SavingsEstimationMode
+        {
+            get
+            {
+                if (!_mUnknown_SavingsEstimationMode) return _mValue_SavingsEstimationMode;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.SavingsEstimationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The scope of the recommendation preferences. See Scope below.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecommendationPreferencesScopeArgs> _mScope;
-
-        public Inputs.RecommendationPreferencesScopeArgs? Scope => _mScope.GetValue("scope");
+        private Inputs.RecommendationPreferencesScopeArgs? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public Inputs.RecommendationPreferencesScopeArgs? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
         /// </summary>
-        [Input("utilizationPreferences")]
+        [PolicyResourceProperty("utilizationPreferences", "_mUnknown_UtilizationPreferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>> _mUtilizationPreferences;
-
-        public List<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>? UtilizationPreferences => _mUtilizationPreferences.GetValue("utilizationPreferences");
+        private List<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>? _mValue_UtilizationPreferences;
+        private bool _mUnknown_UtilizationPreferences;
+        public List<Inputs.RecommendationPreferencesUtilizationPreferenceArgs>? UtilizationPreferences
+        {
+            get
+            {
+                if (!_mUnknown_UtilizationPreferences) return _mValue_UtilizationPreferences;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.UtilizationPreferences' is not present");
+            }
+        }
     }
 }

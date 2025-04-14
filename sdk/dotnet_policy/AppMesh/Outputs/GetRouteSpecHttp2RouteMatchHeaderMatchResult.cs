@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecHttp2RouteMatchHeaderMatchResult
     {
-        [Input("exact")]
+        [PolicyResourceProperty("exact", "_mUnknown_Exact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExact;
+        private string? _mValue_Exact;
+        private bool _mUnknown_Exact;
+        public string? Exact
+        {
+            get
+            {
+                if (!_mUnknown_Exact) return _mValue_Exact;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteMatchHeaderMatchResult.Exact' is not present");
+            }
+        }
 
-        public string? Exact => _mExact.GetValue("exact");
-
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteMatchHeaderMatchResult.Prefix' is not present");
+            }
+        }
 
-        public string? Prefix => _mPrefix.GetValue("prefix");
-
-        [Input("ranges")]
+        [PolicyResourceProperty("ranges", "_mUnknown_Ranges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult>> _mRanges;
+        private List<Outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult>? _mValue_Ranges;
+        private bool _mUnknown_Ranges;
+        public List<Outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult>? Ranges
+        {
+            get
+            {
+                if (!_mUnknown_Ranges) return _mValue_Ranges;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteMatchHeaderMatchResult.Ranges' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult>? Ranges => _mRanges.GetValue("ranges");
-
-        [Input("regex")]
+        [PolicyResourceProperty("regex", "_mUnknown_Regex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegex;
+        private string? _mValue_Regex;
+        private bool _mUnknown_Regex;
+        public string? Regex
+        {
+            get
+            {
+                if (!_mUnknown_Regex) return _mValue_Regex;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteMatchHeaderMatchResult.Regex' is not present");
+            }
+        }
 
-        public string? Regex => _mRegex.GetValue("regex");
-
-        [Input("suffix")]
+        [PolicyResourceProperty("suffix", "_mUnknown_Suffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuffix;
-
-        public string? Suffix => _mSuffix.GetValue("suffix");
+        private string? _mValue_Suffix;
+        private bool _mUnknown_Suffix;
+        public string? Suffix
+        {
+            get
+            {
+                if (!_mUnknown_Suffix) return _mValue_Suffix;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteMatchHeaderMatchResult.Suffix' is not present");
+            }
+        }
     }
 }

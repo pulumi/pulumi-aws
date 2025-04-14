@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Qbusiness.Outputs
         /// <summary>
         /// Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("attachmentsControlMode")]
+        [PolicyResourceProperty("attachmentsControlMode", "_mUnknown_AttachmentsControlMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentsControlMode;
-
-        public string? AttachmentsControlMode => _mAttachmentsControlMode.GetValue("attachmentsControlMode");
+        private string? _mValue_AttachmentsControlMode;
+        private bool _mUnknown_AttachmentsControlMode;
+        public string? AttachmentsControlMode
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentsControlMode) return _mValue_AttachmentsControlMode;
+                throw new UndeferrableValueException("Value 'ApplicationAttachmentsConfiguration.AttachmentsControlMode' is not present");
+            }
+        }
     }
 }

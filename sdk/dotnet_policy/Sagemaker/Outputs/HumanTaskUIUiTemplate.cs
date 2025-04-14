@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The content of the Liquid template for the worker user interface.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'HumanTaskUIUiTemplate.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// The SHA-256 digest of the contents of the template.
         /// </summary>
-        [Input("contentSha256")]
+        [PolicyResourceProperty("contentSha256", "_mUnknown_ContentSha256")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentSha256;
-
-        public string? ContentSha256 => _mContentSha256.GetValue("contentSha256");
+        private string? _mValue_ContentSha256;
+        private bool _mUnknown_ContentSha256;
+        public string? ContentSha256
+        {
+            get
+            {
+                if (!_mUnknown_ContentSha256) return _mValue_ContentSha256;
+                throw new UndeferrableValueException("Value 'HumanTaskUIUiTemplate.ContentSha256' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL for the user interface template.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'HumanTaskUIUiTemplate.Url' is not present");
+            }
+        }
     }
 }

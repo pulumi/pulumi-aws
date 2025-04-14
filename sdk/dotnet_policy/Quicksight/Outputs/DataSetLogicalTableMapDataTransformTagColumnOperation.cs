@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Column name.
         /// </summary>
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
-
-        public string? ColumnName => _mColumnName.GetValue("columnName");
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperation.ColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// The dataset column tag, currently only used for geospatial type tagging. See tags.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag>> _mTags;
-
-        public List<Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag>? Tags => _mTags.GetValue("tags");
+        private List<Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public List<Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperation.Tags' is not present");
+            }
+        }
     }
 }

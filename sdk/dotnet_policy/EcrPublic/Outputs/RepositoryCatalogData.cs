@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.EcrPublic.Outputs
         /// <summary>
         /// A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
         /// </summary>
-        [Input("aboutText")]
+        [PolicyResourceProperty("aboutText", "_mUnknown_AboutText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAboutText;
-
-        public string? AboutText => _mAboutText.GetValue("aboutText");
+        private string? _mValue_AboutText;
+        private bool _mUnknown_AboutText;
+        public string? AboutText
+        {
+            get
+            {
+                if (!_mUnknown_AboutText) return _mValue_AboutText;
+                throw new UndeferrableValueException("Value 'RepositoryCatalogData.AboutText' is not present");
+            }
+        }
 
         /// <summary>
         /// The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
         /// </summary>
-        [Input("architectures")]
+        [PolicyResourceProperty("architectures", "_mUnknown_Architectures")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mArchitectures;
-
-        public List<string>? Architectures => _mArchitectures.GetValue("architectures");
+        private List<string>? _mValue_Architectures;
+        private bool _mUnknown_Architectures;
+        public List<string>? Architectures
+        {
+            get
+            {
+                if (!_mUnknown_Architectures) return _mValue_Architectures;
+                throw new UndeferrableValueException("Value 'RepositoryCatalogData.Architectures' is not present");
+            }
+        }
 
         /// <summary>
         /// A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RepositoryCatalogData.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
         /// </summary>
-        [Input("logoImageBlob")]
+        [PolicyResourceProperty("logoImageBlob", "_mUnknown_LogoImageBlob")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogoImageBlob;
-
-        public string? LogoImageBlob => _mLogoImageBlob.GetValue("logoImageBlob");
+        private string? _mValue_LogoImageBlob;
+        private bool _mUnknown_LogoImageBlob;
+        public string? LogoImageBlob
+        {
+            get
+            {
+                if (!_mUnknown_LogoImageBlob) return _mValue_LogoImageBlob;
+                throw new UndeferrableValueException("Value 'RepositoryCatalogData.LogoImageBlob' is not present");
+            }
+        }
 
         /// <summary>
         /// The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
         /// </summary>
-        [Input("operatingSystems")]
+        [PolicyResourceProperty("operatingSystems", "_mUnknown_OperatingSystems")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOperatingSystems;
-
-        public List<string>? OperatingSystems => _mOperatingSystems.GetValue("operatingSystems");
+        private List<string>? _mValue_OperatingSystems;
+        private bool _mUnknown_OperatingSystems;
+        public List<string>? OperatingSystems
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystems) return _mValue_OperatingSystems;
+                throw new UndeferrableValueException("Value 'RepositoryCatalogData.OperatingSystems' is not present");
+            }
+        }
 
         /// <summary>
         /// Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
         /// </summary>
-        [Input("usageText")]
+        [PolicyResourceProperty("usageText", "_mUnknown_UsageText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsageText;
-
-        public string? UsageText => _mUsageText.GetValue("usageText");
+        private string? _mValue_UsageText;
+        private bool _mUnknown_UsageText;
+        public string? UsageText
+        {
+            get
+            {
+                if (!_mUnknown_UsageText) return _mValue_UsageText;
+                throw new UndeferrableValueException("Value 'RepositoryCatalogData.UsageText' is not present");
+            }
+        }
     }
 }

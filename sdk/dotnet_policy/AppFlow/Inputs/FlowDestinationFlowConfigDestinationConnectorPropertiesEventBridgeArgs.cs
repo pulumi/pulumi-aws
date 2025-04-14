@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs
     {
-        [Input("errorHandlingConfig")]
+        [PolicyResourceProperty("errorHandlingConfig", "_mUnknown_ErrorHandlingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs> _mErrorHandlingConfig;
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs? _mValue_ErrorHandlingConfig;
+        private bool _mUnknown_ErrorHandlingConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs? ErrorHandlingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ErrorHandlingConfig) return _mValue_ErrorHandlingConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs.ErrorHandlingConfig' is not present");
+            }
+        }
 
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs? ErrorHandlingConfig => _mErrorHandlingConfig.GetValue("errorHandlingConfig");
-
-        [Input("object")]
+        [PolicyResourceProperty("object", "_mUnknown_Object")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObject;
-
-        public string? Object => _mObject.GetValue("object");
+        private string? _mValue_Object;
+        private bool _mUnknown_Object;
+        public string? Object
+        {
+            get
+            {
+                if (!_mUnknown_Object) return _mValue_Object;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs.Object' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionRemixSettings
     {
-        [Input("channelMappings")]
+        [PolicyResourceProperty("channelMappings", "_mUnknown_ChannelMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping>> _mChannelMappings;
+        private List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping>? _mValue_ChannelMappings;
+        private bool _mUnknown_ChannelMappings;
+        public List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping>? ChannelMappings
+        {
+            get
+            {
+                if (!_mUnknown_ChannelMappings) return _mValue_ChannelMappings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettings.ChannelMappings' is not present");
+            }
+        }
 
-        public List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping>? ChannelMappings => _mChannelMappings.GetValue("channelMappings");
-
-        [Input("channelsIn")]
+        [PolicyResourceProperty("channelsIn", "_mUnknown_ChannelsIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mChannelsIn;
+        private int? _mValue_ChannelsIn;
+        private bool _mUnknown_ChannelsIn;
+        public int? ChannelsIn
+        {
+            get
+            {
+                if (!_mUnknown_ChannelsIn) return _mValue_ChannelsIn;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettings.ChannelsIn' is not present");
+            }
+        }
 
-        public int? ChannelsIn => _mChannelsIn.GetValue("channelsIn");
-
-        [Input("channelsOut")]
+        [PolicyResourceProperty("channelsOut", "_mUnknown_ChannelsOut")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mChannelsOut;
-
-        public int? ChannelsOut => _mChannelsOut.GetValue("channelsOut");
+        private int? _mValue_ChannelsOut;
+        private bool _mUnknown_ChannelsOut;
+        public int? ChannelsOut
+        {
+            get
+            {
+                if (!_mUnknown_ChannelsOut) return _mValue_ChannelsOut;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettings.ChannelsOut' is not present");
+            }
+        }
     }
 }

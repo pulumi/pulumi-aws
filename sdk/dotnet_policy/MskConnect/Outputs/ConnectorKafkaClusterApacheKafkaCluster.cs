@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Outputs
         /// <summary>
         /// The bootstrap servers of the cluster.
         /// </summary>
-        [Input("bootstrapServers")]
+        [PolicyResourceProperty("bootstrapServers", "_mUnknown_BootstrapServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBootstrapServers;
-
-        public string? BootstrapServers => _mBootstrapServers.GetValue("bootstrapServers");
+        private string? _mValue_BootstrapServers;
+        private bool _mUnknown_BootstrapServers;
+        public string? BootstrapServers
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapServers) return _mValue_BootstrapServers;
+                throw new UndeferrableValueException("Value 'ConnectorKafkaClusterApacheKafkaCluster.BootstrapServers' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaClusterApacheKafkaClusterVpc> _mVpc;
-
-        public Outputs.ConnectorKafkaClusterApacheKafkaClusterVpc? Vpc => _mVpc.GetValue("vpc");
+        private Outputs.ConnectorKafkaClusterApacheKafkaClusterVpc? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public Outputs.ConnectorKafkaClusterApacheKafkaClusterVpc? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'ConnectorKafkaClusterApacheKafkaCluster.Vpc' is not present");
+            }
+        }
     }
 }

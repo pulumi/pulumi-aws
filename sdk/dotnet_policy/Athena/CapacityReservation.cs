@@ -16,73 +16,129 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// Number of data processing units currently allocated.
         /// </summary>
-        [Input("allocatedDpus")]
+        [PolicyResourceProperty("allocatedDpus", "_mUnknown_AllocatedDpus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedDpus;
-
-        public int? AllocatedDpus => _mAllocatedDpus.GetValue("allocatedDpus");
+        private int? _mValue_AllocatedDpus;
+        private bool _mUnknown_AllocatedDpus;
+        public int? AllocatedDpus
+        {
+            get
+            {
+                if (!_mUnknown_AllocatedDpus) return _mValue_AllocatedDpus;
+                throw new UndeferrableValueException("Value 'CapacityReservation.AllocatedDpus' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Capacity Reservation.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CapacityReservation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the capacity reservation.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CapacityReservation.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the capacity reservation.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'CapacityReservation.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CapacityReservation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CapacityReservation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of data processing units requested. Must be at least `24` units.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetDpus")]
+        [PolicyResourceProperty("targetDpus", "_mUnknown_TargetDpus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetDpus;
+        private int? _mValue_TargetDpus;
+        private bool _mUnknown_TargetDpus;
+        public int? TargetDpus
+        {
+            get
+            {
+                if (!_mUnknown_TargetDpus) return _mValue_TargetDpus;
+                throw new UndeferrableValueException("Value 'CapacityReservation.TargetDpus' is not present");
+            }
+        }
 
-        public int? TargetDpus => _mTargetDpus.GetValue("targetDpus");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CapacityReservationTimeouts> _mTimeouts;
-
-        public Outputs.CapacityReservationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.CapacityReservationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.CapacityReservationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'CapacityReservation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:athena/capacityReservation:CapacityReservation")]
@@ -91,36 +147,64 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// Name of the capacity reservation.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CapacityReservationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CapacityReservationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of data processing units requested. Must be at least `24` units.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetDpus")]
+        [PolicyResourceProperty("targetDpus", "_mUnknown_TargetDpus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetDpus;
+        private int? _mValue_TargetDpus;
+        private bool _mUnknown_TargetDpus;
+        public int? TargetDpus
+        {
+            get
+            {
+                if (!_mUnknown_TargetDpus) return _mValue_TargetDpus;
+                throw new UndeferrableValueException("Value 'CapacityReservationArgs.TargetDpus' is not present");
+            }
+        }
 
-        public int? TargetDpus => _mTargetDpus.GetValue("targetDpus");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CapacityReservationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.CapacityReservationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.CapacityReservationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.CapacityReservationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'CapacityReservationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

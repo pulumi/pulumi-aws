@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.ResilienceHub.Inputs
         /// <summary>
         /// Specifies Availability Zone failure policy. See `policy.az`
         /// </summary>
-        [Input("az")]
+        [PolicyResourceProperty("az", "_mUnknown_Az")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResiliencyPolicyPolicyAzArgs> _mAz;
-
-        public Inputs.ResiliencyPolicyPolicyAzArgs? Az => _mAz.GetValue("az");
+        private Inputs.ResiliencyPolicyPolicyAzArgs? _mValue_Az;
+        private bool _mUnknown_Az;
+        public Inputs.ResiliencyPolicyPolicyAzArgs? Az
+        {
+            get
+            {
+                if (!_mUnknown_Az) return _mValue_Az;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.Az' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies Infrastructure failure policy. See `policy.hardware`
         /// </summary>
-        [Input("hardware")]
+        [PolicyResourceProperty("hardware", "_mUnknown_Hardware")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResiliencyPolicyPolicyHardwareArgs> _mHardware;
-
-        public Inputs.ResiliencyPolicyPolicyHardwareArgs? Hardware => _mHardware.GetValue("hardware");
+        private Inputs.ResiliencyPolicyPolicyHardwareArgs? _mValue_Hardware;
+        private bool _mUnknown_Hardware;
+        public Inputs.ResiliencyPolicyPolicyHardwareArgs? Hardware
+        {
+            get
+            {
+                if (!_mUnknown_Hardware) return _mValue_Hardware;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.Hardware' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies Region failure policy. `policy.region`
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResiliencyPolicyPolicyRegionArgs> _mRegion;
-
-        public Inputs.ResiliencyPolicyPolicyRegionArgs? Region => _mRegion.GetValue("region");
+        private Inputs.ResiliencyPolicyPolicyRegionArgs? _mValue_Region;
+        private bool _mUnknown_Region;
+        public Inputs.ResiliencyPolicyPolicyRegionArgs? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies Application failure policy. See `policy.software`
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("software")]
+        [PolicyResourceProperty("software", "_mUnknown_Software")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResiliencyPolicyPolicySoftwareArgs> _mSoftware;
-
-        public Inputs.ResiliencyPolicyPolicySoftwareArgs? Software => _mSoftware.GetValue("software");
+        private Inputs.ResiliencyPolicyPolicySoftwareArgs? _mValue_Software;
+        private bool _mUnknown_Software;
+        public Inputs.ResiliencyPolicyPolicySoftwareArgs? Software
+        {
+            get
+            {
+                if (!_mUnknown_Software) return _mValue_Software;
+                throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.Software' is not present");
+            }
+        }
     }
 }

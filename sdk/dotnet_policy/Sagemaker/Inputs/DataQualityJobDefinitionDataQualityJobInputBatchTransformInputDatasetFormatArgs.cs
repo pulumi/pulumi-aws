@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The CSV dataset used in the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("csv")]
+        [PolicyResourceProperty("csv", "_mUnknown_Csv")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs> _mCsv;
-
-        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs? Csv => _mCsv.GetValue("csv");
+        private Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs? _mValue_Csv;
+        private bool _mUnknown_Csv;
+        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs? Csv
+        {
+            get
+            {
+                if (!_mUnknown_Csv) return _mValue_Csv;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs.Csv' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON dataset used in the monitoring job. Fields are documented below.
         /// </summary>
-        [Input("json")]
+        [PolicyResourceProperty("json", "_mUnknown_Json")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs> _mJson;
-
-        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs? Json => _mJson.GetValue("json");
+        private Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs? _mValue_Json;
+        private bool _mUnknown_Json;
+        public Inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs? Json
+        {
+            get
+            {
+                if (!_mUnknown_Json) return _mValue_Json;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs.Json' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         /// </summary>
-        [Input("deliveryFrequency")]
+        [PolicyResourceProperty("deliveryFrequency", "_mUnknown_DeliveryFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryFrequency;
-
-        public string? DeliveryFrequency => _mDeliveryFrequency.GetValue("deliveryFrequency");
+        private string? _mValue_DeliveryFrequency;
+        private bool _mUnknown_DeliveryFrequency;
+        public string? DeliveryFrequency
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryFrequency) return _mValue_DeliveryFrequency;
+                throw new UndeferrableValueException("Value 'DeliveryChannelSnapshotDeliveryProperties.DeliveryFrequency' is not present");
+            }
+        }
     }
 }

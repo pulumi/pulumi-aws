@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Configuration block with ECR configuration for image scanning. Detailed below.
         /// </summary>
-        [Input("ecrConfiguration")]
+        [PolicyResourceProperty("ecrConfiguration", "_mUnknown_EcrConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ImagePipelineImageScanningConfigurationEcrConfigurationArgs> _mEcrConfiguration;
-
-        public Inputs.ImagePipelineImageScanningConfigurationEcrConfigurationArgs? EcrConfiguration => _mEcrConfiguration.GetValue("ecrConfiguration");
+        private Inputs.ImagePipelineImageScanningConfigurationEcrConfigurationArgs? _mValue_EcrConfiguration;
+        private bool _mUnknown_EcrConfiguration;
+        public Inputs.ImagePipelineImageScanningConfigurationEcrConfigurationArgs? EcrConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EcrConfiguration) return _mValue_EcrConfiguration;
+                throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationArgs.EcrConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether image scans are enabled. Defaults to `false`.
         /// </summary>
-        [Input("imageScanningEnabled")]
+        [PolicyResourceProperty("imageScanningEnabled", "_mUnknown_ImageScanningEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mImageScanningEnabled;
-
-        public bool? ImageScanningEnabled => _mImageScanningEnabled.GetValue("imageScanningEnabled");
+        private bool? _mValue_ImageScanningEnabled;
+        private bool _mUnknown_ImageScanningEnabled;
+        public bool? ImageScanningEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ImageScanningEnabled) return _mValue_ImageScanningEnabled;
+                throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationArgs.ImageScanningEnabled' is not present");
+            }
+        }
     }
 }

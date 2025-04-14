@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Defines custom handling for the web request. See `custom_request_handling` below for details.
         /// </summary>
-        [Input("customRequestHandling")]
+        [PolicyResourceProperty("customRequestHandling", "_mUnknown_CustomRequestHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs> _mCustomRequestHandling;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs? CustomRequestHandling => _mCustomRequestHandling.GetValue("customRequestHandling");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs? _mValue_CustomRequestHandling;
+        private bool _mUnknown_CustomRequestHandling;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs? CustomRequestHandling
+        {
+            get
+            {
+                if (!_mUnknown_CustomRequestHandling) return _mValue_CustomRequestHandling;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs.CustomRequestHandling' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
         /// </summary>
-        [Input("date")]
+        [PolicyResourceProperty("date", "_mUnknown_Date")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDate;
-
-        public string? Date => _mDate.GetValue("date");
+        private string? _mValue_Date;
+        private bool _mUnknown_Date;
+        public string? Date
+        {
+            get
+            {
+                if (!_mUnknown_Date) return _mValue_Date;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleExpiration.Date' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days before the object is to be deleted.
         /// </summary>
-        [Input("days")]
+        [PolicyResourceProperty("days", "_mUnknown_Days")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDays;
-
-        public int? Days => _mDays.GetValue("days");
+        private int? _mValue_Days;
+        private bool _mUnknown_Days;
+        public int? Days
+        {
+            get
+            {
+                if (!_mUnknown_Days) return _mValue_Days;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleExpiration.Days' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
         /// </summary>
-        [Input("expiredObjectDeleteMarker")]
+        [PolicyResourceProperty("expiredObjectDeleteMarker", "_mUnknown_ExpiredObjectDeleteMarker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExpiredObjectDeleteMarker;
-
-        public bool? ExpiredObjectDeleteMarker => _mExpiredObjectDeleteMarker.GetValue("expiredObjectDeleteMarker");
+        private bool? _mValue_ExpiredObjectDeleteMarker;
+        private bool _mUnknown_ExpiredObjectDeleteMarker;
+        public bool? ExpiredObjectDeleteMarker
+        {
+            get
+            {
+                if (!_mUnknown_ExpiredObjectDeleteMarker) return _mValue_ExpiredObjectDeleteMarker;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleExpiration.ExpiredObjectDeleteMarker' is not present");
+            }
+        }
     }
 }

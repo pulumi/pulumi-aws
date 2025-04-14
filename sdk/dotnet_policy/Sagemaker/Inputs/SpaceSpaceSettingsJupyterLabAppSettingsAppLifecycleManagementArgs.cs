@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
         /// </summary>
-        [Input("idleSettings")]
+        [PolicyResourceProperty("idleSettings", "_mUnknown_IdleSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs> _mIdleSettings;
-
-        public Inputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs? IdleSettings => _mIdleSettings.GetValue("idleSettings");
+        private Inputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs? _mValue_IdleSettings;
+        private bool _mUnknown_IdleSettings;
+        public Inputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs? IdleSettings
+        {
+            get
+            {
+                if (!_mUnknown_IdleSettings) return _mValue_IdleSettings;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs.IdleSettings' is not present");
+            }
+        }
     }
 }

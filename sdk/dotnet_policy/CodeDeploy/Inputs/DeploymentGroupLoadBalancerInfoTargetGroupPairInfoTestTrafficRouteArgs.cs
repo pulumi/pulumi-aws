@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// List of Amazon Resource Names (ARNs) of the load balancer listeners.
         /// </summary>
-        [Input("listenerArns")]
+        [PolicyResourceProperty("listenerArns", "_mUnknown_ListenerArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mListenerArns;
-
-        public List<string>? ListenerArns => _mListenerArns.GetValue("listenerArns");
+        private List<string>? _mValue_ListenerArns;
+        private bool _mUnknown_ListenerArns;
+        public List<string>? ListenerArns
+        {
+            get
+            {
+                if (!_mUnknown_ListenerArns) return _mValue_ListenerArns;
+                throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs.ListenerArns' is not present");
+            }
+        }
     }
 }

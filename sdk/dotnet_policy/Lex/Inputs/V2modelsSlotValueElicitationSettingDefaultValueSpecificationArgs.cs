@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// Amazon Lex chooses the default value to use in the order that they are presented in the list.
         /// See the `default_value_list` argument reference below.
         /// </summary>
-        [Input("defaultValueLists")]
+        [PolicyResourceProperty("defaultValueLists", "_mUnknown_DefaultValueLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> _mDefaultValueLists;
-
-        public List<Inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>? DefaultValueLists => _mDefaultValueLists.GetValue("defaultValueLists");
+        private List<Inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>? _mValue_DefaultValueLists;
+        private bool _mUnknown_DefaultValueLists;
+        public List<Inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>? DefaultValueLists
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValueLists) return _mValue_DefaultValueLists;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs.DefaultValueLists' is not present");
+            }
+        }
     }
 }

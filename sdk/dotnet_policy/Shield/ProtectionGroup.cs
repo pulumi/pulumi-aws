@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
         /// </summary>
-        [Input("aggregation")]
+        [PolicyResourceProperty("aggregation", "_mUnknown_Aggregation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAggregation;
-
-        public string? Aggregation => _mAggregation.GetValue("aggregation");
+        private string? _mValue_Aggregation;
+        private bool _mUnknown_Aggregation;
+        public string? Aggregation
+        {
+            get
+            {
+                if (!_mUnknown_Aggregation) return _mValue_Aggregation;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.Aggregation' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         /// </summary>
-        [Input("members")]
+        [PolicyResourceProperty("members", "_mUnknown_Members")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMembers;
-
-        public List<string>? Members => _mMembers.GetValue("members");
+        private List<string>? _mValue_Members;
+        private bool _mUnknown_Members;
+        public List<string>? Members
+        {
+            get
+            {
+                if (!_mUnknown_Members) return _mValue_Members;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.Members' is not present");
+            }
+        }
 
         /// <summary>
         /// The criteria to use to choose the protected resources for inclusion in the group.
         /// </summary>
-        [Input("pattern")]
+        [PolicyResourceProperty("pattern", "_mUnknown_Pattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
-
-        public string? Pattern => _mPattern.GetValue("pattern");
+        private string? _mValue_Pattern;
+        private bool _mUnknown_Pattern;
+        public string? Pattern
+        {
+            get
+            {
+                if (!_mUnknown_Pattern) return _mValue_Pattern;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.Pattern' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN (Amazon Resource Name) of the protection group.
         /// </summary>
-        [Input("protectionGroupArn")]
+        [PolicyResourceProperty("protectionGroupArn", "_mUnknown_ProtectionGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtectionGroupArn;
-
-        public string? ProtectionGroupArn => _mProtectionGroupArn.GetValue("protectionGroupArn");
+        private string? _mValue_ProtectionGroupArn;
+        private bool _mUnknown_ProtectionGroupArn;
+        public string? ProtectionGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_ProtectionGroupArn) return _mValue_ProtectionGroupArn;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.ProtectionGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the protection group.
         /// </summary>
-        [Input("protectionGroupId")]
+        [PolicyResourceProperty("protectionGroupId", "_mUnknown_ProtectionGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtectionGroupId;
-
-        public string? ProtectionGroupId => _mProtectionGroupId.GetValue("protectionGroupId");
+        private string? _mValue_ProtectionGroupId;
+        private bool _mUnknown_ProtectionGroupId;
+        public string? ProtectionGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ProtectionGroupId) return _mValue_ProtectionGroupId;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.ProtectionGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ProtectionGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:shield/protectionGroup:ProtectionGroup")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.Shield
         /// <summary>
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
         /// </summary>
-        [Input("aggregation")]
+        [PolicyResourceProperty("aggregation", "_mUnknown_Aggregation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAggregation;
-
-        public string? Aggregation => _mAggregation.GetValue("aggregation");
+        private string? _mValue_Aggregation;
+        private bool _mUnknown_Aggregation;
+        public string? Aggregation
+        {
+            get
+            {
+                if (!_mUnknown_Aggregation) return _mValue_Aggregation;
+                throw new UndeferrableValueException("Value 'ProtectionGroupArgs.Aggregation' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         /// </summary>
-        [Input("members")]
+        [PolicyResourceProperty("members", "_mUnknown_Members")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMembers;
-
-        public List<string>? Members => _mMembers.GetValue("members");
+        private List<string>? _mValue_Members;
+        private bool _mUnknown_Members;
+        public List<string>? Members
+        {
+            get
+            {
+                if (!_mUnknown_Members) return _mValue_Members;
+                throw new UndeferrableValueException("Value 'ProtectionGroupArgs.Members' is not present");
+            }
+        }
 
         /// <summary>
         /// The criteria to use to choose the protected resources for inclusion in the group.
         /// </summary>
-        [Input("pattern")]
+        [PolicyResourceProperty("pattern", "_mUnknown_Pattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
-
-        public string? Pattern => _mPattern.GetValue("pattern");
+        private string? _mValue_Pattern;
+        private bool _mUnknown_Pattern;
+        public string? Pattern
+        {
+            get
+            {
+                if (!_mUnknown_Pattern) return _mValue_Pattern;
+                throw new UndeferrableValueException("Value 'ProtectionGroupArgs.Pattern' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the protection group.
         /// </summary>
-        [Input("protectionGroupId")]
+        [PolicyResourceProperty("protectionGroupId", "_mUnknown_ProtectionGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtectionGroupId;
-
-        public string? ProtectionGroupId => _mProtectionGroupId.GetValue("protectionGroupId");
+        private string? _mValue_ProtectionGroupId;
+        private bool _mUnknown_ProtectionGroupId;
+        public string? ProtectionGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ProtectionGroupId) return _mValue_ProtectionGroupId;
+                throw new UndeferrableValueException("Value 'ProtectionGroupArgs.ProtectionGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'ProtectionGroupArgs.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProtectionGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

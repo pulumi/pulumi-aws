@@ -16,112 +16,196 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of the accelerator.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Accelerator.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The attributes of the accelerator. Fields documented below.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AcceleratorAttributes> _mAttributes;
-
-        public Outputs.AcceleratorAttributes? Attributes => _mAttributes.GetValue("attributes");
+        private Outputs.AcceleratorAttributes? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Outputs.AcceleratorAttributes? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'Accelerator.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'Accelerator.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         /// </summary>
-        [Input("dualStackDnsName")]
+        [PolicyResourceProperty("dualStackDnsName", "_mUnknown_DualStackDnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDualStackDnsName;
-
-        public string? DualStackDnsName => _mDualStackDnsName.GetValue("dualStackDnsName");
+        private string? _mValue_DualStackDnsName;
+        private bool _mUnknown_DualStackDnsName;
+        public string? DualStackDnsName
+        {
+            get
+            {
+                if (!_mUnknown_DualStackDnsName) return _mValue_DualStackDnsName;
+                throw new UndeferrableValueException("Value 'Accelerator.DualStackDnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'Accelerator.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// -  The Global Accelerator Route 53 zone ID that can be used to
         /// route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
         /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'Accelerator.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'Accelerator.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         /// </summary>
-        [Input("ipAddresses")]
+        [PolicyResourceProperty("ipAddresses", "_mUnknown_IpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpAddresses;
-
-        public List<string>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
+        private List<string>? _mValue_IpAddresses;
+        private bool _mUnknown_IpAddresses;
+        public List<string>? IpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_IpAddresses) return _mValue_IpAddresses;
+                throw new UndeferrableValueException("Value 'Accelerator.IpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// IP address set associated with the accelerator.
         /// </summary>
-        [Input("ipSets")]
+        [PolicyResourceProperty("ipSets", "_mUnknown_IpSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AcceleratorIpSet>> _mIpSets;
-
-        public List<Outputs.AcceleratorIpSet>? IpSets => _mIpSets.GetValue("ipSets");
+        private List<Outputs.AcceleratorIpSet>? _mValue_IpSets;
+        private bool _mUnknown_IpSets;
+        public List<Outputs.AcceleratorIpSet>? IpSets
+        {
+            get
+            {
+                if (!_mUnknown_IpSets) return _mValue_IpSets;
+                throw new UndeferrableValueException("Value 'Accelerator.IpSets' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the accelerator.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Accelerator.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Accelerator.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Accelerator.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:globalaccelerator/accelerator:Accelerator")]
@@ -130,55 +214,97 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The attributes of the accelerator. Fields documented below.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AcceleratorAttributesArgs> _mAttributes;
-
-        public Inputs.AcceleratorAttributesArgs? Attributes => _mAttributes.GetValue("attributes");
+        private Inputs.AcceleratorAttributesArgs? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Inputs.AcceleratorAttributesArgs? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'AcceleratorArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'AcceleratorArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`, `DUAL_STACK`.
         /// </summary>
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'AcceleratorArgs.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         /// </summary>
-        [Input("ipAddresses")]
+        [PolicyResourceProperty("ipAddresses", "_mUnknown_IpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpAddresses;
-
-        public List<string>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
+        private List<string>? _mValue_IpAddresses;
+        private bool _mUnknown_IpAddresses;
+        public List<string>? IpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_IpAddresses) return _mValue_IpAddresses;
+                throw new UndeferrableValueException("Value 'AcceleratorArgs.IpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the accelerator.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AcceleratorArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AcceleratorArgs.Tags' is not present");
+            }
+        }
     }
 }

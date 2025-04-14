@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics.Inputs
         /// <summary>
         /// Date and time the canary was created.
         /// </summary>
-        [Input("created")]
+        [PolicyResourceProperty("created", "_mUnknown_Created")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreated;
-
-        public string? Created => _mCreated.GetValue("created");
+        private string? _mValue_Created;
+        private bool _mUnknown_Created;
+        public string? Created
+        {
+            get
+            {
+                if (!_mUnknown_Created) return _mValue_Created;
+                throw new UndeferrableValueException("Value 'CanaryTimelineArgs.Created' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time the canary was most recently modified.
         /// </summary>
-        [Input("lastModified")]
+        [PolicyResourceProperty("lastModified", "_mUnknown_LastModified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
-
-        public string? LastModified => _mLastModified.GetValue("lastModified");
+        private string? _mValue_LastModified;
+        private bool _mUnknown_LastModified;
+        public string? LastModified
+        {
+            get
+            {
+                if (!_mUnknown_LastModified) return _mValue_LastModified;
+                throw new UndeferrableValueException("Value 'CanaryTimelineArgs.LastModified' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time that the canary's most recent run started.
         /// </summary>
-        [Input("lastStarted")]
+        [PolicyResourceProperty("lastStarted", "_mUnknown_LastStarted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastStarted;
-
-        public string? LastStarted => _mLastStarted.GetValue("lastStarted");
+        private string? _mValue_LastStarted;
+        private bool _mUnknown_LastStarted;
+        public string? LastStarted
+        {
+            get
+            {
+                if (!_mUnknown_LastStarted) return _mValue_LastStarted;
+                throw new UndeferrableValueException("Value 'CanaryTimelineArgs.LastStarted' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time that the canary's most recent run ended.
         /// </summary>
-        [Input("lastStopped")]
+        [PolicyResourceProperty("lastStopped", "_mUnknown_LastStopped")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastStopped;
-
-        public string? LastStopped => _mLastStopped.GetValue("lastStopped");
+        private string? _mValue_LastStopped;
+        private bool _mUnknown_LastStopped;
+        public string? LastStopped
+        {
+            get
+            {
+                if (!_mUnknown_LastStopped) return _mValue_LastStopped;
+                throw new UndeferrableValueException("Value 'CanaryTimelineArgs.LastStopped' is not present");
+            }
+        }
     }
 }

@@ -16,131 +16,236 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// <summary>
         /// The ARN of the membership.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Membership.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the joined collaboration.
         /// </summary>
-        [Input("collaborationArn")]
+        [PolicyResourceProperty("collaborationArn", "_mUnknown_CollaborationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationArn;
-
-        public string? CollaborationArn => _mCollaborationArn.GetValue("collaborationArn");
+        private string? _mValue_CollaborationArn;
+        private bool _mUnknown_CollaborationArn;
+        public string? CollaborationArn
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationArn) return _mValue_CollaborationArn;
+                throw new UndeferrableValueException("Value 'Membership.CollaborationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The account ID of the collaboration's creator.
         /// </summary>
-        [Input("collaborationCreatorAccountId")]
+        [PolicyResourceProperty("collaborationCreatorAccountId", "_mUnknown_CollaborationCreatorAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationCreatorAccountId;
-
-        public string? CollaborationCreatorAccountId => _mCollaborationCreatorAccountId.GetValue("collaborationCreatorAccountId");
+        private string? _mValue_CollaborationCreatorAccountId;
+        private bool _mUnknown_CollaborationCreatorAccountId;
+        public string? CollaborationCreatorAccountId
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationCreatorAccountId) return _mValue_CollaborationCreatorAccountId;
+                throw new UndeferrableValueException("Value 'Membership.CollaborationCreatorAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of the collaboration's creator.
         /// </summary>
-        [Input("collaborationCreatorDisplayName")]
+        [PolicyResourceProperty("collaborationCreatorDisplayName", "_mUnknown_CollaborationCreatorDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationCreatorDisplayName;
-
-        public string? CollaborationCreatorDisplayName => _mCollaborationCreatorDisplayName.GetValue("collaborationCreatorDisplayName");
+        private string? _mValue_CollaborationCreatorDisplayName;
+        private bool _mUnknown_CollaborationCreatorDisplayName;
+        public string? CollaborationCreatorDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationCreatorDisplayName) return _mValue_CollaborationCreatorDisplayName;
+                throw new UndeferrableValueException("Value 'Membership.CollaborationCreatorDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the collaboration to which the member was invited.
         /// </summary>
-        [Input("collaborationId")]
+        [PolicyResourceProperty("collaborationId", "_mUnknown_CollaborationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationId;
-
-        public string? CollaborationId => _mCollaborationId.GetValue("collaborationId");
+        private string? _mValue_CollaborationId;
+        private bool _mUnknown_CollaborationId;
+        public string? CollaborationId
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationId) return _mValue_CollaborationId;
+                throw new UndeferrableValueException("Value 'Membership.CollaborationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the joined collaboration.
         /// </summary>
-        [Input("collaborationName")]
+        [PolicyResourceProperty("collaborationName", "_mUnknown_CollaborationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationName;
-
-        public string? CollaborationName => _mCollaborationName.GetValue("collaborationName");
+        private string? _mValue_CollaborationName;
+        private bool _mUnknown_CollaborationName;
+        public string? CollaborationName
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationName) return _mValue_CollaborationName;
+                throw new UndeferrableValueException("Value 'Membership.CollaborationName' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time the membership was created.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'Membership.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The default configuration for a query result.
         /// </summary>
-        [Input("defaultResultConfiguration")]
+        [PolicyResourceProperty("defaultResultConfiguration", "_mUnknown_DefaultResultConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MembershipDefaultResultConfiguration> _mDefaultResultConfiguration;
-
-        public Outputs.MembershipDefaultResultConfiguration? DefaultResultConfiguration => _mDefaultResultConfiguration.GetValue("defaultResultConfiguration");
+        private Outputs.MembershipDefaultResultConfiguration? _mValue_DefaultResultConfiguration;
+        private bool _mUnknown_DefaultResultConfiguration;
+        public Outputs.MembershipDefaultResultConfiguration? DefaultResultConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResultConfiguration) return _mValue_DefaultResultConfiguration;
+                throw new UndeferrableValueException("Value 'Membership.DefaultResultConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of abilities for the invited member.
         /// </summary>
-        [Input("memberAbilities")]
+        [PolicyResourceProperty("memberAbilities", "_mUnknown_MemberAbilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMemberAbilities;
+        private List<string>? _mValue_MemberAbilities;
+        private bool _mUnknown_MemberAbilities;
+        public List<string>? MemberAbilities
+        {
+            get
+            {
+                if (!_mUnknown_MemberAbilities) return _mValue_MemberAbilities;
+                throw new UndeferrableValueException("Value 'Membership.MemberAbilities' is not present");
+            }
+        }
 
-        public List<string>? MemberAbilities => _mMemberAbilities.GetValue("memberAbilities");
-
-        [Input("paymentConfiguration")]
+        [PolicyResourceProperty("paymentConfiguration", "_mUnknown_PaymentConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MembershipPaymentConfiguration> _mPaymentConfiguration;
-
-        public Outputs.MembershipPaymentConfiguration? PaymentConfiguration => _mPaymentConfiguration.GetValue("paymentConfiguration");
+        private Outputs.MembershipPaymentConfiguration? _mValue_PaymentConfiguration;
+        private bool _mUnknown_PaymentConfiguration;
+        public Outputs.MembershipPaymentConfiguration? PaymentConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PaymentConfiguration) return _mValue_PaymentConfiguration;
+                throw new UndeferrableValueException("Value 'Membership.PaymentConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// An indicator as to whether query logging has been enabled or disabled for the membership.
         /// </summary>
-        [Input("queryLogStatus")]
+        [PolicyResourceProperty("queryLogStatus", "_mUnknown_QueryLogStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
-
-        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
+        private string? _mValue_QueryLogStatus;
+        private bool _mUnknown_QueryLogStatus;
+        public string? QueryLogStatus
+        {
+            get
+            {
+                if (!_mUnknown_QueryLogStatus) return _mValue_QueryLogStatus;
+                throw new UndeferrableValueException("Value 'Membership.QueryLogStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the membership.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Membership.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key value pairs which tag the membership.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Membership.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Membership.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time the membership was last updated.
         /// </summary>
-        [Input("updateTime")]
+        [PolicyResourceProperty("updateTime", "_mUnknown_UpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
-
-        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+        private string? _mValue_UpdateTime;
+        private bool _mUnknown_UpdateTime;
+        public string? UpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdateTime) return _mValue_UpdateTime;
+                throw new UndeferrableValueException("Value 'Membership.UpdateTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cleanrooms/membership:Membership")]
@@ -149,43 +254,78 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// <summary>
         /// The ID of the collaboration to which the member was invited.
         /// </summary>
-        [Input("collaborationId")]
+        [PolicyResourceProperty("collaborationId", "_mUnknown_CollaborationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollaborationId;
-
-        public string? CollaborationId => _mCollaborationId.GetValue("collaborationId");
+        private string? _mValue_CollaborationId;
+        private bool _mUnknown_CollaborationId;
+        public string? CollaborationId
+        {
+            get
+            {
+                if (!_mUnknown_CollaborationId) return _mValue_CollaborationId;
+                throw new UndeferrableValueException("Value 'MembershipArgs.CollaborationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The default configuration for a query result.
         /// </summary>
-        [Input("defaultResultConfiguration")]
+        [PolicyResourceProperty("defaultResultConfiguration", "_mUnknown_DefaultResultConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MembershipDefaultResultConfigurationArgs> _mDefaultResultConfiguration;
+        private Inputs.MembershipDefaultResultConfigurationArgs? _mValue_DefaultResultConfiguration;
+        private bool _mUnknown_DefaultResultConfiguration;
+        public Inputs.MembershipDefaultResultConfigurationArgs? DefaultResultConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResultConfiguration) return _mValue_DefaultResultConfiguration;
+                throw new UndeferrableValueException("Value 'MembershipArgs.DefaultResultConfiguration' is not present");
+            }
+        }
 
-        public Inputs.MembershipDefaultResultConfigurationArgs? DefaultResultConfiguration => _mDefaultResultConfiguration.GetValue("defaultResultConfiguration");
-
-        [Input("paymentConfiguration")]
+        [PolicyResourceProperty("paymentConfiguration", "_mUnknown_PaymentConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MembershipPaymentConfigurationArgs> _mPaymentConfiguration;
-
-        public Inputs.MembershipPaymentConfigurationArgs? PaymentConfiguration => _mPaymentConfiguration.GetValue("paymentConfiguration");
+        private Inputs.MembershipPaymentConfigurationArgs? _mValue_PaymentConfiguration;
+        private bool _mUnknown_PaymentConfiguration;
+        public Inputs.MembershipPaymentConfigurationArgs? PaymentConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PaymentConfiguration) return _mValue_PaymentConfiguration;
+                throw new UndeferrableValueException("Value 'MembershipArgs.PaymentConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// An indicator as to whether query logging has been enabled or disabled for the membership.
         /// </summary>
-        [Input("queryLogStatus")]
+        [PolicyResourceProperty("queryLogStatus", "_mUnknown_QueryLogStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryLogStatus;
-
-        public string? QueryLogStatus => _mQueryLogStatus.GetValue("queryLogStatus");
+        private string? _mValue_QueryLogStatus;
+        private bool _mUnknown_QueryLogStatus;
+        public string? QueryLogStatus
+        {
+            get
+            {
+                if (!_mUnknown_QueryLogStatus) return _mValue_QueryLogStatus;
+                throw new UndeferrableValueException("Value 'MembershipArgs.QueryLogStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Key value pairs which tag the membership.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MembershipArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Location.Outputs
         /// <summary>
         /// The map style selected from an available data provider.
         /// </summary>
-        [Input("style")]
+        [PolicyResourceProperty("style", "_mUnknown_Style")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStyle;
-
-        public string? Style => _mStyle.GetValue("style");
+        private string? _mValue_Style;
+        private bool _mUnknown_Style;
+        public string? Style
+        {
+            get
+            {
+                if (!_mUnknown_Style) return _mValue_Style;
+                throw new UndeferrableValueException("Value 'GetMapConfigurationResult.Style' is not present");
+            }
+        }
     }
 }

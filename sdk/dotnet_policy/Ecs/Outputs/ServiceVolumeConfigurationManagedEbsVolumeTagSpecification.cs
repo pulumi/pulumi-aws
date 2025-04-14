@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
         /// </summary>
-        [Input("propagateTags")]
+        [PolicyResourceProperty("propagateTags", "_mUnknown_PropagateTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPropagateTags;
-
-        public string? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+        private string? _mValue_PropagateTags;
+        private bool _mUnknown_PropagateTags;
+        public string? PropagateTags
+        {
+            get
+            {
+                if (!_mUnknown_PropagateTags) return _mValue_PropagateTags;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeTagSpecification.PropagateTags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of volume resource. Valid values, `volume`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeTagSpecification.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can't be used.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeTagSpecification.Tags' is not present");
+            }
+        }
     }
 }

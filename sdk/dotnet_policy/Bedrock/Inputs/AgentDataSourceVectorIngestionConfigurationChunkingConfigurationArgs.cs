@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
         /// </summary>
-        [Input("chunkingStrategy")]
+        [PolicyResourceProperty("chunkingStrategy", "_mUnknown_ChunkingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChunkingStrategy;
-
-        public string? ChunkingStrategy => _mChunkingStrategy.GetValue("chunkingStrategy");
+        private string? _mValue_ChunkingStrategy;
+        private bool _mUnknown_ChunkingStrategy;
+        public string? ChunkingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ChunkingStrategy) return _mValue_ChunkingStrategy;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.ChunkingStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
         /// </summary>
-        [Input("fixedSizeChunkingConfiguration")]
+        [PolicyResourceProperty("fixedSizeChunkingConfiguration", "_mUnknown_FixedSizeChunkingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs> _mFixedSizeChunkingConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs? FixedSizeChunkingConfiguration => _mFixedSizeChunkingConfiguration.GetValue("fixedSizeChunkingConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs? _mValue_FixedSizeChunkingConfiguration;
+        private bool _mUnknown_FixedSizeChunkingConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs? FixedSizeChunkingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_FixedSizeChunkingConfiguration) return _mValue_FixedSizeChunkingConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.FixedSizeChunkingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
         /// </summary>
-        [Input("hierarchicalChunkingConfiguration")]
+        [PolicyResourceProperty("hierarchicalChunkingConfiguration", "_mUnknown_HierarchicalChunkingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs> _mHierarchicalChunkingConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs? HierarchicalChunkingConfiguration => _mHierarchicalChunkingConfiguration.GetValue("hierarchicalChunkingConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs? _mValue_HierarchicalChunkingConfiguration;
+        private bool _mUnknown_HierarchicalChunkingConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs? HierarchicalChunkingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_HierarchicalChunkingConfiguration) return _mValue_HierarchicalChunkingConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.HierarchicalChunkingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
         /// </summary>
-        [Input("semanticChunkingConfiguration")]
+        [PolicyResourceProperty("semanticChunkingConfiguration", "_mUnknown_SemanticChunkingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs> _mSemanticChunkingConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs? SemanticChunkingConfiguration => _mSemanticChunkingConfiguration.GetValue("semanticChunkingConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs? _mValue_SemanticChunkingConfiguration;
+        private bool _mUnknown_SemanticChunkingConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs? SemanticChunkingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SemanticChunkingConfiguration) return _mValue_SemanticChunkingConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.SemanticChunkingConfiguration' is not present");
+            }
+        }
     }
 }

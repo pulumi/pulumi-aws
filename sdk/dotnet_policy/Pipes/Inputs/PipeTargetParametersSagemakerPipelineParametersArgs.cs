@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
         /// </summary>
-        [Input("pipelineParameters")]
+        [PolicyResourceProperty("pipelineParameters", "_mUnknown_PipelineParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>> _mPipelineParameters;
-
-        public List<Inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>? PipelineParameters => _mPipelineParameters.GetValue("pipelineParameters");
+        private List<Inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>? _mValue_PipelineParameters;
+        private bool _mUnknown_PipelineParameters;
+        public List<Inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>? PipelineParameters
+        {
+            get
+            {
+                if (!_mUnknown_PipelineParameters) return _mValue_PipelineParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersSagemakerPipelineParametersArgs.PipelineParameters' is not present");
+            }
+        }
     }
 }

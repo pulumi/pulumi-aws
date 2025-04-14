@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of subnets configured for use by the firewall.
         /// </summary>
-        [Input("syncStates")]
+        [PolicyResourceProperty("syncStates", "_mUnknown_SyncStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirewallFirewallStatusSyncState>> _mSyncStates;
-
-        public List<Outputs.FirewallFirewallStatusSyncState>? SyncStates => _mSyncStates.GetValue("syncStates");
+        private List<Outputs.FirewallFirewallStatusSyncState>? _mValue_SyncStates;
+        private bool _mUnknown_SyncStates;
+        public List<Outputs.FirewallFirewallStatusSyncState>? SyncStates
+        {
+            get
+            {
+                if (!_mUnknown_SyncStates) return _mValue_SyncStates;
+                throw new UndeferrableValueException("Value 'FirewallFirewallStatus.SyncStates' is not present");
+            }
+        }
     }
 }

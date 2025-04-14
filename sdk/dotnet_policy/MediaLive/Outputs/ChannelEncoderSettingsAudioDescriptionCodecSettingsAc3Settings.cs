@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Average bitrate in bits/second.
         /// </summary>
-        [Input("bitrate")]
+        [PolicyResourceProperty("bitrate", "_mUnknown_Bitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBitrate;
-
-        public double? Bitrate => _mBitrate.GetValue("bitrate");
+        private double? _mValue_Bitrate;
+        private bool _mUnknown_Bitrate;
+        public double? Bitrate
+        {
+            get
+            {
+                if (!_mUnknown_Bitrate) return _mValue_Bitrate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.Bitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
         /// </summary>
-        [Input("bitstreamMode")]
+        [PolicyResourceProperty("bitstreamMode", "_mUnknown_BitstreamMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBitstreamMode;
-
-        public string? BitstreamMode => _mBitstreamMode.GetValue("bitstreamMode");
+        private string? _mValue_BitstreamMode;
+        private bool _mUnknown_BitstreamMode;
+        public string? BitstreamMode
+        {
+            get
+            {
+                if (!_mUnknown_BitstreamMode) return _mValue_BitstreamMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.BitstreamMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Dolby Digital coding mode.
         /// </summary>
-        [Input("codingMode")]
+        [PolicyResourceProperty("codingMode", "_mUnknown_CodingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodingMode;
-
-        public string? CodingMode => _mCodingMode.GetValue("codingMode");
+        private string? _mValue_CodingMode;
+        private bool _mUnknown_CodingMode;
+        public string? CodingMode
+        {
+            get
+            {
+                if (!_mUnknown_CodingMode) return _mValue_CodingMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.CodingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the dialnorm of the output.
         /// </summary>
-        [Input("dialnorm")]
+        [PolicyResourceProperty("dialnorm", "_mUnknown_Dialnorm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDialnorm;
-
-        public int? Dialnorm => _mDialnorm.GetValue("dialnorm");
+        private int? _mValue_Dialnorm;
+        private bool _mUnknown_Dialnorm;
+        public int? Dialnorm
+        {
+            get
+            {
+                if (!_mUnknown_Dialnorm) return _mValue_Dialnorm;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.Dialnorm' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
         /// </summary>
-        [Input("drcProfile")]
+        [PolicyResourceProperty("drcProfile", "_mUnknown_DrcProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDrcProfile;
-
-        public string? DrcProfile => _mDrcProfile.GetValue("drcProfile");
+        private string? _mValue_DrcProfile;
+        private bool _mUnknown_DrcProfile;
+        public string? DrcProfile
+        {
+            get
+            {
+                if (!_mUnknown_DrcProfile) return _mValue_DrcProfile;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.DrcProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         /// </summary>
-        [Input("lfeFilter")]
+        [PolicyResourceProperty("lfeFilter", "_mUnknown_LfeFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLfeFilter;
-
-        public string? LfeFilter => _mLfeFilter.GetValue("lfeFilter");
+        private string? _mValue_LfeFilter;
+        private bool _mUnknown_LfeFilter;
+        public string? LfeFilter
+        {
+            get
+            {
+                if (!_mUnknown_LfeFilter) return _mValue_LfeFilter;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.LfeFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata control.
         /// </summary>
-        [Input("metadataControl")]
+        [PolicyResourceProperty("metadataControl", "_mUnknown_MetadataControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataControl;
-
-        public string? MetadataControl => _mMetadataControl.GetValue("metadataControl");
+        private string? _mValue_MetadataControl;
+        private bool _mUnknown_MetadataControl;
+        public string? MetadataControl
+        {
+            get
+            {
+                if (!_mUnknown_MetadataControl) return _mValue_MetadataControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.MetadataControl' is not present");
+            }
+        }
     }
 }

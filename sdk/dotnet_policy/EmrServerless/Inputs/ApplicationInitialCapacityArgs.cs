@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless.Inputs
         /// <summary>
         /// The initial capacity configuration per worker.
         /// </summary>
-        [Input("initialCapacityConfig")]
+        [PolicyResourceProperty("initialCapacityConfig", "_mUnknown_InitialCapacityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs> _mInitialCapacityConfig;
-
-        public Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs? InitialCapacityConfig => _mInitialCapacityConfig.GetValue("initialCapacityConfig");
+        private Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs? _mValue_InitialCapacityConfig;
+        private bool _mUnknown_InitialCapacityConfig;
+        public Inputs.ApplicationInitialCapacityInitialCapacityConfigArgs? InitialCapacityConfig
+        {
+            get
+            {
+                if (!_mUnknown_InitialCapacityConfig) return _mValue_InitialCapacityConfig;
+                throw new UndeferrableValueException("Value 'ApplicationInitialCapacityArgs.InitialCapacityConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
         /// </summary>
-        [Input("initialCapacityType")]
+        [PolicyResourceProperty("initialCapacityType", "_mUnknown_InitialCapacityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInitialCapacityType;
-
-        public string? InitialCapacityType => _mInitialCapacityType.GetValue("initialCapacityType");
+        private string? _mValue_InitialCapacityType;
+        private bool _mUnknown_InitialCapacityType;
+        public string? InitialCapacityType
+        {
+            get
+            {
+                if (!_mUnknown_InitialCapacityType) return _mValue_InitialCapacityType;
+                throw new UndeferrableValueException("Value 'ApplicationInitialCapacityArgs.InitialCapacityType' is not present");
+            }
+        }
     }
 }

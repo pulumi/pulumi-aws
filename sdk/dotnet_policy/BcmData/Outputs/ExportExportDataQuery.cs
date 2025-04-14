@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.BcmData.Outputs
         /// <summary>
         /// Query statement.
         /// </summary>
-        [Input("queryStatement")]
+        [PolicyResourceProperty("queryStatement", "_mUnknown_QueryStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStatement;
-
-        public string? QueryStatement => _mQueryStatement.GetValue("queryStatement");
+        private string? _mValue_QueryStatement;
+        private bool _mUnknown_QueryStatement;
+        public string? QueryStatement
+        {
+            get
+            {
+                if (!_mUnknown_QueryStatement) return _mValue_QueryStatement;
+                throw new UndeferrableValueException("Value 'ExportExportDataQuery.QueryStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// Table configuration.
         /// </summary>
-        [Input("tableConfigurations")]
+        [PolicyResourceProperty("tableConfigurations", "_mUnknown_TableConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Dictionary<string, string>>> _mTableConfigurations;
-
-        public Dictionary<string, Dictionary<string, string>>? TableConfigurations => _mTableConfigurations.GetValue("tableConfigurations");
+        private Dictionary<string, Dictionary<string, string>>? _mValue_TableConfigurations;
+        private bool _mUnknown_TableConfigurations;
+        public Dictionary<string, Dictionary<string, string>>? TableConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_TableConfigurations) return _mValue_TableConfigurations;
+                throw new UndeferrableValueException("Value 'ExportExportDataQuery.TableConfigurations' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// Pass client-specific information to the Lambda function that you are invoking.
         /// </summary>
-        [Input("clientContext")]
+        [PolicyResourceProperty("clientContext", "_mUnknown_ClientContext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientContext;
-
-        public string? ClientContext => _mClientContext.GetValue("clientContext");
+        private string? _mValue_ClientContext;
+        private bool _mUnknown_ClientContext;
+        public string? ClientContext
+        {
+            get
+            {
+                if (!_mUnknown_ClientContext) return _mValue_ClientContext;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs.ClientContext' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON to provide to your Lambda function as input.
         /// </summary>
-        [Input("payload")]
+        [PolicyResourceProperty("payload", "_mUnknown_Payload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayload;
-
-        public string? Payload => _mPayload.GetValue("payload");
+        private string? _mValue_Payload;
+        private bool _mUnknown_Payload;
+        public string? Payload
+        {
+            get
+            {
+                if (!_mUnknown_Payload) return _mValue_Payload;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs.Payload' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a Lambda function version or alias name.
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs.Qualifier' is not present");
+            }
+        }
     }
 }

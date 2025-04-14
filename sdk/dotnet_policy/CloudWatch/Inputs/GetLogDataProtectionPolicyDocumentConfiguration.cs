@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
         /// </summary>
-        [Input("customDataIdentifiers")]
+        [PolicyResourceProperty("customDataIdentifiers", "_mUnknown_CustomDataIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>> _mCustomDataIdentifiers;
-
-        public List<Inputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>? CustomDataIdentifiers => _mCustomDataIdentifiers.GetValue("customDataIdentifiers");
+        private List<Inputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>? _mValue_CustomDataIdentifiers;
+        private bool _mUnknown_CustomDataIdentifiers;
+        public List<Inputs.GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs>? CustomDataIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_CustomDataIdentifiers) return _mValue_CustomDataIdentifiers;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentConfigurationArgs.CustomDataIdentifiers' is not present");
+            }
+        }
     }
 }

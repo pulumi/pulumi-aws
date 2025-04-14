@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
         /// </summary>
-        [Input("metrics")]
+        [PolicyResourceProperty("metrics", "_mUnknown_Metrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMetrics;
-
-        public List<string>? Metrics => _mMetrics.GetValue("metrics");
+        private List<string>? _mValue_Metrics;
+        private bool _mUnknown_Metrics;
+        public List<string>? Metrics
+        {
+            get
+            {
+                if (!_mUnknown_Metrics) return _mValue_Metrics;
+                throw new UndeferrableValueException("Value 'EventSourceMappingMetricsConfigArgs.Metrics' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// 10h window for updates
         /// </summary>
-        [Input("windowStartTime")]
+        [PolicyResourceProperty("windowStartTime", "_mUnknown_WindowStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> _mWindowStartTime;
-
-        public Outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime? WindowStartTime => _mWindowStartTime.GetValue("windowStartTime");
+        private Outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime? _mValue_WindowStartTime;
+        private bool _mUnknown_WindowStartTime;
+        public Outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime? WindowStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WindowStartTime) return _mValue_WindowStartTime;
+                throw new UndeferrableValueException("Value 'DomainOffPeakWindowOptionsOffPeakWindow.WindowStartTime' is not present");
+            }
+        }
     }
 }

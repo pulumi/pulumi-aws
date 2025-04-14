@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetFunctionFileSystemConfigResult.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("localMountPath")]
+        [PolicyResourceProperty("localMountPath", "_mUnknown_LocalMountPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalMountPath;
-
-        public string? LocalMountPath => _mLocalMountPath.GetValue("localMountPath");
+        private string? _mValue_LocalMountPath;
+        private bool _mUnknown_LocalMountPath;
+        public string? LocalMountPath
+        {
+            get
+            {
+                if (!_mUnknown_LocalMountPath) return _mValue_LocalMountPath;
+                throw new UndeferrableValueException("Value 'GetFunctionFileSystemConfigResult.LocalMountPath' is not present");
+            }
+        }
     }
 }

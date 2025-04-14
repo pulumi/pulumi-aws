@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// ARN of the Image Builder Component.
         /// </summary>
-        [Input("componentArn")]
+        [PolicyResourceProperty("componentArn", "_mUnknown_ComponentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComponentArn;
-
-        public string? ComponentArn => _mComponentArn.GetValue("componentArn");
+        private string? _mValue_ComponentArn;
+        private bool _mUnknown_ComponentArn;
+        public string? ComponentArn
+        {
+            get
+            {
+                if (!_mUnknown_ComponentArn) return _mValue_ComponentArn;
+                throw new UndeferrableValueException("Value 'GetImageRecipeComponentResult.ComponentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of parameters that are used to configure the component.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetImageRecipeComponentParameterResult>> _mParameters;
-
-        public List<Outputs.GetImageRecipeComponentParameterResult>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.GetImageRecipeComponentParameterResult>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.GetImageRecipeComponentParameterResult>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'GetImageRecipeComponentResult.Parameters' is not present");
+            }
+        }
     }
 }

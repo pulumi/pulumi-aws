@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Inputs
         /// <summary>
         /// Desired value to use with a game server group target-based scaling policy.
         /// </summary>
-        [Input("targetValue")]
+        [PolicyResourceProperty("targetValue", "_mUnknown_TargetValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTargetValue;
-
-        public double? TargetValue => _mTargetValue.GetValue("targetValue");
+        private double? _mValue_TargetValue;
+        private bool _mUnknown_TargetValue;
+        public double? TargetValue
+        {
+            get
+            {
+                if (!_mUnknown_TargetValue) return _mValue_TargetValue;
+                throw new UndeferrableValueException("Value 'GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs.TargetValue' is not present");
+            }
+        }
     }
 }

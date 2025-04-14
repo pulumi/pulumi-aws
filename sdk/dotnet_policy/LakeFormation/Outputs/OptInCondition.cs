@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'OptInCondition.Expression' is not present");
+            }
+        }
     }
 }

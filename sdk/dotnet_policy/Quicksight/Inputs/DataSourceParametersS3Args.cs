@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// An object containing the S3 location of the S3 manifest file.
         /// </summary>
-        [Input("manifestFileLocation")]
+        [PolicyResourceProperty("manifestFileLocation", "_mUnknown_ManifestFileLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceParametersS3ManifestFileLocationArgs> _mManifestFileLocation;
-
-        public Inputs.DataSourceParametersS3ManifestFileLocationArgs? ManifestFileLocation => _mManifestFileLocation.GetValue("manifestFileLocation");
+        private Inputs.DataSourceParametersS3ManifestFileLocationArgs? _mValue_ManifestFileLocation;
+        private bool _mUnknown_ManifestFileLocation;
+        public Inputs.DataSourceParametersS3ManifestFileLocationArgs? ManifestFileLocation
+        {
+            get
+            {
+                if (!_mUnknown_ManifestFileLocation) return _mValue_ManifestFileLocation;
+                throw new UndeferrableValueException("Value 'DataSourceParametersS3Args.ManifestFileLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DataSourceParametersS3Args.RoleArn' is not present");
+            }
+        }
     }
 }

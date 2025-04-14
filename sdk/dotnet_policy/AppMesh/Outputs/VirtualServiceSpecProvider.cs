@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Virtual node associated with a virtual service.
         /// </summary>
-        [Input("virtualNode")]
+        [PolicyResourceProperty("virtualNode", "_mUnknown_VirtualNode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualServiceSpecProviderVirtualNode> _mVirtualNode;
-
-        public Outputs.VirtualServiceSpecProviderVirtualNode? VirtualNode => _mVirtualNode.GetValue("virtualNode");
+        private Outputs.VirtualServiceSpecProviderVirtualNode? _mValue_VirtualNode;
+        private bool _mUnknown_VirtualNode;
+        public Outputs.VirtualServiceSpecProviderVirtualNode? VirtualNode
+        {
+            get
+            {
+                if (!_mUnknown_VirtualNode) return _mValue_VirtualNode;
+                throw new UndeferrableValueException("Value 'VirtualServiceSpecProvider.VirtualNode' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual router associated with a virtual service.
         /// </summary>
-        [Input("virtualRouter")]
+        [PolicyResourceProperty("virtualRouter", "_mUnknown_VirtualRouter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualServiceSpecProviderVirtualRouter> _mVirtualRouter;
-
-        public Outputs.VirtualServiceSpecProviderVirtualRouter? VirtualRouter => _mVirtualRouter.GetValue("virtualRouter");
+        private Outputs.VirtualServiceSpecProviderVirtualRouter? _mValue_VirtualRouter;
+        private bool _mUnknown_VirtualRouter;
+        public Outputs.VirtualServiceSpecProviderVirtualRouter? VirtualRouter
+        {
+            get
+            {
+                if (!_mUnknown_VirtualRouter) return _mValue_VirtualRouter;
+                throw new UndeferrableValueException("Value 'VirtualServiceSpecProvider.VirtualRouter' is not present");
+            }
+        }
     }
 }

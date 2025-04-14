@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// DNS domain name for another resource record set in this hosted zone.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetAliasTarget.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
         /// </summary>
-        [Input("evaluateTargetHealth")]
+        [PolicyResourceProperty("evaluateTargetHealth", "_mUnknown_EvaluateTargetHealth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEvaluateTargetHealth;
-
-        public bool? EvaluateTargetHealth => _mEvaluateTargetHealth.GetValue("evaluateTargetHealth");
+        private bool? _mValue_EvaluateTargetHealth;
+        private bool _mUnknown_EvaluateTargetHealth;
+        public bool? EvaluateTargetHealth
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateTargetHealth) return _mValue_EvaluateTargetHealth;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetAliasTarget.EvaluateTargetHealth' is not present");
+            }
+        }
 
         /// <summary>
         /// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetAliasTarget.HostedZoneId' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables.Inputs
         /// A single Iceberg compaction settings object.
         /// See `iceberg_compaction` below.
         /// </summary>
-        [Input("icebergCompaction")]
+        [PolicyResourceProperty("icebergCompaction", "_mUnknown_IcebergCompaction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMaintenanceConfigurationIcebergCompactionArgs> _mIcebergCompaction;
-
-        public Inputs.TableMaintenanceConfigurationIcebergCompactionArgs? IcebergCompaction => _mIcebergCompaction.GetValue("icebergCompaction");
+        private Inputs.TableMaintenanceConfigurationIcebergCompactionArgs? _mValue_IcebergCompaction;
+        private bool _mUnknown_IcebergCompaction;
+        public Inputs.TableMaintenanceConfigurationIcebergCompactionArgs? IcebergCompaction
+        {
+            get
+            {
+                if (!_mUnknown_IcebergCompaction) return _mValue_IcebergCompaction;
+                throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationArgs.IcebergCompaction' is not present");
+            }
+        }
 
         /// <summary>
         /// A single Iceberg snapshot management settings object.
         /// See `iceberg_snapshot_management` below.
         /// </summary>
-        [Input("icebergSnapshotManagement")]
+        [PolicyResourceProperty("icebergSnapshotManagement", "_mUnknown_IcebergSnapshotManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementArgs> _mIcebergSnapshotManagement;
-
-        public Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementArgs? IcebergSnapshotManagement => _mIcebergSnapshotManagement.GetValue("icebergSnapshotManagement");
+        private Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementArgs? _mValue_IcebergSnapshotManagement;
+        private bool _mUnknown_IcebergSnapshotManagement;
+        public Inputs.TableMaintenanceConfigurationIcebergSnapshotManagementArgs? IcebergSnapshotManagement
+        {
+            get
+            {
+                if (!_mUnknown_IcebergSnapshotManagement) return _mValue_IcebergSnapshotManagement;
+                throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationArgs.IcebergSnapshotManagement' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecBackendResult
     {
-        [Input("virtualServices")]
+        [PolicyResourceProperty("virtualServices", "_mUnknown_VirtualServices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendVirtualServiceResult>> _mVirtualServices;
-
-        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceResult>? VirtualServices => _mVirtualServices.GetValue("virtualServices");
+        private List<Outputs.GetVirtualNodeSpecBackendVirtualServiceResult>? _mValue_VirtualServices;
+        private bool _mUnknown_VirtualServices;
+        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceResult>? VirtualServices
+        {
+            get
+            {
+                if (!_mUnknown_VirtualServices) return _mValue_VirtualServices;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendResult.VirtualServices' is not present");
+            }
+        }
     }
 }

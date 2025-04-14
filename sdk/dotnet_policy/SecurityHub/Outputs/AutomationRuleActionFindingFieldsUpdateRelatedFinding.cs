@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// The product-generated identifier for a related finding.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateRelatedFinding.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the product that generated a related finding.
         /// </summary>
-        [Input("productArn")]
+        [PolicyResourceProperty("productArn", "_mUnknown_ProductArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductArn;
-
-        public string? ProductArn => _mProductArn.GetValue("productArn");
+        private string? _mValue_ProductArn;
+        private bool _mUnknown_ProductArn;
+        public string? ProductArn
+        {
+            get
+            {
+                if (!_mUnknown_ProductArn) return _mValue_ProductArn;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateRelatedFinding.ProductArn' is not present");
+            }
+        }
     }
 }

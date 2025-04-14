@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// The Amazon Resource Name (ARN) of the rotation.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ContactsRotation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         /// </summary>
-        [Input("contactIds")]
+        [PolicyResourceProperty("contactIds", "_mUnknown_ContactIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContactIds;
-
-        public List<string>? ContactIds => _mContactIds.GetValue("contactIds");
+        private List<string>? _mValue_ContactIds;
+        private bool _mUnknown_ContactIds;
+        public List<string>? ContactIds
+        {
+            get
+            {
+                if (!_mUnknown_ContactIds) return _mValue_ContactIds;
+                throw new UndeferrableValueException("Value 'ContactsRotation.ContactIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the rotation.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContactsRotation.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("recurrence")]
+        [PolicyResourceProperty("recurrence", "_mUnknown_Recurrence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContactsRotationRecurrence> _mRecurrence;
-
-        public Outputs.ContactsRotationRecurrence? Recurrence => _mRecurrence.GetValue("recurrence");
+        private Outputs.ContactsRotationRecurrence? _mValue_Recurrence;
+        private bool _mUnknown_Recurrence;
+        public Outputs.ContactsRotationRecurrence? Recurrence
+        {
+            get
+            {
+                if (!_mUnknown_Recurrence) return _mValue_Recurrence;
+                throw new UndeferrableValueException("Value 'ContactsRotation.Recurrence' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ContactsRotation.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContactsRotation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ContactsRotation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
         /// </summary>
-        [Input("timeZoneId")]
+        [PolicyResourceProperty("timeZoneId", "_mUnknown_TimeZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZoneId;
-
-        public string? TimeZoneId => _mTimeZoneId.GetValue("timeZoneId");
+        private string? _mValue_TimeZoneId;
+        private bool _mUnknown_TimeZoneId;
+        public string? TimeZoneId
+        {
+            get
+            {
+                if (!_mUnknown_TimeZoneId) return _mValue_TimeZoneId;
+                throw new UndeferrableValueException("Value 'ContactsRotation.TimeZoneId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/contactsRotation:ContactsRotation")]
@@ -94,57 +150,99 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         /// </summary>
-        [Input("contactIds")]
+        [PolicyResourceProperty("contactIds", "_mUnknown_ContactIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContactIds;
-
-        public List<string>? ContactIds => _mContactIds.GetValue("contactIds");
+        private List<string>? _mValue_ContactIds;
+        private bool _mUnknown_ContactIds;
+        public List<string>? ContactIds
+        {
+            get
+            {
+                if (!_mUnknown_ContactIds) return _mValue_ContactIds;
+                throw new UndeferrableValueException("Value 'ContactsRotationArgs.ContactIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the rotation.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContactsRotationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("recurrence")]
+        [PolicyResourceProperty("recurrence", "_mUnknown_Recurrence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContactsRotationRecurrenceArgs> _mRecurrence;
-
-        public Inputs.ContactsRotationRecurrenceArgs? Recurrence => _mRecurrence.GetValue("recurrence");
+        private Inputs.ContactsRotationRecurrenceArgs? _mValue_Recurrence;
+        private bool _mUnknown_Recurrence;
+        public Inputs.ContactsRotationRecurrenceArgs? Recurrence
+        {
+            get
+            {
+                if (!_mUnknown_Recurrence) return _mValue_Recurrence;
+                throw new UndeferrableValueException("Value 'ContactsRotationArgs.Recurrence' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ContactsRotationArgs.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContactsRotationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
         /// </summary>
-        [Input("timeZoneId")]
+        [PolicyResourceProperty("timeZoneId", "_mUnknown_TimeZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZoneId;
-
-        public string? TimeZoneId => _mTimeZoneId.GetValue("timeZoneId");
+        private string? _mValue_TimeZoneId;
+        private bool _mUnknown_TimeZoneId;
+        public string? TimeZoneId
+        {
+            get
+            {
+                if (!_mUnknown_TimeZoneId) return _mValue_TimeZoneId;
+                throw new UndeferrableValueException("Value 'ContactsRotationArgs.TimeZoneId' is not present");
+            }
+        }
     }
 }

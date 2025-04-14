@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
         /// <summary>
         /// The ARN of the Elastictranscoder pipeline.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Pipeline.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
         /// </summary>
-        [Input("awsKmsKeyArn")]
+        [PolicyResourceProperty("awsKmsKeyArn", "_mUnknown_AwsKmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsKmsKeyArn;
-
-        public string? AwsKmsKeyArn => _mAwsKmsKeyArn.GetValue("awsKmsKeyArn");
+        private string? _mValue_AwsKmsKeyArn;
+        private bool _mUnknown_AwsKmsKeyArn;
+        public string? AwsKmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_AwsKmsKeyArn) return _mValue_AwsKmsKeyArn;
+                throw new UndeferrableValueException("Value 'Pipeline.AwsKmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         /// </summary>
-        [Input("contentConfig")]
+        [PolicyResourceProperty("contentConfig", "_mUnknown_ContentConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineContentConfig> _mContentConfig;
-
-        public Outputs.PipelineContentConfig? ContentConfig => _mContentConfig.GetValue("contentConfig");
+        private Outputs.PipelineContentConfig? _mValue_ContentConfig;
+        private bool _mUnknown_ContentConfig;
+        public Outputs.PipelineContentConfig? ContentConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContentConfig) return _mValue_ContentConfig;
+                throw new UndeferrableValueException("Value 'Pipeline.ContentConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The permissions for the `content_config` object. (documented below)
         /// </summary>
-        [Input("contentConfigPermissions")]
+        [PolicyResourceProperty("contentConfigPermissions", "_mUnknown_ContentConfigPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineContentConfigPermission>> _mContentConfigPermissions;
-
-        public List<Outputs.PipelineContentConfigPermission>? ContentConfigPermissions => _mContentConfigPermissions.GetValue("contentConfigPermissions");
+        private List<Outputs.PipelineContentConfigPermission>? _mValue_ContentConfigPermissions;
+        private bool _mUnknown_ContentConfigPermissions;
+        public List<Outputs.PipelineContentConfigPermission>? ContentConfigPermissions
+        {
+            get
+            {
+                if (!_mUnknown_ContentConfigPermissions) return _mValue_ContentConfigPermissions;
+                throw new UndeferrableValueException("Value 'Pipeline.ContentConfigPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         /// </summary>
-        [Input("inputBucket")]
+        [PolicyResourceProperty("inputBucket", "_mUnknown_InputBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputBucket;
-
-        public string? InputBucket => _mInputBucket.GetValue("inputBucket");
+        private string? _mValue_InputBucket;
+        private bool _mUnknown_InputBucket;
+        public string? InputBucket
+        {
+            get
+            {
+                if (!_mUnknown_InputBucket) return _mValue_InputBucket;
+                throw new UndeferrableValueException("Value 'Pipeline.InputBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline. Maximum 40 characters
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Pipeline.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         /// </summary>
-        [Input("notifications")]
+        [PolicyResourceProperty("notifications", "_mUnknown_Notifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineNotifications> _mNotifications;
-
-        public Outputs.PipelineNotifications? Notifications => _mNotifications.GetValue("notifications");
+        private Outputs.PipelineNotifications? _mValue_Notifications;
+        private bool _mUnknown_Notifications;
+        public Outputs.PipelineNotifications? Notifications
+        {
+            get
+            {
+                if (!_mUnknown_Notifications) return _mValue_Notifications;
+                throw new UndeferrableValueException("Value 'Pipeline.Notifications' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         /// </summary>
-        [Input("outputBucket")]
+        [PolicyResourceProperty("outputBucket", "_mUnknown_OutputBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputBucket;
-
-        public string? OutputBucket => _mOutputBucket.GetValue("outputBucket");
+        private string? _mValue_OutputBucket;
+        private bool _mUnknown_OutputBucket;
+        public string? OutputBucket
+        {
+            get
+            {
+                if (!_mUnknown_OutputBucket) return _mValue_OutputBucket;
+                throw new UndeferrableValueException("Value 'Pipeline.OutputBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'Pipeline.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         /// </summary>
-        [Input("thumbnailConfig")]
+        [PolicyResourceProperty("thumbnailConfig", "_mUnknown_ThumbnailConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipelineThumbnailConfig> _mThumbnailConfig;
-
-        public Outputs.PipelineThumbnailConfig? ThumbnailConfig => _mThumbnailConfig.GetValue("thumbnailConfig");
+        private Outputs.PipelineThumbnailConfig? _mValue_ThumbnailConfig;
+        private bool _mUnknown_ThumbnailConfig;
+        public Outputs.PipelineThumbnailConfig? ThumbnailConfig
+        {
+            get
+            {
+                if (!_mUnknown_ThumbnailConfig) return _mValue_ThumbnailConfig;
+                throw new UndeferrableValueException("Value 'Pipeline.ThumbnailConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
@@ -113,11 +183,18 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
         /// `thumbnail_config`. If you specify values for `content_config` and
         /// `thumbnail_config`, omit the `output_bucket` object.
         /// </summary>
-        [Input("thumbnailConfigPermissions")]
+        [PolicyResourceProperty("thumbnailConfigPermissions", "_mUnknown_ThumbnailConfigPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineThumbnailConfigPermission>> _mThumbnailConfigPermissions;
-
-        public List<Outputs.PipelineThumbnailConfigPermission>? ThumbnailConfigPermissions => _mThumbnailConfigPermissions.GetValue("thumbnailConfigPermissions");
+        private List<Outputs.PipelineThumbnailConfigPermission>? _mValue_ThumbnailConfigPermissions;
+        private bool _mUnknown_ThumbnailConfigPermissions;
+        public List<Outputs.PipelineThumbnailConfigPermission>? ThumbnailConfigPermissions
+        {
+            get
+            {
+                if (!_mUnknown_ThumbnailConfigPermissions) return _mValue_ThumbnailConfigPermissions;
+                throw new UndeferrableValueException("Value 'Pipeline.ThumbnailConfigPermissions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elastictranscoder/pipeline:Pipeline")]
@@ -126,83 +203,146 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
         /// </summary>
-        [Input("awsKmsKeyArn")]
+        [PolicyResourceProperty("awsKmsKeyArn", "_mUnknown_AwsKmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsKmsKeyArn;
-
-        public string? AwsKmsKeyArn => _mAwsKmsKeyArn.GetValue("awsKmsKeyArn");
+        private string? _mValue_AwsKmsKeyArn;
+        private bool _mUnknown_AwsKmsKeyArn;
+        public string? AwsKmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_AwsKmsKeyArn) return _mValue_AwsKmsKeyArn;
+                throw new UndeferrableValueException("Value 'PipelineArgs.AwsKmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         /// </summary>
-        [Input("contentConfig")]
+        [PolicyResourceProperty("contentConfig", "_mUnknown_ContentConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineContentConfigArgs> _mContentConfig;
-
-        public Inputs.PipelineContentConfigArgs? ContentConfig => _mContentConfig.GetValue("contentConfig");
+        private Inputs.PipelineContentConfigArgs? _mValue_ContentConfig;
+        private bool _mUnknown_ContentConfig;
+        public Inputs.PipelineContentConfigArgs? ContentConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContentConfig) return _mValue_ContentConfig;
+                throw new UndeferrableValueException("Value 'PipelineArgs.ContentConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The permissions for the `content_config` object. (documented below)
         /// </summary>
-        [Input("contentConfigPermissions")]
+        [PolicyResourceProperty("contentConfigPermissions", "_mUnknown_ContentConfigPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineContentConfigPermissionArgs>> _mContentConfigPermissions;
-
-        public List<Inputs.PipelineContentConfigPermissionArgs>? ContentConfigPermissions => _mContentConfigPermissions.GetValue("contentConfigPermissions");
+        private List<Inputs.PipelineContentConfigPermissionArgs>? _mValue_ContentConfigPermissions;
+        private bool _mUnknown_ContentConfigPermissions;
+        public List<Inputs.PipelineContentConfigPermissionArgs>? ContentConfigPermissions
+        {
+            get
+            {
+                if (!_mUnknown_ContentConfigPermissions) return _mValue_ContentConfigPermissions;
+                throw new UndeferrableValueException("Value 'PipelineArgs.ContentConfigPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         /// </summary>
-        [Input("inputBucket")]
+        [PolicyResourceProperty("inputBucket", "_mUnknown_InputBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputBucket;
-
-        public string? InputBucket => _mInputBucket.GetValue("inputBucket");
+        private string? _mValue_InputBucket;
+        private bool _mUnknown_InputBucket;
+        public string? InputBucket
+        {
+            get
+            {
+                if (!_mUnknown_InputBucket) return _mValue_InputBucket;
+                throw new UndeferrableValueException("Value 'PipelineArgs.InputBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the pipeline. Maximum 40 characters
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         /// </summary>
-        [Input("notifications")]
+        [PolicyResourceProperty("notifications", "_mUnknown_Notifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineNotificationsArgs> _mNotifications;
-
-        public Inputs.PipelineNotificationsArgs? Notifications => _mNotifications.GetValue("notifications");
+        private Inputs.PipelineNotificationsArgs? _mValue_Notifications;
+        private bool _mUnknown_Notifications;
+        public Inputs.PipelineNotificationsArgs? Notifications
+        {
+            get
+            {
+                if (!_mUnknown_Notifications) return _mValue_Notifications;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Notifications' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         /// </summary>
-        [Input("outputBucket")]
+        [PolicyResourceProperty("outputBucket", "_mUnknown_OutputBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputBucket;
-
-        public string? OutputBucket => _mOutputBucket.GetValue("outputBucket");
+        private string? _mValue_OutputBucket;
+        private bool _mUnknown_OutputBucket;
+        public string? OutputBucket
+        {
+            get
+            {
+                if (!_mUnknown_OutputBucket) return _mValue_OutputBucket;
+                throw new UndeferrableValueException("Value 'PipelineArgs.OutputBucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'PipelineArgs.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         /// </summary>
-        [Input("thumbnailConfig")]
+        [PolicyResourceProperty("thumbnailConfig", "_mUnknown_ThumbnailConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineThumbnailConfigArgs> _mThumbnailConfig;
-
-        public Inputs.PipelineThumbnailConfigArgs? ThumbnailConfig => _mThumbnailConfig.GetValue("thumbnailConfig");
+        private Inputs.PipelineThumbnailConfigArgs? _mValue_ThumbnailConfig;
+        private bool _mUnknown_ThumbnailConfig;
+        public Inputs.PipelineThumbnailConfigArgs? ThumbnailConfig
+        {
+            get
+            {
+                if (!_mUnknown_ThumbnailConfig) return _mValue_ThumbnailConfig;
+                throw new UndeferrableValueException("Value 'PipelineArgs.ThumbnailConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The permissions for the `thumbnail_config` object. (documented below)
@@ -214,10 +354,17 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
         /// `thumbnail_config`. If you specify values for `content_config` and
         /// `thumbnail_config`, omit the `output_bucket` object.
         /// </summary>
-        [Input("thumbnailConfigPermissions")]
+        [PolicyResourceProperty("thumbnailConfigPermissions", "_mUnknown_ThumbnailConfigPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineThumbnailConfigPermissionArgs>> _mThumbnailConfigPermissions;
-
-        public List<Inputs.PipelineThumbnailConfigPermissionArgs>? ThumbnailConfigPermissions => _mThumbnailConfigPermissions.GetValue("thumbnailConfigPermissions");
+        private List<Inputs.PipelineThumbnailConfigPermissionArgs>? _mValue_ThumbnailConfigPermissions;
+        private bool _mUnknown_ThumbnailConfigPermissions;
+        public List<Inputs.PipelineThumbnailConfigPermissionArgs>? ThumbnailConfigPermissions
+        {
+            get
+            {
+                if (!_mUnknown_ThumbnailConfigPermissions) return _mValue_ThumbnailConfigPermissions;
+                throw new UndeferrableValueException("Value 'PipelineArgs.ThumbnailConfigPermissions' is not present");
+            }
+        }
     }
 }

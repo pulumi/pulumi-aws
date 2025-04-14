@@ -16,55 +16,97 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'RestApiPut.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to rollback the API update when a warning is encountered. The default value is `false`.
         /// </summary>
-        [Input("failOnWarnings")]
+        [PolicyResourceProperty("failOnWarnings", "_mUnknown_FailOnWarnings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
-
-        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
+        private bool? _mValue_FailOnWarnings;
+        private bool _mUnknown_FailOnWarnings;
+        public bool? FailOnWarnings
+        {
+            get
+            {
+                if (!_mUnknown_FailOnWarnings) return _mValue_FailOnWarnings;
+                throw new UndeferrableValueException("Value 'RestApiPut.FailOnWarnings' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'RestApiPut.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the associated REST API.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'RestApiPut.RestApiId' is not present");
+            }
+        }
 
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RestApiPutTimeouts> _mTimeouts;
-
-        public Outputs.RestApiPutTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.RestApiPutTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.RestApiPutTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'RestApiPut.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'RestApiPut.Triggers' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/restApiPut:RestApiPut")]
@@ -73,54 +115,96 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'RestApiPutArgs.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to rollback the API update when a warning is encountered. The default value is `false`.
         /// </summary>
-        [Input("failOnWarnings")]
+        [PolicyResourceProperty("failOnWarnings", "_mUnknown_FailOnWarnings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
-
-        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
+        private bool? _mValue_FailOnWarnings;
+        private bool _mUnknown_FailOnWarnings;
+        public bool? FailOnWarnings
+        {
+            get
+            {
+                if (!_mUnknown_FailOnWarnings) return _mValue_FailOnWarnings;
+                throw new UndeferrableValueException("Value 'RestApiPutArgs.FailOnWarnings' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'RestApiPutArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the associated REST API.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'RestApiPutArgs.RestApiId' is not present");
+            }
+        }
 
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RestApiPutTimeoutsArgs> _mTimeouts;
-
-        public Inputs.RestApiPutTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.RestApiPutTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.RestApiPutTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'RestApiPutArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'RestApiPutArgs.Triggers' is not present");
+            }
+        }
     }
 }

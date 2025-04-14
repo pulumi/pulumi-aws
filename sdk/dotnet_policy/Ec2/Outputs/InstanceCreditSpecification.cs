@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
         /// </summary>
-        [Input("cpuCredits")]
+        [PolicyResourceProperty("cpuCredits", "_mUnknown_CpuCredits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpuCredits;
-
-        public string? CpuCredits => _mCpuCredits.GetValue("cpuCredits");
+        private string? _mValue_CpuCredits;
+        private bool _mUnknown_CpuCredits;
+        public string? CpuCredits
+        {
+            get
+            {
+                if (!_mUnknown_CpuCredits) return _mValue_CpuCredits;
+                throw new UndeferrableValueException("Value 'InstanceCreditSpecification.CpuCredits' is not present");
+            }
+        }
     }
 }

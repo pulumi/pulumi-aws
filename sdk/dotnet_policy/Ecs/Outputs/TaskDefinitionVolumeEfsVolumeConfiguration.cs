@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Configuration block for authorization for the Amazon EFS file system. Detailed below.
         /// </summary>
-        [Input("authorizationConfig")]
+        [PolicyResourceProperty("authorizationConfig", "_mUnknown_AuthorizationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig> _mAuthorizationConfig;
-
-        public Outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig? AuthorizationConfig => _mAuthorizationConfig.GetValue("authorizationConfig");
+        private Outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig? _mValue_AuthorizationConfig;
+        private bool _mUnknown_AuthorizationConfig;
+        public Outputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig? AuthorizationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationConfig) return _mValue_AuthorizationConfig;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfiguration.AuthorizationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the EFS File System.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfiguration.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
         /// </summary>
-        [Input("rootDirectory")]
+        [PolicyResourceProperty("rootDirectory", "_mUnknown_RootDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootDirectory;
-
-        public string? RootDirectory => _mRootDirectory.GetValue("rootDirectory");
+        private string? _mValue_RootDirectory;
+        private bool _mUnknown_RootDirectory;
+        public string? RootDirectory
+        {
+            get
+            {
+                if (!_mUnknown_RootDirectory) return _mValue_RootDirectory;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfiguration.RootDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
         /// </summary>
-        [Input("transitEncryption")]
+        [PolicyResourceProperty("transitEncryption", "_mUnknown_TransitEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitEncryption;
-
-        public string? TransitEncryption => _mTransitEncryption.GetValue("transitEncryption");
+        private string? _mValue_TransitEncryption;
+        private bool _mUnknown_TransitEncryption;
+        public string? TransitEncryption
+        {
+            get
+            {
+                if (!_mUnknown_TransitEncryption) return _mValue_TransitEncryption;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfiguration.TransitEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
         /// </summary>
-        [Input("transitEncryptionPort")]
+        [PolicyResourceProperty("transitEncryptionPort", "_mUnknown_TransitEncryptionPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTransitEncryptionPort;
-
-        public int? TransitEncryptionPort => _mTransitEncryptionPort.GetValue("transitEncryptionPort");
+        private int? _mValue_TransitEncryptionPort;
+        private bool _mUnknown_TransitEncryptionPort;
+        public int? TransitEncryptionPort
+        {
+            get
+            {
+                if (!_mUnknown_TransitEncryptionPort) return _mValue_TransitEncryptionPort;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfiguration.TransitEncryptionPort' is not present");
+            }
+        }
     }
 }

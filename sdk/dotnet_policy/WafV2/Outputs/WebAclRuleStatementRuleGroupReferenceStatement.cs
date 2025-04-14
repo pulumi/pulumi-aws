@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRuleGroupReferenceStatement.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
         /// </summary>
-        [Input("ruleActionOverrides")]
+        [PolicyResourceProperty("ruleActionOverrides", "_mUnknown_RuleActionOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride>> _mRuleActionOverrides;
-
-        public List<Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride>? RuleActionOverrides => _mRuleActionOverrides.GetValue("ruleActionOverrides");
+        private List<Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride>? _mValue_RuleActionOverrides;
+        private bool _mUnknown_RuleActionOverrides;
+        public List<Outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride>? RuleActionOverrides
+        {
+            get
+            {
+                if (!_mUnknown_RuleActionOverrides) return _mValue_RuleActionOverrides;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRuleGroupReferenceStatement.RuleActionOverrides' is not present");
+            }
+        }
     }
 }

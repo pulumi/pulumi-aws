@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake
         /// <summary>
         /// Specify the configuration using which you want to create the subscriber notification..
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SubscriberNotificationConfiguration> _mConfiguration;
-
-        public Outputs.SubscriberNotificationConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.SubscriberNotificationConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.SubscriberNotificationConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'SubscriberNotification.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// (**Deprecated**) The subscriber endpoint to which exception messages are posted.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'SubscriberNotification.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The subscriber endpoint to which exception messages are posted.
         /// </summary>
-        [Input("subscriberEndpoint")]
+        [PolicyResourceProperty("subscriberEndpoint", "_mUnknown_SubscriberEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberEndpoint;
-
-        public string? SubscriberEndpoint => _mSubscriberEndpoint.GetValue("subscriberEndpoint");
+        private string? _mValue_SubscriberEndpoint;
+        private bool _mUnknown_SubscriberEndpoint;
+        public string? SubscriberEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberEndpoint) return _mValue_SubscriberEndpoint;
+                throw new UndeferrableValueException("Value 'SubscriberNotification.SubscriberEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The subscriber ID for the notification subscription.
         /// </summary>
-        [Input("subscriberId")]
+        [PolicyResourceProperty("subscriberId", "_mUnknown_SubscriberId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberId;
-
-        public string? SubscriberId => _mSubscriberId.GetValue("subscriberId");
+        private string? _mValue_SubscriberId;
+        private bool _mUnknown_SubscriberId;
+        public string? SubscriberId
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberId) return _mValue_SubscriberId;
+                throw new UndeferrableValueException("Value 'SubscriberNotification.SubscriberId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securitylake/subscriberNotification:SubscriberNotification")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake
         /// <summary>
         /// Specify the configuration using which you want to create the subscriber notification..
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberNotificationConfigurationArgs> _mConfiguration;
-
-        public Inputs.SubscriberNotificationConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.SubscriberNotificationConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.SubscriberNotificationConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The subscriber ID for the notification subscription.
         /// </summary>
-        [Input("subscriberId")]
+        [PolicyResourceProperty("subscriberId", "_mUnknown_SubscriberId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberId;
-
-        public string? SubscriberId => _mSubscriberId.GetValue("subscriberId");
+        private string? _mValue_SubscriberId;
+        private bool _mUnknown_SubscriberId;
+        public string? SubscriberId
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberId) return _mValue_SubscriberId;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationArgs.SubscriberId' is not present");
+            }
+        }
     }
 }

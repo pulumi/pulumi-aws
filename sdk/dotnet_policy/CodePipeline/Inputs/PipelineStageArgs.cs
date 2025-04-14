@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The action(s) to include in the stage. Defined as an `action` block below
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineStageActionArgs>> _mActions;
-
-        public List<Inputs.PipelineStageActionArgs>? Actions => _mActions.GetValue("actions");
+        private List<Inputs.PipelineStageActionArgs>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Inputs.PipelineStageActionArgs>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'PipelineStageArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
         /// </summary>
-        [Input("beforeEntry")]
+        [PolicyResourceProperty("beforeEntry", "_mUnknown_BeforeEntry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineStageBeforeEntryArgs> _mBeforeEntry;
-
-        public Inputs.PipelineStageBeforeEntryArgs? BeforeEntry => _mBeforeEntry.GetValue("beforeEntry");
+        private Inputs.PipelineStageBeforeEntryArgs? _mValue_BeforeEntry;
+        private bool _mUnknown_BeforeEntry;
+        public Inputs.PipelineStageBeforeEntryArgs? BeforeEntry
+        {
+            get
+            {
+                if (!_mUnknown_BeforeEntry) return _mValue_BeforeEntry;
+                throw new UndeferrableValueException("Value 'PipelineStageArgs.BeforeEntry' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the stage.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PipelineStageArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
         /// </summary>
-        [Input("onFailure")]
+        [PolicyResourceProperty("onFailure", "_mUnknown_OnFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineStageOnFailureArgs> _mOnFailure;
-
-        public Inputs.PipelineStageOnFailureArgs? OnFailure => _mOnFailure.GetValue("onFailure");
+        private Inputs.PipelineStageOnFailureArgs? _mValue_OnFailure;
+        private bool _mUnknown_OnFailure;
+        public Inputs.PipelineStageOnFailureArgs? OnFailure
+        {
+            get
+            {
+                if (!_mUnknown_OnFailure) return _mValue_OnFailure;
+                throw new UndeferrableValueException("Value 'PipelineStageArgs.OnFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
         /// </summary>
-        [Input("onSuccess")]
+        [PolicyResourceProperty("onSuccess", "_mUnknown_OnSuccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineStageOnSuccessArgs> _mOnSuccess;
-
-        public Inputs.PipelineStageOnSuccessArgs? OnSuccess => _mOnSuccess.GetValue("onSuccess");
+        private Inputs.PipelineStageOnSuccessArgs? _mValue_OnSuccess;
+        private bool _mUnknown_OnSuccess;
+        public Inputs.PipelineStageOnSuccessArgs? OnSuccess
+        {
+            get
+            {
+                if (!_mUnknown_OnSuccess) return _mValue_OnSuccess;
+                throw new UndeferrableValueException("Value 'PipelineStageArgs.OnSuccess' is not present");
+            }
+        }
     }
 }

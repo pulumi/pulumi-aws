@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// (Optional) A wildcard that matches all rows.
         /// </summary>
-        [Input("allRowsWildcard")]
+        [PolicyResourceProperty("allRowsWildcard", "_mUnknown_AllRowsWildcard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard> _mAllRowsWildcard;
-
-        public Outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard? AllRowsWildcard => _mAllRowsWildcard.GetValue("allRowsWildcard");
+        private Outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard? _mValue_AllRowsWildcard;
+        private bool _mUnknown_AllRowsWildcard;
+        public Outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard? AllRowsWildcard
+        {
+            get
+            {
+                if (!_mUnknown_AllRowsWildcard) return _mValue_AllRowsWildcard;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilter.AllRowsWildcard' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) A filter expression.
         /// </summary>
-        [Input("filterExpression")]
+        [PolicyResourceProperty("filterExpression", "_mUnknown_FilterExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterExpression;
-
-        public string? FilterExpression => _mFilterExpression.GetValue("filterExpression");
+        private string? _mValue_FilterExpression;
+        private bool _mUnknown_FilterExpression;
+        public string? FilterExpression
+        {
+            get
+            {
+                if (!_mUnknown_FilterExpression) return _mValue_FilterExpression;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilter.FilterExpression' is not present");
+            }
+        }
     }
 }

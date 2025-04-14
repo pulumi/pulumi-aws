@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
         /// </summary>
-        [Input("eksClusterArn")]
+        [PolicyResourceProperty("eksClusterArn", "_mUnknown_EksClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEksClusterArn;
-
-        public string? EksClusterArn => _mEksClusterArn.GetValue("eksClusterArn");
+        private string? _mValue_EksClusterArn;
+        private bool _mUnknown_EksClusterArn;
+        public string? EksClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_EksClusterArn) return _mValue_EksClusterArn;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentEksConfigurationArgs.EksClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
         /// </summary>
-        [Input("kubernetesNamespace")]
+        [PolicyResourceProperty("kubernetesNamespace", "_mUnknown_KubernetesNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKubernetesNamespace;
-
-        public string? KubernetesNamespace => _mKubernetesNamespace.GetValue("kubernetesNamespace");
+        private string? _mValue_KubernetesNamespace;
+        private bool _mUnknown_KubernetesNamespace;
+        public string? KubernetesNamespace
+        {
+            get
+            {
+                if (!_mUnknown_KubernetesNamespace) return _mValue_KubernetesNamespace;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentEksConfigurationArgs.KubernetesNamespace' is not present");
+            }
+        }
     }
 }

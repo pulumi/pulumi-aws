@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
 {
     public sealed class GetListenerDefaultActionForwardResult
     {
-        [Input("targetGroups")]
+        [PolicyResourceProperty("targetGroups", "_mUnknown_TargetGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>> _mTargetGroups;
-
-        public List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>? TargetGroups => _mTargetGroups.GetValue("targetGroups");
+        private List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>? _mValue_TargetGroups;
+        private bool _mUnknown_TargetGroups;
+        public List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>? TargetGroups
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroups) return _mValue_TargetGroups;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionForwardResult.TargetGroups' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DataPipeline.Inputs
         /// <summary>
         /// ID of the object.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetPipelineDefinitionParameterValueInputArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Field value, expressed as a String.
         /// </summary>
-        [Input("stringValue")]
+        [PolicyResourceProperty("stringValue", "_mUnknown_StringValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStringValue;
-
-        public string? StringValue => _mStringValue.GetValue("stringValue");
+        private string? _mValue_StringValue;
+        private bool _mUnknown_StringValue;
+        public string? StringValue
+        {
+            get
+            {
+                if (!_mUnknown_StringValue) return _mValue_StringValue;
+                throw new UndeferrableValueException("Value 'GetPipelineDefinitionParameterValueInputArgs.StringValue' is not present");
+            }
+        }
     }
 }

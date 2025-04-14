@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
         /// </summary>
-        [Input("abortIncompleteMultipartUploadDays")]
+        [PolicyResourceProperty("abortIncompleteMultipartUploadDays", "_mUnknown_AbortIncompleteMultipartUploadDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAbortIncompleteMultipartUploadDays;
-
-        public int? AbortIncompleteMultipartUploadDays => _mAbortIncompleteMultipartUploadDays.GetValue("abortIncompleteMultipartUploadDays");
+        private int? _mValue_AbortIncompleteMultipartUploadDays;
+        private bool _mUnknown_AbortIncompleteMultipartUploadDays;
+        public int? AbortIncompleteMultipartUploadDays
+        {
+            get
+            {
+                if (!_mUnknown_AbortIncompleteMultipartUploadDays) return _mValue_AbortIncompleteMultipartUploadDays;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.AbortIncompleteMultipartUploadDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies lifecycle rule status.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a period in the object's expire. See Expiration below for details.
         /// </summary>
-        [Input("expirations")]
+        [PolicyResourceProperty("expirations", "_mUnknown_Expirations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2LifecycleRuleExpiration>> _mExpirations;
-
-        public List<Outputs.BucketV2LifecycleRuleExpiration>? Expirations => _mExpirations.GetValue("expirations");
+        private List<Outputs.BucketV2LifecycleRuleExpiration>? _mValue_Expirations;
+        private bool _mUnknown_Expirations;
+        public List<Outputs.BucketV2LifecycleRuleExpiration>? Expirations
+        {
+            get
+            {
+                if (!_mUnknown_Expirations) return _mValue_Expirations;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.Expirations' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         /// </summary>
-        [Input("noncurrentVersionExpirations")]
+        [PolicyResourceProperty("noncurrentVersionExpirations", "_mUnknown_NoncurrentVersionExpirations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2LifecycleRuleNoncurrentVersionExpiration>> _mNoncurrentVersionExpirations;
-
-        public List<Outputs.BucketV2LifecycleRuleNoncurrentVersionExpiration>? NoncurrentVersionExpirations => _mNoncurrentVersionExpirations.GetValue("noncurrentVersionExpirations");
+        private List<Outputs.BucketV2LifecycleRuleNoncurrentVersionExpiration>? _mValue_NoncurrentVersionExpirations;
+        private bool _mUnknown_NoncurrentVersionExpirations;
+        public List<Outputs.BucketV2LifecycleRuleNoncurrentVersionExpiration>? NoncurrentVersionExpirations
+        {
+            get
+            {
+                if (!_mUnknown_NoncurrentVersionExpirations) return _mValue_NoncurrentVersionExpirations;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.NoncurrentVersionExpirations' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         /// </summary>
-        [Input("noncurrentVersionTransitions")]
+        [PolicyResourceProperty("noncurrentVersionTransitions", "_mUnknown_NoncurrentVersionTransitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2LifecycleRuleNoncurrentVersionTransition>> _mNoncurrentVersionTransitions;
-
-        public List<Outputs.BucketV2LifecycleRuleNoncurrentVersionTransition>? NoncurrentVersionTransitions => _mNoncurrentVersionTransitions.GetValue("noncurrentVersionTransitions");
+        private List<Outputs.BucketV2LifecycleRuleNoncurrentVersionTransition>? _mValue_NoncurrentVersionTransitions;
+        private bool _mUnknown_NoncurrentVersionTransitions;
+        public List<Outputs.BucketV2LifecycleRuleNoncurrentVersionTransition>? NoncurrentVersionTransitions
+        {
+            get
+            {
+                if (!_mUnknown_NoncurrentVersionTransitions) return _mValue_NoncurrentVersionTransitions;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.NoncurrentVersionTransitions' is not present");
+            }
+        }
 
         /// <summary>
         /// Object key prefix identifying one or more objects to which the rule applies.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies object tags key and value.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a period in the object's transitions. See Transition below for details.
         /// </summary>
-        [Input("transitions")]
+        [PolicyResourceProperty("transitions", "_mUnknown_Transitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2LifecycleRuleTransition>> _mTransitions;
-
-        public List<Outputs.BucketV2LifecycleRuleTransition>? Transitions => _mTransitions.GetValue("transitions");
+        private List<Outputs.BucketV2LifecycleRuleTransition>? _mValue_Transitions;
+        private bool _mUnknown_Transitions;
+        public List<Outputs.BucketV2LifecycleRuleTransition>? Transitions
+        {
+            get
+            {
+                if (!_mUnknown_Transitions) return _mValue_Transitions;
+                throw new UndeferrableValueException("Value 'BucketV2LifecycleRule.Transitions' is not present");
+            }
+        }
     }
 }

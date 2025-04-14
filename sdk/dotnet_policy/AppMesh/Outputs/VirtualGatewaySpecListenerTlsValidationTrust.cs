@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// TLS validation context trust for a local file certificate.
         /// </summary>
-        [Input("file")]
+        [PolicyResourceProperty("file", "_mUnknown_File")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecListenerTlsValidationTrustFile> _mFile;
-
-        public Outputs.VirtualGatewaySpecListenerTlsValidationTrustFile? File => _mFile.GetValue("file");
+        private Outputs.VirtualGatewaySpecListenerTlsValidationTrustFile? _mValue_File;
+        private bool _mUnknown_File;
+        public Outputs.VirtualGatewaySpecListenerTlsValidationTrustFile? File
+        {
+            get
+            {
+                if (!_mUnknown_File) return _mValue_File;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidationTrust.File' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         /// </summary>
-        [Input("sds")]
+        [PolicyResourceProperty("sds", "_mUnknown_Sds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualGatewaySpecListenerTlsValidationTrustSds> _mSds;
-
-        public Outputs.VirtualGatewaySpecListenerTlsValidationTrustSds? Sds => _mSds.GetValue("sds");
+        private Outputs.VirtualGatewaySpecListenerTlsValidationTrustSds? _mValue_Sds;
+        private bool _mUnknown_Sds;
+        public Outputs.VirtualGatewaySpecListenerTlsValidationTrustSds? Sds
+        {
+            get
+            {
+                if (!_mUnknown_Sds) return _mValue_Sds;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidationTrust.Sds' is not present");
+            }
+        }
     }
 }

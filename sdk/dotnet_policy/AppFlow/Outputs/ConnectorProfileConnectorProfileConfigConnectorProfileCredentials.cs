@@ -15,163 +15,289 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
         /// </summary>
-        [Input("amplitude")]
+        [PolicyResourceProperty("amplitude", "_mUnknown_Amplitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude> _mAmplitude;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude? Amplitude => _mAmplitude.GetValue("amplitude");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude? _mValue_Amplitude;
+        private bool _mUnknown_Amplitude;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude? Amplitude
+        {
+            get
+            {
+                if (!_mUnknown_Amplitude) return _mValue_Amplitude;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Amplitude' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
         /// </summary>
-        [Input("customConnector")]
+        [PolicyResourceProperty("customConnector", "_mUnknown_CustomConnector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector> _mCustomConnector;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector? CustomConnector => _mCustomConnector.GetValue("customConnector");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector? _mValue_CustomConnector;
+        private bool _mUnknown_CustomConnector;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector? CustomConnector
+        {
+            get
+            {
+                if (!_mUnknown_CustomConnector) return _mValue_CustomConnector;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.CustomConnector' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
         /// </summary>
-        [Input("datadog")]
+        [PolicyResourceProperty("datadog", "_mUnknown_Datadog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog> _mDatadog;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog? Datadog => _mDatadog.GetValue("datadog");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog? _mValue_Datadog;
+        private bool _mUnknown_Datadog;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog? Datadog
+        {
+            get
+            {
+                if (!_mUnknown_Datadog) return _mValue_Datadog;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Datadog' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
         /// </summary>
-        [Input("dynatrace")]
+        [PolicyResourceProperty("dynatrace", "_mUnknown_Dynatrace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace> _mDynatrace;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace? Dynatrace => _mDynatrace.GetValue("dynatrace");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace? _mValue_Dynatrace;
+        private bool _mUnknown_Dynatrace;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace? Dynatrace
+        {
+            get
+            {
+                if (!_mUnknown_Dynatrace) return _mValue_Dynatrace;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Dynatrace' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
         /// </summary>
-        [Input("googleAnalytics")]
+        [PolicyResourceProperty("googleAnalytics", "_mUnknown_GoogleAnalytics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics> _mGoogleAnalytics;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics? GoogleAnalytics => _mGoogleAnalytics.GetValue("googleAnalytics");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics? _mValue_GoogleAnalytics;
+        private bool _mUnknown_GoogleAnalytics;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics? GoogleAnalytics
+        {
+            get
+            {
+                if (!_mUnknown_GoogleAnalytics) return _mValue_GoogleAnalytics;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.GoogleAnalytics' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
         /// </summary>
-        [Input("honeycode")]
+        [PolicyResourceProperty("honeycode", "_mUnknown_Honeycode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode> _mHoneycode;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode? Honeycode => _mHoneycode.GetValue("honeycode");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode? _mValue_Honeycode;
+        private bool _mUnknown_Honeycode;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode? Honeycode
+        {
+            get
+            {
+                if (!_mUnknown_Honeycode) return _mValue_Honeycode;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Honeycode' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
         /// </summary>
-        [Input("inforNexus")]
+        [PolicyResourceProperty("inforNexus", "_mUnknown_InforNexus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus> _mInforNexus;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus? InforNexus => _mInforNexus.GetValue("inforNexus");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus? _mValue_InforNexus;
+        private bool _mUnknown_InforNexus;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus? InforNexus
+        {
+            get
+            {
+                if (!_mUnknown_InforNexus) return _mValue_InforNexus;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.InforNexus' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
         /// </summary>
-        [Input("marketo")]
+        [PolicyResourceProperty("marketo", "_mUnknown_Marketo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo> _mMarketo;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo? Marketo => _mMarketo.GetValue("marketo");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo? _mValue_Marketo;
+        private bool _mUnknown_Marketo;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo? Marketo
+        {
+            get
+            {
+                if (!_mUnknown_Marketo) return _mValue_Marketo;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Marketo' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
         /// </summary>
-        [Input("redshift")]
+        [PolicyResourceProperty("redshift", "_mUnknown_Redshift")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift> _mRedshift;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift? Redshift => _mRedshift.GetValue("redshift");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift? _mValue_Redshift;
+        private bool _mUnknown_Redshift;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift? Redshift
+        {
+            get
+            {
+                if (!_mUnknown_Redshift) return _mValue_Redshift;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Redshift' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
         /// </summary>
-        [Input("salesforce")]
+        [PolicyResourceProperty("salesforce", "_mUnknown_Salesforce")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce> _mSalesforce;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce? Salesforce => _mSalesforce.GetValue("salesforce");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce? _mValue_Salesforce;
+        private bool _mUnknown_Salesforce;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce? Salesforce
+        {
+            get
+            {
+                if (!_mUnknown_Salesforce) return _mValue_Salesforce;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Salesforce' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
         /// </summary>
-        [Input("sapoData")]
+        [PolicyResourceProperty("sapoData", "_mUnknown_SapoData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData> _mSapoData;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData? SapoData => _mSapoData.GetValue("sapoData");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData? _mValue_SapoData;
+        private bool _mUnknown_SapoData;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData? SapoData
+        {
+            get
+            {
+                if (!_mUnknown_SapoData) return _mValue_SapoData;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.SapoData' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
         /// </summary>
-        [Input("serviceNow")]
+        [PolicyResourceProperty("serviceNow", "_mUnknown_ServiceNow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow> _mServiceNow;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow? ServiceNow => _mServiceNow.GetValue("serviceNow");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow? _mValue_ServiceNow;
+        private bool _mUnknown_ServiceNow;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow? ServiceNow
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNow) return _mValue_ServiceNow;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.ServiceNow' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
         /// </summary>
-        [Input("singular")]
+        [PolicyResourceProperty("singular", "_mUnknown_Singular")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular> _mSingular;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular? Singular => _mSingular.GetValue("singular");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular? _mValue_Singular;
+        private bool _mUnknown_Singular;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular? Singular
+        {
+            get
+            {
+                if (!_mUnknown_Singular) return _mValue_Singular;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Singular' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
         /// </summary>
-        [Input("slack")]
+        [PolicyResourceProperty("slack", "_mUnknown_Slack")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack> _mSlack;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack? Slack => _mSlack.GetValue("slack");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack? _mValue_Slack;
+        private bool _mUnknown_Slack;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack? Slack
+        {
+            get
+            {
+                if (!_mUnknown_Slack) return _mValue_Slack;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Slack' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
         /// </summary>
-        [Input("snowflake")]
+        [PolicyResourceProperty("snowflake", "_mUnknown_Snowflake")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake> _mSnowflake;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake? Snowflake => _mSnowflake.GetValue("snowflake");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake? _mValue_Snowflake;
+        private bool _mUnknown_Snowflake;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake? Snowflake
+        {
+            get
+            {
+                if (!_mUnknown_Snowflake) return _mValue_Snowflake;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Snowflake' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
         /// </summary>
-        [Input("trendmicro")]
+        [PolicyResourceProperty("trendmicro", "_mUnknown_Trendmicro")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro> _mTrendmicro;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro? Trendmicro => _mTrendmicro.GetValue("trendmicro");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro? _mValue_Trendmicro;
+        private bool _mUnknown_Trendmicro;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro? Trendmicro
+        {
+            get
+            {
+                if (!_mUnknown_Trendmicro) return _mValue_Trendmicro;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Trendmicro' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
         /// </summary>
-        [Input("veeva")]
+        [PolicyResourceProperty("veeva", "_mUnknown_Veeva")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva> _mVeeva;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva? Veeva => _mVeeva.GetValue("veeva");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva? _mValue_Veeva;
+        private bool _mUnknown_Veeva;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva? Veeva
+        {
+            get
+            {
+                if (!_mUnknown_Veeva) return _mValue_Veeva;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Veeva' is not present");
+            }
+        }
 
         /// <summary>
         /// Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
         /// </summary>
-        [Input("zendesk")]
+        [PolicyResourceProperty("zendesk", "_mUnknown_Zendesk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk> _mZendesk;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk? Zendesk => _mZendesk.GetValue("zendesk");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk? _mValue_Zendesk;
+        private bool _mUnknown_Zendesk;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk? Zendesk
+        {
+            get
+            {
+                if (!_mUnknown_Zendesk) return _mValue_Zendesk;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.Zendesk' is not present");
+            }
+        }
     }
 }

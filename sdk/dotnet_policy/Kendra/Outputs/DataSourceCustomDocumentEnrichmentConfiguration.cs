@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
         /// </summary>
-        [Input("inlineConfigurations")]
+        [PolicyResourceProperty("inlineConfigurations", "_mUnknown_InlineConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration>> _mInlineConfigurations;
-
-        public List<Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration>? InlineConfigurations => _mInlineConfigurations.GetValue("inlineConfigurations");
+        private List<Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration>? _mValue_InlineConfigurations;
+        private bool _mUnknown_InlineConfigurations;
+        public List<Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration>? InlineConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_InlineConfigurations) return _mValue_InlineConfigurations;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfiguration.InlineConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         /// </summary>
-        [Input("postExtractionHookConfiguration")]
+        [PolicyResourceProperty("postExtractionHookConfiguration", "_mUnknown_PostExtractionHookConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration> _mPostExtractionHookConfiguration;
-
-        public Outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration? PostExtractionHookConfiguration => _mPostExtractionHookConfiguration.GetValue("postExtractionHookConfiguration");
+        private Outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration? _mValue_PostExtractionHookConfiguration;
+        private bool _mUnknown_PostExtractionHookConfiguration;
+        public Outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration? PostExtractionHookConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PostExtractionHookConfiguration) return _mValue_PostExtractionHookConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfiguration.PostExtractionHookConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         /// </summary>
-        [Input("preExtractionHookConfiguration")]
+        [PolicyResourceProperty("preExtractionHookConfiguration", "_mUnknown_PreExtractionHookConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration> _mPreExtractionHookConfiguration;
-
-        public Outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration? PreExtractionHookConfiguration => _mPreExtractionHookConfiguration.GetValue("preExtractionHookConfiguration");
+        private Outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration? _mValue_PreExtractionHookConfiguration;
+        private bool _mUnknown_PreExtractionHookConfiguration;
+        public Outputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration? PreExtractionHookConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_PreExtractionHookConfiguration) return _mValue_PreExtractionHookConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfiguration.PreExtractionHookConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfiguration.RoleArn' is not present");
+            }
+        }
     }
 }

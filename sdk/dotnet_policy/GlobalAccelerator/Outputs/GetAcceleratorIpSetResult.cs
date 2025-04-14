@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator.Outputs
 {
     public sealed class GetAcceleratorIpSetResult
     {
-        [Input("ipAddresses")]
+        [PolicyResourceProperty("ipAddresses", "_mUnknown_IpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpAddresses;
+        private List<string>? _mValue_IpAddresses;
+        private bool _mUnknown_IpAddresses;
+        public List<string>? IpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_IpAddresses) return _mValue_IpAddresses;
+                throw new UndeferrableValueException("Value 'GetAcceleratorIpSetResult.IpAddresses' is not present");
+            }
+        }
 
-        public List<string>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
-
-        [Input("ipFamily")]
+        [PolicyResourceProperty("ipFamily", "_mUnknown_IpFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpFamily;
-
-        public string? IpFamily => _mIpFamily.GetValue("ipFamily");
+        private string? _mValue_IpFamily;
+        private bool _mUnknown_IpFamily;
+        public string? IpFamily
+        {
+            get
+            {
+                if (!_mUnknown_IpFamily) return _mValue_IpFamily;
+                throw new UndeferrableValueException("Value 'GetAcceleratorIpSetResult.IpFamily' is not present");
+            }
+        }
     }
 }

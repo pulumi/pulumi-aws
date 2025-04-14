@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
         /// </summary>
-        [Input("allocationStrategy")]
+        [PolicyResourceProperty("allocationStrategy", "_mUnknown_AllocationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationStrategy;
-
-        public string? AllocationStrategy => _mAllocationStrategy.GetValue("allocationStrategy");
+        private string? _mValue_AllocationStrategy;
+        private bool _mUnknown_AllocationStrategy;
+        public string? AllocationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AllocationStrategy) return _mValue_AllocationStrategy;
+                throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs.AllocationStrategy' is not present");
+            }
+        }
     }
 }

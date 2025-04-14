@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
         /// </summary>
-        [Input("allowAdminCreateUserOnly")]
+        [PolicyResourceProperty("allowAdminCreateUserOnly", "_mUnknown_AllowAdminCreateUserOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAdminCreateUserOnly;
-
-        public bool? AllowAdminCreateUserOnly => _mAllowAdminCreateUserOnly.GetValue("allowAdminCreateUserOnly");
+        private bool? _mValue_AllowAdminCreateUserOnly;
+        private bool _mUnknown_AllowAdminCreateUserOnly;
+        public bool? AllowAdminCreateUserOnly
+        {
+            get
+            {
+                if (!_mUnknown_AllowAdminCreateUserOnly) return _mValue_AllowAdminCreateUserOnly;
+                throw new UndeferrableValueException("Value 'UserPoolAdminCreateUserConfig.AllowAdminCreateUserOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// Invite message template structure. Detailed below.
         /// </summary>
-        [Input("inviteMessageTemplate")]
+        [PolicyResourceProperty("inviteMessageTemplate", "_mUnknown_InviteMessageTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate> _mInviteMessageTemplate;
-
-        public Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? InviteMessageTemplate => _mInviteMessageTemplate.GetValue("inviteMessageTemplate");
+        private Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? _mValue_InviteMessageTemplate;
+        private bool _mUnknown_InviteMessageTemplate;
+        public Outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate? InviteMessageTemplate
+        {
+            get
+            {
+                if (!_mUnknown_InviteMessageTemplate) return _mValue_InviteMessageTemplate;
+                throw new UndeferrableValueException("Value 'UserPoolAdminCreateUserConfig.InviteMessageTemplate' is not present");
+            }
+        }
     }
 }

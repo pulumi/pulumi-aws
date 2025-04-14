@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling.Inputs
         /// <summary>
         /// Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'ScheduledActionScalableTargetActionArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
         /// </summary>
-        [Input("minCapacity")]
+        [PolicyResourceProperty("minCapacity", "_mUnknown_MinCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinCapacity;
-
-        public int? MinCapacity => _mMinCapacity.GetValue("minCapacity");
+        private int? _mValue_MinCapacity;
+        private bool _mUnknown_MinCapacity;
+        public int? MinCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacity) return _mValue_MinCapacity;
+                throw new UndeferrableValueException("Value 'ScheduledActionScalableTargetActionArgs.MinCapacity' is not present");
+            }
+        }
     }
 }

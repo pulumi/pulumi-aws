@@ -16,68 +16,117 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// An action to authenticate using Amazon Cognito.
         /// Detailed below.
         /// </summary>
-        [Input("authenticateCognito")]
+        [PolicyResourceProperty("authenticateCognito", "_mUnknown_AuthenticateCognito")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleActionAuthenticateCognitoArgs> _mAuthenticateCognito;
-
-        public Inputs.GetListenerRuleActionAuthenticateCognitoArgs? AuthenticateCognito => _mAuthenticateCognito.GetValue("authenticateCognito");
+        private Inputs.GetListenerRuleActionAuthenticateCognitoArgs? _mValue_AuthenticateCognito;
+        private bool _mUnknown_AuthenticateCognito;
+        public Inputs.GetListenerRuleActionAuthenticateCognitoArgs? AuthenticateCognito
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticateCognito) return _mValue_AuthenticateCognito;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionArgs.AuthenticateCognito' is not present");
+            }
+        }
 
         /// <summary>
         /// An action to authenticate using OIDC.
         /// Detailed below.
         /// </summary>
-        [Input("authenticateOidc")]
+        [PolicyResourceProperty("authenticateOidc", "_mUnknown_AuthenticateOidc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleActionAuthenticateOidcArgs> _mAuthenticateOidc;
-
-        public Inputs.GetListenerRuleActionAuthenticateOidcArgs? AuthenticateOidc => _mAuthenticateOidc.GetValue("authenticateOidc");
+        private Inputs.GetListenerRuleActionAuthenticateOidcArgs? _mValue_AuthenticateOidc;
+        private bool _mUnknown_AuthenticateOidc;
+        public Inputs.GetListenerRuleActionAuthenticateOidcArgs? AuthenticateOidc
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticateOidc) return _mValue_AuthenticateOidc;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionArgs.AuthenticateOidc' is not present");
+            }
+        }
 
         /// <summary>
         /// An action to return a fixed response.
         /// Detailed below.
         /// </summary>
-        [Input("fixedResponse")]
+        [PolicyResourceProperty("fixedResponse", "_mUnknown_FixedResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleActionFixedResponseArgs> _mFixedResponse;
-
-        public Inputs.GetListenerRuleActionFixedResponseArgs? FixedResponse => _mFixedResponse.GetValue("fixedResponse");
+        private Inputs.GetListenerRuleActionFixedResponseArgs? _mValue_FixedResponse;
+        private bool _mUnknown_FixedResponse;
+        public Inputs.GetListenerRuleActionFixedResponseArgs? FixedResponse
+        {
+            get
+            {
+                if (!_mUnknown_FixedResponse) return _mValue_FixedResponse;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionArgs.FixedResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// An action to forward the request.
         /// Detailed below.
         /// </summary>
-        [Input("forward")]
+        [PolicyResourceProperty("forward", "_mUnknown_Forward")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleActionForwardArgs> _mForward;
-
-        public Inputs.GetListenerRuleActionForwardArgs? Forward => _mForward.GetValue("forward");
+        private Inputs.GetListenerRuleActionForwardArgs? _mValue_Forward;
+        private bool _mUnknown_Forward;
+        public Inputs.GetListenerRuleActionForwardArgs? Forward
+        {
+            get
+            {
+                if (!_mUnknown_Forward) return _mValue_Forward;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionArgs.Forward' is not present");
+            }
+        }
 
         /// <summary>
         /// The evaluation order of the action.
         /// </summary>
-        [Input("order")]
+        [PolicyResourceProperty("order", "_mUnknown_Order")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOrder;
-
-        public int? Order => _mOrder.GetValue("order");
+        private int? _mValue_Order;
+        private bool _mUnknown_Order;
+        public int? Order
+        {
+            get
+            {
+                if (!_mUnknown_Order) return _mValue_Order;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionArgs.Order' is not present");
+            }
+        }
 
         /// <summary>
         /// An action to redirect the request.
         /// Detailed below.
         /// </summary>
-        [Input("redirect")]
+        [PolicyResourceProperty("redirect", "_mUnknown_Redirect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleActionRedirectArgs> _mRedirect;
-
-        public Inputs.GetListenerRuleActionRedirectArgs? Redirect => _mRedirect.GetValue("redirect");
+        private Inputs.GetListenerRuleActionRedirectArgs? _mValue_Redirect;
+        private bool _mUnknown_Redirect;
+        public Inputs.GetListenerRuleActionRedirectArgs? Redirect
+        {
+            get
+            {
+                if (!_mUnknown_Redirect) return _mValue_Redirect;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionArgs.Redirect' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the action, indicates which sub-block will be populated.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionArgs.Type' is not present");
+            }
+        }
     }
 }

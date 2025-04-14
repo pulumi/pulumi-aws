@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
         /// </summary>
-        [Input("commonAttributes")]
+        [PolicyResourceProperty("commonAttributes", "_mUnknown_CommonAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>> _mCommonAttributes;
-
-        public List<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>? CommonAttributes => _mCommonAttributes.GetValue("commonAttributes");
+        private List<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>? _mValue_CommonAttributes;
+        private bool _mUnknown_CommonAttributes;
+        public List<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>? CommonAttributes
+        {
+            get
+            {
+                if (!_mUnknown_CommonAttributes) return _mValue_CommonAttributes;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs.CommonAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
         /// </summary>
-        [Input("contentEncoding")]
+        [PolicyResourceProperty("contentEncoding", "_mUnknown_ContentEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentEncoding;
-
-        public string? ContentEncoding => _mContentEncoding.GetValue("contentEncoding");
+        private string? _mValue_ContentEncoding;
+        private bool _mUnknown_ContentEncoding;
+        public string? ContentEncoding
+        {
+            get
+            {
+                if (!_mUnknown_ContentEncoding) return _mValue_ContentEncoding;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs.ContentEncoding' is not present");
+            }
+        }
     }
 }

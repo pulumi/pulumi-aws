@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
         /// </summary>
-        [Input("slotToElicit")]
+        [PolicyResourceProperty("slotToElicit", "_mUnknown_SlotToElicit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotToElicit;
-
-        public string? SlotToElicit => _mSlotToElicit.GetValue("slotToElicit");
+        private string? _mValue_SlotToElicit;
+        private bool _mUnknown_SlotToElicit;
+        public string? SlotToElicit
+        {
+            get
+            {
+                if (!_mUnknown_SlotToElicit) return _mValue_SlotToElicit;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction.SlotToElicit' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the next message for the intent is _not_ used.
         /// </summary>
-        [Input("suppressNextMessage")]
+        [PolicyResourceProperty("suppressNextMessage", "_mUnknown_SuppressNextMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSuppressNextMessage;
-
-        public bool? SuppressNextMessage => _mSuppressNextMessage.GetValue("suppressNextMessage");
+        private bool? _mValue_SuppressNextMessage;
+        private bool _mUnknown_SuppressNextMessage;
+        public bool? SuppressNextMessage
+        {
+            get
+            {
+                if (!_mUnknown_SuppressNextMessage) return _mValue_SuppressNextMessage;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction.SuppressNextMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogAction.Type' is not present");
+            }
+        }
     }
 }

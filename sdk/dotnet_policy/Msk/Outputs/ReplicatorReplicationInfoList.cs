@@ -15,58 +15,107 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Configuration relating to consumer group replication.
         /// </summary>
-        [Input("consumerGroupReplications")]
+        [PolicyResourceProperty("consumerGroupReplications", "_mUnknown_ConsumerGroupReplications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication>> _mConsumerGroupReplications;
+        private List<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication>? _mValue_ConsumerGroupReplications;
+        private bool _mUnknown_ConsumerGroupReplications;
+        public List<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication>? ConsumerGroupReplications
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerGroupReplications) return _mValue_ConsumerGroupReplications;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoList.ConsumerGroupReplications' is not present");
+            }
+        }
 
-        public List<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication>? ConsumerGroupReplications => _mConsumerGroupReplications.GetValue("consumerGroupReplications");
-
-        [Input("sourceKafkaClusterAlias")]
+        [PolicyResourceProperty("sourceKafkaClusterAlias", "_mUnknown_SourceKafkaClusterAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceKafkaClusterAlias;
-
-        public string? SourceKafkaClusterAlias => _mSourceKafkaClusterAlias.GetValue("sourceKafkaClusterAlias");
+        private string? _mValue_SourceKafkaClusterAlias;
+        private bool _mUnknown_SourceKafkaClusterAlias;
+        public string? SourceKafkaClusterAlias
+        {
+            get
+            {
+                if (!_mUnknown_SourceKafkaClusterAlias) return _mValue_SourceKafkaClusterAlias;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoList.SourceKafkaClusterAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the source Kafka cluster.
         /// </summary>
-        [Input("sourceKafkaClusterArn")]
+        [PolicyResourceProperty("sourceKafkaClusterArn", "_mUnknown_SourceKafkaClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceKafkaClusterArn;
-
-        public string? SourceKafkaClusterArn => _mSourceKafkaClusterArn.GetValue("sourceKafkaClusterArn");
+        private string? _mValue_SourceKafkaClusterArn;
+        private bool _mUnknown_SourceKafkaClusterArn;
+        public string? SourceKafkaClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceKafkaClusterArn) return _mValue_SourceKafkaClusterArn;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoList.SourceKafkaClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of compression to use writing records to target Kafka cluster.
         /// </summary>
-        [Input("targetCompressionType")]
+        [PolicyResourceProperty("targetCompressionType", "_mUnknown_TargetCompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetCompressionType;
+        private string? _mValue_TargetCompressionType;
+        private bool _mUnknown_TargetCompressionType;
+        public string? TargetCompressionType
+        {
+            get
+            {
+                if (!_mUnknown_TargetCompressionType) return _mValue_TargetCompressionType;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoList.TargetCompressionType' is not present");
+            }
+        }
 
-        public string? TargetCompressionType => _mTargetCompressionType.GetValue("targetCompressionType");
-
-        [Input("targetKafkaClusterAlias")]
+        [PolicyResourceProperty("targetKafkaClusterAlias", "_mUnknown_TargetKafkaClusterAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetKafkaClusterAlias;
-
-        public string? TargetKafkaClusterAlias => _mTargetKafkaClusterAlias.GetValue("targetKafkaClusterAlias");
+        private string? _mValue_TargetKafkaClusterAlias;
+        private bool _mUnknown_TargetKafkaClusterAlias;
+        public string? TargetKafkaClusterAlias
+        {
+            get
+            {
+                if (!_mUnknown_TargetKafkaClusterAlias) return _mValue_TargetKafkaClusterAlias;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoList.TargetKafkaClusterAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the target Kafka cluster.
         /// </summary>
-        [Input("targetKafkaClusterArn")]
+        [PolicyResourceProperty("targetKafkaClusterArn", "_mUnknown_TargetKafkaClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetKafkaClusterArn;
-
-        public string? TargetKafkaClusterArn => _mTargetKafkaClusterArn.GetValue("targetKafkaClusterArn");
+        private string? _mValue_TargetKafkaClusterArn;
+        private bool _mUnknown_TargetKafkaClusterArn;
+        public string? TargetKafkaClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetKafkaClusterArn) return _mValue_TargetKafkaClusterArn;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoList.TargetKafkaClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration relating to topic replication.
         /// </summary>
-        [Input("topicReplications")]
+        [PolicyResourceProperty("topicReplications", "_mUnknown_TopicReplications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReplicatorReplicationInfoListTopicReplication>> _mTopicReplications;
-
-        public List<Outputs.ReplicatorReplicationInfoListTopicReplication>? TopicReplications => _mTopicReplications.GetValue("topicReplications");
+        private List<Outputs.ReplicatorReplicationInfoListTopicReplication>? _mValue_TopicReplications;
+        private bool _mUnknown_TopicReplications;
+        public List<Outputs.ReplicatorReplicationInfoListTopicReplication>? TopicReplications
+        {
+            get
+            {
+                if (!_mUnknown_TopicReplications) return _mValue_TopicReplications;
+                throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoList.TopicReplications' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
         /// </summary>
-        [Input("labelName")]
+        [PolicyResourceProperty("labelName", "_mUnknown_LabelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabelName;
-
-        public string? LabelName => _mLabelName.GetValue("labelName");
+        private string? _mValue_LabelName;
+        private bool _mUnknown_LabelName;
+        public string? LabelName
+        {
+            get
+            {
+                if (!_mUnknown_LabelName) return _mValue_LabelName;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs.LabelName' is not present");
+            }
+        }
     }
 }

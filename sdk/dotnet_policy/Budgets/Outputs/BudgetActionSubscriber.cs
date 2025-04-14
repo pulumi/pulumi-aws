@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// The address that AWS sends budget notifications to, either an SNS topic or an email.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'BudgetActionSubscriber.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
         /// </summary>
-        [Input("subscriptionType")]
+        [PolicyResourceProperty("subscriptionType", "_mUnknown_SubscriptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriptionType;
-
-        public string? SubscriptionType => _mSubscriptionType.GetValue("subscriptionType");
+        private string? _mValue_SubscriptionType;
+        private bool _mUnknown_SubscriptionType;
+        public string? SubscriptionType
+        {
+            get
+            {
+                if (!_mUnknown_SubscriptionType) return _mValue_SubscriptionType;
+                throw new UndeferrableValueException("Value 'BudgetActionSubscriber.SubscriptionType' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// Address of the location.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'SiteLocation.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// Latitude of the location.
         /// </summary>
-        [Input("latitude")]
+        [PolicyResourceProperty("latitude", "_mUnknown_Latitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatitude;
-
-        public string? Latitude => _mLatitude.GetValue("latitude");
+        private string? _mValue_Latitude;
+        private bool _mUnknown_Latitude;
+        public string? Latitude
+        {
+            get
+            {
+                if (!_mUnknown_Latitude) return _mValue_Latitude;
+                throw new UndeferrableValueException("Value 'SiteLocation.Latitude' is not present");
+            }
+        }
 
         /// <summary>
         /// Longitude of the location.
         /// </summary>
-        [Input("longitude")]
+        [PolicyResourceProperty("longitude", "_mUnknown_Longitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLongitude;
-
-        public string? Longitude => _mLongitude.GetValue("longitude");
+        private string? _mValue_Longitude;
+        private bool _mUnknown_Longitude;
+        public string? Longitude
+        {
+            get
+            {
+                if (!_mUnknown_Longitude) return _mValue_Longitude;
+                throw new UndeferrableValueException("Value 'SiteLocation.Longitude' is not present");
+            }
+        }
     }
 }

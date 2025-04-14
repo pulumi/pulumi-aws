@@ -17,11 +17,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// difference between the alarm threshold and the CloudWatch metric.
         /// Without a value, AWS will treat this bound as negative infinity.
         /// </summary>
-        [Input("metricIntervalLowerBound")]
+        [PolicyResourceProperty("metricIntervalLowerBound", "_mUnknown_MetricIntervalLowerBound")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricIntervalLowerBound;
-
-        public string? MetricIntervalLowerBound => _mMetricIntervalLowerBound.GetValue("metricIntervalLowerBound");
+        private string? _mValue_MetricIntervalLowerBound;
+        private bool _mUnknown_MetricIntervalLowerBound;
+        public string? MetricIntervalLowerBound
+        {
+            get
+            {
+                if (!_mUnknown_MetricIntervalLowerBound) return _mValue_MetricIntervalLowerBound;
+                throw new UndeferrableValueException("Value 'PolicyStepAdjustment.MetricIntervalLowerBound' is not present");
+            }
+        }
 
         /// <summary>
         /// Upper bound for the
@@ -33,21 +40,35 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// 
         /// The following arguments are only available to "TargetTrackingScaling" type policies:
         /// </summary>
-        [Input("metricIntervalUpperBound")]
+        [PolicyResourceProperty("metricIntervalUpperBound", "_mUnknown_MetricIntervalUpperBound")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricIntervalUpperBound;
-
-        public string? MetricIntervalUpperBound => _mMetricIntervalUpperBound.GetValue("metricIntervalUpperBound");
+        private string? _mValue_MetricIntervalUpperBound;
+        private bool _mUnknown_MetricIntervalUpperBound;
+        public string? MetricIntervalUpperBound
+        {
+            get
+            {
+                if (!_mUnknown_MetricIntervalUpperBound) return _mValue_MetricIntervalUpperBound;
+                throw new UndeferrableValueException("Value 'PolicyStepAdjustment.MetricIntervalUpperBound' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of members by which to
         /// scale, when the adjustment bounds are breached. A positive value scales
         /// up. A negative value scales down.
         /// </summary>
-        [Input("scalingAdjustment")]
+        [PolicyResourceProperty("scalingAdjustment", "_mUnknown_ScalingAdjustment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScalingAdjustment;
-
-        public int? ScalingAdjustment => _mScalingAdjustment.GetValue("scalingAdjustment");
+        private int? _mValue_ScalingAdjustment;
+        private bool _mUnknown_ScalingAdjustment;
+        public int? ScalingAdjustment
+        {
+            get
+            {
+                if (!_mUnknown_ScalingAdjustment) return _mValue_ScalingAdjustment;
+                throw new UndeferrableValueException("Value 'PolicyStepAdjustment.ScalingAdjustment' is not present");
+            }
+        }
     }
 }

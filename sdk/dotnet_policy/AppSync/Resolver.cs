@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// API ID for the GraphQL API.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'Resolver.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Resolver.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Caching Config. See Caching Config.
         /// </summary>
-        [Input("cachingConfig")]
+        [PolicyResourceProperty("cachingConfig", "_mUnknown_CachingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverCachingConfig> _mCachingConfig;
-
-        public Outputs.ResolverCachingConfig? CachingConfig => _mCachingConfig.GetValue("cachingConfig");
+        private Outputs.ResolverCachingConfig? _mValue_CachingConfig;
+        private bool _mUnknown_CachingConfig;
+        public Outputs.ResolverCachingConfig? CachingConfig
+        {
+            get
+            {
+                if (!_mUnknown_CachingConfig) return _mValue_CachingConfig;
+                throw new UndeferrableValueException("Value 'Resolver.CachingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'Resolver.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Data source name.
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'Resolver.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Field name from the schema defined in the GraphQL API.
         /// </summary>
-        [Input("field")]
+        [PolicyResourceProperty("field", "_mUnknown_Field")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mField;
-
-        public string? Field => _mField.GetValue("field");
+        private string? _mValue_Field;
+        private bool _mUnknown_Field;
+        public string? Field
+        {
+            get
+            {
+                if (!_mUnknown_Field) return _mValue_Field;
+                throw new UndeferrableValueException("Value 'Resolver.Field' is not present");
+            }
+        }
 
         /// <summary>
         /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         /// </summary>
-        [Input("kind")]
+        [PolicyResourceProperty("kind", "_mUnknown_Kind")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKind;
-
-        public string? Kind => _mKind.GetValue("kind");
+        private string? _mValue_Kind;
+        private bool _mUnknown_Kind;
+        public string? Kind
+        {
+            get
+            {
+                if (!_mUnknown_Kind) return _mValue_Kind;
+                throw new UndeferrableValueException("Value 'Resolver.Kind' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
-        [Input("maxBatchSize")]
+        [PolicyResourceProperty("maxBatchSize", "_mUnknown_MaxBatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
-
-        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
+        private int? _mValue_MaxBatchSize;
+        private bool _mUnknown_MaxBatchSize;
+        public int? MaxBatchSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxBatchSize) return _mValue_MaxBatchSize;
+                throw new UndeferrableValueException("Value 'Resolver.MaxBatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The caching configuration for the resolver. See Pipeline Config.
         /// </summary>
-        [Input("pipelineConfig")]
+        [PolicyResourceProperty("pipelineConfig", "_mUnknown_PipelineConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverPipelineConfig> _mPipelineConfig;
-
-        public Outputs.ResolverPipelineConfig? PipelineConfig => _mPipelineConfig.GetValue("pipelineConfig");
+        private Outputs.ResolverPipelineConfig? _mValue_PipelineConfig;
+        private bool _mUnknown_PipelineConfig;
+        public Outputs.ResolverPipelineConfig? PipelineConfig
+        {
+            get
+            {
+                if (!_mUnknown_PipelineConfig) return _mValue_PipelineConfig;
+                throw new UndeferrableValueException("Value 'Resolver.PipelineConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
-        [Input("requestTemplate")]
+        [PolicyResourceProperty("requestTemplate", "_mUnknown_RequestTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestTemplate;
-
-        public string? RequestTemplate => _mRequestTemplate.GetValue("requestTemplate");
+        private string? _mValue_RequestTemplate;
+        private bool _mUnknown_RequestTemplate;
+        public string? RequestTemplate
+        {
+            get
+            {
+                if (!_mUnknown_RequestTemplate) return _mValue_RequestTemplate;
+                throw new UndeferrableValueException("Value 'Resolver.RequestTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
-        [Input("responseTemplate")]
+        [PolicyResourceProperty("responseTemplate", "_mUnknown_ResponseTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseTemplate;
-
-        public string? ResponseTemplate => _mResponseTemplate.GetValue("responseTemplate");
+        private string? _mValue_ResponseTemplate;
+        private bool _mUnknown_ResponseTemplate;
+        public string? ResponseTemplate
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplate) return _mValue_ResponseTemplate;
+                throw new UndeferrableValueException("Value 'Resolver.ResponseTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverRuntime> _mRuntime;
-
-        public Outputs.ResolverRuntime? Runtime => _mRuntime.GetValue("runtime");
+        private Outputs.ResolverRuntime? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public Outputs.ResolverRuntime? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'Resolver.Runtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.
         /// </summary>
-        [Input("syncConfig")]
+        [PolicyResourceProperty("syncConfig", "_mUnknown_SyncConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResolverSyncConfig> _mSyncConfig;
-
-        public Outputs.ResolverSyncConfig? SyncConfig => _mSyncConfig.GetValue("syncConfig");
+        private Outputs.ResolverSyncConfig? _mValue_SyncConfig;
+        private bool _mUnknown_SyncConfig;
+        public Outputs.ResolverSyncConfig? SyncConfig
+        {
+            get
+            {
+                if (!_mUnknown_SyncConfig) return _mValue_SyncConfig;
+                throw new UndeferrableValueException("Value 'Resolver.SyncConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Type name from the schema defined in the GraphQL API.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Resolver.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/resolver:Resolver")]
@@ -146,118 +244,209 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// API ID for the GraphQL API.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'ResolverArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Caching Config. See Caching Config.
         /// </summary>
-        [Input("cachingConfig")]
+        [PolicyResourceProperty("cachingConfig", "_mUnknown_CachingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverCachingConfigArgs> _mCachingConfig;
-
-        public Inputs.ResolverCachingConfigArgs? CachingConfig => _mCachingConfig.GetValue("cachingConfig");
+        private Inputs.ResolverCachingConfigArgs? _mValue_CachingConfig;
+        private bool _mUnknown_CachingConfig;
+        public Inputs.ResolverCachingConfigArgs? CachingConfig
+        {
+            get
+            {
+                if (!_mUnknown_CachingConfig) return _mValue_CachingConfig;
+                throw new UndeferrableValueException("Value 'ResolverArgs.CachingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'ResolverArgs.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Data source name.
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'ResolverArgs.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Field name from the schema defined in the GraphQL API.
         /// </summary>
-        [Input("field")]
+        [PolicyResourceProperty("field", "_mUnknown_Field")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mField;
-
-        public string? Field => _mField.GetValue("field");
+        private string? _mValue_Field;
+        private bool _mUnknown_Field;
+        public string? Field
+        {
+            get
+            {
+                if (!_mUnknown_Field) return _mValue_Field;
+                throw new UndeferrableValueException("Value 'ResolverArgs.Field' is not present");
+            }
+        }
 
         /// <summary>
         /// Resolver type. Valid values are `UNIT` and `PIPELINE`.
         /// </summary>
-        [Input("kind")]
+        [PolicyResourceProperty("kind", "_mUnknown_Kind")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKind;
-
-        public string? Kind => _mKind.GetValue("kind");
+        private string? _mValue_Kind;
+        private bool _mUnknown_Kind;
+        public string? Kind
+        {
+            get
+            {
+                if (!_mUnknown_Kind) return _mValue_Kind;
+                throw new UndeferrableValueException("Value 'ResolverArgs.Kind' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
-        [Input("maxBatchSize")]
+        [PolicyResourceProperty("maxBatchSize", "_mUnknown_MaxBatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
-
-        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
+        private int? _mValue_MaxBatchSize;
+        private bool _mUnknown_MaxBatchSize;
+        public int? MaxBatchSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxBatchSize) return _mValue_MaxBatchSize;
+                throw new UndeferrableValueException("Value 'ResolverArgs.MaxBatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The caching configuration for the resolver. See Pipeline Config.
         /// </summary>
-        [Input("pipelineConfig")]
+        [PolicyResourceProperty("pipelineConfig", "_mUnknown_PipelineConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverPipelineConfigArgs> _mPipelineConfig;
-
-        public Inputs.ResolverPipelineConfigArgs? PipelineConfig => _mPipelineConfig.GetValue("pipelineConfig");
+        private Inputs.ResolverPipelineConfigArgs? _mValue_PipelineConfig;
+        private bool _mUnknown_PipelineConfig;
+        public Inputs.ResolverPipelineConfigArgs? PipelineConfig
+        {
+            get
+            {
+                if (!_mUnknown_PipelineConfig) return _mValue_PipelineConfig;
+                throw new UndeferrableValueException("Value 'ResolverArgs.PipelineConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
-        [Input("requestTemplate")]
+        [PolicyResourceProperty("requestTemplate", "_mUnknown_RequestTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestTemplate;
-
-        public string? RequestTemplate => _mRequestTemplate.GetValue("requestTemplate");
+        private string? _mValue_RequestTemplate;
+        private bool _mUnknown_RequestTemplate;
+        public string? RequestTemplate
+        {
+            get
+            {
+                if (!_mUnknown_RequestTemplate) return _mValue_RequestTemplate;
+                throw new UndeferrableValueException("Value 'ResolverArgs.RequestTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
-        [Input("responseTemplate")]
+        [PolicyResourceProperty("responseTemplate", "_mUnknown_ResponseTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseTemplate;
-
-        public string? ResponseTemplate => _mResponseTemplate.GetValue("responseTemplate");
+        private string? _mValue_ResponseTemplate;
+        private bool _mUnknown_ResponseTemplate;
+        public string? ResponseTemplate
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplate) return _mValue_ResponseTemplate;
+                throw new UndeferrableValueException("Value 'ResolverArgs.ResponseTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverRuntimeArgs> _mRuntime;
-
-        public Inputs.ResolverRuntimeArgs? Runtime => _mRuntime.GetValue("runtime");
+        private Inputs.ResolverRuntimeArgs? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public Inputs.ResolverRuntimeArgs? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'ResolverArgs.Runtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See Sync Config.
         /// </summary>
-        [Input("syncConfig")]
+        [PolicyResourceProperty("syncConfig", "_mUnknown_SyncConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResolverSyncConfigArgs> _mSyncConfig;
-
-        public Inputs.ResolverSyncConfigArgs? SyncConfig => _mSyncConfig.GetValue("syncConfig");
+        private Inputs.ResolverSyncConfigArgs? _mValue_SyncConfig;
+        private bool _mUnknown_SyncConfig;
+        public Inputs.ResolverSyncConfigArgs? SyncConfig
+        {
+            get
+            {
+                if (!_mUnknown_SyncConfig) return _mValue_SyncConfig;
+                throw new UndeferrableValueException("Value 'ResolverArgs.SyncConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Type name from the schema defined in the GraphQL API.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ResolverArgs.Type' is not present");
+            }
+        }
     }
 }

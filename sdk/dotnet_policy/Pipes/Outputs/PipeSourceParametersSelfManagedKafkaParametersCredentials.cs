@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
-        [Input("basicAuth")]
+        [PolicyResourceProperty("basicAuth", "_mUnknown_BasicAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuth;
-
-        public string? BasicAuth => _mBasicAuth.GetValue("basicAuth");
+        private string? _mValue_BasicAuth;
+        private bool _mUnknown_BasicAuth;
+        public string? BasicAuth
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuth) return _mValue_BasicAuth;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentials.BasicAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
-        [Input("clientCertificateTlsAuth")]
+        [PolicyResourceProperty("clientCertificateTlsAuth", "_mUnknown_ClientCertificateTlsAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientCertificateTlsAuth;
-
-        public string? ClientCertificateTlsAuth => _mClientCertificateTlsAuth.GetValue("clientCertificateTlsAuth");
+        private string? _mValue_ClientCertificateTlsAuth;
+        private bool _mUnknown_ClientCertificateTlsAuth;
+        public string? ClientCertificateTlsAuth
+        {
+            get
+            {
+                if (!_mUnknown_ClientCertificateTlsAuth) return _mValue_ClientCertificateTlsAuth;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentials.ClientCertificateTlsAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
-        [Input("saslScram256Auth")]
+        [PolicyResourceProperty("saslScram256Auth", "_mUnknown_SaslScram256Auth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslScram256Auth;
-
-        public string? SaslScram256Auth => _mSaslScram256Auth.GetValue("saslScram256Auth");
+        private string? _mValue_SaslScram256Auth;
+        private bool _mUnknown_SaslScram256Auth;
+        public string? SaslScram256Auth
+        {
+            get
+            {
+                if (!_mUnknown_SaslScram256Auth) return _mValue_SaslScram256Auth;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentials.SaslScram256Auth' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
-        [Input("saslScram512Auth")]
+        [PolicyResourceProperty("saslScram512Auth", "_mUnknown_SaslScram512Auth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslScram512Auth;
-
-        public string? SaslScram512Auth => _mSaslScram512Auth.GetValue("saslScram512Auth");
+        private string? _mValue_SaslScram512Auth;
+        private bool _mUnknown_SaslScram512Auth;
+        public string? SaslScram512Auth
+        {
+            get
+            {
+                if (!_mUnknown_SaslScram512Auth) return _mValue_SaslScram512Auth;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentials.SaslScram512Auth' is not present");
+            }
+        }
     }
 }

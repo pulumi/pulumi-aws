@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail
         /// <summary>
         /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         /// </summary>
-        [Input("advancedEventSelectors")]
+        [PolicyResourceProperty("advancedEventSelectors", "_mUnknown_AdvancedEventSelectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventDataStoreAdvancedEventSelector>> _mAdvancedEventSelectors;
-
-        public List<Outputs.EventDataStoreAdvancedEventSelector>? AdvancedEventSelectors => _mAdvancedEventSelectors.GetValue("advancedEventSelectors");
+        private List<Outputs.EventDataStoreAdvancedEventSelector>? _mValue_AdvancedEventSelectors;
+        private bool _mUnknown_AdvancedEventSelectors;
+        public List<Outputs.EventDataStoreAdvancedEventSelector>? AdvancedEventSelectors
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedEventSelectors) return _mValue_AdvancedEventSelectors;
+                throw new UndeferrableValueException("Value 'EventDataStore.AdvancedEventSelectors' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the event data store.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventDataStore.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
         /// </summary>
-        [Input("billingMode")]
+        [PolicyResourceProperty("billingMode", "_mUnknown_BillingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
-
-        public string? BillingMode => _mBillingMode.GetValue("billingMode");
+        private string? _mValue_BillingMode;
+        private bool _mUnknown_BillingMode;
+        public string? BillingMode
+        {
+            get
+            {
+                if (!_mUnknown_BillingMode) return _mValue_BillingMode;
+                throw new UndeferrableValueException("Value 'EventDataStore.BillingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'EventDataStore.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         /// </summary>
-        [Input("multiRegionEnabled")]
+        [PolicyResourceProperty("multiRegionEnabled", "_mUnknown_MultiRegionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegionEnabled;
-
-        public bool? MultiRegionEnabled => _mMultiRegionEnabled.GetValue("multiRegionEnabled");
+        private bool? _mValue_MultiRegionEnabled;
+        private bool _mUnknown_MultiRegionEnabled;
+        public bool? MultiRegionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_MultiRegionEnabled) return _mValue_MultiRegionEnabled;
+                throw new UndeferrableValueException("Value 'EventDataStore.MultiRegionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the event data store.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventDataStore.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
         /// </summary>
-        [Input("organizationEnabled")]
+        [PolicyResourceProperty("organizationEnabled", "_mUnknown_OrganizationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOrganizationEnabled;
-
-        public bool? OrganizationEnabled => _mOrganizationEnabled.GetValue("organizationEnabled");
+        private bool? _mValue_OrganizationEnabled;
+        private bool _mUnknown_OrganizationEnabled;
+        public bool? OrganizationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationEnabled) return _mValue_OrganizationEnabled;
+                throw new UndeferrableValueException("Value 'EventDataStore.OrganizationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'EventDataStore.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         /// </summary>
-        [Input("suspend")]
+        [PolicyResourceProperty("suspend", "_mUnknown_Suspend")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuspend;
-
-        public string? Suspend => _mSuspend.GetValue("suspend");
+        private string? _mValue_Suspend;
+        private bool _mUnknown_Suspend;
+        public string? Suspend
+        {
+            get
+            {
+                if (!_mUnknown_Suspend) return _mValue_Suspend;
+                throw new UndeferrableValueException("Value 'EventDataStore.Suspend' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventDataStore.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EventDataStore.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         /// </summary>
-        [Input("terminationProtectionEnabled")]
+        [PolicyResourceProperty("terminationProtectionEnabled", "_mUnknown_TerminationProtectionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationProtectionEnabled;
-
-        public bool? TerminationProtectionEnabled => _mTerminationProtectionEnabled.GetValue("terminationProtectionEnabled");
+        private bool? _mValue_TerminationProtectionEnabled;
+        private bool _mUnknown_TerminationProtectionEnabled;
+        public bool? TerminationProtectionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TerminationProtectionEnabled) return _mValue_TerminationProtectionEnabled;
+                throw new UndeferrableValueException("Value 'EventDataStore.TerminationProtectionEnabled' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudtrail/eventDataStore:EventDataStore")]
@@ -128,91 +212,161 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail
         /// <summary>
         /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         /// </summary>
-        [Input("advancedEventSelectors")]
+        [PolicyResourceProperty("advancedEventSelectors", "_mUnknown_AdvancedEventSelectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventDataStoreAdvancedEventSelectorArgs>> _mAdvancedEventSelectors;
-
-        public List<Inputs.EventDataStoreAdvancedEventSelectorArgs>? AdvancedEventSelectors => _mAdvancedEventSelectors.GetValue("advancedEventSelectors");
+        private List<Inputs.EventDataStoreAdvancedEventSelectorArgs>? _mValue_AdvancedEventSelectors;
+        private bool _mUnknown_AdvancedEventSelectors;
+        public List<Inputs.EventDataStoreAdvancedEventSelectorArgs>? AdvancedEventSelectors
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedEventSelectors) return _mValue_AdvancedEventSelectors;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.AdvancedEventSelectors' is not present");
+            }
+        }
 
         /// <summary>
         /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
         /// </summary>
-        [Input("billingMode")]
+        [PolicyResourceProperty("billingMode", "_mUnknown_BillingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
-
-        public string? BillingMode => _mBillingMode.GetValue("billingMode");
+        private string? _mValue_BillingMode;
+        private bool _mUnknown_BillingMode;
+        public string? BillingMode
+        {
+            get
+            {
+                if (!_mUnknown_BillingMode) return _mValue_BillingMode;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.BillingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         /// </summary>
-        [Input("multiRegionEnabled")]
+        [PolicyResourceProperty("multiRegionEnabled", "_mUnknown_MultiRegionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegionEnabled;
-
-        public bool? MultiRegionEnabled => _mMultiRegionEnabled.GetValue("multiRegionEnabled");
+        private bool? _mValue_MultiRegionEnabled;
+        private bool _mUnknown_MultiRegionEnabled;
+        public bool? MultiRegionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_MultiRegionEnabled) return _mValue_MultiRegionEnabled;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.MultiRegionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the event data store.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
         /// </summary>
-        [Input("organizationEnabled")]
+        [PolicyResourceProperty("organizationEnabled", "_mUnknown_OrganizationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOrganizationEnabled;
-
-        public bool? OrganizationEnabled => _mOrganizationEnabled.GetValue("organizationEnabled");
+        private bool? _mValue_OrganizationEnabled;
+        private bool _mUnknown_OrganizationEnabled;
+        public bool? OrganizationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationEnabled) return _mValue_OrganizationEnabled;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.OrganizationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         /// </summary>
-        [Input("suspend")]
+        [PolicyResourceProperty("suspend", "_mUnknown_Suspend")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuspend;
-
-        public string? Suspend => _mSuspend.GetValue("suspend");
+        private string? _mValue_Suspend;
+        private bool _mUnknown_Suspend;
+        public string? Suspend
+        {
+            get
+            {
+                if (!_mUnknown_Suspend) return _mValue_Suspend;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.Suspend' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         /// </summary>
-        [Input("terminationProtectionEnabled")]
+        [PolicyResourceProperty("terminationProtectionEnabled", "_mUnknown_TerminationProtectionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminationProtectionEnabled;
-
-        public bool? TerminationProtectionEnabled => _mTerminationProtectionEnabled.GetValue("terminationProtectionEnabled");
+        private bool? _mValue_TerminationProtectionEnabled;
+        private bool _mUnknown_TerminationProtectionEnabled;
+        public bool? TerminationProtectionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TerminationProtectionEnabled) return _mValue_TerminationProtectionEnabled;
+                throw new UndeferrableValueException("Value 'EventDataStoreArgs.TerminationProtectionEnabled' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
         /// </summary>
-        [Input("appLifecycleManagement")]
+        [PolicyResourceProperty("appLifecycleManagement", "_mUnknown_AppLifecycleManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement> _mAppLifecycleManagement;
-
-        public Outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement? AppLifecycleManagement => _mAppLifecycleManagement.GetValue("appLifecycleManagement");
+        private Outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement? _mValue_AppLifecycleManagement;
+        private bool _mUnknown_AppLifecycleManagement;
+        public Outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement? AppLifecycleManagement
+        {
+            get
+            {
+                if (!_mUnknown_AppLifecycleManagement) return _mValue_AppLifecycleManagement;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCodeEditorAppSettings.AppLifecycleManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec> _mDefaultResourceSpec;
-
-        public Outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Outputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCodeEditorAppSettings.DefaultResourceSpec' is not present");
+            }
+        }
     }
 }

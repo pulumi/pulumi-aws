@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// A valid CIDR block for `IP` filtering. Required for `IP`.
         /// </summary>
-        [Input("allowedIpRange")]
+        [PolicyResourceProperty("allowedIpRange", "_mUnknown_AllowedIpRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllowedIpRange;
-
-        public string? AllowedIpRange => _mAllowedIpRange.GetValue("allowedIpRange");
+        private string? _mValue_AllowedIpRange;
+        private bool _mUnknown_AllowedIpRange;
+        public string? AllowedIpRange
+        {
+            get
+            {
+                if (!_mUnknown_AllowedIpRange) return _mValue_AllowedIpRange;
+                throw new UndeferrableValueException("Value 'WebhookAuthenticationConfiguration.AllowedIpRange' is not present");
+            }
+        }
 
         /// <summary>
         /// The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
         /// </summary>
-        [Input("secretToken")]
+        [PolicyResourceProperty("secretToken", "_mUnknown_SecretToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretToken;
-
-        public string? SecretToken => _mSecretToken.GetValue("secretToken");
+        private string? _mValue_SecretToken;
+        private bool _mUnknown_SecretToken;
+        public string? SecretToken
+        {
+            get
+            {
+                if (!_mUnknown_SecretToken) return _mValue_SecretToken;
+                throw new UndeferrableValueException("Value 'WebhookAuthenticationConfiguration.SecretToken' is not present");
+            }
+        }
     }
 }

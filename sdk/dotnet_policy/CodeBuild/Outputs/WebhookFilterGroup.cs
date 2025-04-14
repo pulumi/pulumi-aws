@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// A webhook filter for the group. Filter blocks are documented below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebhookFilterGroupFilter>> _mFilters;
-
-        public List<Outputs.WebhookFilterGroupFilter>? Filters => _mFilters.GetValue("filters");
+        private List<Outputs.WebhookFilterGroupFilter>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Outputs.WebhookFilterGroupFilter>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'WebhookFilterGroup.Filters' is not present");
+            }
+        }
     }
 }

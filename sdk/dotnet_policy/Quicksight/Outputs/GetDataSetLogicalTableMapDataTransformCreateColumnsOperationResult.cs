@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult
     {
-        [Input("columns")]
+        [PolicyResourceProperty("columns", "_mUnknown_Columns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult>> _mColumns;
-
-        public List<Outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult>? Columns => _mColumns.GetValue("columns");
+        private List<Outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult>? _mValue_Columns;
+        private bool _mUnknown_Columns;
+        public List<Outputs.GetDataSetLogicalTableMapDataTransformCreateColumnsOperationColumnResult>? Columns
+        {
+            get
+            {
+                if (!_mUnknown_Columns) return _mValue_Columns;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformCreateColumnsOperationResult.Columns' is not present");
+            }
+        }
     }
 }

@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPoint.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Alias for the S3 Object Lambda Access Point.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPoint.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ObjectLambdaAccessPointConfiguration> _mConfiguration;
-
-        public Outputs.ObjectLambdaAccessPointConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.ObjectLambdaAccessPointConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.ObjectLambdaAccessPointConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPoint.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for this Object Lambda Access Point.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPoint.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ObjectLambdaAccessPointConfigurationArgs> _mConfiguration;
-
-        public Inputs.ObjectLambdaAccessPointConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.ObjectLambdaAccessPointConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.ObjectLambdaAccessPointConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for this Object Lambda Access Point.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointArgs.Name' is not present");
+            }
+        }
     }
 }

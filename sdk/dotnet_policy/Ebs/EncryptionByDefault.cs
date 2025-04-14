@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EncryptionByDefault.Enabled' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EncryptionByDefaultArgs.Enabled' is not present");
+            }
+        }
     }
 }

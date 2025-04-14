@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Outputs
         /// <summary>
         /// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
         /// </summary>
-        [Input("workerLogDelivery")]
+        [PolicyResourceProperty("workerLogDelivery", "_mUnknown_WorkerLogDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorLogDeliveryWorkerLogDelivery> _mWorkerLogDelivery;
-
-        public Outputs.ConnectorLogDeliveryWorkerLogDelivery? WorkerLogDelivery => _mWorkerLogDelivery.GetValue("workerLogDelivery");
+        private Outputs.ConnectorLogDeliveryWorkerLogDelivery? _mValue_WorkerLogDelivery;
+        private bool _mUnknown_WorkerLogDelivery;
+        public Outputs.ConnectorLogDeliveryWorkerLogDelivery? WorkerLogDelivery
+        {
+            get
+            {
+                if (!_mUnknown_WorkerLogDelivery) return _mValue_WorkerLogDelivery;
+                throw new UndeferrableValueException("Value 'ConnectorLogDelivery.WorkerLogDelivery' is not present");
+            }
+        }
     }
 }

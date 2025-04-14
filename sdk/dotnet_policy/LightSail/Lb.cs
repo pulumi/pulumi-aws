@@ -16,107 +16,191 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The ARN of the Lightsail load balancer.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Lb.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the load balancer was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Lb.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS name of the load balancer.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'Lb.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// The health check path of the load balancer. Default value "/".
         /// </summary>
-        [Input("healthCheckPath")]
+        [PolicyResourceProperty("healthCheckPath", "_mUnknown_HealthCheckPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckPath;
-
-        public string? HealthCheckPath => _mHealthCheckPath.GetValue("healthCheckPath");
+        private string? _mValue_HealthCheckPath;
+        private bool _mUnknown_HealthCheckPath;
+        public string? HealthCheckPath
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckPath) return _mValue_HealthCheckPath;
+                throw new UndeferrableValueException("Value 'Lb.HealthCheckPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance port the load balancer will connect.
         /// </summary>
-        [Input("instancePort")]
+        [PolicyResourceProperty("instancePort", "_mUnknown_InstancePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+        private int? _mValue_InstancePort;
+        private bool _mUnknown_InstancePort;
+        public int? InstancePort
+        {
+            get
+            {
+                if (!_mUnknown_InstancePort) return _mValue_InstancePort;
+                throw new UndeferrableValueException("Value 'Lb.InstancePort' is not present");
+            }
+        }
 
-        public int? InstancePort => _mInstancePort.GetValue("instancePort");
-
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'Lb.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail load balancer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Lb.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol of the load balancer.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'Lb.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The public ports of the load balancer.
         /// </summary>
-        [Input("publicPorts")]
+        [PolicyResourceProperty("publicPorts", "_mUnknown_PublicPorts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mPublicPorts;
-
-        public List<int>? PublicPorts => _mPublicPorts.GetValue("publicPorts");
+        private List<int>? _mValue_PublicPorts;
+        private bool _mUnknown_PublicPorts;
+        public List<int>? PublicPorts
+        {
+            get
+            {
+                if (!_mUnknown_PublicPorts) return _mValue_PublicPorts;
+                throw new UndeferrableValueException("Value 'Lb.PublicPorts' is not present");
+            }
+        }
 
         /// <summary>
         /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
-        [Input("supportCode")]
+        [PolicyResourceProperty("supportCode", "_mUnknown_SupportCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
-
-        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+        private string? _mValue_SupportCode;
+        private bool _mUnknown_SupportCode;
+        public string? SupportCode
+        {
+            get
+            {
+                if (!_mUnknown_SupportCode) return _mValue_SupportCode;
+                throw new UndeferrableValueException("Value 'Lb.SupportCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Lb.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Lb.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/lb:Lb")]
@@ -125,43 +209,78 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The health check path of the load balancer. Default value "/".
         /// </summary>
-        [Input("healthCheckPath")]
+        [PolicyResourceProperty("healthCheckPath", "_mUnknown_HealthCheckPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckPath;
-
-        public string? HealthCheckPath => _mHealthCheckPath.GetValue("healthCheckPath");
+        private string? _mValue_HealthCheckPath;
+        private bool _mUnknown_HealthCheckPath;
+        public string? HealthCheckPath
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckPath) return _mValue_HealthCheckPath;
+                throw new UndeferrableValueException("Value 'LbArgs.HealthCheckPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance port the load balancer will connect.
         /// </summary>
-        [Input("instancePort")]
+        [PolicyResourceProperty("instancePort", "_mUnknown_InstancePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePort;
+        private int? _mValue_InstancePort;
+        private bool _mUnknown_InstancePort;
+        public int? InstancePort
+        {
+            get
+            {
+                if (!_mUnknown_InstancePort) return _mValue_InstancePort;
+                throw new UndeferrableValueException("Value 'LbArgs.InstancePort' is not present");
+            }
+        }
 
-        public int? InstancePort => _mInstancePort.GetValue("instancePort");
-
-        [Input("ipAddressType")]
+        [PolicyResourceProperty("ipAddressType", "_mUnknown_IpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddressType;
-
-        public string? IpAddressType => _mIpAddressType.GetValue("ipAddressType");
+        private string? _mValue_IpAddressType;
+        private bool _mUnknown_IpAddressType;
+        public string? IpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_IpAddressType) return _mValue_IpAddressType;
+                throw new UndeferrableValueException("Value 'LbArgs.IpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail load balancer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LbArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LbArgs.Tags' is not present");
+            }
+        }
     }
 }

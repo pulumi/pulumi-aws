@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Inputs
         /// <summary>
         /// The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
         /// </summary>
-        [Input("stringEquals")]
+        [PolicyResourceProperty("stringEquals", "_mUnknown_StringEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>> _mStringEquals;
-
-        public List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>? StringEquals => _mStringEquals.GetValue("stringEquals");
+        private List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>? _mValue_StringEquals;
+        private bool _mUnknown_StringEquals;
+        public List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>? StringEquals
+        {
+            get
+            {
+                if (!_mUnknown_StringEquals) return _mValue_StringEquals;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionProtectedResourceConditionsArgs.StringEquals' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
         /// </summary>
-        [Input("stringNotEquals")]
+        [PolicyResourceProperty("stringNotEquals", "_mUnknown_StringNotEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>> _mStringNotEquals;
-
-        public List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>? StringNotEquals => _mStringNotEquals.GetValue("stringNotEquals");
+        private List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>? _mValue_StringNotEquals;
+        private bool _mUnknown_StringNotEquals;
+        public List<Inputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>? StringNotEquals
+        {
+            get
+            {
+                if (!_mUnknown_StringNotEquals) return _mValue_StringNotEquals;
+                throw new UndeferrableValueException("Value 'RestoreTestingSelectionProtectedResourceConditionsArgs.StringNotEquals' is not present");
+            }
+        }
     }
 }

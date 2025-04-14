@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// The VPC origin ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP port for the CloudFront VPC origin endpoint configuration.
         /// </summary>
-        [Input("httpPort")]
+        [PolicyResourceProperty("httpPort", "_mUnknown_HttpPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpPort;
-
-        public int? HttpPort => _mHttpPort.GetValue("httpPort");
+        private int? _mValue_HttpPort;
+        private bool _mUnknown_HttpPort;
+        public int? HttpPort
+        {
+            get
+            {
+                if (!_mUnknown_HttpPort) return _mValue_HttpPort;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.HttpPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTPS port for the CloudFront VPC origin endpoint configuration.
         /// </summary>
-        [Input("httpsPort")]
+        [PolicyResourceProperty("httpsPort", "_mUnknown_HttpsPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpsPort;
-
-        public int? HttpsPort => _mHttpsPort.GetValue("httpsPort");
+        private int? _mValue_HttpsPort;
+        private bool _mUnknown_HttpsPort;
+        public int? HttpsPort
+        {
+            get
+            {
+                if (!_mUnknown_HttpsPort) return _mValue_HttpsPort;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.HttpsPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CloudFront VPC origin endpoint configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
         /// </summary>
-        [Input("originProtocolPolicy")]
+        [PolicyResourceProperty("originProtocolPolicy", "_mUnknown_OriginProtocolPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginProtocolPolicy;
-
-        public string? OriginProtocolPolicy => _mOriginProtocolPolicy.GetValue("originProtocolPolicy");
+        private string? _mValue_OriginProtocolPolicy;
+        private bool _mUnknown_OriginProtocolPolicy;
+        public string? OriginProtocolPolicy
+        {
+            get
+            {
+                if (!_mUnknown_OriginProtocolPolicy) return _mValue_OriginProtocolPolicy;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.OriginProtocolPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
         /// </summary>
-        [Input("originSslProtocols")]
+        [PolicyResourceProperty("originSslProtocols", "_mUnknown_OriginSslProtocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs> _mOriginSslProtocols;
-
-        public Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs? OriginSslProtocols => _mOriginSslProtocols.GetValue("originSslProtocols");
+        private Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs? _mValue_OriginSslProtocols;
+        private bool _mUnknown_OriginSslProtocols;
+        public Inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs? OriginSslProtocols
+        {
+            get
+            {
+                if (!_mUnknown_OriginSslProtocols) return _mValue_OriginSslProtocols;
+                throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.OriginSslProtocols' is not present");
+            }
+        }
     }
 }

@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Inspect all query arguments.
         /// </summary>
-        [Input("allQueryArguments")]
+        [PolicyResourceProperty("allQueryArguments", "_mUnknown_AllQueryArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments> _mAllQueryArguments;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments => _mAllQueryArguments.GetValue("allQueryArguments");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments? _mValue_AllQueryArguments;
+        private bool _mUnknown_AllQueryArguments;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments? AllQueryArguments
+        {
+            get
+            {
+                if (!_mUnknown_AllQueryArguments) return _mValue_AllQueryArguments;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.AllQueryArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request body, which immediately follows the request headers. See `body` below for details.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody> _mBody;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody? Body => _mBody.GetValue("body");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody? _mValue_Body;
+        private bool _mUnknown_Body;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBody? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the cookies in the web request. See `cookies` below for details.
         /// </summary>
-        [Input("cookies")]
+        [PolicyResourceProperty("cookies", "_mUnknown_Cookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies> _mCookies;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies? Cookies => _mCookies.GetValue("cookies");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies? _mValue_Cookies;
+        private bool _mUnknown_Cookies;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies? Cookies
+        {
+            get
+            {
+                if (!_mUnknown_Cookies) return _mValue_Cookies;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.Cookies' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a string containing the list of the request's header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
         /// </summary>
-        [Input("headerOrders")]
+        [PolicyResourceProperty("headerOrders", "_mUnknown_HeaderOrders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder>> _mHeaderOrders;
-
-        public List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder>? HeaderOrders => _mHeaderOrders.GetValue("headerOrders");
+        private List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder>? _mValue_HeaderOrders;
+        private bool _mUnknown_HeaderOrders;
+        public List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrder>? HeaderOrders
+        {
+            get
+            {
+                if (!_mUnknown_HeaderOrders) return _mValue_HeaderOrders;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.HeaderOrders' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request headers. See `headers` below for details.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader>> _mHeaders;
-
-        public List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader>? Headers => _mHeaders.GetValue("headers");
+        private List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
         /// </summary>
-        [Input("ja3Fingerprint")]
+        [PolicyResourceProperty("ja3Fingerprint", "_mUnknown_Ja3Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint> _mJa3Fingerprint;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint => _mJa3Fingerprint.GetValue("ja3Fingerprint");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? _mValue_Ja3Fingerprint;
+        private bool _mUnknown_Ja3Fingerprint;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint? Ja3Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja3Fingerprint) return _mValue_Ja3Fingerprint;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.Ja3Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
         /// </summary>
-        [Input("ja4Fingerprint")]
+        [PolicyResourceProperty("ja4Fingerprint", "_mUnknown_Ja4Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint> _mJa4Fingerprint;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint => _mJa4Fingerprint.GetValue("ja4Fingerprint");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint? _mValue_Ja4Fingerprint;
+        private bool _mUnknown_Ja4Fingerprint;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint? Ja4Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja4Fingerprint) return _mValue_Ja4Fingerprint;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.Ja4Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request body as JSON. See `json_body` for details.
         /// </summary>
-        [Input("jsonBody")]
+        [PolicyResourceProperty("jsonBody", "_mUnknown_JsonBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody> _mJsonBody;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody => _mJsonBody.GetValue("jsonBody");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody? _mValue_JsonBody;
+        private bool _mUnknown_JsonBody;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody? JsonBody
+        {
+            get
+            {
+                if (!_mUnknown_JsonBody) return _mValue_JsonBody;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.JsonBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod> _mMethod;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod? Method => _mMethod.GetValue("method");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod? _mValue_Method;
+        private bool _mUnknown_Method;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString> _mQueryString;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString? QueryString => _mQueryString.GetValue("queryString");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a single header. See `single_header` below for details.
         /// </summary>
-        [Input("singleHeader")]
+        [PolicyResourceProperty("singleHeader", "_mUnknown_SingleHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader> _mSingleHeader;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader? SingleHeader => _mSingleHeader.GetValue("singleHeader");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader? _mValue_SingleHeader;
+        private bool _mUnknown_SingleHeader;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader? SingleHeader
+        {
+            get
+            {
+                if (!_mUnknown_SingleHeader) return _mValue_SingleHeader;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.SingleHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect a single query argument. See `single_query_argument` below for details.
         /// </summary>
-        [Input("singleQueryArgument")]
+        [PolicyResourceProperty("singleQueryArgument", "_mUnknown_SingleQueryArgument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument> _mSingleQueryArgument;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument => _mSingleQueryArgument.GetValue("singleQueryArgument");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument? _mValue_SingleQueryArgument;
+        private bool _mUnknown_SingleQueryArgument;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument? SingleQueryArgument
+        {
+            get
+            {
+                if (!_mUnknown_SingleQueryArgument) return _mValue_SingleQueryArgument;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.SingleQueryArgument' is not present");
+            }
+        }
 
         /// <summary>
         /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         /// </summary>
-        [Input("uriPath")]
+        [PolicyResourceProperty("uriPath", "_mUnknown_UriPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath> _mUriPath;
-
-        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath? UriPath => _mUriPath.GetValue("uriPath");
+        private Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath? _mValue_UriPath;
+        private bool _mUnknown_UriPath;
+        public Outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath? UriPath
+        {
+            get
+            {
+                if (!_mUnknown_UriPath) return _mValue_UriPath;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatch.UriPath' is not present");
+            }
+        }
     }
 }

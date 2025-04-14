@@ -16,371 +16,651 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Amazon Resource Name (ARN) of the launch template.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
         /// See Block Devices below for details.
         /// </summary>
-        [Input("blockDeviceMappings")]
+        [PolicyResourceProperty("blockDeviceMappings", "_mUnknown_BlockDeviceMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateBlockDeviceMapping>> _mBlockDeviceMappings;
-
-        public List<Outputs.LaunchTemplateBlockDeviceMapping>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
+        private List<Outputs.LaunchTemplateBlockDeviceMapping>? _mValue_BlockDeviceMappings;
+        private bool _mUnknown_BlockDeviceMappings;
+        public List<Outputs.LaunchTemplateBlockDeviceMapping>? BlockDeviceMappings
+        {
+            get
+            {
+                if (!_mUnknown_BlockDeviceMappings) return _mValue_BlockDeviceMappings;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.BlockDeviceMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
         /// </summary>
-        [Input("capacityReservationSpecification")]
+        [PolicyResourceProperty("capacityReservationSpecification", "_mUnknown_CapacityReservationSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateCapacityReservationSpecification> _mCapacityReservationSpecification;
-
-        public Outputs.LaunchTemplateCapacityReservationSpecification? CapacityReservationSpecification => _mCapacityReservationSpecification.GetValue("capacityReservationSpecification");
+        private Outputs.LaunchTemplateCapacityReservationSpecification? _mValue_CapacityReservationSpecification;
+        private bool _mUnknown_CapacityReservationSpecification;
+        public Outputs.LaunchTemplateCapacityReservationSpecification? CapacityReservationSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CapacityReservationSpecification) return _mValue_CapacityReservationSpecification;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.CapacityReservationSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
-        [Input("cpuOptions")]
+        [PolicyResourceProperty("cpuOptions", "_mUnknown_CpuOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateCpuOptions> _mCpuOptions;
-
-        public Outputs.LaunchTemplateCpuOptions? CpuOptions => _mCpuOptions.GetValue("cpuOptions");
+        private Outputs.LaunchTemplateCpuOptions? _mValue_CpuOptions;
+        private bool _mUnknown_CpuOptions;
+        public Outputs.LaunchTemplateCpuOptions? CpuOptions
+        {
+            get
+            {
+                if (!_mUnknown_CpuOptions) return _mValue_CpuOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.CpuOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize the credit specification of the instance. See Credit
         /// Specification below for more details.
         /// </summary>
-        [Input("creditSpecification")]
+        [PolicyResourceProperty("creditSpecification", "_mUnknown_CreditSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateCreditSpecification> _mCreditSpecification;
-
-        public Outputs.LaunchTemplateCreditSpecification? CreditSpecification => _mCreditSpecification.GetValue("creditSpecification");
+        private Outputs.LaunchTemplateCreditSpecification? _mValue_CreditSpecification;
+        private bool _mUnknown_CreditSpecification;
+        public Outputs.LaunchTemplateCreditSpecification? CreditSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CreditSpecification) return _mValue_CreditSpecification;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.CreditSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Default Version of the launch template.
         /// </summary>
-        [Input("defaultVersion")]
+        [PolicyResourceProperty("defaultVersion", "_mUnknown_DefaultVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultVersion;
-
-        public int? DefaultVersion => _mDefaultVersion.GetValue("defaultVersion");
+        private int? _mValue_DefaultVersion;
+        private bool _mUnknown_DefaultVersion;
+        public int? DefaultVersion
+        {
+            get
+            {
+                if (!_mUnknown_DefaultVersion) return _mValue_DefaultVersion;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.DefaultVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the launch template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         /// </summary>
-        [Input("disableApiStop")]
+        [PolicyResourceProperty("disableApiStop", "_mUnknown_DisableApiStop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiStop;
-
-        public bool? DisableApiStop => _mDisableApiStop.GetValue("disableApiStop");
+        private bool? _mValue_DisableApiStop;
+        private bool _mUnknown_DisableApiStop;
+        public bool? DisableApiStop
+        {
+            get
+            {
+                if (!_mUnknown_DisableApiStop) return _mValue_DisableApiStop;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.DisableApiStop' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, enables [EC2 Instance
         /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
-        [Input("disableApiTermination")]
+        [PolicyResourceProperty("disableApiTermination", "_mUnknown_DisableApiTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiTermination;
-
-        public bool? DisableApiTermination => _mDisableApiTermination.GetValue("disableApiTermination");
+        private bool? _mValue_DisableApiTermination;
+        private bool _mUnknown_DisableApiTermination;
+        public bool? DisableApiTermination
+        {
+            get
+            {
+                if (!_mUnknown_DisableApiTermination) return _mValue_DisableApiTermination;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.DisableApiTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, the launched EC2 instance will be EBS-optimized.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEbsOptimized;
-
-        public string? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private string? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public string? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
-        [Input("elasticGpuSpecifications")]
+        [PolicyResourceProperty("elasticGpuSpecifications", "_mUnknown_ElasticGpuSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateElasticGpuSpecification>> _mElasticGpuSpecifications;
-
-        public List<Outputs.LaunchTemplateElasticGpuSpecification>? ElasticGpuSpecifications => _mElasticGpuSpecifications.GetValue("elasticGpuSpecifications");
+        private List<Outputs.LaunchTemplateElasticGpuSpecification>? _mValue_ElasticGpuSpecifications;
+        private bool _mUnknown_ElasticGpuSpecifications;
+        public List<Outputs.LaunchTemplateElasticGpuSpecification>? ElasticGpuSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_ElasticGpuSpecifications) return _mValue_ElasticGpuSpecifications;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.ElasticGpuSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         /// </summary>
-        [Input("elasticInferenceAccelerator")]
+        [PolicyResourceProperty("elasticInferenceAccelerator", "_mUnknown_ElasticInferenceAccelerator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateElasticInferenceAccelerator> _mElasticInferenceAccelerator;
-
-        public Outputs.LaunchTemplateElasticInferenceAccelerator? ElasticInferenceAccelerator => _mElasticInferenceAccelerator.GetValue("elasticInferenceAccelerator");
+        private Outputs.LaunchTemplateElasticInferenceAccelerator? _mValue_ElasticInferenceAccelerator;
+        private bool _mUnknown_ElasticInferenceAccelerator;
+        public Outputs.LaunchTemplateElasticInferenceAccelerator? ElasticInferenceAccelerator
+        {
+            get
+            {
+                if (!_mUnknown_ElasticInferenceAccelerator) return _mValue_ElasticInferenceAccelerator;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.ElasticInferenceAccelerator' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
-        [Input("enclaveOptions")]
+        [PolicyResourceProperty("enclaveOptions", "_mUnknown_EnclaveOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateEnclaveOptions> _mEnclaveOptions;
-
-        public Outputs.LaunchTemplateEnclaveOptions? EnclaveOptions => _mEnclaveOptions.GetValue("enclaveOptions");
+        private Outputs.LaunchTemplateEnclaveOptions? _mValue_EnclaveOptions;
+        private bool _mUnknown_EnclaveOptions;
+        public Outputs.LaunchTemplateEnclaveOptions? EnclaveOptions
+        {
+            get
+            {
+                if (!_mUnknown_EnclaveOptions) return _mValue_EnclaveOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.EnclaveOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The hibernation options for the instance. See Hibernation Options below for more details.
         /// </summary>
-        [Input("hibernationOptions")]
+        [PolicyResourceProperty("hibernationOptions", "_mUnknown_HibernationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateHibernationOptions> _mHibernationOptions;
-
-        public Outputs.LaunchTemplateHibernationOptions? HibernationOptions => _mHibernationOptions.GetValue("hibernationOptions");
+        private Outputs.LaunchTemplateHibernationOptions? _mValue_HibernationOptions;
+        private bool _mUnknown_HibernationOptions;
+        public Outputs.LaunchTemplateHibernationOptions? HibernationOptions
+        {
+            get
+            {
+                if (!_mUnknown_HibernationOptions) return _mValue_HibernationOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.HibernationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
         /// below for more details.
         /// </summary>
-        [Input("iamInstanceProfile")]
+        [PolicyResourceProperty("iamInstanceProfile", "_mUnknown_IamInstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateIamInstanceProfile> _mIamInstanceProfile;
-
-        public Outputs.LaunchTemplateIamInstanceProfile? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
+        private Outputs.LaunchTemplateIamInstanceProfile? _mValue_IamInstanceProfile;
+        private bool _mUnknown_IamInstanceProfile;
+        public Outputs.LaunchTemplateIamInstanceProfile? IamInstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_IamInstanceProfile) return _mValue_IamInstanceProfile;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.IamInstanceProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
         /// (Default: `stop`).
         /// </summary>
-        [Input("instanceInitiatedShutdownBehavior")]
+        [PolicyResourceProperty("instanceInitiatedShutdownBehavior", "_mUnknown_InstanceInitiatedShutdownBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInitiatedShutdownBehavior;
-
-        public string? InstanceInitiatedShutdownBehavior => _mInstanceInitiatedShutdownBehavior.GetValue("instanceInitiatedShutdownBehavior");
+        private string? _mValue_InstanceInitiatedShutdownBehavior;
+        private bool _mUnknown_InstanceInitiatedShutdownBehavior;
+        public string? InstanceInitiatedShutdownBehavior
+        {
+            get
+            {
+                if (!_mUnknown_InstanceInitiatedShutdownBehavior) return _mValue_InstanceInitiatedShutdownBehavior;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.InstanceInitiatedShutdownBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The market (purchasing) option for the instance. See Market Options
         /// below for details.
         /// </summary>
-        [Input("instanceMarketOptions")]
+        [PolicyResourceProperty("instanceMarketOptions", "_mUnknown_InstanceMarketOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateInstanceMarketOptions> _mInstanceMarketOptions;
-
-        public Outputs.LaunchTemplateInstanceMarketOptions? InstanceMarketOptions => _mInstanceMarketOptions.GetValue("instanceMarketOptions");
+        private Outputs.LaunchTemplateInstanceMarketOptions? _mValue_InstanceMarketOptions;
+        private bool _mUnknown_InstanceMarketOptions;
+        public Outputs.LaunchTemplateInstanceMarketOptions? InstanceMarketOptions
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMarketOptions) return _mValue_InstanceMarketOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.InstanceMarketOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
         /// </summary>
-        [Input("instanceRequirements")]
+        [PolicyResourceProperty("instanceRequirements", "_mUnknown_InstanceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateInstanceRequirements> _mInstanceRequirements;
-
-        public Outputs.LaunchTemplateInstanceRequirements? InstanceRequirements => _mInstanceRequirements.GetValue("instanceRequirements");
+        private Outputs.LaunchTemplateInstanceRequirements? _mValue_InstanceRequirements;
+        private bool _mUnknown_InstanceRequirements;
+        public Outputs.LaunchTemplateInstanceRequirements? InstanceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRequirements) return _mValue_InstanceRequirements;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.InstanceRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the instance. If present then `instance_requirements` cannot be present.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The kernel ID.
         /// </summary>
-        [Input("kernelId")]
+        [PolicyResourceProperty("kernelId", "_mUnknown_KernelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKernelId;
-
-        public string? KernelId => _mKernelId.GetValue("kernelId");
+        private string? _mValue_KernelId;
+        private bool _mUnknown_KernelId;
+        public string? KernelId
+        {
+            get
+            {
+                if (!_mUnknown_KernelId) return _mValue_KernelId;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.KernelId' is not present");
+            }
+        }
 
         /// <summary>
         /// The key name to use for the instance.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The latest version of the launch template.
         /// </summary>
-        [Input("latestVersion")]
+        [PolicyResourceProperty("latestVersion", "_mUnknown_LatestVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLatestVersion;
-
-        public int? LatestVersion => _mLatestVersion.GetValue("latestVersion");
+        private int? _mValue_LatestVersion;
+        private bool _mUnknown_LatestVersion;
+        public int? LatestVersion
+        {
+            get
+            {
+                if (!_mUnknown_LatestVersion) return _mValue_LatestVersion;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.LatestVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of license specifications to associate with. See License Specification below for more details.
         /// </summary>
-        [Input("licenseSpecifications")]
+        [PolicyResourceProperty("licenseSpecifications", "_mUnknown_LicenseSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateLicenseSpecification>> _mLicenseSpecifications;
-
-        public List<Outputs.LaunchTemplateLicenseSpecification>? LicenseSpecifications => _mLicenseSpecifications.GetValue("licenseSpecifications");
+        private List<Outputs.LaunchTemplateLicenseSpecification>? _mValue_LicenseSpecifications;
+        private bool _mUnknown_LicenseSpecifications;
+        public List<Outputs.LaunchTemplateLicenseSpecification>? LicenseSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_LicenseSpecifications) return _mValue_LicenseSpecifications;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.LicenseSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// The maintenance options for the instance. See Maintenance Options below for more details.
         /// </summary>
-        [Input("maintenanceOptions")]
+        [PolicyResourceProperty("maintenanceOptions", "_mUnknown_MaintenanceOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateMaintenanceOptions> _mMaintenanceOptions;
-
-        public Outputs.LaunchTemplateMaintenanceOptions? MaintenanceOptions => _mMaintenanceOptions.GetValue("maintenanceOptions");
+        private Outputs.LaunchTemplateMaintenanceOptions? _mValue_MaintenanceOptions;
+        private bool _mUnknown_MaintenanceOptions;
+        public Outputs.LaunchTemplateMaintenanceOptions? MaintenanceOptions
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceOptions) return _mValue_MaintenanceOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.MaintenanceOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
         /// </summary>
-        [Input("metadataOptions")]
+        [PolicyResourceProperty("metadataOptions", "_mUnknown_MetadataOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateMetadataOptions> _mMetadataOptions;
-
-        public Outputs.LaunchTemplateMetadataOptions? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
+        private Outputs.LaunchTemplateMetadataOptions? _mValue_MetadataOptions;
+        private bool _mUnknown_MetadataOptions;
+        public Outputs.LaunchTemplateMetadataOptions? MetadataOptions
+        {
+            get
+            {
+                if (!_mUnknown_MetadataOptions) return _mValue_MetadataOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.MetadataOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The monitoring option for the instance. See Monitoring below for more details.
         /// </summary>
-        [Input("monitoring")]
+        [PolicyResourceProperty("monitoring", "_mUnknown_Monitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateMonitoring> _mMonitoring;
-
-        public Outputs.LaunchTemplateMonitoring? Monitoring => _mMonitoring.GetValue("monitoring");
+        private Outputs.LaunchTemplateMonitoring? _mValue_Monitoring;
+        private bool _mUnknown_Monitoring;
+        public Outputs.LaunchTemplateMonitoring? Monitoring
+        {
+            get
+            {
+                if (!_mUnknown_Monitoring) return _mValue_Monitoring;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.Monitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network
         /// Interfaces below for more details.
         /// </summary>
-        [Input("networkInterfaces")]
+        [PolicyResourceProperty("networkInterfaces", "_mUnknown_NetworkInterfaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateNetworkInterface>> _mNetworkInterfaces;
-
-        public List<Outputs.LaunchTemplateNetworkInterface>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
+        private List<Outputs.LaunchTemplateNetworkInterface>? _mValue_NetworkInterfaces;
+        private bool _mUnknown_NetworkInterfaces;
+        public List<Outputs.LaunchTemplateNetworkInterface>? NetworkInterfaces
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaces) return _mValue_NetworkInterfaces;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.NetworkInterfaces' is not present");
+            }
+        }
 
         /// <summary>
         /// The placement of the instance. See Placement below for more details.
         /// </summary>
-        [Input("placement")]
+        [PolicyResourceProperty("placement", "_mUnknown_Placement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplatePlacement> _mPlacement;
-
-        public Outputs.LaunchTemplatePlacement? Placement => _mPlacement.GetValue("placement");
+        private Outputs.LaunchTemplatePlacement? _mValue_Placement;
+        private bool _mUnknown_Placement;
+        public Outputs.LaunchTemplatePlacement? Placement
+        {
+            get
+            {
+                if (!_mUnknown_Placement) return _mValue_Placement;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.Placement' is not present");
+            }
+        }
 
         /// <summary>
         /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         /// </summary>
-        [Input("privateDnsNameOptions")]
+        [PolicyResourceProperty("privateDnsNameOptions", "_mUnknown_PrivateDnsNameOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplatePrivateDnsNameOptions> _mPrivateDnsNameOptions;
-
-        public Outputs.LaunchTemplatePrivateDnsNameOptions? PrivateDnsNameOptions => _mPrivateDnsNameOptions.GetValue("privateDnsNameOptions");
+        private Outputs.LaunchTemplatePrivateDnsNameOptions? _mValue_PrivateDnsNameOptions;
+        private bool _mUnknown_PrivateDnsNameOptions;
+        public Outputs.LaunchTemplatePrivateDnsNameOptions? PrivateDnsNameOptions
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDnsNameOptions) return _mValue_PrivateDnsNameOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.PrivateDnsNameOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the RAM disk.
         /// </summary>
-        [Input("ramDiskId")]
+        [PolicyResourceProperty("ramDiskId", "_mUnknown_RamDiskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRamDiskId;
-
-        public string? RamDiskId => _mRamDiskId.GetValue("ramDiskId");
+        private string? _mValue_RamDiskId;
+        private bool _mUnknown_RamDiskId;
+        public string? RamDiskId
+        {
+            get
+            {
+                if (!_mUnknown_RamDiskId) return _mValue_RamDiskId;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.RamDiskId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
         /// `vpc_security_group_ids` instead.
         /// </summary>
-        [Input("securityGroupNames")]
+        [PolicyResourceProperty("securityGroupNames", "_mUnknown_SecurityGroupNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupNames;
-
-        public List<string>? SecurityGroupNames => _mSecurityGroupNames.GetValue("securityGroupNames");
+        private List<string>? _mValue_SecurityGroupNames;
+        private bool _mUnknown_SecurityGroupNames;
+        public List<string>? SecurityGroupNames
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupNames) return _mValue_SecurityGroupNames;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.SecurityGroupNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         /// </summary>
-        [Input("tagSpecifications")]
+        [PolicyResourceProperty("tagSpecifications", "_mUnknown_TagSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchTemplateTagSpecification>> _mTagSpecifications;
-
-        public List<Outputs.LaunchTemplateTagSpecification>? TagSpecifications => _mTagSpecifications.GetValue("tagSpecifications");
+        private List<Outputs.LaunchTemplateTagSpecification>? _mValue_TagSpecifications;
+        private bool _mUnknown_TagSpecifications;
+        public List<Outputs.LaunchTemplateTagSpecification>? TagSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_TagSpecifications) return _mValue_TagSpecifications;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.TagSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to update Default Version each update. Conflicts with `default_version`.
         /// </summary>
-        [Input("updateDefaultVersion")]
+        [PolicyResourceProperty("updateDefaultVersion", "_mUnknown_UpdateDefaultVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUpdateDefaultVersion;
-
-        public bool? UpdateDefaultVersion => _mUpdateDefaultVersion.GetValue("updateDefaultVersion");
+        private bool? _mValue_UpdateDefaultVersion;
+        private bool _mUnknown_UpdateDefaultVersion;
+        public bool? UpdateDefaultVersion
+        {
+            get
+            {
+                if (!_mUnknown_UpdateDefaultVersion) return _mValue_UpdateDefaultVersion;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.UpdateDefaultVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded user data to provide when launching the instance.
         /// </summary>
-        [Input("userData")]
+        [PolicyResourceProperty("userData", "_mUnknown_UserData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
-
-        public string? UserData => _mUserData.GetValue("userData");
+        private string? _mValue_UserData;
+        private bool _mUnknown_UserData;
+        public string? UserData
+        {
+            get
+            {
+                if (!_mUnknown_UserData) return _mValue_UserData;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.UserData' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'LaunchTemplate.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/launchTemplate:LaunchTemplate")]
@@ -390,342 +670,601 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// Specify volumes to attach to the instance besides the volumes specified by the AMI.
         /// See Block Devices below for details.
         /// </summary>
-        [Input("blockDeviceMappings")]
+        [PolicyResourceProperty("blockDeviceMappings", "_mUnknown_BlockDeviceMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateBlockDeviceMappingArgs>> _mBlockDeviceMappings;
-
-        public List<Inputs.LaunchTemplateBlockDeviceMappingArgs>? BlockDeviceMappings => _mBlockDeviceMappings.GetValue("blockDeviceMappings");
+        private List<Inputs.LaunchTemplateBlockDeviceMappingArgs>? _mValue_BlockDeviceMappings;
+        private bool _mUnknown_BlockDeviceMappings;
+        public List<Inputs.LaunchTemplateBlockDeviceMappingArgs>? BlockDeviceMappings
+        {
+            get
+            {
+                if (!_mUnknown_BlockDeviceMappings) return _mValue_BlockDeviceMappings;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.BlockDeviceMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
         /// </summary>
-        [Input("capacityReservationSpecification")]
+        [PolicyResourceProperty("capacityReservationSpecification", "_mUnknown_CapacityReservationSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateCapacityReservationSpecificationArgs> _mCapacityReservationSpecification;
-
-        public Inputs.LaunchTemplateCapacityReservationSpecificationArgs? CapacityReservationSpecification => _mCapacityReservationSpecification.GetValue("capacityReservationSpecification");
+        private Inputs.LaunchTemplateCapacityReservationSpecificationArgs? _mValue_CapacityReservationSpecification;
+        private bool _mUnknown_CapacityReservationSpecification;
+        public Inputs.LaunchTemplateCapacityReservationSpecificationArgs? CapacityReservationSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CapacityReservationSpecification) return _mValue_CapacityReservationSpecification;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.CapacityReservationSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
-        [Input("cpuOptions")]
+        [PolicyResourceProperty("cpuOptions", "_mUnknown_CpuOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateCpuOptionsArgs> _mCpuOptions;
-
-        public Inputs.LaunchTemplateCpuOptionsArgs? CpuOptions => _mCpuOptions.GetValue("cpuOptions");
+        private Inputs.LaunchTemplateCpuOptionsArgs? _mValue_CpuOptions;
+        private bool _mUnknown_CpuOptions;
+        public Inputs.LaunchTemplateCpuOptionsArgs? CpuOptions
+        {
+            get
+            {
+                if (!_mUnknown_CpuOptions) return _mValue_CpuOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.CpuOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize the credit specification of the instance. See Credit
         /// Specification below for more details.
         /// </summary>
-        [Input("creditSpecification")]
+        [PolicyResourceProperty("creditSpecification", "_mUnknown_CreditSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateCreditSpecificationArgs> _mCreditSpecification;
-
-        public Inputs.LaunchTemplateCreditSpecificationArgs? CreditSpecification => _mCreditSpecification.GetValue("creditSpecification");
+        private Inputs.LaunchTemplateCreditSpecificationArgs? _mValue_CreditSpecification;
+        private bool _mUnknown_CreditSpecification;
+        public Inputs.LaunchTemplateCreditSpecificationArgs? CreditSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CreditSpecification) return _mValue_CreditSpecification;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.CreditSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Default Version of the launch template.
         /// </summary>
-        [Input("defaultVersion")]
+        [PolicyResourceProperty("defaultVersion", "_mUnknown_DefaultVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultVersion;
-
-        public int? DefaultVersion => _mDefaultVersion.GetValue("defaultVersion");
+        private int? _mValue_DefaultVersion;
+        private bool _mUnknown_DefaultVersion;
+        public int? DefaultVersion
+        {
+            get
+            {
+                if (!_mUnknown_DefaultVersion) return _mValue_DefaultVersion;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.DefaultVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the launch template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
         /// </summary>
-        [Input("disableApiStop")]
+        [PolicyResourceProperty("disableApiStop", "_mUnknown_DisableApiStop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiStop;
-
-        public bool? DisableApiStop => _mDisableApiStop.GetValue("disableApiStop");
+        private bool? _mValue_DisableApiStop;
+        private bool _mUnknown_DisableApiStop;
+        public bool? DisableApiStop
+        {
+            get
+            {
+                if (!_mUnknown_DisableApiStop) return _mValue_DisableApiStop;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.DisableApiStop' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, enables [EC2 Instance
         /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         /// </summary>
-        [Input("disableApiTermination")]
+        [PolicyResourceProperty("disableApiTermination", "_mUnknown_DisableApiTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableApiTermination;
-
-        public bool? DisableApiTermination => _mDisableApiTermination.GetValue("disableApiTermination");
+        private bool? _mValue_DisableApiTermination;
+        private bool _mUnknown_DisableApiTermination;
+        public bool? DisableApiTermination
+        {
+            get
+            {
+                if (!_mUnknown_DisableApiTermination) return _mValue_DisableApiTermination;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.DisableApiTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, the launched EC2 instance will be EBS-optimized.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEbsOptimized;
-
-        public string? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private string? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public string? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
         /// below for more details.
         /// </summary>
-        [Input("elasticGpuSpecifications")]
+        [PolicyResourceProperty("elasticGpuSpecifications", "_mUnknown_ElasticGpuSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateElasticGpuSpecificationArgs>> _mElasticGpuSpecifications;
-
-        public List<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? ElasticGpuSpecifications => _mElasticGpuSpecifications.GetValue("elasticGpuSpecifications");
+        private List<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? _mValue_ElasticGpuSpecifications;
+        private bool _mUnknown_ElasticGpuSpecifications;
+        public List<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? ElasticGpuSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_ElasticGpuSpecifications) return _mValue_ElasticGpuSpecifications;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.ElasticGpuSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         /// </summary>
-        [Input("elasticInferenceAccelerator")]
+        [PolicyResourceProperty("elasticInferenceAccelerator", "_mUnknown_ElasticInferenceAccelerator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs> _mElasticInferenceAccelerator;
-
-        public Inputs.LaunchTemplateElasticInferenceAcceleratorArgs? ElasticInferenceAccelerator => _mElasticInferenceAccelerator.GetValue("elasticInferenceAccelerator");
+        private Inputs.LaunchTemplateElasticInferenceAcceleratorArgs? _mValue_ElasticInferenceAccelerator;
+        private bool _mUnknown_ElasticInferenceAccelerator;
+        public Inputs.LaunchTemplateElasticInferenceAcceleratorArgs? ElasticInferenceAccelerator
+        {
+            get
+            {
+                if (!_mUnknown_ElasticInferenceAccelerator) return _mValue_ElasticInferenceAccelerator;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.ElasticInferenceAccelerator' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
-        [Input("enclaveOptions")]
+        [PolicyResourceProperty("enclaveOptions", "_mUnknown_EnclaveOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateEnclaveOptionsArgs> _mEnclaveOptions;
-
-        public Inputs.LaunchTemplateEnclaveOptionsArgs? EnclaveOptions => _mEnclaveOptions.GetValue("enclaveOptions");
+        private Inputs.LaunchTemplateEnclaveOptionsArgs? _mValue_EnclaveOptions;
+        private bool _mUnknown_EnclaveOptions;
+        public Inputs.LaunchTemplateEnclaveOptionsArgs? EnclaveOptions
+        {
+            get
+            {
+                if (!_mUnknown_EnclaveOptions) return _mValue_EnclaveOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.EnclaveOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The hibernation options for the instance. See Hibernation Options below for more details.
         /// </summary>
-        [Input("hibernationOptions")]
+        [PolicyResourceProperty("hibernationOptions", "_mUnknown_HibernationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateHibernationOptionsArgs> _mHibernationOptions;
-
-        public Inputs.LaunchTemplateHibernationOptionsArgs? HibernationOptions => _mHibernationOptions.GetValue("hibernationOptions");
+        private Inputs.LaunchTemplateHibernationOptionsArgs? _mValue_HibernationOptions;
+        private bool _mUnknown_HibernationOptions;
+        public Inputs.LaunchTemplateHibernationOptionsArgs? HibernationOptions
+        {
+            get
+            {
+                if (!_mUnknown_HibernationOptions) return _mValue_HibernationOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.HibernationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Instance Profile to launch the instance with. See Instance Profile
         /// below for more details.
         /// </summary>
-        [Input("iamInstanceProfile")]
+        [PolicyResourceProperty("iamInstanceProfile", "_mUnknown_IamInstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateIamInstanceProfileArgs> _mIamInstanceProfile;
-
-        public Inputs.LaunchTemplateIamInstanceProfileArgs? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
+        private Inputs.LaunchTemplateIamInstanceProfileArgs? _mValue_IamInstanceProfile;
+        private bool _mUnknown_IamInstanceProfile;
+        public Inputs.LaunchTemplateIamInstanceProfileArgs? IamInstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_IamInstanceProfile) return _mValue_IamInstanceProfile;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.IamInstanceProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// Shutdown behavior for the instance. Can be `stop` or `terminate`.
         /// (Default: `stop`).
         /// </summary>
-        [Input("instanceInitiatedShutdownBehavior")]
+        [PolicyResourceProperty("instanceInitiatedShutdownBehavior", "_mUnknown_InstanceInitiatedShutdownBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInitiatedShutdownBehavior;
-
-        public string? InstanceInitiatedShutdownBehavior => _mInstanceInitiatedShutdownBehavior.GetValue("instanceInitiatedShutdownBehavior");
+        private string? _mValue_InstanceInitiatedShutdownBehavior;
+        private bool _mUnknown_InstanceInitiatedShutdownBehavior;
+        public string? InstanceInitiatedShutdownBehavior
+        {
+            get
+            {
+                if (!_mUnknown_InstanceInitiatedShutdownBehavior) return _mValue_InstanceInitiatedShutdownBehavior;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.InstanceInitiatedShutdownBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The market (purchasing) option for the instance. See Market Options
         /// below for details.
         /// </summary>
-        [Input("instanceMarketOptions")]
+        [PolicyResourceProperty("instanceMarketOptions", "_mUnknown_InstanceMarketOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateInstanceMarketOptionsArgs> _mInstanceMarketOptions;
-
-        public Inputs.LaunchTemplateInstanceMarketOptionsArgs? InstanceMarketOptions => _mInstanceMarketOptions.GetValue("instanceMarketOptions");
+        private Inputs.LaunchTemplateInstanceMarketOptionsArgs? _mValue_InstanceMarketOptions;
+        private bool _mUnknown_InstanceMarketOptions;
+        public Inputs.LaunchTemplateInstanceMarketOptionsArgs? InstanceMarketOptions
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMarketOptions) return _mValue_InstanceMarketOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.InstanceMarketOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
         /// </summary>
-        [Input("instanceRequirements")]
+        [PolicyResourceProperty("instanceRequirements", "_mUnknown_InstanceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateInstanceRequirementsArgs> _mInstanceRequirements;
-
-        public Inputs.LaunchTemplateInstanceRequirementsArgs? InstanceRequirements => _mInstanceRequirements.GetValue("instanceRequirements");
+        private Inputs.LaunchTemplateInstanceRequirementsArgs? _mValue_InstanceRequirements;
+        private bool _mUnknown_InstanceRequirements;
+        public Inputs.LaunchTemplateInstanceRequirementsArgs? InstanceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRequirements) return _mValue_InstanceRequirements;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.InstanceRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the instance. If present then `instance_requirements` cannot be present.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The kernel ID.
         /// </summary>
-        [Input("kernelId")]
+        [PolicyResourceProperty("kernelId", "_mUnknown_KernelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKernelId;
-
-        public string? KernelId => _mKernelId.GetValue("kernelId");
+        private string? _mValue_KernelId;
+        private bool _mUnknown_KernelId;
+        public string? KernelId
+        {
+            get
+            {
+                if (!_mUnknown_KernelId) return _mValue_KernelId;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.KernelId' is not present");
+            }
+        }
 
         /// <summary>
         /// The key name to use for the instance.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of license specifications to associate with. See License Specification below for more details.
         /// </summary>
-        [Input("licenseSpecifications")]
+        [PolicyResourceProperty("licenseSpecifications", "_mUnknown_LicenseSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateLicenseSpecificationArgs>> _mLicenseSpecifications;
-
-        public List<Inputs.LaunchTemplateLicenseSpecificationArgs>? LicenseSpecifications => _mLicenseSpecifications.GetValue("licenseSpecifications");
+        private List<Inputs.LaunchTemplateLicenseSpecificationArgs>? _mValue_LicenseSpecifications;
+        private bool _mUnknown_LicenseSpecifications;
+        public List<Inputs.LaunchTemplateLicenseSpecificationArgs>? LicenseSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_LicenseSpecifications) return _mValue_LicenseSpecifications;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.LicenseSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// The maintenance options for the instance. See Maintenance Options below for more details.
         /// </summary>
-        [Input("maintenanceOptions")]
+        [PolicyResourceProperty("maintenanceOptions", "_mUnknown_MaintenanceOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateMaintenanceOptionsArgs> _mMaintenanceOptions;
-
-        public Inputs.LaunchTemplateMaintenanceOptionsArgs? MaintenanceOptions => _mMaintenanceOptions.GetValue("maintenanceOptions");
+        private Inputs.LaunchTemplateMaintenanceOptionsArgs? _mValue_MaintenanceOptions;
+        private bool _mUnknown_MaintenanceOptions;
+        public Inputs.LaunchTemplateMaintenanceOptionsArgs? MaintenanceOptions
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceOptions) return _mValue_MaintenanceOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.MaintenanceOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
         /// </summary>
-        [Input("metadataOptions")]
+        [PolicyResourceProperty("metadataOptions", "_mUnknown_MetadataOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateMetadataOptionsArgs> _mMetadataOptions;
-
-        public Inputs.LaunchTemplateMetadataOptionsArgs? MetadataOptions => _mMetadataOptions.GetValue("metadataOptions");
+        private Inputs.LaunchTemplateMetadataOptionsArgs? _mValue_MetadataOptions;
+        private bool _mUnknown_MetadataOptions;
+        public Inputs.LaunchTemplateMetadataOptionsArgs? MetadataOptions
+        {
+            get
+            {
+                if (!_mUnknown_MetadataOptions) return _mValue_MetadataOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.MetadataOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The monitoring option for the instance. See Monitoring below for more details.
         /// </summary>
-        [Input("monitoring")]
+        [PolicyResourceProperty("monitoring", "_mUnknown_Monitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateMonitoringArgs> _mMonitoring;
-
-        public Inputs.LaunchTemplateMonitoringArgs? Monitoring => _mMonitoring.GetValue("monitoring");
+        private Inputs.LaunchTemplateMonitoringArgs? _mValue_Monitoring;
+        private bool _mUnknown_Monitoring;
+        public Inputs.LaunchTemplateMonitoringArgs? Monitoring
+        {
+            get
+            {
+                if (!_mUnknown_Monitoring) return _mValue_Monitoring;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.Monitoring' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network
         /// Interfaces below for more details.
         /// </summary>
-        [Input("networkInterfaces")]
+        [PolicyResourceProperty("networkInterfaces", "_mUnknown_NetworkInterfaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateNetworkInterfaceArgs>> _mNetworkInterfaces;
-
-        public List<Inputs.LaunchTemplateNetworkInterfaceArgs>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
+        private List<Inputs.LaunchTemplateNetworkInterfaceArgs>? _mValue_NetworkInterfaces;
+        private bool _mUnknown_NetworkInterfaces;
+        public List<Inputs.LaunchTemplateNetworkInterfaceArgs>? NetworkInterfaces
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaces) return _mValue_NetworkInterfaces;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.NetworkInterfaces' is not present");
+            }
+        }
 
         /// <summary>
         /// The placement of the instance. See Placement below for more details.
         /// </summary>
-        [Input("placement")]
+        [PolicyResourceProperty("placement", "_mUnknown_Placement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplatePlacementArgs> _mPlacement;
-
-        public Inputs.LaunchTemplatePlacementArgs? Placement => _mPlacement.GetValue("placement");
+        private Inputs.LaunchTemplatePlacementArgs? _mValue_Placement;
+        private bool _mUnknown_Placement;
+        public Inputs.LaunchTemplatePlacementArgs? Placement
+        {
+            get
+            {
+                if (!_mUnknown_Placement) return _mValue_Placement;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.Placement' is not present");
+            }
+        }
 
         /// <summary>
         /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         /// </summary>
-        [Input("privateDnsNameOptions")]
+        [PolicyResourceProperty("privateDnsNameOptions", "_mUnknown_PrivateDnsNameOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplatePrivateDnsNameOptionsArgs> _mPrivateDnsNameOptions;
-
-        public Inputs.LaunchTemplatePrivateDnsNameOptionsArgs? PrivateDnsNameOptions => _mPrivateDnsNameOptions.GetValue("privateDnsNameOptions");
+        private Inputs.LaunchTemplatePrivateDnsNameOptionsArgs? _mValue_PrivateDnsNameOptions;
+        private bool _mUnknown_PrivateDnsNameOptions;
+        public Inputs.LaunchTemplatePrivateDnsNameOptionsArgs? PrivateDnsNameOptions
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDnsNameOptions) return _mValue_PrivateDnsNameOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.PrivateDnsNameOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the RAM disk.
         /// </summary>
-        [Input("ramDiskId")]
+        [PolicyResourceProperty("ramDiskId", "_mUnknown_RamDiskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRamDiskId;
-
-        public string? RamDiskId => _mRamDiskId.GetValue("ramDiskId");
+        private string? _mValue_RamDiskId;
+        private bool _mUnknown_RamDiskId;
+        public string? RamDiskId
+        {
+            get
+            {
+                if (!_mUnknown_RamDiskId) return _mValue_RamDiskId;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.RamDiskId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
         /// `vpc_security_group_ids` instead.
         /// </summary>
-        [Input("securityGroupNames")]
+        [PolicyResourceProperty("securityGroupNames", "_mUnknown_SecurityGroupNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupNames;
-
-        public List<string>? SecurityGroupNames => _mSecurityGroupNames.GetValue("securityGroupNames");
+        private List<string>? _mValue_SecurityGroupNames;
+        private bool _mUnknown_SecurityGroupNames;
+        public List<string>? SecurityGroupNames
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupNames) return _mValue_SecurityGroupNames;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.SecurityGroupNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
         /// </summary>
-        [Input("tagSpecifications")]
+        [PolicyResourceProperty("tagSpecifications", "_mUnknown_TagSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LaunchTemplateTagSpecificationArgs>> _mTagSpecifications;
-
-        public List<Inputs.LaunchTemplateTagSpecificationArgs>? TagSpecifications => _mTagSpecifications.GetValue("tagSpecifications");
+        private List<Inputs.LaunchTemplateTagSpecificationArgs>? _mValue_TagSpecifications;
+        private bool _mUnknown_TagSpecifications;
+        public List<Inputs.LaunchTemplateTagSpecificationArgs>? TagSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_TagSpecifications) return _mValue_TagSpecifications;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.TagSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to update Default Version each update. Conflicts with `default_version`.
         /// </summary>
-        [Input("updateDefaultVersion")]
+        [PolicyResourceProperty("updateDefaultVersion", "_mUnknown_UpdateDefaultVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUpdateDefaultVersion;
-
-        public bool? UpdateDefaultVersion => _mUpdateDefaultVersion.GetValue("updateDefaultVersion");
+        private bool? _mValue_UpdateDefaultVersion;
+        private bool _mUnknown_UpdateDefaultVersion;
+        public bool? UpdateDefaultVersion
+        {
+            get
+            {
+                if (!_mUnknown_UpdateDefaultVersion) return _mValue_UpdateDefaultVersion;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.UpdateDefaultVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The base64-encoded user data to provide when launching the instance.
         /// </summary>
-        [Input("userData")]
+        [PolicyResourceProperty("userData", "_mUnknown_UserData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
-
-        public string? UserData => _mUserData.GetValue("userData");
+        private string? _mValue_UserData;
+        private bool _mUnknown_UserData;
+        public string? UserData
+        {
+            get
+            {
+                if (!_mUnknown_UserData) return _mValue_UserData;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.UserData' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'LaunchTemplateArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 }

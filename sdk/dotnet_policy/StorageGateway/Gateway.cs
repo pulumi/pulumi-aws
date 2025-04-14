@@ -16,218 +16,386 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         /// </summary>
-        [Input("activationKey")]
+        [PolicyResourceProperty("activationKey", "_mUnknown_ActivationKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActivationKey;
-
-        public string? ActivationKey => _mActivationKey.GetValue("activationKey");
+        private string? _mValue_ActivationKey;
+        private bool _mUnknown_ActivationKey;
+        public string? ActivationKey
+        {
+            get
+            {
+                if (!_mUnknown_ActivationKey) return _mValue_ActivationKey;
+                throw new UndeferrableValueException("Value 'Gateway.ActivationKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the gateway.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Gateway.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         /// </summary>
-        [Input("averageDownloadRateLimitInBitsPerSec")]
+        [PolicyResourceProperty("averageDownloadRateLimitInBitsPerSec", "_mUnknown_AverageDownloadRateLimitInBitsPerSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAverageDownloadRateLimitInBitsPerSec;
-
-        public int? AverageDownloadRateLimitInBitsPerSec => _mAverageDownloadRateLimitInBitsPerSec.GetValue("averageDownloadRateLimitInBitsPerSec");
+        private int? _mValue_AverageDownloadRateLimitInBitsPerSec;
+        private bool _mUnknown_AverageDownloadRateLimitInBitsPerSec;
+        public int? AverageDownloadRateLimitInBitsPerSec
+        {
+            get
+            {
+                if (!_mUnknown_AverageDownloadRateLimitInBitsPerSec) return _mValue_AverageDownloadRateLimitInBitsPerSec;
+                throw new UndeferrableValueException("Value 'Gateway.AverageDownloadRateLimitInBitsPerSec' is not present");
+            }
+        }
 
         /// <summary>
         /// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         /// </summary>
-        [Input("averageUploadRateLimitInBitsPerSec")]
+        [PolicyResourceProperty("averageUploadRateLimitInBitsPerSec", "_mUnknown_AverageUploadRateLimitInBitsPerSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAverageUploadRateLimitInBitsPerSec;
-
-        public int? AverageUploadRateLimitInBitsPerSec => _mAverageUploadRateLimitInBitsPerSec.GetValue("averageUploadRateLimitInBitsPerSec");
+        private int? _mValue_AverageUploadRateLimitInBitsPerSec;
+        private bool _mUnknown_AverageUploadRateLimitInBitsPerSec;
+        public int? AverageUploadRateLimitInBitsPerSec
+        {
+            get
+            {
+                if (!_mUnknown_AverageUploadRateLimitInBitsPerSec) return _mValue_AverageUploadRateLimitInBitsPerSec;
+                throw new UndeferrableValueException("Value 'Gateway.AverageUploadRateLimitInBitsPerSec' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         /// </summary>
-        [Input("cloudwatchLogGroupArn")]
+        [PolicyResourceProperty("cloudwatchLogGroupArn", "_mUnknown_CloudwatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
-
-        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+        private string? _mValue_CloudwatchLogGroupArn;
+        private bool _mUnknown_CloudwatchLogGroupArn;
+        public string? CloudwatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupArn) return _mValue_CloudwatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'Gateway.CloudwatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon EC2 instance that was used to launch the gateway.
         /// </summary>
-        [Input("ec2InstanceId")]
+        [PolicyResourceProperty("ec2InstanceId", "_mUnknown_Ec2InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEc2InstanceId;
-
-        public string? Ec2InstanceId => _mEc2InstanceId.GetValue("ec2InstanceId");
+        private string? _mValue_Ec2InstanceId;
+        private bool _mUnknown_Ec2InstanceId;
+        public string? Ec2InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_Ec2InstanceId) return _mValue_Ec2InstanceId;
+                throw new UndeferrableValueException("Value 'Gateway.Ec2InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of endpoint for your gateway.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'Gateway.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the gateway.
         /// </summary>
-        [Input("gatewayId")]
+        [PolicyResourceProperty("gatewayId", "_mUnknown_GatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayId;
-
-        public string? GatewayId => _mGatewayId.GetValue("gatewayId");
+        private string? _mValue_GatewayId;
+        private bool _mUnknown_GatewayId;
+        public string? GatewayId
+        {
+            get
+            {
+                if (!_mUnknown_GatewayId) return _mValue_GatewayId;
+                throw new UndeferrableValueException("Value 'Gateway.GatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         /// </summary>
-        [Input("gatewayIpAddress")]
+        [PolicyResourceProperty("gatewayIpAddress", "_mUnknown_GatewayIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayIpAddress;
-
-        public string? GatewayIpAddress => _mGatewayIpAddress.GetValue("gatewayIpAddress");
+        private string? _mValue_GatewayIpAddress;
+        private bool _mUnknown_GatewayIpAddress;
+        public string? GatewayIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_GatewayIpAddress) return _mValue_GatewayIpAddress;
+                throw new UndeferrableValueException("Value 'Gateway.GatewayIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the gateway.
         /// </summary>
-        [Input("gatewayName")]
+        [PolicyResourceProperty("gatewayName", "_mUnknown_GatewayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayName;
-
-        public string? GatewayName => _mGatewayName.GetValue("gatewayName");
+        private string? _mValue_GatewayName;
+        private bool _mUnknown_GatewayName;
+        public string? GatewayName
+        {
+            get
+            {
+                if (!_mUnknown_GatewayName) return _mValue_GatewayName;
+                throw new UndeferrableValueException("Value 'Gateway.GatewayName' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
         /// </summary>
-        [Input("gatewayNetworkInterfaces")]
+        [PolicyResourceProperty("gatewayNetworkInterfaces", "_mUnknown_GatewayNetworkInterfaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GatewayGatewayNetworkInterface>> _mGatewayNetworkInterfaces;
-
-        public List<Outputs.GatewayGatewayNetworkInterface>? GatewayNetworkInterfaces => _mGatewayNetworkInterfaces.GetValue("gatewayNetworkInterfaces");
+        private List<Outputs.GatewayGatewayNetworkInterface>? _mValue_GatewayNetworkInterfaces;
+        private bool _mUnknown_GatewayNetworkInterfaces;
+        public List<Outputs.GatewayGatewayNetworkInterface>? GatewayNetworkInterfaces
+        {
+            get
+            {
+                if (!_mUnknown_GatewayNetworkInterfaces) return _mValue_GatewayNetworkInterfaces;
+                throw new UndeferrableValueException("Value 'Gateway.GatewayNetworkInterfaces' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         /// </summary>
-        [Input("gatewayTimezone")]
+        [PolicyResourceProperty("gatewayTimezone", "_mUnknown_GatewayTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayTimezone;
-
-        public string? GatewayTimezone => _mGatewayTimezone.GetValue("gatewayTimezone");
+        private string? _mValue_GatewayTimezone;
+        private bool _mUnknown_GatewayTimezone;
+        public string? GatewayTimezone
+        {
+            get
+            {
+                if (!_mUnknown_GatewayTimezone) return _mValue_GatewayTimezone;
+                throw new UndeferrableValueException("Value 'Gateway.GatewayTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         /// </summary>
-        [Input("gatewayType")]
+        [PolicyResourceProperty("gatewayType", "_mUnknown_GatewayType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayType;
-
-        public string? GatewayType => _mGatewayType.GetValue("gatewayType");
+        private string? _mValue_GatewayType;
+        private bool _mUnknown_GatewayType;
+        public string? GatewayType
+        {
+            get
+            {
+                if (!_mUnknown_GatewayType) return _mValue_GatewayType;
+                throw new UndeferrableValueException("Value 'Gateway.GatewayType' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
-        [Input("gatewayVpcEndpoint")]
+        [PolicyResourceProperty("gatewayVpcEndpoint", "_mUnknown_GatewayVpcEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayVpcEndpoint;
-
-        public string? GatewayVpcEndpoint => _mGatewayVpcEndpoint.GetValue("gatewayVpcEndpoint");
+        private string? _mValue_GatewayVpcEndpoint;
+        private bool _mUnknown_GatewayVpcEndpoint;
+        public string? GatewayVpcEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_GatewayVpcEndpoint) return _mValue_GatewayVpcEndpoint;
+                throw new UndeferrableValueException("Value 'Gateway.GatewayVpcEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of hypervisor environment used by the host.
         /// </summary>
-        [Input("hostEnvironment")]
+        [PolicyResourceProperty("hostEnvironment", "_mUnknown_HostEnvironment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostEnvironment;
-
-        public string? HostEnvironment => _mHostEnvironment.GetValue("hostEnvironment");
+        private string? _mValue_HostEnvironment;
+        private bool _mUnknown_HostEnvironment;
+        public string? HostEnvironment
+        {
+            get
+            {
+                if (!_mUnknown_HostEnvironment) return _mValue_HostEnvironment;
+                throw new UndeferrableValueException("Value 'Gateway.HostEnvironment' is not present");
+            }
+        }
 
         /// <summary>
         /// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         /// </summary>
-        [Input("maintenanceStartTime")]
+        [PolicyResourceProperty("maintenanceStartTime", "_mUnknown_MaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GatewayMaintenanceStartTime> _mMaintenanceStartTime;
-
-        public Outputs.GatewayMaintenanceStartTime? MaintenanceStartTime => _mMaintenanceStartTime.GetValue("maintenanceStartTime");
+        private Outputs.GatewayMaintenanceStartTime? _mValue_MaintenanceStartTime;
+        private bool _mUnknown_MaintenanceStartTime;
+        public Outputs.GatewayMaintenanceStartTime? MaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceStartTime) return _mValue_MaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'Gateway.MaintenanceStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         /// </summary>
-        [Input("mediumChangerType")]
+        [PolicyResourceProperty("mediumChangerType", "_mUnknown_MediumChangerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediumChangerType;
-
-        public string? MediumChangerType => _mMediumChangerType.GetValue("mediumChangerType");
+        private string? _mValue_MediumChangerType;
+        private bool _mUnknown_MediumChangerType;
+        public string? MediumChangerType
+        {
+            get
+            {
+                if (!_mUnknown_MediumChangerType) return _mValue_MediumChangerType;
+                throw new UndeferrableValueException("Value 'Gateway.MediumChangerType' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         /// </summary>
-        [Input("smbActiveDirectorySettings")]
+        [PolicyResourceProperty("smbActiveDirectorySettings", "_mUnknown_SmbActiveDirectorySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GatewaySmbActiveDirectorySettings> _mSmbActiveDirectorySettings;
-
-        public Outputs.GatewaySmbActiveDirectorySettings? SmbActiveDirectorySettings => _mSmbActiveDirectorySettings.GetValue("smbActiveDirectorySettings");
+        private Outputs.GatewaySmbActiveDirectorySettings? _mValue_SmbActiveDirectorySettings;
+        private bool _mUnknown_SmbActiveDirectorySettings;
+        public Outputs.GatewaySmbActiveDirectorySettings? SmbActiveDirectorySettings
+        {
+            get
+            {
+                if (!_mUnknown_SmbActiveDirectorySettings) return _mValue_SmbActiveDirectorySettings;
+                throw new UndeferrableValueException("Value 'Gateway.SmbActiveDirectorySettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the shares on this gateway appear when listing shares.
         /// </summary>
-        [Input("smbFileShareVisibility")]
+        [PolicyResourceProperty("smbFileShareVisibility", "_mUnknown_SmbFileShareVisibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSmbFileShareVisibility;
-
-        public bool? SmbFileShareVisibility => _mSmbFileShareVisibility.GetValue("smbFileShareVisibility");
+        private bool? _mValue_SmbFileShareVisibility;
+        private bool _mUnknown_SmbFileShareVisibility;
+        public bool? SmbFileShareVisibility
+        {
+            get
+            {
+                if (!_mUnknown_SmbFileShareVisibility) return _mValue_SmbFileShareVisibility;
+                throw new UndeferrableValueException("Value 'Gateway.SmbFileShareVisibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         /// </summary>
-        [Input("smbGuestPassword")]
+        [PolicyResourceProperty("smbGuestPassword", "_mUnknown_SmbGuestPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmbGuestPassword;
-
-        public string? SmbGuestPassword => _mSmbGuestPassword.GetValue("smbGuestPassword");
+        private string? _mValue_SmbGuestPassword;
+        private bool _mUnknown_SmbGuestPassword;
+        public string? SmbGuestPassword
+        {
+            get
+            {
+                if (!_mUnknown_SmbGuestPassword) return _mValue_SmbGuestPassword;
+                throw new UndeferrableValueException("Value 'Gateway.SmbGuestPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         /// </summary>
-        [Input("smbSecurityStrategy")]
+        [PolicyResourceProperty("smbSecurityStrategy", "_mUnknown_SmbSecurityStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmbSecurityStrategy;
-
-        public string? SmbSecurityStrategy => _mSmbSecurityStrategy.GetValue("smbSecurityStrategy");
+        private string? _mValue_SmbSecurityStrategy;
+        private bool _mUnknown_SmbSecurityStrategy;
+        public string? SmbSecurityStrategy
+        {
+            get
+            {
+                if (!_mUnknown_SmbSecurityStrategy) return _mValue_SmbSecurityStrategy;
+                throw new UndeferrableValueException("Value 'Gateway.SmbSecurityStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Gateway.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Gateway.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         /// </summary>
-        [Input("tapeDriveType")]
+        [PolicyResourceProperty("tapeDriveType", "_mUnknown_TapeDriveType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTapeDriveType;
-
-        public string? TapeDriveType => _mTapeDriveType.GetValue("tapeDriveType");
+        private string? _mValue_TapeDriveType;
+        private bool _mUnknown_TapeDriveType;
+        public string? TapeDriveType
+        {
+            get
+            {
+                if (!_mUnknown_TapeDriveType) return _mValue_TapeDriveType;
+                throw new UndeferrableValueException("Value 'Gateway.TapeDriveType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:storagegateway/gateway:Gateway")]
@@ -236,154 +404,273 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         /// </summary>
-        [Input("activationKey")]
+        [PolicyResourceProperty("activationKey", "_mUnknown_ActivationKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActivationKey;
-
-        public string? ActivationKey => _mActivationKey.GetValue("activationKey");
+        private string? _mValue_ActivationKey;
+        private bool _mUnknown_ActivationKey;
+        public string? ActivationKey
+        {
+            get
+            {
+                if (!_mUnknown_ActivationKey) return _mValue_ActivationKey;
+                throw new UndeferrableValueException("Value 'GatewayArgs.ActivationKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         /// </summary>
-        [Input("averageDownloadRateLimitInBitsPerSec")]
+        [PolicyResourceProperty("averageDownloadRateLimitInBitsPerSec", "_mUnknown_AverageDownloadRateLimitInBitsPerSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAverageDownloadRateLimitInBitsPerSec;
-
-        public int? AverageDownloadRateLimitInBitsPerSec => _mAverageDownloadRateLimitInBitsPerSec.GetValue("averageDownloadRateLimitInBitsPerSec");
+        private int? _mValue_AverageDownloadRateLimitInBitsPerSec;
+        private bool _mUnknown_AverageDownloadRateLimitInBitsPerSec;
+        public int? AverageDownloadRateLimitInBitsPerSec
+        {
+            get
+            {
+                if (!_mUnknown_AverageDownloadRateLimitInBitsPerSec) return _mValue_AverageDownloadRateLimitInBitsPerSec;
+                throw new UndeferrableValueException("Value 'GatewayArgs.AverageDownloadRateLimitInBitsPerSec' is not present");
+            }
+        }
 
         /// <summary>
         /// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         /// </summary>
-        [Input("averageUploadRateLimitInBitsPerSec")]
+        [PolicyResourceProperty("averageUploadRateLimitInBitsPerSec", "_mUnknown_AverageUploadRateLimitInBitsPerSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAverageUploadRateLimitInBitsPerSec;
-
-        public int? AverageUploadRateLimitInBitsPerSec => _mAverageUploadRateLimitInBitsPerSec.GetValue("averageUploadRateLimitInBitsPerSec");
+        private int? _mValue_AverageUploadRateLimitInBitsPerSec;
+        private bool _mUnknown_AverageUploadRateLimitInBitsPerSec;
+        public int? AverageUploadRateLimitInBitsPerSec
+        {
+            get
+            {
+                if (!_mUnknown_AverageUploadRateLimitInBitsPerSec) return _mValue_AverageUploadRateLimitInBitsPerSec;
+                throw new UndeferrableValueException("Value 'GatewayArgs.AverageUploadRateLimitInBitsPerSec' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         /// </summary>
-        [Input("cloudwatchLogGroupArn")]
+        [PolicyResourceProperty("cloudwatchLogGroupArn", "_mUnknown_CloudwatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
-
-        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+        private string? _mValue_CloudwatchLogGroupArn;
+        private bool _mUnknown_CloudwatchLogGroupArn;
+        public string? CloudwatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupArn) return _mValue_CloudwatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'GatewayArgs.CloudwatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         /// </summary>
-        [Input("gatewayIpAddress")]
+        [PolicyResourceProperty("gatewayIpAddress", "_mUnknown_GatewayIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayIpAddress;
-
-        public string? GatewayIpAddress => _mGatewayIpAddress.GetValue("gatewayIpAddress");
+        private string? _mValue_GatewayIpAddress;
+        private bool _mUnknown_GatewayIpAddress;
+        public string? GatewayIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_GatewayIpAddress) return _mValue_GatewayIpAddress;
+                throw new UndeferrableValueException("Value 'GatewayArgs.GatewayIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the gateway.
         /// </summary>
-        [Input("gatewayName")]
+        [PolicyResourceProperty("gatewayName", "_mUnknown_GatewayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayName;
-
-        public string? GatewayName => _mGatewayName.GetValue("gatewayName");
+        private string? _mValue_GatewayName;
+        private bool _mUnknown_GatewayName;
+        public string? GatewayName
+        {
+            get
+            {
+                if (!_mUnknown_GatewayName) return _mValue_GatewayName;
+                throw new UndeferrableValueException("Value 'GatewayArgs.GatewayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         /// </summary>
-        [Input("gatewayTimezone")]
+        [PolicyResourceProperty("gatewayTimezone", "_mUnknown_GatewayTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayTimezone;
-
-        public string? GatewayTimezone => _mGatewayTimezone.GetValue("gatewayTimezone");
+        private string? _mValue_GatewayTimezone;
+        private bool _mUnknown_GatewayTimezone;
+        public string? GatewayTimezone
+        {
+            get
+            {
+                if (!_mUnknown_GatewayTimezone) return _mValue_GatewayTimezone;
+                throw new UndeferrableValueException("Value 'GatewayArgs.GatewayTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         /// </summary>
-        [Input("gatewayType")]
+        [PolicyResourceProperty("gatewayType", "_mUnknown_GatewayType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayType;
-
-        public string? GatewayType => _mGatewayType.GetValue("gatewayType");
+        private string? _mValue_GatewayType;
+        private bool _mUnknown_GatewayType;
+        public string? GatewayType
+        {
+            get
+            {
+                if (!_mUnknown_GatewayType) return _mValue_GatewayType;
+                throw new UndeferrableValueException("Value 'GatewayArgs.GatewayType' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
-        [Input("gatewayVpcEndpoint")]
+        [PolicyResourceProperty("gatewayVpcEndpoint", "_mUnknown_GatewayVpcEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayVpcEndpoint;
-
-        public string? GatewayVpcEndpoint => _mGatewayVpcEndpoint.GetValue("gatewayVpcEndpoint");
+        private string? _mValue_GatewayVpcEndpoint;
+        private bool _mUnknown_GatewayVpcEndpoint;
+        public string? GatewayVpcEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_GatewayVpcEndpoint) return _mValue_GatewayVpcEndpoint;
+                throw new UndeferrableValueException("Value 'GatewayArgs.GatewayVpcEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         /// </summary>
-        [Input("maintenanceStartTime")]
+        [PolicyResourceProperty("maintenanceStartTime", "_mUnknown_MaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayMaintenanceStartTimeArgs> _mMaintenanceStartTime;
-
-        public Inputs.GatewayMaintenanceStartTimeArgs? MaintenanceStartTime => _mMaintenanceStartTime.GetValue("maintenanceStartTime");
+        private Inputs.GatewayMaintenanceStartTimeArgs? _mValue_MaintenanceStartTime;
+        private bool _mUnknown_MaintenanceStartTime;
+        public Inputs.GatewayMaintenanceStartTimeArgs? MaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceStartTime) return _mValue_MaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'GatewayArgs.MaintenanceStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         /// </summary>
-        [Input("mediumChangerType")]
+        [PolicyResourceProperty("mediumChangerType", "_mUnknown_MediumChangerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediumChangerType;
-
-        public string? MediumChangerType => _mMediumChangerType.GetValue("mediumChangerType");
+        private string? _mValue_MediumChangerType;
+        private bool _mUnknown_MediumChangerType;
+        public string? MediumChangerType
+        {
+            get
+            {
+                if (!_mUnknown_MediumChangerType) return _mValue_MediumChangerType;
+                throw new UndeferrableValueException("Value 'GatewayArgs.MediumChangerType' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         /// </summary>
-        [Input("smbActiveDirectorySettings")]
+        [PolicyResourceProperty("smbActiveDirectorySettings", "_mUnknown_SmbActiveDirectorySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewaySmbActiveDirectorySettingsArgs> _mSmbActiveDirectorySettings;
-
-        public Inputs.GatewaySmbActiveDirectorySettingsArgs? SmbActiveDirectorySettings => _mSmbActiveDirectorySettings.GetValue("smbActiveDirectorySettings");
+        private Inputs.GatewaySmbActiveDirectorySettingsArgs? _mValue_SmbActiveDirectorySettings;
+        private bool _mUnknown_SmbActiveDirectorySettings;
+        public Inputs.GatewaySmbActiveDirectorySettingsArgs? SmbActiveDirectorySettings
+        {
+            get
+            {
+                if (!_mUnknown_SmbActiveDirectorySettings) return _mValue_SmbActiveDirectorySettings;
+                throw new UndeferrableValueException("Value 'GatewayArgs.SmbActiveDirectorySettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the shares on this gateway appear when listing shares.
         /// </summary>
-        [Input("smbFileShareVisibility")]
+        [PolicyResourceProperty("smbFileShareVisibility", "_mUnknown_SmbFileShareVisibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSmbFileShareVisibility;
-
-        public bool? SmbFileShareVisibility => _mSmbFileShareVisibility.GetValue("smbFileShareVisibility");
+        private bool? _mValue_SmbFileShareVisibility;
+        private bool _mUnknown_SmbFileShareVisibility;
+        public bool? SmbFileShareVisibility
+        {
+            get
+            {
+                if (!_mUnknown_SmbFileShareVisibility) return _mValue_SmbFileShareVisibility;
+                throw new UndeferrableValueException("Value 'GatewayArgs.SmbFileShareVisibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         /// </summary>
-        [Input("smbGuestPassword")]
+        [PolicyResourceProperty("smbGuestPassword", "_mUnknown_SmbGuestPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmbGuestPassword;
-
-        public string? SmbGuestPassword => _mSmbGuestPassword.GetValue("smbGuestPassword");
+        private string? _mValue_SmbGuestPassword;
+        private bool _mUnknown_SmbGuestPassword;
+        public string? SmbGuestPassword
+        {
+            get
+            {
+                if (!_mUnknown_SmbGuestPassword) return _mValue_SmbGuestPassword;
+                throw new UndeferrableValueException("Value 'GatewayArgs.SmbGuestPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         /// </summary>
-        [Input("smbSecurityStrategy")]
+        [PolicyResourceProperty("smbSecurityStrategy", "_mUnknown_SmbSecurityStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmbSecurityStrategy;
-
-        public string? SmbSecurityStrategy => _mSmbSecurityStrategy.GetValue("smbSecurityStrategy");
+        private string? _mValue_SmbSecurityStrategy;
+        private bool _mUnknown_SmbSecurityStrategy;
+        public string? SmbSecurityStrategy
+        {
+            get
+            {
+                if (!_mUnknown_SmbSecurityStrategy) return _mValue_SmbSecurityStrategy;
+                throw new UndeferrableValueException("Value 'GatewayArgs.SmbSecurityStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GatewayArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         /// </summary>
-        [Input("tapeDriveType")]
+        [PolicyResourceProperty("tapeDriveType", "_mUnknown_TapeDriveType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTapeDriveType;
-
-        public string? TapeDriveType => _mTapeDriveType.GetValue("tapeDriveType");
+        private string? _mValue_TapeDriveType;
+        private bool _mUnknown_TapeDriveType;
+        public string? TapeDriveType
+        {
+            get
+            {
+                if (!_mUnknown_TapeDriveType) return _mValue_TapeDriveType;
+                throw new UndeferrableValueException("Value 'GatewayArgs.TapeDriveType' is not present");
+            }
+        }
     }
 }

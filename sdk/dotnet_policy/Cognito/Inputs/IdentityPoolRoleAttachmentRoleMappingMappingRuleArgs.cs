@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// The claim name that must be present in the token, for example, "isAdmin" or "paid".
         /// </summary>
-        [Input("claim")]
+        [PolicyResourceProperty("claim", "_mUnknown_Claim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClaim;
-
-        public string? Claim => _mClaim.GetValue("claim");
+        private string? _mValue_Claim;
+        private bool _mUnknown_Claim;
+        public string? Claim
+        {
+            get
+            {
+                if (!_mUnknown_Claim) return _mValue_Claim;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.Claim' is not present");
+            }
+        }
 
         /// <summary>
         /// The match condition that specifies how closely the claim value in the IdP token must match Value.
         /// </summary>
-        [Input("matchType")]
+        [PolicyResourceProperty("matchType", "_mUnknown_MatchType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMatchType;
-
-        public string? MatchType => _mMatchType.GetValue("matchType");
+        private string? _mValue_MatchType;
+        private bool _mUnknown_MatchType;
+        public string? MatchType
+        {
+            get
+            {
+                if (!_mUnknown_MatchType) return _mValue_MatchType;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.MatchType' is not present");
+            }
+        }
 
         /// <summary>
         /// The role ARN.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A brief string that the claim must match, for example, "paid" or "yes".
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.Value' is not present");
+            }
+        }
     }
 }

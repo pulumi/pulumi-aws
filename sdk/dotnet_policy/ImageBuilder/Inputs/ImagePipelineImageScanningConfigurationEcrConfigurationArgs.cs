@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
 {
     public sealed class ImagePipelineImageScanningConfigurationEcrConfigurationArgs
     {
-        [Input("containerTags")]
+        [PolicyResourceProperty("containerTags", "_mUnknown_ContainerTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mContainerTags;
-
-        public List<string>? ContainerTags => _mContainerTags.GetValue("containerTags");
+        private List<string>? _mValue_ContainerTags;
+        private bool _mUnknown_ContainerTags;
+        public List<string>? ContainerTags
+        {
+            get
+            {
+                if (!_mUnknown_ContainerTags) return _mValue_ContainerTags;
+                throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationEcrConfigurationArgs.ContainerTags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository to scan
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationEcrConfigurationArgs.RepositoryName' is not present");
+            }
+        }
     }
 }

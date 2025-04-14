@@ -16,64 +16,113 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// ARN of the Multiplex.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Multiplex.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of availability zones. You must specify exactly two.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'Multiplex.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// Multiplex settings. See Multiplex Settings for more details.
         /// </summary>
-        [Input("multiplexSettings")]
+        [PolicyResourceProperty("multiplexSettings", "_mUnknown_MultiplexSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexMultiplexSettings> _mMultiplexSettings;
-
-        public Outputs.MultiplexMultiplexSettings? MultiplexSettings => _mMultiplexSettings.GetValue("multiplexSettings");
+        private Outputs.MultiplexMultiplexSettings? _mValue_MultiplexSettings;
+        private bool _mUnknown_MultiplexSettings;
+        public Outputs.MultiplexMultiplexSettings? MultiplexSettings
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexSettings) return _mValue_MultiplexSettings;
+                throw new UndeferrableValueException("Value 'Multiplex.MultiplexSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// name of Multiplex.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Multiplex.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start the Multiplex. Defaults to `false`.
         /// </summary>
-        [Input("startMultiplex")]
+        [PolicyResourceProperty("startMultiplex", "_mUnknown_StartMultiplex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartMultiplex;
-
-        public bool? StartMultiplex => _mStartMultiplex.GetValue("startMultiplex");
+        private bool? _mValue_StartMultiplex;
+        private bool _mUnknown_StartMultiplex;
+        public bool? StartMultiplex
+        {
+            get
+            {
+                if (!_mUnknown_StartMultiplex) return _mValue_StartMultiplex;
+                throw new UndeferrableValueException("Value 'Multiplex.StartMultiplex' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Multiplex.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Multiplex.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:medialive/multiplex:Multiplex")]
@@ -82,48 +131,83 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// A list of availability zones. You must specify exactly two.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'MultiplexArgs.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// Multiplex settings. See Multiplex Settings for more details.
         /// </summary>
-        [Input("multiplexSettings")]
+        [PolicyResourceProperty("multiplexSettings", "_mUnknown_MultiplexSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiplexMultiplexSettingsArgs> _mMultiplexSettings;
-
-        public Inputs.MultiplexMultiplexSettingsArgs? MultiplexSettings => _mMultiplexSettings.GetValue("multiplexSettings");
+        private Inputs.MultiplexMultiplexSettingsArgs? _mValue_MultiplexSettings;
+        private bool _mUnknown_MultiplexSettings;
+        public Inputs.MultiplexMultiplexSettingsArgs? MultiplexSettings
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexSettings) return _mValue_MultiplexSettings;
+                throw new UndeferrableValueException("Value 'MultiplexArgs.MultiplexSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// name of Multiplex.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MultiplexArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start the Multiplex. Defaults to `false`.
         /// </summary>
-        [Input("startMultiplex")]
+        [PolicyResourceProperty("startMultiplex", "_mUnknown_StartMultiplex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartMultiplex;
-
-        public bool? StartMultiplex => _mStartMultiplex.GetValue("startMultiplex");
+        private bool? _mValue_StartMultiplex;
+        private bool _mUnknown_StartMultiplex;
+        public bool? StartMultiplex
+        {
+            get
+            {
+                if (!_mUnknown_StartMultiplex) return _mValue_StartMultiplex;
+                throw new UndeferrableValueException("Value 'MultiplexArgs.StartMultiplex' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MultiplexArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
         /// </summary>
-        [Input("headerBehavior")]
+        [PolicyResourceProperty("headerBehavior", "_mUnknown_HeaderBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeaderBehavior;
-
-        public string? HeaderBehavior => _mHeaderBehavior.GetValue("headerBehavior");
+        private string? _mValue_HeaderBehavior;
+        private bool _mUnknown_HeaderBehavior;
+        public string? HeaderBehavior
+        {
+            get
+            {
+                if (!_mUnknown_HeaderBehavior) return _mValue_HeaderBehavior;
+                throw new UndeferrableValueException("Value 'GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult.HeaderBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains a list of header names. See Items for more information.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult>> _mHeaders;
-
-        public List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult>? Headers => _mHeaders.GetValue("headers");
+        private List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult.Headers' is not present");
+            }
+        }
     }
 }

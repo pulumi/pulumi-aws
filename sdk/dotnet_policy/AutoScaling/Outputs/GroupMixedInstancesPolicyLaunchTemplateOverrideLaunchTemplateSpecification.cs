@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// ID of the launch template. Conflicts with `launch_template_name`.
         /// </summary>
-        [Input("launchTemplateId")]
+        [PolicyResourceProperty("launchTemplateId", "_mUnknown_LaunchTemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchTemplateId;
-
-        public string? LaunchTemplateId => _mLaunchTemplateId.GetValue("launchTemplateId");
+        private string? _mValue_LaunchTemplateId;
+        private bool _mUnknown_LaunchTemplateId;
+        public string? LaunchTemplateId
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateId) return _mValue_LaunchTemplateId;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.LaunchTemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the launch template. Conflicts with `launch_template_id`.
         /// </summary>
-        [Input("launchTemplateName")]
+        [PolicyResourceProperty("launchTemplateName", "_mUnknown_LaunchTemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchTemplateName;
+        private string? _mValue_LaunchTemplateName;
+        private bool _mUnknown_LaunchTemplateName;
+        public string? LaunchTemplateName
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateName) return _mValue_LaunchTemplateName;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.LaunchTemplateName' is not present");
+            }
+        }
 
-        public string? LaunchTemplateName => _mLaunchTemplateName.GetValue("launchTemplateName");
-
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.Version' is not present");
+            }
+        }
     }
 }

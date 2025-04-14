@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
         /// </summary>
-        [Input("authenticationConfiguration")]
+        [PolicyResourceProperty("authenticationConfiguration", "_mUnknown_AuthenticationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration> _mAuthenticationConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration? AuthenticationConfiguration => _mAuthenticationConfiguration.GetValue("authenticationConfiguration");
+        private Outputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration? _mValue_AuthenticationConfiguration;
+        private bool _mUnknown_AuthenticationConfiguration;
+        public Outputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration? AuthenticationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationConfiguration) return _mValue_AuthenticationConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.AuthenticationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon MSK cluster.
         /// </summary>
-        [Input("mskClusterArn")]
+        [PolicyResourceProperty("mskClusterArn", "_mUnknown_MskClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMskClusterArn;
-
-        public string? MskClusterArn => _mMskClusterArn.GetValue("mskClusterArn");
+        private string? _mValue_MskClusterArn;
+        private bool _mUnknown_MskClusterArn;
+        public string? MskClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_MskClusterArn) return _mValue_MskClusterArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.MskClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
         /// </summary>
-        [Input("readFromTimestamp")]
+        [PolicyResourceProperty("readFromTimestamp", "_mUnknown_ReadFromTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReadFromTimestamp;
-
-        public string? ReadFromTimestamp => _mReadFromTimestamp.GetValue("readFromTimestamp");
+        private string? _mValue_ReadFromTimestamp;
+        private bool _mUnknown_ReadFromTimestamp;
+        public string? ReadFromTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_ReadFromTimestamp) return _mValue_ReadFromTimestamp;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.ReadFromTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// The topic name within the Amazon MSK cluster.
         /// </summary>
-        [Input("topicName")]
+        [PolicyResourceProperty("topicName", "_mUnknown_TopicName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicName;
-
-        public string? TopicName => _mTopicName.GetValue("topicName");
+        private string? _mValue_TopicName;
+        private bool _mUnknown_TopicName;
+        public string? TopicName
+        {
+            get
+            {
+                if (!_mUnknown_TopicName) return _mValue_TopicName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.TopicName' is not present");
+            }
+        }
     }
 }

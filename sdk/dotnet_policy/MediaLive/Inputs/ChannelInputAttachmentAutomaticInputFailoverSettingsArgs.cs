@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
         /// </summary>
-        [Input("errorClearTimeMsec")]
+        [PolicyResourceProperty("errorClearTimeMsec", "_mUnknown_ErrorClearTimeMsec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mErrorClearTimeMsec;
-
-        public int? ErrorClearTimeMsec => _mErrorClearTimeMsec.GetValue("errorClearTimeMsec");
+        private int? _mValue_ErrorClearTimeMsec;
+        private bool _mUnknown_ErrorClearTimeMsec;
+        public int? ErrorClearTimeMsec
+        {
+            get
+            {
+                if (!_mUnknown_ErrorClearTimeMsec) return _mValue_ErrorClearTimeMsec;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.ErrorClearTimeMsec' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
         /// </summary>
-        [Input("failoverConditions")]
+        [PolicyResourceProperty("failoverConditions", "_mUnknown_FailoverConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>> _mFailoverConditions;
-
-        public List<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>? FailoverConditions => _mFailoverConditions.GetValue("failoverConditions");
+        private List<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>? _mValue_FailoverConditions;
+        private bool _mUnknown_FailoverConditions;
+        public List<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>? FailoverConditions
+        {
+            get
+            {
+                if (!_mUnknown_FailoverConditions) return _mValue_FailoverConditions;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.FailoverConditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Input preference when deciding which input to make active when a previously failed input has recovered.
         /// </summary>
-        [Input("inputPreference")]
+        [PolicyResourceProperty("inputPreference", "_mUnknown_InputPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputPreference;
-
-        public string? InputPreference => _mInputPreference.GetValue("inputPreference");
+        private string? _mValue_InputPreference;
+        private bool _mUnknown_InputPreference;
+        public string? InputPreference
+        {
+            get
+            {
+                if (!_mUnknown_InputPreference) return _mValue_InputPreference;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.InputPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// The input ID of the secondary input in the automatic input failover pair.
         /// </summary>
-        [Input("secondaryInputId")]
+        [PolicyResourceProperty("secondaryInputId", "_mUnknown_SecondaryInputId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecondaryInputId;
-
-        public string? SecondaryInputId => _mSecondaryInputId.GetValue("secondaryInputId");
+        private string? _mValue_SecondaryInputId;
+        private bool _mUnknown_SecondaryInputId;
+        public string? SecondaryInputId
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryInputId) return _mValue_SecondaryInputId;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.SecondaryInputId' is not present");
+            }
+        }
     }
 }

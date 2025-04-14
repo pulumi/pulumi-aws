@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// A list of names of columns that contain skewed values.
         /// </summary>
-        [Input("skewedColumnNames")]
+        [PolicyResourceProperty("skewedColumnNames", "_mUnknown_SkewedColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSkewedColumnNames;
-
-        public List<string>? SkewedColumnNames => _mSkewedColumnNames.GetValue("skewedColumnNames");
+        private List<string>? _mValue_SkewedColumnNames;
+        private bool _mUnknown_SkewedColumnNames;
+        public List<string>? SkewedColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_SkewedColumnNames) return _mValue_SkewedColumnNames;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSkewedInfo.SkewedColumnNames' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of values that appear so frequently as to be considered skewed.
         /// </summary>
-        [Input("skewedColumnValueLocationMaps")]
+        [PolicyResourceProperty("skewedColumnValueLocationMaps", "_mUnknown_SkewedColumnValueLocationMaps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mSkewedColumnValueLocationMaps;
-
-        public Dictionary<string, string>? SkewedColumnValueLocationMaps => _mSkewedColumnValueLocationMaps.GetValue("skewedColumnValueLocationMaps");
+        private Dictionary<string, string>? _mValue_SkewedColumnValueLocationMaps;
+        private bool _mUnknown_SkewedColumnValueLocationMaps;
+        public Dictionary<string, string>? SkewedColumnValueLocationMaps
+        {
+            get
+            {
+                if (!_mUnknown_SkewedColumnValueLocationMaps) return _mValue_SkewedColumnValueLocationMaps;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSkewedInfo.SkewedColumnValueLocationMaps' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of skewed values to the columns that contain them.
         /// </summary>
-        [Input("skewedColumnValues")]
+        [PolicyResourceProperty("skewedColumnValues", "_mUnknown_SkewedColumnValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSkewedColumnValues;
-
-        public List<string>? SkewedColumnValues => _mSkewedColumnValues.GetValue("skewedColumnValues");
+        private List<string>? _mValue_SkewedColumnValues;
+        private bool _mUnknown_SkewedColumnValues;
+        public List<string>? SkewedColumnValues
+        {
+            get
+            {
+                if (!_mUnknown_SkewedColumnValues) return _mValue_SkewedColumnValues;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSkewedInfo.SkewedColumnValues' is not present");
+            }
+        }
     }
 }

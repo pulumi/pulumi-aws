@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
         /// </summary>
-        [Input("result")]
+        [PolicyResourceProperty("result", "_mUnknown_Result")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResult;
-
-        public string? Result => _mResult.GetValue("result");
+        private string? _mValue_Result;
+        private bool _mUnknown_Result;
+        public string? Result
+        {
+            get
+            {
+                if (!_mUnknown_Result) return _mValue_Result;
+                throw new UndeferrableValueException("Value 'PipelineStageOnFailureConditionArgs.Result' is not present");
+            }
+        }
 
         /// <summary>
         /// The rules that make up the condition. Defined as a `rule` block below.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineStageOnFailureConditionRuleArgs>> _mRules;
-
-        public List<Inputs.PipelineStageOnFailureConditionRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.PipelineStageOnFailureConditionRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.PipelineStageOnFailureConditionRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'PipelineStageOnFailureConditionArgs.Rules' is not present");
+            }
+        }
     }
 }

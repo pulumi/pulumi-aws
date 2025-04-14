@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// ARN of the insight.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Insight.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InsightFilters> _mFilters;
-
-        public Outputs.InsightFilters? Filters => _mFilters.GetValue("filters");
+        private Outputs.InsightFilters? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public Outputs.InsightFilters? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'Insight.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         /// </summary>
-        [Input("groupByAttribute")]
+        [PolicyResourceProperty("groupByAttribute", "_mUnknown_GroupByAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupByAttribute;
-
-        public string? GroupByAttribute => _mGroupByAttribute.GetValue("groupByAttribute");
+        private string? _mValue_GroupByAttribute;
+        private bool _mUnknown_GroupByAttribute;
+        public string? GroupByAttribute
+        {
+            get
+            {
+                if (!_mUnknown_GroupByAttribute) return _mValue_GroupByAttribute;
+                throw new UndeferrableValueException("Value 'Insight.GroupByAttribute' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the custom insight.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Insight.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/insight:Insight")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InsightFiltersArgs> _mFilters;
-
-        public Inputs.InsightFiltersArgs? Filters => _mFilters.GetValue("filters");
+        private Inputs.InsightFiltersArgs? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public Inputs.InsightFiltersArgs? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'InsightArgs.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         /// </summary>
-        [Input("groupByAttribute")]
+        [PolicyResourceProperty("groupByAttribute", "_mUnknown_GroupByAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupByAttribute;
-
-        public string? GroupByAttribute => _mGroupByAttribute.GetValue("groupByAttribute");
+        private string? _mValue_GroupByAttribute;
+        private bool _mUnknown_GroupByAttribute;
+        public string? GroupByAttribute
+        {
+            get
+            {
+                if (!_mUnknown_GroupByAttribute) return _mValue_GroupByAttribute;
+                throw new UndeferrableValueException("Value 'InsightArgs.GroupByAttribute' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the custom insight.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InsightArgs.Name' is not present");
+            }
+        }
     }
 }

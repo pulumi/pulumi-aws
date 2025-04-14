@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// ARN of the Secret which will be used to authenticate against the registry.
         /// </summary>
-        [Input("credentialArn")]
+        [PolicyResourceProperty("credentialArn", "_mUnknown_CredentialArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialArn;
-
-        public string? CredentialArn => _mCredentialArn.GetValue("credentialArn");
+        private string? _mValue_CredentialArn;
+        private bool _mUnknown_CredentialArn;
+        public string? CredentialArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialArn) return _mValue_CredentialArn;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRule.CredentialArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
         /// </summary>
-        [Input("customRoleArn")]
+        [PolicyResourceProperty("customRoleArn", "_mUnknown_CustomRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
-
-        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
+        private string? _mValue_CustomRoleArn;
+        private bool _mUnknown_CustomRoleArn;
+        public string? CustomRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomRoleArn) return _mValue_CustomRoleArn;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRule.CustomRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
         /// </summary>
-        [Input("ecrRepositoryPrefix")]
+        [PolicyResourceProperty("ecrRepositoryPrefix", "_mUnknown_EcrRepositoryPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcrRepositoryPrefix;
-
-        public string? EcrRepositoryPrefix => _mEcrRepositoryPrefix.GetValue("ecrRepositoryPrefix");
+        private string? _mValue_EcrRepositoryPrefix;
+        private bool _mUnknown_EcrRepositoryPrefix;
+        public string? EcrRepositoryPrefix
+        {
+            get
+            {
+                if (!_mUnknown_EcrRepositoryPrefix) return _mValue_EcrRepositoryPrefix;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRule.EcrRepositoryPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
-        [Input("registryId")]
+        [PolicyResourceProperty("registryId", "_mUnknown_RegistryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
-
-        public string? RegistryId => _mRegistryId.GetValue("registryId");
+        private string? _mValue_RegistryId;
+        private bool _mUnknown_RegistryId;
+        public string? RegistryId
+        {
+            get
+            {
+                if (!_mUnknown_RegistryId) return _mValue_RegistryId;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRule.RegistryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry URL of the upstream registry to use as the source.
         /// </summary>
-        [Input("upstreamRegistryUrl")]
+        [PolicyResourceProperty("upstreamRegistryUrl", "_mUnknown_UpstreamRegistryUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRegistryUrl;
-
-        public string? UpstreamRegistryUrl => _mUpstreamRegistryUrl.GetValue("upstreamRegistryUrl");
+        private string? _mValue_UpstreamRegistryUrl;
+        private bool _mUnknown_UpstreamRegistryUrl;
+        public string? UpstreamRegistryUrl
+        {
+            get
+            {
+                if (!_mUnknown_UpstreamRegistryUrl) return _mValue_UpstreamRegistryUrl;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRule.UpstreamRegistryUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
         /// </summary>
-        [Input("upstreamRepositoryPrefix")]
+        [PolicyResourceProperty("upstreamRepositoryPrefix", "_mUnknown_UpstreamRepositoryPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRepositoryPrefix;
-
-        public string? UpstreamRepositoryPrefix => _mUpstreamRepositoryPrefix.GetValue("upstreamRepositoryPrefix");
+        private string? _mValue_UpstreamRepositoryPrefix;
+        private bool _mUnknown_UpstreamRepositoryPrefix;
+        public string? UpstreamRepositoryPrefix
+        {
+            get
+            {
+                if (!_mUnknown_UpstreamRepositoryPrefix) return _mValue_UpstreamRepositoryPrefix;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRule.UpstreamRepositoryPrefix' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")]
@@ -74,46 +116,81 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// ARN of the Secret which will be used to authenticate against the registry.
         /// </summary>
-        [Input("credentialArn")]
+        [PolicyResourceProperty("credentialArn", "_mUnknown_CredentialArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialArn;
-
-        public string? CredentialArn => _mCredentialArn.GetValue("credentialArn");
+        private string? _mValue_CredentialArn;
+        private bool _mUnknown_CredentialArn;
+        public string? CredentialArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialArn) return _mValue_CredentialArn;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRuleArgs.CredentialArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
         /// </summary>
-        [Input("customRoleArn")]
+        [PolicyResourceProperty("customRoleArn", "_mUnknown_CustomRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
-
-        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
+        private string? _mValue_CustomRoleArn;
+        private bool _mUnknown_CustomRoleArn;
+        public string? CustomRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomRoleArn) return _mValue_CustomRoleArn;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRuleArgs.CustomRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
         /// </summary>
-        [Input("ecrRepositoryPrefix")]
+        [PolicyResourceProperty("ecrRepositoryPrefix", "_mUnknown_EcrRepositoryPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcrRepositoryPrefix;
-
-        public string? EcrRepositoryPrefix => _mEcrRepositoryPrefix.GetValue("ecrRepositoryPrefix");
+        private string? _mValue_EcrRepositoryPrefix;
+        private bool _mUnknown_EcrRepositoryPrefix;
+        public string? EcrRepositoryPrefix
+        {
+            get
+            {
+                if (!_mUnknown_EcrRepositoryPrefix) return _mValue_EcrRepositoryPrefix;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRuleArgs.EcrRepositoryPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry URL of the upstream registry to use as the source.
         /// </summary>
-        [Input("upstreamRegistryUrl")]
+        [PolicyResourceProperty("upstreamRegistryUrl", "_mUnknown_UpstreamRegistryUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRegistryUrl;
-
-        public string? UpstreamRegistryUrl => _mUpstreamRegistryUrl.GetValue("upstreamRegistryUrl");
+        private string? _mValue_UpstreamRegistryUrl;
+        private bool _mUnknown_UpstreamRegistryUrl;
+        public string? UpstreamRegistryUrl
+        {
+            get
+            {
+                if (!_mUnknown_UpstreamRegistryUrl) return _mValue_UpstreamRegistryUrl;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRuleArgs.UpstreamRegistryUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
         /// </summary>
-        [Input("upstreamRepositoryPrefix")]
+        [PolicyResourceProperty("upstreamRepositoryPrefix", "_mUnknown_UpstreamRepositoryPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpstreamRepositoryPrefix;
-
-        public string? UpstreamRepositoryPrefix => _mUpstreamRepositoryPrefix.GetValue("upstreamRepositoryPrefix");
+        private string? _mValue_UpstreamRepositoryPrefix;
+        private bool _mUnknown_UpstreamRepositoryPrefix;
+        public string? UpstreamRepositoryPrefix
+        {
+            get
+            {
+                if (!_mUnknown_UpstreamRepositoryPrefix) return _mValue_UpstreamRepositoryPrefix;
+                throw new UndeferrableValueException("Value 'PullThroughCacheRuleArgs.UpstreamRepositoryPrefix' is not present");
+            }
+        }
     }
 }

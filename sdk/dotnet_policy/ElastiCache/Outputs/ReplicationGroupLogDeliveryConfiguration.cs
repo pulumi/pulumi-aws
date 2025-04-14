@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Outputs
         /// <summary>
         /// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ReplicationGroupLogDeliveryConfiguration.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
         /// </summary>
-        [Input("destinationType")]
+        [PolicyResourceProperty("destinationType", "_mUnknown_DestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationType;
-
-        public string? DestinationType => _mDestinationType.GetValue("destinationType");
+        private string? _mValue_DestinationType;
+        private bool _mUnknown_DestinationType;
+        public string? DestinationType
+        {
+            get
+            {
+                if (!_mUnknown_DestinationType) return _mValue_DestinationType;
+                throw new UndeferrableValueException("Value 'ReplicationGroupLogDeliveryConfiguration.DestinationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid values are `json` or `text`
         /// </summary>
-        [Input("logFormat")]
+        [PolicyResourceProperty("logFormat", "_mUnknown_LogFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogFormat;
-
-        public string? LogFormat => _mLogFormat.GetValue("logFormat");
+        private string? _mValue_LogFormat;
+        private bool _mUnknown_LogFormat;
+        public string? LogFormat
+        {
+            get
+            {
+                if (!_mUnknown_LogFormat) return _mValue_LogFormat;
+                throw new UndeferrableValueException("Value 'ReplicationGroupLogDeliveryConfiguration.LogFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
         /// </summary>
-        [Input("logType")]
+        [PolicyResourceProperty("logType", "_mUnknown_LogType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogType;
-
-        public string? LogType => _mLogType.GetValue("logType");
+        private string? _mValue_LogType;
+        private bool _mUnknown_LogType;
+        public string? LogType
+        {
+            get
+            {
+                if (!_mUnknown_LogType) return _mValue_LogType;
+                throw new UndeferrableValueException("Value 'ReplicationGroupLogDeliveryConfiguration.LogType' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Inputs
 {
     public sealed class DomainRuleBasedMatchingExportingConfigArgs
     {
-        [Input("s3Exporting")]
+        [PolicyResourceProperty("s3Exporting", "_mUnknown_S3Exporting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainRuleBasedMatchingExportingConfigS3ExportingArgs> _mS3Exporting;
-
-        public Inputs.DomainRuleBasedMatchingExportingConfigS3ExportingArgs? S3Exporting => _mS3Exporting.GetValue("s3Exporting");
+        private Inputs.DomainRuleBasedMatchingExportingConfigS3ExportingArgs? _mValue_S3Exporting;
+        private bool _mUnknown_S3Exporting;
+        public Inputs.DomainRuleBasedMatchingExportingConfigS3ExportingArgs? S3Exporting
+        {
+            get
+            {
+                if (!_mUnknown_S3Exporting) return _mValue_S3Exporting;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingExportingConfigArgs.S3Exporting' is not present");
+            }
+        }
     }
 }

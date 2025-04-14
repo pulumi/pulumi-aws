@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
         /// </summary>
-        [Input("date")]
+        [PolicyResourceProperty("date", "_mUnknown_Date")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDate;
-
-        public string? Date => _mDate.GetValue("date");
+        private string? _mValue_Date;
+        private bool _mUnknown_Date;
+        public string? Date
+        {
+            get
+            {
+                if (!_mUnknown_Date) return _mValue_Date;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleTransition.Date' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storage_class`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
         /// </summary>
-        [Input("days")]
+        [PolicyResourceProperty("days", "_mUnknown_Days")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDays;
-
-        public int? Days => _mDays.GetValue("days");
+        private int? _mValue_Days;
+        private bool _mUnknown_Days;
+        public int? Days
+        {
+            get
+            {
+                if (!_mUnknown_Days) return _mValue_Days;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleTransition.Days' is not present");
+            }
+        }
 
         /// <summary>
         /// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleTransition.StorageClass' is not present");
+            }
+        }
     }
 }

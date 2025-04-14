@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the Global Network to register to.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayRegistration.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Transit Gateway to register.
         /// </summary>
-        [Input("transitGatewayArn")]
+        [PolicyResourceProperty("transitGatewayArn", "_mUnknown_TransitGatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
-
-        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
+        private string? _mValue_TransitGatewayArn;
+        private bool _mUnknown_TransitGatewayArn;
+        public string? TransitGatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayArn) return _mValue_TransitGatewayArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayRegistration.TransitGatewayArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the Global Network to register to.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayRegistrationArgs.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Transit Gateway to register.
         /// </summary>
-        [Input("transitGatewayArn")]
+        [PolicyResourceProperty("transitGatewayArn", "_mUnknown_TransitGatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
-
-        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
+        private string? _mValue_TransitGatewayArn;
+        private bool _mUnknown_TransitGatewayArn;
+        public string? TransitGatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayArn) return _mValue_TransitGatewayArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayRegistrationArgs.TransitGatewayArn' is not present");
+            }
+        }
     }
 }

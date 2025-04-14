@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Key to put.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'KeyvaluestoreKey.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
-        [Input("keyValueStoreArn")]
+        [PolicyResourceProperty("keyValueStoreArn", "_mUnknown_KeyValueStoreArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyValueStoreArn;
-
-        public string? KeyValueStoreArn => _mKeyValueStoreArn.GetValue("keyValueStoreArn");
+        private string? _mValue_KeyValueStoreArn;
+        private bool _mUnknown_KeyValueStoreArn;
+        public string? KeyValueStoreArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyValueStoreArn) return _mValue_KeyValueStoreArn;
+                throw new UndeferrableValueException("Value 'KeyvaluestoreKey.KeyValueStoreArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Total size of the Key Value Store in bytes.
         /// </summary>
-        [Input("totalSizeInBytes")]
+        [PolicyResourceProperty("totalSizeInBytes", "_mUnknown_TotalSizeInBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTotalSizeInBytes;
-
-        public int? TotalSizeInBytes => _mTotalSizeInBytes.GetValue("totalSizeInBytes");
+        private int? _mValue_TotalSizeInBytes;
+        private bool _mUnknown_TotalSizeInBytes;
+        public int? TotalSizeInBytes
+        {
+            get
+            {
+                if (!_mUnknown_TotalSizeInBytes) return _mValue_TotalSizeInBytes;
+                throw new UndeferrableValueException("Value 'KeyvaluestoreKey.TotalSizeInBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// Value to put.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'KeyvaluestoreKey.Value' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Key to put.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'KeyvaluestoreKeyArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Value Store.
         /// </summary>
-        [Input("keyValueStoreArn")]
+        [PolicyResourceProperty("keyValueStoreArn", "_mUnknown_KeyValueStoreArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyValueStoreArn;
-
-        public string? KeyValueStoreArn => _mKeyValueStoreArn.GetValue("keyValueStoreArn");
+        private string? _mValue_KeyValueStoreArn;
+        private bool _mUnknown_KeyValueStoreArn;
+        public string? KeyValueStoreArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyValueStoreArn) return _mValue_KeyValueStoreArn;
+                throw new UndeferrableValueException("Value 'KeyvaluestoreKeyArgs.KeyValueStoreArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Value to put.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'KeyvaluestoreKeyArgs.Value' is not present");
+            }
+        }
     }
 }

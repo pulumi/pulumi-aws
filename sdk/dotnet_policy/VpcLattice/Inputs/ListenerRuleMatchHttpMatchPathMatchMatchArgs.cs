@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Inputs
         /// <summary>
         /// Specifies an exact type match.
         /// </summary>
-        [Input("exact")]
+        [PolicyResourceProperty("exact", "_mUnknown_Exact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExact;
-
-        public string? Exact => _mExact.GetValue("exact");
+        private string? _mValue_Exact;
+        private bool _mUnknown_Exact;
+        public string? Exact
+        {
+            get
+            {
+                if (!_mUnknown_Exact) return _mValue_Exact;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchPathMatchMatchArgs.Exact' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a prefix type match. Matches the value with the prefix.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchPathMatchMatchArgs.Prefix' is not present");
+            }
+        }
     }
 }

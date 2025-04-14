@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
-        [Input("lambdaAuthorizerConfig")]
+        [PolicyResourceProperty("lambdaAuthorizerConfig", "_mUnknown_LambdaAuthorizerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig> _mLambdaAuthorizerConfig;
-
-        public Outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig? LambdaAuthorizerConfig => _mLambdaAuthorizerConfig.GetValue("lambdaAuthorizerConfig");
+        private Outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig? _mValue_LambdaAuthorizerConfig;
+        private bool _mUnknown_LambdaAuthorizerConfig;
+        public Outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig? LambdaAuthorizerConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaAuthorizerConfig) return _mValue_LambdaAuthorizerConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.LambdaAuthorizerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
-        [Input("openidConnectConfig")]
+        [PolicyResourceProperty("openidConnectConfig", "_mUnknown_OpenidConnectConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig> _mOpenidConnectConfig;
-
-        public Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig? OpenidConnectConfig => _mOpenidConnectConfig.GetValue("openidConnectConfig");
+        private Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig? _mValue_OpenidConnectConfig;
+        private bool _mUnknown_OpenidConnectConfig;
+        public Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig? OpenidConnectConfig
+        {
+            get
+            {
+                if (!_mUnknown_OpenidConnectConfig) return _mValue_OpenidConnectConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.OpenidConnectConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
-        [Input("userPoolConfig")]
+        [PolicyResourceProperty("userPoolConfig", "_mUnknown_UserPoolConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig> _mUserPoolConfig;
-
-        public Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig? UserPoolConfig => _mUserPoolConfig.GetValue("userPoolConfig");
+        private Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig? _mValue_UserPoolConfig;
+        private bool _mUnknown_UserPoolConfig;
+        public Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig? UserPoolConfig
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolConfig) return _mValue_UserPoolConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.UserPoolConfig' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         /// </summary>
-        [Input("uniqueKey")]
+        [PolicyResourceProperty("uniqueKey", "_mUnknown_UniqueKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUniqueKey;
-
-        public bool? UniqueKey => _mUniqueKey.GetValue("uniqueKey");
+        private bool? _mValue_UniqueKey;
+        private bool _mUnknown_UniqueKey;
+        public bool? UniqueKey
+        {
+            get
+            {
+                if (!_mUnknown_UniqueKey) return _mValue_UniqueKey;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties.UniqueKey' is not present");
+            }
+        }
     }
 }

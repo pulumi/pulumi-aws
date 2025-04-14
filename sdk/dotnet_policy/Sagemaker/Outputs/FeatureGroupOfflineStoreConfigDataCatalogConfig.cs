@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The name of the Glue table catalog.
         /// </summary>
-        [Input("catalog")]
+        [PolicyResourceProperty("catalog", "_mUnknown_Catalog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalog;
-
-        public string? Catalog => _mCatalog.GetValue("catalog");
+        private string? _mValue_Catalog;
+        private bool _mUnknown_Catalog;
+        public string? Catalog
+        {
+            get
+            {
+                if (!_mUnknown_Catalog) return _mValue_Catalog;
+                throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigDataCatalogConfig.Catalog' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Glue table database.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigDataCatalogConfig.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Glue table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigDataCatalogConfig.TableName' is not present");
+            }
+        }
     }
 }

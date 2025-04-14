@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// Application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersion.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AppConfig  hosted configuration version.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration profile ID.
         /// </summary>
-        [Input("configurationProfileId")]
+        [PolicyResourceProperty("configurationProfileId", "_mUnknown_ConfigurationProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationProfileId;
-
-        public string? ConfigurationProfileId => _mConfigurationProfileId.GetValue("configurationProfileId");
+        private string? _mValue_ConfigurationProfileId;
+        private bool _mUnknown_ConfigurationProfileId;
+        public string? ConfigurationProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationProfileId) return _mValue_ConfigurationProfileId;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersion.ConfigurationProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Content of the configuration or the configuration data.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersion.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersion.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersion.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the hosted configuration.
         /// </summary>
-        [Input("versionNumber")]
+        [PolicyResourceProperty("versionNumber", "_mUnknown_VersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersionNumber;
-
-        public int? VersionNumber => _mVersionNumber.GetValue("versionNumber");
+        private int? _mValue_VersionNumber;
+        private bool _mUnknown_VersionNumber;
+        public int? VersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_VersionNumber) return _mValue_VersionNumber;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersion.VersionNumber' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// Application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration profile ID.
         /// </summary>
-        [Input("configurationProfileId")]
+        [PolicyResourceProperty("configurationProfileId", "_mUnknown_ConfigurationProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationProfileId;
-
-        public string? ConfigurationProfileId => _mConfigurationProfileId.GetValue("configurationProfileId");
+        private string? _mValue_ConfigurationProfileId;
+        private bool _mUnknown_ConfigurationProfileId;
+        public string? ConfigurationProfileId
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationProfileId) return _mValue_ConfigurationProfileId;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.ConfigurationProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Content of the configuration or the configuration data.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.Description' is not present");
+            }
+        }
     }
 }

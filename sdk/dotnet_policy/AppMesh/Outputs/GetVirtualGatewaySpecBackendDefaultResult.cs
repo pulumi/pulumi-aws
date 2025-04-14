@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecBackendDefaultResult
     {
-        [Input("clientPolicies")]
+        [PolicyResourceProperty("clientPolicies", "_mUnknown_ClientPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult>> _mClientPolicies;
-
-        public List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult>? ClientPolicies => _mClientPolicies.GetValue("clientPolicies");
+        private List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult>? _mValue_ClientPolicies;
+        private bool _mUnknown_ClientPolicies;
+        public List<Outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult>? ClientPolicies
+        {
+            get
+            {
+                if (!_mUnknown_ClientPolicies) return _mValue_ClientPolicies;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecBackendDefaultResult.ClientPolicies' is not present");
+            }
+        }
     }
 }

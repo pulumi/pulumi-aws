@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
 {
     public sealed class UserPoolLambdaConfigPreTokenGenerationConfigArgs
     {
-        [Input("lambdaArn")]
+        [PolicyResourceProperty("lambdaArn", "_mUnknown_LambdaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaArn;
+        private string? _mValue_LambdaArn;
+        private bool _mUnknown_LambdaArn;
+        public string? LambdaArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaArn) return _mValue_LambdaArn;
+                throw new UndeferrableValueException("Value 'UserPoolLambdaConfigPreTokenGenerationConfigArgs.LambdaArn' is not present");
+            }
+        }
 
-        public string? LambdaArn => _mLambdaArn.GetValue("lambdaArn");
-
-        [Input("lambdaVersion")]
+        [PolicyResourceProperty("lambdaVersion", "_mUnknown_LambdaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaVersion;
-
-        public string? LambdaVersion => _mLambdaVersion.GetValue("lambdaVersion");
+        private string? _mValue_LambdaVersion;
+        private bool _mUnknown_LambdaVersion;
+        public string? LambdaVersion
+        {
+            get
+            {
+                if (!_mUnknown_LambdaVersion) return _mValue_LambdaVersion;
+                throw new UndeferrableValueException("Value 'UserPoolLambdaConfigPreTokenGenerationConfigArgs.LambdaVersion' is not present");
+            }
+        }
     }
 }

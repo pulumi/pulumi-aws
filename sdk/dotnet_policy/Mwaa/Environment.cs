@@ -16,306 +16,544 @@ namespace Pulumi.PolicyPacks.Aws.Mwaa
         /// <summary>
         /// The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         /// </summary>
-        [Input("airflowConfigurationOptions")]
+        [PolicyResourceProperty("airflowConfigurationOptions", "_mUnknown_AirflowConfigurationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAirflowConfigurationOptions;
-
-        public Dictionary<string, string>? AirflowConfigurationOptions => _mAirflowConfigurationOptions.GetValue("airflowConfigurationOptions");
+        private Dictionary<string, string>? _mValue_AirflowConfigurationOptions;
+        private bool _mUnknown_AirflowConfigurationOptions;
+        public Dictionary<string, string>? AirflowConfigurationOptions
+        {
+            get
+            {
+                if (!_mUnknown_AirflowConfigurationOptions) return _mValue_AirflowConfigurationOptions;
+                throw new UndeferrableValueException("Value 'Environment.AirflowConfigurationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         /// </summary>
-        [Input("airflowVersion")]
+        [PolicyResourceProperty("airflowVersion", "_mUnknown_AirflowVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAirflowVersion;
-
-        public string? AirflowVersion => _mAirflowVersion.GetValue("airflowVersion");
+        private string? _mValue_AirflowVersion;
+        private bool _mUnknown_AirflowVersion;
+        public string? AirflowVersion
+        {
+            get
+            {
+                if (!_mUnknown_AirflowVersion) return _mValue_AirflowVersion;
+                throw new UndeferrableValueException("Value 'Environment.AirflowVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the MWAA Environment
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Environment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Created At date of the MWAA Environment
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Environment.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
-        [Input("dagS3Path")]
+        [PolicyResourceProperty("dagS3Path", "_mUnknown_DagS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDagS3Path;
-
-        public string? DagS3Path => _mDagS3Path.GetValue("dagS3Path");
+        private string? _mValue_DagS3Path;
+        private bool _mUnknown_DagS3Path;
+        public string? DagS3Path
+        {
+            get
+            {
+                if (!_mUnknown_DagS3Path) return _mValue_DagS3Path;
+                throw new UndeferrableValueException("Value 'Environment.DagS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC endpoint for the environment's Amazon RDS database
         /// * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         /// </summary>
-        [Input("databaseVpcEndpointService")]
+        [PolicyResourceProperty("databaseVpcEndpointService", "_mUnknown_DatabaseVpcEndpointService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseVpcEndpointService;
-
-        public string? DatabaseVpcEndpointService => _mDatabaseVpcEndpointService.GetValue("databaseVpcEndpointService");
+        private string? _mValue_DatabaseVpcEndpointService;
+        private bool _mUnknown_DatabaseVpcEndpointService;
+        public string? DatabaseVpcEndpointService
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseVpcEndpointService) return _mValue_DatabaseVpcEndpointService;
+                throw new UndeferrableValueException("Value 'Environment.DatabaseVpcEndpointService' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         /// </summary>
-        [Input("endpointManagement")]
+        [PolicyResourceProperty("endpointManagement", "_mUnknown_EndpointManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointManagement;
-
-        public string? EndpointManagement => _mEndpointManagement.GetValue("endpointManagement");
+        private string? _mValue_EndpointManagement;
+        private bool _mUnknown_EndpointManagement;
+        public string? EndpointManagement
+        {
+            get
+            {
+                if (!_mUnknown_EndpointManagement) return _mValue_EndpointManagement;
+                throw new UndeferrableValueException("Value 'Environment.EndpointManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
-        [Input("environmentClass")]
+        [PolicyResourceProperty("environmentClass", "_mUnknown_EnvironmentClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentClass;
-
-        public string? EnvironmentClass => _mEnvironmentClass.GetValue("environmentClass");
+        private string? _mValue_EnvironmentClass;
+        private bool _mUnknown_EnvironmentClass;
+        public string? EnvironmentClass
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentClass) return _mValue_EnvironmentClass;
+                throw new UndeferrableValueException("Value 'Environment.EnvironmentClass' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'Environment.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'Environment.KmsKey' is not present");
+            }
+        }
 
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
-
-        [Input("lastUpdateds")]
+        [PolicyResourceProperty("lastUpdateds", "_mUnknown_LastUpdateds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentLastUpdated>> _mLastUpdateds;
-
-        public List<Outputs.EnvironmentLastUpdated>? LastUpdateds => _mLastUpdateds.GetValue("lastUpdateds");
+        private List<Outputs.EnvironmentLastUpdated>? _mValue_LastUpdateds;
+        private bool _mUnknown_LastUpdateds;
+        public List<Outputs.EnvironmentLastUpdated>? LastUpdateds
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdateds) return _mValue_LastUpdateds;
+                throw new UndeferrableValueException("Value 'Environment.LastUpdateds' is not present");
+            }
+        }
 
         /// <summary>
         /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentLoggingConfiguration> _mLoggingConfiguration;
-
-        public Outputs.EnvironmentLoggingConfiguration? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
+        private Outputs.EnvironmentLoggingConfiguration? _mValue_LoggingConfiguration;
+        private bool _mUnknown_LoggingConfiguration;
+        public Outputs.EnvironmentLoggingConfiguration? LoggingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfiguration) return _mValue_LoggingConfiguration;
+                throw new UndeferrableValueException("Value 'Environment.LoggingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
-        [Input("maxWebservers")]
+        [PolicyResourceProperty("maxWebservers", "_mUnknown_MaxWebservers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxWebservers;
-
-        public int? MaxWebservers => _mMaxWebservers.GetValue("maxWebservers");
+        private int? _mValue_MaxWebservers;
+        private bool _mUnknown_MaxWebservers;
+        public int? MaxWebservers
+        {
+            get
+            {
+                if (!_mUnknown_MaxWebservers) return _mValue_MaxWebservers;
+                throw new UndeferrableValueException("Value 'Environment.MaxWebservers' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         /// </summary>
-        [Input("maxWorkers")]
+        [PolicyResourceProperty("maxWorkers", "_mUnknown_MaxWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxWorkers;
-
-        public int? MaxWorkers => _mMaxWorkers.GetValue("maxWorkers");
+        private int? _mValue_MaxWorkers;
+        private bool _mUnknown_MaxWorkers;
+        public int? MaxWorkers
+        {
+            get
+            {
+                if (!_mUnknown_MaxWorkers) return _mValue_MaxWorkers;
+                throw new UndeferrableValueException("Value 'Environment.MaxWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
-        [Input("minWebservers")]
+        [PolicyResourceProperty("minWebservers", "_mUnknown_MinWebservers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinWebservers;
-
-        public int? MinWebservers => _mMinWebservers.GetValue("minWebservers");
+        private int? _mValue_MinWebservers;
+        private bool _mUnknown_MinWebservers;
+        public int? MinWebservers
+        {
+            get
+            {
+                if (!_mUnknown_MinWebservers) return _mValue_MinWebservers;
+                throw new UndeferrableValueException("Value 'Environment.MinWebservers' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. Will be `1` by default.
         /// </summary>
-        [Input("minWorkers")]
+        [PolicyResourceProperty("minWorkers", "_mUnknown_MinWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinWorkers;
-
-        public int? MinWorkers => _mMinWorkers.GetValue("minWorkers");
+        private int? _mValue_MinWorkers;
+        private bool _mUnknown_MinWorkers;
+        public int? MinWorkers
+        {
+            get
+            {
+                if (!_mUnknown_MinWorkers) return _mValue_MinWorkers;
+                throw new UndeferrableValueException("Value 'Environment.MinWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Apache Airflow Environment
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Environment.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EnvironmentNetworkConfiguration> _mNetworkConfiguration;
-
-        public Outputs.EnvironmentNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Outputs.EnvironmentNetworkConfiguration? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Outputs.EnvironmentNetworkConfiguration? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'Environment.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The plugins.zip file version you want to use.
         /// </summary>
-        [Input("pluginsS3ObjectVersion")]
+        [PolicyResourceProperty("pluginsS3ObjectVersion", "_mUnknown_PluginsS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPluginsS3ObjectVersion;
-
-        public string? PluginsS3ObjectVersion => _mPluginsS3ObjectVersion.GetValue("pluginsS3ObjectVersion");
+        private string? _mValue_PluginsS3ObjectVersion;
+        private bool _mUnknown_PluginsS3ObjectVersion;
+        public string? PluginsS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_PluginsS3ObjectVersion) return _mValue_PluginsS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'Environment.PluginsS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
-        [Input("pluginsS3Path")]
+        [PolicyResourceProperty("pluginsS3Path", "_mUnknown_PluginsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPluginsS3Path;
-
-        public string? PluginsS3Path => _mPluginsS3Path.GetValue("pluginsS3Path");
+        private string? _mValue_PluginsS3Path;
+        private bool _mUnknown_PluginsS3Path;
+        public string? PluginsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_PluginsS3Path) return _mValue_PluginsS3Path;
+                throw new UndeferrableValueException("Value 'Environment.PluginsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The requirements.txt file version you want to use.
         /// </summary>
-        [Input("requirementsS3ObjectVersion")]
+        [PolicyResourceProperty("requirementsS3ObjectVersion", "_mUnknown_RequirementsS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequirementsS3ObjectVersion;
-
-        public string? RequirementsS3ObjectVersion => _mRequirementsS3ObjectVersion.GetValue("requirementsS3ObjectVersion");
+        private string? _mValue_RequirementsS3ObjectVersion;
+        private bool _mUnknown_RequirementsS3ObjectVersion;
+        public string? RequirementsS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_RequirementsS3ObjectVersion) return _mValue_RequirementsS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'Environment.RequirementsS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
-        [Input("requirementsS3Path")]
+        [PolicyResourceProperty("requirementsS3Path", "_mUnknown_RequirementsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequirementsS3Path;
-
-        public string? RequirementsS3Path => _mRequirementsS3Path.GetValue("requirementsS3Path");
+        private string? _mValue_RequirementsS3Path;
+        private bool _mUnknown_RequirementsS3Path;
+        public string? RequirementsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_RequirementsS3Path) return _mValue_RequirementsS3Path;
+                throw new UndeferrableValueException("Value 'Environment.RequirementsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         /// </summary>
-        [Input("schedulers")]
+        [PolicyResourceProperty("schedulers", "_mUnknown_Schedulers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSchedulers;
-
-        public int? Schedulers => _mSchedulers.GetValue("schedulers");
+        private int? _mValue_Schedulers;
+        private bool _mUnknown_Schedulers;
+        public int? Schedulers
+        {
+            get
+            {
+                if (!_mUnknown_Schedulers) return _mValue_Schedulers;
+                throw new UndeferrableValueException("Value 'Environment.Schedulers' is not present");
+            }
+        }
 
         /// <summary>
         /// The Service Role ARN of the Amazon MWAA Environment
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'Environment.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         /// </summary>
-        [Input("sourceBucketArn")]
+        [PolicyResourceProperty("sourceBucketArn", "_mUnknown_SourceBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBucketArn;
-
-        public string? SourceBucketArn => _mSourceBucketArn.GetValue("sourceBucketArn");
+        private string? _mValue_SourceBucketArn;
+        private bool _mUnknown_SourceBucketArn;
+        public string? SourceBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceBucketArn) return _mValue_SourceBucketArn;
+                throw new UndeferrableValueException("Value 'Environment.SourceBucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         /// </summary>
-        [Input("startupScriptS3ObjectVersion")]
+        [PolicyResourceProperty("startupScriptS3ObjectVersion", "_mUnknown_StartupScriptS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartupScriptS3ObjectVersion;
-
-        public string? StartupScriptS3ObjectVersion => _mStartupScriptS3ObjectVersion.GetValue("startupScriptS3ObjectVersion");
+        private string? _mValue_StartupScriptS3ObjectVersion;
+        private bool _mUnknown_StartupScriptS3ObjectVersion;
+        public string? StartupScriptS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_StartupScriptS3ObjectVersion) return _mValue_StartupScriptS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'Environment.StartupScriptS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         /// </summary>
-        [Input("startupScriptS3Path")]
+        [PolicyResourceProperty("startupScriptS3Path", "_mUnknown_StartupScriptS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartupScriptS3Path;
-
-        public string? StartupScriptS3Path => _mStartupScriptS3Path.GetValue("startupScriptS3Path");
+        private string? _mValue_StartupScriptS3Path;
+        private bool _mUnknown_StartupScriptS3Path;
+        public string? StartupScriptS3Path
+        {
+            get
+            {
+                if (!_mUnknown_StartupScriptS3Path) return _mValue_StartupScriptS3Path;
+                throw new UndeferrableValueException("Value 'Environment.StartupScriptS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the Amazon MWAA Environment
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Environment.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Environment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Environment.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         /// </summary>
-        [Input("webserverAccessMode")]
+        [PolicyResourceProperty("webserverAccessMode", "_mUnknown_WebserverAccessMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebserverAccessMode;
-
-        public string? WebserverAccessMode => _mWebserverAccessMode.GetValue("webserverAccessMode");
+        private string? _mValue_WebserverAccessMode;
+        private bool _mUnknown_WebserverAccessMode;
+        public string? WebserverAccessMode
+        {
+            get
+            {
+                if (!_mUnknown_WebserverAccessMode) return _mValue_WebserverAccessMode;
+                throw new UndeferrableValueException("Value 'Environment.WebserverAccessMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The webserver URL of the MWAA Environment
         /// </summary>
-        [Input("webserverUrl")]
+        [PolicyResourceProperty("webserverUrl", "_mUnknown_WebserverUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebserverUrl;
-
-        public string? WebserverUrl => _mWebserverUrl.GetValue("webserverUrl");
+        private string? _mValue_WebserverUrl;
+        private bool _mUnknown_WebserverUrl;
+        public string? WebserverUrl
+        {
+            get
+            {
+                if (!_mUnknown_WebserverUrl) return _mValue_WebserverUrl;
+                throw new UndeferrableValueException("Value 'Environment.WebserverUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC endpoint for the environment's web server
         /// </summary>
-        [Input("webserverVpcEndpointService")]
+        [PolicyResourceProperty("webserverVpcEndpointService", "_mUnknown_WebserverVpcEndpointService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebserverVpcEndpointService;
-
-        public string? WebserverVpcEndpointService => _mWebserverVpcEndpointService.GetValue("webserverVpcEndpointService");
+        private string? _mValue_WebserverVpcEndpointService;
+        private bool _mUnknown_WebserverVpcEndpointService;
+        public string? WebserverVpcEndpointService
+        {
+            get
+            {
+                if (!_mUnknown_WebserverVpcEndpointService) return _mValue_WebserverVpcEndpointService;
+                throw new UndeferrableValueException("Value 'Environment.WebserverVpcEndpointService' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the start date for the weekly maintenance window.
         /// </summary>
-        [Input("weeklyMaintenanceWindowStart")]
+        [PolicyResourceProperty("weeklyMaintenanceWindowStart", "_mUnknown_WeeklyMaintenanceWindowStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceWindowStart;
-
-        public string? WeeklyMaintenanceWindowStart => _mWeeklyMaintenanceWindowStart.GetValue("weeklyMaintenanceWindowStart");
+        private string? _mValue_WeeklyMaintenanceWindowStart;
+        private bool _mUnknown_WeeklyMaintenanceWindowStart;
+        public string? WeeklyMaintenanceWindowStart
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceWindowStart) return _mValue_WeeklyMaintenanceWindowStart;
+                throw new UndeferrableValueException("Value 'Environment.WeeklyMaintenanceWindowStart' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:mwaa/environment:Environment")]
@@ -324,226 +562,401 @@ namespace Pulumi.PolicyPacks.Aws.Mwaa
         /// <summary>
         /// The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         /// </summary>
-        [Input("airflowConfigurationOptions")]
+        [PolicyResourceProperty("airflowConfigurationOptions", "_mUnknown_AirflowConfigurationOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAirflowConfigurationOptions;
-
-        public Dictionary<string, string>? AirflowConfigurationOptions => _mAirflowConfigurationOptions.GetValue("airflowConfigurationOptions");
+        private Dictionary<string, string>? _mValue_AirflowConfigurationOptions;
+        private bool _mUnknown_AirflowConfigurationOptions;
+        public Dictionary<string, string>? AirflowConfigurationOptions
+        {
+            get
+            {
+                if (!_mUnknown_AirflowConfigurationOptions) return _mValue_AirflowConfigurationOptions;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.AirflowConfigurationOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         /// </summary>
-        [Input("airflowVersion")]
+        [PolicyResourceProperty("airflowVersion", "_mUnknown_AirflowVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAirflowVersion;
-
-        public string? AirflowVersion => _mAirflowVersion.GetValue("airflowVersion");
+        private string? _mValue_AirflowVersion;
+        private bool _mUnknown_AirflowVersion;
+        public string? AirflowVersion
+        {
+            get
+            {
+                if (!_mUnknown_AirflowVersion) return _mValue_AirflowVersion;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.AirflowVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
-        [Input("dagS3Path")]
+        [PolicyResourceProperty("dagS3Path", "_mUnknown_DagS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDagS3Path;
-
-        public string? DagS3Path => _mDagS3Path.GetValue("dagS3Path");
+        private string? _mValue_DagS3Path;
+        private bool _mUnknown_DagS3Path;
+        public string? DagS3Path
+        {
+            get
+            {
+                if (!_mUnknown_DagS3Path) return _mValue_DagS3Path;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.DagS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         /// </summary>
-        [Input("endpointManagement")]
+        [PolicyResourceProperty("endpointManagement", "_mUnknown_EndpointManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointManagement;
-
-        public string? EndpointManagement => _mEndpointManagement.GetValue("endpointManagement");
+        private string? _mValue_EndpointManagement;
+        private bool _mUnknown_EndpointManagement;
+        public string? EndpointManagement
+        {
+            get
+            {
+                if (!_mUnknown_EndpointManagement) return _mValue_EndpointManagement;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.EndpointManagement' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
         /// </summary>
-        [Input("environmentClass")]
+        [PolicyResourceProperty("environmentClass", "_mUnknown_EnvironmentClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentClass;
-
-        public string? EnvironmentClass => _mEnvironmentClass.GetValue("environmentClass");
+        private string? _mValue_EnvironmentClass;
+        private bool _mUnknown_EnvironmentClass;
+        public string? EnvironmentClass
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentClass) return _mValue_EnvironmentClass;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.EnvironmentClass' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.KmsKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentLoggingConfigurationArgs> _mLoggingConfiguration;
-
-        public Inputs.EnvironmentLoggingConfigurationArgs? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
+        private Inputs.EnvironmentLoggingConfigurationArgs? _mValue_LoggingConfiguration;
+        private bool _mUnknown_LoggingConfiguration;
+        public Inputs.EnvironmentLoggingConfigurationArgs? LoggingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfiguration) return _mValue_LoggingConfiguration;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.LoggingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
-        [Input("maxWebservers")]
+        [PolicyResourceProperty("maxWebservers", "_mUnknown_MaxWebservers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxWebservers;
-
-        public int? MaxWebservers => _mMaxWebservers.GetValue("maxWebservers");
+        private int? _mValue_MaxWebservers;
+        private bool _mUnknown_MaxWebservers;
+        public int? MaxWebservers
+        {
+            get
+            {
+                if (!_mUnknown_MaxWebservers) return _mValue_MaxWebservers;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.MaxWebservers' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
         /// </summary>
-        [Input("maxWorkers")]
+        [PolicyResourceProperty("maxWorkers", "_mUnknown_MaxWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxWorkers;
-
-        public int? MaxWorkers => _mMaxWorkers.GetValue("maxWorkers");
+        private int? _mValue_MaxWorkers;
+        private bool _mUnknown_MaxWorkers;
+        public int? MaxWorkers
+        {
+            get
+            {
+                if (!_mUnknown_MaxWorkers) return _mValue_MaxWorkers;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.MaxWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         /// </summary>
-        [Input("minWebservers")]
+        [PolicyResourceProperty("minWebservers", "_mUnknown_MinWebservers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinWebservers;
-
-        public int? MinWebservers => _mMinWebservers.GetValue("minWebservers");
+        private int? _mValue_MinWebservers;
+        private bool _mUnknown_MinWebservers;
+        public int? MinWebservers
+        {
+            get
+            {
+                if (!_mUnknown_MinWebservers) return _mValue_MinWebservers;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.MinWebservers' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of workers that you want to run in your environment. Will be `1` by default.
         /// </summary>
-        [Input("minWorkers")]
+        [PolicyResourceProperty("minWorkers", "_mUnknown_MinWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinWorkers;
-
-        public int? MinWorkers => _mMinWorkers.GetValue("minWorkers");
+        private int? _mValue_MinWorkers;
+        private bool _mUnknown_MinWorkers;
+        public int? MinWorkers
+        {
+            get
+            {
+                if (!_mUnknown_MinWorkers) return _mValue_MinWorkers;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.MinWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Apache Airflow Environment
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentNetworkConfigurationArgs> _mNetworkConfiguration;
-
-        public Inputs.EnvironmentNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Inputs.EnvironmentNetworkConfigurationArgs? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Inputs.EnvironmentNetworkConfigurationArgs? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The plugins.zip file version you want to use.
         /// </summary>
-        [Input("pluginsS3ObjectVersion")]
+        [PolicyResourceProperty("pluginsS3ObjectVersion", "_mUnknown_PluginsS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPluginsS3ObjectVersion;
-
-        public string? PluginsS3ObjectVersion => _mPluginsS3ObjectVersion.GetValue("pluginsS3ObjectVersion");
+        private string? _mValue_PluginsS3ObjectVersion;
+        private bool _mUnknown_PluginsS3ObjectVersion;
+        public string? PluginsS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_PluginsS3ObjectVersion) return _mValue_PluginsS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.PluginsS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
-        [Input("pluginsS3Path")]
+        [PolicyResourceProperty("pluginsS3Path", "_mUnknown_PluginsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPluginsS3Path;
-
-        public string? PluginsS3Path => _mPluginsS3Path.GetValue("pluginsS3Path");
+        private string? _mValue_PluginsS3Path;
+        private bool _mUnknown_PluginsS3Path;
+        public string? PluginsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_PluginsS3Path) return _mValue_PluginsS3Path;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.PluginsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The requirements.txt file version you want to use.
         /// </summary>
-        [Input("requirementsS3ObjectVersion")]
+        [PolicyResourceProperty("requirementsS3ObjectVersion", "_mUnknown_RequirementsS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequirementsS3ObjectVersion;
-
-        public string? RequirementsS3ObjectVersion => _mRequirementsS3ObjectVersion.GetValue("requirementsS3ObjectVersion");
+        private string? _mValue_RequirementsS3ObjectVersion;
+        private bool _mUnknown_RequirementsS3ObjectVersion;
+        public string? RequirementsS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_RequirementsS3ObjectVersion) return _mValue_RequirementsS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.RequirementsS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         /// </summary>
-        [Input("requirementsS3Path")]
+        [PolicyResourceProperty("requirementsS3Path", "_mUnknown_RequirementsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequirementsS3Path;
-
-        public string? RequirementsS3Path => _mRequirementsS3Path.GetValue("requirementsS3Path");
+        private string? _mValue_RequirementsS3Path;
+        private bool _mUnknown_RequirementsS3Path;
+        public string? RequirementsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_RequirementsS3Path) return _mValue_RequirementsS3Path;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.RequirementsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         /// </summary>
-        [Input("schedulers")]
+        [PolicyResourceProperty("schedulers", "_mUnknown_Schedulers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSchedulers;
-
-        public int? Schedulers => _mSchedulers.GetValue("schedulers");
+        private int? _mValue_Schedulers;
+        private bool _mUnknown_Schedulers;
+        public int? Schedulers
+        {
+            get
+            {
+                if (!_mUnknown_Schedulers) return _mValue_Schedulers;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Schedulers' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         /// </summary>
-        [Input("sourceBucketArn")]
+        [PolicyResourceProperty("sourceBucketArn", "_mUnknown_SourceBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBucketArn;
-
-        public string? SourceBucketArn => _mSourceBucketArn.GetValue("sourceBucketArn");
+        private string? _mValue_SourceBucketArn;
+        private bool _mUnknown_SourceBucketArn;
+        public string? SourceBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceBucketArn) return _mValue_SourceBucketArn;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.SourceBucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         /// </summary>
-        [Input("startupScriptS3ObjectVersion")]
+        [PolicyResourceProperty("startupScriptS3ObjectVersion", "_mUnknown_StartupScriptS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartupScriptS3ObjectVersion;
-
-        public string? StartupScriptS3ObjectVersion => _mStartupScriptS3ObjectVersion.GetValue("startupScriptS3ObjectVersion");
+        private string? _mValue_StartupScriptS3ObjectVersion;
+        private bool _mUnknown_StartupScriptS3ObjectVersion;
+        public string? StartupScriptS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_StartupScriptS3ObjectVersion) return _mValue_StartupScriptS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.StartupScriptS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         /// </summary>
-        [Input("startupScriptS3Path")]
+        [PolicyResourceProperty("startupScriptS3Path", "_mUnknown_StartupScriptS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartupScriptS3Path;
-
-        public string? StartupScriptS3Path => _mStartupScriptS3Path.GetValue("startupScriptS3Path");
+        private string? _mValue_StartupScriptS3Path;
+        private bool _mUnknown_StartupScriptS3Path;
+        public string? StartupScriptS3Path
+        {
+            get
+            {
+                if (!_mUnknown_StartupScriptS3Path) return _mValue_StartupScriptS3Path;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.StartupScriptS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         /// </summary>
-        [Input("webserverAccessMode")]
+        [PolicyResourceProperty("webserverAccessMode", "_mUnknown_WebserverAccessMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebserverAccessMode;
-
-        public string? WebserverAccessMode => _mWebserverAccessMode.GetValue("webserverAccessMode");
+        private string? _mValue_WebserverAccessMode;
+        private bool _mUnknown_WebserverAccessMode;
+        public string? WebserverAccessMode
+        {
+            get
+            {
+                if (!_mUnknown_WebserverAccessMode) return _mValue_WebserverAccessMode;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.WebserverAccessMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the start date for the weekly maintenance window.
         /// </summary>
-        [Input("weeklyMaintenanceWindowStart")]
+        [PolicyResourceProperty("weeklyMaintenanceWindowStart", "_mUnknown_WeeklyMaintenanceWindowStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceWindowStart;
-
-        public string? WeeklyMaintenanceWindowStart => _mWeeklyMaintenanceWindowStart.GetValue("weeklyMaintenanceWindowStart");
+        private string? _mValue_WeeklyMaintenanceWindowStart;
+        private bool _mUnknown_WeeklyMaintenanceWindowStart;
+        public string? WeeklyMaintenanceWindowStart
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceWindowStart) return _mValue_WeeklyMaintenanceWindowStart;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.WeeklyMaintenanceWindowStart' is not present");
+            }
+        }
     }
 }

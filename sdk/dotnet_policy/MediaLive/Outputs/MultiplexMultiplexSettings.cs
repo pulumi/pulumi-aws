@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Maximum video buffer delay.
         /// </summary>
-        [Input("maximumVideoBufferDelayMilliseconds")]
+        [PolicyResourceProperty("maximumVideoBufferDelayMilliseconds", "_mUnknown_MaximumVideoBufferDelayMilliseconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumVideoBufferDelayMilliseconds;
-
-        public int? MaximumVideoBufferDelayMilliseconds => _mMaximumVideoBufferDelayMilliseconds.GetValue("maximumVideoBufferDelayMilliseconds");
+        private int? _mValue_MaximumVideoBufferDelayMilliseconds;
+        private bool _mUnknown_MaximumVideoBufferDelayMilliseconds;
+        public int? MaximumVideoBufferDelayMilliseconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumVideoBufferDelayMilliseconds) return _mValue_MaximumVideoBufferDelayMilliseconds;
+                throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.MaximumVideoBufferDelayMilliseconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Transport stream bit rate.
         /// </summary>
-        [Input("transportStreamBitrate")]
+        [PolicyResourceProperty("transportStreamBitrate", "_mUnknown_TransportStreamBitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTransportStreamBitrate;
-
-        public int? TransportStreamBitrate => _mTransportStreamBitrate.GetValue("transportStreamBitrate");
+        private int? _mValue_TransportStreamBitrate;
+        private bool _mUnknown_TransportStreamBitrate;
+        public int? TransportStreamBitrate
+        {
+            get
+            {
+                if (!_mUnknown_TransportStreamBitrate) return _mValue_TransportStreamBitrate;
+                throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.TransportStreamBitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique ID for each multiplex.
         /// </summary>
-        [Input("transportStreamId")]
+        [PolicyResourceProperty("transportStreamId", "_mUnknown_TransportStreamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTransportStreamId;
-
-        public int? TransportStreamId => _mTransportStreamId.GetValue("transportStreamId");
+        private int? _mValue_TransportStreamId;
+        private bool _mUnknown_TransportStreamId;
+        public int? TransportStreamId
+        {
+            get
+            {
+                if (!_mUnknown_TransportStreamId) return _mValue_TransportStreamId;
+                throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.TransportStreamId' is not present");
+            }
+        }
 
         /// <summary>
         /// Transport stream reserved bit rate.
         /// </summary>
-        [Input("transportStreamReservedBitrate")]
+        [PolicyResourceProperty("transportStreamReservedBitrate", "_mUnknown_TransportStreamReservedBitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTransportStreamReservedBitrate;
-
-        public int? TransportStreamReservedBitrate => _mTransportStreamReservedBitrate.GetValue("transportStreamReservedBitrate");
+        private int? _mValue_TransportStreamReservedBitrate;
+        private bool _mUnknown_TransportStreamReservedBitrate;
+        public int? TransportStreamReservedBitrate
+        {
+            get
+            {
+                if (!_mUnknown_TransportStreamReservedBitrate) return _mValue_TransportStreamReservedBitrate;
+                throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.TransportStreamReservedBitrate' is not present");
+            }
+        }
     }
 }

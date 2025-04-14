@@ -16,102 +16,179 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Stream.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         /// </summary>
-        [Input("encryptionType")]
+        [PolicyResourceProperty("encryptionType", "_mUnknown_EncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
-
-        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
+        private string? _mValue_EncryptionType;
+        private bool _mUnknown_EncryptionType;
+        public string? EncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionType) return _mValue_EncryptionType;
+                throw new UndeferrableValueException("Value 'Stream.EncryptionType' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         /// </summary>
-        [Input("enforceConsumerDeletion")]
+        [PolicyResourceProperty("enforceConsumerDeletion", "_mUnknown_EnforceConsumerDeletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceConsumerDeletion;
-
-        public bool? EnforceConsumerDeletion => _mEnforceConsumerDeletion.GetValue("enforceConsumerDeletion");
+        private bool? _mValue_EnforceConsumerDeletion;
+        private bool _mUnknown_EnforceConsumerDeletion;
+        public bool? EnforceConsumerDeletion
+        {
+            get
+            {
+                if (!_mUnknown_EnforceConsumerDeletion) return _mValue_EnforceConsumerDeletion;
+                throw new UndeferrableValueException("Value 'Stream.EnforceConsumerDeletion' is not present");
+            }
+        }
 
         /// <summary>
         /// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Stream.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Stream.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'Stream.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
-        [Input("shardCount")]
+        [PolicyResourceProperty("shardCount", "_mUnknown_ShardCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
-
-        public int? ShardCount => _mShardCount.GetValue("shardCount");
+        private int? _mValue_ShardCount;
+        private bool _mUnknown_ShardCount;
+        public int? ShardCount
+        {
+            get
+            {
+                if (!_mUnknown_ShardCount) return _mValue_ShardCount;
+                throw new UndeferrableValueException("Value 'Stream.ShardCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
-        [Input("shardLevelMetrics")]
+        [PolicyResourceProperty("shardLevelMetrics", "_mUnknown_ShardLevelMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mShardLevelMetrics;
-
-        public List<string>? ShardLevelMetrics => _mShardLevelMetrics.GetValue("shardLevelMetrics");
+        private List<string>? _mValue_ShardLevelMetrics;
+        private bool _mUnknown_ShardLevelMetrics;
+        public List<string>? ShardLevelMetrics
+        {
+            get
+            {
+                if (!_mUnknown_ShardLevelMetrics) return _mValue_ShardLevelMetrics;
+                throw new UndeferrableValueException("Value 'Stream.ShardLevelMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
-        [Input("streamModeDetails")]
+        [PolicyResourceProperty("streamModeDetails", "_mUnknown_StreamModeDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamStreamModeDetails> _mStreamModeDetails;
-
-        public Outputs.StreamStreamModeDetails? StreamModeDetails => _mStreamModeDetails.GetValue("streamModeDetails");
+        private Outputs.StreamStreamModeDetails? _mValue_StreamModeDetails;
+        private bool _mUnknown_StreamModeDetails;
+        public Outputs.StreamStreamModeDetails? StreamModeDetails
+        {
+            get
+            {
+                if (!_mUnknown_StreamModeDetails) return _mValue_StreamModeDetails;
+                throw new UndeferrableValueException("Value 'Stream.StreamModeDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Stream.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Stream.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kinesis/stream:Stream")]
@@ -120,92 +197,162 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StreamArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         /// </summary>
-        [Input("encryptionType")]
+        [PolicyResourceProperty("encryptionType", "_mUnknown_EncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
-
-        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
+        private string? _mValue_EncryptionType;
+        private bool _mUnknown_EncryptionType;
+        public string? EncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionType) return _mValue_EncryptionType;
+                throw new UndeferrableValueException("Value 'StreamArgs.EncryptionType' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         /// </summary>
-        [Input("enforceConsumerDeletion")]
+        [PolicyResourceProperty("enforceConsumerDeletion", "_mUnknown_EnforceConsumerDeletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforceConsumerDeletion;
-
-        public bool? EnforceConsumerDeletion => _mEnforceConsumerDeletion.GetValue("enforceConsumerDeletion");
+        private bool? _mValue_EnforceConsumerDeletion;
+        private bool _mUnknown_EnforceConsumerDeletion;
+        public bool? EnforceConsumerDeletion
+        {
+            get
+            {
+                if (!_mUnknown_EnforceConsumerDeletion) return _mValue_EnforceConsumerDeletion;
+                throw new UndeferrableValueException("Value 'StreamArgs.EnforceConsumerDeletion' is not present");
+            }
+        }
 
         /// <summary>
         /// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'StreamArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StreamArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'StreamArgs.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
-        [Input("shardCount")]
+        [PolicyResourceProperty("shardCount", "_mUnknown_ShardCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
-
-        public int? ShardCount => _mShardCount.GetValue("shardCount");
+        private int? _mValue_ShardCount;
+        private bool _mUnknown_ShardCount;
+        public int? ShardCount
+        {
+            get
+            {
+                if (!_mUnknown_ShardCount) return _mValue_ShardCount;
+                throw new UndeferrableValueException("Value 'StreamArgs.ShardCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
-        [Input("shardLevelMetrics")]
+        [PolicyResourceProperty("shardLevelMetrics", "_mUnknown_ShardLevelMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mShardLevelMetrics;
-
-        public List<string>? ShardLevelMetrics => _mShardLevelMetrics.GetValue("shardLevelMetrics");
+        private List<string>? _mValue_ShardLevelMetrics;
+        private bool _mUnknown_ShardLevelMetrics;
+        public List<string>? ShardLevelMetrics
+        {
+            get
+            {
+                if (!_mUnknown_ShardLevelMetrics) return _mValue_ShardLevelMetrics;
+                throw new UndeferrableValueException("Value 'StreamArgs.ShardLevelMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         /// </summary>
-        [Input("streamModeDetails")]
+        [PolicyResourceProperty("streamModeDetails", "_mUnknown_StreamModeDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamStreamModeDetailsArgs> _mStreamModeDetails;
-
-        public Inputs.StreamStreamModeDetailsArgs? StreamModeDetails => _mStreamModeDetails.GetValue("streamModeDetails");
+        private Inputs.StreamStreamModeDetailsArgs? _mValue_StreamModeDetails;
+        private bool _mUnknown_StreamModeDetails;
+        public Inputs.StreamStreamModeDetailsArgs? StreamModeDetails
+        {
+            get
+            {
+                if (!_mUnknown_StreamModeDetails) return _mValue_StreamModeDetails;
+                throw new UndeferrableValueException("Value 'StreamArgs.StreamModeDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StreamArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Inputs
         /// <summary>
         /// Monitoring configurations for CloudWatch.
         /// </summary>
-        [Input("cloudWatchMonitoringConfiguration")]
+        [PolicyResourceProperty("cloudWatchMonitoringConfiguration", "_mUnknown_CloudWatchMonitoringConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs> _mCloudWatchMonitoringConfiguration;
-
-        public Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs? CloudWatchMonitoringConfiguration => _mCloudWatchMonitoringConfiguration.GetValue("cloudWatchMonitoringConfiguration");
+        private Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs? _mValue_CloudWatchMonitoringConfiguration;
+        private bool _mUnknown_CloudWatchMonitoringConfiguration;
+        public Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs? CloudWatchMonitoringConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CloudWatchMonitoringConfiguration) return _mValue_CloudWatchMonitoringConfiguration;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.CloudWatchMonitoringConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Monitoring configurations for the persistent application UI.
         /// </summary>
-        [Input("persistentAppUi")]
+        [PolicyResourceProperty("persistentAppUi", "_mUnknown_PersistentAppUi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPersistentAppUi;
-
-        public string? PersistentAppUi => _mPersistentAppUi.GetValue("persistentAppUi");
+        private string? _mValue_PersistentAppUi;
+        private bool _mUnknown_PersistentAppUi;
+        public string? PersistentAppUi
+        {
+            get
+            {
+                if (!_mUnknown_PersistentAppUi) return _mValue_PersistentAppUi;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.PersistentAppUi' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 configuration for monitoring log publishing.
         /// </summary>
-        [Input("s3MonitoringConfiguration")]
+        [PolicyResourceProperty("s3MonitoringConfiguration", "_mUnknown_S3MonitoringConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs> _mS3MonitoringConfiguration;
-
-        public Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs? S3MonitoringConfiguration => _mS3MonitoringConfiguration.GetValue("s3MonitoringConfiguration");
+        private Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs? _mValue_S3MonitoringConfiguration;
+        private bool _mUnknown_S3MonitoringConfiguration;
+        public Inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs? S3MonitoringConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_S3MonitoringConfiguration) return _mValue_S3MonitoringConfiguration;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.S3MonitoringConfiguration' is not present");
+            }
+        }
     }
 }

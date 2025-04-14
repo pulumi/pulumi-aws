@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
         /// </summary>
-        [Input("enableOnlineStore")]
+        [PolicyResourceProperty("enableOnlineStore", "_mUnknown_EnableOnlineStore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableOnlineStore;
-
-        public bool? EnableOnlineStore => _mEnableOnlineStore.GetValue("enableOnlineStore");
+        private bool? _mValue_EnableOnlineStore;
+        private bool _mUnknown_EnableOnlineStore;
+        public bool? EnableOnlineStore
+        {
+            get
+            {
+                if (!_mUnknown_EnableOnlineStore) return _mValue_EnableOnlineStore;
+                throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.EnableOnlineStore' is not present");
+            }
+        }
 
         /// <summary>
         /// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
         /// </summary>
-        [Input("securityConfig")]
+        [PolicyResourceProperty("securityConfig", "_mUnknown_SecurityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FeatureGroupOnlineStoreConfigSecurityConfigArgs> _mSecurityConfig;
-
-        public Inputs.FeatureGroupOnlineStoreConfigSecurityConfigArgs? SecurityConfig => _mSecurityConfig.GetValue("securityConfig");
+        private Inputs.FeatureGroupOnlineStoreConfigSecurityConfigArgs? _mValue_SecurityConfig;
+        private bool _mUnknown_SecurityConfig;
+        public Inputs.FeatureGroupOnlineStoreConfigSecurityConfigArgs? SecurityConfig
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfig) return _mValue_SecurityConfig;
+                throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.SecurityConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
         /// </summary>
-        [Input("ttlDuration")]
+        [PolicyResourceProperty("ttlDuration", "_mUnknown_TtlDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FeatureGroupOnlineStoreConfigTtlDurationArgs> _mTtlDuration;
-
-        public Inputs.FeatureGroupOnlineStoreConfigTtlDurationArgs? TtlDuration => _mTtlDuration.GetValue("ttlDuration");
+        private Inputs.FeatureGroupOnlineStoreConfigTtlDurationArgs? _mValue_TtlDuration;
+        private bool _mUnknown_TtlDuration;
+        public Inputs.FeatureGroupOnlineStoreConfigTtlDurationArgs? TtlDuration
+        {
+            get
+            {
+                if (!_mUnknown_TtlDuration) return _mValue_TtlDuration;
+                throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.TtlDuration' is not present");
+            }
+        }
     }
 }

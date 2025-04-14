@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
         /// </summary>
-        [Input("modeBlock")]
+        [PolicyResourceProperty("modeBlock", "_mUnknown_ModeBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mModeBlock;
-
-        public bool? ModeBlock => _mModeBlock.GetValue("modeBlock");
+        private bool? _mValue_ModeBlock;
+        private bool _mUnknown_ModeBlock;
+        public bool? ModeBlock
+        {
+            get
+            {
+                if (!_mUnknown_ModeBlock) return _mValue_ModeBlock;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtection.ModeBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverride;
-
-        public bool? Override => _mOverride.GetValue("override");
+        private bool? _mValue_Override;
+        private bool _mUnknown_Override;
+        public bool? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtection.Override' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
         /// </summary>
-        [Input("protection")]
+        [PolicyResourceProperty("protection", "_mUnknown_Protection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProtection;
-
-        public bool? Protection => _mProtection.GetValue("protection");
+        private bool? _mValue_Protection;
+        private bool _mUnknown_Protection;
+        public bool? Protection
+        {
+            get
+            {
+                if (!_mUnknown_Protection) return _mValue_Protection;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtection.Protection' is not present");
+            }
+        }
 
         /// <summary>
         /// A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
         /// </summary>
-        [Input("reportUri")]
+        [PolicyResourceProperty("reportUri", "_mUnknown_ReportUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportUri;
-
-        public string? ReportUri => _mReportUri.GetValue("reportUri");
+        private string? _mValue_ReportUri;
+        private bool _mUnknown_ReportUri;
+        public string? ReportUri
+        {
+            get
+            {
+                if (!_mUnknown_ReportUri) return _mValue_ReportUri;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtection.ReportUri' is not present");
+            }
+        }
     }
 }

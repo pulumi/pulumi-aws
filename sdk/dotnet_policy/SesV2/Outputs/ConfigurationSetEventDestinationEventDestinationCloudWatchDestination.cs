@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
         /// </summary>
-        [Input("dimensionConfigurations")]
+        [PolicyResourceProperty("dimensionConfigurations", "_mUnknown_DimensionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration>> _mDimensionConfigurations;
-
-        public List<Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration>? DimensionConfigurations => _mDimensionConfigurations.GetValue("dimensionConfigurations");
+        private List<Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration>? _mValue_DimensionConfigurations;
+        private bool _mUnknown_DimensionConfigurations;
+        public List<Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration>? DimensionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_DimensionConfigurations) return _mValue_DimensionConfigurations;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestination.DimensionConfigurations' is not present");
+            }
+        }
     }
 }

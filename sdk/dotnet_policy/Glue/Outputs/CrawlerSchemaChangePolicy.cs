@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
         /// </summary>
-        [Input("deleteBehavior")]
+        [PolicyResourceProperty("deleteBehavior", "_mUnknown_DeleteBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeleteBehavior;
-
-        public string? DeleteBehavior => _mDeleteBehavior.GetValue("deleteBehavior");
+        private string? _mValue_DeleteBehavior;
+        private bool _mUnknown_DeleteBehavior;
+        public string? DeleteBehavior
+        {
+            get
+            {
+                if (!_mUnknown_DeleteBehavior) return _mValue_DeleteBehavior;
+                throw new UndeferrableValueException("Value 'CrawlerSchemaChangePolicy.DeleteBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
         /// </summary>
-        [Input("updateBehavior")]
+        [PolicyResourceProperty("updateBehavior", "_mUnknown_UpdateBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateBehavior;
-
-        public string? UpdateBehavior => _mUpdateBehavior.GetValue("updateBehavior");
+        private string? _mValue_UpdateBehavior;
+        private bool _mUnknown_UpdateBehavior;
+        public string? UpdateBehavior
+        {
+            get
+            {
+                if (!_mUnknown_UpdateBehavior) return _mValue_UpdateBehavior;
+                throw new UndeferrableValueException("Value 'CrawlerSchemaChangePolicy.UpdateBehavior' is not present");
+            }
+        }
     }
 }

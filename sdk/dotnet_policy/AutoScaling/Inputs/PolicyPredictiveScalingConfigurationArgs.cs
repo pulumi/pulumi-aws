@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
         /// </summary>
-        [Input("maxCapacityBreachBehavior")]
+        [PolicyResourceProperty("maxCapacityBreachBehavior", "_mUnknown_MaxCapacityBreachBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxCapacityBreachBehavior;
-
-        public string? MaxCapacityBreachBehavior => _mMaxCapacityBreachBehavior.GetValue("maxCapacityBreachBehavior");
+        private string? _mValue_MaxCapacityBreachBehavior;
+        private bool _mUnknown_MaxCapacityBreachBehavior;
+        public string? MaxCapacityBreachBehavior
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacityBreachBehavior) return _mValue_MaxCapacityBreachBehavior;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationArgs.MaxCapacityBreachBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
         /// </summary>
-        [Input("maxCapacityBuffer")]
+        [PolicyResourceProperty("maxCapacityBuffer", "_mUnknown_MaxCapacityBuffer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxCapacityBuffer;
-
-        public string? MaxCapacityBuffer => _mMaxCapacityBuffer.GetValue("maxCapacityBuffer");
+        private string? _mValue_MaxCapacityBuffer;
+        private bool _mUnknown_MaxCapacityBuffer;
+        public string? MaxCapacityBuffer
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacityBuffer) return _mValue_MaxCapacityBuffer;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationArgs.MaxCapacityBuffer' is not present");
+            }
+        }
 
         /// <summary>
         /// This structure includes the metrics and target utilization to use for predictive scaling.
         /// </summary>
-        [Input("metricSpecification")]
+        [PolicyResourceProperty("metricSpecification", "_mUnknown_MetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs> _mMetricSpecification;
-
-        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs? MetricSpecification => _mMetricSpecification.GetValue("metricSpecification");
+        private Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs? _mValue_MetricSpecification;
+        private bool _mUnknown_MetricSpecification;
+        public Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationArgs? MetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_MetricSpecification) return _mValue_MetricSpecification;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationArgs.MetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationArgs.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
         /// </summary>
-        [Input("schedulingBufferTime")]
+        [PolicyResourceProperty("schedulingBufferTime", "_mUnknown_SchedulingBufferTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedulingBufferTime;
-
-        public string? SchedulingBufferTime => _mSchedulingBufferTime.GetValue("schedulingBufferTime");
+        private string? _mValue_SchedulingBufferTime;
+        private bool _mUnknown_SchedulingBufferTime;
+        public string? SchedulingBufferTime
+        {
+            get
+            {
+                if (!_mUnknown_SchedulingBufferTime) return _mValue_SchedulingBufferTime;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationArgs.SchedulingBufferTime' is not present");
+            }
+        }
     }
 }

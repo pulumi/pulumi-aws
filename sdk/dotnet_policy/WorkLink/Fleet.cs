@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink
         /// <summary>
         /// The ARN of the created WorkLink Fleet.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Fleet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
         /// </summary>
-        [Input("auditStreamArn")]
+        [PolicyResourceProperty("auditStreamArn", "_mUnknown_AuditStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuditStreamArn;
-
-        public string? AuditStreamArn => _mAuditStreamArn.GetValue("auditStreamArn");
+        private string? _mValue_AuditStreamArn;
+        private bool _mUnknown_AuditStreamArn;
+        public string? AuditStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_AuditStreamArn) return _mValue_AuditStreamArn;
+                throw new UndeferrableValueException("Value 'Fleet.AuditStreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier used by users to sign in to the Amazon WorkLink app.
         /// </summary>
-        [Input("companyCode")]
+        [PolicyResourceProperty("companyCode", "_mUnknown_CompanyCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompanyCode;
-
-        public string? CompanyCode => _mCompanyCode.GetValue("companyCode");
+        private string? _mValue_CompanyCode;
+        private bool _mUnknown_CompanyCode;
+        public string? CompanyCode
+        {
+            get
+            {
+                if (!_mUnknown_CompanyCode) return _mValue_CompanyCode;
+                throw new UndeferrableValueException("Value 'Fleet.CompanyCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the fleet was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Fleet.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
         /// </summary>
-        [Input("deviceCaCertificate")]
+        [PolicyResourceProperty("deviceCaCertificate", "_mUnknown_DeviceCaCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceCaCertificate;
-
-        public string? DeviceCaCertificate => _mDeviceCaCertificate.GetValue("deviceCaCertificate");
+        private string? _mValue_DeviceCaCertificate;
+        private bool _mUnknown_DeviceCaCertificate;
+        public string? DeviceCaCertificate
+        {
+            get
+            {
+                if (!_mUnknown_DeviceCaCertificate) return _mValue_DeviceCaCertificate;
+                throw new UndeferrableValueException("Value 'Fleet.DeviceCaCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the fleet.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Fleet.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
         /// </summary>
-        [Input("identityProvider")]
+        [PolicyResourceProperty("identityProvider", "_mUnknown_IdentityProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetIdentityProvider> _mIdentityProvider;
-
-        public Outputs.FleetIdentityProvider? IdentityProvider => _mIdentityProvider.GetValue("identityProvider");
+        private Outputs.FleetIdentityProvider? _mValue_IdentityProvider;
+        private bool _mUnknown_IdentityProvider;
+        public Outputs.FleetIdentityProvider? IdentityProvider
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProvider) return _mValue_IdentityProvider;
+                throw new UndeferrableValueException("Value 'Fleet.IdentityProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the fleet was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Fleet.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A region-unique name for the AMI.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Fleet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         /// </summary>
-        [Input("network")]
+        [PolicyResourceProperty("network", "_mUnknown_Network")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetNetwork> _mNetwork;
-
-        public Outputs.FleetNetwork? Network => _mNetwork.GetValue("network");
+        private Outputs.FleetNetwork? _mValue_Network;
+        private bool _mUnknown_Network;
+        public Outputs.FleetNetwork? Network
+        {
+            get
+            {
+                if (!_mUnknown_Network) return _mValue_Network;
+                throw new UndeferrableValueException("Value 'Fleet.Network' is not present");
+            }
+        }
 
         /// <summary>
         /// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
@@ -110,11 +180,18 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink
         /// 
         /// &gt; **NOTE:** `network` is cannot removed without force recreating.
         /// </summary>
-        [Input("optimizeForEndUserLocation")]
+        [PolicyResourceProperty("optimizeForEndUserLocation", "_mUnknown_OptimizeForEndUserLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOptimizeForEndUserLocation;
-
-        public bool? OptimizeForEndUserLocation => _mOptimizeForEndUserLocation.GetValue("optimizeForEndUserLocation");
+        private bool? _mValue_OptimizeForEndUserLocation;
+        private bool _mUnknown_OptimizeForEndUserLocation;
+        public bool? OptimizeForEndUserLocation
+        {
+            get
+            {
+                if (!_mUnknown_OptimizeForEndUserLocation) return _mValue_OptimizeForEndUserLocation;
+                throw new UndeferrableValueException("Value 'Fleet.OptimizeForEndUserLocation' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:worklink/fleet:Fleet")]
@@ -123,56 +200,98 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink
         /// <summary>
         /// The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
         /// </summary>
-        [Input("auditStreamArn")]
+        [PolicyResourceProperty("auditStreamArn", "_mUnknown_AuditStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuditStreamArn;
-
-        public string? AuditStreamArn => _mAuditStreamArn.GetValue("auditStreamArn");
+        private string? _mValue_AuditStreamArn;
+        private bool _mUnknown_AuditStreamArn;
+        public string? AuditStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_AuditStreamArn) return _mValue_AuditStreamArn;
+                throw new UndeferrableValueException("Value 'FleetArgs.AuditStreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
         /// </summary>
-        [Input("deviceCaCertificate")]
+        [PolicyResourceProperty("deviceCaCertificate", "_mUnknown_DeviceCaCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceCaCertificate;
-
-        public string? DeviceCaCertificate => _mDeviceCaCertificate.GetValue("deviceCaCertificate");
+        private string? _mValue_DeviceCaCertificate;
+        private bool _mUnknown_DeviceCaCertificate;
+        public string? DeviceCaCertificate
+        {
+            get
+            {
+                if (!_mUnknown_DeviceCaCertificate) return _mValue_DeviceCaCertificate;
+                throw new UndeferrableValueException("Value 'FleetArgs.DeviceCaCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the fleet.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'FleetArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
         /// </summary>
-        [Input("identityProvider")]
+        [PolicyResourceProperty("identityProvider", "_mUnknown_IdentityProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetIdentityProviderArgs> _mIdentityProvider;
-
-        public Inputs.FleetIdentityProviderArgs? IdentityProvider => _mIdentityProvider.GetValue("identityProvider");
+        private Inputs.FleetIdentityProviderArgs? _mValue_IdentityProvider;
+        private bool _mUnknown_IdentityProvider;
+        public Inputs.FleetIdentityProviderArgs? IdentityProvider
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProvider) return _mValue_IdentityProvider;
+                throw new UndeferrableValueException("Value 'FleetArgs.IdentityProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// A region-unique name for the AMI.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FleetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         /// </summary>
-        [Input("network")]
+        [PolicyResourceProperty("network", "_mUnknown_Network")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetNetworkArgs> _mNetwork;
-
-        public Inputs.FleetNetworkArgs? Network => _mNetwork.GetValue("network");
+        private Inputs.FleetNetworkArgs? _mValue_Network;
+        private bool _mUnknown_Network;
+        public Inputs.FleetNetworkArgs? Network
+        {
+            get
+            {
+                if (!_mUnknown_Network) return _mValue_Network;
+                throw new UndeferrableValueException("Value 'FleetArgs.Network' is not present");
+            }
+        }
 
         /// <summary>
         /// The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
@@ -181,10 +300,17 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink
         /// 
         /// &gt; **NOTE:** `network` is cannot removed without force recreating.
         /// </summary>
-        [Input("optimizeForEndUserLocation")]
+        [PolicyResourceProperty("optimizeForEndUserLocation", "_mUnknown_OptimizeForEndUserLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOptimizeForEndUserLocation;
-
-        public bool? OptimizeForEndUserLocation => _mOptimizeForEndUserLocation.GetValue("optimizeForEndUserLocation");
+        private bool? _mValue_OptimizeForEndUserLocation;
+        private bool _mUnknown_OptimizeForEndUserLocation;
+        public bool? OptimizeForEndUserLocation
+        {
+            get
+            {
+                if (!_mUnknown_OptimizeForEndUserLocation) return _mValue_OptimizeForEndUserLocation;
+                throw new UndeferrableValueException("Value 'FleetArgs.OptimizeForEndUserLocation' is not present");
+            }
+        }
     }
 }

@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
         /// <summary>
         /// The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
         /// </summary>
-        [Input("consoleUrl")]
+        [PolicyResourceProperty("consoleUrl", "_mUnknown_ConsoleUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsoleUrl;
-
-        public string? ConsoleUrl => _mConsoleUrl.GetValue("consoleUrl");
+        private string? _mValue_ConsoleUrl;
+        private bool _mUnknown_ConsoleUrl;
+        public string? ConsoleUrl
+        {
+            get
+            {
+                if (!_mUnknown_ConsoleUrl) return _mValue_ConsoleUrl;
+                throw new UndeferrableValueException("Value 'BrokerInstance.ConsoleUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Broker's wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
@@ -32,19 +39,33 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
         /// * For `RabbitMQ`:
         /// * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEndpoints;
-
-        public List<string>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private List<string>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public List<string>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'BrokerInstance.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// IP Address of the broker.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'BrokerInstance.IpAddress' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// Sets the feedback forwarding configuration for the identity.
         /// </summary>
-        [Input("emailForwardingEnabled")]
+        [PolicyResourceProperty("emailForwardingEnabled", "_mUnknown_EmailForwardingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEmailForwardingEnabled;
-
-        public bool? EmailForwardingEnabled => _mEmailForwardingEnabled.GetValue("emailForwardingEnabled");
+        private bool? _mValue_EmailForwardingEnabled;
+        private bool _mUnknown_EmailForwardingEnabled;
+        public bool? EmailForwardingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EmailForwardingEnabled) return _mValue_EmailForwardingEnabled;
+                throw new UndeferrableValueException("Value 'EmailIdentityFeedbackAttributes.EmailForwardingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The email identity.
         /// </summary>
-        [Input("emailIdentity")]
+        [PolicyResourceProperty("emailIdentity", "_mUnknown_EmailIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentity;
-
-        public string? EmailIdentity => _mEmailIdentity.GetValue("emailIdentity");
+        private string? _mValue_EmailIdentity;
+        private bool _mUnknown_EmailIdentity;
+        public string? EmailIdentity
+        {
+            get
+            {
+                if (!_mUnknown_EmailIdentity) return _mValue_EmailIdentity;
+                throw new UndeferrableValueException("Value 'EmailIdentityFeedbackAttributes.EmailIdentity' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// Sets the feedback forwarding configuration for the identity.
         /// </summary>
-        [Input("emailForwardingEnabled")]
+        [PolicyResourceProperty("emailForwardingEnabled", "_mUnknown_EmailForwardingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEmailForwardingEnabled;
-
-        public bool? EmailForwardingEnabled => _mEmailForwardingEnabled.GetValue("emailForwardingEnabled");
+        private bool? _mValue_EmailForwardingEnabled;
+        private bool _mUnknown_EmailForwardingEnabled;
+        public bool? EmailForwardingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EmailForwardingEnabled) return _mValue_EmailForwardingEnabled;
+                throw new UndeferrableValueException("Value 'EmailIdentityFeedbackAttributesArgs.EmailForwardingEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The email identity.
         /// </summary>
-        [Input("emailIdentity")]
+        [PolicyResourceProperty("emailIdentity", "_mUnknown_EmailIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailIdentity;
-
-        public string? EmailIdentity => _mEmailIdentity.GetValue("emailIdentity");
+        private string? _mValue_EmailIdentity;
+        private bool _mUnknown_EmailIdentity;
+        public string? EmailIdentity
+        {
+            get
+            {
+                if (!_mUnknown_EmailIdentity) return _mValue_EmailIdentity;
+                throw new UndeferrableValueException("Value 'EmailIdentityFeedbackAttributesArgs.EmailIdentity' is not present");
+            }
+        }
     }
 }

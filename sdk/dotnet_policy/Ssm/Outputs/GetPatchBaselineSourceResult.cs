@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// Value of the yum repo configuration.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
-
-        public string? Configuration => _mConfiguration.GetValue("configuration");
+        private string? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public string? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineSourceResult.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name specified to identify the patch source.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineSourceResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specific operating system versions a patch repository applies to.
         /// </summary>
-        [Input("products")]
+        [PolicyResourceProperty("products", "_mUnknown_Products")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProducts;
-
-        public List<string>? Products => _mProducts.GetValue("products");
+        private List<string>? _mValue_Products;
+        private bool _mUnknown_Products;
+        public List<string>? Products
+        {
+            get
+            {
+                if (!_mUnknown_Products) return _mValue_Products;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineSourceResult.Products' is not present");
+            }
+        }
     }
 }

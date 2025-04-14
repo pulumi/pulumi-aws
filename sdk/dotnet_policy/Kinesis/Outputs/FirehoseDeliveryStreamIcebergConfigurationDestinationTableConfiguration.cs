@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The name of the Apache Iceberg database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
         /// </summary>
-        [Input("s3ErrorOutputPrefix")]
+        [PolicyResourceProperty("s3ErrorOutputPrefix", "_mUnknown_S3ErrorOutputPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ErrorOutputPrefix;
-
-        public string? S3ErrorOutputPrefix => _mS3ErrorOutputPrefix.GetValue("s3ErrorOutputPrefix");
+        private string? _mValue_S3ErrorOutputPrefix;
+        private bool _mUnknown_S3ErrorOutputPrefix;
+        public string? S3ErrorOutputPrefix
+        {
+            get
+            {
+                if (!_mUnknown_S3ErrorOutputPrefix) return _mValue_S3ErrorOutputPrefix;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.S3ErrorOutputPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Apache Iceberg Table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
         /// </summary>
-        [Input("uniqueKeys")]
+        [PolicyResourceProperty("uniqueKeys", "_mUnknown_UniqueKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUniqueKeys;
-
-        public List<string>? UniqueKeys => _mUniqueKeys.GetValue("uniqueKeys");
+        private List<string>? _mValue_UniqueKeys;
+        private bool _mUnknown_UniqueKeys;
+        public List<string>? UniqueKeys
+        {
+            get
+            {
+                if (!_mUnknown_UniqueKeys) return _mValue_UniqueKeys;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.UniqueKeys' is not present");
+            }
+        }
     }
 }

@@ -16,173 +16,299 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
         /// </summary>
-        [Input("apiEndpoint")]
+        [PolicyResourceProperty("apiEndpoint", "_mUnknown_ApiEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiEndpoint;
-
-        public string? ApiEndpoint => _mApiEndpoint.GetValue("apiEndpoint");
+        private string? _mValue_ApiEndpoint;
+        private bool _mUnknown_ApiEndpoint;
+        public string? ApiEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ApiEndpoint) return _mValue_ApiEndpoint;
+                throw new UndeferrableValueException("Value 'Api.ApiEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
         /// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
         /// Applicable for WebSocket APIs.
         /// </summary>
-        [Input("apiKeySelectionExpression")]
+        [PolicyResourceProperty("apiKeySelectionExpression", "_mUnknown_ApiKeySelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeySelectionExpression;
-
-        public string? ApiKeySelectionExpression => _mApiKeySelectionExpression.GetValue("apiKeySelectionExpression");
+        private string? _mValue_ApiKeySelectionExpression;
+        private bool _mUnknown_ApiKeySelectionExpression;
+        public string? ApiKeySelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeySelectionExpression) return _mValue_ApiKeySelectionExpression;
+                throw new UndeferrableValueException("Value 'Api.ApiKeySelectionExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the API.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Api.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'Api.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         /// </summary>
-        [Input("corsConfiguration")]
+        [PolicyResourceProperty("corsConfiguration", "_mUnknown_CorsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApiCorsConfiguration> _mCorsConfiguration;
-
-        public Outputs.ApiCorsConfiguration? CorsConfiguration => _mCorsConfiguration.GetValue("corsConfiguration");
+        private Outputs.ApiCorsConfiguration? _mValue_CorsConfiguration;
+        private bool _mUnknown_CorsConfiguration;
+        public Outputs.ApiCorsConfiguration? CorsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CorsConfiguration) return _mValue_CorsConfiguration;
+                throw new UndeferrableValueException("Value 'Api.CorsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         /// </summary>
-        [Input("credentialsArn")]
+        [PolicyResourceProperty("credentialsArn", "_mUnknown_CredentialsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsArn;
-
-        public string? CredentialsArn => _mCredentialsArn.GetValue("credentialsArn");
+        private string? _mValue_CredentialsArn;
+        private bool _mUnknown_CredentialsArn;
+        public string? CredentialsArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsArn) return _mValue_CredentialsArn;
+                throw new UndeferrableValueException("Value 'Api.CredentialsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Api.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether clients can invoke the API by using the default `execute-api` endpoint.
         /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
         /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
         /// </summary>
-        [Input("disableExecuteApiEndpoint")]
+        [PolicyResourceProperty("disableExecuteApiEndpoint", "_mUnknown_DisableExecuteApiEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableExecuteApiEndpoint;
-
-        public bool? DisableExecuteApiEndpoint => _mDisableExecuteApiEndpoint.GetValue("disableExecuteApiEndpoint");
+        private bool? _mValue_DisableExecuteApiEndpoint;
+        private bool _mUnknown_DisableExecuteApiEndpoint;
+        public bool? DisableExecuteApiEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_DisableExecuteApiEndpoint) return _mValue_DisableExecuteApiEndpoint;
+                throw new UndeferrableValueException("Value 'Api.DisableExecuteApiEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
-        [Input("executionArn")]
+        [PolicyResourceProperty("executionArn", "_mUnknown_ExecutionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionArn;
-
-        public string? ExecutionArn => _mExecutionArn.GetValue("executionArn");
+        private string? _mValue_ExecutionArn;
+        private bool _mUnknown_ExecutionArn;
+        public string? ExecutionArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionArn) return _mValue_ExecutionArn;
+                throw new UndeferrableValueException("Value 'Api.ExecutionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         /// </summary>
-        [Input("failOnWarnings")]
+        [PolicyResourceProperty("failOnWarnings", "_mUnknown_FailOnWarnings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
-
-        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
+        private bool? _mValue_FailOnWarnings;
+        private bool _mUnknown_FailOnWarnings;
+        public bool? FailOnWarnings
+        {
+            get
+            {
+                if (!_mUnknown_FailOnWarnings) return _mValue_FailOnWarnings;
+                throw new UndeferrableValueException("Value 'Api.FailOnWarnings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Api.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         /// </summary>
-        [Input("protocolType")]
+        [PolicyResourceProperty("protocolType", "_mUnknown_ProtocolType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocolType;
-
-        public string? ProtocolType => _mProtocolType.GetValue("protocolType");
+        private string? _mValue_ProtocolType;
+        private bool _mUnknown_ProtocolType;
+        public string? ProtocolType
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolType) return _mValue_ProtocolType;
+                throw new UndeferrableValueException("Value 'Api.ProtocolType' is not present");
+            }
+        }
 
         /// <summary>
         /// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         /// </summary>
-        [Input("routeKey")]
+        [PolicyResourceProperty("routeKey", "_mUnknown_RouteKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteKey;
-
-        public string? RouteKey => _mRouteKey.GetValue("routeKey");
+        private string? _mValue_RouteKey;
+        private bool _mUnknown_RouteKey;
+        public string? RouteKey
+        {
+            get
+            {
+                if (!_mUnknown_RouteKey) return _mValue_RouteKey;
+                throw new UndeferrableValueException("Value 'Api.RouteKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// Defaults to `$request.method $request.path`.
         /// </summary>
-        [Input("routeSelectionExpression")]
+        [PolicyResourceProperty("routeSelectionExpression", "_mUnknown_RouteSelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteSelectionExpression;
-
-        public string? RouteSelectionExpression => _mRouteSelectionExpression.GetValue("routeSelectionExpression");
+        private string? _mValue_RouteSelectionExpression;
+        private bool _mUnknown_RouteSelectionExpression;
+        public string? RouteSelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_RouteSelectionExpression) return _mValue_RouteSelectionExpression;
+                throw new UndeferrableValueException("Value 'Api.RouteSelectionExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Api.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Api.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
         /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
         /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'Api.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Api.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigatewayv2/api:Api")]
@@ -193,132 +319,230 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
         /// Applicable for WebSocket APIs.
         /// </summary>
-        [Input("apiKeySelectionExpression")]
+        [PolicyResourceProperty("apiKeySelectionExpression", "_mUnknown_ApiKeySelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeySelectionExpression;
-
-        public string? ApiKeySelectionExpression => _mApiKeySelectionExpression.GetValue("apiKeySelectionExpression");
+        private string? _mValue_ApiKeySelectionExpression;
+        private bool _mUnknown_ApiKeySelectionExpression;
+        public string? ApiKeySelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeySelectionExpression) return _mValue_ApiKeySelectionExpression;
+                throw new UndeferrableValueException("Value 'ApiArgs.ApiKeySelectionExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'ApiArgs.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         /// </summary>
-        [Input("corsConfiguration")]
+        [PolicyResourceProperty("corsConfiguration", "_mUnknown_CorsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApiCorsConfigurationArgs> _mCorsConfiguration;
-
-        public Inputs.ApiCorsConfigurationArgs? CorsConfiguration => _mCorsConfiguration.GetValue("corsConfiguration");
+        private Inputs.ApiCorsConfigurationArgs? _mValue_CorsConfiguration;
+        private bool _mUnknown_CorsConfiguration;
+        public Inputs.ApiCorsConfigurationArgs? CorsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CorsConfiguration) return _mValue_CorsConfiguration;
+                throw new UndeferrableValueException("Value 'ApiArgs.CorsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         /// </summary>
-        [Input("credentialsArn")]
+        [PolicyResourceProperty("credentialsArn", "_mUnknown_CredentialsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsArn;
-
-        public string? CredentialsArn => _mCredentialsArn.GetValue("credentialsArn");
+        private string? _mValue_CredentialsArn;
+        private bool _mUnknown_CredentialsArn;
+        public string? CredentialsArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsArn) return _mValue_CredentialsArn;
+                throw new UndeferrableValueException("Value 'ApiArgs.CredentialsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the API. Must be less than or equal to 1024 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApiArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether clients can invoke the API by using the default `execute-api` endpoint.
         /// By default, clients can invoke the API with the default `{api_id}.execute-api.{region}.amazonaws.com endpoint`.
         /// To require that clients use a custom domain name to invoke the API, disable the default endpoint.
         /// </summary>
-        [Input("disableExecuteApiEndpoint")]
+        [PolicyResourceProperty("disableExecuteApiEndpoint", "_mUnknown_DisableExecuteApiEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableExecuteApiEndpoint;
-
-        public bool? DisableExecuteApiEndpoint => _mDisableExecuteApiEndpoint.GetValue("disableExecuteApiEndpoint");
+        private bool? _mValue_DisableExecuteApiEndpoint;
+        private bool _mUnknown_DisableExecuteApiEndpoint;
+        public bool? DisableExecuteApiEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_DisableExecuteApiEndpoint) return _mValue_DisableExecuteApiEndpoint;
+                throw new UndeferrableValueException("Value 'ApiArgs.DisableExecuteApiEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         /// </summary>
-        [Input("failOnWarnings")]
+        [PolicyResourceProperty("failOnWarnings", "_mUnknown_FailOnWarnings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
-
-        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
+        private bool? _mValue_FailOnWarnings;
+        private bool _mUnknown_FailOnWarnings;
+        public bool? FailOnWarnings
+        {
+            get
+            {
+                if (!_mUnknown_FailOnWarnings) return _mValue_FailOnWarnings;
+                throw new UndeferrableValueException("Value 'ApiArgs.FailOnWarnings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the API. Must be less than or equal to 128 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApiArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// API protocol. Valid values: `HTTP`, `WEBSOCKET`.
         /// </summary>
-        [Input("protocolType")]
+        [PolicyResourceProperty("protocolType", "_mUnknown_ProtocolType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocolType;
-
-        public string? ProtocolType => _mProtocolType.GetValue("protocolType");
+        private string? _mValue_ProtocolType;
+        private bool _mUnknown_ProtocolType;
+        public string? ProtocolType
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolType) return _mValue_ProtocolType;
+                throw new UndeferrableValueException("Value 'ApiArgs.ProtocolType' is not present");
+            }
+        }
 
         /// <summary>
         /// Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         /// </summary>
-        [Input("routeKey")]
+        [PolicyResourceProperty("routeKey", "_mUnknown_RouteKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteKey;
-
-        public string? RouteKey => _mRouteKey.GetValue("routeKey");
+        private string? _mValue_RouteKey;
+        private bool _mUnknown_RouteKey;
+        public string? RouteKey
+        {
+            get
+            {
+                if (!_mUnknown_RouteKey) return _mValue_RouteKey;
+                throw new UndeferrableValueException("Value 'ApiArgs.RouteKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// Defaults to `$request.method $request.path`.
         /// </summary>
-        [Input("routeSelectionExpression")]
+        [PolicyResourceProperty("routeSelectionExpression", "_mUnknown_RouteSelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteSelectionExpression;
-
-        public string? RouteSelectionExpression => _mRouteSelectionExpression.GetValue("routeSelectionExpression");
+        private string? _mValue_RouteSelectionExpression;
+        private bool _mUnknown_RouteSelectionExpression;
+        public string? RouteSelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_RouteSelectionExpression) return _mValue_RouteSelectionExpression;
+                throw new UndeferrableValueException("Value 'ApiArgs.RouteSelectionExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApiArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
         /// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
         /// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'ApiArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Version identifier for the API. Must be between 1 and 64 characters in length.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ApiArgs.Version' is not present");
+            }
+        }
     }
 }

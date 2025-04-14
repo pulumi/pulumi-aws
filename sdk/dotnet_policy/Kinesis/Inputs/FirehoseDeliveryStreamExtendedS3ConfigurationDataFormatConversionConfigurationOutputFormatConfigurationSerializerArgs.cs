@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orc_ser_de` block below for details.
         /// </summary>
-        [Input("orcSerDe")]
+        [PolicyResourceProperty("orcSerDe", "_mUnknown_OrcSerDe")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs> _mOrcSerDe;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs? OrcSerDe => _mOrcSerDe.GetValue("orcSerDe");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs? _mValue_OrcSerDe;
+        private bool _mUnknown_OrcSerDe;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs? OrcSerDe
+        {
+            get
+            {
+                if (!_mUnknown_OrcSerDe) return _mValue_OrcSerDe;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs.OrcSerDe' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
         /// </summary>
-        [Input("parquetSerDe")]
+        [PolicyResourceProperty("parquetSerDe", "_mUnknown_ParquetSerDe")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs> _mParquetSerDe;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs? ParquetSerDe => _mParquetSerDe.GetValue("parquetSerDe");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs? _mValue_ParquetSerDe;
+        private bool _mUnknown_ParquetSerDe;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs? ParquetSerDe
+        {
+            get
+            {
+                if (!_mUnknown_ParquetSerDe) return _mValue_ParquetSerDe;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs.ParquetSerDe' is not present");
+            }
+        }
     }
 }

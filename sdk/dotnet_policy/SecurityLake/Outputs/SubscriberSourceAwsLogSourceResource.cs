@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Outputs
         /// <summary>
         /// Provides data expiration details of Amazon Security Lake object.
         /// </summary>
-        [Input("sourceName")]
+        [PolicyResourceProperty("sourceName", "_mUnknown_SourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
-
-        public string? SourceName => _mSourceName.GetValue("sourceName");
+        private string? _mValue_SourceName;
+        private bool _mUnknown_SourceName;
+        public string? SourceName
+        {
+            get
+            {
+                if (!_mUnknown_SourceName) return _mValue_SourceName;
+                throw new UndeferrableValueException("Value 'SubscriberSourceAwsLogSourceResource.SourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides data storage transition details of Amazon Security Lake object.
         /// </summary>
-        [Input("sourceVersion")]
+        [PolicyResourceProperty("sourceVersion", "_mUnknown_SourceVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceVersion;
-
-        public string? SourceVersion => _mSourceVersion.GetValue("sourceVersion");
+        private string? _mValue_SourceVersion;
+        private bool _mUnknown_SourceVersion;
+        public string? SourceVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceVersion) return _mValue_SourceVersion;
+                throw new UndeferrableValueException("Value 'SubscriberSourceAwsLogSourceResource.SourceVersion' is not present");
+            }
+        }
     }
 }

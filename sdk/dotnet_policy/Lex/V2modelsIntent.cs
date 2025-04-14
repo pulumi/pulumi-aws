@@ -16,178 +16,318 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Identifier of the bot associated with this intent.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the bot associated with this intent.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
         /// </summary>
-        [Input("closingSetting")]
+        [PolicyResourceProperty("closingSetting", "_mUnknown_ClosingSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSetting> _mClosingSetting;
+        private Outputs.V2modelsIntentClosingSetting? _mValue_ClosingSetting;
+        private bool _mUnknown_ClosingSetting;
+        public Outputs.V2modelsIntentClosingSetting? ClosingSetting
+        {
+            get
+            {
+                if (!_mUnknown_ClosingSetting) return _mValue_ClosingSetting;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.ClosingSetting' is not present");
+            }
+        }
 
-        public Outputs.V2modelsIntentClosingSetting? ClosingSetting => _mClosingSetting.GetValue("closingSetting");
-
-        [Input("confirmationSetting")]
+        [PolicyResourceProperty("confirmationSetting", "_mUnknown_ConfirmationSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentConfirmationSetting> _mConfirmationSetting;
-
-        public Outputs.V2modelsIntentConfirmationSetting? ConfirmationSetting => _mConfirmationSetting.GetValue("confirmationSetting");
+        private Outputs.V2modelsIntentConfirmationSetting? _mValue_ConfirmationSetting;
+        private bool _mUnknown_ConfirmationSetting;
+        public Outputs.V2modelsIntentConfirmationSetting? ConfirmationSetting
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationSetting) return _mValue_ConfirmationSetting;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.ConfirmationSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp of the date and time that the intent was created.
         /// </summary>
-        [Input("creationDateTime")]
+        [PolicyResourceProperty("creationDateTime", "_mUnknown_CreationDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDateTime;
-
-        public string? CreationDateTime => _mCreationDateTime.GetValue("creationDateTime");
+        private string? _mValue_CreationDateTime;
+        private bool _mUnknown_CreationDateTime;
+        public string? CreationDateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationDateTime) return _mValue_CreationDateTime;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.CreationDateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the intent. Use the description to help identify the intent in lists.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
         /// </summary>
-        [Input("dialogCodeHook")]
+        [PolicyResourceProperty("dialogCodeHook", "_mUnknown_DialogCodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentDialogCodeHook> _mDialogCodeHook;
-
-        public Outputs.V2modelsIntentDialogCodeHook? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
+        private Outputs.V2modelsIntentDialogCodeHook? _mValue_DialogCodeHook;
+        private bool _mUnknown_DialogCodeHook;
+        public Outputs.V2modelsIntentDialogCodeHook? DialogCodeHook
+        {
+            get
+            {
+                if (!_mUnknown_DialogCodeHook) return _mValue_DialogCodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.DialogCodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
         /// </summary>
-        [Input("fulfillmentCodeHook")]
+        [PolicyResourceProperty("fulfillmentCodeHook", "_mUnknown_FulfillmentCodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentFulfillmentCodeHook> _mFulfillmentCodeHook;
-
-        public Outputs.V2modelsIntentFulfillmentCodeHook? FulfillmentCodeHook => _mFulfillmentCodeHook.GetValue("fulfillmentCodeHook");
+        private Outputs.V2modelsIntentFulfillmentCodeHook? _mValue_FulfillmentCodeHook;
+        private bool _mUnknown_FulfillmentCodeHook;
+        public Outputs.V2modelsIntentFulfillmentCodeHook? FulfillmentCodeHook
+        {
+            get
+            {
+                if (!_mUnknown_FulfillmentCodeHook) return _mValue_FulfillmentCodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.FulfillmentCodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         /// </summary>
-        [Input("initialResponseSetting")]
+        [PolicyResourceProperty("initialResponseSetting", "_mUnknown_InitialResponseSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSetting> _mInitialResponseSetting;
-
-        public Outputs.V2modelsIntentInitialResponseSetting? InitialResponseSetting => _mInitialResponseSetting.GetValue("initialResponseSetting");
+        private Outputs.V2modelsIntentInitialResponseSetting? _mValue_InitialResponseSetting;
+        private bool _mUnknown_InitialResponseSetting;
+        public Outputs.V2modelsIntentInitialResponseSetting? InitialResponseSetting
+        {
+            get
+            {
+                if (!_mUnknown_InitialResponseSetting) return _mValue_InitialResponseSetting;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.InitialResponseSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
         /// </summary>
-        [Input("inputContexts")]
+        [PolicyResourceProperty("inputContexts", "_mUnknown_InputContexts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentInputContext>> _mInputContexts;
-
-        public List<Outputs.V2modelsIntentInputContext>? InputContexts => _mInputContexts.GetValue("inputContexts");
+        private List<Outputs.V2modelsIntentInputContext>? _mValue_InputContexts;
+        private bool _mUnknown_InputContexts;
+        public List<Outputs.V2modelsIntentInputContext>? InputContexts
+        {
+            get
+            {
+                if (!_mUnknown_InputContexts) return _mValue_InputContexts;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.InputContexts' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the intent.
         /// </summary>
-        [Input("intentId")]
+        [PolicyResourceProperty("intentId", "_mUnknown_IntentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntentId;
-
-        public string? IntentId => _mIntentId.GetValue("intentId");
+        private string? _mValue_IntentId;
+        private bool _mUnknown_IntentId;
+        public string? IntentId
+        {
+            get
+            {
+                if (!_mUnknown_IntentId) return _mValue_IntentId;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.IntentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
         /// </summary>
-        [Input("kendraConfiguration")]
+        [PolicyResourceProperty("kendraConfiguration", "_mUnknown_KendraConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentKendraConfiguration> _mKendraConfiguration;
-
-        public Outputs.V2modelsIntentKendraConfiguration? KendraConfiguration => _mKendraConfiguration.GetValue("kendraConfiguration");
+        private Outputs.V2modelsIntentKendraConfiguration? _mValue_KendraConfiguration;
+        private bool _mUnknown_KendraConfiguration;
+        public Outputs.V2modelsIntentKendraConfiguration? KendraConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KendraConfiguration) return _mValue_KendraConfiguration;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.KendraConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp of the last time that the intent was modified.
         /// </summary>
-        [Input("lastUpdatedDateTime")]
+        [PolicyResourceProperty("lastUpdatedDateTime", "_mUnknown_LastUpdatedDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDateTime;
-
-        public string? LastUpdatedDateTime => _mLastUpdatedDateTime.GetValue("lastUpdatedDateTime");
+        private string? _mValue_LastUpdatedDateTime;
+        private bool _mUnknown_LastUpdatedDateTime;
+        public string? LastUpdatedDateTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDateTime) return _mValue_LastUpdatedDateTime;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.LastUpdatedDateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
-        [Input("localeId")]
+        [PolicyResourceProperty("localeId", "_mUnknown_LocaleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
-
-        public string? LocaleId => _mLocaleId.GetValue("localeId");
+        private string? _mValue_LocaleId;
+        private bool _mUnknown_LocaleId;
+        public string? LocaleId
+        {
+            get
+            {
+                if (!_mUnknown_LocaleId) return _mValue_LocaleId;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.LocaleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         /// </summary>
-        [Input("outputContexts")]
+        [PolicyResourceProperty("outputContexts", "_mUnknown_OutputContexts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentOutputContext>> _mOutputContexts;
-
-        public List<Outputs.V2modelsIntentOutputContext>? OutputContexts => _mOutputContexts.GetValue("outputContexts");
+        private List<Outputs.V2modelsIntentOutputContext>? _mValue_OutputContexts;
+        private bool _mUnknown_OutputContexts;
+        public List<Outputs.V2modelsIntentOutputContext>? OutputContexts
+        {
+            get
+            {
+                if (!_mUnknown_OutputContexts) return _mValue_OutputContexts;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.OutputContexts' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the built-in intent to base this intent on.
         /// </summary>
-        [Input("parentIntentSignature")]
+        [PolicyResourceProperty("parentIntentSignature", "_mUnknown_ParentIntentSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
-
-        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
+        private string? _mValue_ParentIntentSignature;
+        private bool _mUnknown_ParentIntentSignature;
+        public string? ParentIntentSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentIntentSignature) return _mValue_ParentIntentSignature;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.ParentIntentSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         /// </summary>
-        [Input("sampleUtterances")]
+        [PolicyResourceProperty("sampleUtterances", "_mUnknown_SampleUtterances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentSampleUtterance>> _mSampleUtterances;
-
-        public List<Outputs.V2modelsIntentSampleUtterance>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+        private List<Outputs.V2modelsIntentSampleUtterance>? _mValue_SampleUtterances;
+        private bool _mUnknown_SampleUtterances;
+        public List<Outputs.V2modelsIntentSampleUtterance>? SampleUtterances
+        {
+            get
+            {
+                if (!_mUnknown_SampleUtterances) return _mValue_SampleUtterances;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.SampleUtterances' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         /// </summary>
-        [Input("slotPriorities")]
+        [PolicyResourceProperty("slotPriorities", "_mUnknown_SlotPriorities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsIntentSlotPriority>> _mSlotPriorities;
+        private List<Outputs.V2modelsIntentSlotPriority>? _mValue_SlotPriorities;
+        private bool _mUnknown_SlotPriorities;
+        public List<Outputs.V2modelsIntentSlotPriority>? SlotPriorities
+        {
+            get
+            {
+                if (!_mUnknown_SlotPriorities) return _mValue_SlotPriorities;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.SlotPriorities' is not present");
+            }
+        }
 
-        public List<Outputs.V2modelsIntentSlotPriority>? SlotPriorities => _mSlotPriorities.GetValue("slotPriorities");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentTimeouts> _mTimeouts;
-
-        public Outputs.V2modelsIntentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.V2modelsIntentTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.V2modelsIntentTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsIntent.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/v2modelsIntent:V2modelsIntent")]
@@ -196,150 +336,269 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Identifier of the bot associated with this intent.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the bot associated with this intent.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
         /// </summary>
-        [Input("closingSetting")]
+        [PolicyResourceProperty("closingSetting", "_mUnknown_ClosingSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentClosingSettingArgs> _mClosingSetting;
+        private Inputs.V2modelsIntentClosingSettingArgs? _mValue_ClosingSetting;
+        private bool _mUnknown_ClosingSetting;
+        public Inputs.V2modelsIntentClosingSettingArgs? ClosingSetting
+        {
+            get
+            {
+                if (!_mUnknown_ClosingSetting) return _mValue_ClosingSetting;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.ClosingSetting' is not present");
+            }
+        }
 
-        public Inputs.V2modelsIntentClosingSettingArgs? ClosingSetting => _mClosingSetting.GetValue("closingSetting");
-
-        [Input("confirmationSetting")]
+        [PolicyResourceProperty("confirmationSetting", "_mUnknown_ConfirmationSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingArgs> _mConfirmationSetting;
-
-        public Inputs.V2modelsIntentConfirmationSettingArgs? ConfirmationSetting => _mConfirmationSetting.GetValue("confirmationSetting");
+        private Inputs.V2modelsIntentConfirmationSettingArgs? _mValue_ConfirmationSetting;
+        private bool _mUnknown_ConfirmationSetting;
+        public Inputs.V2modelsIntentConfirmationSettingArgs? ConfirmationSetting
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationSetting) return _mValue_ConfirmationSetting;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.ConfirmationSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the intent. Use the description to help identify the intent in lists.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
         /// </summary>
-        [Input("dialogCodeHook")]
+        [PolicyResourceProperty("dialogCodeHook", "_mUnknown_DialogCodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentDialogCodeHookArgs> _mDialogCodeHook;
-
-        public Inputs.V2modelsIntentDialogCodeHookArgs? DialogCodeHook => _mDialogCodeHook.GetValue("dialogCodeHook");
+        private Inputs.V2modelsIntentDialogCodeHookArgs? _mValue_DialogCodeHook;
+        private bool _mUnknown_DialogCodeHook;
+        public Inputs.V2modelsIntentDialogCodeHookArgs? DialogCodeHook
+        {
+            get
+            {
+                if (!_mUnknown_DialogCodeHook) return _mValue_DialogCodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.DialogCodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
         /// </summary>
-        [Input("fulfillmentCodeHook")]
+        [PolicyResourceProperty("fulfillmentCodeHook", "_mUnknown_FulfillmentCodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentFulfillmentCodeHookArgs> _mFulfillmentCodeHook;
-
-        public Inputs.V2modelsIntentFulfillmentCodeHookArgs? FulfillmentCodeHook => _mFulfillmentCodeHook.GetValue("fulfillmentCodeHook");
+        private Inputs.V2modelsIntentFulfillmentCodeHookArgs? _mValue_FulfillmentCodeHook;
+        private bool _mUnknown_FulfillmentCodeHook;
+        public Inputs.V2modelsIntentFulfillmentCodeHookArgs? FulfillmentCodeHook
+        {
+            get
+            {
+                if (!_mUnknown_FulfillmentCodeHook) return _mValue_FulfillmentCodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.FulfillmentCodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         /// </summary>
-        [Input("initialResponseSetting")]
+        [PolicyResourceProperty("initialResponseSetting", "_mUnknown_InitialResponseSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentInitialResponseSettingArgs> _mInitialResponseSetting;
-
-        public Inputs.V2modelsIntentInitialResponseSettingArgs? InitialResponseSetting => _mInitialResponseSetting.GetValue("initialResponseSetting");
+        private Inputs.V2modelsIntentInitialResponseSettingArgs? _mValue_InitialResponseSetting;
+        private bool _mUnknown_InitialResponseSetting;
+        public Inputs.V2modelsIntentInitialResponseSettingArgs? InitialResponseSetting
+        {
+            get
+            {
+                if (!_mUnknown_InitialResponseSetting) return _mValue_InitialResponseSetting;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.InitialResponseSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
         /// </summary>
-        [Input("inputContexts")]
+        [PolicyResourceProperty("inputContexts", "_mUnknown_InputContexts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentInputContextArgs>> _mInputContexts;
-
-        public List<Inputs.V2modelsIntentInputContextArgs>? InputContexts => _mInputContexts.GetValue("inputContexts");
+        private List<Inputs.V2modelsIntentInputContextArgs>? _mValue_InputContexts;
+        private bool _mUnknown_InputContexts;
+        public List<Inputs.V2modelsIntentInputContextArgs>? InputContexts
+        {
+            get
+            {
+                if (!_mUnknown_InputContexts) return _mValue_InputContexts;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.InputContexts' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
         /// </summary>
-        [Input("kendraConfiguration")]
+        [PolicyResourceProperty("kendraConfiguration", "_mUnknown_KendraConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentKendraConfigurationArgs> _mKendraConfiguration;
-
-        public Inputs.V2modelsIntentKendraConfigurationArgs? KendraConfiguration => _mKendraConfiguration.GetValue("kendraConfiguration");
+        private Inputs.V2modelsIntentKendraConfigurationArgs? _mValue_KendraConfiguration;
+        private bool _mUnknown_KendraConfiguration;
+        public Inputs.V2modelsIntentKendraConfigurationArgs? KendraConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KendraConfiguration) return _mValue_KendraConfiguration;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.KendraConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
-        [Input("localeId")]
+        [PolicyResourceProperty("localeId", "_mUnknown_LocaleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
-
-        public string? LocaleId => _mLocaleId.GetValue("localeId");
+        private string? _mValue_LocaleId;
+        private bool _mUnknown_LocaleId;
+        public string? LocaleId
+        {
+            get
+            {
+                if (!_mUnknown_LocaleId) return _mValue_LocaleId;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.LocaleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         /// </summary>
-        [Input("outputContexts")]
+        [PolicyResourceProperty("outputContexts", "_mUnknown_OutputContexts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentOutputContextArgs>> _mOutputContexts;
-
-        public List<Inputs.V2modelsIntentOutputContextArgs>? OutputContexts => _mOutputContexts.GetValue("outputContexts");
+        private List<Inputs.V2modelsIntentOutputContextArgs>? _mValue_OutputContexts;
+        private bool _mUnknown_OutputContexts;
+        public List<Inputs.V2modelsIntentOutputContextArgs>? OutputContexts
+        {
+            get
+            {
+                if (!_mUnknown_OutputContexts) return _mValue_OutputContexts;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.OutputContexts' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the built-in intent to base this intent on.
         /// </summary>
-        [Input("parentIntentSignature")]
+        [PolicyResourceProperty("parentIntentSignature", "_mUnknown_ParentIntentSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentIntentSignature;
-
-        public string? ParentIntentSignature => _mParentIntentSignature.GetValue("parentIntentSignature");
+        private string? _mValue_ParentIntentSignature;
+        private bool _mUnknown_ParentIntentSignature;
+        public string? ParentIntentSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentIntentSignature) return _mValue_ParentIntentSignature;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.ParentIntentSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         /// </summary>
-        [Input("sampleUtterances")]
+        [PolicyResourceProperty("sampleUtterances", "_mUnknown_SampleUtterances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentSampleUtteranceArgs>> _mSampleUtterances;
-
-        public List<Inputs.V2modelsIntentSampleUtteranceArgs>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+        private List<Inputs.V2modelsIntentSampleUtteranceArgs>? _mValue_SampleUtterances;
+        private bool _mUnknown_SampleUtterances;
+        public List<Inputs.V2modelsIntentSampleUtteranceArgs>? SampleUtterances
+        {
+            get
+            {
+                if (!_mUnknown_SampleUtterances) return _mValue_SampleUtterances;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.SampleUtterances' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         /// </summary>
-        [Input("slotPriorities")]
+        [PolicyResourceProperty("slotPriorities", "_mUnknown_SlotPriorities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentSlotPriorityArgs>> _mSlotPriorities;
+        private List<Inputs.V2modelsIntentSlotPriorityArgs>? _mValue_SlotPriorities;
+        private bool _mUnknown_SlotPriorities;
+        public List<Inputs.V2modelsIntentSlotPriorityArgs>? SlotPriorities
+        {
+            get
+            {
+                if (!_mUnknown_SlotPriorities) return _mValue_SlotPriorities;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.SlotPriorities' is not present");
+            }
+        }
 
-        public List<Inputs.V2modelsIntentSlotPriorityArgs>? SlotPriorities => _mSlotPriorities.GetValue("slotPriorities");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentTimeoutsArgs> _mTimeouts;
-
-        public Inputs.V2modelsIntentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.V2modelsIntentTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.V2modelsIntentTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsIntentArgs.Timeouts' is not present");
+            }
+        }
     }
 }

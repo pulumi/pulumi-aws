@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Inputs
         /// <summary>
         /// Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
         /// </summary>
-        [Input("transitionToArchive")]
+        [PolicyResourceProperty("transitionToArchive", "_mUnknown_TransitionToArchive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionToArchive;
-
-        public string? TransitionToArchive => _mTransitionToArchive.GetValue("transitionToArchive");
+        private string? _mValue_TransitionToArchive;
+        private bool _mUnknown_TransitionToArchive;
+        public string? TransitionToArchive
+        {
+            get
+            {
+                if (!_mUnknown_TransitionToArchive) return _mValue_TransitionToArchive;
+                throw new UndeferrableValueException("Value 'FileSystemLifecyclePolicyArgs.TransitionToArchive' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
         /// </summary>
-        [Input("transitionToIa")]
+        [PolicyResourceProperty("transitionToIa", "_mUnknown_TransitionToIa")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionToIa;
-
-        public string? TransitionToIa => _mTransitionToIa.GetValue("transitionToIa");
+        private string? _mValue_TransitionToIa;
+        private bool _mUnknown_TransitionToIa;
+        public string? TransitionToIa
+        {
+            get
+            {
+                if (!_mUnknown_TransitionToIa) return _mValue_TransitionToIa;
+                throw new UndeferrableValueException("Value 'FileSystemLifecyclePolicyArgs.TransitionToIa' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
         /// </summary>
-        [Input("transitionToPrimaryStorageClass")]
+        [PolicyResourceProperty("transitionToPrimaryStorageClass", "_mUnknown_TransitionToPrimaryStorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionToPrimaryStorageClass;
-
-        public string? TransitionToPrimaryStorageClass => _mTransitionToPrimaryStorageClass.GetValue("transitionToPrimaryStorageClass");
+        private string? _mValue_TransitionToPrimaryStorageClass;
+        private bool _mUnknown_TransitionToPrimaryStorageClass;
+        public string? TransitionToPrimaryStorageClass
+        {
+            get
+            {
+                if (!_mUnknown_TransitionToPrimaryStorageClass) return _mValue_TransitionToPrimaryStorageClass;
+                throw new UndeferrableValueException("Value 'FileSystemLifecyclePolicyArgs.TransitionToPrimaryStorageClass' is not present");
+            }
+        }
     }
 }

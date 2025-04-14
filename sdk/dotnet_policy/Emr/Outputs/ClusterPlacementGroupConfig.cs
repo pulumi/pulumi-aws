@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
         /// </summary>
-        [Input("instanceRole")]
+        [PolicyResourceProperty("instanceRole", "_mUnknown_InstanceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceRole;
-
-        public string? InstanceRole => _mInstanceRole.GetValue("instanceRole");
+        private string? _mValue_InstanceRole;
+        private bool _mUnknown_InstanceRole;
+        public string? InstanceRole
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRole) return _mValue_InstanceRole;
+                throw new UndeferrableValueException("Value 'ClusterPlacementGroupConfig.InstanceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
         /// </summary>
-        [Input("placementStrategy")]
+        [PolicyResourceProperty("placementStrategy", "_mUnknown_PlacementStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementStrategy;
-
-        public string? PlacementStrategy => _mPlacementStrategy.GetValue("placementStrategy");
+        private string? _mValue_PlacementStrategy;
+        private bool _mUnknown_PlacementStrategy;
+        public string? PlacementStrategy
+        {
+            get
+            {
+                if (!_mUnknown_PlacementStrategy) return _mValue_PlacementStrategy;
+                throw new UndeferrableValueException("Value 'ClusterPlacementGroupConfig.PlacementStrategy' is not present");
+            }
+        }
     }
 }

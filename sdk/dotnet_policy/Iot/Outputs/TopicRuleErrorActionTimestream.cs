@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The name of an Amazon Timestream database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleErrorActionTimestreamDimension>> _mDimensions;
-
-        public List<Outputs.TopicRuleErrorActionTimestreamDimension>? Dimensions => _mDimensions.GetValue("dimensions");
+        private List<Outputs.TopicRuleErrorActionTimestreamDimension>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public List<Outputs.TopicRuleErrorActionTimestreamDimension>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role that grants permission to write to the Amazon Timestream database table.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database table into which to write the measure records.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
         /// </summary>
-        [Input("timestamp")]
+        [PolicyResourceProperty("timestamp", "_mUnknown_Timestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TopicRuleErrorActionTimestreamTimestamp> _mTimestamp;
-
-        public Outputs.TopicRuleErrorActionTimestreamTimestamp? Timestamp => _mTimestamp.GetValue("timestamp");
+        private Outputs.TopicRuleErrorActionTimestreamTimestamp? _mValue_Timestamp;
+        private bool _mUnknown_Timestamp;
+        public Outputs.TopicRuleErrorActionTimestreamTimestamp? Timestamp
+        {
+            get
+            {
+                if (!_mUnknown_Timestamp) return _mValue_Timestamp;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.Timestamp' is not present");
+            }
+        }
     }
 }

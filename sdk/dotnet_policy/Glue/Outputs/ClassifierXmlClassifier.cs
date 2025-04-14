@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// An identifier of the data format that the classifier matches.
         /// </summary>
-        [Input("classification")]
+        [PolicyResourceProperty("classification", "_mUnknown_Classification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClassification;
-
-        public string? Classification => _mClassification.GetValue("classification");
+        private string? _mValue_Classification;
+        private bool _mUnknown_Classification;
+        public string? Classification
+        {
+            get
+            {
+                if (!_mUnknown_Classification) return _mValue_Classification;
+                throw new UndeferrableValueException("Value 'ClassifierXmlClassifier.Classification' is not present");
+            }
+        }
 
         /// <summary>
         /// The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a="A" item_b="B"&gt;&lt;/row&gt;` is okay, but `&lt;row item_a="A" item_b="B" /&gt;` is not).
         /// </summary>
-        [Input("rowTag")]
+        [PolicyResourceProperty("rowTag", "_mUnknown_RowTag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRowTag;
-
-        public string? RowTag => _mRowTag.GetValue("rowTag");
+        private string? _mValue_RowTag;
+        private bool _mUnknown_RowTag;
+        public string? RowTag
+        {
+            get
+            {
+                if (!_mUnknown_RowTag) return _mValue_RowTag;
+                throw new UndeferrableValueException("Value 'ClassifierXmlClassifier.RowTag' is not present");
+            }
+        }
     }
 }

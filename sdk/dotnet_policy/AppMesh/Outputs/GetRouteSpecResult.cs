@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecResult
     {
-        [Input("grpcRoutes")]
+        [PolicyResourceProperty("grpcRoutes", "_mUnknown_GrpcRoutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecGrpcRouteResult>> _mGrpcRoutes;
+        private List<Outputs.GetRouteSpecGrpcRouteResult>? _mValue_GrpcRoutes;
+        private bool _mUnknown_GrpcRoutes;
+        public List<Outputs.GetRouteSpecGrpcRouteResult>? GrpcRoutes
+        {
+            get
+            {
+                if (!_mUnknown_GrpcRoutes) return _mValue_GrpcRoutes;
+                throw new UndeferrableValueException("Value 'GetRouteSpecResult.GrpcRoutes' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecGrpcRouteResult>? GrpcRoutes => _mGrpcRoutes.GetValue("grpcRoutes");
-
-        [Input("http2Routes")]
+        [PolicyResourceProperty("http2Routes", "_mUnknown_Http2Routes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteResult>> _mHttp2Routes;
+        private List<Outputs.GetRouteSpecHttp2RouteResult>? _mValue_Http2Routes;
+        private bool _mUnknown_Http2Routes;
+        public List<Outputs.GetRouteSpecHttp2RouteResult>? Http2Routes
+        {
+            get
+            {
+                if (!_mUnknown_Http2Routes) return _mValue_Http2Routes;
+                throw new UndeferrableValueException("Value 'GetRouteSpecResult.Http2Routes' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttp2RouteResult>? Http2Routes => _mHttp2Routes.GetValue("http2Routes");
-
-        [Input("httpRoutes")]
+        [PolicyResourceProperty("httpRoutes", "_mUnknown_HttpRoutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttpRouteResult>> _mHttpRoutes;
+        private List<Outputs.GetRouteSpecHttpRouteResult>? _mValue_HttpRoutes;
+        private bool _mUnknown_HttpRoutes;
+        public List<Outputs.GetRouteSpecHttpRouteResult>? HttpRoutes
+        {
+            get
+            {
+                if (!_mUnknown_HttpRoutes) return _mValue_HttpRoutes;
+                throw new UndeferrableValueException("Value 'GetRouteSpecResult.HttpRoutes' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttpRouteResult>? HttpRoutes => _mHttpRoutes.GetValue("httpRoutes");
-
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'GetRouteSpecResult.Priority' is not present");
+            }
+        }
 
-        public int? Priority => _mPriority.GetValue("priority");
-
-        [Input("tcpRoutes")]
+        [PolicyResourceProperty("tcpRoutes", "_mUnknown_TcpRoutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecTcpRouteResult>> _mTcpRoutes;
-
-        public List<Outputs.GetRouteSpecTcpRouteResult>? TcpRoutes => _mTcpRoutes.GetValue("tcpRoutes");
+        private List<Outputs.GetRouteSpecTcpRouteResult>? _mValue_TcpRoutes;
+        private bool _mUnknown_TcpRoutes;
+        public List<Outputs.GetRouteSpecTcpRouteResult>? TcpRoutes
+        {
+            get
+            {
+                if (!_mUnknown_TcpRoutes) return _mValue_TcpRoutes;
+                throw new UndeferrableValueException("Value 'GetRouteSpecResult.TcpRoutes' is not present");
+            }
+        }
     }
 }

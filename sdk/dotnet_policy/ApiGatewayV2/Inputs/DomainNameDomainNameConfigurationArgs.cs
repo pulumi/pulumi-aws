@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2.Inputs
         /// <summary>
         /// ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint type. Valid values: `REGIONAL`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Route 53 Hosted Zone ID of the endpoint.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         /// </summary>
-        [Input("ownershipVerificationCertificateArn")]
+        [PolicyResourceProperty("ownershipVerificationCertificateArn", "_mUnknown_OwnershipVerificationCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnershipVerificationCertificateArn;
-
-        public string? OwnershipVerificationCertificateArn => _mOwnershipVerificationCertificateArn.GetValue("ownershipVerificationCertificateArn");
+        private string? _mValue_OwnershipVerificationCertificateArn;
+        private bool _mUnknown_OwnershipVerificationCertificateArn;
+        public string? OwnershipVerificationCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_OwnershipVerificationCertificateArn) return _mValue_OwnershipVerificationCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.OwnershipVerificationCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
         /// </summary>
-        [Input("securityPolicy")]
+        [PolicyResourceProperty("securityPolicy", "_mUnknown_SecurityPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicy;
-
-        public string? SecurityPolicy => _mSecurityPolicy.GetValue("securityPolicy");
+        private string? _mValue_SecurityPolicy;
+        private bool _mUnknown_SecurityPolicy;
+        public string? SecurityPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicy) return _mValue_SecurityPolicy;
+                throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.SecurityPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Target domain name.
         /// </summary>
-        [Input("targetDomainName")]
+        [PolicyResourceProperty("targetDomainName", "_mUnknown_TargetDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetDomainName;
-
-        public string? TargetDomainName => _mTargetDomainName.GetValue("targetDomainName");
+        private string? _mValue_TargetDomainName;
+        private bool _mUnknown_TargetDomainName;
+        public string? TargetDomainName
+        {
+            get
+            {
+                if (!_mUnknown_TargetDomainName) return _mValue_TargetDomainName;
+                throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.TargetDomainName' is not present");
+            }
+        }
     }
 }

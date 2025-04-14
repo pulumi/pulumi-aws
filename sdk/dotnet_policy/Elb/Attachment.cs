@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// <summary>
         /// The name of the ELB.
         /// </summary>
-        [Input("elb")]
+        [PolicyResourceProperty("elb", "_mUnknown_Elb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
-
-        public string? Elb => _mElb.GetValue("elb");
+        private string? _mValue_Elb;
+        private bool _mUnknown_Elb;
+        public string? Elb
+        {
+            get
+            {
+                if (!_mUnknown_Elb) return _mValue_Elb;
+                throw new UndeferrableValueException("Value 'Attachment.Elb' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance ID to place in the ELB pool.
         /// </summary>
-        [Input("instance")]
+        [PolicyResourceProperty("instance", "_mUnknown_Instance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
-
-        public string? Instance => _mInstance.GetValue("instance");
+        private string? _mValue_Instance;
+        private bool _mUnknown_Instance;
+        public string? Instance
+        {
+            get
+            {
+                if (!_mUnknown_Instance) return _mValue_Instance;
+                throw new UndeferrableValueException("Value 'Attachment.Instance' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elb/attachment:Attachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// <summary>
         /// The name of the ELB.
         /// </summary>
-        [Input("elb")]
+        [PolicyResourceProperty("elb", "_mUnknown_Elb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
-
-        public string? Elb => _mElb.GetValue("elb");
+        private string? _mValue_Elb;
+        private bool _mUnknown_Elb;
+        public string? Elb
+        {
+            get
+            {
+                if (!_mUnknown_Elb) return _mValue_Elb;
+                throw new UndeferrableValueException("Value 'AttachmentArgs.Elb' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance ID to place in the ELB pool.
         /// </summary>
-        [Input("instance")]
+        [PolicyResourceProperty("instance", "_mUnknown_Instance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
-
-        public string? Instance => _mInstance.GetValue("instance");
+        private string? _mValue_Instance;
+        private bool _mUnknown_Instance;
+        public string? Instance
+        {
+            get
+            {
+                if (!_mUnknown_Instance) return _mValue_Instance;
+                throw new UndeferrableValueException("Value 'AttachmentArgs.Instance' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// User-specified id. Ths is used in an output group or an output.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'ChannelDestinationArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
         /// </summary>
-        [Input("mediaPackageSettings")]
+        [PolicyResourceProperty("mediaPackageSettings", "_mUnknown_MediaPackageSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelDestinationMediaPackageSettingArgs>> _mMediaPackageSettings;
-
-        public List<Inputs.ChannelDestinationMediaPackageSettingArgs>? MediaPackageSettings => _mMediaPackageSettings.GetValue("mediaPackageSettings");
+        private List<Inputs.ChannelDestinationMediaPackageSettingArgs>? _mValue_MediaPackageSettings;
+        private bool _mUnknown_MediaPackageSettings;
+        public List<Inputs.ChannelDestinationMediaPackageSettingArgs>? MediaPackageSettings
+        {
+            get
+            {
+                if (!_mUnknown_MediaPackageSettings) return _mValue_MediaPackageSettings;
+                throw new UndeferrableValueException("Value 'ChannelDestinationArgs.MediaPackageSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
         /// </summary>
-        [Input("multiplexSettings")]
+        [PolicyResourceProperty("multiplexSettings", "_mUnknown_MultiplexSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelDestinationMultiplexSettingsArgs> _mMultiplexSettings;
-
-        public Inputs.ChannelDestinationMultiplexSettingsArgs? MultiplexSettings => _mMultiplexSettings.GetValue("multiplexSettings");
+        private Inputs.ChannelDestinationMultiplexSettingsArgs? _mValue_MultiplexSettings;
+        private bool _mUnknown_MultiplexSettings;
+        public Inputs.ChannelDestinationMultiplexSettingsArgs? MultiplexSettings
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexSettings) return _mValue_MultiplexSettings;
+                throw new UndeferrableValueException("Value 'ChannelDestinationArgs.MultiplexSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelDestinationSettingArgs>> _mSettings;
-
-        public List<Inputs.ChannelDestinationSettingArgs>? Settings => _mSettings.GetValue("settings");
+        private List<Inputs.ChannelDestinationSettingArgs>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<Inputs.ChannelDestinationSettingArgs>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'ChannelDestinationArgs.Settings' is not present");
+            }
+        }
     }
 }

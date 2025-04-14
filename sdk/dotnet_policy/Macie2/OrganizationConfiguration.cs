@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.AutoEnable' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:macie2/organizationConfiguration:OrganizationConfiguration")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// Whether to enable Amazon Macie automatically for accounts that are added to the organization in AWS Organizations.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.AutoEnable' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
         /// </summary>
-        [Input("defaultRetention")]
+        [PolicyResourceProperty("defaultRetention", "_mUnknown_DefaultRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs> _mDefaultRetention;
-
-        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs? DefaultRetention => _mDefaultRetention.GetValue("defaultRetention");
+        private Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs? _mValue_DefaultRetention;
+        private bool _mUnknown_DefaultRetention;
+        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs? DefaultRetention
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRetention) return _mValue_DefaultRetention;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriodArgs.DefaultRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
         /// </summary>
-        [Input("maximumRetention")]
+        [PolicyResourceProperty("maximumRetention", "_mUnknown_MaximumRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs> _mMaximumRetention;
-
-        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs? MaximumRetention => _mMaximumRetention.GetValue("maximumRetention");
+        private Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs? _mValue_MaximumRetention;
+        private bool _mUnknown_MaximumRetention;
+        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs? MaximumRetention
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetention) return _mValue_MaximumRetention;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriodArgs.MaximumRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
         /// </summary>
-        [Input("minimumRetention")]
+        [PolicyResourceProperty("minimumRetention", "_mUnknown_MinimumRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs> _mMinimumRetention;
-
-        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs? MinimumRetention => _mMinimumRetention.GetValue("minimumRetention");
+        private Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs? _mValue_MinimumRetention;
+        private bool _mUnknown_MinimumRetention;
+        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs? MinimumRetention
+        {
+            get
+            {
+                if (!_mUnknown_MinimumRetention) return _mValue_MinimumRetention;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriodArgs.MinimumRetention' is not present");
+            }
+        }
     }
 }

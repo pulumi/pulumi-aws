@@ -15,22 +15,43 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// An empty configuration block that is used for inspecting all headers.
         /// </summary>
-        [Input("all")]
+        [PolicyResourceProperty("all", "_mUnknown_All")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll> _mAll;
+        private Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll? _mValue_All;
+        private bool _mUnknown_All;
+        public Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll? All
+        {
+            get
+            {
+                if (!_mUnknown_All) return _mValue_All;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern.All' is not present");
+            }
+        }
 
-        public Outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll? All => _mAll.GetValue("all");
-
-        [Input("excludedCookies")]
+        [PolicyResourceProperty("excludedCookies", "_mUnknown_ExcludedCookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedCookies;
+        private List<string>? _mValue_ExcludedCookies;
+        private bool _mUnknown_ExcludedCookies;
+        public List<string>? ExcludedCookies
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedCookies) return _mValue_ExcludedCookies;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern.ExcludedCookies' is not present");
+            }
+        }
 
-        public List<string>? ExcludedCookies => _mExcludedCookies.GetValue("excludedCookies");
-
-        [Input("includedCookies")]
+        [PolicyResourceProperty("includedCookies", "_mUnknown_IncludedCookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludedCookies;
-
-        public List<string>? IncludedCookies => _mIncludedCookies.GetValue("includedCookies");
+        private List<string>? _mValue_IncludedCookies;
+        private bool _mUnknown_IncludedCookies;
+        public List<string>? IncludedCookies
+        {
+            get
+            {
+                if (!_mUnknown_IncludedCookies) return _mValue_IncludedCookies;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern.IncludedCookies' is not present");
+            }
+        }
     }
 }

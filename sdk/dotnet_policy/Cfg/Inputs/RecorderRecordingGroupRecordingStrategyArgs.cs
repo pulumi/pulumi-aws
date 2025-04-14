@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
 {
     public sealed class RecorderRecordingGroupRecordingStrategyArgs
     {
-        [Input("useOnly")]
+        [PolicyResourceProperty("useOnly", "_mUnknown_UseOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUseOnly;
-
-        public string? UseOnly => _mUseOnly.GetValue("useOnly");
+        private string? _mValue_UseOnly;
+        private bool _mUnknown_UseOnly;
+        public string? UseOnly
+        {
+            get
+            {
+                if (!_mUnknown_UseOnly) return _mValue_UseOnly;
+                throw new UndeferrableValueException("Value 'RecorderRecordingGroupRecordingStrategyArgs.UseOnly' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Outputs
         /// <summary>
         /// The name of the S3 bucket where Identity Resolution Jobs write result files.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'DomainMatchingExportingConfigS3Exporting.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 key name of the location where Identity Resolution Jobs write result files.
         /// </summary>
-        [Input("s3KeyName")]
+        [PolicyResourceProperty("s3KeyName", "_mUnknown_S3KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyName;
-
-        public string? S3KeyName => _mS3KeyName.GetValue("s3KeyName");
+        private string? _mValue_S3KeyName;
+        private bool _mUnknown_S3KeyName;
+        public string? S3KeyName
+        {
+            get
+            {
+                if (!_mUnknown_S3KeyName) return _mValue_S3KeyName;
+                throw new UndeferrableValueException("Value 'DomainMatchingExportingConfigS3Exporting.S3KeyName' is not present");
+            }
+        }
     }
 }

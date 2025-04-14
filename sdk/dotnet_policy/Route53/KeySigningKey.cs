@@ -16,130 +16,228 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         /// </summary>
-        [Input("digestAlgorithmMnemonic")]
+        [PolicyResourceProperty("digestAlgorithmMnemonic", "_mUnknown_DigestAlgorithmMnemonic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDigestAlgorithmMnemonic;
-
-        public string? DigestAlgorithmMnemonic => _mDigestAlgorithmMnemonic.GetValue("digestAlgorithmMnemonic");
+        private string? _mValue_DigestAlgorithmMnemonic;
+        private bool _mUnknown_DigestAlgorithmMnemonic;
+        public string? DigestAlgorithmMnemonic
+        {
+            get
+            {
+                if (!_mUnknown_DigestAlgorithmMnemonic) return _mValue_DigestAlgorithmMnemonic;
+                throw new UndeferrableValueException("Value 'KeySigningKey.DigestAlgorithmMnemonic' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
         /// </summary>
-        [Input("digestAlgorithmType")]
+        [PolicyResourceProperty("digestAlgorithmType", "_mUnknown_DigestAlgorithmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDigestAlgorithmType;
-
-        public int? DigestAlgorithmType => _mDigestAlgorithmType.GetValue("digestAlgorithmType");
+        private int? _mValue_DigestAlgorithmType;
+        private bool _mUnknown_DigestAlgorithmType;
+        public int? DigestAlgorithmType
+        {
+            get
+            {
+                if (!_mUnknown_DigestAlgorithmType) return _mValue_DigestAlgorithmType;
+                throw new UndeferrableValueException("Value 'KeySigningKey.DigestAlgorithmType' is not present");
+            }
+        }
 
         /// <summary>
         /// A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
         /// </summary>
-        [Input("digestValue")]
+        [PolicyResourceProperty("digestValue", "_mUnknown_DigestValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDigestValue;
-
-        public string? DigestValue => _mDigestValue.GetValue("digestValue");
+        private string? _mValue_DigestValue;
+        private bool _mUnknown_DigestValue;
+        public string? DigestValue
+        {
+            get
+            {
+                if (!_mUnknown_DigestValue) return _mValue_DigestValue;
+                throw new UndeferrableValueException("Value 'KeySigningKey.DigestValue' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that represents a DNSKEY record.
         /// </summary>
-        [Input("dnskeyRecord")]
+        [PolicyResourceProperty("dnskeyRecord", "_mUnknown_DnskeyRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnskeyRecord;
-
-        public string? DnskeyRecord => _mDnskeyRecord.GetValue("dnskeyRecord");
+        private string? _mValue_DnskeyRecord;
+        private bool _mUnknown_DnskeyRecord;
+        public string? DnskeyRecord
+        {
+            get
+            {
+                if (!_mUnknown_DnskeyRecord) return _mValue_DnskeyRecord;
+                throw new UndeferrableValueException("Value 'KeySigningKey.DnskeyRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that represents a delegation signer (DS) record.
         /// </summary>
-        [Input("dsRecord")]
+        [PolicyResourceProperty("dsRecord", "_mUnknown_DsRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDsRecord;
-
-        public string? DsRecord => _mDsRecord.GetValue("dsRecord");
+        private string? _mValue_DsRecord;
+        private bool _mUnknown_DsRecord;
+        public string? DsRecord
+        {
+            get
+            {
+                if (!_mUnknown_DsRecord) return _mValue_DsRecord;
+                throw new UndeferrableValueException("Value 'KeySigningKey.DsRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
         /// </summary>
-        [Input("flag")]
+        [PolicyResourceProperty("flag", "_mUnknown_Flag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFlag;
-
-        public int? Flag => _mFlag.GetValue("flag");
+        private int? _mValue_Flag;
+        private bool _mUnknown_Flag;
+        public int? Flag
+        {
+            get
+            {
+                if (!_mUnknown_Flag) return _mValue_Flag;
+                throw new UndeferrableValueException("Value 'KeySigningKey.Flag' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'KeySigningKey.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         /// </summary>
-        [Input("keyManagementServiceArn")]
+        [PolicyResourceProperty("keyManagementServiceArn", "_mUnknown_KeyManagementServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyManagementServiceArn;
-
-        public string? KeyManagementServiceArn => _mKeyManagementServiceArn.GetValue("keyManagementServiceArn");
+        private string? _mValue_KeyManagementServiceArn;
+        private bool _mUnknown_KeyManagementServiceArn;
+        public string? KeyManagementServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyManagementServiceArn) return _mValue_KeyManagementServiceArn;
+                throw new UndeferrableValueException("Value 'KeySigningKey.KeyManagementServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
         /// </summary>
-        [Input("keyTag")]
+        [PolicyResourceProperty("keyTag", "_mUnknown_KeyTag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mKeyTag;
-
-        public int? KeyTag => _mKeyTag.GetValue("keyTag");
+        private int? _mValue_KeyTag;
+        private bool _mUnknown_KeyTag;
+        public int? KeyTag
+        {
+            get
+            {
+                if (!_mUnknown_KeyTag) return _mValue_KeyTag;
+                throw new UndeferrableValueException("Value 'KeySigningKey.KeyTag' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KeySigningKey.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'KeySigningKey.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         /// </summary>
-        [Input("signingAlgorithmMnemonic")]
+        [PolicyResourceProperty("signingAlgorithmMnemonic", "_mUnknown_SigningAlgorithmMnemonic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithmMnemonic;
-
-        public string? SigningAlgorithmMnemonic => _mSigningAlgorithmMnemonic.GetValue("signingAlgorithmMnemonic");
+        private string? _mValue_SigningAlgorithmMnemonic;
+        private bool _mUnknown_SigningAlgorithmMnemonic;
+        public string? SigningAlgorithmMnemonic
+        {
+            get
+            {
+                if (!_mUnknown_SigningAlgorithmMnemonic) return _mValue_SigningAlgorithmMnemonic;
+                throw new UndeferrableValueException("Value 'KeySigningKey.SigningAlgorithmMnemonic' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
         /// </summary>
-        [Input("signingAlgorithmType")]
+        [PolicyResourceProperty("signingAlgorithmType", "_mUnknown_SigningAlgorithmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSigningAlgorithmType;
-
-        public int? SigningAlgorithmType => _mSigningAlgorithmType.GetValue("signingAlgorithmType");
+        private int? _mValue_SigningAlgorithmType;
+        private bool _mUnknown_SigningAlgorithmType;
+        public int? SigningAlgorithmType
+        {
+            get
+            {
+                if (!_mUnknown_SigningAlgorithmType) return _mValue_SigningAlgorithmType;
+                throw new UndeferrableValueException("Value 'KeySigningKey.SigningAlgorithmType' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'KeySigningKey.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/keySigningKey:KeySigningKey")]
@@ -148,39 +246,67 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// Identifier of the Route 53 Hosted Zone.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'KeySigningKeyArgs.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         /// </summary>
-        [Input("keyManagementServiceArn")]
+        [PolicyResourceProperty("keyManagementServiceArn", "_mUnknown_KeyManagementServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyManagementServiceArn;
-
-        public string? KeyManagementServiceArn => _mKeyManagementServiceArn.GetValue("keyManagementServiceArn");
+        private string? _mValue_KeyManagementServiceArn;
+        private bool _mUnknown_KeyManagementServiceArn;
+        public string? KeyManagementServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyManagementServiceArn) return _mValue_KeyManagementServiceArn;
+                throw new UndeferrableValueException("Value 'KeySigningKeyArgs.KeyManagementServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KeySigningKeyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'KeySigningKeyArgs.Status' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Outputs
 {
     public sealed class GetPlanStageResult
     {
-        [Input("durationInMinutes")]
+        [PolicyResourceProperty("durationInMinutes", "_mUnknown_DurationInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDurationInMinutes;
+        private int? _mValue_DurationInMinutes;
+        private bool _mUnknown_DurationInMinutes;
+        public int? DurationInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_DurationInMinutes) return _mValue_DurationInMinutes;
+                throw new UndeferrableValueException("Value 'GetPlanStageResult.DurationInMinutes' is not present");
+            }
+        }
 
-        public int? DurationInMinutes => _mDurationInMinutes.GetValue("durationInMinutes");
-
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetPlanStageTargetResult>> _mTargets;
-
-        public List<Outputs.GetPlanStageTargetResult>? Targets => _mTargets.GetValue("targets");
+        private List<Outputs.GetPlanStageTargetResult>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Outputs.GetPlanStageTargetResult>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'GetPlanStageResult.Targets' is not present");
+            }
+        }
     }
 }

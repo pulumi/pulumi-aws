@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
 {
     public sealed class ConfigurationSetEventDestinationEventDestinationPinpointDestination
     {
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationPinpointDestination.ApplicationArn' is not present");
+            }
+        }
     }
 }

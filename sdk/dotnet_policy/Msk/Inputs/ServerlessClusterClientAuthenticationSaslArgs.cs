@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Details for client authentication using IAM. See below.
         /// </summary>
-        [Input("iam")]
+        [PolicyResourceProperty("iam", "_mUnknown_Iam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessClusterClientAuthenticationSaslIamArgs> _mIam;
-
-        public Inputs.ServerlessClusterClientAuthenticationSaslIamArgs? Iam => _mIam.GetValue("iam");
+        private Inputs.ServerlessClusterClientAuthenticationSaslIamArgs? _mValue_Iam;
+        private bool _mUnknown_Iam;
+        public Inputs.ServerlessClusterClientAuthenticationSaslIamArgs? Iam
+        {
+            get
+            {
+                if (!_mUnknown_Iam) return _mValue_Iam;
+                throw new UndeferrableValueException("Value 'ServerlessClusterClientAuthenticationSaslArgs.Iam' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The base URL of the Jira instance's site to which to connect.
         /// </summary>
-        [Input("siteBaseUrl")]
+        [PolicyResourceProperty("siteBaseUrl", "_mUnknown_SiteBaseUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSiteBaseUrl;
-
-        public string? SiteBaseUrl => _mSiteBaseUrl.GetValue("siteBaseUrl");
+        private string? _mValue_SiteBaseUrl;
+        private bool _mUnknown_SiteBaseUrl;
+        public string? SiteBaseUrl
+        {
+            get
+            {
+                if (!_mUnknown_SiteBaseUrl) return _mValue_SiteBaseUrl;
+                throw new UndeferrableValueException("Value 'DataSourceParametersJiraArgs.SiteBaseUrl' is not present");
+            }
+        }
     }
 }

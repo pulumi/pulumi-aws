@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Inputs
         /// <summary>
         /// Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
         /// </summary>
-        [Input("networkAclCommonPolicy")]
+        [PolicyResourceProperty("networkAclCommonPolicy", "_mUnknown_NetworkAclCommonPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs> _mNetworkAclCommonPolicy;
-
-        public Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs? NetworkAclCommonPolicy => _mNetworkAclCommonPolicy.GetValue("networkAclCommonPolicy");
+        private Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs? _mValue_NetworkAclCommonPolicy;
+        private bool _mUnknown_NetworkAclCommonPolicy;
+        public Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs? NetworkAclCommonPolicy
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAclCommonPolicy) return _mValue_NetworkAclCommonPolicy;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionArgs.NetworkAclCommonPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
         /// </summary>
-        [Input("networkFirewallPolicy")]
+        [PolicyResourceProperty("networkFirewallPolicy", "_mUnknown_NetworkFirewallPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs> _mNetworkFirewallPolicy;
+        private Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs? _mValue_NetworkFirewallPolicy;
+        private bool _mUnknown_NetworkFirewallPolicy;
+        public Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs? NetworkFirewallPolicy
+        {
+            get
+            {
+                if (!_mUnknown_NetworkFirewallPolicy) return _mValue_NetworkFirewallPolicy;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionArgs.NetworkFirewallPolicy' is not present");
+            }
+        }
 
-        public Inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs? NetworkFirewallPolicy => _mNetworkFirewallPolicy.GetValue("networkFirewallPolicy");
-
-        [Input("thirdPartyFirewallPolicy")]
+        [PolicyResourceProperty("thirdPartyFirewallPolicy", "_mUnknown_ThirdPartyFirewallPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs> _mThirdPartyFirewallPolicy;
-
-        public Inputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs? ThirdPartyFirewallPolicy => _mThirdPartyFirewallPolicy.GetValue("thirdPartyFirewallPolicy");
+        private Inputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs? _mValue_ThirdPartyFirewallPolicy;
+        private bool _mUnknown_ThirdPartyFirewallPolicy;
+        public Inputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs? ThirdPartyFirewallPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ThirdPartyFirewallPolicy) return _mValue_ThirdPartyFirewallPolicy;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionArgs.ThirdPartyFirewallPolicy' is not present");
+            }
+        }
     }
 }

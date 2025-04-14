@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// The ARN of the serverless cluster.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServerlessCluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies client authentication information for the serverless cluster. See below.
         /// </summary>
-        [Input("clientAuthentication")]
+        [PolicyResourceProperty("clientAuthentication", "_mUnknown_ClientAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessClusterClientAuthentication> _mClientAuthentication;
-
-        public Outputs.ServerlessClusterClientAuthentication? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
+        private Outputs.ServerlessClusterClientAuthentication? _mValue_ClientAuthentication;
+        private bool _mUnknown_ClientAuthentication;
+        public Outputs.ServerlessClusterClientAuthentication? ClientAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_ClientAuthentication) return _mValue_ClientAuthentication;
+                throw new UndeferrableValueException("Value 'ServerlessCluster.ClientAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the serverless cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'ServerlessCluster.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// UUID of the serverless cluster, for use in IAM policies.
         /// </summary>
-        [Input("clusterUuid")]
+        [PolicyResourceProperty("clusterUuid", "_mUnknown_ClusterUuid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterUuid;
-
-        public string? ClusterUuid => _mClusterUuid.GetValue("clusterUuid");
+        private string? _mValue_ClusterUuid;
+        private bool _mUnknown_ClusterUuid;
+        public string? ClusterUuid
+        {
+            get
+            {
+                if (!_mUnknown_ClusterUuid) return _mValue_ClusterUuid;
+                throw new UndeferrableValueException("Value 'ServerlessCluster.ClusterUuid' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerlessCluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServerlessCluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC configuration information. See below.
         /// </summary>
-        [Input("vpcConfigs")]
+        [PolicyResourceProperty("vpcConfigs", "_mUnknown_VpcConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServerlessClusterVpcConfig>> _mVpcConfigs;
-
-        public List<Outputs.ServerlessClusterVpcConfig>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
+        private List<Outputs.ServerlessClusterVpcConfig>? _mValue_VpcConfigs;
+        private bool _mUnknown_VpcConfigs;
+        public List<Outputs.ServerlessClusterVpcConfig>? VpcConfigs
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfigs) return _mValue_VpcConfigs;
+                throw new UndeferrableValueException("Value 'ServerlessCluster.VpcConfigs' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:msk/serverlessCluster:ServerlessCluster")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Specifies client authentication information for the serverless cluster. See below.
         /// </summary>
-        [Input("clientAuthentication")]
+        [PolicyResourceProperty("clientAuthentication", "_mUnknown_ClientAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessClusterClientAuthenticationArgs> _mClientAuthentication;
-
-        public Inputs.ServerlessClusterClientAuthenticationArgs? ClientAuthentication => _mClientAuthentication.GetValue("clientAuthentication");
+        private Inputs.ServerlessClusterClientAuthenticationArgs? _mValue_ClientAuthentication;
+        private bool _mUnknown_ClientAuthentication;
+        public Inputs.ServerlessClusterClientAuthenticationArgs? ClientAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_ClientAuthentication) return _mValue_ClientAuthentication;
+                throw new UndeferrableValueException("Value 'ServerlessClusterArgs.ClientAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the serverless cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'ServerlessClusterArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerlessClusterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC configuration information. See below.
         /// </summary>
-        [Input("vpcConfigs")]
+        [PolicyResourceProperty("vpcConfigs", "_mUnknown_VpcConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServerlessClusterVpcConfigArgs>> _mVpcConfigs;
-
-        public List<Inputs.ServerlessClusterVpcConfigArgs>? VpcConfigs => _mVpcConfigs.GetValue("vpcConfigs");
+        private List<Inputs.ServerlessClusterVpcConfigArgs>? _mValue_VpcConfigs;
+        private bool _mUnknown_VpcConfigs;
+        public List<Inputs.ServerlessClusterVpcConfigArgs>? VpcConfigs
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfigs) return _mValue_VpcConfigs;
+                throw new UndeferrableValueException("Value 'ServerlessClusterArgs.VpcConfigs' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// The After Call Work (ACW) timeout setting, in seconds.
         /// </summary>
-        [Input("afterContactWorkTimeLimit")]
+        [PolicyResourceProperty("afterContactWorkTimeLimit", "_mUnknown_AfterContactWorkTimeLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAfterContactWorkTimeLimit;
-
-        public int? AfterContactWorkTimeLimit => _mAfterContactWorkTimeLimit.GetValue("afterContactWorkTimeLimit");
+        private int? _mValue_AfterContactWorkTimeLimit;
+        private bool _mUnknown_AfterContactWorkTimeLimit;
+        public int? AfterContactWorkTimeLimit
+        {
+            get
+            {
+                if (!_mUnknown_AfterContactWorkTimeLimit) return _mValue_AfterContactWorkTimeLimit;
+                throw new UndeferrableValueException("Value 'GetUserPhoneConfigResult.AfterContactWorkTimeLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
         /// </summary>
-        [Input("autoAccept")]
+        [PolicyResourceProperty("autoAccept", "_mUnknown_AutoAccept")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAccept;
-
-        public bool? AutoAccept => _mAutoAccept.GetValue("autoAccept");
+        private bool? _mValue_AutoAccept;
+        private bool _mUnknown_AutoAccept;
+        public bool? AutoAccept
+        {
+            get
+            {
+                if (!_mUnknown_AutoAccept) return _mValue_AutoAccept;
+                throw new UndeferrableValueException("Value 'GetUserPhoneConfigResult.AutoAccept' is not present");
+            }
+        }
 
         /// <summary>
         /// The phone number for the user's desk phone.
         /// </summary>
-        [Input("deskPhoneNumber")]
+        [PolicyResourceProperty("deskPhoneNumber", "_mUnknown_DeskPhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeskPhoneNumber;
-
-        public string? DeskPhoneNumber => _mDeskPhoneNumber.GetValue("deskPhoneNumber");
+        private string? _mValue_DeskPhoneNumber;
+        private bool _mUnknown_DeskPhoneNumber;
+        public string? DeskPhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_DeskPhoneNumber) return _mValue_DeskPhoneNumber;
+                throw new UndeferrableValueException("Value 'GetUserPhoneConfigResult.DeskPhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
         /// </summary>
-        [Input("phoneType")]
+        [PolicyResourceProperty("phoneType", "_mUnknown_PhoneType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneType;
-
-        public string? PhoneType => _mPhoneType.GetValue("phoneType");
+        private string? _mValue_PhoneType;
+        private bool _mUnknown_PhoneType;
+        public string? PhoneType
+        {
+            get
+            {
+                if (!_mUnknown_PhoneType) return _mValue_PhoneType;
+                throw new UndeferrableValueException("Value 'GetUserPhoneConfigResult.PhoneType' is not present");
+            }
+        }
     }
 }

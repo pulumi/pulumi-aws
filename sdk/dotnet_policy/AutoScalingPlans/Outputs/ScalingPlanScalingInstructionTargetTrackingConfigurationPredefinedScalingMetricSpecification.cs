@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans.Outputs
         /// <summary>
         /// Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
         /// </summary>
-        [Input("predefinedScalingMetricType")]
+        [PolicyResourceProperty("predefinedScalingMetricType", "_mUnknown_PredefinedScalingMetricType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPredefinedScalingMetricType;
-
-        public string? PredefinedScalingMetricType => _mPredefinedScalingMetricType.GetValue("predefinedScalingMetricType");
+        private string? _mValue_PredefinedScalingMetricType;
+        private bool _mUnknown_PredefinedScalingMetricType;
+        public string? PredefinedScalingMetricType
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedScalingMetricType) return _mValue_PredefinedScalingMetricType;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification.PredefinedScalingMetricType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the resource associated with the metric type.
         /// </summary>
-        [Input("resourceLabel")]
+        [PolicyResourceProperty("resourceLabel", "_mUnknown_ResourceLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceLabel;
-
-        public string? ResourceLabel => _mResourceLabel.GetValue("resourceLabel");
+        private string? _mValue_ResourceLabel;
+        private bool _mUnknown_ResourceLabel;
+        public string? ResourceLabel
+        {
+            get
+            {
+                if (!_mUnknown_ResourceLabel) return _mValue_ResourceLabel;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification.ResourceLabel' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Inputs
         /// <summary>
         /// Hour during which the service takes an automated daily snapshot of the indices in the domain.
         /// </summary>
-        [Input("automatedSnapshotStartHour")]
+        [PolicyResourceProperty("automatedSnapshotStartHour", "_mUnknown_AutomatedSnapshotStartHour")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomatedSnapshotStartHour;
-
-        public int? AutomatedSnapshotStartHour => _mAutomatedSnapshotStartHour.GetValue("automatedSnapshotStartHour");
+        private int? _mValue_AutomatedSnapshotStartHour;
+        private bool _mUnknown_AutomatedSnapshotStartHour;
+        public int? AutomatedSnapshotStartHour
+        {
+            get
+            {
+                if (!_mUnknown_AutomatedSnapshotStartHour) return _mValue_AutomatedSnapshotStartHour;
+                throw new UndeferrableValueException("Value 'DomainSnapshotOptionsArgs.AutomatedSnapshotStartHour' is not present");
+            }
+        }
     }
 }

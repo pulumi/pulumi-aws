@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// Configuration block with block storage configuration for the cluster. Detailed below.
         /// </summary>
-        [Input("blockStorage")]
+        [PolicyResourceProperty("blockStorage", "_mUnknown_BlockStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterStorageConfigBlockStorageArgs> _mBlockStorage;
-
-        public Inputs.ClusterStorageConfigBlockStorageArgs? BlockStorage => _mBlockStorage.GetValue("blockStorage");
+        private Inputs.ClusterStorageConfigBlockStorageArgs? _mValue_BlockStorage;
+        private bool _mUnknown_BlockStorage;
+        public Inputs.ClusterStorageConfigBlockStorageArgs? BlockStorage
+        {
+            get
+            {
+                if (!_mUnknown_BlockStorage) return _mValue_BlockStorage;
+                throw new UndeferrableValueException("Value 'ClusterStorageConfigArgs.BlockStorage' is not present");
+            }
+        }
     }
 }

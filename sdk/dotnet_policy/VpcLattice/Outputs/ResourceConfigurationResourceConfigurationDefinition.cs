@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// Resource DNS Configuration. See `arn_resource` Block for details.
         /// </summary>
-        [Input("arnResource")]
+        [PolicyResourceProperty("arnResource", "_mUnknown_ArnResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource> _mArnResource;
-
-        public Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource? ArnResource => _mArnResource.GetValue("arnResource");
+        private Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource? _mValue_ArnResource;
+        private bool _mUnknown_ArnResource;
+        public Outputs.ResourceConfigurationResourceConfigurationDefinitionArnResource? ArnResource
+        {
+            get
+            {
+                if (!_mUnknown_ArnResource) return _mValue_ArnResource;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinition.ArnResource' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource DNS Configuration. See `dns_resource` Block for details.
         /// </summary>
-        [Input("dnsResource")]
+        [PolicyResourceProperty("dnsResource", "_mUnknown_DnsResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource> _mDnsResource;
-
-        public Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource? DnsResource => _mDnsResource.GetValue("dnsResource");
+        private Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource? _mValue_DnsResource;
+        private bool _mUnknown_DnsResource;
+        public Outputs.ResourceConfigurationResourceConfigurationDefinitionDnsResource? DnsResource
+        {
+            get
+            {
+                if (!_mUnknown_DnsResource) return _mValue_DnsResource;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinition.DnsResource' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource DNS Configuration. See `ip_resource` Block for details.
         /// </summary>
-        [Input("ipResource")]
+        [PolicyResourceProperty("ipResource", "_mUnknown_IpResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource> _mIpResource;
-
-        public Outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource? IpResource => _mIpResource.GetValue("ipResource");
+        private Outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource? _mValue_IpResource;
+        private bool _mUnknown_IpResource;
+        public Outputs.ResourceConfigurationResourceConfigurationDefinitionIpResource? IpResource
+        {
+            get
+            {
+                if (!_mUnknown_IpResource) return _mValue_IpResource;
+                throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinition.IpResource' is not present");
+            }
+        }
     }
 }

@@ -16,155 +16,274 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// Amazon Resource Name (ARN) of Transfer Server
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Server.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'Server.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'Server.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'Server.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Server.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
         /// </summary>
-        [Input("endpointDetails")]
+        [PolicyResourceProperty("endpointDetails", "_mUnknown_EndpointDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerEndpointDetails> _mEndpointDetails;
-
-        public Outputs.ServerEndpointDetails? EndpointDetails => _mEndpointDetails.GetValue("endpointDetails");
+        private Outputs.ServerEndpointDetails? _mValue_EndpointDetails;
+        private bool _mUnknown_EndpointDetails;
+        public Outputs.ServerEndpointDetails? EndpointDetails
+        {
+            get
+            {
+                if (!_mUnknown_EndpointDetails) return _mValue_EndpointDetails;
+                throw new UndeferrableValueException("Value 'Server.EndpointDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'Server.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'Server.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for a lambda function to use for the Identity provider.
         /// </summary>
-        [Input("function")]
+        [PolicyResourceProperty("function", "_mUnknown_Function")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunction;
-
-        public string? Function => _mFunction.GetValue("function");
+        private string? _mValue_Function;
+        private bool _mUnknown_Function;
+        public string? Function
+        {
+            get
+            {
+                if (!_mUnknown_Function) return _mValue_Function;
+                throw new UndeferrableValueException("Value 'Server.Function' is not present");
+            }
+        }
 
         /// <summary>
         /// RSA, ECDSA, or ED25519 private key (e.g., as generated by the `ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key`, `ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key` or `ssh-keygen -t ed25519 -N "" -f my-new-server-key` commands).
         /// </summary>
-        [Input("hostKey")]
+        [PolicyResourceProperty("hostKey", "_mUnknown_HostKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostKey;
-
-        public string? HostKey => _mHostKey.GetValue("hostKey");
+        private string? _mValue_HostKey;
+        private bool _mUnknown_HostKey;
+        public string? HostKey
+        {
+            get
+            {
+                if (!_mUnknown_HostKey) return _mValue_HostKey;
+                throw new UndeferrableValueException("Value 'Server.HostKey' is not present");
+            }
+        }
 
         /// <summary>
         /// This value contains the message-digest algorithm (MD5) hash of the server's host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
         /// </summary>
-        [Input("hostKeyFingerprint")]
+        [PolicyResourceProperty("hostKeyFingerprint", "_mUnknown_HostKeyFingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostKeyFingerprint;
-
-        public string? HostKeyFingerprint => _mHostKeyFingerprint.GetValue("hostKeyFingerprint");
+        private string? _mValue_HostKeyFingerprint;
+        private bool _mUnknown_HostKeyFingerprint;
+        public string? HostKeyFingerprint
+        {
+            get
+            {
+                if (!_mUnknown_HostKeyFingerprint) return _mValue_HostKeyFingerprint;
+                throw new UndeferrableValueException("Value 'Server.HostKeyFingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
         /// </summary>
-        [Input("identityProviderType")]
+        [PolicyResourceProperty("identityProviderType", "_mUnknown_IdentityProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProviderType;
-
-        public string? IdentityProviderType => _mIdentityProviderType.GetValue("identityProviderType");
+        private string? _mValue_IdentityProviderType;
+        private bool _mUnknown_IdentityProviderType;
+        public string? IdentityProviderType
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProviderType) return _mValue_IdentityProviderType;
+                throw new UndeferrableValueException("Value 'Server.IdentityProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
-        [Input("invocationRole")]
+        [PolicyResourceProperty("invocationRole", "_mUnknown_InvocationRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvocationRole;
-
-        public string? InvocationRole => _mInvocationRole.GetValue("invocationRole");
+        private string? _mValue_InvocationRole;
+        private bool _mUnknown_InvocationRole;
+        public string? InvocationRole
+        {
+            get
+            {
+                if (!_mUnknown_InvocationRole) return _mValue_InvocationRole;
+                throw new UndeferrableValueException("Value 'Server.InvocationRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
-        [Input("loggingRole")]
+        [PolicyResourceProperty("loggingRole", "_mUnknown_LoggingRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingRole;
-
-        public string? LoggingRole => _mLoggingRole.GetValue("loggingRole");
+        private string? _mValue_LoggingRole;
+        private bool _mUnknown_LoggingRole;
+        public string? LoggingRole
+        {
+            get
+            {
+                if (!_mUnknown_LoggingRole) return _mValue_LoggingRole;
+                throw new UndeferrableValueException("Value 'Server.LoggingRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         /// </summary>
-        [Input("postAuthenticationLoginBanner")]
+        [PolicyResourceProperty("postAuthenticationLoginBanner", "_mUnknown_PostAuthenticationLoginBanner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostAuthenticationLoginBanner;
-
-        public string? PostAuthenticationLoginBanner => _mPostAuthenticationLoginBanner.GetValue("postAuthenticationLoginBanner");
+        private string? _mValue_PostAuthenticationLoginBanner;
+        private bool _mUnknown_PostAuthenticationLoginBanner;
+        public string? PostAuthenticationLoginBanner
+        {
+            get
+            {
+                if (!_mUnknown_PostAuthenticationLoginBanner) return _mValue_PostAuthenticationLoginBanner;
+                throw new UndeferrableValueException("Value 'Server.PostAuthenticationLoginBanner' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         /// </summary>
-        [Input("preAuthenticationLoginBanner")]
+        [PolicyResourceProperty("preAuthenticationLoginBanner", "_mUnknown_PreAuthenticationLoginBanner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreAuthenticationLoginBanner;
-
-        public string? PreAuthenticationLoginBanner => _mPreAuthenticationLoginBanner.GetValue("preAuthenticationLoginBanner");
+        private string? _mValue_PreAuthenticationLoginBanner;
+        private bool _mUnknown_PreAuthenticationLoginBanner;
+        public string? PreAuthenticationLoginBanner
+        {
+            get
+            {
+                if (!_mUnknown_PreAuthenticationLoginBanner) return _mValue_PreAuthenticationLoginBanner;
+                throw new UndeferrableValueException("Value 'Server.PreAuthenticationLoginBanner' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol settings that are configured for your server. See `protocol_details` Block below for details.
         /// </summary>
-        [Input("protocolDetails")]
+        [PolicyResourceProperty("protocolDetails", "_mUnknown_ProtocolDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerProtocolDetails> _mProtocolDetails;
-
-        public Outputs.ServerProtocolDetails? ProtocolDetails => _mProtocolDetails.GetValue("protocolDetails");
+        private Outputs.ServerProtocolDetails? _mValue_ProtocolDetails;
+        private bool _mUnknown_ProtocolDetails;
+        public Outputs.ServerProtocolDetails? ProtocolDetails
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolDetails) return _mValue_ProtocolDetails;
+                throw new UndeferrableValueException("Value 'Server.ProtocolDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
@@ -173,20 +292,34 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// * `FTPS`: File transfer with TLS encryption
         /// * `FTP`: Unencrypted file transfer
         /// </summary>
-        [Input("protocols")]
+        [PolicyResourceProperty("protocols", "_mUnknown_Protocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtocols;
-
-        public List<string>? Protocols => _mProtocols.GetValue("protocols");
+        private List<string>? _mValue_Protocols;
+        private bool _mUnknown_Protocols;
+        public List<string>? Protocols
+        {
+            get
+            {
+                if (!_mUnknown_Protocols) return _mValue_Protocols;
+                throw new UndeferrableValueException("Value 'Server.Protocols' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         /// </summary>
-        [Input("s3StorageOptions")]
+        [PolicyResourceProperty("s3StorageOptions", "_mUnknown_S3StorageOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerS3StorageOptions> _mS3StorageOptions;
-
-        public Outputs.ServerS3StorageOptions? S3StorageOptions => _mS3StorageOptions.GetValue("s3StorageOptions");
+        private Outputs.ServerS3StorageOptions? _mValue_S3StorageOptions;
+        private bool _mUnknown_S3StorageOptions;
+        public Outputs.ServerS3StorageOptions? S3StorageOptions
+        {
+            get
+            {
+                if (!_mUnknown_S3StorageOptions) return _mValue_S3StorageOptions;
+                throw new UndeferrableValueException("Value 'Server.S3StorageOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
@@ -207,65 +340,114 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// 
         /// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         /// </summary>
-        [Input("securityPolicyName")]
+        [PolicyResourceProperty("securityPolicyName", "_mUnknown_SecurityPolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicyName;
-
-        public string? SecurityPolicyName => _mSecurityPolicyName.GetValue("securityPolicyName");
+        private string? _mValue_SecurityPolicyName;
+        private bool _mUnknown_SecurityPolicyName;
+        public string? SecurityPolicyName
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicyName) return _mValue_SecurityPolicyName;
+                throw new UndeferrableValueException("Value 'Server.SecurityPolicyName' is not present");
+            }
+        }
 
         /// <summary>
         /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
-        [Input("sftpAuthenticationMethods")]
+        [PolicyResourceProperty("sftpAuthenticationMethods", "_mUnknown_SftpAuthenticationMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSftpAuthenticationMethods;
-
-        public string? SftpAuthenticationMethods => _mSftpAuthenticationMethods.GetValue("sftpAuthenticationMethods");
+        private string? _mValue_SftpAuthenticationMethods;
+        private bool _mUnknown_SftpAuthenticationMethods;
+        public string? SftpAuthenticationMethods
+        {
+            get
+            {
+                if (!_mUnknown_SftpAuthenticationMethods) return _mValue_SftpAuthenticationMethods;
+                throw new UndeferrableValueException("Value 'Server.SftpAuthenticationMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
-        [Input("structuredLogDestinations")]
+        [PolicyResourceProperty("structuredLogDestinations", "_mUnknown_StructuredLogDestinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStructuredLogDestinations;
-
-        public List<string>? StructuredLogDestinations => _mStructuredLogDestinations.GetValue("structuredLogDestinations");
+        private List<string>? _mValue_StructuredLogDestinations;
+        private bool _mUnknown_StructuredLogDestinations;
+        public List<string>? StructuredLogDestinations
+        {
+            get
+            {
+                if (!_mUnknown_StructuredLogDestinations) return _mValue_StructuredLogDestinations;
+                throw new UndeferrableValueException("Value 'Server.StructuredLogDestinations' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Server.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Server.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Server.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the workflow details. See `workflow_details` Block below for details.
         /// </summary>
-        [Input("workflowDetails")]
+        [PolicyResourceProperty("workflowDetails", "_mUnknown_WorkflowDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerWorkflowDetails> _mWorkflowDetails;
-
-        public Outputs.ServerWorkflowDetails? WorkflowDetails => _mWorkflowDetails.GetValue("workflowDetails");
+        private Outputs.ServerWorkflowDetails? _mValue_WorkflowDetails;
+        private bool _mUnknown_WorkflowDetails;
+        public Outputs.ServerWorkflowDetails? WorkflowDetails
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowDetails) return _mValue_WorkflowDetails;
+                throw new UndeferrableValueException("Value 'Server.WorkflowDetails' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/server:Server")]
@@ -274,128 +456,226 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'ServerArgs.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'ServerArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'ServerArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
         /// </summary>
-        [Input("endpointDetails")]
+        [PolicyResourceProperty("endpointDetails", "_mUnknown_EndpointDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerEndpointDetailsArgs> _mEndpointDetails;
-
-        public Inputs.ServerEndpointDetailsArgs? EndpointDetails => _mEndpointDetails.GetValue("endpointDetails");
+        private Inputs.ServerEndpointDetailsArgs? _mValue_EndpointDetails;
+        private bool _mUnknown_EndpointDetails;
+        public Inputs.ServerEndpointDetailsArgs? EndpointDetails
+        {
+            get
+            {
+                if (!_mUnknown_EndpointDetails) return _mValue_EndpointDetails;
+                throw new UndeferrableValueException("Value 'ServerArgs.EndpointDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'ServerArgs.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'ServerArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for a lambda function to use for the Identity provider.
         /// </summary>
-        [Input("function")]
+        [PolicyResourceProperty("function", "_mUnknown_Function")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunction;
-
-        public string? Function => _mFunction.GetValue("function");
+        private string? _mValue_Function;
+        private bool _mUnknown_Function;
+        public string? Function
+        {
+            get
+            {
+                if (!_mUnknown_Function) return _mValue_Function;
+                throw new UndeferrableValueException("Value 'ServerArgs.Function' is not present");
+            }
+        }
 
         /// <summary>
         /// RSA, ECDSA, or ED25519 private key (e.g., as generated by the `ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key`, `ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key` or `ssh-keygen -t ed25519 -N "" -f my-new-server-key` commands).
         /// </summary>
-        [Input("hostKey")]
+        [PolicyResourceProperty("hostKey", "_mUnknown_HostKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostKey;
-
-        public string? HostKey => _mHostKey.GetValue("hostKey");
+        private string? _mValue_HostKey;
+        private bool _mUnknown_HostKey;
+        public string? HostKey
+        {
+            get
+            {
+                if (!_mUnknown_HostKey) return _mValue_HostKey;
+                throw new UndeferrableValueException("Value 'ServerArgs.HostKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
         /// </summary>
-        [Input("identityProviderType")]
+        [PolicyResourceProperty("identityProviderType", "_mUnknown_IdentityProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProviderType;
-
-        public string? IdentityProviderType => _mIdentityProviderType.GetValue("identityProviderType");
+        private string? _mValue_IdentityProviderType;
+        private bool _mUnknown_IdentityProviderType;
+        public string? IdentityProviderType
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProviderType) return _mValue_IdentityProviderType;
+                throw new UndeferrableValueException("Value 'ServerArgs.IdentityProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
-        [Input("invocationRole")]
+        [PolicyResourceProperty("invocationRole", "_mUnknown_InvocationRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvocationRole;
-
-        public string? InvocationRole => _mInvocationRole.GetValue("invocationRole");
+        private string? _mValue_InvocationRole;
+        private bool _mUnknown_InvocationRole;
+        public string? InvocationRole
+        {
+            get
+            {
+                if (!_mUnknown_InvocationRole) return _mValue_InvocationRole;
+                throw new UndeferrableValueException("Value 'ServerArgs.InvocationRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
-        [Input("loggingRole")]
+        [PolicyResourceProperty("loggingRole", "_mUnknown_LoggingRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingRole;
-
-        public string? LoggingRole => _mLoggingRole.GetValue("loggingRole");
+        private string? _mValue_LoggingRole;
+        private bool _mUnknown_LoggingRole;
+        public string? LoggingRole
+        {
+            get
+            {
+                if (!_mUnknown_LoggingRole) return _mValue_LoggingRole;
+                throw new UndeferrableValueException("Value 'ServerArgs.LoggingRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         /// </summary>
-        [Input("postAuthenticationLoginBanner")]
+        [PolicyResourceProperty("postAuthenticationLoginBanner", "_mUnknown_PostAuthenticationLoginBanner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostAuthenticationLoginBanner;
-
-        public string? PostAuthenticationLoginBanner => _mPostAuthenticationLoginBanner.GetValue("postAuthenticationLoginBanner");
+        private string? _mValue_PostAuthenticationLoginBanner;
+        private bool _mUnknown_PostAuthenticationLoginBanner;
+        public string? PostAuthenticationLoginBanner
+        {
+            get
+            {
+                if (!_mUnknown_PostAuthenticationLoginBanner) return _mValue_PostAuthenticationLoginBanner;
+                throw new UndeferrableValueException("Value 'ServerArgs.PostAuthenticationLoginBanner' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
         /// </summary>
-        [Input("preAuthenticationLoginBanner")]
+        [PolicyResourceProperty("preAuthenticationLoginBanner", "_mUnknown_PreAuthenticationLoginBanner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreAuthenticationLoginBanner;
-
-        public string? PreAuthenticationLoginBanner => _mPreAuthenticationLoginBanner.GetValue("preAuthenticationLoginBanner");
+        private string? _mValue_PreAuthenticationLoginBanner;
+        private bool _mUnknown_PreAuthenticationLoginBanner;
+        public string? PreAuthenticationLoginBanner
+        {
+            get
+            {
+                if (!_mUnknown_PreAuthenticationLoginBanner) return _mValue_PreAuthenticationLoginBanner;
+                throw new UndeferrableValueException("Value 'ServerArgs.PreAuthenticationLoginBanner' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol settings that are configured for your server. See `protocol_details` Block below for details.
         /// </summary>
-        [Input("protocolDetails")]
+        [PolicyResourceProperty("protocolDetails", "_mUnknown_ProtocolDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerProtocolDetailsArgs> _mProtocolDetails;
-
-        public Inputs.ServerProtocolDetailsArgs? ProtocolDetails => _mProtocolDetails.GetValue("protocolDetails");
+        private Inputs.ServerProtocolDetailsArgs? _mValue_ProtocolDetails;
+        private bool _mUnknown_ProtocolDetails;
+        public Inputs.ServerProtocolDetailsArgs? ProtocolDetails
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolDetails) return _mValue_ProtocolDetails;
+                throw new UndeferrableValueException("Value 'ServerArgs.ProtocolDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
@@ -404,20 +684,34 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// * `FTPS`: File transfer with TLS encryption
         /// * `FTP`: Unencrypted file transfer
         /// </summary>
-        [Input("protocols")]
+        [PolicyResourceProperty("protocols", "_mUnknown_Protocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtocols;
-
-        public List<string>? Protocols => _mProtocols.GetValue("protocols");
+        private List<string>? _mValue_Protocols;
+        private bool _mUnknown_Protocols;
+        public List<string>? Protocols
+        {
+            get
+            {
+                if (!_mUnknown_Protocols) return _mValue_Protocols;
+                throw new UndeferrableValueException("Value 'ServerArgs.Protocols' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         /// </summary>
-        [Input("s3StorageOptions")]
+        [PolicyResourceProperty("s3StorageOptions", "_mUnknown_S3StorageOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerS3StorageOptionsArgs> _mS3StorageOptions;
-
-        public Inputs.ServerS3StorageOptionsArgs? S3StorageOptions => _mS3StorageOptions.GetValue("s3StorageOptions");
+        private Inputs.ServerS3StorageOptionsArgs? _mValue_S3StorageOptions;
+        private bool _mUnknown_S3StorageOptions;
+        public Inputs.ServerS3StorageOptionsArgs? S3StorageOptions
+        {
+            get
+            {
+                if (!_mUnknown_S3StorageOptions) return _mValue_S3StorageOptions;
+                throw new UndeferrableValueException("Value 'ServerArgs.S3StorageOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
@@ -438,55 +732,97 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// 
         /// See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
         /// </summary>
-        [Input("securityPolicyName")]
+        [PolicyResourceProperty("securityPolicyName", "_mUnknown_SecurityPolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicyName;
-
-        public string? SecurityPolicyName => _mSecurityPolicyName.GetValue("securityPolicyName");
+        private string? _mValue_SecurityPolicyName;
+        private bool _mUnknown_SecurityPolicyName;
+        public string? SecurityPolicyName
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicyName) return _mValue_SecurityPolicyName;
+                throw new UndeferrableValueException("Value 'ServerArgs.SecurityPolicyName' is not present");
+            }
+        }
 
         /// <summary>
         /// For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
         /// </summary>
-        [Input("sftpAuthenticationMethods")]
+        [PolicyResourceProperty("sftpAuthenticationMethods", "_mUnknown_SftpAuthenticationMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSftpAuthenticationMethods;
-
-        public string? SftpAuthenticationMethods => _mSftpAuthenticationMethods.GetValue("sftpAuthenticationMethods");
+        private string? _mValue_SftpAuthenticationMethods;
+        private bool _mUnknown_SftpAuthenticationMethods;
+        public string? SftpAuthenticationMethods
+        {
+            get
+            {
+                if (!_mUnknown_SftpAuthenticationMethods) return _mValue_SftpAuthenticationMethods;
+                throw new UndeferrableValueException("Value 'ServerArgs.SftpAuthenticationMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         /// </summary>
-        [Input("structuredLogDestinations")]
+        [PolicyResourceProperty("structuredLogDestinations", "_mUnknown_StructuredLogDestinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStructuredLogDestinations;
-
-        public List<string>? StructuredLogDestinations => _mStructuredLogDestinations.GetValue("structuredLogDestinations");
+        private List<string>? _mValue_StructuredLogDestinations;
+        private bool _mUnknown_StructuredLogDestinations;
+        public List<string>? StructuredLogDestinations
+        {
+            get
+            {
+                if (!_mUnknown_StructuredLogDestinations) return _mValue_StructuredLogDestinations;
+                throw new UndeferrableValueException("Value 'ServerArgs.StructuredLogDestinations' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'ServerArgs.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the workflow details. See `workflow_details` Block below for details.
         /// </summary>
-        [Input("workflowDetails")]
+        [PolicyResourceProperty("workflowDetails", "_mUnknown_WorkflowDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerWorkflowDetailsArgs> _mWorkflowDetails;
-
-        public Inputs.ServerWorkflowDetailsArgs? WorkflowDetails => _mWorkflowDetails.GetValue("workflowDetails");
+        private Inputs.ServerWorkflowDetailsArgs? _mValue_WorkflowDetails;
+        private bool _mUnknown_WorkflowDetails;
+        public Inputs.ServerWorkflowDetailsArgs? WorkflowDetails
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowDetails) return _mValue_WorkflowDetails;
+                throw new UndeferrableValueException("Value 'ServerArgs.WorkflowDetails' is not present");
+            }
+        }
     }
 }

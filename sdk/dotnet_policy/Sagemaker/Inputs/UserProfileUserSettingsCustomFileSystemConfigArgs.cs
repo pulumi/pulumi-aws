@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The default EBS storage settings for a private space. See EFS File System Config below.
         /// </summary>
-        [Input("efsFileSystemConfigs")]
+        [PolicyResourceProperty("efsFileSystemConfigs", "_mUnknown_EfsFileSystemConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>> _mEfsFileSystemConfigs;
-
-        public List<Inputs.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>? EfsFileSystemConfigs => _mEfsFileSystemConfigs.GetValue("efsFileSystemConfigs");
+        private List<Inputs.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>? _mValue_EfsFileSystemConfigs;
+        private bool _mUnknown_EfsFileSystemConfigs;
+        public List<Inputs.UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs>? EfsFileSystemConfigs
+        {
+            get
+            {
+                if (!_mUnknown_EfsFileSystemConfigs) return _mValue_EfsFileSystemConfigs;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCustomFileSystemConfigArgs.EfsFileSystemConfigs' is not present");
+            }
+        }
     }
 }

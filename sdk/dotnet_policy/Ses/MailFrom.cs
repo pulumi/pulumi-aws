@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         /// </summary>
-        [Input("behaviorOnMxFailure")]
+        [PolicyResourceProperty("behaviorOnMxFailure", "_mUnknown_BehaviorOnMxFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBehaviorOnMxFailure;
-
-        public string? BehaviorOnMxFailure => _mBehaviorOnMxFailure.GetValue("behaviorOnMxFailure");
+        private string? _mValue_BehaviorOnMxFailure;
+        private bool _mUnknown_BehaviorOnMxFailure;
+        public string? BehaviorOnMxFailure
+        {
+            get
+            {
+                if (!_mUnknown_BehaviorOnMxFailure) return _mValue_BehaviorOnMxFailure;
+                throw new UndeferrableValueException("Value 'MailFrom.BehaviorOnMxFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// Verified domain name or email identity to generate DKIM tokens for.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'MailFrom.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("mailFromDomain")]
+        [PolicyResourceProperty("mailFromDomain", "_mUnknown_MailFromDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMailFromDomain;
-
-        public string? MailFromDomain => _mMailFromDomain.GetValue("mailFromDomain");
+        private string? _mValue_MailFromDomain;
+        private bool _mUnknown_MailFromDomain;
+        public string? MailFromDomain
+        {
+            get
+            {
+                if (!_mUnknown_MailFromDomain) return _mValue_MailFromDomain;
+                throw new UndeferrableValueException("Value 'MailFrom.MailFromDomain' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/mailFrom:MailFrom")]
@@ -49,30 +70,51 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
         /// </summary>
-        [Input("behaviorOnMxFailure")]
+        [PolicyResourceProperty("behaviorOnMxFailure", "_mUnknown_BehaviorOnMxFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBehaviorOnMxFailure;
-
-        public string? BehaviorOnMxFailure => _mBehaviorOnMxFailure.GetValue("behaviorOnMxFailure");
+        private string? _mValue_BehaviorOnMxFailure;
+        private bool _mUnknown_BehaviorOnMxFailure;
+        public string? BehaviorOnMxFailure
+        {
+            get
+            {
+                if (!_mUnknown_BehaviorOnMxFailure) return _mValue_BehaviorOnMxFailure;
+                throw new UndeferrableValueException("Value 'MailFromArgs.BehaviorOnMxFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// Verified domain name or email identity to generate DKIM tokens for.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'MailFromArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("mailFromDomain")]
+        [PolicyResourceProperty("mailFromDomain", "_mUnknown_MailFromDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMailFromDomain;
-
-        public string? MailFromDomain => _mMailFromDomain.GetValue("mailFromDomain");
+        private string? _mValue_MailFromDomain;
+        private bool _mUnknown_MailFromDomain;
+        public string? MailFromDomain
+        {
+            get
+            {
+                if (!_mUnknown_MailFromDomain) return _mValue_MailFromDomain;
+                throw new UndeferrableValueException("Value 'MailFromArgs.MailFromDomain' is not present");
+            }
+        }
     }
 }

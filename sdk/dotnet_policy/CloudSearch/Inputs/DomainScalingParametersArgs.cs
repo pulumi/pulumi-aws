@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudSearch.Inputs
         /// <summary>
         /// The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
         /// </summary>
-        [Input("desiredInstanceType")]
+        [PolicyResourceProperty("desiredInstanceType", "_mUnknown_DesiredInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredInstanceType;
-
-        public string? DesiredInstanceType => _mDesiredInstanceType.GetValue("desiredInstanceType");
+        private string? _mValue_DesiredInstanceType;
+        private bool _mUnknown_DesiredInstanceType;
+        public string? DesiredInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_DesiredInstanceType) return _mValue_DesiredInstanceType;
+                throw new UndeferrableValueException("Value 'DomainScalingParametersArgs.DesiredInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
         /// </summary>
-        [Input("desiredPartitionCount")]
+        [PolicyResourceProperty("desiredPartitionCount", "_mUnknown_DesiredPartitionCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredPartitionCount;
-
-        public int? DesiredPartitionCount => _mDesiredPartitionCount.GetValue("desiredPartitionCount");
+        private int? _mValue_DesiredPartitionCount;
+        private bool _mUnknown_DesiredPartitionCount;
+        public int? DesiredPartitionCount
+        {
+            get
+            {
+                if (!_mUnknown_DesiredPartitionCount) return _mValue_DesiredPartitionCount;
+                throw new UndeferrableValueException("Value 'DomainScalingParametersArgs.DesiredPartitionCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of replicas you want to preconfigure for each index partition.
         /// </summary>
-        [Input("desiredReplicationCount")]
+        [PolicyResourceProperty("desiredReplicationCount", "_mUnknown_DesiredReplicationCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredReplicationCount;
-
-        public int? DesiredReplicationCount => _mDesiredReplicationCount.GetValue("desiredReplicationCount");
+        private int? _mValue_DesiredReplicationCount;
+        private bool _mUnknown_DesiredReplicationCount;
+        public int? DesiredReplicationCount
+        {
+            get
+            {
+                if (!_mUnknown_DesiredReplicationCount) return _mValue_DesiredReplicationCount;
+                throw new UndeferrableValueException("Value 'DomainScalingParametersArgs.DesiredReplicationCount' is not present");
+            }
+        }
     }
 }

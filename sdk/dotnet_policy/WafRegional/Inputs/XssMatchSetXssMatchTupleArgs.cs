@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional.Inputs
         /// <summary>
         /// Specifies where in a web request to look for cross-site scripting attacks.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs> _mFieldToMatch;
-
-        public Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'XssMatchSetXssMatchTupleArgs.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
         /// </summary>
-        [Input("textTransformation")]
+        [PolicyResourceProperty("textTransformation", "_mUnknown_TextTransformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextTransformation;
-
-        public string? TextTransformation => _mTextTransformation.GetValue("textTransformation");
+        private string? _mValue_TextTransformation;
+        private bool _mUnknown_TextTransformation;
+        public string? TextTransformation
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformation) return _mValue_TextTransformation;
+                throw new UndeferrableValueException("Value 'XssMatchSetXssMatchTupleArgs.TextTransformation' is not present");
+            }
+        }
     }
 }

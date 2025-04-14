@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless.Inputs
         /// <summary>
         /// Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ApplicationAutoStopConfigurationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
         /// </summary>
-        [Input("idleTimeoutMinutes")]
+        [PolicyResourceProperty("idleTimeoutMinutes", "_mUnknown_IdleTimeoutMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTimeoutMinutes;
-
-        public int? IdleTimeoutMinutes => _mIdleTimeoutMinutes.GetValue("idleTimeoutMinutes");
+        private int? _mValue_IdleTimeoutMinutes;
+        private bool _mUnknown_IdleTimeoutMinutes;
+        public int? IdleTimeoutMinutes
+        {
+            get
+            {
+                if (!_mUnknown_IdleTimeoutMinutes) return _mValue_IdleTimeoutMinutes;
+                throw new UndeferrableValueException("Value 'ApplicationAutoStopConfigurationArgs.IdleTimeoutMinutes' is not present");
+            }
+        }
     }
 }

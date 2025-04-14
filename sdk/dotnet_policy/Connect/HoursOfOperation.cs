@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Hours of Operation.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         /// </summary>
-        [Input("configs")]
+        [PolicyResourceProperty("configs", "_mUnknown_Configs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.HoursOfOperationConfig>> _mConfigs;
-
-        public List<Outputs.HoursOfOperationConfig>? Configs => _mConfigs.GetValue("configs");
+        private List<Outputs.HoursOfOperationConfig>? _mValue_Configs;
+        private bool _mUnknown_Configs;
+        public List<Outputs.HoursOfOperationConfig>? Configs
+        {
+            get
+            {
+                if (!_mUnknown_Configs) return _mValue_Configs;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.Configs' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Hours of Operation.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the hours of operation.
         /// </summary>
-        [Input("hoursOfOperationId")]
+        [PolicyResourceProperty("hoursOfOperationId", "_mUnknown_HoursOfOperationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHoursOfOperationId;
-
-        public string? HoursOfOperationId => _mHoursOfOperationId.GetValue("hoursOfOperationId");
+        private string? _mValue_HoursOfOperationId;
+        private bool _mUnknown_HoursOfOperationId;
+        public string? HoursOfOperationId
+        {
+            get
+            {
+                if (!_mUnknown_HoursOfOperationId) return _mValue_HoursOfOperationId;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.HoursOfOperationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Hours of Operation.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time zone of the Hours of Operation.
         /// </summary>
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'HoursOfOperation.TimeZone' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/hoursOfOperation:HoursOfOperation")]
@@ -101,55 +164,97 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         /// </summary>
-        [Input("configs")]
+        [PolicyResourceProperty("configs", "_mUnknown_Configs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.HoursOfOperationConfigArgs>> _mConfigs;
-
-        public List<Inputs.HoursOfOperationConfigArgs>? Configs => _mConfigs.GetValue("configs");
+        private List<Inputs.HoursOfOperationConfigArgs>? _mValue_Configs;
+        private bool _mUnknown_Configs;
+        public List<Inputs.HoursOfOperationConfigArgs>? Configs
+        {
+            get
+            {
+                if (!_mUnknown_Configs) return _mValue_Configs;
+                throw new UndeferrableValueException("Value 'HoursOfOperationArgs.Configs' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Hours of Operation.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'HoursOfOperationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'HoursOfOperationArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Hours of Operation.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HoursOfOperationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HoursOfOperationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time zone of the Hours of Operation.
         /// </summary>
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'HoursOfOperationArgs.TimeZone' is not present");
+            }
+        }
     }
 }

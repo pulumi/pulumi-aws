@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ResourceAssociation.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the RAM Resource Share.
         /// </summary>
-        [Input("resourceShareArn")]
+        [PolicyResourceProperty("resourceShareArn", "_mUnknown_ResourceShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
-
-        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
+        private string? _mValue_ResourceShareArn;
+        private bool _mUnknown_ResourceShareArn;
+        public string? ResourceShareArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceShareArn) return _mValue_ResourceShareArn;
+                throw new UndeferrableValueException("Value 'ResourceAssociation.ResourceShareArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ram/resourceAssociation:ResourceAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ram
         /// <summary>
         /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ResourceAssociationArgs.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the RAM Resource Share.
         /// </summary>
-        [Input("resourceShareArn")]
+        [PolicyResourceProperty("resourceShareArn", "_mUnknown_ResourceShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
-
-        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
+        private string? _mValue_ResourceShareArn;
+        private bool _mUnknown_ResourceShareArn;
+        public string? ResourceShareArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceShareArn) return _mValue_ResourceShareArn;
+                throw new UndeferrableValueException("Value 'ResourceAssociationArgs.ResourceShareArn' is not present");
+            }
+        }
     }
 }

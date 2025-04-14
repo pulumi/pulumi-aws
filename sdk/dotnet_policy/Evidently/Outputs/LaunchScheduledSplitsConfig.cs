@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Outputs
         /// <summary>
         /// One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
         /// </summary>
-        [Input("steps")]
+        [PolicyResourceProperty("steps", "_mUnknown_Steps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LaunchScheduledSplitsConfigStep>> _mSteps;
-
-        public List<Outputs.LaunchScheduledSplitsConfigStep>? Steps => _mSteps.GetValue("steps");
+        private List<Outputs.LaunchScheduledSplitsConfigStep>? _mValue_Steps;
+        private bool _mUnknown_Steps;
+        public List<Outputs.LaunchScheduledSplitsConfigStep>? Steps
+        {
+            get
+            {
+                if (!_mUnknown_Steps) return _mValue_Steps;
+                throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfig.Steps' is not present");
+            }
+        }
     }
 }

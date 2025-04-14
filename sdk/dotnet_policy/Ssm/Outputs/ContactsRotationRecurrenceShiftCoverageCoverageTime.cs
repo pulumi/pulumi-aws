@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// (Required) The end time of the on-call shift. See Hand Off Time for more details.
         /// </summary>
-        [Input("end")]
+        [PolicyResourceProperty("end", "_mUnknown_End")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd> _mEnd;
-
-        public Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd? End => _mEnd.GetValue("end");
+        private Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd? _mValue_End;
+        private bool _mUnknown_End;
+        public Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd? End
+        {
+            get
+            {
+                if (!_mUnknown_End) return _mValue_End;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTime.End' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The start time of the on-call shift. See Hand Off Time for more details.
         /// </summary>
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart> _mStart;
-
-        public Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart? Start => _mStart.GetValue("start");
+        private Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart? _mValue_Start;
+        private bool _mUnknown_Start;
+        public Outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTime.Start' is not present");
+            }
+        }
     }
 }

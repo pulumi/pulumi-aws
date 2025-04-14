@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.DataPipeline
         /// <summary>
         /// Configuration block for the parameter objects used in the pipeline definition. See below
         /// </summary>
-        [Input("parameterObjects")]
+        [PolicyResourceProperty("parameterObjects", "_mUnknown_ParameterObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineDefinitionParameterObject>> _mParameterObjects;
-
-        public List<Outputs.PipelineDefinitionParameterObject>? ParameterObjects => _mParameterObjects.GetValue("parameterObjects");
+        private List<Outputs.PipelineDefinitionParameterObject>? _mValue_ParameterObjects;
+        private bool _mUnknown_ParameterObjects;
+        public List<Outputs.PipelineDefinitionParameterObject>? ParameterObjects
+        {
+            get
+            {
+                if (!_mUnknown_ParameterObjects) return _mValue_ParameterObjects;
+                throw new UndeferrableValueException("Value 'PipelineDefinition.ParameterObjects' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the parameter values used in the pipeline definition. See below
         /// </summary>
-        [Input("parameterValues")]
+        [PolicyResourceProperty("parameterValues", "_mUnknown_ParameterValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineDefinitionParameterValue>> _mParameterValues;
-
-        public List<Outputs.PipelineDefinitionParameterValue>? ParameterValues => _mParameterValues.GetValue("parameterValues");
+        private List<Outputs.PipelineDefinitionParameterValue>? _mValue_ParameterValues;
+        private bool _mUnknown_ParameterValues;
+        public List<Outputs.PipelineDefinitionParameterValue>? ParameterValues
+        {
+            get
+            {
+                if (!_mUnknown_ParameterValues) return _mValue_ParameterValues;
+                throw new UndeferrableValueException("Value 'PipelineDefinition.ParameterValues' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the pipeline.
         /// </summary>
-        [Input("pipelineId")]
+        [PolicyResourceProperty("pipelineId", "_mUnknown_PipelineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineId;
-
-        public string? PipelineId => _mPipelineId.GetValue("pipelineId");
+        private string? _mValue_PipelineId;
+        private bool _mUnknown_PipelineId;
+        public string? PipelineId
+        {
+            get
+            {
+                if (!_mUnknown_PipelineId) return _mValue_PipelineId;
+                throw new UndeferrableValueException("Value 'PipelineDefinition.PipelineId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("pipelineObjects")]
+        [PolicyResourceProperty("pipelineObjects", "_mUnknown_PipelineObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipelineDefinitionPipelineObject>> _mPipelineObjects;
-
-        public List<Outputs.PipelineDefinitionPipelineObject>? PipelineObjects => _mPipelineObjects.GetValue("pipelineObjects");
+        private List<Outputs.PipelineDefinitionPipelineObject>? _mValue_PipelineObjects;
+        private bool _mUnknown_PipelineObjects;
+        public List<Outputs.PipelineDefinitionPipelineObject>? PipelineObjects
+        {
+            get
+            {
+                if (!_mUnknown_PipelineObjects) return _mValue_PipelineObjects;
+                throw new UndeferrableValueException("Value 'PipelineDefinition.PipelineObjects' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datapipeline/pipelineDefinition:PipelineDefinition")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.DataPipeline
         /// <summary>
         /// Configuration block for the parameter objects used in the pipeline definition. See below
         /// </summary>
-        [Input("parameterObjects")]
+        [PolicyResourceProperty("parameterObjects", "_mUnknown_ParameterObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineDefinitionParameterObjectArgs>> _mParameterObjects;
-
-        public List<Inputs.PipelineDefinitionParameterObjectArgs>? ParameterObjects => _mParameterObjects.GetValue("parameterObjects");
+        private List<Inputs.PipelineDefinitionParameterObjectArgs>? _mValue_ParameterObjects;
+        private bool _mUnknown_ParameterObjects;
+        public List<Inputs.PipelineDefinitionParameterObjectArgs>? ParameterObjects
+        {
+            get
+            {
+                if (!_mUnknown_ParameterObjects) return _mValue_ParameterObjects;
+                throw new UndeferrableValueException("Value 'PipelineDefinitionArgs.ParameterObjects' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the parameter values used in the pipeline definition. See below
         /// </summary>
-        [Input("parameterValues")]
+        [PolicyResourceProperty("parameterValues", "_mUnknown_ParameterValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineDefinitionParameterValueArgs>> _mParameterValues;
-
-        public List<Inputs.PipelineDefinitionParameterValueArgs>? ParameterValues => _mParameterValues.GetValue("parameterValues");
+        private List<Inputs.PipelineDefinitionParameterValueArgs>? _mValue_ParameterValues;
+        private bool _mUnknown_ParameterValues;
+        public List<Inputs.PipelineDefinitionParameterValueArgs>? ParameterValues
+        {
+            get
+            {
+                if (!_mUnknown_ParameterValues) return _mValue_ParameterValues;
+                throw new UndeferrableValueException("Value 'PipelineDefinitionArgs.ParameterValues' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the pipeline.
         /// </summary>
-        [Input("pipelineId")]
+        [PolicyResourceProperty("pipelineId", "_mUnknown_PipelineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineId;
-
-        public string? PipelineId => _mPipelineId.GetValue("pipelineId");
+        private string? _mValue_PipelineId;
+        private bool _mUnknown_PipelineId;
+        public string? PipelineId
+        {
+            get
+            {
+                if (!_mUnknown_PipelineId) return _mValue_PipelineId;
+                throw new UndeferrableValueException("Value 'PipelineDefinitionArgs.PipelineId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the objects that define the pipeline. See below
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("pipelineObjects")]
+        [PolicyResourceProperty("pipelineObjects", "_mUnknown_PipelineObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PipelineDefinitionPipelineObjectArgs>> _mPipelineObjects;
-
-        public List<Inputs.PipelineDefinitionPipelineObjectArgs>? PipelineObjects => _mPipelineObjects.GetValue("pipelineObjects");
+        private List<Inputs.PipelineDefinitionPipelineObjectArgs>? _mValue_PipelineObjects;
+        private bool _mUnknown_PipelineObjects;
+        public List<Inputs.PipelineDefinitionPipelineObjectArgs>? PipelineObjects
+        {
+            get
+            {
+                if (!_mUnknown_PipelineObjects) return _mValue_PipelineObjects;
+                throw new UndeferrableValueException("Value 'PipelineDefinitionArgs.PipelineObjects' is not present");
+            }
+        }
     }
 }

@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Prompts for information from the user. Attributes are documented under prompt.
         /// </summary>
-        [Input("prompt")]
+        [PolicyResourceProperty("prompt", "_mUnknown_Prompt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentFollowUpPromptPrompt> _mPrompt;
-
-        public Outputs.IntentFollowUpPromptPrompt? Prompt => _mPrompt.GetValue("prompt");
+        private Outputs.IntentFollowUpPromptPrompt? _mValue_Prompt;
+        private bool _mUnknown_Prompt;
+        public Outputs.IntentFollowUpPromptPrompt? Prompt
+        {
+            get
+            {
+                if (!_mUnknown_Prompt) return _mValue_Prompt;
+                throw new UndeferrableValueException("Value 'IntentFollowUpPrompt.Prompt' is not present");
+            }
+        }
 
         /// <summary>
         /// If the user answers "no" to the question defined in the prompt field,
         /// Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
         /// documented below under statement.
         /// </summary>
-        [Input("rejectionStatement")]
+        [PolicyResourceProperty("rejectionStatement", "_mUnknown_RejectionStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntentFollowUpPromptRejectionStatement> _mRejectionStatement;
-
-        public Outputs.IntentFollowUpPromptRejectionStatement? RejectionStatement => _mRejectionStatement.GetValue("rejectionStatement");
+        private Outputs.IntentFollowUpPromptRejectionStatement? _mValue_RejectionStatement;
+        private bool _mUnknown_RejectionStatement;
+        public Outputs.IntentFollowUpPromptRejectionStatement? RejectionStatement
+        {
+            get
+            {
+                if (!_mUnknown_RejectionStatement) return _mValue_RejectionStatement;
+                throw new UndeferrableValueException("Value 'IntentFollowUpPrompt.RejectionStatement' is not present");
+            }
+        }
     }
 }

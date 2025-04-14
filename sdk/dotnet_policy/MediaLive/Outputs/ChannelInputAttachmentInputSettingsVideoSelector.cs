@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelInputAttachmentInputSettingsVideoSelector
     {
-        [Input("colorSpace")]
+        [PolicyResourceProperty("colorSpace", "_mUnknown_ColorSpace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColorSpace;
+        private string? _mValue_ColorSpace;
+        private bool _mUnknown_ColorSpace;
+        public string? ColorSpace
+        {
+            get
+            {
+                if (!_mUnknown_ColorSpace) return _mValue_ColorSpace;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsVideoSelector.ColorSpace' is not present");
+            }
+        }
 
-        public string? ColorSpace => _mColorSpace.GetValue("colorSpace");
-
-        [Input("colorSpaceUsage")]
+        [PolicyResourceProperty("colorSpaceUsage", "_mUnknown_ColorSpaceUsage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColorSpaceUsage;
-
-        public string? ColorSpaceUsage => _mColorSpaceUsage.GetValue("colorSpaceUsage");
+        private string? _mValue_ColorSpaceUsage;
+        private bool _mUnknown_ColorSpaceUsage;
+        public string? ColorSpaceUsage
+        {
+            get
+            {
+                if (!_mUnknown_ColorSpaceUsage) return _mValue_ColorSpaceUsage;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsVideoSelector.ColorSpaceUsage' is not present");
+            }
+        }
     }
 }

@@ -16,317 +16,562 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         /// </summary>
-        [Input("amazonManagedKafkaEventSourceConfig")]
+        [PolicyResourceProperty("amazonManagedKafkaEventSourceConfig", "_mUnknown_AmazonManagedKafkaEventSourceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig> _mAmazonManagedKafkaEventSourceConfig;
-
-        public Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig? AmazonManagedKafkaEventSourceConfig => _mAmazonManagedKafkaEventSourceConfig.GetValue("amazonManagedKafkaEventSourceConfig");
+        private Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig? _mValue_AmazonManagedKafkaEventSourceConfig;
+        private bool _mUnknown_AmazonManagedKafkaEventSourceConfig;
+        public Outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig? AmazonManagedKafkaEventSourceConfig
+        {
+            get
+            {
+                if (!_mUnknown_AmazonManagedKafkaEventSourceConfig) return _mValue_AmazonManagedKafkaEventSourceConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.AmazonManagedKafkaEventSourceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The event source mapping ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         /// </summary>
-        [Input("bisectBatchOnFunctionError")]
+        [PolicyResourceProperty("bisectBatchOnFunctionError", "_mUnknown_BisectBatchOnFunctionError")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBisectBatchOnFunctionError;
-
-        public bool? BisectBatchOnFunctionError => _mBisectBatchOnFunctionError.GetValue("bisectBatchOnFunctionError");
+        private bool? _mValue_BisectBatchOnFunctionError;
+        private bool _mUnknown_BisectBatchOnFunctionError;
+        public bool? BisectBatchOnFunctionError
+        {
+            get
+            {
+                if (!_mUnknown_BisectBatchOnFunctionError) return _mValue_BisectBatchOnFunctionError;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.BisectBatchOnFunctionError' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
-        [Input("destinationConfig")]
+        [PolicyResourceProperty("destinationConfig", "_mUnknown_DestinationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingDestinationConfig> _mDestinationConfig;
-
-        public Outputs.EventSourceMappingDestinationConfig? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
+        private Outputs.EventSourceMappingDestinationConfig? _mValue_DestinationConfig;
+        private bool _mUnknown_DestinationConfig;
+        public Outputs.EventSourceMappingDestinationConfig? DestinationConfig
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfig) return _mValue_DestinationConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.DestinationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         /// </summary>
-        [Input("documentDbEventSourceConfig")]
+        [PolicyResourceProperty("documentDbEventSourceConfig", "_mUnknown_DocumentDbEventSourceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingDocumentDbEventSourceConfig> _mDocumentDbEventSourceConfig;
-
-        public Outputs.EventSourceMappingDocumentDbEventSourceConfig? DocumentDbEventSourceConfig => _mDocumentDbEventSourceConfig.GetValue("documentDbEventSourceConfig");
+        private Outputs.EventSourceMappingDocumentDbEventSourceConfig? _mValue_DocumentDbEventSourceConfig;
+        private bool _mUnknown_DocumentDbEventSourceConfig;
+        public Outputs.EventSourceMappingDocumentDbEventSourceConfig? DocumentDbEventSourceConfig
+        {
+            get
+            {
+                if (!_mUnknown_DocumentDbEventSourceConfig) return _mValue_DocumentDbEventSourceConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.DocumentDbEventSourceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         /// </summary>
-        [Input("eventSourceArn")]
+        [PolicyResourceProperty("eventSourceArn", "_mUnknown_EventSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceArn;
-
-        public string? EventSourceArn => _mEventSourceArn.GetValue("eventSourceArn");
+        private string? _mValue_EventSourceArn;
+        private bool _mUnknown_EventSourceArn;
+        public string? EventSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_EventSourceArn) return _mValue_EventSourceArn;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.EventSourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         /// </summary>
-        [Input("filterCriteria")]
+        [PolicyResourceProperty("filterCriteria", "_mUnknown_FilterCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingFilterCriteria> _mFilterCriteria;
-
-        public Outputs.EventSourceMappingFilterCriteria? FilterCriteria => _mFilterCriteria.GetValue("filterCriteria");
+        private Outputs.EventSourceMappingFilterCriteria? _mValue_FilterCriteria;
+        private bool _mUnknown_FilterCriteria;
+        public Outputs.EventSourceMappingFilterCriteria? FilterCriteria
+        {
+            get
+            {
+                if (!_mUnknown_FilterCriteria) return _mValue_FilterCriteria;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.FilterCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         /// </summary>
-        [Input("functionArn")]
+        [PolicyResourceProperty("functionArn", "_mUnknown_FunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
-
-        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
+        private string? _mValue_FunctionArn;
+        private bool _mUnknown_FunctionArn;
+        public string? FunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_FunctionArn) return _mValue_FunctionArn;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.FunctionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or the ARN of the Lambda function that will be subscribing to events.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         /// </summary>
-        [Input("functionResponseTypes")]
+        [PolicyResourceProperty("functionResponseTypes", "_mUnknown_FunctionResponseTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFunctionResponseTypes;
-
-        public List<string>? FunctionResponseTypes => _mFunctionResponseTypes.GetValue("functionResponseTypes");
+        private List<string>? _mValue_FunctionResponseTypes;
+        private bool _mUnknown_FunctionResponseTypes;
+        public List<string>? FunctionResponseTypes
+        {
+            get
+            {
+                if (!_mUnknown_FunctionResponseTypes) return _mValue_FunctionResponseTypes;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.FunctionResponseTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date this resource was last modified.
         /// </summary>
-        [Input("lastModified")]
+        [PolicyResourceProperty("lastModified", "_mUnknown_LastModified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
-
-        public string? LastModified => _mLastModified.GetValue("lastModified");
+        private string? _mValue_LastModified;
+        private bool _mUnknown_LastModified;
+        public string? LastModified
+        {
+            get
+            {
+                if (!_mUnknown_LastModified) return _mValue_LastModified;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.LastModified' is not present");
+            }
+        }
 
         /// <summary>
         /// The result of the last AWS Lambda invocation of your Lambda function.
         /// </summary>
-        [Input("lastProcessingResult")]
+        [PolicyResourceProperty("lastProcessingResult", "_mUnknown_LastProcessingResult")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastProcessingResult;
-
-        public string? LastProcessingResult => _mLastProcessingResult.GetValue("lastProcessingResult");
+        private string? _mValue_LastProcessingResult;
+        private bool _mUnknown_LastProcessingResult;
+        public string? LastProcessingResult
+        {
+            get
+            {
+                if (!_mUnknown_LastProcessingResult) return _mValue_LastProcessingResult;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.LastProcessingResult' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         /// </summary>
-        [Input("maximumBatchingWindowInSeconds")]
+        [PolicyResourceProperty("maximumBatchingWindowInSeconds", "_mUnknown_MaximumBatchingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
-
-        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+        private int? _mValue_MaximumBatchingWindowInSeconds;
+        private bool _mUnknown_MaximumBatchingWindowInSeconds;
+        public int? MaximumBatchingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchingWindowInSeconds) return _mValue_MaximumBatchingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.MaximumBatchingWindowInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         /// </summary>
-        [Input("maximumRecordAgeInSeconds")]
+        [PolicyResourceProperty("maximumRecordAgeInSeconds", "_mUnknown_MaximumRecordAgeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRecordAgeInSeconds;
-
-        public int? MaximumRecordAgeInSeconds => _mMaximumRecordAgeInSeconds.GetValue("maximumRecordAgeInSeconds");
+        private int? _mValue_MaximumRecordAgeInSeconds;
+        private bool _mUnknown_MaximumRecordAgeInSeconds;
+        public int? MaximumRecordAgeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRecordAgeInSeconds) return _mValue_MaximumRecordAgeInSeconds;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.MaximumRecordAgeInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         /// </summary>
-        [Input("maximumRetryAttempts")]
+        [PolicyResourceProperty("maximumRetryAttempts", "_mUnknown_MaximumRetryAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
-
-        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+        private int? _mValue_MaximumRetryAttempts;
+        private bool _mUnknown_MaximumRetryAttempts;
+        public int? MaximumRetryAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetryAttempts) return _mValue_MaximumRetryAttempts;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.MaximumRetryAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
         /// </summary>
-        [Input("metricsConfig")]
+        [PolicyResourceProperty("metricsConfig", "_mUnknown_MetricsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingMetricsConfig> _mMetricsConfig;
-
-        public Outputs.EventSourceMappingMetricsConfig? MetricsConfig => _mMetricsConfig.GetValue("metricsConfig");
+        private Outputs.EventSourceMappingMetricsConfig? _mValue_MetricsConfig;
+        private bool _mUnknown_MetricsConfig;
+        public Outputs.EventSourceMappingMetricsConfig? MetricsConfig
+        {
+            get
+            {
+                if (!_mUnknown_MetricsConfig) return _mValue_MetricsConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.MetricsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         /// </summary>
-        [Input("parallelizationFactor")]
+        [PolicyResourceProperty("parallelizationFactor", "_mUnknown_ParallelizationFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mParallelizationFactor;
-
-        public int? ParallelizationFactor => _mParallelizationFactor.GetValue("parallelizationFactor");
+        private int? _mValue_ParallelizationFactor;
+        private bool _mUnknown_ParallelizationFactor;
+        public int? ParallelizationFactor
+        {
+            get
+            {
+                if (!_mUnknown_ParallelizationFactor) return _mValue_ParallelizationFactor;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.ParallelizationFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         /// </summary>
-        [Input("provisionedPollerConfig")]
+        [PolicyResourceProperty("provisionedPollerConfig", "_mUnknown_ProvisionedPollerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingProvisionedPollerConfig> _mProvisionedPollerConfig;
-
-        public Outputs.EventSourceMappingProvisionedPollerConfig? ProvisionedPollerConfig => _mProvisionedPollerConfig.GetValue("provisionedPollerConfig");
+        private Outputs.EventSourceMappingProvisionedPollerConfig? _mValue_ProvisionedPollerConfig;
+        private bool _mUnknown_ProvisionedPollerConfig;
+        public Outputs.EventSourceMappingProvisionedPollerConfig? ProvisionedPollerConfig
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedPollerConfig) return _mValue_ProvisionedPollerConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.ProvisionedPollerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         /// </summary>
-        [Input("queues")]
+        [PolicyResourceProperty("queues", "_mUnknown_Queues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueues;
-
-        public string? Queues => _mQueues.GetValue("queues");
+        private string? _mValue_Queues;
+        private bool _mUnknown_Queues;
+        public string? Queues
+        {
+            get
+            {
+                if (!_mUnknown_Queues) return _mValue_Queues;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.Queues' is not present");
+            }
+        }
 
         /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         /// </summary>
-        [Input("scalingConfig")]
+        [PolicyResourceProperty("scalingConfig", "_mUnknown_ScalingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingScalingConfig> _mScalingConfig;
-
-        public Outputs.EventSourceMappingScalingConfig? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
+        private Outputs.EventSourceMappingScalingConfig? _mValue_ScalingConfig;
+        private bool _mUnknown_ScalingConfig;
+        public Outputs.EventSourceMappingScalingConfig? ScalingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScalingConfig) return _mValue_ScalingConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.ScalingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         /// </summary>
-        [Input("selfManagedEventSource")]
+        [PolicyResourceProperty("selfManagedEventSource", "_mUnknown_SelfManagedEventSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingSelfManagedEventSource> _mSelfManagedEventSource;
-
-        public Outputs.EventSourceMappingSelfManagedEventSource? SelfManagedEventSource => _mSelfManagedEventSource.GetValue("selfManagedEventSource");
+        private Outputs.EventSourceMappingSelfManagedEventSource? _mValue_SelfManagedEventSource;
+        private bool _mUnknown_SelfManagedEventSource;
+        public Outputs.EventSourceMappingSelfManagedEventSource? SelfManagedEventSource
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedEventSource) return _mValue_SelfManagedEventSource;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.SelfManagedEventSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         /// </summary>
-        [Input("selfManagedKafkaEventSourceConfig")]
+        [PolicyResourceProperty("selfManagedKafkaEventSourceConfig", "_mUnknown_SelfManagedKafkaEventSourceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig> _mSelfManagedKafkaEventSourceConfig;
-
-        public Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig? SelfManagedKafkaEventSourceConfig => _mSelfManagedKafkaEventSourceConfig.GetValue("selfManagedKafkaEventSourceConfig");
+        private Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig? _mValue_SelfManagedKafkaEventSourceConfig;
+        private bool _mUnknown_SelfManagedKafkaEventSourceConfig;
+        public Outputs.EventSourceMappingSelfManagedKafkaEventSourceConfig? SelfManagedKafkaEventSourceConfig
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedKafkaEventSourceConfig) return _mValue_SelfManagedKafkaEventSourceConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.SelfManagedKafkaEventSourceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         /// </summary>
-        [Input("sourceAccessConfigurations")]
+        [PolicyResourceProperty("sourceAccessConfigurations", "_mUnknown_SourceAccessConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventSourceMappingSourceAccessConfiguration>> _mSourceAccessConfigurations;
-
-        public List<Outputs.EventSourceMappingSourceAccessConfiguration>? SourceAccessConfigurations => _mSourceAccessConfigurations.GetValue("sourceAccessConfigurations");
+        private List<Outputs.EventSourceMappingSourceAccessConfiguration>? _mValue_SourceAccessConfigurations;
+        private bool _mUnknown_SourceAccessConfigurations;
+        public List<Outputs.EventSourceMappingSourceAccessConfiguration>? SourceAccessConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_SourceAccessConfigurations) return _mValue_SourceAccessConfigurations;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.SourceAccessConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         /// </summary>
-        [Input("startingPosition")]
+        [PolicyResourceProperty("startingPosition", "_mUnknown_StartingPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
-
-        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+        private string? _mValue_StartingPosition;
+        private bool _mUnknown_StartingPosition;
+        public string? StartingPosition
+        {
+            get
+            {
+                if (!_mUnknown_StartingPosition) return _mValue_StartingPosition;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.StartingPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         /// </summary>
-        [Input("startingPositionTimestamp")]
+        [PolicyResourceProperty("startingPositionTimestamp", "_mUnknown_StartingPositionTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPositionTimestamp;
-
-        public string? StartingPositionTimestamp => _mStartingPositionTimestamp.GetValue("startingPositionTimestamp");
+        private string? _mValue_StartingPositionTimestamp;
+        private bool _mUnknown_StartingPositionTimestamp;
+        public string? StartingPositionTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_StartingPositionTimestamp) return _mValue_StartingPositionTimestamp;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.StartingPositionTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the event source mapping.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The reason the event source mapping is in its current state.
         /// </summary>
-        [Input("stateTransitionReason")]
+        [PolicyResourceProperty("stateTransitionReason", "_mUnknown_StateTransitionReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateTransitionReason;
-
-        public string? StateTransitionReason => _mStateTransitionReason.GetValue("stateTransitionReason");
+        private string? _mValue_StateTransitionReason;
+        private bool _mUnknown_StateTransitionReason;
+        public string? StateTransitionReason
+        {
+            get
+            {
+                if (!_mUnknown_StateTransitionReason) return _mValue_StateTransitionReason;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.StateTransitionReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         /// </summary>
-        [Input("topics")]
+        [PolicyResourceProperty("topics", "_mUnknown_Topics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTopics;
-
-        public List<string>? Topics => _mTopics.GetValue("topics");
+        private List<string>? _mValue_Topics;
+        private bool _mUnknown_Topics;
+        public List<string>? Topics
+        {
+            get
+            {
+                if (!_mUnknown_Topics) return _mValue_Topics;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.Topics' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         /// </summary>
-        [Input("tumblingWindowInSeconds")]
+        [PolicyResourceProperty("tumblingWindowInSeconds", "_mUnknown_TumblingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTumblingWindowInSeconds;
-
-        public int? TumblingWindowInSeconds => _mTumblingWindowInSeconds.GetValue("tumblingWindowInSeconds");
+        private int? _mValue_TumblingWindowInSeconds;
+        private bool _mUnknown_TumblingWindowInSeconds;
+        public int? TumblingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TumblingWindowInSeconds) return _mValue_TumblingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.TumblingWindowInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The UUID of the created event source mapping.
         /// </summary>
-        [Input("uuid")]
+        [PolicyResourceProperty("uuid", "_mUnknown_Uuid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUuid;
-
-        public string? Uuid => _mUuid.GetValue("uuid");
+        private string? _mValue_Uuid;
+        private bool _mUnknown_Uuid;
+        public string? Uuid
+        {
+            get
+            {
+                if (!_mUnknown_Uuid) return _mValue_Uuid;
+                throw new UndeferrableValueException("Value 'EventSourceMapping.Uuid' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/eventSourceMapping:EventSourceMapping")]
@@ -335,244 +580,433 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Additional configuration block for Amazon Managed Kafka sources. Incompatible with "self_managed_event_source" and "self_managed_kafka_event_source_config". Detailed below.
         /// </summary>
-        [Input("amazonManagedKafkaEventSourceConfig")]
+        [PolicyResourceProperty("amazonManagedKafkaEventSourceConfig", "_mUnknown_AmazonManagedKafkaEventSourceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs> _mAmazonManagedKafkaEventSourceConfig;
-
-        public Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs? AmazonManagedKafkaEventSourceConfig => _mAmazonManagedKafkaEventSourceConfig.GetValue("amazonManagedKafkaEventSourceConfig");
+        private Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs? _mValue_AmazonManagedKafkaEventSourceConfig;
+        private bool _mUnknown_AmazonManagedKafkaEventSourceConfig;
+        public Inputs.EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs? AmazonManagedKafkaEventSourceConfig
+        {
+            get
+            {
+                if (!_mUnknown_AmazonManagedKafkaEventSourceConfig) return _mValue_AmazonManagedKafkaEventSourceConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.AmazonManagedKafkaEventSourceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
         /// </summary>
-        [Input("bisectBatchOnFunctionError")]
+        [PolicyResourceProperty("bisectBatchOnFunctionError", "_mUnknown_BisectBatchOnFunctionError")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBisectBatchOnFunctionError;
-
-        public bool? BisectBatchOnFunctionError => _mBisectBatchOnFunctionError.GetValue("bisectBatchOnFunctionError");
+        private bool? _mValue_BisectBatchOnFunctionError;
+        private bool _mUnknown_BisectBatchOnFunctionError;
+        public bool? BisectBatchOnFunctionError
+        {
+            get
+            {
+                if (!_mUnknown_BisectBatchOnFunctionError) return _mValue_BisectBatchOnFunctionError;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.BisectBatchOnFunctionError' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
         /// </summary>
-        [Input("destinationConfig")]
+        [PolicyResourceProperty("destinationConfig", "_mUnknown_DestinationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingDestinationConfigArgs> _mDestinationConfig;
-
-        public Inputs.EventSourceMappingDestinationConfigArgs? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
+        private Inputs.EventSourceMappingDestinationConfigArgs? _mValue_DestinationConfig;
+        private bool _mUnknown_DestinationConfig;
+        public Inputs.EventSourceMappingDestinationConfigArgs? DestinationConfig
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfig) return _mValue_DestinationConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.DestinationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
         /// </summary>
-        [Input("documentDbEventSourceConfig")]
+        [PolicyResourceProperty("documentDbEventSourceConfig", "_mUnknown_DocumentDbEventSourceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs> _mDocumentDbEventSourceConfig;
-
-        public Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs? DocumentDbEventSourceConfig => _mDocumentDbEventSourceConfig.GetValue("documentDbEventSourceConfig");
+        private Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs? _mValue_DocumentDbEventSourceConfig;
+        private bool _mUnknown_DocumentDbEventSourceConfig;
+        public Inputs.EventSourceMappingDocumentDbEventSourceConfigArgs? DocumentDbEventSourceConfig
+        {
+            get
+            {
+                if (!_mUnknown_DocumentDbEventSourceConfig) return _mValue_DocumentDbEventSourceConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.DocumentDbEventSourceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
         /// </summary>
-        [Input("eventSourceArn")]
+        [PolicyResourceProperty("eventSourceArn", "_mUnknown_EventSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventSourceArn;
-
-        public string? EventSourceArn => _mEventSourceArn.GetValue("eventSourceArn");
+        private string? _mValue_EventSourceArn;
+        private bool _mUnknown_EventSourceArn;
+        public string? EventSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_EventSourceArn) return _mValue_EventSourceArn;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.EventSourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         /// </summary>
-        [Input("filterCriteria")]
+        [PolicyResourceProperty("filterCriteria", "_mUnknown_FilterCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingFilterCriteriaArgs> _mFilterCriteria;
-
-        public Inputs.EventSourceMappingFilterCriteriaArgs? FilterCriteria => _mFilterCriteria.GetValue("filterCriteria");
+        private Inputs.EventSourceMappingFilterCriteriaArgs? _mValue_FilterCriteria;
+        private bool _mUnknown_FilterCriteria;
+        public Inputs.EventSourceMappingFilterCriteriaArgs? FilterCriteria
+        {
+            get
+            {
+                if (!_mUnknown_FilterCriteria) return _mValue_FilterCriteria;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.FilterCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or the ARN of the Lambda function that will be subscribing to events.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         /// </summary>
-        [Input("functionResponseTypes")]
+        [PolicyResourceProperty("functionResponseTypes", "_mUnknown_FunctionResponseTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFunctionResponseTypes;
-
-        public List<string>? FunctionResponseTypes => _mFunctionResponseTypes.GetValue("functionResponseTypes");
+        private List<string>? _mValue_FunctionResponseTypes;
+        private bool _mUnknown_FunctionResponseTypes;
+        public List<string>? FunctionResponseTypes
+        {
+            get
+            {
+                if (!_mUnknown_FunctionResponseTypes) return _mValue_FunctionResponseTypes;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.FunctionResponseTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         /// </summary>
-        [Input("maximumBatchingWindowInSeconds")]
+        [PolicyResourceProperty("maximumBatchingWindowInSeconds", "_mUnknown_MaximumBatchingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
-
-        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+        private int? _mValue_MaximumBatchingWindowInSeconds;
+        private bool _mUnknown_MaximumBatchingWindowInSeconds;
+        public int? MaximumBatchingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchingWindowInSeconds) return _mValue_MaximumBatchingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.MaximumBatchingWindowInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         /// </summary>
-        [Input("maximumRecordAgeInSeconds")]
+        [PolicyResourceProperty("maximumRecordAgeInSeconds", "_mUnknown_MaximumRecordAgeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRecordAgeInSeconds;
-
-        public int? MaximumRecordAgeInSeconds => _mMaximumRecordAgeInSeconds.GetValue("maximumRecordAgeInSeconds");
+        private int? _mValue_MaximumRecordAgeInSeconds;
+        private bool _mUnknown_MaximumRecordAgeInSeconds;
+        public int? MaximumRecordAgeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRecordAgeInSeconds) return _mValue_MaximumRecordAgeInSeconds;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.MaximumRecordAgeInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
         /// </summary>
-        [Input("maximumRetryAttempts")]
+        [PolicyResourceProperty("maximumRetryAttempts", "_mUnknown_MaximumRetryAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
-
-        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+        private int? _mValue_MaximumRetryAttempts;
+        private bool _mUnknown_MaximumRetryAttempts;
+        public int? MaximumRetryAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetryAttempts) return _mValue_MaximumRetryAttempts;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.MaximumRetryAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
         /// </summary>
-        [Input("metricsConfig")]
+        [PolicyResourceProperty("metricsConfig", "_mUnknown_MetricsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingMetricsConfigArgs> _mMetricsConfig;
-
-        public Inputs.EventSourceMappingMetricsConfigArgs? MetricsConfig => _mMetricsConfig.GetValue("metricsConfig");
+        private Inputs.EventSourceMappingMetricsConfigArgs? _mValue_MetricsConfig;
+        private bool _mUnknown_MetricsConfig;
+        public Inputs.EventSourceMappingMetricsConfigArgs? MetricsConfig
+        {
+            get
+            {
+                if (!_mUnknown_MetricsConfig) return _mValue_MetricsConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.MetricsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
         /// </summary>
-        [Input("parallelizationFactor")]
+        [PolicyResourceProperty("parallelizationFactor", "_mUnknown_ParallelizationFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mParallelizationFactor;
-
-        public int? ParallelizationFactor => _mParallelizationFactor.GetValue("parallelizationFactor");
+        private int? _mValue_ParallelizationFactor;
+        private bool _mUnknown_ParallelizationFactor;
+        public int? ParallelizationFactor
+        {
+            get
+            {
+                if (!_mUnknown_ParallelizationFactor) return _mValue_ParallelizationFactor;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.ParallelizationFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
         /// </summary>
-        [Input("provisionedPollerConfig")]
+        [PolicyResourceProperty("provisionedPollerConfig", "_mUnknown_ProvisionedPollerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingProvisionedPollerConfigArgs> _mProvisionedPollerConfig;
-
-        public Inputs.EventSourceMappingProvisionedPollerConfigArgs? ProvisionedPollerConfig => _mProvisionedPollerConfig.GetValue("provisionedPollerConfig");
+        private Inputs.EventSourceMappingProvisionedPollerConfigArgs? _mValue_ProvisionedPollerConfig;
+        private bool _mUnknown_ProvisionedPollerConfig;
+        public Inputs.EventSourceMappingProvisionedPollerConfigArgs? ProvisionedPollerConfig
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedPollerConfig) return _mValue_ProvisionedPollerConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.ProvisionedPollerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         /// </summary>
-        [Input("queues")]
+        [PolicyResourceProperty("queues", "_mUnknown_Queues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueues;
-
-        public string? Queues => _mQueues.GetValue("queues");
+        private string? _mValue_Queues;
+        private bool _mUnknown_Queues;
+        public string? Queues
+        {
+            get
+            {
+                if (!_mUnknown_Queues) return _mValue_Queues;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.Queues' is not present");
+            }
+        }
 
         /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
         /// </summary>
-        [Input("scalingConfig")]
+        [PolicyResourceProperty("scalingConfig", "_mUnknown_ScalingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingScalingConfigArgs> _mScalingConfig;
-
-        public Inputs.EventSourceMappingScalingConfigArgs? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
+        private Inputs.EventSourceMappingScalingConfigArgs? _mValue_ScalingConfig;
+        private bool _mUnknown_ScalingConfig;
+        public Inputs.EventSourceMappingScalingConfigArgs? ScalingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScalingConfig) return _mValue_ScalingConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.ScalingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
         /// </summary>
-        [Input("selfManagedEventSource")]
+        [PolicyResourceProperty("selfManagedEventSource", "_mUnknown_SelfManagedEventSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingSelfManagedEventSourceArgs> _mSelfManagedEventSource;
-
-        public Inputs.EventSourceMappingSelfManagedEventSourceArgs? SelfManagedEventSource => _mSelfManagedEventSource.GetValue("selfManagedEventSource");
+        private Inputs.EventSourceMappingSelfManagedEventSourceArgs? _mValue_SelfManagedEventSource;
+        private bool _mUnknown_SelfManagedEventSource;
+        public Inputs.EventSourceMappingSelfManagedEventSourceArgs? SelfManagedEventSource
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedEventSource) return _mValue_SelfManagedEventSource;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.SelfManagedEventSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional configuration block for Self Managed Kafka sources. Incompatible with "event_source_arn" and "amazon_managed_kafka_event_source_config". Detailed below.
         /// </summary>
-        [Input("selfManagedKafkaEventSourceConfig")]
+        [PolicyResourceProperty("selfManagedKafkaEventSourceConfig", "_mUnknown_SelfManagedKafkaEventSourceConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs> _mSelfManagedKafkaEventSourceConfig;
-
-        public Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs? SelfManagedKafkaEventSourceConfig => _mSelfManagedKafkaEventSourceConfig.GetValue("selfManagedKafkaEventSourceConfig");
+        private Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs? _mValue_SelfManagedKafkaEventSourceConfig;
+        private bool _mUnknown_SelfManagedKafkaEventSourceConfig;
+        public Inputs.EventSourceMappingSelfManagedKafkaEventSourceConfigArgs? SelfManagedKafkaEventSourceConfig
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedKafkaEventSourceConfig) return _mValue_SelfManagedKafkaEventSourceConfig;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.SelfManagedKafkaEventSourceConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
         /// </summary>
-        [Input("sourceAccessConfigurations")]
+        [PolicyResourceProperty("sourceAccessConfigurations", "_mUnknown_SourceAccessConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventSourceMappingSourceAccessConfigurationArgs>> _mSourceAccessConfigurations;
-
-        public List<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? SourceAccessConfigurations => _mSourceAccessConfigurations.GetValue("sourceAccessConfigurations");
+        private List<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? _mValue_SourceAccessConfigurations;
+        private bool _mUnknown_SourceAccessConfigurations;
+        public List<Inputs.EventSourceMappingSourceAccessConfigurationArgs>? SourceAccessConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_SourceAccessConfigurations) return _mValue_SourceAccessConfigurations;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.SourceAccessConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
         /// </summary>
-        [Input("startingPosition")]
+        [PolicyResourceProperty("startingPosition", "_mUnknown_StartingPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
-
-        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+        private string? _mValue_StartingPosition;
+        private bool _mUnknown_StartingPosition;
+        public string? StartingPosition
+        {
+            get
+            {
+                if (!_mUnknown_StartingPosition) return _mValue_StartingPosition;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.StartingPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
         /// </summary>
-        [Input("startingPositionTimestamp")]
+        [PolicyResourceProperty("startingPositionTimestamp", "_mUnknown_StartingPositionTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPositionTimestamp;
-
-        public string? StartingPositionTimestamp => _mStartingPositionTimestamp.GetValue("startingPositionTimestamp");
+        private string? _mValue_StartingPositionTimestamp;
+        private bool _mUnknown_StartingPositionTimestamp;
+        public string? StartingPositionTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_StartingPositionTimestamp) return _mValue_StartingPositionTimestamp;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.StartingPositionTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         /// </summary>
-        [Input("topics")]
+        [PolicyResourceProperty("topics", "_mUnknown_Topics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTopics;
-
-        public List<string>? Topics => _mTopics.GetValue("topics");
+        private List<string>? _mValue_Topics;
+        private bool _mUnknown_Topics;
+        public List<string>? Topics
+        {
+            get
+            {
+                if (!_mUnknown_Topics) return _mValue_Topics;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.Topics' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         /// </summary>
-        [Input("tumblingWindowInSeconds")]
+        [PolicyResourceProperty("tumblingWindowInSeconds", "_mUnknown_TumblingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTumblingWindowInSeconds;
-
-        public int? TumblingWindowInSeconds => _mTumblingWindowInSeconds.GetValue("tumblingWindowInSeconds");
+        private int? _mValue_TumblingWindowInSeconds;
+        private bool _mUnknown_TumblingWindowInSeconds;
+        public int? TumblingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TumblingWindowInSeconds) return _mValue_TumblingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'EventSourceMappingArgs.TumblingWindowInSeconds' is not present");
+            }
+        }
     }
 }

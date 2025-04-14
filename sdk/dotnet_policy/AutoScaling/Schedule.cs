@@ -16,96 +16,166 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// ARN assigned by AWS to the autoscaling schedule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Schedule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Auto Scaling group.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'Schedule.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
         /// </summary>
-        [Input("desiredCapacity")]
+        [PolicyResourceProperty("desiredCapacity", "_mUnknown_DesiredCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
-
-        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+        private int? _mValue_DesiredCapacity;
+        private bool _mUnknown_DesiredCapacity;
+        public int? DesiredCapacity
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacity) return _mValue_DesiredCapacity;
+                throw new UndeferrableValueException("Value 'Schedule.DesiredCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
-
-        public string? EndTime => _mEndTime.GetValue("endTime");
+        private string? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public string? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'Schedule.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'Schedule.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'Schedule.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The recurring schedule for this action specified using the Unix cron syntax format.
         /// </summary>
-        [Input("recurrence")]
+        [PolicyResourceProperty("recurrence", "_mUnknown_Recurrence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecurrence;
-
-        public string? Recurrence => _mRecurrence.GetValue("recurrence");
+        private string? _mValue_Recurrence;
+        private bool _mUnknown_Recurrence;
+        public string? Recurrence
+        {
+            get
+            {
+                if (!_mUnknown_Recurrence) return _mValue_Recurrence;
+                throw new UndeferrableValueException("Value 'Schedule.Recurrence' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of this scaling action.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("scheduledActionName")]
+        [PolicyResourceProperty("scheduledActionName", "_mUnknown_ScheduledActionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduledActionName;
-
-        public string? ScheduledActionName => _mScheduledActionName.GetValue("scheduledActionName");
+        private string? _mValue_ScheduledActionName;
+        private bool _mUnknown_ScheduledActionName;
+        public string? ScheduledActionName
+        {
+            get
+            {
+                if (!_mUnknown_ScheduledActionName) return _mValue_ScheduledActionName;
+                throw new UndeferrableValueException("Value 'Schedule.ScheduledActionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'Schedule.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
         /// 
         /// &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         /// </summary>
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'Schedule.TimeZone' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/schedule:Schedule")]
@@ -114,86 +184,149 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// The name of the Auto Scaling group.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
         /// </summary>
-        [Input("desiredCapacity")]
+        [PolicyResourceProperty("desiredCapacity", "_mUnknown_DesiredCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
-
-        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+        private int? _mValue_DesiredCapacity;
+        private bool _mUnknown_DesiredCapacity;
+        public int? DesiredCapacity
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacity) return _mValue_DesiredCapacity;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.DesiredCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
-
-        public string? EndTime => _mEndTime.GetValue("endTime");
+        private string? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public string? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The recurring schedule for this action specified using the Unix cron syntax format.
         /// </summary>
-        [Input("recurrence")]
+        [PolicyResourceProperty("recurrence", "_mUnknown_Recurrence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecurrence;
-
-        public string? Recurrence => _mRecurrence.GetValue("recurrence");
+        private string? _mValue_Recurrence;
+        private bool _mUnknown_Recurrence;
+        public string? Recurrence
+        {
+            get
+            {
+                if (!_mUnknown_Recurrence) return _mValue_Recurrence;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.Recurrence' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of this scaling action.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("scheduledActionName")]
+        [PolicyResourceProperty("scheduledActionName", "_mUnknown_ScheduledActionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduledActionName;
-
-        public string? ScheduledActionName => _mScheduledActionName.GetValue("scheduledActionName");
+        private string? _mValue_ScheduledActionName;
+        private bool _mUnknown_ScheduledActionName;
+        public string? ScheduledActionName
+        {
+            get
+            {
+                if (!_mUnknown_ScheduledActionName) return _mValue_ScheduledActionName;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.ScheduledActionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
         /// 
         /// &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
         /// </summary>
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'ScheduleArgs.TimeZone' is not present");
+            }
+        }
     }
 }

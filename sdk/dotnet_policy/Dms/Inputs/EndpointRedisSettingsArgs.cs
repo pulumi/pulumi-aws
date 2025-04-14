@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Inputs
         /// <summary>
         /// The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
         /// </summary>
-        [Input("authPassword")]
+        [PolicyResourceProperty("authPassword", "_mUnknown_AuthPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthPassword;
-
-        public string? AuthPassword => _mAuthPassword.GetValue("authPassword");
+        private string? _mValue_AuthPassword;
+        private bool _mUnknown_AuthPassword;
+        public string? AuthPassword
+        {
+            get
+            {
+                if (!_mUnknown_AuthPassword) return _mValue_AuthPassword;
+                throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.AuthPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
         /// </summary>
-        [Input("authUserName")]
+        [PolicyResourceProperty("authUserName", "_mUnknown_AuthUserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthUserName;
-
-        public string? AuthUserName => _mAuthUserName.GetValue("authUserName");
+        private string? _mValue_AuthUserName;
+        private bool _mUnknown_AuthUserName;
+        public string? AuthUserName
+        {
+            get
+            {
+                if (!_mUnknown_AuthUserName) return _mValue_AuthUserName;
+                throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.AuthUserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Transmission Control Protocol (TCP) port for the endpoint.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully qualified domain name of the endpoint.
         /// </summary>
-        [Input("serverName")]
+        [PolicyResourceProperty("serverName", "_mUnknown_ServerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerName;
-
-        public string? ServerName => _mServerName.GetValue("serverName");
+        private string? _mValue_ServerName;
+        private bool _mUnknown_ServerName;
+        public string? ServerName
+        {
+            get
+            {
+                if (!_mUnknown_ServerName) return _mValue_ServerName;
+                throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.ServerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         /// </summary>
-        [Input("sslCaCertificateArn")]
+        [PolicyResourceProperty("sslCaCertificateArn", "_mUnknown_SslCaCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslCaCertificateArn;
-
-        public string? SslCaCertificateArn => _mSslCaCertificateArn.GetValue("sslCaCertificateArn");
+        private string? _mValue_SslCaCertificateArn;
+        private bool _mUnknown_SslCaCertificateArn;
+        public string? SslCaCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_SslCaCertificateArn) return _mValue_SslCaCertificateArn;
+                throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.SslCaCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         /// </summary>
-        [Input("sslSecurityProtocol")]
+        [PolicyResourceProperty("sslSecurityProtocol", "_mUnknown_SslSecurityProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslSecurityProtocol;
-
-        public string? SslSecurityProtocol => _mSslSecurityProtocol.GetValue("sslSecurityProtocol");
+        private string? _mValue_SslSecurityProtocol;
+        private bool _mUnknown_SslSecurityProtocol;
+        public string? SslSecurityProtocol
+        {
+            get
+            {
+                if (!_mUnknown_SslSecurityProtocol) return _mValue_SslSecurityProtocol;
+                throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.SslSecurityProtocol' is not present");
+            }
+        }
     }
 }

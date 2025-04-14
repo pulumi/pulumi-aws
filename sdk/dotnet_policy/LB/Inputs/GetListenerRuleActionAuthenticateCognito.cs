@@ -16,73 +16,129 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// Set of additional parameters for the request.
         /// Detailed below.
         /// </summary>
-        [Input("authenticationRequestExtraParams")]
+        [PolicyResourceProperty("authenticationRequestExtraParams", "_mUnknown_AuthenticationRequestExtraParams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAuthenticationRequestExtraParams;
-
-        public Dictionary<string, string>? AuthenticationRequestExtraParams => _mAuthenticationRequestExtraParams.GetValue("authenticationRequestExtraParams");
+        private Dictionary<string, string>? _mValue_AuthenticationRequestExtraParams;
+        private bool _mUnknown_AuthenticationRequestExtraParams;
+        public Dictionary<string, string>? AuthenticationRequestExtraParams
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationRequestExtraParams) return _mValue_AuthenticationRequestExtraParams;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.AuthenticationRequestExtraParams' is not present");
+            }
+        }
 
         /// <summary>
         /// Behavior when the client is not authenticated.
         /// </summary>
-        [Input("onUnauthenticatedRequest")]
+        [PolicyResourceProperty("onUnauthenticatedRequest", "_mUnknown_OnUnauthenticatedRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnUnauthenticatedRequest;
-
-        public string? OnUnauthenticatedRequest => _mOnUnauthenticatedRequest.GetValue("onUnauthenticatedRequest");
+        private string? _mValue_OnUnauthenticatedRequest;
+        private bool _mUnknown_OnUnauthenticatedRequest;
+        public string? OnUnauthenticatedRequest
+        {
+            get
+            {
+                if (!_mUnknown_OnUnauthenticatedRequest) return _mValue_OnUnauthenticatedRequest;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.OnUnauthenticatedRequest' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of user claims requested.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cookie used to maintain session information.
         /// </summary>
-        [Input("sessionCookieName")]
+        [PolicyResourceProperty("sessionCookieName", "_mUnknown_SessionCookieName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionCookieName;
-
-        public string? SessionCookieName => _mSessionCookieName.GetValue("sessionCookieName");
+        private string? _mValue_SessionCookieName;
+        private bool _mUnknown_SessionCookieName;
+        public string? SessionCookieName
+        {
+            get
+            {
+                if (!_mUnknown_SessionCookieName) return _mValue_SessionCookieName;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.SessionCookieName' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum duration of the authentication session in seconds.
         /// </summary>
-        [Input("sessionTimeout")]
+        [PolicyResourceProperty("sessionTimeout", "_mUnknown_SessionTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSessionTimeout;
-
-        public int? SessionTimeout => _mSessionTimeout.GetValue("sessionTimeout");
+        private int? _mValue_SessionTimeout;
+        private bool _mUnknown_SessionTimeout;
+        public int? SessionTimeout
+        {
+            get
+            {
+                if (!_mUnknown_SessionTimeout) return _mValue_SessionTimeout;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.SessionTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Cognito user pool.
         /// </summary>
-        [Input("userPoolArn")]
+        [PolicyResourceProperty("userPoolArn", "_mUnknown_UserPoolArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolArn;
-
-        public string? UserPoolArn => _mUserPoolArn.GetValue("userPoolArn");
+        private string? _mValue_UserPoolArn;
+        private bool _mUnknown_UserPoolArn;
+        public string? UserPoolArn
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolArn) return _mValue_UserPoolArn;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.UserPoolArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Cognito user pool client.
         /// </summary>
-        [Input("userPoolClientId")]
+        [PolicyResourceProperty("userPoolClientId", "_mUnknown_UserPoolClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolClientId;
-
-        public string? UserPoolClientId => _mUserPoolClientId.GetValue("userPoolClientId");
+        private string? _mValue_UserPoolClientId;
+        private bool _mUnknown_UserPoolClientId;
+        public string? UserPoolClientId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolClientId) return _mValue_UserPoolClientId;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.UserPoolClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain prefix or fully-qualified domain name of the Cognito user pool.
         /// </summary>
-        [Input("userPoolDomain")]
+        [PolicyResourceProperty("userPoolDomain", "_mUnknown_UserPoolDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolDomain;
-
-        public string? UserPoolDomain => _mUserPoolDomain.GetValue("userPoolDomain");
+        private string? _mValue_UserPoolDomain;
+        private bool _mUnknown_UserPoolDomain;
+        public string? UserPoolDomain
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolDomain) return _mValue_UserPoolDomain;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionAuthenticateCognitoArgs.UserPoolDomain' is not present");
+            }
+        }
     }
 }

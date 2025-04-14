@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
         /// </summary>
-        [Input("newerNoncurrentVersions")]
+        [PolicyResourceProperty("newerNoncurrentVersions", "_mUnknown_NewerNoncurrentVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNewerNoncurrentVersions;
-
-        public int? NewerNoncurrentVersions => _mNewerNoncurrentVersions.GetValue("newerNoncurrentVersions");
+        private int? _mValue_NewerNoncurrentVersions;
+        private bool _mUnknown_NewerNoncurrentVersions;
+        public int? NewerNoncurrentVersions
+        {
+            get
+            {
+                if (!_mUnknown_NewerNoncurrentVersions) return _mValue_NewerNoncurrentVersions;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs.NewerNoncurrentVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days an object is noncurrent before Amazon S3 can perform the associated action.
         /// </summary>
-        [Input("noncurrentDays")]
+        [PolicyResourceProperty("noncurrentDays", "_mUnknown_NoncurrentDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNoncurrentDays;
-
-        public int? NoncurrentDays => _mNoncurrentDays.GetValue("noncurrentDays");
+        private int? _mValue_NoncurrentDays;
+        private bool _mUnknown_NoncurrentDays;
+        public int? NoncurrentDays
+        {
+            get
+            {
+                if (!_mUnknown_NoncurrentDays) return _mValue_NoncurrentDays;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs.NoncurrentDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Class of storage used to store the object. Valid Values: `GLACIER`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `DEEP_ARCHIVE`, `GLACIER_IR`.
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs.StorageClass' is not present");
+            }
+        }
     }
 }

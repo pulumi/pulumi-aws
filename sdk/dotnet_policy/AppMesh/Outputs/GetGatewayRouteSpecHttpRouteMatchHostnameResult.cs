@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecHttpRouteMatchHostnameResult
     {
-        [Input("exact")]
+        [PolicyResourceProperty("exact", "_mUnknown_Exact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExact;
+        private string? _mValue_Exact;
+        private bool _mUnknown_Exact;
+        public string? Exact
+        {
+            get
+            {
+                if (!_mUnknown_Exact) return _mValue_Exact;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchHostnameResult.Exact' is not present");
+            }
+        }
 
-        public string? Exact => _mExact.GetValue("exact");
-
-        [Input("suffix")]
+        [PolicyResourceProperty("suffix", "_mUnknown_Suffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuffix;
-
-        public string? Suffix => _mSuffix.GetValue("suffix");
+        private string? _mValue_Suffix;
+        private bool _mUnknown_Suffix;
+        public string? Suffix
+        {
+            get
+            {
+                if (!_mUnknown_Suffix) return _mValue_Suffix;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteMatchHostnameResult.Suffix' is not present");
+            }
+        }
     }
 }

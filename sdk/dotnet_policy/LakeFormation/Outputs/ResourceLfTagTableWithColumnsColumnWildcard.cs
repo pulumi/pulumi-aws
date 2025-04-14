@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
 {
     public sealed class ResourceLfTagTableWithColumnsColumnWildcard
     {
-        [Input("excludedColumnNames")]
+        [PolicyResourceProperty("excludedColumnNames", "_mUnknown_ExcludedColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedColumnNames;
-
-        public List<string>? ExcludedColumnNames => _mExcludedColumnNames.GetValue("excludedColumnNames");
+        private List<string>? _mValue_ExcludedColumnNames;
+        private bool _mUnknown_ExcludedColumnNames;
+        public List<string>? ExcludedColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedColumnNames) return _mValue_ExcludedColumnNames;
+                throw new UndeferrableValueException("Value 'ResourceLfTagTableWithColumnsColumnWildcard.ExcludedColumnNames' is not present");
+            }
+        }
     }
 }

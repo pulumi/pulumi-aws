@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The universally unique identifier (UUID) of the configuration policy.
         /// </summary>
-        [Input("policyId")]
+        [PolicyResourceProperty("policyId", "_mUnknown_PolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
-
-        public string? PolicyId => _mPolicyId.GetValue("policyId");
+        private string? _mValue_PolicyId;
+        private bool _mUnknown_PolicyId;
+        public string? PolicyId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyId) return _mValue_PolicyId;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyAssociation.PolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyAssociation.TargetId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The universally unique identifier (UUID) of the configuration policy.
         /// </summary>
-        [Input("policyId")]
+        [PolicyResourceProperty("policyId", "_mUnknown_PolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
-
-        public string? PolicyId => _mPolicyId.GetValue("policyId");
+        private string? _mValue_PolicyId;
+        private bool _mUnknown_PolicyId;
+        public string? PolicyId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyId) return _mValue_PolicyId;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyAssociationArgs.PolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyAssociationArgs.TargetId' is not present");
+            }
+        }
     }
 }

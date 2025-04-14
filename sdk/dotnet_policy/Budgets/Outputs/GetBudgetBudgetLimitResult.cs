@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         /// </summary>
-        [Input("amount")]
+        [PolicyResourceProperty("amount", "_mUnknown_Amount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmount;
-
-        public string? Amount => _mAmount.GetValue("amount");
+        private string? _mValue_Amount;
+        private bool _mUnknown_Amount;
+        public string? Amount
+        {
+            get
+            {
+                if (!_mUnknown_Amount) return _mValue_Amount;
+                throw new UndeferrableValueException("Value 'GetBudgetBudgetLimitResult.Amount' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'GetBudgetBudgetLimitResult.Unit' is not present");
+            }
+        }
     }
 }

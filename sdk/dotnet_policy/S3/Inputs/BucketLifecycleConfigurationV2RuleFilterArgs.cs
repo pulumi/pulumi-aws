@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
         /// </summary>
-        [Input("and")]
+        [PolicyResourceProperty("and", "_mUnknown_And")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs> _mAnd;
-
-        public Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs? And => _mAnd.GetValue("and");
+        private Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs? _mValue_And;
+        private bool _mUnknown_And;
+        public Inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs? And
+        {
+            get
+            {
+                if (!_mUnknown_And) return _mValue_And;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.And' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum object size (in bytes) to which the rule applies.
         /// </summary>
-        [Input("objectSizeGreaterThan")]
+        [PolicyResourceProperty("objectSizeGreaterThan", "_mUnknown_ObjectSizeGreaterThan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mObjectSizeGreaterThan;
-
-        public int? ObjectSizeGreaterThan => _mObjectSizeGreaterThan.GetValue("objectSizeGreaterThan");
+        private int? _mValue_ObjectSizeGreaterThan;
+        private bool _mUnknown_ObjectSizeGreaterThan;
+        public int? ObjectSizeGreaterThan
+        {
+            get
+            {
+                if (!_mUnknown_ObjectSizeGreaterThan) return _mValue_ObjectSizeGreaterThan;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.ObjectSizeGreaterThan' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum object size (in bytes) to which the rule applies.
         /// </summary>
-        [Input("objectSizeLessThan")]
+        [PolicyResourceProperty("objectSizeLessThan", "_mUnknown_ObjectSizeLessThan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mObjectSizeLessThan;
-
-        public int? ObjectSizeLessThan => _mObjectSizeLessThan.GetValue("objectSizeLessThan");
+        private int? _mValue_ObjectSizeLessThan;
+        private bool _mUnknown_ObjectSizeLessThan;
+        public int? ObjectSizeLessThan
+        {
+            get
+            {
+                if (!_mUnknown_ObjectSizeLessThan) return _mValue_ObjectSizeLessThan;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.ObjectSizeLessThan' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying a tag key and value. See below.
         /// </summary>
-        [Input("tag")]
+        [PolicyResourceProperty("tag", "_mUnknown_Tag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs> _mTag;
-
-        public Inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs? Tag => _mTag.GetValue("tag");
+        private Inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs? _mValue_Tag;
+        private bool _mUnknown_Tag;
+        public Inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs? Tag
+        {
+            get
+            {
+                if (!_mUnknown_Tag) return _mValue_Tag;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.Tag' is not present");
+            }
+        }
     }
 }

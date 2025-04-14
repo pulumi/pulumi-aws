@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// List of permissions granted to the principal.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPermissions;
-
-        public List<string>? Permissions => _mPermissions.GetValue("permissions");
+        private List<string>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<string>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'GetDataLakeSettingsCreateTableDefaultPermissionResult.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Principal who is granted permissions.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'GetDataLakeSettingsCreateTableDefaultPermissionResult.Principal' is not present");
+            }
+        }
     }
 }

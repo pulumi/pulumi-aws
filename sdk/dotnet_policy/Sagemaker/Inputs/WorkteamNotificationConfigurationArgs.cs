@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The ARN for the SNS topic to which notifications should be published.
         /// </summary>
-        [Input("notificationTopicArn")]
+        [PolicyResourceProperty("notificationTopicArn", "_mUnknown_NotificationTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationTopicArn;
-
-        public string? NotificationTopicArn => _mNotificationTopicArn.GetValue("notificationTopicArn");
+        private string? _mValue_NotificationTopicArn;
+        private bool _mUnknown_NotificationTopicArn;
+        public string? NotificationTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationTopicArn) return _mValue_NotificationTopicArn;
+                throw new UndeferrableValueException("Value 'WorkteamNotificationConfigurationArgs.NotificationTopicArn' is not present");
+            }
+        }
     }
 }

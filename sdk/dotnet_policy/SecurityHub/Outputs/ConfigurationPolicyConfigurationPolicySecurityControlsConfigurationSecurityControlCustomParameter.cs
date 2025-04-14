@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// An object that specifies parameter values for a control in a configuration policy. See below.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter>> _mParameters;
-
-        public List<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security control. For more information see the [Security Hub controls reference] documentation.
         /// </summary>
-        [Input("securityControlId")]
+        [PolicyResourceProperty("securityControlId", "_mUnknown_SecurityControlId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityControlId;
-
-        public string? SecurityControlId => _mSecurityControlId.GetValue("securityControlId");
+        private string? _mValue_SecurityControlId;
+        private bool _mUnknown_SecurityControlId;
+        public string? SecurityControlId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityControlId) return _mValue_SecurityControlId;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter.SecurityControlId' is not present");
+            }
+        }
     }
 }

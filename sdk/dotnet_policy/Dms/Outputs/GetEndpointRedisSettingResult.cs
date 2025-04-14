@@ -12,46 +12,95 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
 {
     public sealed class GetEndpointRedisSettingResult
     {
-        [Input("authPassword")]
+        [PolicyResourceProperty("authPassword", "_mUnknown_AuthPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthPassword;
+        private string? _mValue_AuthPassword;
+        private bool _mUnknown_AuthPassword;
+        public string? AuthPassword
+        {
+            get
+            {
+                if (!_mUnknown_AuthPassword) return _mValue_AuthPassword;
+                throw new UndeferrableValueException("Value 'GetEndpointRedisSettingResult.AuthPassword' is not present");
+            }
+        }
 
-        public string? AuthPassword => _mAuthPassword.GetValue("authPassword");
-
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'GetEndpointRedisSettingResult.AuthType' is not present");
+            }
+        }
 
-        public string? AuthType => _mAuthType.GetValue("authType");
-
-        [Input("authUserName")]
+        [PolicyResourceProperty("authUserName", "_mUnknown_AuthUserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthUserName;
+        private string? _mValue_AuthUserName;
+        private bool _mUnknown_AuthUserName;
+        public string? AuthUserName
+        {
+            get
+            {
+                if (!_mUnknown_AuthUserName) return _mValue_AuthUserName;
+                throw new UndeferrableValueException("Value 'GetEndpointRedisSettingResult.AuthUserName' is not present");
+            }
+        }
 
-        public string? AuthUserName => _mAuthUserName.GetValue("authUserName");
-
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetEndpointRedisSettingResult.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("serverName")]
+        [PolicyResourceProperty("serverName", "_mUnknown_ServerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerName;
+        private string? _mValue_ServerName;
+        private bool _mUnknown_ServerName;
+        public string? ServerName
+        {
+            get
+            {
+                if (!_mUnknown_ServerName) return _mValue_ServerName;
+                throw new UndeferrableValueException("Value 'GetEndpointRedisSettingResult.ServerName' is not present");
+            }
+        }
 
-        public string? ServerName => _mServerName.GetValue("serverName");
-
-        [Input("sslCaCertificateArn")]
+        [PolicyResourceProperty("sslCaCertificateArn", "_mUnknown_SslCaCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslCaCertificateArn;
+        private string? _mValue_SslCaCertificateArn;
+        private bool _mUnknown_SslCaCertificateArn;
+        public string? SslCaCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_SslCaCertificateArn) return _mValue_SslCaCertificateArn;
+                throw new UndeferrableValueException("Value 'GetEndpointRedisSettingResult.SslCaCertificateArn' is not present");
+            }
+        }
 
-        public string? SslCaCertificateArn => _mSslCaCertificateArn.GetValue("sslCaCertificateArn");
-
-        [Input("sslSecurityProtocol")]
+        [PolicyResourceProperty("sslSecurityProtocol", "_mUnknown_SslSecurityProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslSecurityProtocol;
-
-        public string? SslSecurityProtocol => _mSslSecurityProtocol.GetValue("sslSecurityProtocol");
+        private string? _mValue_SslSecurityProtocol;
+        private bool _mUnknown_SslSecurityProtocol;
+        public string? SslSecurityProtocol
+        {
+            get
+            {
+                if (!_mUnknown_SslSecurityProtocol) return _mValue_SslSecurityProtocol;
+                throw new UndeferrableValueException("Value 'GetEndpointRedisSettingResult.SslSecurityProtocol' is not present");
+            }
+        }
     }
 }

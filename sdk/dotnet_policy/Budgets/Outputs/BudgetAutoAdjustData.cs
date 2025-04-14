@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
         /// </summary>
-        [Input("autoAdjustType")]
+        [PolicyResourceProperty("autoAdjustType", "_mUnknown_AutoAdjustType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoAdjustType;
-
-        public string? AutoAdjustType => _mAutoAdjustType.GetValue("autoAdjustType");
+        private string? _mValue_AutoAdjustType;
+        private bool _mUnknown_AutoAdjustType;
+        public string? AutoAdjustType
+        {
+            get
+            {
+                if (!_mUnknown_AutoAdjustType) return _mValue_AutoAdjustType;
+                throw new UndeferrableValueException("Value 'BudgetAutoAdjustData.AutoAdjustType' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
         /// </summary>
-        [Input("historicalOptions")]
+        [PolicyResourceProperty("historicalOptions", "_mUnknown_HistoricalOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetAutoAdjustDataHistoricalOptions> _mHistoricalOptions;
-
-        public Outputs.BudgetAutoAdjustDataHistoricalOptions? HistoricalOptions => _mHistoricalOptions.GetValue("historicalOptions");
+        private Outputs.BudgetAutoAdjustDataHistoricalOptions? _mValue_HistoricalOptions;
+        private bool _mUnknown_HistoricalOptions;
+        public Outputs.BudgetAutoAdjustDataHistoricalOptions? HistoricalOptions
+        {
+            get
+            {
+                if (!_mUnknown_HistoricalOptions) return _mValue_HistoricalOptions;
+                throw new UndeferrableValueException("Value 'BudgetAutoAdjustData.HistoricalOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) - The last time that your budget was auto-adjusted.
         /// </summary>
-        [Input("lastAutoAdjustTime")]
+        [PolicyResourceProperty("lastAutoAdjustTime", "_mUnknown_LastAutoAdjustTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastAutoAdjustTime;
-
-        public string? LastAutoAdjustTime => _mLastAutoAdjustTime.GetValue("lastAutoAdjustTime");
+        private string? _mValue_LastAutoAdjustTime;
+        private bool _mUnknown_LastAutoAdjustTime;
+        public string? LastAutoAdjustTime
+        {
+            get
+            {
+                if (!_mUnknown_LastAutoAdjustTime) return _mValue_LastAutoAdjustTime;
+                throw new UndeferrableValueException("Value 'BudgetAutoAdjustData.LastAutoAdjustTime' is not present");
+            }
+        }
     }
 }

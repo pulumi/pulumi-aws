@@ -16,157 +16,276 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date when the configuration was created.
         /// </summary>
-        [Input("dateCreated")]
+        [PolicyResourceProperty("dateCreated", "_mUnknown_DateCreated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDateCreated;
-
-        public string? DateCreated => _mDateCreated.GetValue("dateCreated");
+        private string? _mValue_DateCreated;
+        private bool _mUnknown_DateCreated;
+        public string? DateCreated
+        {
+            get
+            {
+                if (!_mUnknown_DateCreated) return _mValue_DateCreated;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.DateCreated' is not present");
+            }
+        }
 
         /// <summary>
         /// Date when the configuration was updated.
         /// </summary>
-        [Input("dateUpdated")]
+        [PolicyResourceProperty("dateUpdated", "_mUnknown_DateUpdated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDateUpdated;
-
-        public string? DateUpdated => _mDateUpdated.GetValue("dateUpdated");
+        private string? _mValue_DateUpdated;
+        private bool _mUnknown_DateUpdated;
+        public string? DateUpdated
+        {
+            get
+            {
+                if (!_mUnknown_DateUpdated) return _mValue_DateUpdated;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.DateUpdated' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         /// </summary>
-        [Input("instanceMetadataOptions")]
+        [PolicyResourceProperty("instanceMetadataOptions", "_mUnknown_InstanceMetadataOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InfrastructureConfigurationInstanceMetadataOptions> _mInstanceMetadataOptions;
-
-        public Outputs.InfrastructureConfigurationInstanceMetadataOptions? InstanceMetadataOptions => _mInstanceMetadataOptions.GetValue("instanceMetadataOptions");
+        private Outputs.InfrastructureConfigurationInstanceMetadataOptions? _mValue_InstanceMetadataOptions;
+        private bool _mUnknown_InstanceMetadataOptions;
+        public Outputs.InfrastructureConfigurationInstanceMetadataOptions? InstanceMetadataOptions
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataOptions) return _mValue_InstanceMetadataOptions;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.InstanceMetadataOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of IAM Instance Profile.
         /// </summary>
-        [Input("instanceProfileName")]
+        [PolicyResourceProperty("instanceProfileName", "_mUnknown_InstanceProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileName;
-
-        public string? InstanceProfileName => _mInstanceProfileName.GetValue("instanceProfileName");
+        private string? _mValue_InstanceProfileName;
+        private bool _mUnknown_InstanceProfileName;
+        public string? InstanceProfileName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceProfileName) return _mValue_InstanceProfileName;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.InstanceProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of EC2 Instance Types.
         /// </summary>
-        [Input("instanceTypes")]
+        [PolicyResourceProperty("instanceTypes", "_mUnknown_InstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
-
-        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
+        private List<string>? _mValue_InstanceTypes;
+        private bool _mUnknown_InstanceTypes;
+        public List<string>? InstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_InstanceTypes) return _mValue_InstanceTypes;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.InstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of EC2 Key Pair.
         /// </summary>
-        [Input("keyPair")]
+        [PolicyResourceProperty("keyPair", "_mUnknown_KeyPair")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPair;
-
-        public string? KeyPair => _mKeyPair.GetValue("keyPair");
+        private string? _mValue_KeyPair;
+        private bool _mUnknown_KeyPair;
+        public string? KeyPair
+        {
+            get
+            {
+                if (!_mUnknown_KeyPair) return _mValue_KeyPair;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.KeyPair' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with logging settings. Detailed below.
         /// </summary>
-        [Input("logging")]
+        [PolicyResourceProperty("logging", "_mUnknown_Logging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InfrastructureConfigurationLogging> _mLogging;
-
-        public Outputs.InfrastructureConfigurationLogging? Logging => _mLogging.GetValue("logging");
+        private Outputs.InfrastructureConfigurationLogging? _mValue_Logging;
+        private bool _mUnknown_Logging;
+        public Outputs.InfrastructureConfigurationLogging? Logging
+        {
+            get
+            {
+                if (!_mUnknown_Logging) return _mValue_Logging;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.Logging' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags to assign to infrastructure created by the configuration.
         /// </summary>
-        [Input("resourceTags")]
+        [PolicyResourceProperty("resourceTags", "_mUnknown_ResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
-
-        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+        private Dictionary<string, string>? _mValue_ResourceTags;
+        private bool _mUnknown_ResourceTags;
+        public Dictionary<string, string>? ResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTags) return _mValue_ResourceTags;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.ResourceTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of EC2 Security Group identifiers.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of SNS Topic.
         /// </summary>
-        [Input("snsTopicArn")]
+        [PolicyResourceProperty("snsTopicArn", "_mUnknown_SnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
-
-        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+        private string? _mValue_SnsTopicArn;
+        private bool _mUnknown_SnsTopicArn;
+        public string? SnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicArn) return _mValue_SnsTopicArn;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.SnsTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         /// </summary>
-        [Input("terminateInstanceOnFailure")]
+        [PolicyResourceProperty("terminateInstanceOnFailure", "_mUnknown_TerminateInstanceOnFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstanceOnFailure;
-
-        public bool? TerminateInstanceOnFailure => _mTerminateInstanceOnFailure.GetValue("terminateInstanceOnFailure");
+        private bool? _mValue_TerminateInstanceOnFailure;
+        private bool _mUnknown_TerminateInstanceOnFailure;
+        public bool? TerminateInstanceOnFailure
+        {
+            get
+            {
+                if (!_mUnknown_TerminateInstanceOnFailure) return _mValue_TerminateInstanceOnFailure;
+                throw new UndeferrableValueException("Value 'InfrastructureConfiguration.TerminateInstanceOnFailure' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration")]
@@ -175,120 +294,211 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder
         /// <summary>
         /// Description for the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         /// </summary>
-        [Input("instanceMetadataOptions")]
+        [PolicyResourceProperty("instanceMetadataOptions", "_mUnknown_InstanceMetadataOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs> _mInstanceMetadataOptions;
-
-        public Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs? InstanceMetadataOptions => _mInstanceMetadataOptions.GetValue("instanceMetadataOptions");
+        private Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs? _mValue_InstanceMetadataOptions;
+        private bool _mUnknown_InstanceMetadataOptions;
+        public Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs? InstanceMetadataOptions
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataOptions) return _mValue_InstanceMetadataOptions;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.InstanceMetadataOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of IAM Instance Profile.
         /// </summary>
-        [Input("instanceProfileName")]
+        [PolicyResourceProperty("instanceProfileName", "_mUnknown_InstanceProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileName;
-
-        public string? InstanceProfileName => _mInstanceProfileName.GetValue("instanceProfileName");
+        private string? _mValue_InstanceProfileName;
+        private bool _mUnknown_InstanceProfileName;
+        public string? InstanceProfileName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceProfileName) return _mValue_InstanceProfileName;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.InstanceProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of EC2 Instance Types.
         /// </summary>
-        [Input("instanceTypes")]
+        [PolicyResourceProperty("instanceTypes", "_mUnknown_InstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
-
-        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
+        private List<string>? _mValue_InstanceTypes;
+        private bool _mUnknown_InstanceTypes;
+        public List<string>? InstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_InstanceTypes) return _mValue_InstanceTypes;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.InstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of EC2 Key Pair.
         /// </summary>
-        [Input("keyPair")]
+        [PolicyResourceProperty("keyPair", "_mUnknown_KeyPair")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPair;
-
-        public string? KeyPair => _mKeyPair.GetValue("keyPair");
+        private string? _mValue_KeyPair;
+        private bool _mUnknown_KeyPair;
+        public string? KeyPair
+        {
+            get
+            {
+                if (!_mUnknown_KeyPair) return _mValue_KeyPair;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.KeyPair' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with logging settings. Detailed below.
         /// </summary>
-        [Input("logging")]
+        [PolicyResourceProperty("logging", "_mUnknown_Logging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InfrastructureConfigurationLoggingArgs> _mLogging;
-
-        public Inputs.InfrastructureConfigurationLoggingArgs? Logging => _mLogging.GetValue("logging");
+        private Inputs.InfrastructureConfigurationLoggingArgs? _mValue_Logging;
+        private bool _mUnknown_Logging;
+        public Inputs.InfrastructureConfigurationLoggingArgs? Logging
+        {
+            get
+            {
+                if (!_mUnknown_Logging) return _mValue_Logging;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.Logging' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags to assign to infrastructure created by the configuration.
         /// </summary>
-        [Input("resourceTags")]
+        [PolicyResourceProperty("resourceTags", "_mUnknown_ResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
-
-        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+        private Dictionary<string, string>? _mValue_ResourceTags;
+        private bool _mUnknown_ResourceTags;
+        public Dictionary<string, string>? ResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTags) return _mValue_ResourceTags;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.ResourceTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of EC2 Security Group identifiers.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of SNS Topic.
         /// </summary>
-        [Input("snsTopicArn")]
+        [PolicyResourceProperty("snsTopicArn", "_mUnknown_SnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopicArn;
-
-        public string? SnsTopicArn => _mSnsTopicArn.GetValue("snsTopicArn");
+        private string? _mValue_SnsTopicArn;
+        private bool _mUnknown_SnsTopicArn;
+        public string? SnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopicArn) return _mValue_SnsTopicArn;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.SnsTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 Subnet identifier. Also requires `security_group_ids` argument.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         /// </summary>
-        [Input("terminateInstanceOnFailure")]
+        [PolicyResourceProperty("terminateInstanceOnFailure", "_mUnknown_TerminateInstanceOnFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateInstanceOnFailure;
-
-        public bool? TerminateInstanceOnFailure => _mTerminateInstanceOnFailure.GetValue("terminateInstanceOnFailure");
+        private bool? _mValue_TerminateInstanceOnFailure;
+        private bool _mUnknown_TerminateInstanceOnFailure;
+        public bool? TerminateInstanceOnFailure
+        {
+            get
+            {
+                if (!_mUnknown_TerminateInstanceOnFailure) return _mValue_TerminateInstanceOnFailure;
+                throw new UndeferrableValueException("Value 'InfrastructureConfigurationArgs.TerminateInstanceOnFailure' is not present");
+            }
+        }
     }
 }

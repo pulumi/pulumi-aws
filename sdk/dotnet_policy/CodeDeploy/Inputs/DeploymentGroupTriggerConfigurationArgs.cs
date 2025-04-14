@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
         /// </summary>
-        [Input("triggerEvents")]
+        [PolicyResourceProperty("triggerEvents", "_mUnknown_TriggerEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggerEvents;
-
-        public List<string>? TriggerEvents => _mTriggerEvents.GetValue("triggerEvents");
+        private List<string>? _mValue_TriggerEvents;
+        private bool _mUnknown_TriggerEvents;
+        public List<string>? TriggerEvents
+        {
+            get
+            {
+                if (!_mUnknown_TriggerEvents) return _mValue_TriggerEvents;
+                throw new UndeferrableValueException("Value 'DeploymentGroupTriggerConfigurationArgs.TriggerEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the notification trigger.
         /// </summary>
-        [Input("triggerName")]
+        [PolicyResourceProperty("triggerName", "_mUnknown_TriggerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerName;
-
-        public string? TriggerName => _mTriggerName.GetValue("triggerName");
+        private string? _mValue_TriggerName;
+        private bool _mUnknown_TriggerName;
+        public string? TriggerName
+        {
+            get
+            {
+                if (!_mUnknown_TriggerName) return _mValue_TriggerName;
+                throw new UndeferrableValueException("Value 'DeploymentGroupTriggerConfigurationArgs.TriggerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic through which notifications are sent.
         /// </summary>
-        [Input("triggerTargetArn")]
+        [PolicyResourceProperty("triggerTargetArn", "_mUnknown_TriggerTargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTriggerTargetArn;
-
-        public string? TriggerTargetArn => _mTriggerTargetArn.GetValue("triggerTargetArn");
+        private string? _mValue_TriggerTargetArn;
+        private bool _mUnknown_TriggerTargetArn;
+        public string? TriggerTargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TriggerTargetArn) return _mValue_TriggerTargetArn;
+                throw new UndeferrableValueException("Value 'DeploymentGroupTriggerConfigurationArgs.TriggerTargetArn' is not present");
+            }
+        }
     }
 }

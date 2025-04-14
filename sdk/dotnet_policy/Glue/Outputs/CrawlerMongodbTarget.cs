@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         /// </summary>
-        [Input("connectionName")]
+        [PolicyResourceProperty("connectionName", "_mUnknown_ConnectionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionName;
-
-        public string? ConnectionName => _mConnectionName.GetValue("connectionName");
+        private string? _mValue_ConnectionName;
+        private bool _mUnknown_ConnectionName;
+        public string? ConnectionName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionName) return _mValue_ConnectionName;
+                throw new UndeferrableValueException("Value 'CrawlerMongodbTarget.ConnectionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'CrawlerMongodbTarget.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
         /// </summary>
-        [Input("scanAll")]
+        [PolicyResourceProperty("scanAll", "_mUnknown_ScanAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mScanAll;
-
-        public bool? ScanAll => _mScanAll.GetValue("scanAll");
+        private bool? _mValue_ScanAll;
+        private bool _mUnknown_ScanAll;
+        public bool? ScanAll
+        {
+            get
+            {
+                if (!_mUnknown_ScanAll) return _mValue_ScanAll;
+                throw new UndeferrableValueException("Value 'CrawlerMongodbTarget.ScanAll' is not present");
+            }
+        }
     }
 }

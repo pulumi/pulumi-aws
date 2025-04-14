@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
         /// </summary>
-        [Input("logGroupArn")]
+        [PolicyResourceProperty("logGroupArn", "_mUnknown_LogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupArn;
-
-        public string? LogGroupArn => _mLogGroupArn.GetValue("logGroupArn");
+        private string? _mValue_LogGroupArn;
+        private bool _mUnknown_LogGroupArn;
+        public string? LogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupArn) return _mValue_LogGroupArn;
+                throw new UndeferrableValueException("Value 'PipeLogConfigurationCloudwatchLogsLogDestination.LogGroupArn' is not present");
+            }
+        }
     }
 }

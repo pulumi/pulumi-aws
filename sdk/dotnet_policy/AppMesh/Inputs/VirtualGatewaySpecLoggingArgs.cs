@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Access log configuration for a virtual gateway.
         /// </summary>
-        [Input("accessLog")]
+        [PolicyResourceProperty("accessLog", "_mUnknown_AccessLog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecLoggingAccessLogArgs> _mAccessLog;
-
-        public Inputs.VirtualGatewaySpecLoggingAccessLogArgs? AccessLog => _mAccessLog.GetValue("accessLog");
+        private Inputs.VirtualGatewaySpecLoggingAccessLogArgs? _mValue_AccessLog;
+        private bool _mUnknown_AccessLog;
+        public Inputs.VirtualGatewaySpecLoggingAccessLogArgs? AccessLog
+        {
+            get
+            {
+                if (!_mUnknown_AccessLog) return _mValue_AccessLog;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingArgs.AccessLog' is not present");
+            }
+        }
     }
 }

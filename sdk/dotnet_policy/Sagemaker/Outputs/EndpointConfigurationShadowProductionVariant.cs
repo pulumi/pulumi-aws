@@ -15,136 +15,241 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The size of the Elastic Inference (EI) instance to use for the production variant.
         /// </summary>
-        [Input("acceleratorType")]
+        [PolicyResourceProperty("acceleratorType", "_mUnknown_AcceleratorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorType;
-
-        public string? AcceleratorType => _mAcceleratorType.GetValue("acceleratorType");
+        private string? _mValue_AcceleratorType;
+        private bool _mUnknown_AcceleratorType;
+        public string? AcceleratorType
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorType) return _mValue_AcceleratorType;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.AcceleratorType' is not present");
+            }
+        }
 
         /// <summary>
         /// The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         /// </summary>
-        [Input("containerStartupHealthCheckTimeoutInSeconds")]
+        [PolicyResourceProperty("containerStartupHealthCheckTimeoutInSeconds", "_mUnknown_ContainerStartupHealthCheckTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mContainerStartupHealthCheckTimeoutInSeconds;
-
-        public int? ContainerStartupHealthCheckTimeoutInSeconds => _mContainerStartupHealthCheckTimeoutInSeconds.GetValue("containerStartupHealthCheckTimeoutInSeconds");
+        private int? _mValue_ContainerStartupHealthCheckTimeoutInSeconds;
+        private bool _mUnknown_ContainerStartupHealthCheckTimeoutInSeconds;
+        public int? ContainerStartupHealthCheckTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_ContainerStartupHealthCheckTimeoutInSeconds) return _mValue_ContainerStartupHealthCheckTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.ContainerStartupHealthCheckTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         /// </summary>
-        [Input("coreDumpConfig")]
+        [PolicyResourceProperty("coreDumpConfig", "_mUnknown_CoreDumpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig> _mCoreDumpConfig;
-
-        public Outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig? CoreDumpConfig => _mCoreDumpConfig.GetValue("coreDumpConfig");
+        private Outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig? _mValue_CoreDumpConfig;
+        private bool _mUnknown_CoreDumpConfig;
+        public Outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig? CoreDumpConfig
+        {
+            get
+            {
+                if (!_mUnknown_CoreDumpConfig) return _mValue_CoreDumpConfig;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.CoreDumpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         /// </summary>
-        [Input("enableSsmAccess")]
+        [PolicyResourceProperty("enableSsmAccess", "_mUnknown_EnableSsmAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSsmAccess;
-
-        public bool? EnableSsmAccess => _mEnableSsmAccess.GetValue("enableSsmAccess");
+        private bool? _mValue_EnableSsmAccess;
+        private bool _mUnknown_EnableSsmAccess;
+        public bool? EnableSsmAccess
+        {
+            get
+            {
+                if (!_mUnknown_EnableSsmAccess) return _mValue_EnableSsmAccess;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.EnableSsmAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
         /// </summary>
-        [Input("inferenceAmiVersion")]
+        [PolicyResourceProperty("inferenceAmiVersion", "_mUnknown_InferenceAmiVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInferenceAmiVersion;
-
-        public string? InferenceAmiVersion => _mInferenceAmiVersion.GetValue("inferenceAmiVersion");
+        private string? _mValue_InferenceAmiVersion;
+        private bool _mUnknown_InferenceAmiVersion;
+        public string? InferenceAmiVersion
+        {
+            get
+            {
+                if (!_mUnknown_InferenceAmiVersion) return _mValue_InferenceAmiVersion;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.InferenceAmiVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Initial number of instances used for auto-scaling.
         /// </summary>
-        [Input("initialInstanceCount")]
+        [PolicyResourceProperty("initialInstanceCount", "_mUnknown_InitialInstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInitialInstanceCount;
-
-        public int? InitialInstanceCount => _mInitialInstanceCount.GetValue("initialInstanceCount");
+        private int? _mValue_InitialInstanceCount;
+        private bool _mUnknown_InitialInstanceCount;
+        public int? InitialInstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InitialInstanceCount) return _mValue_InitialInstanceCount;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.InitialInstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         /// </summary>
-        [Input("initialVariantWeight")]
+        [PolicyResourceProperty("initialVariantWeight", "_mUnknown_InitialVariantWeight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mInitialVariantWeight;
-
-        public double? InitialVariantWeight => _mInitialVariantWeight.GetValue("initialVariantWeight");
+        private double? _mValue_InitialVariantWeight;
+        private bool _mUnknown_InitialVariantWeight;
+        public double? InitialVariantWeight
+        {
+            get
+            {
+                if (!_mUnknown_InitialVariantWeight) return _mValue_InitialVariantWeight;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.InitialVariantWeight' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of instance to start.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
         /// </summary>
-        [Input("managedInstanceScaling")]
+        [PolicyResourceProperty("managedInstanceScaling", "_mUnknown_ManagedInstanceScaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationShadowProductionVariantManagedInstanceScaling> _mManagedInstanceScaling;
-
-        public Outputs.EndpointConfigurationShadowProductionVariantManagedInstanceScaling? ManagedInstanceScaling => _mManagedInstanceScaling.GetValue("managedInstanceScaling");
+        private Outputs.EndpointConfigurationShadowProductionVariantManagedInstanceScaling? _mValue_ManagedInstanceScaling;
+        private bool _mUnknown_ManagedInstanceScaling;
+        public Outputs.EndpointConfigurationShadowProductionVariantManagedInstanceScaling? ManagedInstanceScaling
+        {
+            get
+            {
+                if (!_mUnknown_ManagedInstanceScaling) return _mValue_ManagedInstanceScaling;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.ManagedInstanceScaling' is not present");
+            }
+        }
 
         /// <summary>
         /// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
         /// </summary>
-        [Input("modelDataDownloadTimeoutInSeconds")]
+        [PolicyResourceProperty("modelDataDownloadTimeoutInSeconds", "_mUnknown_ModelDataDownloadTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mModelDataDownloadTimeoutInSeconds;
-
-        public int? ModelDataDownloadTimeoutInSeconds => _mModelDataDownloadTimeoutInSeconds.GetValue("modelDataDownloadTimeoutInSeconds");
+        private int? _mValue_ModelDataDownloadTimeoutInSeconds;
+        private bool _mUnknown_ModelDataDownloadTimeoutInSeconds;
+        public int? ModelDataDownloadTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_ModelDataDownloadTimeoutInSeconds) return _mValue_ModelDataDownloadTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.ModelDataDownloadTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the model to use.
         /// </summary>
-        [Input("modelName")]
+        [PolicyResourceProperty("modelName", "_mUnknown_ModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelName;
-
-        public string? ModelName => _mModelName.GetValue("modelName");
+        private string? _mValue_ModelName;
+        private bool _mUnknown_ModelName;
+        public string? ModelName
+        {
+            get
+            {
+                if (!_mUnknown_ModelName) return _mValue_ModelName;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.ModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets how the endpoint routes incoming traffic. See routing_config below.
         /// </summary>
-        [Input("routingConfigs")]
+        [PolicyResourceProperty("routingConfigs", "_mUnknown_RoutingConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointConfigurationShadowProductionVariantRoutingConfig>> _mRoutingConfigs;
-
-        public List<Outputs.EndpointConfigurationShadowProductionVariantRoutingConfig>? RoutingConfigs => _mRoutingConfigs.GetValue("routingConfigs");
+        private List<Outputs.EndpointConfigurationShadowProductionVariantRoutingConfig>? _mValue_RoutingConfigs;
+        private bool _mUnknown_RoutingConfigs;
+        public List<Outputs.EndpointConfigurationShadowProductionVariantRoutingConfig>? RoutingConfigs
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfigs) return _mValue_RoutingConfigs;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.RoutingConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies configuration for how an endpoint performs asynchronous inference.
         /// </summary>
-        [Input("serverlessConfig")]
+        [PolicyResourceProperty("serverlessConfig", "_mUnknown_ServerlessConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationShadowProductionVariantServerlessConfig> _mServerlessConfig;
-
-        public Outputs.EndpointConfigurationShadowProductionVariantServerlessConfig? ServerlessConfig => _mServerlessConfig.GetValue("serverlessConfig");
+        private Outputs.EndpointConfigurationShadowProductionVariantServerlessConfig? _mValue_ServerlessConfig;
+        private bool _mUnknown_ServerlessConfig;
+        public Outputs.EndpointConfigurationShadowProductionVariantServerlessConfig? ServerlessConfig
+        {
+            get
+            {
+                if (!_mUnknown_ServerlessConfig) return _mValue_ServerlessConfig;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.ServerlessConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the variant. If omitted, this provider will assign a random, unique name.
         /// </summary>
-        [Input("variantName")]
+        [PolicyResourceProperty("variantName", "_mUnknown_VariantName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVariantName;
-
-        public string? VariantName => _mVariantName.GetValue("variantName");
+        private string? _mValue_VariantName;
+        private bool _mUnknown_VariantName;
+        public string? VariantName
+        {
+            get
+            {
+                if (!_mUnknown_VariantName) return _mValue_VariantName;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.VariantName' is not present");
+            }
+        }
 
         /// <summary>
         /// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         /// </summary>
-        [Input("volumeSizeInGb")]
+        [PolicyResourceProperty("volumeSizeInGb", "_mUnknown_VolumeSizeInGb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSizeInGb;
-
-        public int? VolumeSizeInGb => _mVolumeSizeInGb.GetValue("volumeSizeInGb");
+        private int? _mValue_VolumeSizeInGb;
+        private bool _mUnknown_VolumeSizeInGb;
+        public int? VolumeSizeInGb
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSizeInGb) return _mValue_VolumeSizeInGb;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariant.VolumeSizeInGb' is not present");
+            }
+        }
     }
 }

@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// ARN of the Ingestion.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Ingestion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'Ingestion.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the dataset used in the ingestion.
         /// </summary>
-        [Input("dataSetId")]
+        [PolicyResourceProperty("dataSetId", "_mUnknown_DataSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
-
-        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+        private string? _mValue_DataSetId;
+        private bool _mUnknown_DataSetId;
+        public string? DataSetId
+        {
+            get
+            {
+                if (!_mUnknown_DataSetId) return _mValue_DataSetId;
+                throw new UndeferrableValueException("Value 'Ingestion.DataSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID for the ingestion.
         /// </summary>
-        [Input("ingestionId")]
+        [PolicyResourceProperty("ingestionId", "_mUnknown_IngestionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionId;
-
-        public string? IngestionId => _mIngestionId.GetValue("ingestionId");
+        private string? _mValue_IngestionId;
+        private bool _mUnknown_IngestionId;
+        public string? IngestionId
+        {
+            get
+            {
+                if (!_mUnknown_IngestionId) return _mValue_IngestionId;
+                throw new UndeferrableValueException("Value 'Ingestion.IngestionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Ingestion status.
         /// </summary>
-        [Input("ingestionStatus")]
+        [PolicyResourceProperty("ingestionStatus", "_mUnknown_IngestionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionStatus;
-
-        public string? IngestionStatus => _mIngestionStatus.GetValue("ingestionStatus");
+        private string? _mValue_IngestionStatus;
+        private bool _mUnknown_IngestionStatus;
+        public string? IngestionStatus
+        {
+            get
+            {
+                if (!_mUnknown_IngestionStatus) return _mValue_IngestionStatus;
+                throw new UndeferrableValueException("Value 'Ingestion.IngestionStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("ingestionType")]
+        [PolicyResourceProperty("ingestionType", "_mUnknown_IngestionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
-
-        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
+        private string? _mValue_IngestionType;
+        private bool _mUnknown_IngestionType;
+        public string? IngestionType
+        {
+            get
+            {
+                if (!_mUnknown_IngestionType) return _mValue_IngestionType;
+                throw new UndeferrableValueException("Value 'Ingestion.IngestionType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/ingestion:Ingestion")]
@@ -76,39 +118,67 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'IngestionArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the dataset used in the ingestion.
         /// </summary>
-        [Input("dataSetId")]
+        [PolicyResourceProperty("dataSetId", "_mUnknown_DataSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
-
-        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+        private string? _mValue_DataSetId;
+        private bool _mUnknown_DataSetId;
+        public string? DataSetId
+        {
+            get
+            {
+                if (!_mUnknown_DataSetId) return _mValue_DataSetId;
+                throw new UndeferrableValueException("Value 'IngestionArgs.DataSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID for the ingestion.
         /// </summary>
-        [Input("ingestionId")]
+        [PolicyResourceProperty("ingestionId", "_mUnknown_IngestionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionId;
-
-        public string? IngestionId => _mIngestionId.GetValue("ingestionId");
+        private string? _mValue_IngestionId;
+        private bool _mUnknown_IngestionId;
+        public string? IngestionId
+        {
+            get
+            {
+                if (!_mUnknown_IngestionId) return _mValue_IngestionId;
+                throw new UndeferrableValueException("Value 'IngestionArgs.IngestionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("ingestionType")]
+        [PolicyResourceProperty("ingestionType", "_mUnknown_IngestionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
-
-        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
+        private string? _mValue_IngestionType;
+        private bool _mUnknown_IngestionType;
+        public string? IngestionType
+        {
+            get
+            {
+                if (!_mUnknown_IngestionType) return _mValue_IngestionType;
+                throw new UndeferrableValueException("Value 'IngestionArgs.IngestionType' is not present");
+            }
+        }
     }
 }

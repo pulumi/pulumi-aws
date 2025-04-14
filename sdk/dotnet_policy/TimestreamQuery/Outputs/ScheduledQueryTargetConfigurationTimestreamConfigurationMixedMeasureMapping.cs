@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// Refers to the value of measure_name in a result row. This field is required if `measure_name_column` is provided.
         /// </summary>
-        [Input("measureName")]
+        [PolicyResourceProperty("measureName", "_mUnknown_MeasureName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeasureName;
-
-        public string? MeasureName => _mMeasureName.GetValue("measureName");
+        private string? _mValue_MeasureName;
+        private bool _mUnknown_MeasureName;
+        public string? MeasureName
+        {
+            get
+            {
+                if (!_mUnknown_MeasureName) return _mValue_MeasureName;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping.MeasureName' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the value that is to be read from `source_column`. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `MULTI`.
         /// </summary>
-        [Input("measureValueType")]
+        [PolicyResourceProperty("measureValueType", "_mUnknown_MeasureValueType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeasureValueType;
-
-        public string? MeasureValueType => _mMeasureValueType.GetValue("measureValueType");
+        private string? _mValue_MeasureValueType;
+        private bool _mUnknown_MeasureValueType;
+        public string? MeasureValueType
+        {
+            get
+            {
+                if (!_mUnknown_MeasureValueType) return _mValue_MeasureValueType;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping.MeasureValueType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for attribute mappings for `MULTI` value measures. Required when `measure_value_type` is `MULTI`. See below.
         /// </summary>
-        [Input("multiMeasureAttributeMappings")]
+        [PolicyResourceProperty("multiMeasureAttributeMappings", "_mUnknown_MultiMeasureAttributeMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping>> _mMultiMeasureAttributeMappings;
-
-        public List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping>? MultiMeasureAttributeMappings => _mMultiMeasureAttributeMappings.GetValue("multiMeasureAttributeMappings");
+        private List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping>? _mValue_MultiMeasureAttributeMappings;
+        private bool _mUnknown_MultiMeasureAttributeMappings;
+        public List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMapping>? MultiMeasureAttributeMappings
+        {
+            get
+            {
+                if (!_mUnknown_MultiMeasureAttributeMappings) return _mValue_MultiMeasureAttributeMappings;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping.MultiMeasureAttributeMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// Source column from which measure-value is to be read for result materialization.
         /// </summary>
-        [Input("sourceColumn")]
+        [PolicyResourceProperty("sourceColumn", "_mUnknown_SourceColumn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceColumn;
-
-        public string? SourceColumn => _mSourceColumn.GetValue("sourceColumn");
+        private string? _mValue_SourceColumn;
+        private bool _mUnknown_SourceColumn;
+        public string? SourceColumn
+        {
+            get
+            {
+                if (!_mUnknown_SourceColumn) return _mValue_SourceColumn;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping.SourceColumn' is not present");
+            }
+        }
 
         /// <summary>
         /// Target measure name to be used. If not provided, the target measure name by default is `measure_name`, if provided, or `source_column` otherwise.
         /// </summary>
-        [Input("targetMeasureName")]
+        [PolicyResourceProperty("targetMeasureName", "_mUnknown_TargetMeasureName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetMeasureName;
-
-        public string? TargetMeasureName => _mTargetMeasureName.GetValue("targetMeasureName");
+        private string? _mValue_TargetMeasureName;
+        private bool _mUnknown_TargetMeasureName;
+        public string? TargetMeasureName
+        {
+            get
+            {
+                if (!_mUnknown_TargetMeasureName) return _mValue_TargetMeasureName;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping.TargetMeasureName' is not present");
+            }
+        }
     }
 }

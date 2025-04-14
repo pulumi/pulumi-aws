@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Outputs
 {
     public sealed class ClassificationJobUserPausedDetail
     {
-        [Input("jobExpiresAt")]
+        [PolicyResourceProperty("jobExpiresAt", "_mUnknown_JobExpiresAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobExpiresAt;
+        private string? _mValue_JobExpiresAt;
+        private bool _mUnknown_JobExpiresAt;
+        public string? JobExpiresAt
+        {
+            get
+            {
+                if (!_mUnknown_JobExpiresAt) return _mValue_JobExpiresAt;
+                throw new UndeferrableValueException("Value 'ClassificationJobUserPausedDetail.JobExpiresAt' is not present");
+            }
+        }
 
-        public string? JobExpiresAt => _mJobExpiresAt.GetValue("jobExpiresAt");
-
-        [Input("jobImminentExpirationHealthEventArn")]
+        [PolicyResourceProperty("jobImminentExpirationHealthEventArn", "_mUnknown_JobImminentExpirationHealthEventArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobImminentExpirationHealthEventArn;
+        private string? _mValue_JobImminentExpirationHealthEventArn;
+        private bool _mUnknown_JobImminentExpirationHealthEventArn;
+        public string? JobImminentExpirationHealthEventArn
+        {
+            get
+            {
+                if (!_mUnknown_JobImminentExpirationHealthEventArn) return _mValue_JobImminentExpirationHealthEventArn;
+                throw new UndeferrableValueException("Value 'ClassificationJobUserPausedDetail.JobImminentExpirationHealthEventArn' is not present");
+            }
+        }
 
-        public string? JobImminentExpirationHealthEventArn => _mJobImminentExpirationHealthEventArn.GetValue("jobImminentExpirationHealthEventArn");
-
-        [Input("jobPausedAt")]
+        [PolicyResourceProperty("jobPausedAt", "_mUnknown_JobPausedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobPausedAt;
-
-        public string? JobPausedAt => _mJobPausedAt.GetValue("jobPausedAt");
+        private string? _mValue_JobPausedAt;
+        private bool _mUnknown_JobPausedAt;
+        public string? JobPausedAt
+        {
+            get
+            {
+                if (!_mUnknown_JobPausedAt) return _mValue_JobPausedAt;
+                throw new UndeferrableValueException("Value 'ClassificationJobUserPausedDetail.JobPausedAt' is not present");
+            }
+        }
     }
 }

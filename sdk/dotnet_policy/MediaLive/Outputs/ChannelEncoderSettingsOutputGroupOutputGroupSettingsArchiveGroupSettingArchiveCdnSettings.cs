@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Archive S3 Settings. See Archive S3 Settings for more details.
         /// </summary>
-        [Input("archiveS3Settings")]
+        [PolicyResourceProperty("archiveS3Settings", "_mUnknown_ArchiveS3Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings> _mArchiveS3Settings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings? ArchiveS3Settings => _mArchiveS3Settings.GetValue("archiveS3Settings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings? _mValue_ArchiveS3Settings;
+        private bool _mUnknown_ArchiveS3Settings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings? ArchiveS3Settings
+        {
+            get
+            {
+                if (!_mUnknown_ArchiveS3Settings) return _mValue_ArchiveS3Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings.ArchiveS3Settings' is not present");
+            }
+        }
     }
 }

@@ -18,20 +18,34 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
         /// You can only include this parameter if you specify the `kms_key_id` parameter.
         /// </summary>
-        [Input("additionalEncryptionContext")]
+        [PolicyResourceProperty("additionalEncryptionContext", "_mUnknown_AdditionalEncryptionContext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdditionalEncryptionContext;
-
-        public Dictionary<string, string>? AdditionalEncryptionContext => _mAdditionalEncryptionContext.GetValue("additionalEncryptionContext");
+        private Dictionary<string, string>? _mValue_AdditionalEncryptionContext;
+        private bool _mUnknown_AdditionalEncryptionContext;
+        public Dictionary<string, string>? AdditionalEncryptionContext
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalEncryptionContext) return _mValue_AdditionalEncryptionContext;
+                throw new UndeferrableValueException("Value 'Integration.AdditionalEncryptionContext' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Integration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Integration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Data filters for the integration.
@@ -40,75 +54,131 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Multiple expressions are separated by a comma.
         /// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
         /// </summary>
-        [Input("dataFilter")]
+        [PolicyResourceProperty("dataFilter", "_mUnknown_DataFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFilter;
-
-        public string? DataFilter => _mDataFilter.GetValue("dataFilter");
+        private string? _mValue_DataFilter;
+        private bool _mUnknown_DataFilter;
+        public string? DataFilter
+        {
+            get
+            {
+                if (!_mUnknown_DataFilter) return _mValue_DataFilter;
+                throw new UndeferrableValueException("Value 'Integration.DataFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the integration.
         /// </summary>
-        [Input("integrationName")]
+        [PolicyResourceProperty("integrationName", "_mUnknown_IntegrationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationName;
-
-        public string? IntegrationName => _mIntegrationName.GetValue("integrationName");
+        private string? _mValue_IntegrationName;
+        private bool _mUnknown_IntegrationName;
+        public string? IntegrationName
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationName) return _mValue_IntegrationName;
+                throw new UndeferrableValueException("Value 'Integration.IntegrationName' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key identifier for the key to use to encrypt the integration.
         /// If you don't specify an encryption key, RDS uses a default AWS owned key.
         /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Integration.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the database to use as the source for replication.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'Integration.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Integration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Integration.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Redshift data warehouse to use as the target for replication.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'Integration.TargetArn' is not present");
+            }
+        }
 
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntegrationTimeouts> _mTimeouts;
-
-        public Outputs.IntegrationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.IntegrationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.IntegrationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Integration.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/integration:Integration")]
@@ -119,11 +189,18 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// For more information, see the [User Guide](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context).
         /// You can only include this parameter if you specify the `kms_key_id` parameter.
         /// </summary>
-        [Input("additionalEncryptionContext")]
+        [PolicyResourceProperty("additionalEncryptionContext", "_mUnknown_AdditionalEncryptionContext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAdditionalEncryptionContext;
-
-        public Dictionary<string, string>? AdditionalEncryptionContext => _mAdditionalEncryptionContext.GetValue("additionalEncryptionContext");
+        private Dictionary<string, string>? _mValue_AdditionalEncryptionContext;
+        private bool _mUnknown_AdditionalEncryptionContext;
+        public Dictionary<string, string>? AdditionalEncryptionContext
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalEncryptionContext) return _mValue_AdditionalEncryptionContext;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.AdditionalEncryptionContext' is not present");
+            }
+        }
 
         /// <summary>
         /// Data filters for the integration.
@@ -132,65 +209,114 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Multiple expressions are separated by a comma.
         /// See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
         /// </summary>
-        [Input("dataFilter")]
+        [PolicyResourceProperty("dataFilter", "_mUnknown_DataFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFilter;
-
-        public string? DataFilter => _mDataFilter.GetValue("dataFilter");
+        private string? _mValue_DataFilter;
+        private bool _mUnknown_DataFilter;
+        public string? DataFilter
+        {
+            get
+            {
+                if (!_mUnknown_DataFilter) return _mValue_DataFilter;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.DataFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the integration.
         /// </summary>
-        [Input("integrationName")]
+        [PolicyResourceProperty("integrationName", "_mUnknown_IntegrationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationName;
-
-        public string? IntegrationName => _mIntegrationName.GetValue("integrationName");
+        private string? _mValue_IntegrationName;
+        private bool _mUnknown_IntegrationName;
+        public string? IntegrationName
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationName) return _mValue_IntegrationName;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.IntegrationName' is not present");
+            }
+        }
 
         /// <summary>
         /// KMS key identifier for the key to use to encrypt the integration.
         /// If you don't specify an encryption key, RDS uses a default AWS owned key.
         /// If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the database to use as the source for replication.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.SourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Redshift data warehouse to use as the target for replication.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.TargetArn' is not present");
+            }
+        }
 
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntegrationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.IntegrationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.IntegrationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.IntegrationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Macie.Outputs
         /// <summary>
         /// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
         /// </summary>
-        [Input("criterions")]
+        [PolicyResourceProperty("criterions", "_mUnknown_Criterions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FindingsFilterFindingCriteriaCriterion>> _mCriterions;
-
-        public List<Outputs.FindingsFilterFindingCriteriaCriterion>? Criterions => _mCriterions.GetValue("criterions");
+        private List<Outputs.FindingsFilterFindingCriteriaCriterion>? _mValue_Criterions;
+        private bool _mUnknown_Criterions;
+        public List<Outputs.FindingsFilterFindingCriteriaCriterion>? Criterions
+        {
+            get
+            {
+                if (!_mUnknown_Criterions) return _mValue_Criterions;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteria.Criterions' is not present");
+            }
+        }
     }
 }

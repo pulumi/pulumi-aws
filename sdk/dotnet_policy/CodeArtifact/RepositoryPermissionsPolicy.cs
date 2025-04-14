@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.CodeArtifact
         /// <summary>
         /// The name of the domain on which to set the resource policy.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicy.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The account number of the AWS account that owns the domain.
         /// </summary>
-        [Input("domainOwner")]
+        [PolicyResourceProperty("domainOwner", "_mUnknown_DomainOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
-
-        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
+        private string? _mValue_DomainOwner;
+        private bool _mUnknown_DomainOwner;
+        public string? DomainOwner
+        {
+            get
+            {
+                if (!_mUnknown_DomainOwner) return _mValue_DomainOwner;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicy.DomainOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// A JSON policy string to be set as the access control resource policy on the provided domain.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicy.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         /// </summary>
-        [Input("policyRevision")]
+        [PolicyResourceProperty("policyRevision", "_mUnknown_PolicyRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRevision;
-
-        public string? PolicyRevision => _mPolicyRevision.GetValue("policyRevision");
+        private string? _mValue_PolicyRevision;
+        private bool _mUnknown_PolicyRevision;
+        public string? PolicyRevision
+        {
+            get
+            {
+                if (!_mUnknown_PolicyRevision) return _mValue_PolicyRevision;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicy.PolicyRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository to set the resource policy on.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
-
-        public string? Repository => _mRepository.GetValue("repository");
+        private string? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public string? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicy.Repository' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the resource associated with the resource policy.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicy.ResourceArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy")]
@@ -74,46 +116,81 @@ namespace Pulumi.PolicyPacks.Aws.CodeArtifact
         /// <summary>
         /// The name of the domain on which to set the resource policy.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicyArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The account number of the AWS account that owns the domain.
         /// </summary>
-        [Input("domainOwner")]
+        [PolicyResourceProperty("domainOwner", "_mUnknown_DomainOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOwner;
-
-        public string? DomainOwner => _mDomainOwner.GetValue("domainOwner");
+        private string? _mValue_DomainOwner;
+        private bool _mUnknown_DomainOwner;
+        public string? DomainOwner
+        {
+            get
+            {
+                if (!_mUnknown_DomainOwner) return _mValue_DomainOwner;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicyArgs.DomainOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// A JSON policy string to be set as the access control resource policy on the provided domain.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicyArgs.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         /// </summary>
-        [Input("policyRevision")]
+        [PolicyResourceProperty("policyRevision", "_mUnknown_PolicyRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyRevision;
-
-        public string? PolicyRevision => _mPolicyRevision.GetValue("policyRevision");
+        private string? _mValue_PolicyRevision;
+        private bool _mUnknown_PolicyRevision;
+        public string? PolicyRevision
+        {
+            get
+            {
+                if (!_mUnknown_PolicyRevision) return _mValue_PolicyRevision;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicyArgs.PolicyRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the repository to set the resource policy on.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
-
-        public string? Repository => _mRepository.GetValue("repository");
+        private string? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public string? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'RepositoryPermissionsPolicyArgs.Repository' is not present");
+            }
+        }
     }
 }

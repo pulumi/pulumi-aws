@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Threshold within which objects are to be replicated. The only valid value is `15`.
         /// </summary>
-        [Input("minutes")]
+        [PolicyResourceProperty("minutes", "_mUnknown_Minutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinutes;
-
-        public int? Minutes => _mMinutes.GetValue("minutes");
+        private int? _mValue_Minutes;
+        private bool _mUnknown_Minutes;
+        public int? Minutes
+        {
+            get
+            {
+                if (!_mUnknown_Minutes) return _mValue_Minutes;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestinationReplicationTime.Minutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of RTC. Either `Enabled` or `Disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestinationReplicationTime.Status' is not present");
+            }
+        }
     }
 }

@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         /// </summary>
-        [Input("enabledFeatures")]
+        [PolicyResourceProperty("enabledFeatures", "_mUnknown_EnabledFeatures")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledFeatures;
-
-        public List<string>? EnabledFeatures => _mEnabledFeatures.GetValue("enabledFeatures");
+        private List<string>? _mValue_EnabledFeatures;
+        private bool _mUnknown_EnabledFeatures;
+        public List<string>? EnabledFeatures
+        {
+            get
+            {
+                if (!_mUnknown_EnabledFeatures) return _mValue_EnabledFeatures;
+                throw new UndeferrableValueException("Value 'OrganizationsFeatures.EnabledFeatures' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/organizationsFeatures:OrganizationsFeatures")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         /// </summary>
-        [Input("enabledFeatures")]
+        [PolicyResourceProperty("enabledFeatures", "_mUnknown_EnabledFeatures")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledFeatures;
-
-        public List<string>? EnabledFeatures => _mEnabledFeatures.GetValue("enabledFeatures");
+        private List<string>? _mValue_EnabledFeatures;
+        private bool _mUnknown_EnabledFeatures;
+        public List<string>? EnabledFeatures
+        {
+            get
+            {
+                if (!_mUnknown_EnabledFeatures) return _mValue_EnabledFeatures;
+                throw new UndeferrableValueException("Value 'OrganizationsFeaturesArgs.EnabledFeatures' is not present");
+            }
+        }
     }
 }

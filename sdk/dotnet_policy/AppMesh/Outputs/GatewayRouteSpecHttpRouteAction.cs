@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Gateway route action to rewrite.
         /// </summary>
-        [Input("rewrite")]
+        [PolicyResourceProperty("rewrite", "_mUnknown_Rewrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GatewayRouteSpecHttpRouteActionRewrite> _mRewrite;
-
-        public Outputs.GatewayRouteSpecHttpRouteActionRewrite? Rewrite => _mRewrite.GetValue("rewrite");
+        private Outputs.GatewayRouteSpecHttpRouteActionRewrite? _mValue_Rewrite;
+        private bool _mUnknown_Rewrite;
+        public Outputs.GatewayRouteSpecHttpRouteActionRewrite? Rewrite
+        {
+            get
+            {
+                if (!_mUnknown_Rewrite) return _mValue_Rewrite;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteAction.Rewrite' is not present");
+            }
+        }
 
         /// <summary>
         /// Target that traffic is routed to when a request matches the gateway route.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GatewayRouteSpecHttpRouteActionTarget> _mTarget;
-
-        public Outputs.GatewayRouteSpecHttpRouteActionTarget? Target => _mTarget.GetValue("target");
+        private Outputs.GatewayRouteSpecHttpRouteActionTarget? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Outputs.GatewayRouteSpecHttpRouteActionTarget? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteAction.Target' is not present");
+            }
+        }
     }
 }

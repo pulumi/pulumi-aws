@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Auto-Tune desired state for the domain.
         /// </summary>
-        [Input("desiredState")]
+        [PolicyResourceProperty("desiredState", "_mUnknown_DesiredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
-
-        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+        private string? _mValue_DesiredState;
+        private bool _mUnknown_DesiredState;
+        public string? DesiredState
+        {
+            get
+            {
+                if (!_mUnknown_DesiredState) return _mValue_DesiredState;
+                throw new UndeferrableValueException("Value 'GetDomainAutoTuneOptionResult.DesiredState' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         /// </summary>
-        [Input("maintenanceSchedules")]
+        [PolicyResourceProperty("maintenanceSchedules", "_mUnknown_MaintenanceSchedules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult>> _mMaintenanceSchedules;
-
-        public List<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult>? MaintenanceSchedules => _mMaintenanceSchedules.GetValue("maintenanceSchedules");
+        private List<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult>? _mValue_MaintenanceSchedules;
+        private bool _mUnknown_MaintenanceSchedules;
+        public List<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult>? MaintenanceSchedules
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceSchedules) return _mValue_MaintenanceSchedules;
+                throw new UndeferrableValueException("Value 'GetDomainAutoTuneOptionResult.MaintenanceSchedules' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         /// </summary>
-        [Input("rollbackOnDisable")]
+        [PolicyResourceProperty("rollbackOnDisable", "_mUnknown_RollbackOnDisable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRollbackOnDisable;
-
-        public string? RollbackOnDisable => _mRollbackOnDisable.GetValue("rollbackOnDisable");
+        private string? _mValue_RollbackOnDisable;
+        private bool _mUnknown_RollbackOnDisable;
+        public string? RollbackOnDisable
+        {
+            get
+            {
+                if (!_mUnknown_RollbackOnDisable) return _mValue_RollbackOnDisable;
+                throw new UndeferrableValueException("Value 'GetDomainAutoTuneOptionResult.RollbackOnDisable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
         /// </summary>
-        [Input("useOffPeakWindow")]
+        [PolicyResourceProperty("useOffPeakWindow", "_mUnknown_UseOffPeakWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseOffPeakWindow;
-
-        public bool? UseOffPeakWindow => _mUseOffPeakWindow.GetValue("useOffPeakWindow");
+        private bool? _mValue_UseOffPeakWindow;
+        private bool _mUnknown_UseOffPeakWindow;
+        public bool? UseOffPeakWindow
+        {
+            get
+            {
+                if (!_mUnknown_UseOffPeakWindow) return _mValue_UseOffPeakWindow;
+                throw new UndeferrableValueException("Value 'GetDomainAutoTuneOptionResult.UseOffPeakWindow' is not present");
+            }
+        }
     }
 }

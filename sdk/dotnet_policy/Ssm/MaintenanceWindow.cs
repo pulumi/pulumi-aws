@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         /// </summary>
-        [Input("allowUnassociatedTargets")]
+        [PolicyResourceProperty("allowUnassociatedTargets", "_mUnknown_AllowUnassociatedTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUnassociatedTargets;
-
-        public bool? AllowUnassociatedTargets => _mAllowUnassociatedTargets.GetValue("allowUnassociatedTargets");
+        private bool? _mValue_AllowUnassociatedTargets;
+        private bool _mUnknown_AllowUnassociatedTargets;
+        public bool? AllowUnassociatedTargets
+        {
+            get
+            {
+                if (!_mUnknown_AllowUnassociatedTargets) return _mValue_AllowUnassociatedTargets;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.AllowUnassociatedTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
         /// </summary>
-        [Input("cutoff")]
+        [PolicyResourceProperty("cutoff", "_mUnknown_Cutoff")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCutoff;
-
-        public int? Cutoff => _mCutoff.GetValue("cutoff");
+        private int? _mValue_Cutoff;
+        private bool _mUnknown_Cutoff;
+        public int? Cutoff
+        {
+            get
+            {
+                if (!_mUnknown_Cutoff) return _mValue_Cutoff;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.Cutoff' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the maintenance window.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration of the Maintenance Window in hours.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
-
-        public int? Duration => _mDuration.GetValue("duration");
+        private int? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public int? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the maintenance window is enabled. Default: `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         /// </summary>
-        [Input("endDate")]
+        [PolicyResourceProperty("endDate", "_mUnknown_EndDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
-
-        public string? EndDate => _mEndDate.GetValue("endDate");
+        private string? _mValue_EndDate;
+        private bool _mUnknown_EndDate;
+        public string? EndDate
+        {
+            get
+            {
+                if (!_mUnknown_EndDate) return _mValue_EndDate;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.EndDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the maintenance window.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         /// </summary>
-        [Input("scheduleOffset")]
+        [PolicyResourceProperty("scheduleOffset", "_mUnknown_ScheduleOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScheduleOffset;
-
-        public int? ScheduleOffset => _mScheduleOffset.GetValue("scheduleOffset");
+        private int? _mValue_ScheduleOffset;
+        private bool _mUnknown_ScheduleOffset;
+        public int? ScheduleOffset
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleOffset) return _mValue_ScheduleOffset;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.ScheduleOffset' is not present");
+            }
+        }
 
         /// <summary>
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         /// </summary>
-        [Input("scheduleTimezone")]
+        [PolicyResourceProperty("scheduleTimezone", "_mUnknown_ScheduleTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleTimezone;
-
-        public string? ScheduleTimezone => _mScheduleTimezone.GetValue("scheduleTimezone");
+        private string? _mValue_ScheduleTimezone;
+        private bool _mUnknown_ScheduleTimezone;
+        public string? ScheduleTimezone
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleTimezone) return _mValue_ScheduleTimezone;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.ScheduleTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         /// </summary>
-        [Input("startDate")]
+        [PolicyResourceProperty("startDate", "_mUnknown_StartDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
-
-        public string? StartDate => _mStartDate.GetValue("startDate");
+        private string? _mValue_StartDate;
+        private bool _mUnknown_StartDate;
+        public string? StartDate
+        {
+            get
+            {
+                if (!_mUnknown_StartDate) return _mValue_StartDate;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.StartDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'MaintenanceWindow.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssm/maintenanceWindow:MaintenanceWindow")]
@@ -137,109 +228,193 @@ namespace Pulumi.PolicyPacks.Aws.Ssm
         /// <summary>
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         /// </summary>
-        [Input("allowUnassociatedTargets")]
+        [PolicyResourceProperty("allowUnassociatedTargets", "_mUnknown_AllowUnassociatedTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUnassociatedTargets;
-
-        public bool? AllowUnassociatedTargets => _mAllowUnassociatedTargets.GetValue("allowUnassociatedTargets");
+        private bool? _mValue_AllowUnassociatedTargets;
+        private bool _mUnknown_AllowUnassociatedTargets;
+        public bool? AllowUnassociatedTargets
+        {
+            get
+            {
+                if (!_mUnknown_AllowUnassociatedTargets) return _mValue_AllowUnassociatedTargets;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.AllowUnassociatedTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
         /// </summary>
-        [Input("cutoff")]
+        [PolicyResourceProperty("cutoff", "_mUnknown_Cutoff")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCutoff;
-
-        public int? Cutoff => _mCutoff.GetValue("cutoff");
+        private int? _mValue_Cutoff;
+        private bool _mUnknown_Cutoff;
+        public int? Cutoff
+        {
+            get
+            {
+                if (!_mUnknown_Cutoff) return _mValue_Cutoff;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.Cutoff' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the maintenance window.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration of the Maintenance Window in hours.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDuration;
-
-        public int? Duration => _mDuration.GetValue("duration");
+        private int? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public int? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the maintenance window is enabled. Default: `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         /// </summary>
-        [Input("endDate")]
+        [PolicyResourceProperty("endDate", "_mUnknown_EndDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
-
-        public string? EndDate => _mEndDate.GetValue("endDate");
+        private string? _mValue_EndDate;
+        private bool _mUnknown_EndDate;
+        public string? EndDate
+        {
+            get
+            {
+                if (!_mUnknown_EndDate) return _mValue_EndDate;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.EndDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the maintenance window.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         /// </summary>
-        [Input("scheduleOffset")]
+        [PolicyResourceProperty("scheduleOffset", "_mUnknown_ScheduleOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScheduleOffset;
-
-        public int? ScheduleOffset => _mScheduleOffset.GetValue("scheduleOffset");
+        private int? _mValue_ScheduleOffset;
+        private bool _mUnknown_ScheduleOffset;
+        public int? ScheduleOffset
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleOffset) return _mValue_ScheduleOffset;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.ScheduleOffset' is not present");
+            }
+        }
 
         /// <summary>
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         /// </summary>
-        [Input("scheduleTimezone")]
+        [PolicyResourceProperty("scheduleTimezone", "_mUnknown_ScheduleTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleTimezone;
-
-        public string? ScheduleTimezone => _mScheduleTimezone.GetValue("scheduleTimezone");
+        private string? _mValue_ScheduleTimezone;
+        private bool _mUnknown_ScheduleTimezone;
+        public string? ScheduleTimezone
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleTimezone) return _mValue_ScheduleTimezone;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.ScheduleTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         /// </summary>
-        [Input("startDate")]
+        [PolicyResourceProperty("startDate", "_mUnknown_StartDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
-
-        public string? StartDate => _mStartDate.GetValue("startDate");
+        private string? _mValue_StartDate;
+        private bool _mUnknown_StartDate;
+        public string? StartDate
+        {
+            get
+            {
+                if (!_mUnknown_StartDate) return _mValue_StartDate;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.StartDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.Tags' is not present");
+            }
+        }
     }
 }

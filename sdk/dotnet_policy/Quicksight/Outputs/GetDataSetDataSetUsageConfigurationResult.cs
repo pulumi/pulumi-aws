@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetDataSetUsageConfigurationResult
     {
-        [Input("disableUseAsDirectQuerySource")]
+        [PolicyResourceProperty("disableUseAsDirectQuerySource", "_mUnknown_DisableUseAsDirectQuerySource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableUseAsDirectQuerySource;
+        private bool? _mValue_DisableUseAsDirectQuerySource;
+        private bool _mUnknown_DisableUseAsDirectQuerySource;
+        public bool? DisableUseAsDirectQuerySource
+        {
+            get
+            {
+                if (!_mUnknown_DisableUseAsDirectQuerySource) return _mValue_DisableUseAsDirectQuerySource;
+                throw new UndeferrableValueException("Value 'GetDataSetDataSetUsageConfigurationResult.DisableUseAsDirectQuerySource' is not present");
+            }
+        }
 
-        public bool? DisableUseAsDirectQuerySource => _mDisableUseAsDirectQuerySource.GetValue("disableUseAsDirectQuerySource");
-
-        [Input("disableUseAsImportedSource")]
+        [PolicyResourceProperty("disableUseAsImportedSource", "_mUnknown_DisableUseAsImportedSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableUseAsImportedSource;
-
-        public bool? DisableUseAsImportedSource => _mDisableUseAsImportedSource.GetValue("disableUseAsImportedSource");
+        private bool? _mValue_DisableUseAsImportedSource;
+        private bool _mUnknown_DisableUseAsImportedSource;
+        public bool? DisableUseAsImportedSource
+        {
+            get
+            {
+                if (!_mUnknown_DisableUseAsImportedSource) return _mValue_DisableUseAsImportedSource;
+                throw new UndeferrableValueException("Value 'GetDataSetDataSetUsageConfigurationResult.DisableUseAsImportedSource' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
         /// </summary>
-        [Input("dateTimeParameters")]
+        [PolicyResourceProperty("dateTimeParameters", "_mUnknown_DateTimeParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalysisParametersDateTimeParameter>> _mDateTimeParameters;
-
-        public List<Outputs.AnalysisParametersDateTimeParameter>? DateTimeParameters => _mDateTimeParameters.GetValue("dateTimeParameters");
+        private List<Outputs.AnalysisParametersDateTimeParameter>? _mValue_DateTimeParameters;
+        private bool _mUnknown_DateTimeParameters;
+        public List<Outputs.AnalysisParametersDateTimeParameter>? DateTimeParameters
+        {
+            get
+            {
+                if (!_mUnknown_DateTimeParameters) return _mValue_DateTimeParameters;
+                throw new UndeferrableValueException("Value 'AnalysisParameters.DateTimeParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
         /// </summary>
-        [Input("decimalParameters")]
+        [PolicyResourceProperty("decimalParameters", "_mUnknown_DecimalParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalysisParametersDecimalParameter>> _mDecimalParameters;
-
-        public List<Outputs.AnalysisParametersDecimalParameter>? DecimalParameters => _mDecimalParameters.GetValue("decimalParameters");
+        private List<Outputs.AnalysisParametersDecimalParameter>? _mValue_DecimalParameters;
+        private bool _mUnknown_DecimalParameters;
+        public List<Outputs.AnalysisParametersDecimalParameter>? DecimalParameters
+        {
+            get
+            {
+                if (!_mUnknown_DecimalParameters) return _mValue_DecimalParameters;
+                throw new UndeferrableValueException("Value 'AnalysisParameters.DecimalParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
         /// </summary>
-        [Input("integerParameters")]
+        [PolicyResourceProperty("integerParameters", "_mUnknown_IntegerParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalysisParametersIntegerParameter>> _mIntegerParameters;
-
-        public List<Outputs.AnalysisParametersIntegerParameter>? IntegerParameters => _mIntegerParameters.GetValue("integerParameters");
+        private List<Outputs.AnalysisParametersIntegerParameter>? _mValue_IntegerParameters;
+        private bool _mUnknown_IntegerParameters;
+        public List<Outputs.AnalysisParametersIntegerParameter>? IntegerParameters
+        {
+            get
+            {
+                if (!_mUnknown_IntegerParameters) return _mValue_IntegerParameters;
+                throw new UndeferrableValueException("Value 'AnalysisParameters.IntegerParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         /// </summary>
-        [Input("stringParameters")]
+        [PolicyResourceProperty("stringParameters", "_mUnknown_StringParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalysisParametersStringParameter>> _mStringParameters;
-
-        public List<Outputs.AnalysisParametersStringParameter>? StringParameters => _mStringParameters.GetValue("stringParameters");
+        private List<Outputs.AnalysisParametersStringParameter>? _mValue_StringParameters;
+        private bool _mUnknown_StringParameters;
+        public List<Outputs.AnalysisParametersStringParameter>? StringParameters
+        {
+            get
+            {
+                if (!_mUnknown_StringParameters) return _mValue_StringParameters;
+                throw new UndeferrableValueException("Value 'AnalysisParameters.StringParameters' is not present");
+            }
+        }
     }
 }

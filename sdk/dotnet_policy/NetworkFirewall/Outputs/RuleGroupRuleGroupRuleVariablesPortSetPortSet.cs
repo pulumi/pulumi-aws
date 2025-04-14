@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of port ranges.
         /// </summary>
-        [Input("definitions")]
+        [PolicyResourceProperty("definitions", "_mUnknown_Definitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefinitions;
-
-        public List<string>? Definitions => _mDefinitions.GetValue("definitions");
+        private List<string>? _mValue_Definitions;
+        private bool _mUnknown_Definitions;
+        public List<string>? Definitions
+        {
+            get
+            {
+                if (!_mUnknown_Definitions) return _mValue_Definitions;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesPortSetPortSet.Definitions' is not present");
+            }
+        }
     }
 }

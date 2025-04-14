@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans
         /// <summary>
         /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
         /// </summary>
-        [Input("applicationSource")]
+        [PolicyResourceProperty("applicationSource", "_mUnknown_ApplicationSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScalingPlanApplicationSource> _mApplicationSource;
-
-        public Outputs.ScalingPlanApplicationSource? ApplicationSource => _mApplicationSource.GetValue("applicationSource");
+        private Outputs.ScalingPlanApplicationSource? _mValue_ApplicationSource;
+        private bool _mUnknown_ApplicationSource;
+        public Outputs.ScalingPlanApplicationSource? ApplicationSource
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationSource) return _mValue_ApplicationSource;
+                throw new UndeferrableValueException("Value 'ScalingPlan.ApplicationSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScalingPlan.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         /// </summary>
-        [Input("scalingInstructions")]
+        [PolicyResourceProperty("scalingInstructions", "_mUnknown_ScalingInstructions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScalingPlanScalingInstruction>> _mScalingInstructions;
-
-        public List<Outputs.ScalingPlanScalingInstruction>? ScalingInstructions => _mScalingInstructions.GetValue("scalingInstructions");
+        private List<Outputs.ScalingPlanScalingInstruction>? _mValue_ScalingInstructions;
+        private bool _mUnknown_ScalingInstructions;
+        public List<Outputs.ScalingPlanScalingInstruction>? ScalingInstructions
+        {
+            get
+            {
+                if (!_mUnknown_ScalingInstructions) return _mValue_ScalingInstructions;
+                throw new UndeferrableValueException("Value 'ScalingPlan.ScalingInstructions' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number of the scaling plan. This value is always 1.
         /// </summary>
-        [Input("scalingPlanVersion")]
+        [PolicyResourceProperty("scalingPlanVersion", "_mUnknown_ScalingPlanVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScalingPlanVersion;
-
-        public int? ScalingPlanVersion => _mScalingPlanVersion.GetValue("scalingPlanVersion");
+        private int? _mValue_ScalingPlanVersion;
+        private bool _mUnknown_ScalingPlanVersion;
+        public int? ScalingPlanVersion
+        {
+            get
+            {
+                if (!_mUnknown_ScalingPlanVersion) return _mValue_ScalingPlanVersion;
+                throw new UndeferrableValueException("Value 'ScalingPlan.ScalingPlanVersion' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans
         /// <summary>
         /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
         /// </summary>
-        [Input("applicationSource")]
+        [PolicyResourceProperty("applicationSource", "_mUnknown_ApplicationSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScalingPlanApplicationSourceArgs> _mApplicationSource;
-
-        public Inputs.ScalingPlanApplicationSourceArgs? ApplicationSource => _mApplicationSource.GetValue("applicationSource");
+        private Inputs.ScalingPlanApplicationSourceArgs? _mValue_ApplicationSource;
+        private bool _mUnknown_ApplicationSource;
+        public Inputs.ScalingPlanApplicationSourceArgs? ApplicationSource
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationSource) return _mValue_ApplicationSource;
+                throw new UndeferrableValueException("Value 'ScalingPlanArgs.ApplicationSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScalingPlanArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         /// </summary>
-        [Input("scalingInstructions")]
+        [PolicyResourceProperty("scalingInstructions", "_mUnknown_ScalingInstructions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScalingPlanScalingInstructionArgs>> _mScalingInstructions;
-
-        public List<Inputs.ScalingPlanScalingInstructionArgs>? ScalingInstructions => _mScalingInstructions.GetValue("scalingInstructions");
+        private List<Inputs.ScalingPlanScalingInstructionArgs>? _mValue_ScalingInstructions;
+        private bool _mUnknown_ScalingInstructions;
+        public List<Inputs.ScalingPlanScalingInstructionArgs>? ScalingInstructions
+        {
+            get
+            {
+                if (!_mUnknown_ScalingInstructions) return _mValue_ScalingInstructions;
+                throw new UndeferrableValueException("Value 'ScalingPlanArgs.ScalingInstructions' is not present");
+            }
+        }
     }
 }

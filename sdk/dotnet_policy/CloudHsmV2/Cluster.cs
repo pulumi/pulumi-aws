@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.CloudHsmV2
         /// <summary>
         /// The list of cluster certificates.
         /// </summary>
-        [Input("clusterCertificates")]
+        [PolicyResourceProperty("clusterCertificates", "_mUnknown_ClusterCertificates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterClusterCertificate>> _mClusterCertificates;
-
-        public List<Outputs.ClusterClusterCertificate>? ClusterCertificates => _mClusterCertificates.GetValue("clusterCertificates");
+        private List<Outputs.ClusterClusterCertificate>? _mValue_ClusterCertificates;
+        private bool _mUnknown_ClusterCertificates;
+        public List<Outputs.ClusterClusterCertificate>? ClusterCertificates
+        {
+            get
+            {
+                if (!_mUnknown_ClusterCertificates) return _mValue_ClusterCertificates;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterCertificates' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the CloudHSM cluster.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the CloudHSM cluster.
         /// </summary>
-        [Input("clusterState")]
+        [PolicyResourceProperty("clusterState", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("clusterState");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Cluster.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         /// </summary>
-        [Input("hsmType")]
+        [PolicyResourceProperty("hsmType", "_mUnknown_HsmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmType;
-
-        public string? HsmType => _mHsmType.GetValue("hsmType");
+        private string? _mValue_HsmType;
+        private bool _mUnknown_HsmType;
+        public string? HsmType
+        {
+            get
+            {
+                if (!_mUnknown_HsmType) return _mValue_HsmType;
+                throw new UndeferrableValueException("Value 'Cluster.HsmType' is not present");
+            }
+        }
 
         /// <summary>
         /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'Cluster.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security group associated with the CloudHSM cluster.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'Cluster.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of Cloud HSM v2 cluster backup to be restored.
         /// </summary>
-        [Input("sourceBackupIdentifier")]
+        [PolicyResourceProperty("sourceBackupIdentifier", "_mUnknown_SourceBackupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBackupIdentifier;
-
-        public string? SourceBackupIdentifier => _mSourceBackupIdentifier.GetValue("sourceBackupIdentifier");
+        private string? _mValue_SourceBackupIdentifier;
+        private bool _mUnknown_SourceBackupIdentifier;
+        public string? SourceBackupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceBackupIdentifier) return _mValue_SourceBackupIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.SourceBackupIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDs of subnets in which cluster will operate.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'Cluster.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the VPC that the CloudHSM cluster resides in.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'Cluster.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudhsmv2/cluster:Cluster")]
@@ -119,46 +196,81 @@ namespace Pulumi.PolicyPacks.Aws.CloudHsmV2
         /// <summary>
         /// The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
         /// </summary>
-        [Input("hsmType")]
+        [PolicyResourceProperty("hsmType", "_mUnknown_HsmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmType;
-
-        public string? HsmType => _mHsmType.GetValue("hsmType");
+        private string? _mValue_HsmType;
+        private bool _mUnknown_HsmType;
+        public string? HsmType
+        {
+            get
+            {
+                if (!_mUnknown_HsmType) return _mValue_HsmType;
+                throw new UndeferrableValueException("Value 'ClusterArgs.HsmType' is not present");
+            }
+        }
 
         /// <summary>
         /// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
         /// </summary>
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Mode' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of Cloud HSM v2 cluster backup to be restored.
         /// </summary>
-        [Input("sourceBackupIdentifier")]
+        [PolicyResourceProperty("sourceBackupIdentifier", "_mUnknown_SourceBackupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBackupIdentifier;
-
-        public string? SourceBackupIdentifier => _mSourceBackupIdentifier.GetValue("sourceBackupIdentifier");
+        private string? _mValue_SourceBackupIdentifier;
+        private bool _mUnknown_SourceBackupIdentifier;
+        public string? SourceBackupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceBackupIdentifier) return _mValue_SourceBackupIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SourceBackupIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The IDs of subnets in which cluster will operate.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
     }
 }

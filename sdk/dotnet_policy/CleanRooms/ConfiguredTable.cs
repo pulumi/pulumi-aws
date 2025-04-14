@@ -16,91 +16,161 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// <summary>
         /// The columns of the references table which will be included in the configured table.
         /// </summary>
-        [Input("allowedColumns")]
+        [PolicyResourceProperty("allowedColumns", "_mUnknown_AllowedColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedColumns;
-
-        public List<string>? AllowedColumns => _mAllowedColumns.GetValue("allowedColumns");
+        private List<string>? _mValue_AllowedColumns;
+        private bool _mUnknown_AllowedColumns;
+        public List<string>? AllowedColumns
+        {
+            get
+            {
+                if (!_mUnknown_AllowedColumns) return _mValue_AllowedColumns;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.AllowedColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         /// </summary>
-        [Input("analysisMethod")]
+        [PolicyResourceProperty("analysisMethod", "_mUnknown_AnalysisMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisMethod;
-
-        public string? AnalysisMethod => _mAnalysisMethod.GetValue("analysisMethod");
+        private string? _mValue_AnalysisMethod;
+        private bool _mUnknown_AnalysisMethod;
+        public string? AnalysisMethod
+        {
+            get
+            {
+                if (!_mUnknown_AnalysisMethod) return _mValue_AnalysisMethod;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.AnalysisMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the configured table.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time the configured table was created.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the configured table.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configured table.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
         /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         /// </summary>
-        [Input("tableReference")]
+        [PolicyResourceProperty("tableReference", "_mUnknown_TableReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfiguredTableTableReference> _mTableReference;
-
-        public Outputs.ConfiguredTableTableReference? TableReference => _mTableReference.GetValue("tableReference");
+        private Outputs.ConfiguredTableTableReference? _mValue_TableReference;
+        private bool _mUnknown_TableReference;
+        public Outputs.ConfiguredTableTableReference? TableReference
+        {
+            get
+            {
+                if (!_mUnknown_TableReference) return _mValue_TableReference;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.TableReference' is not present");
+            }
+        }
 
         /// <summary>
         /// Key value pairs which tag the configured table.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time the configured table was last updated.
         /// </summary>
-        [Input("updateTime")]
+        [PolicyResourceProperty("updateTime", "_mUnknown_UpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateTime;
-
-        public string? UpdateTime => _mUpdateTime.GetValue("updateTime");
+        private string? _mValue_UpdateTime;
+        private bool _mUnknown_UpdateTime;
+        public string? UpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_UpdateTime) return _mValue_UpdateTime;
+                throw new UndeferrableValueException("Value 'ConfiguredTable.UpdateTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]
@@ -109,57 +179,99 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms
         /// <summary>
         /// The columns of the references table which will be included in the configured table.
         /// </summary>
-        [Input("allowedColumns")]
+        [PolicyResourceProperty("allowedColumns", "_mUnknown_AllowedColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedColumns;
-
-        public List<string>? AllowedColumns => _mAllowedColumns.GetValue("allowedColumns");
+        private List<string>? _mValue_AllowedColumns;
+        private bool _mUnknown_AllowedColumns;
+        public List<string>? AllowedColumns
+        {
+            get
+            {
+                if (!_mUnknown_AllowedColumns) return _mValue_AllowedColumns;
+                throw new UndeferrableValueException("Value 'ConfiguredTableArgs.AllowedColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         /// </summary>
-        [Input("analysisMethod")]
+        [PolicyResourceProperty("analysisMethod", "_mUnknown_AnalysisMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalysisMethod;
-
-        public string? AnalysisMethod => _mAnalysisMethod.GetValue("analysisMethod");
+        private string? _mValue_AnalysisMethod;
+        private bool _mUnknown_AnalysisMethod;
+        public string? AnalysisMethod
+        {
+            get
+            {
+                if (!_mUnknown_AnalysisMethod) return _mValue_AnalysisMethod;
+                throw new UndeferrableValueException("Value 'ConfiguredTableArgs.AnalysisMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the configured table.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfiguredTableArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configured table.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfiguredTableArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A reference to the AWS Glue table which will be used to create the configured table.
         /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         /// </summary>
-        [Input("tableReference")]
+        [PolicyResourceProperty("tableReference", "_mUnknown_TableReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfiguredTableTableReferenceArgs> _mTableReference;
-
-        public Inputs.ConfiguredTableTableReferenceArgs? TableReference => _mTableReference.GetValue("tableReference");
+        private Inputs.ConfiguredTableTableReferenceArgs? _mValue_TableReference;
+        private bool _mUnknown_TableReference;
+        public Inputs.ConfiguredTableTableReferenceArgs? TableReference
+        {
+            get
+            {
+                if (!_mUnknown_TableReference) return _mValue_TableReference;
+                throw new UndeferrableValueException("Value 'ConfiguredTableArgs.TableReference' is not present");
+            }
+        }
 
         /// <summary>
         /// Key value pairs which tag the configured table.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConfiguredTableArgs.Tags' is not present");
+            }
+        }
     }
 }

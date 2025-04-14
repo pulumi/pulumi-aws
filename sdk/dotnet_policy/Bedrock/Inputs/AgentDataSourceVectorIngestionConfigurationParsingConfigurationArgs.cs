@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
         /// </summary>
-        [Input("bedrockFoundationModelConfiguration")]
+        [PolicyResourceProperty("bedrockFoundationModelConfiguration", "_mUnknown_BedrockFoundationModelConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs> _mBedrockFoundationModelConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs? BedrockFoundationModelConfiguration => _mBedrockFoundationModelConfiguration.GetValue("bedrockFoundationModelConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs? _mValue_BedrockFoundationModelConfiguration;
+        private bool _mUnknown_BedrockFoundationModelConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs? BedrockFoundationModelConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_BedrockFoundationModelConfiguration) return _mValue_BedrockFoundationModelConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.BedrockFoundationModelConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
         /// </summary>
-        [Input("parsingStrategy")]
+        [PolicyResourceProperty("parsingStrategy", "_mUnknown_ParsingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParsingStrategy;
-
-        public string? ParsingStrategy => _mParsingStrategy.GetValue("parsingStrategy");
+        private string? _mValue_ParsingStrategy;
+        private bool _mUnknown_ParsingStrategy;
+        public string? ParsingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ParsingStrategy) return _mValue_ParsingStrategy;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.ParsingStrategy' is not present");
+            }
+        }
     }
 }

@@ -16,265 +16,468 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         /// </summary>
-        [Input("activeDirectoryId")]
+        [PolicyResourceProperty("activeDirectoryId", "_mUnknown_ActiveDirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDirectoryId;
-
-        public string? ActiveDirectoryId => _mActiveDirectoryId.GetValue("activeDirectoryId");
+        private string? _mValue_ActiveDirectoryId;
+        private bool _mUnknown_ActiveDirectoryId;
+        public string? ActiveDirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_ActiveDirectoryId) return _mValue_ActiveDirectoryId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.ActiveDirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         /// </summary>
-        [Input("aliases")]
+        [PolicyResourceProperty("aliases", "_mUnknown_Aliases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAliases;
-
-        public List<string>? Aliases => _mAliases.GetValue("aliases");
+        private List<string>? _mValue_Aliases;
+        private bool _mUnknown_Aliases;
+        public List<string>? Aliases
+        {
+            get
+            {
+                if (!_mUnknown_Aliases) return _mValue_Aliases;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.Aliases' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         /// </summary>
-        [Input("auditLogConfiguration")]
+        [PolicyResourceProperty("auditLogConfiguration", "_mUnknown_AuditLogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WindowsFileSystemAuditLogConfiguration> _mAuditLogConfiguration;
-
-        public Outputs.WindowsFileSystemAuditLogConfiguration? AuditLogConfiguration => _mAuditLogConfiguration.GetValue("auditLogConfiguration");
+        private Outputs.WindowsFileSystemAuditLogConfiguration? _mValue_AuditLogConfiguration;
+        private bool _mUnknown_AuditLogConfiguration;
+        public Outputs.WindowsFileSystemAuditLogConfiguration? AuditLogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AuditLogConfiguration) return _mValue_AuditLogConfiguration;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.AuditLogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
-        [Input("automaticBackupRetentionDays")]
+        [PolicyResourceProperty("automaticBackupRetentionDays", "_mUnknown_AutomaticBackupRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
-
-        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
+        private int? _mValue_AutomaticBackupRetentionDays;
+        private bool _mUnknown_AutomaticBackupRetentionDays;
+        public int? AutomaticBackupRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticBackupRetentionDays) return _mValue_AutomaticBackupRetentionDays;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.AutomaticBackupRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source backup to create the filesystem from.
         /// </summary>
-        [Input("backupId")]
+        [PolicyResourceProperty("backupId", "_mUnknown_BackupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
-
-        public string? BackupId => _mBackupId.GetValue("backupId");
+        private string? _mValue_BackupId;
+        private bool _mUnknown_BackupId;
+        public string? BackupId
+        {
+            get
+            {
+                if (!_mUnknown_BackupId) return _mValue_BackupId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.BackupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         /// </summary>
-        [Input("dailyAutomaticBackupStartTime")]
+        [PolicyResourceProperty("dailyAutomaticBackupStartTime", "_mUnknown_DailyAutomaticBackupStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
-
-        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
+        private string? _mValue_DailyAutomaticBackupStartTime;
+        private bool _mUnknown_DailyAutomaticBackupStartTime;
+        public string? DailyAutomaticBackupStartTime
+        {
+            get
+            {
+                if (!_mUnknown_DailyAutomaticBackupStartTime) return _mValue_DailyAutomaticBackupStartTime;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.DailyAutomaticBackupStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         /// </summary>
-        [Input("diskIopsConfiguration")]
+        [PolicyResourceProperty("diskIopsConfiguration", "_mUnknown_DiskIopsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WindowsFileSystemDiskIopsConfiguration> _mDiskIopsConfiguration;
-
-        public Outputs.WindowsFileSystemDiskIopsConfiguration? DiskIopsConfiguration => _mDiskIopsConfiguration.GetValue("diskIopsConfiguration");
+        private Outputs.WindowsFileSystemDiskIopsConfiguration? _mValue_DiskIopsConfiguration;
+        private bool _mUnknown_DiskIopsConfiguration;
+        public Outputs.WindowsFileSystemDiskIopsConfiguration? DiskIopsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DiskIopsConfiguration) return _mValue_DiskIopsConfiguration;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.DiskIopsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the file system's final backup.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of Elastic Network Interface identifiers from which the file system is accessible.
         /// </summary>
-        [Input("networkInterfaceIds")]
+        [PolicyResourceProperty("networkInterfaceIds", "_mUnknown_NetworkInterfaceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
-
-        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
+        private List<string>? _mValue_NetworkInterfaceIds;
+        private bool _mUnknown_NetworkInterfaceIds;
+        public List<string>? NetworkInterfaceIds
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceIds) return _mValue_NetworkInterfaceIds;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.NetworkInterfaceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of the primary, or preferred, file server.
         /// </summary>
-        [Input("preferredFileServerIp")]
+        [PolicyResourceProperty("preferredFileServerIp", "_mUnknown_PreferredFileServerIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredFileServerIp;
-
-        public string? PreferredFileServerIp => _mPreferredFileServerIp.GetValue("preferredFileServerIp");
+        private string? _mValue_PreferredFileServerIp;
+        private bool _mUnknown_PreferredFileServerIp;
+        public string? PreferredFileServerIp
+        {
+            get
+            {
+                if (!_mUnknown_PreferredFileServerIp) return _mValue_PreferredFileServerIp;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.PreferredFileServerIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         /// </summary>
-        [Input("preferredSubnetId")]
+        [PolicyResourceProperty("preferredSubnetId", "_mUnknown_PreferredSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredSubnetId;
-
-        public string? PreferredSubnetId => _mPreferredSubnetId.GetValue("preferredSubnetId");
+        private string? _mValue_PreferredSubnetId;
+        private bool _mUnknown_PreferredSubnetId;
+        public string? PreferredSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_PreferredSubnetId) return _mValue_PreferredSubnetId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.PreferredSubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
         /// </summary>
-        [Input("remoteAdministrationEndpoint")]
+        [PolicyResourceProperty("remoteAdministrationEndpoint", "_mUnknown_RemoteAdministrationEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteAdministrationEndpoint;
-
-        public string? RemoteAdministrationEndpoint => _mRemoteAdministrationEndpoint.GetValue("remoteAdministrationEndpoint");
+        private string? _mValue_RemoteAdministrationEndpoint;
+        private bool _mUnknown_RemoteAdministrationEndpoint;
+        public string? RemoteAdministrationEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_RemoteAdministrationEndpoint) return _mValue_RemoteAdministrationEndpoint;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.RemoteAdministrationEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         /// </summary>
-        [Input("selfManagedActiveDirectory")]
+        [PolicyResourceProperty("selfManagedActiveDirectory", "_mUnknown_SelfManagedActiveDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WindowsFileSystemSelfManagedActiveDirectory> _mSelfManagedActiveDirectory;
-
-        public Outputs.WindowsFileSystemSelfManagedActiveDirectory? SelfManagedActiveDirectory => _mSelfManagedActiveDirectory.GetValue("selfManagedActiveDirectory");
+        private Outputs.WindowsFileSystemSelfManagedActiveDirectory? _mValue_SelfManagedActiveDirectory;
+        private bool _mUnknown_SelfManagedActiveDirectory;
+        public Outputs.WindowsFileSystemSelfManagedActiveDirectory? SelfManagedActiveDirectory
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedActiveDirectory) return _mValue_SelfManagedActiveDirectory;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.SelfManagedActiveDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         /// </summary>
-        [Input("storageCapacity")]
+        [PolicyResourceProperty("storageCapacity", "_mUnknown_StorageCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
-
-        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+        private int? _mValue_StorageCapacity;
+        private bool _mUnknown_StorageCapacity;
+        public int? StorageCapacity
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacity) return _mValue_StorageCapacity;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.StorageCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("throughputCapacity")]
+        [PolicyResourceProperty("throughputCapacity", "_mUnknown_ThroughputCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughputCapacity;
-
-        public int? ThroughputCapacity => _mThroughputCapacity.GetValue("throughputCapacity");
+        private int? _mValue_ThroughputCapacity;
+        private bool _mUnknown_ThroughputCapacity;
+        public int? ThroughputCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ThroughputCapacity) return _mValue_ThroughputCapacity;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.ThroughputCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        [Input("weeklyMaintenanceStartTime")]
+        [PolicyResourceProperty("weeklyMaintenanceStartTime", "_mUnknown_WeeklyMaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
-
-        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+        private string? _mValue_WeeklyMaintenanceStartTime;
+        private bool _mUnknown_WeeklyMaintenanceStartTime;
+        public string? WeeklyMaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceStartTime) return _mValue_WeeklyMaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'WindowsFileSystem.WeeklyMaintenanceStartTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:fsx/windowsFileSystem:WindowsFileSystem")]
@@ -283,192 +486,339 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         /// </summary>
-        [Input("activeDirectoryId")]
+        [PolicyResourceProperty("activeDirectoryId", "_mUnknown_ActiveDirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDirectoryId;
-
-        public string? ActiveDirectoryId => _mActiveDirectoryId.GetValue("activeDirectoryId");
+        private string? _mValue_ActiveDirectoryId;
+        private bool _mUnknown_ActiveDirectoryId;
+        public string? ActiveDirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_ActiveDirectoryId) return _mValue_ActiveDirectoryId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.ActiveDirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         /// </summary>
-        [Input("aliases")]
+        [PolicyResourceProperty("aliases", "_mUnknown_Aliases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAliases;
-
-        public List<string>? Aliases => _mAliases.GetValue("aliases");
+        private List<string>? _mValue_Aliases;
+        private bool _mUnknown_Aliases;
+        public List<string>? Aliases
+        {
+            get
+            {
+                if (!_mUnknown_Aliases) return _mValue_Aliases;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.Aliases' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
         /// </summary>
-        [Input("auditLogConfiguration")]
+        [PolicyResourceProperty("auditLogConfiguration", "_mUnknown_AuditLogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WindowsFileSystemAuditLogConfigurationArgs> _mAuditLogConfiguration;
-
-        public Inputs.WindowsFileSystemAuditLogConfigurationArgs? AuditLogConfiguration => _mAuditLogConfiguration.GetValue("auditLogConfiguration");
+        private Inputs.WindowsFileSystemAuditLogConfigurationArgs? _mValue_AuditLogConfiguration;
+        private bool _mUnknown_AuditLogConfiguration;
+        public Inputs.WindowsFileSystemAuditLogConfigurationArgs? AuditLogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AuditLogConfiguration) return _mValue_AuditLogConfiguration;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.AuditLogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
-        [Input("automaticBackupRetentionDays")]
+        [PolicyResourceProperty("automaticBackupRetentionDays", "_mUnknown_AutomaticBackupRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
-
-        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
+        private int? _mValue_AutomaticBackupRetentionDays;
+        private bool _mUnknown_AutomaticBackupRetentionDays;
+        public int? AutomaticBackupRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticBackupRetentionDays) return _mValue_AutomaticBackupRetentionDays;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.AutomaticBackupRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source backup to create the filesystem from.
         /// </summary>
-        [Input("backupId")]
+        [PolicyResourceProperty("backupId", "_mUnknown_BackupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
-
-        public string? BackupId => _mBackupId.GetValue("backupId");
+        private string? _mValue_BackupId;
+        private bool _mUnknown_BackupId;
+        public string? BackupId
+        {
+            get
+            {
+                if (!_mUnknown_BackupId) return _mValue_BackupId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.BackupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         /// </summary>
-        [Input("dailyAutomaticBackupStartTime")]
+        [PolicyResourceProperty("dailyAutomaticBackupStartTime", "_mUnknown_DailyAutomaticBackupStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
-
-        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
+        private string? _mValue_DailyAutomaticBackupStartTime;
+        private bool _mUnknown_DailyAutomaticBackupStartTime;
+        public string? DailyAutomaticBackupStartTime
+        {
+            get
+            {
+                if (!_mUnknown_DailyAutomaticBackupStartTime) return _mValue_DailyAutomaticBackupStartTime;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.DailyAutomaticBackupStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
         /// </summary>
-        [Input("diskIopsConfiguration")]
+        [PolicyResourceProperty("diskIopsConfiguration", "_mUnknown_DiskIopsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WindowsFileSystemDiskIopsConfigurationArgs> _mDiskIopsConfiguration;
-
-        public Inputs.WindowsFileSystemDiskIopsConfigurationArgs? DiskIopsConfiguration => _mDiskIopsConfiguration.GetValue("diskIopsConfiguration");
+        private Inputs.WindowsFileSystemDiskIopsConfigurationArgs? _mValue_DiskIopsConfiguration;
+        private bool _mUnknown_DiskIopsConfiguration;
+        public Inputs.WindowsFileSystemDiskIopsConfigurationArgs? DiskIopsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DiskIopsConfiguration) return _mValue_DiskIopsConfiguration;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.DiskIopsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the file system's final backup.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
         /// </summary>
-        [Input("preferredSubnetId")]
+        [PolicyResourceProperty("preferredSubnetId", "_mUnknown_PreferredSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredSubnetId;
-
-        public string? PreferredSubnetId => _mPreferredSubnetId.GetValue("preferredSubnetId");
+        private string? _mValue_PreferredSubnetId;
+        private bool _mUnknown_PreferredSubnetId;
+        public string? PreferredSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_PreferredSubnetId) return _mValue_PreferredSubnetId;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.PreferredSubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         /// </summary>
-        [Input("selfManagedActiveDirectory")]
+        [PolicyResourceProperty("selfManagedActiveDirectory", "_mUnknown_SelfManagedActiveDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs> _mSelfManagedActiveDirectory;
-
-        public Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs? SelfManagedActiveDirectory => _mSelfManagedActiveDirectory.GetValue("selfManagedActiveDirectory");
+        private Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs? _mValue_SelfManagedActiveDirectory;
+        private bool _mUnknown_SelfManagedActiveDirectory;
+        public Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs? SelfManagedActiveDirectory
+        {
+            get
+            {
+                if (!_mUnknown_SelfManagedActiveDirectory) return _mValue_SelfManagedActiveDirectory;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.SelfManagedActiveDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         /// </summary>
-        [Input("storageCapacity")]
+        [PolicyResourceProperty("storageCapacity", "_mUnknown_StorageCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
-
-        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+        private int? _mValue_StorageCapacity;
+        private bool _mUnknown_StorageCapacity;
+        public int? StorageCapacity
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacity) return _mValue_StorageCapacity;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.StorageCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput (megabytes per second) of the file system. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/performance.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("throughputCapacity")]
+        [PolicyResourceProperty("throughputCapacity", "_mUnknown_ThroughputCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughputCapacity;
-
-        public int? ThroughputCapacity => _mThroughputCapacity.GetValue("throughputCapacity");
+        private int? _mValue_ThroughputCapacity;
+        private bool _mUnknown_ThroughputCapacity;
+        public int? ThroughputCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ThroughputCapacity) return _mValue_ThroughputCapacity;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.ThroughputCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        [Input("weeklyMaintenanceStartTime")]
+        [PolicyResourceProperty("weeklyMaintenanceStartTime", "_mUnknown_WeeklyMaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
-
-        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+        private string? _mValue_WeeklyMaintenanceStartTime;
+        private bool _mUnknown_WeeklyMaintenanceStartTime;
+        public string? WeeklyMaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceStartTime) return _mValue_WeeklyMaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.WeeklyMaintenanceStartTime' is not present");
+            }
+        }
     }
 }

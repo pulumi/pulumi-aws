@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         /// </summary>
-        [Input("commitmentDuration")]
+        [PolicyResourceProperty("commitmentDuration", "_mUnknown_CommitmentDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCommitmentDuration;
-
-        public string? CommitmentDuration => _mCommitmentDuration.GetValue("commitmentDuration");
+        private string? _mValue_CommitmentDuration;
+        private bool _mUnknown_CommitmentDuration;
+        public string? CommitmentDuration
+        {
+            get
+            {
+                if (!_mUnknown_CommitmentDuration) return _mValue_CommitmentDuration;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.CommitmentDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the model to associate with this Provisioned Throughput.
         /// </summary>
-        [Input("modelArn")]
+        [PolicyResourceProperty("modelArn", "_mUnknown_ModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
-
-        public string? ModelArn => _mModelArn.GetValue("modelArn");
+        private string? _mValue_ModelArn;
+        private bool _mUnknown_ModelArn;
+        public string? ModelArn
+        {
+            get
+            {
+                if (!_mUnknown_ModelArn) return _mValue_ModelArn;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.ModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         /// </summary>
-        [Input("modelUnits")]
+        [PolicyResourceProperty("modelUnits", "_mUnknown_ModelUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mModelUnits;
-
-        public int? ModelUnits => _mModelUnits.GetValue("modelUnits");
+        private int? _mValue_ModelUnits;
+        private bool _mUnknown_ModelUnits;
+        public int? ModelUnits
+        {
+            get
+            {
+                if (!_mUnknown_ModelUnits) return _mValue_ModelUnits;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.ModelUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Provisioned Throughput.
         /// </summary>
-        [Input("provisionedModelArn")]
+        [PolicyResourceProperty("provisionedModelArn", "_mUnknown_ProvisionedModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisionedModelArn;
-
-        public string? ProvisionedModelArn => _mProvisionedModelArn.GetValue("provisionedModelArn");
+        private string? _mValue_ProvisionedModelArn;
+        private bool _mUnknown_ProvisionedModelArn;
+        public string? ProvisionedModelArn
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedModelArn) return _mValue_ProvisionedModelArn;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.ProvisionedModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for this Provisioned Throughput.
         /// </summary>
-        [Input("provisionedModelName")]
+        [PolicyResourceProperty("provisionedModelName", "_mUnknown_ProvisionedModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisionedModelName;
-
-        public string? ProvisionedModelName => _mProvisionedModelName.GetValue("provisionedModelName");
+        private string? _mValue_ProvisionedModelName;
+        private bool _mUnknown_ProvisionedModelName;
+        public string? ProvisionedModelName
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedModelName) return _mValue_ProvisionedModelName;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.ProvisionedModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProvisionedModelThroughputTimeouts> _mTimeouts;
-
-        public Outputs.ProvisionedModelThroughputTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ProvisionedModelThroughputTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ProvisionedModelThroughputTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput")]
@@ -89,52 +145,94 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
         /// </summary>
-        [Input("commitmentDuration")]
+        [PolicyResourceProperty("commitmentDuration", "_mUnknown_CommitmentDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCommitmentDuration;
-
-        public string? CommitmentDuration => _mCommitmentDuration.GetValue("commitmentDuration");
+        private string? _mValue_CommitmentDuration;
+        private bool _mUnknown_CommitmentDuration;
+        public string? CommitmentDuration
+        {
+            get
+            {
+                if (!_mUnknown_CommitmentDuration) return _mValue_CommitmentDuration;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.CommitmentDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the model to associate with this Provisioned Throughput.
         /// </summary>
-        [Input("modelArn")]
+        [PolicyResourceProperty("modelArn", "_mUnknown_ModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
-
-        public string? ModelArn => _mModelArn.GetValue("modelArn");
+        private string? _mValue_ModelArn;
+        private bool _mUnknown_ModelArn;
+        public string? ModelArn
+        {
+            get
+            {
+                if (!_mUnknown_ModelArn) return _mValue_ModelArn;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.ModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         /// </summary>
-        [Input("modelUnits")]
+        [PolicyResourceProperty("modelUnits", "_mUnknown_ModelUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mModelUnits;
-
-        public int? ModelUnits => _mModelUnits.GetValue("modelUnits");
+        private int? _mValue_ModelUnits;
+        private bool _mUnknown_ModelUnits;
+        public int? ModelUnits
+        {
+            get
+            {
+                if (!_mUnknown_ModelUnits) return _mValue_ModelUnits;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.ModelUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for this Provisioned Throughput.
         /// </summary>
-        [Input("provisionedModelName")]
+        [PolicyResourceProperty("provisionedModelName", "_mUnknown_ProvisionedModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisionedModelName;
-
-        public string? ProvisionedModelName => _mProvisionedModelName.GetValue("provisionedModelName");
+        private string? _mValue_ProvisionedModelName;
+        private bool _mUnknown_ProvisionedModelName;
+        public string? ProvisionedModelName
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedModelName) return _mValue_ProvisionedModelName;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.ProvisionedModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProvisionedModelThroughputTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ProvisionedModelThroughputTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ProvisionedModelThroughputTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ProvisionedModelThroughputTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.Timeouts' is not present");
+            }
+        }
     }
 }

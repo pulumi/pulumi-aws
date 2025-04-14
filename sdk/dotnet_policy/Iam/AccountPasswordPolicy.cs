@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Whether to allow users to change their own password
         /// </summary>
-        [Input("allowUsersToChangePassword")]
+        [PolicyResourceProperty("allowUsersToChangePassword", "_mUnknown_AllowUsersToChangePassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUsersToChangePassword;
-
-        public bool? AllowUsersToChangePassword => _mAllowUsersToChangePassword.GetValue("allowUsersToChangePassword");
+        private bool? _mValue_AllowUsersToChangePassword;
+        private bool _mUnknown_AllowUsersToChangePassword;
+        public bool? AllowUsersToChangePassword
+        {
+            get
+            {
+                if (!_mUnknown_AllowUsersToChangePassword) return _mValue_AllowUsersToChangePassword;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.AllowUsersToChangePassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
         /// </summary>
-        [Input("expirePasswords")]
+        [PolicyResourceProperty("expirePasswords", "_mUnknown_ExpirePasswords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExpirePasswords;
-
-        public bool? ExpirePasswords => _mExpirePasswords.GetValue("expirePasswords");
+        private bool? _mValue_ExpirePasswords;
+        private bool _mUnknown_ExpirePasswords;
+        public bool? ExpirePasswords
+        {
+            get
+            {
+                if (!_mUnknown_ExpirePasswords) return _mValue_ExpirePasswords;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.ExpirePasswords' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         /// </summary>
-        [Input("hardExpiry")]
+        [PolicyResourceProperty("hardExpiry", "_mUnknown_HardExpiry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHardExpiry;
-
-        public bool? HardExpiry => _mHardExpiry.GetValue("hardExpiry");
+        private bool? _mValue_HardExpiry;
+        private bool _mUnknown_HardExpiry;
+        public bool? HardExpiry
+        {
+            get
+            {
+                if (!_mUnknown_HardExpiry) return _mValue_HardExpiry;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.HardExpiry' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days that an user password is valid.
         /// </summary>
-        [Input("maxPasswordAge")]
+        [PolicyResourceProperty("maxPasswordAge", "_mUnknown_MaxPasswordAge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPasswordAge;
-
-        public int? MaxPasswordAge => _mMaxPasswordAge.GetValue("maxPasswordAge");
+        private int? _mValue_MaxPasswordAge;
+        private bool _mUnknown_MaxPasswordAge;
+        public int? MaxPasswordAge
+        {
+            get
+            {
+                if (!_mUnknown_MaxPasswordAge) return _mValue_MaxPasswordAge;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.MaxPasswordAge' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum length to require for user passwords.
         /// </summary>
-        [Input("minimumPasswordLength")]
+        [PolicyResourceProperty("minimumPasswordLength", "_mUnknown_MinimumPasswordLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumPasswordLength;
-
-        public int? MinimumPasswordLength => _mMinimumPasswordLength.GetValue("minimumPasswordLength");
+        private int? _mValue_MinimumPasswordLength;
+        private bool _mUnknown_MinimumPasswordLength;
+        public int? MinimumPasswordLength
+        {
+            get
+            {
+                if (!_mUnknown_MinimumPasswordLength) return _mValue_MinimumPasswordLength;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.MinimumPasswordLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of previous passwords that users are prevented from reusing.
         /// </summary>
-        [Input("passwordReusePrevention")]
+        [PolicyResourceProperty("passwordReusePrevention", "_mUnknown_PasswordReusePrevention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordReusePrevention;
-
-        public int? PasswordReusePrevention => _mPasswordReusePrevention.GetValue("passwordReusePrevention");
+        private int? _mValue_PasswordReusePrevention;
+        private bool _mUnknown_PasswordReusePrevention;
+        public int? PasswordReusePrevention
+        {
+            get
+            {
+                if (!_mUnknown_PasswordReusePrevention) return _mValue_PasswordReusePrevention;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.PasswordReusePrevention' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require lowercase characters for user passwords.
         /// </summary>
-        [Input("requireLowercaseCharacters")]
+        [PolicyResourceProperty("requireLowercaseCharacters", "_mUnknown_RequireLowercaseCharacters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireLowercaseCharacters;
-
-        public bool? RequireLowercaseCharacters => _mRequireLowercaseCharacters.GetValue("requireLowercaseCharacters");
+        private bool? _mValue_RequireLowercaseCharacters;
+        private bool _mUnknown_RequireLowercaseCharacters;
+        public bool? RequireLowercaseCharacters
+        {
+            get
+            {
+                if (!_mUnknown_RequireLowercaseCharacters) return _mValue_RequireLowercaseCharacters;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.RequireLowercaseCharacters' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require numbers for user passwords.
         /// </summary>
-        [Input("requireNumbers")]
+        [PolicyResourceProperty("requireNumbers", "_mUnknown_RequireNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireNumbers;
-
-        public bool? RequireNumbers => _mRequireNumbers.GetValue("requireNumbers");
+        private bool? _mValue_RequireNumbers;
+        private bool _mUnknown_RequireNumbers;
+        public bool? RequireNumbers
+        {
+            get
+            {
+                if (!_mUnknown_RequireNumbers) return _mValue_RequireNumbers;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.RequireNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require symbols for user passwords.
         /// </summary>
-        [Input("requireSymbols")]
+        [PolicyResourceProperty("requireSymbols", "_mUnknown_RequireSymbols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireSymbols;
-
-        public bool? RequireSymbols => _mRequireSymbols.GetValue("requireSymbols");
+        private bool? _mValue_RequireSymbols;
+        private bool _mUnknown_RequireSymbols;
+        public bool? RequireSymbols
+        {
+            get
+            {
+                if (!_mUnknown_RequireSymbols) return _mValue_RequireSymbols;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.RequireSymbols' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require uppercase characters for user passwords.
         /// </summary>
-        [Input("requireUppercaseCharacters")]
+        [PolicyResourceProperty("requireUppercaseCharacters", "_mUnknown_RequireUppercaseCharacters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireUppercaseCharacters;
-
-        public bool? RequireUppercaseCharacters => _mRequireUppercaseCharacters.GetValue("requireUppercaseCharacters");
+        private bool? _mValue_RequireUppercaseCharacters;
+        private bool _mUnknown_RequireUppercaseCharacters;
+        public bool? RequireUppercaseCharacters
+        {
+            get
+            {
+                if (!_mUnknown_RequireUppercaseCharacters) return _mValue_RequireUppercaseCharacters;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicy.RequireUppercaseCharacters' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/accountPasswordPolicy:AccountPasswordPolicy")]
@@ -110,82 +180,145 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Whether to allow users to change their own password
         /// </summary>
-        [Input("allowUsersToChangePassword")]
+        [PolicyResourceProperty("allowUsersToChangePassword", "_mUnknown_AllowUsersToChangePassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowUsersToChangePassword;
-
-        public bool? AllowUsersToChangePassword => _mAllowUsersToChangePassword.GetValue("allowUsersToChangePassword");
+        private bool? _mValue_AllowUsersToChangePassword;
+        private bool _mUnknown_AllowUsersToChangePassword;
+        public bool? AllowUsersToChangePassword
+        {
+            get
+            {
+                if (!_mUnknown_AllowUsersToChangePassword) return _mValue_AllowUsersToChangePassword;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.AllowUsersToChangePassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         /// </summary>
-        [Input("hardExpiry")]
+        [PolicyResourceProperty("hardExpiry", "_mUnknown_HardExpiry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHardExpiry;
-
-        public bool? HardExpiry => _mHardExpiry.GetValue("hardExpiry");
+        private bool? _mValue_HardExpiry;
+        private bool _mUnknown_HardExpiry;
+        public bool? HardExpiry
+        {
+            get
+            {
+                if (!_mUnknown_HardExpiry) return _mValue_HardExpiry;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.HardExpiry' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days that an user password is valid.
         /// </summary>
-        [Input("maxPasswordAge")]
+        [PolicyResourceProperty("maxPasswordAge", "_mUnknown_MaxPasswordAge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPasswordAge;
-
-        public int? MaxPasswordAge => _mMaxPasswordAge.GetValue("maxPasswordAge");
+        private int? _mValue_MaxPasswordAge;
+        private bool _mUnknown_MaxPasswordAge;
+        public int? MaxPasswordAge
+        {
+            get
+            {
+                if (!_mUnknown_MaxPasswordAge) return _mValue_MaxPasswordAge;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.MaxPasswordAge' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum length to require for user passwords.
         /// </summary>
-        [Input("minimumPasswordLength")]
+        [PolicyResourceProperty("minimumPasswordLength", "_mUnknown_MinimumPasswordLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumPasswordLength;
-
-        public int? MinimumPasswordLength => _mMinimumPasswordLength.GetValue("minimumPasswordLength");
+        private int? _mValue_MinimumPasswordLength;
+        private bool _mUnknown_MinimumPasswordLength;
+        public int? MinimumPasswordLength
+        {
+            get
+            {
+                if (!_mUnknown_MinimumPasswordLength) return _mValue_MinimumPasswordLength;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.MinimumPasswordLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of previous passwords that users are prevented from reusing.
         /// </summary>
-        [Input("passwordReusePrevention")]
+        [PolicyResourceProperty("passwordReusePrevention", "_mUnknown_PasswordReusePrevention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordReusePrevention;
-
-        public int? PasswordReusePrevention => _mPasswordReusePrevention.GetValue("passwordReusePrevention");
+        private int? _mValue_PasswordReusePrevention;
+        private bool _mUnknown_PasswordReusePrevention;
+        public int? PasswordReusePrevention
+        {
+            get
+            {
+                if (!_mUnknown_PasswordReusePrevention) return _mValue_PasswordReusePrevention;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.PasswordReusePrevention' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require lowercase characters for user passwords.
         /// </summary>
-        [Input("requireLowercaseCharacters")]
+        [PolicyResourceProperty("requireLowercaseCharacters", "_mUnknown_RequireLowercaseCharacters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireLowercaseCharacters;
-
-        public bool? RequireLowercaseCharacters => _mRequireLowercaseCharacters.GetValue("requireLowercaseCharacters");
+        private bool? _mValue_RequireLowercaseCharacters;
+        private bool _mUnknown_RequireLowercaseCharacters;
+        public bool? RequireLowercaseCharacters
+        {
+            get
+            {
+                if (!_mUnknown_RequireLowercaseCharacters) return _mValue_RequireLowercaseCharacters;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.RequireLowercaseCharacters' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require numbers for user passwords.
         /// </summary>
-        [Input("requireNumbers")]
+        [PolicyResourceProperty("requireNumbers", "_mUnknown_RequireNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireNumbers;
-
-        public bool? RequireNumbers => _mRequireNumbers.GetValue("requireNumbers");
+        private bool? _mValue_RequireNumbers;
+        private bool _mUnknown_RequireNumbers;
+        public bool? RequireNumbers
+        {
+            get
+            {
+                if (!_mUnknown_RequireNumbers) return _mValue_RequireNumbers;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.RequireNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require symbols for user passwords.
         /// </summary>
-        [Input("requireSymbols")]
+        [PolicyResourceProperty("requireSymbols", "_mUnknown_RequireSymbols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireSymbols;
-
-        public bool? RequireSymbols => _mRequireSymbols.GetValue("requireSymbols");
+        private bool? _mValue_RequireSymbols;
+        private bool _mUnknown_RequireSymbols;
+        public bool? RequireSymbols
+        {
+            get
+            {
+                if (!_mUnknown_RequireSymbols) return _mValue_RequireSymbols;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.RequireSymbols' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to require uppercase characters for user passwords.
         /// </summary>
-        [Input("requireUppercaseCharacters")]
+        [PolicyResourceProperty("requireUppercaseCharacters", "_mUnknown_RequireUppercaseCharacters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireUppercaseCharacters;
-
-        public bool? RequireUppercaseCharacters => _mRequireUppercaseCharacters.GetValue("requireUppercaseCharacters");
+        private bool? _mValue_RequireUppercaseCharacters;
+        private bool _mUnknown_RequireUppercaseCharacters;
+        public bool? RequireUppercaseCharacters
+        {
+            get
+            {
+                if (!_mUnknown_RequireUppercaseCharacters) return _mValue_RequireUppercaseCharacters;
+                throw new UndeferrableValueException("Value 'AccountPasswordPolicyArgs.RequireUppercaseCharacters' is not present");
+            }
+        }
     }
 }

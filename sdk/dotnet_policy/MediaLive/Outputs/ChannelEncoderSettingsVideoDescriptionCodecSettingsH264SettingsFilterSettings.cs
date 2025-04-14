@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings
     {
-        [Input("temporalFilterSettings")]
+        [PolicyResourceProperty("temporalFilterSettings", "_mUnknown_TemporalFilterSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings> _mTemporalFilterSettings;
-
-        public Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings? TemporalFilterSettings => _mTemporalFilterSettings.GetValue("temporalFilterSettings");
+        private Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings? _mValue_TemporalFilterSettings;
+        private bool _mUnknown_TemporalFilterSettings;
+        public Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings? TemporalFilterSettings
+        {
+            get
+            {
+                if (!_mUnknown_TemporalFilterSettings) return _mValue_TemporalFilterSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings.TemporalFilterSettings' is not present");
+            }
+        }
     }
 }

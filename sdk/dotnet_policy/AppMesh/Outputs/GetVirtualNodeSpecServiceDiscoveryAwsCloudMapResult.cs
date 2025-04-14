@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult
     {
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult.Attributes' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
-
-        [Input("namespaceName")]
+        [PolicyResourceProperty("namespaceName", "_mUnknown_NamespaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceName;
+        private string? _mValue_NamespaceName;
+        private bool _mUnknown_NamespaceName;
+        public string? NamespaceName
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceName) return _mValue_NamespaceName;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult.NamespaceName' is not present");
+            }
+        }
 
-        public string? NamespaceName => _mNamespaceName.GetValue("namespaceName");
-
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult.ServiceName' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst.Outputs
 {
     public sealed class GetDevEnvironmentIdeResult
     {
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetDevEnvironmentIdeResult.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntime;
-
-        public string? Runtime => _mRuntime.GetValue("runtime");
+        private string? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public string? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'GetDevEnvironmentIdeResult.Runtime' is not present");
+            }
+        }
     }
 }

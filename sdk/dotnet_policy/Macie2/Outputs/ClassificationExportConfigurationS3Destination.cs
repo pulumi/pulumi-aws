@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Outputs
         /// <summary>
         /// The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'ClassificationExportConfigurationS3Destination.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The object key for the bucket in which Amazon Macie exports the data classification results.
         /// </summary>
-        [Input("keyPrefix")]
+        [PolicyResourceProperty("keyPrefix", "_mUnknown_KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPrefix;
-
-        public string? KeyPrefix => _mKeyPrefix.GetValue("keyPrefix");
+        private string? _mValue_KeyPrefix;
+        private bool _mUnknown_KeyPrefix;
+        public string? KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_KeyPrefix) return _mValue_KeyPrefix;
+                throw new UndeferrableValueException("Value 'ClassificationExportConfigurationS3Destination.KeyPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
         /// 
         /// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'ClassificationExportConfigurationS3Destination.KmsKeyArn' is not present");
+            }
+        }
     }
 }

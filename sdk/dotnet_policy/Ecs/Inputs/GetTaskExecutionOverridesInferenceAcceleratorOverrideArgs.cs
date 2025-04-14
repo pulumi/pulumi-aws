@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInferenceAcceleratorOverrideInputArgs.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Elastic Inference accelerator type to use.
         /// </summary>
-        [Input("deviceType")]
+        [PolicyResourceProperty("deviceType", "_mUnknown_DeviceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceType;
-
-        public string? DeviceType => _mDeviceType.GetValue("deviceType");
+        private string? _mValue_DeviceType;
+        private bool _mUnknown_DeviceType;
+        public string? DeviceType
+        {
+            get
+            {
+                if (!_mUnknown_DeviceType) return _mValue_DeviceType;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInferenceAcceleratorOverrideInputArgs.DeviceType' is not present");
+            }
+        }
     }
 }

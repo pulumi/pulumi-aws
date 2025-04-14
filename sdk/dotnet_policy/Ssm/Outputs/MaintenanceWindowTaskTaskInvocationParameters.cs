@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// The parameters for an AUTOMATION task type. Documented below.
         /// </summary>
-        [Input("automationParameters")]
+        [PolicyResourceProperty("automationParameters", "_mUnknown_AutomationParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters> _mAutomationParameters;
-
-        public Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters? AutomationParameters => _mAutomationParameters.GetValue("automationParameters");
+        private Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters? _mValue_AutomationParameters;
+        private bool _mUnknown_AutomationParameters;
+        public Outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParameters? AutomationParameters
+        {
+            get
+            {
+                if (!_mUnknown_AutomationParameters) return _mValue_AutomationParameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParameters.AutomationParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for a LAMBDA task type. Documented below.
         /// </summary>
-        [Input("lambdaParameters")]
+        [PolicyResourceProperty("lambdaParameters", "_mUnknown_LambdaParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters> _mLambdaParameters;
-
-        public Outputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters? LambdaParameters => _mLambdaParameters.GetValue("lambdaParameters");
+        private Outputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters? _mValue_LambdaParameters;
+        private bool _mUnknown_LambdaParameters;
+        public Outputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParameters? LambdaParameters
+        {
+            get
+            {
+                if (!_mUnknown_LambdaParameters) return _mValue_LambdaParameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParameters.LambdaParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for a RUN_COMMAND task type. Documented below.
         /// </summary>
-        [Input("runCommandParameters")]
+        [PolicyResourceProperty("runCommandParameters", "_mUnknown_RunCommandParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters> _mRunCommandParameters;
-
-        public Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters? RunCommandParameters => _mRunCommandParameters.GetValue("runCommandParameters");
+        private Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters? _mValue_RunCommandParameters;
+        private bool _mUnknown_RunCommandParameters;
+        public Outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters? RunCommandParameters
+        {
+            get
+            {
+                if (!_mUnknown_RunCommandParameters) return _mValue_RunCommandParameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParameters.RunCommandParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for a STEP_FUNCTIONS task type. Documented below.
         /// </summary>
-        [Input("stepFunctionsParameters")]
+        [PolicyResourceProperty("stepFunctionsParameters", "_mUnknown_StepFunctionsParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters> _mStepFunctionsParameters;
-
-        public Outputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters? StepFunctionsParameters => _mStepFunctionsParameters.GetValue("stepFunctionsParameters");
+        private Outputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters? _mValue_StepFunctionsParameters;
+        private bool _mUnknown_StepFunctionsParameters;
+        public Outputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters? StepFunctionsParameters
+        {
+            get
+            {
+                if (!_mUnknown_StepFunctionsParameters) return _mValue_StepFunctionsParameters;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParameters.StepFunctionsParameters' is not present");
+            }
+        }
     }
 }

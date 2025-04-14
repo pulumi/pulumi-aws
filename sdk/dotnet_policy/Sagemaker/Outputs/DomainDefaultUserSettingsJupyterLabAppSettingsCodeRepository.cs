@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The URL of the Git repository.
         /// </summary>
-        [Input("repositoryUrl")]
+        [PolicyResourceProperty("repositoryUrl", "_mUnknown_RepositoryUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryUrl;
-
-        public string? RepositoryUrl => _mRepositoryUrl.GetValue("repositoryUrl");
+        private string? _mValue_RepositoryUrl;
+        private bool _mUnknown_RepositoryUrl;
+        public string? RepositoryUrl
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryUrl) return _mValue_RepositoryUrl;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository.RepositoryUrl' is not present");
+            }
+        }
     }
 }

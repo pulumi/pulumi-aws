@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of your SSL/TLS certificate.
         /// </summary>
-        [Input("certificateName")]
+        [PolicyResourceProperty("certificateName", "_mUnknown_CertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
-
-        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+        private string? _mValue_CertificateName;
+        private bool _mUnknown_CertificateName;
+        public string? CertificateName
+        {
+            get
+            {
+                if (!_mUnknown_CertificateName) return _mValue_CertificateName;
+                throw new UndeferrableValueException("Value 'LbCertificateAttachment.CertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbCertificateAttachment.LbName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/lbCertificateAttachment:LbCertificateAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of your SSL/TLS certificate.
         /// </summary>
-        [Input("certificateName")]
+        [PolicyResourceProperty("certificateName", "_mUnknown_CertificateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateName;
-
-        public string? CertificateName => _mCertificateName.GetValue("certificateName");
+        private string? _mValue_CertificateName;
+        private bool _mUnknown_CertificateName;
+        public string? CertificateName
+        {
+            get
+            {
+                if (!_mUnknown_CertificateName) return _mValue_CertificateName;
+                throw new UndeferrableValueException("Value 'LbCertificateAttachmentArgs.CertificateName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the load balancer to which you want to associate the SSL/TLS certificate.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbCertificateAttachmentArgs.LbName' is not present");
+            }
+        }
     }
 }

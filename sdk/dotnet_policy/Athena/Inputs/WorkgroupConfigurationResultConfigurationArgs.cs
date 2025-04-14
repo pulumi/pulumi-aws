@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Athena.Inputs
         /// <summary>
         /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
-        [Input("aclConfiguration")]
+        [PolicyResourceProperty("aclConfiguration", "_mUnknown_AclConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkgroupConfigurationResultConfigurationAclConfigurationArgs> _mAclConfiguration;
-
-        public Inputs.WorkgroupConfigurationResultConfigurationAclConfigurationArgs? AclConfiguration => _mAclConfiguration.GetValue("aclConfiguration");
+        private Inputs.WorkgroupConfigurationResultConfigurationAclConfigurationArgs? _mValue_AclConfiguration;
+        private bool _mUnknown_AclConfiguration;
+        public Inputs.WorkgroupConfigurationResultConfigurationAclConfigurationArgs? AclConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AclConfiguration) return _mValue_AclConfiguration;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.AclConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with encryption settings. See Encryption Configuration below.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs> _mEncryptionConfiguration;
-
-        public Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         /// </summary>
-        [Input("outputLocation")]
+        [PolicyResourceProperty("outputLocation", "_mUnknown_OutputLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputLocation;
-
-        public string? OutputLocation => _mOutputLocation.GetValue("outputLocation");
+        private string? _mValue_OutputLocation;
+        private bool _mUnknown_OutputLocation;
+        public string? OutputLocation
+        {
+            get
+            {
+                if (!_mUnknown_OutputLocation) return _mValue_OutputLocation;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.OutputLocation' is not present");
+            }
+        }
     }
 }

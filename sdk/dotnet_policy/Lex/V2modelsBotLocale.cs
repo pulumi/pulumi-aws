@@ -16,73 +16,129 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Identifier of the bot to create the locale for.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the bot to create the locale for. This can only be the draft version of the bot.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the bot locale. Use this to help identify the bot locale in lists.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
         /// </summary>
-        [Input("localeId")]
+        [PolicyResourceProperty("localeId", "_mUnknown_LocaleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
-
-        public string? LocaleId => _mLocaleId.GetValue("localeId");
+        private string? _mValue_LocaleId;
+        private bool _mUnknown_LocaleId;
+        public string? LocaleId
+        {
+            get
+            {
+                if (!_mUnknown_LocaleId) return _mValue_LocaleId;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.LocaleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("nLuIntentConfidenceThreshold")]
+        [PolicyResourceProperty("nLuIntentConfidenceThreshold", "_mUnknown_NLuIntentConfidenceThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mNLuIntentConfidenceThreshold;
-
-        public double? NLuIntentConfidenceThreshold => _mNLuIntentConfidenceThreshold.GetValue("nLuIntentConfidenceThreshold");
+        private double? _mValue_NLuIntentConfidenceThreshold;
+        private bool _mUnknown_NLuIntentConfidenceThreshold;
+        public double? NLuIntentConfidenceThreshold
+        {
+            get
+            {
+                if (!_mUnknown_NLuIntentConfidenceThreshold) return _mValue_NLuIntentConfidenceThreshold;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.NLuIntentConfidenceThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Specified locale name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotLocaleTimeouts> _mTimeouts;
-
-        public Outputs.V2modelsBotLocaleTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.V2modelsBotLocaleTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.V2modelsBotLocaleTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         /// </summary>
-        [Input("voiceSettings")]
+        [PolicyResourceProperty("voiceSettings", "_mUnknown_VoiceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotLocaleVoiceSettings> _mVoiceSettings;
-
-        public Outputs.V2modelsBotLocaleVoiceSettings? VoiceSettings => _mVoiceSettings.GetValue("voiceSettings");
+        private Outputs.V2modelsBotLocaleVoiceSettings? _mValue_VoiceSettings;
+        private bool _mUnknown_VoiceSettings;
+        public Outputs.V2modelsBotLocaleVoiceSettings? VoiceSettings
+        {
+            get
+            {
+                if (!_mUnknown_VoiceSettings) return _mValue_VoiceSettings;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocale.VoiceSettings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/v2modelsBotLocale:V2modelsBotLocale")]
@@ -91,72 +147,128 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Identifier of the bot to create the locale for.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the bot to create the locale for. This can only be the draft version of the bot.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the bot locale. Use this to help identify the bot locale in lists.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
         /// </summary>
-        [Input("localeId")]
+        [PolicyResourceProperty("localeId", "_mUnknown_LocaleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
-
-        public string? LocaleId => _mLocaleId.GetValue("localeId");
+        private string? _mValue_LocaleId;
+        private bool _mUnknown_LocaleId;
+        public string? LocaleId
+        {
+            get
+            {
+                if (!_mUnknown_LocaleId) return _mValue_LocaleId;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.LocaleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("nLuIntentConfidenceThreshold")]
+        [PolicyResourceProperty("nLuIntentConfidenceThreshold", "_mUnknown_NLuIntentConfidenceThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mNLuIntentConfidenceThreshold;
-
-        public double? NLuIntentConfidenceThreshold => _mNLuIntentConfidenceThreshold.GetValue("nLuIntentConfidenceThreshold");
+        private double? _mValue_NLuIntentConfidenceThreshold;
+        private bool _mUnknown_NLuIntentConfidenceThreshold;
+        public double? NLuIntentConfidenceThreshold
+        {
+            get
+            {
+                if (!_mUnknown_NLuIntentConfidenceThreshold) return _mValue_NLuIntentConfidenceThreshold;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.NLuIntentConfidenceThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Specified locale name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotLocaleTimeoutsArgs> _mTimeouts;
-
-        public Inputs.V2modelsBotLocaleTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.V2modelsBotLocaleTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.V2modelsBotLocaleTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         /// </summary>
-        [Input("voiceSettings")]
+        [PolicyResourceProperty("voiceSettings", "_mUnknown_VoiceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotLocaleVoiceSettingsArgs> _mVoiceSettings;
-
-        public Inputs.V2modelsBotLocaleVoiceSettingsArgs? VoiceSettings => _mVoiceSettings.GetValue("voiceSettings");
+        private Inputs.V2modelsBotLocaleVoiceSettingsArgs? _mValue_VoiceSettings;
+        private bool _mUnknown_VoiceSettings;
+        public Inputs.V2modelsBotLocaleVoiceSettingsArgs? VoiceSettings
+        {
+            get
+            {
+                if (!_mUnknown_VoiceSettings) return _mValue_VoiceSettings;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.VoiceSettings' is not present");
+            }
+        }
     }
 }

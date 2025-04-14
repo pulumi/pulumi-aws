@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
         /// </summary>
-        [Input("batchMode")]
+        [PolicyResourceProperty("batchMode", "_mUnknown_BatchMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBatchMode;
-
-        public bool? BatchMode => _mBatchMode.GetValue("batchMode");
+        private bool? _mValue_BatchMode;
+        private bool _mUnknown_BatchMode;
+        public bool? BatchMode
+        {
+            get
+            {
+                if (!_mUnknown_BatchMode) return _mValue_BatchMode;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionFirehoseArgs.BatchMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The delivery stream name.
         /// </summary>
-        [Input("deliveryStreamName")]
+        [PolicyResourceProperty("deliveryStreamName", "_mUnknown_DeliveryStreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStreamName;
-
-        public string? DeliveryStreamName => _mDeliveryStreamName.GetValue("deliveryStreamName");
+        private string? _mValue_DeliveryStreamName;
+        private bool _mUnknown_DeliveryStreamName;
+        public string? DeliveryStreamName
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStreamName) return _mValue_DeliveryStreamName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionFirehoseArgs.DeliveryStreamName' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionFirehoseArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
         /// </summary>
-        [Input("separator")]
+        [PolicyResourceProperty("separator", "_mUnknown_Separator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSeparator;
-
-        public string? Separator => _mSeparator.GetValue("separator");
+        private string? _mValue_Separator;
+        private bool _mUnknown_Separator;
+        public string? Separator
+        {
+            get
+            {
+                if (!_mUnknown_Separator) return _mValue_Separator;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionFirehoseArgs.Separator' is not present");
+            }
+        }
     }
 }

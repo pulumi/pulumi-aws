@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruProfiler.Outputs
 {
     public sealed class GetProfilingGroupProfilingStatusLatestAggregatedProfileResult
     {
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
+        private string? _mValue_Period;
+        private bool _mUnknown_Period;
+        public string? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'GetProfilingGroupProfilingStatusLatestAggregatedProfileResult.Period' is not present");
+            }
+        }
 
-        public string? Period => _mPeriod.GetValue("period");
-
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStart;
-
-        public string? Start => _mStart.GetValue("start");
+        private string? _mValue_Start;
+        private bool _mUnknown_Start;
+        public string? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'GetProfilingGroupProfilingStatusLatestAggregatedProfileResult.Start' is not present");
+            }
+        }
     }
 }

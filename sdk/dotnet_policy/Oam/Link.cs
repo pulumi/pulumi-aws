@@ -16,91 +16,161 @@ namespace Pulumi.PolicyPacks.Aws.Oam
         /// <summary>
         /// ARN of the link.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Link.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Label that is assigned to this link.
         /// </summary>
-        [Input("label")]
+        [PolicyResourceProperty("label", "_mUnknown_Label")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabel;
-
-        public string? Label => _mLabel.GetValue("label");
+        private string? _mValue_Label;
+        private bool _mUnknown_Label;
+        public string? Label
+        {
+            get
+            {
+                if (!_mUnknown_Label) return _mValue_Label;
+                throw new UndeferrableValueException("Value 'Link.Label' is not present");
+            }
+        }
 
         /// <summary>
         /// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         /// </summary>
-        [Input("labelTemplate")]
+        [PolicyResourceProperty("labelTemplate", "_mUnknown_LabelTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabelTemplate;
-
-        public string? LabelTemplate => _mLabelTemplate.GetValue("labelTemplate");
+        private string? _mValue_LabelTemplate;
+        private bool _mUnknown_LabelTemplate;
+        public string? LabelTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LabelTemplate) return _mValue_LabelTemplate;
+                throw new UndeferrableValueException("Value 'Link.LabelTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         /// </summary>
-        [Input("linkConfiguration")]
+        [PolicyResourceProperty("linkConfiguration", "_mUnknown_LinkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LinkLinkConfiguration> _mLinkConfiguration;
-
-        public Outputs.LinkLinkConfiguration? LinkConfiguration => _mLinkConfiguration.GetValue("linkConfiguration");
+        private Outputs.LinkLinkConfiguration? _mValue_LinkConfiguration;
+        private bool _mUnknown_LinkConfiguration;
+        public Outputs.LinkLinkConfiguration? LinkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LinkConfiguration) return _mValue_LinkConfiguration;
+                throw new UndeferrableValueException("Value 'Link.LinkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ID string that AWS generated as part of the link ARN.
         /// </summary>
-        [Input("linkId")]
+        [PolicyResourceProperty("linkId", "_mUnknown_LinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
-
-        public string? LinkId => _mLinkId.GetValue("linkId");
+        private string? _mValue_LinkId;
+        private bool _mUnknown_LinkId;
+        public string? LinkId
+        {
+            get
+            {
+                if (!_mUnknown_LinkId) return _mValue_LinkId;
+                throw new UndeferrableValueException("Value 'Link.LinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// Types of data that the source account shares with the monitoring account.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'Link.ResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the sink that is used for this link.
         /// </summary>
-        [Input("sinkArn")]
+        [PolicyResourceProperty("sinkArn", "_mUnknown_SinkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSinkArn;
-
-        public string? SinkArn => _mSinkArn.GetValue("sinkArn");
+        private string? _mValue_SinkArn;
+        private bool _mUnknown_SinkArn;
+        public string? SinkArn
+        {
+            get
+            {
+                if (!_mUnknown_SinkArn) return _mValue_SinkArn;
+                throw new UndeferrableValueException("Value 'Link.SinkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the sink to use to create this link.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sinkIdentifier")]
+        [PolicyResourceProperty("sinkIdentifier", "_mUnknown_SinkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSinkIdentifier;
-
-        public string? SinkIdentifier => _mSinkIdentifier.GetValue("sinkIdentifier");
+        private string? _mValue_SinkIdentifier;
+        private bool _mUnknown_SinkIdentifier;
+        public string? SinkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SinkIdentifier) return _mValue_SinkIdentifier;
+                throw new UndeferrableValueException("Value 'Link.SinkIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Link.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Link.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:oam/link:Link")]
@@ -109,48 +179,83 @@ namespace Pulumi.PolicyPacks.Aws.Oam
         /// <summary>
         /// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         /// </summary>
-        [Input("labelTemplate")]
+        [PolicyResourceProperty("labelTemplate", "_mUnknown_LabelTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabelTemplate;
-
-        public string? LabelTemplate => _mLabelTemplate.GetValue("labelTemplate");
+        private string? _mValue_LabelTemplate;
+        private bool _mUnknown_LabelTemplate;
+        public string? LabelTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LabelTemplate) return _mValue_LabelTemplate;
+                throw new UndeferrableValueException("Value 'LinkArgs.LabelTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         /// </summary>
-        [Input("linkConfiguration")]
+        [PolicyResourceProperty("linkConfiguration", "_mUnknown_LinkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LinkLinkConfigurationArgs> _mLinkConfiguration;
-
-        public Inputs.LinkLinkConfigurationArgs? LinkConfiguration => _mLinkConfiguration.GetValue("linkConfiguration");
+        private Inputs.LinkLinkConfigurationArgs? _mValue_LinkConfiguration;
+        private bool _mUnknown_LinkConfiguration;
+        public Inputs.LinkLinkConfigurationArgs? LinkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LinkConfiguration) return _mValue_LinkConfiguration;
+                throw new UndeferrableValueException("Value 'LinkArgs.LinkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Types of data that the source account shares with the monitoring account.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'LinkArgs.ResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the sink to use to create this link.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sinkIdentifier")]
+        [PolicyResourceProperty("sinkIdentifier", "_mUnknown_SinkIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSinkIdentifier;
-
-        public string? SinkIdentifier => _mSinkIdentifier.GetValue("sinkIdentifier");
+        private string? _mValue_SinkIdentifier;
+        private bool _mUnknown_SinkIdentifier;
+        public string? SinkIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SinkIdentifier) return _mValue_SinkIdentifier;
+                throw new UndeferrableValueException("Value 'LinkArgs.SinkIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LinkArgs.Tags' is not present");
+            }
+        }
     }
 }

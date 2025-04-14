@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Configuration block for specifying SASL client authentication. See below.
         /// </summary>
-        [Input("sasl")]
+        [PolicyResourceProperty("sasl", "_mUnknown_Sasl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterClientAuthenticationSaslArgs> _mSasl;
-
-        public Inputs.ClusterClientAuthenticationSaslArgs? Sasl => _mSasl.GetValue("sasl");
+        private Inputs.ClusterClientAuthenticationSaslArgs? _mValue_Sasl;
+        private bool _mUnknown_Sasl;
+        public Inputs.ClusterClientAuthenticationSaslArgs? Sasl
+        {
+            get
+            {
+                if (!_mUnknown_Sasl) return _mValue_Sasl;
+                throw new UndeferrableValueException("Value 'ClusterClientAuthenticationArgs.Sasl' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for specifying TLS client authentication. See below.
         /// </summary>
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterClientAuthenticationTlsArgs> _mTls;
-
-        public Inputs.ClusterClientAuthenticationTlsArgs? Tls => _mTls.GetValue("tls");
+        private Inputs.ClusterClientAuthenticationTlsArgs? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public Inputs.ClusterClientAuthenticationTlsArgs? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'ClusterClientAuthenticationArgs.Tls' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables unauthenticated access.
         /// </summary>
-        [Input("unauthenticated")]
+        [PolicyResourceProperty("unauthenticated", "_mUnknown_Unauthenticated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUnauthenticated;
-
-        public bool? Unauthenticated => _mUnauthenticated.GetValue("unauthenticated");
+        private bool? _mValue_Unauthenticated;
+        private bool _mUnknown_Unauthenticated;
+        public bool? Unauthenticated
+        {
+            get
+            {
+                if (!_mUnknown_Unauthenticated) return _mValue_Unauthenticated;
+                throw new UndeferrableValueException("Value 'ClusterClientAuthenticationArgs.Unauthenticated' is not present");
+            }
+        }
     }
 }

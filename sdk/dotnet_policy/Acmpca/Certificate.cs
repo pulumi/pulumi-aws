@@ -16,84 +16,147 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         /// </summary>
-        [Input("apiPassthrough")]
+        [PolicyResourceProperty("apiPassthrough", "_mUnknown_ApiPassthrough")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiPassthrough;
-
-        public string? ApiPassthrough => _mApiPassthrough.GetValue("apiPassthrough");
+        private string? _mValue_ApiPassthrough;
+        private bool _mUnknown_ApiPassthrough;
+        public string? ApiPassthrough
+        {
+            get
+            {
+                if (!_mUnknown_ApiPassthrough) return _mValue_ApiPassthrough;
+                throw new UndeferrableValueException("Value 'Certificate.ApiPassthrough' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the certificate.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Certificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM-encoded certificate value.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_CertificateDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateDetails;
-
-        public string? CertificateDetails => _mCertificateDetails.GetValue("certificate");
+        private string? _mValue_CertificateDetails;
+        private bool _mUnknown_CertificateDetails;
+        public string? CertificateDetails
+        {
+            get
+            {
+                if (!_mUnknown_CertificateDetails) return _mValue_CertificateDetails;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the certificate authority.
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate Signing Request in PEM format.
         /// </summary>
-        [Input("certificateSigningRequest")]
+        [PolicyResourceProperty("certificateSigningRequest", "_mUnknown_CertificateSigningRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateSigningRequest;
-
-        public string? CertificateSigningRequest => _mCertificateSigningRequest.GetValue("certificateSigningRequest");
+        private string? _mValue_CertificateSigningRequest;
+        private bool _mUnknown_CertificateSigningRequest;
+        public string? CertificateSigningRequest
+        {
+            get
+            {
+                if (!_mUnknown_CertificateSigningRequest) return _mValue_CertificateSigningRequest;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateSigningRequest' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         /// </summary>
-        [Input("signingAlgorithm")]
+        [PolicyResourceProperty("signingAlgorithm", "_mUnknown_SigningAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithm;
-
-        public string? SigningAlgorithm => _mSigningAlgorithm.GetValue("signingAlgorithm");
+        private string? _mValue_SigningAlgorithm;
+        private bool _mUnknown_SigningAlgorithm;
+        public string? SigningAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SigningAlgorithm) return _mValue_SigningAlgorithm;
+                throw new UndeferrableValueException("Value 'Certificate.SigningAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Template to use when issuing a certificate.
         /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
-        [Input("templateArn")]
+        [PolicyResourceProperty("templateArn", "_mUnknown_TemplateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateArn;
-
-        public string? TemplateArn => _mTemplateArn.GetValue("templateArn");
+        private string? _mValue_TemplateArn;
+        private bool _mUnknown_TemplateArn;
+        public string? TemplateArn
+        {
+            get
+            {
+                if (!_mUnknown_TemplateArn) return _mValue_TemplateArn;
+                throw new UndeferrableValueException("Value 'Certificate.TemplateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures end of the validity period for the certificate. See validity block below.
         /// </summary>
-        [Input("validity")]
+        [PolicyResourceProperty("validity", "_mUnknown_Validity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateValidity> _mValidity;
-
-        public Outputs.CertificateValidity? Validity => _mValidity.GetValue("validity");
+        private Outputs.CertificateValidity? _mValue_Validity;
+        private bool _mUnknown_Validity;
+        public Outputs.CertificateValidity? Validity
+        {
+            get
+            {
+                if (!_mUnknown_Validity) return _mValue_Validity;
+                throw new UndeferrableValueException("Value 'Certificate.Validity' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:acmpca/certificate:Certificate")]
@@ -102,56 +165,98 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         /// </summary>
-        [Input("apiPassthrough")]
+        [PolicyResourceProperty("apiPassthrough", "_mUnknown_ApiPassthrough")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiPassthrough;
-
-        public string? ApiPassthrough => _mApiPassthrough.GetValue("apiPassthrough");
+        private string? _mValue_ApiPassthrough;
+        private bool _mUnknown_ApiPassthrough;
+        public string? ApiPassthrough
+        {
+            get
+            {
+                if (!_mUnknown_ApiPassthrough) return _mValue_ApiPassthrough;
+                throw new UndeferrableValueException("Value 'CertificateArgs.ApiPassthrough' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the certificate authority.
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Certificate Signing Request in PEM format.
         /// </summary>
-        [Input("certificateSigningRequest")]
+        [PolicyResourceProperty("certificateSigningRequest", "_mUnknown_CertificateSigningRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateSigningRequest;
-
-        public string? CertificateSigningRequest => _mCertificateSigningRequest.GetValue("certificateSigningRequest");
+        private string? _mValue_CertificateSigningRequest;
+        private bool _mUnknown_CertificateSigningRequest;
+        public string? CertificateSigningRequest
+        {
+            get
+            {
+                if (!_mUnknown_CertificateSigningRequest) return _mValue_CertificateSigningRequest;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateSigningRequest' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         /// </summary>
-        [Input("signingAlgorithm")]
+        [PolicyResourceProperty("signingAlgorithm", "_mUnknown_SigningAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithm;
-
-        public string? SigningAlgorithm => _mSigningAlgorithm.GetValue("signingAlgorithm");
+        private string? _mValue_SigningAlgorithm;
+        private bool _mUnknown_SigningAlgorithm;
+        public string? SigningAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SigningAlgorithm) return _mValue_SigningAlgorithm;
+                throw new UndeferrableValueException("Value 'CertificateArgs.SigningAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Template to use when issuing a certificate.
         /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         /// </summary>
-        [Input("templateArn")]
+        [PolicyResourceProperty("templateArn", "_mUnknown_TemplateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateArn;
-
-        public string? TemplateArn => _mTemplateArn.GetValue("templateArn");
+        private string? _mValue_TemplateArn;
+        private bool _mUnknown_TemplateArn;
+        public string? TemplateArn
+        {
+            get
+            {
+                if (!_mUnknown_TemplateArn) return _mValue_TemplateArn;
+                throw new UndeferrableValueException("Value 'CertificateArgs.TemplateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures end of the validity period for the certificate. See validity block below.
         /// </summary>
-        [Input("validity")]
+        [PolicyResourceProperty("validity", "_mUnknown_Validity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CertificateValidityArgs> _mValidity;
-
-        public Inputs.CertificateValidityArgs? Validity => _mValidity.GetValue("validity");
+        private Inputs.CertificateValidityArgs? _mValue_Validity;
+        private bool _mUnknown_Validity;
+        public Inputs.CertificateValidityArgs? Validity
+        {
+            get
+            {
+                if (!_mUnknown_Validity) return _mValue_Validity;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Validity' is not present");
+            }
+        }
     }
 }

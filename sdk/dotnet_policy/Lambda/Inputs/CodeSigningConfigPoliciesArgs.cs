@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
         /// </summary>
-        [Input("untrustedArtifactOnDeployment")]
+        [PolicyResourceProperty("untrustedArtifactOnDeployment", "_mUnknown_UntrustedArtifactOnDeployment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUntrustedArtifactOnDeployment;
-
-        public string? UntrustedArtifactOnDeployment => _mUntrustedArtifactOnDeployment.GetValue("untrustedArtifactOnDeployment");
+        private string? _mValue_UntrustedArtifactOnDeployment;
+        private bool _mUnknown_UntrustedArtifactOnDeployment;
+        public string? UntrustedArtifactOnDeployment
+        {
+            get
+            {
+                if (!_mUnknown_UntrustedArtifactOnDeployment) return _mValue_UntrustedArtifactOnDeployment;
+                throw new UndeferrableValueException("Value 'CodeSigningConfigPoliciesArgs.UntrustedArtifactOnDeployment' is not present");
+            }
+        }
     }
 }

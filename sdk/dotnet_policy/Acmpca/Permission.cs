@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mActions;
-
-        public List<string>? Actions => _mActions.GetValue("actions");
+        private List<string>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<string>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'Permission.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the CA that grants the permissions.
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'Permission.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM policy that is associated with the permission.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'Permission.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'Permission.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the calling account
         /// </summary>
-        [Input("sourceAccount")]
+        [PolicyResourceProperty("sourceAccount", "_mUnknown_SourceAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceAccount;
-
-        public string? SourceAccount => _mSourceAccount.GetValue("sourceAccount");
+        private string? _mValue_SourceAccount;
+        private bool _mUnknown_SourceAccount;
+        public string? SourceAccount
+        {
+            get
+            {
+                if (!_mUnknown_SourceAccount) return _mValue_SourceAccount;
+                throw new UndeferrableValueException("Value 'Permission.SourceAccount' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:acmpca/permission:Permission")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mActions;
-
-        public List<string>? Actions => _mActions.GetValue("actions");
+        private List<string>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<string>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'PermissionArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the CA that grants the permissions.
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'PermissionArgs.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipal;
-
-        public string? Principal => _mPrincipal.GetValue("principal");
+        private string? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public string? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'PermissionArgs.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the calling account
         /// </summary>
-        [Input("sourceAccount")]
+        [PolicyResourceProperty("sourceAccount", "_mUnknown_SourceAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceAccount;
-
-        public string? SourceAccount => _mSourceAccount.GetValue("sourceAccount");
+        private string? _mValue_SourceAccount;
+        private bool _mUnknown_SourceAccount;
+        public string? SourceAccount
+        {
+            get
+            {
+                if (!_mUnknown_SourceAccount) return _mValue_SourceAccount;
+                throw new UndeferrableValueException("Value 'PermissionArgs.SourceAccount' is not present");
+            }
+        }
     }
 }

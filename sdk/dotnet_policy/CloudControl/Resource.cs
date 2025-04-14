@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.CloudControl
         /// <summary>
         /// JSON string matching the CloudFormation resource type schema with desired configuration.
         /// </summary>
-        [Input("desiredState")]
+        [PolicyResourceProperty("desiredState", "_mUnknown_DesiredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
-
-        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+        private string? _mValue_DesiredState;
+        private bool _mUnknown_DesiredState;
+        public string? DesiredState
+        {
+            get
+            {
+                if (!_mUnknown_DesiredState) return _mValue_DesiredState;
+                throw new UndeferrableValueException("Value 'Resource.DesiredState' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProperties;
-
-        public string? Properties => _mProperties.GetValue("properties");
+        private string? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public string? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'Resource.Properties' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Resource.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'Resource.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("typeName")]
+        [PolicyResourceProperty("typeName", "_mUnknown_TypeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypeName;
-
-        public string? TypeName => _mTypeName.GetValue("typeName");
+        private string? _mValue_TypeName;
+        private bool _mUnknown_TypeName;
+        public string? TypeName
+        {
+            get
+            {
+                if (!_mUnknown_TypeName) return _mValue_TypeName;
+                throw new UndeferrableValueException("Value 'Resource.TypeName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the CloudFormation resource type version.
         /// </summary>
-        [Input("typeVersionId")]
+        [PolicyResourceProperty("typeVersionId", "_mUnknown_TypeVersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypeVersionId;
-
-        public string? TypeVersionId => _mTypeVersionId.GetValue("typeVersionId");
+        private string? _mValue_TypeVersionId;
+        private bool _mUnknown_TypeVersionId;
+        public string? TypeVersionId
+        {
+            get
+            {
+                if (!_mUnknown_TypeVersionId) return _mValue_TypeVersionId;
+                throw new UndeferrableValueException("Value 'Resource.TypeVersionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudcontrol/resource:Resource")]
@@ -76,48 +118,83 @@ namespace Pulumi.PolicyPacks.Aws.CloudControl
         /// <summary>
         /// JSON string matching the CloudFormation resource type schema with desired configuration.
         /// </summary>
-        [Input("desiredState")]
+        [PolicyResourceProperty("desiredState", "_mUnknown_DesiredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredState;
-
-        public string? DesiredState => _mDesiredState.GetValue("desiredState");
+        private string? _mValue_DesiredState;
+        private bool _mUnknown_DesiredState;
+        public string? DesiredState
+        {
+            get
+            {
+                if (!_mUnknown_DesiredState) return _mValue_DesiredState;
+                throw new UndeferrableValueException("Value 'ResourceArgs.DesiredState' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ResourceArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'ResourceArgs.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("typeName")]
+        [PolicyResourceProperty("typeName", "_mUnknown_TypeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypeName;
-
-        public string? TypeName => _mTypeName.GetValue("typeName");
+        private string? _mValue_TypeName;
+        private bool _mUnknown_TypeName;
+        public string? TypeName
+        {
+            get
+            {
+                if (!_mUnknown_TypeName) return _mValue_TypeName;
+                throw new UndeferrableValueException("Value 'ResourceArgs.TypeName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the CloudFormation resource type version.
         /// </summary>
-        [Input("typeVersionId")]
+        [PolicyResourceProperty("typeVersionId", "_mUnknown_TypeVersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypeVersionId;
-
-        public string? TypeVersionId => _mTypeVersionId.GetValue("typeVersionId");
+        private string? _mValue_TypeVersionId;
+        private bool _mUnknown_TypeVersionId;
+        public string? TypeVersionId
+        {
+            get
+            {
+                if (!_mUnknown_TypeVersionId) return _mValue_TypeVersionId;
+                throw new UndeferrableValueException("Value 'ResourceArgs.TypeVersionId' is not present");
+            }
+        }
     }
 }

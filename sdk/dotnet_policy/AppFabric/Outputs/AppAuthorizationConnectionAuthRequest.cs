@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Outputs
         /// <summary>
         /// The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionAuthRequest.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// The redirect URL that is specified in the AuthURL and the application client.
         /// </summary>
-        [Input("redirectUri")]
+        [PolicyResourceProperty("redirectUri", "_mUnknown_RedirectUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedirectUri;
-
-        public string? RedirectUri => _mRedirectUri.GetValue("redirectUri");
+        private string? _mValue_RedirectUri;
+        private bool _mUnknown_RedirectUri;
+        public string? RedirectUri
+        {
+            get
+            {
+                if (!_mUnknown_RedirectUri) return _mValue_RedirectUri;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionAuthRequest.RedirectUri' is not present");
+            }
+        }
     }
 }

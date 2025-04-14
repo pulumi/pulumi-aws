@@ -17,86 +17,149 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// Set of IPv4 addresses for the DNS server associated with the remote Directory.
         /// Can contain between 1 and 4 values.
         /// </summary>
-        [Input("conditionalForwarderIpAddrs")]
+        [PolicyResourceProperty("conditionalForwarderIpAddrs", "_mUnknown_ConditionalForwarderIpAddrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConditionalForwarderIpAddrs;
-
-        public List<string>? ConditionalForwarderIpAddrs => _mConditionalForwarderIpAddrs.GetValue("conditionalForwarderIpAddrs");
+        private List<string>? _mValue_ConditionalForwarderIpAddrs;
+        private bool _mUnknown_ConditionalForwarderIpAddrs;
+        public List<string>? ConditionalForwarderIpAddrs
+        {
+            get
+            {
+                if (!_mUnknown_ConditionalForwarderIpAddrs) return _mValue_ConditionalForwarderIpAddrs;
+                throw new UndeferrableValueException("Value 'Trust.ConditionalForwarderIpAddrs' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time when the Trust was created.
         /// </summary>
-        [Input("createdDateTime")]
+        [PolicyResourceProperty("createdDateTime", "_mUnknown_CreatedDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDateTime;
-
-        public string? CreatedDateTime => _mCreatedDateTime.GetValue("createdDateTime");
+        private string? _mValue_CreatedDateTime;
+        private bool _mUnknown_CreatedDateTime;
+        public string? CreatedDateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDateTime) return _mValue_CreatedDateTime;
+                throw new UndeferrableValueException("Value 'Trust.CreatedDateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to delete the conditional forwarder when deleting the Trust relationship.
         /// </summary>
-        [Input("deleteAssociatedConditionalForwarder")]
+        [PolicyResourceProperty("deleteAssociatedConditionalForwarder", "_mUnknown_DeleteAssociatedConditionalForwarder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAssociatedConditionalForwarder;
-
-        public bool? DeleteAssociatedConditionalForwarder => _mDeleteAssociatedConditionalForwarder.GetValue("deleteAssociatedConditionalForwarder");
+        private bool? _mValue_DeleteAssociatedConditionalForwarder;
+        private bool _mUnknown_DeleteAssociatedConditionalForwarder;
+        public bool? DeleteAssociatedConditionalForwarder
+        {
+            get
+            {
+                if (!_mUnknown_DeleteAssociatedConditionalForwarder) return _mValue_DeleteAssociatedConditionalForwarder;
+                throw new UndeferrableValueException("Value 'Trust.DeleteAssociatedConditionalForwarder' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Directory.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'Trust.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time when the Trust was last updated.
         /// </summary>
-        [Input("lastUpdatedDateTime")]
+        [PolicyResourceProperty("lastUpdatedDateTime", "_mUnknown_LastUpdatedDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDateTime;
-
-        public string? LastUpdatedDateTime => _mLastUpdatedDateTime.GetValue("lastUpdatedDateTime");
+        private string? _mValue_LastUpdatedDateTime;
+        private bool _mUnknown_LastUpdatedDateTime;
+        public string? LastUpdatedDateTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDateTime) return _mValue_LastUpdatedDateTime;
+                throw new UndeferrableValueException("Value 'Trust.LastUpdatedDateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully qualified domain name of the remote Directory.
         /// </summary>
-        [Input("remoteDomainName")]
+        [PolicyResourceProperty("remoteDomainName", "_mUnknown_RemoteDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
-
-        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
+        private string? _mValue_RemoteDomainName;
+        private bool _mUnknown_RemoteDomainName;
+        public string? RemoteDomainName
+        {
+            get
+            {
+                if (!_mUnknown_RemoteDomainName) return _mValue_RemoteDomainName;
+                throw new UndeferrableValueException("Value 'Trust.RemoteDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable selective authentication.
         /// Valid values are `Enabled` and `Disabled`.
         /// Default value is `Disabled`.
         /// </summary>
-        [Input("selectiveAuth")]
+        [PolicyResourceProperty("selectiveAuth", "_mUnknown_SelectiveAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectiveAuth;
-
-        public string? SelectiveAuth => _mSelectiveAuth.GetValue("selectiveAuth");
+        private string? _mValue_SelectiveAuth;
+        private bool _mUnknown_SelectiveAuth;
+        public string? SelectiveAuth
+        {
+            get
+            {
+                if (!_mUnknown_SelectiveAuth) return _mValue_SelectiveAuth;
+                throw new UndeferrableValueException("Value 'Trust.SelectiveAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time when the Trust state in `trust_state` was last updated.
         /// </summary>
-        [Input("stateLastUpdatedDateTime")]
+        [PolicyResourceProperty("stateLastUpdatedDateTime", "_mUnknown_StateLastUpdatedDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateLastUpdatedDateTime;
-
-        public string? StateLastUpdatedDateTime => _mStateLastUpdatedDateTime.GetValue("stateLastUpdatedDateTime");
+        private string? _mValue_StateLastUpdatedDateTime;
+        private bool _mUnknown_StateLastUpdatedDateTime;
+        public string? StateLastUpdatedDateTime
+        {
+            get
+            {
+                if (!_mUnknown_StateLastUpdatedDateTime) return _mValue_StateLastUpdatedDateTime;
+                throw new UndeferrableValueException("Value 'Trust.StateLastUpdatedDateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The direction of the Trust relationship.
         /// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
         /// </summary>
-        [Input("trustDirection")]
+        [PolicyResourceProperty("trustDirection", "_mUnknown_TrustDirection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustDirection;
-
-        public string? TrustDirection => _mTrustDirection.GetValue("trustDirection");
+        private string? _mValue_TrustDirection;
+        private bool _mUnknown_TrustDirection;
+        public string? TrustDirection
+        {
+            get
+            {
+                if (!_mUnknown_TrustDirection) return _mValue_TrustDirection;
+                throw new UndeferrableValueException("Value 'Trust.TrustDirection' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the Trust.
@@ -104,41 +167,69 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// Can contain upper- and lower-case letters, numbers, and punctuation characters.
         /// May be up to 128 characters long.
         /// </summary>
-        [Input("trustPassword")]
+        [PolicyResourceProperty("trustPassword", "_mUnknown_TrustPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustPassword;
-
-        public string? TrustPassword => _mTrustPassword.GetValue("trustPassword");
+        private string? _mValue_TrustPassword;
+        private bool _mUnknown_TrustPassword;
+        public string? TrustPassword
+        {
+            get
+            {
+                if (!_mUnknown_TrustPassword) return _mValue_TrustPassword;
+                throw new UndeferrableValueException("Value 'Trust.TrustPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the Trust relationship.
         /// One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
         /// </summary>
-        [Input("trustState")]
+        [PolicyResourceProperty("trustState", "_mUnknown_Truststate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTruststate;
-
-        public string? Truststate => _mTruststate.GetValue("trustState");
+        private string? _mValue_Truststate;
+        private bool _mUnknown_Truststate;
+        public string? Truststate
+        {
+            get
+            {
+                if (!_mUnknown_Truststate) return _mValue_Truststate;
+                throw new UndeferrableValueException("Value 'Trust.Truststate' is not present");
+            }
+        }
 
         /// <summary>
         /// Reason for the Trust state set in `trust_state`.
         /// </summary>
-        [Input("trustStateReason")]
+        [PolicyResourceProperty("trustStateReason", "_mUnknown_TrustStateReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStateReason;
-
-        public string? TrustStateReason => _mTrustStateReason.GetValue("trustStateReason");
+        private string? _mValue_TrustStateReason;
+        private bool _mUnknown_TrustStateReason;
+        public string? TrustStateReason
+        {
+            get
+            {
+                if (!_mUnknown_TrustStateReason) return _mValue_TrustStateReason;
+                throw new UndeferrableValueException("Value 'Trust.TrustStateReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the Trust relationship.
         /// Valid values are `Forest` and `External`.
         /// Default value is `Forest`.
         /// </summary>
-        [Input("trustType")]
+        [PolicyResourceProperty("trustType", "_mUnknown_TrustType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustType;
-
-        public string? TrustType => _mTrustType.GetValue("trustType");
+        private string? _mValue_TrustType;
+        private bool _mUnknown_TrustType;
+        public string? TrustType
+        {
+            get
+            {
+                if (!_mUnknown_TrustType) return _mValue_TrustType;
+                throw new UndeferrableValueException("Value 'Trust.TrustType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directoryservice/trust:Trust")]
@@ -148,59 +239,101 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// Set of IPv4 addresses for the DNS server associated with the remote Directory.
         /// Can contain between 1 and 4 values.
         /// </summary>
-        [Input("conditionalForwarderIpAddrs")]
+        [PolicyResourceProperty("conditionalForwarderIpAddrs", "_mUnknown_ConditionalForwarderIpAddrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mConditionalForwarderIpAddrs;
-
-        public List<string>? ConditionalForwarderIpAddrs => _mConditionalForwarderIpAddrs.GetValue("conditionalForwarderIpAddrs");
+        private List<string>? _mValue_ConditionalForwarderIpAddrs;
+        private bool _mUnknown_ConditionalForwarderIpAddrs;
+        public List<string>? ConditionalForwarderIpAddrs
+        {
+            get
+            {
+                if (!_mUnknown_ConditionalForwarderIpAddrs) return _mValue_ConditionalForwarderIpAddrs;
+                throw new UndeferrableValueException("Value 'TrustArgs.ConditionalForwarderIpAddrs' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to delete the conditional forwarder when deleting the Trust relationship.
         /// </summary>
-        [Input("deleteAssociatedConditionalForwarder")]
+        [PolicyResourceProperty("deleteAssociatedConditionalForwarder", "_mUnknown_DeleteAssociatedConditionalForwarder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAssociatedConditionalForwarder;
-
-        public bool? DeleteAssociatedConditionalForwarder => _mDeleteAssociatedConditionalForwarder.GetValue("deleteAssociatedConditionalForwarder");
+        private bool? _mValue_DeleteAssociatedConditionalForwarder;
+        private bool _mUnknown_DeleteAssociatedConditionalForwarder;
+        public bool? DeleteAssociatedConditionalForwarder
+        {
+            get
+            {
+                if (!_mUnknown_DeleteAssociatedConditionalForwarder) return _mValue_DeleteAssociatedConditionalForwarder;
+                throw new UndeferrableValueException("Value 'TrustArgs.DeleteAssociatedConditionalForwarder' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Directory.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'TrustArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully qualified domain name of the remote Directory.
         /// </summary>
-        [Input("remoteDomainName")]
+        [PolicyResourceProperty("remoteDomainName", "_mUnknown_RemoteDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteDomainName;
-
-        public string? RemoteDomainName => _mRemoteDomainName.GetValue("remoteDomainName");
+        private string? _mValue_RemoteDomainName;
+        private bool _mUnknown_RemoteDomainName;
+        public string? RemoteDomainName
+        {
+            get
+            {
+                if (!_mUnknown_RemoteDomainName) return _mValue_RemoteDomainName;
+                throw new UndeferrableValueException("Value 'TrustArgs.RemoteDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable selective authentication.
         /// Valid values are `Enabled` and `Disabled`.
         /// Default value is `Disabled`.
         /// </summary>
-        [Input("selectiveAuth")]
+        [PolicyResourceProperty("selectiveAuth", "_mUnknown_SelectiveAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectiveAuth;
-
-        public string? SelectiveAuth => _mSelectiveAuth.GetValue("selectiveAuth");
+        private string? _mValue_SelectiveAuth;
+        private bool _mUnknown_SelectiveAuth;
+        public string? SelectiveAuth
+        {
+            get
+            {
+                if (!_mUnknown_SelectiveAuth) return _mValue_SelectiveAuth;
+                throw new UndeferrableValueException("Value 'TrustArgs.SelectiveAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// The direction of the Trust relationship.
         /// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
         /// </summary>
-        [Input("trustDirection")]
+        [PolicyResourceProperty("trustDirection", "_mUnknown_TrustDirection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustDirection;
-
-        public string? TrustDirection => _mTrustDirection.GetValue("trustDirection");
+        private string? _mValue_TrustDirection;
+        private bool _mUnknown_TrustDirection;
+        public string? TrustDirection
+        {
+            get
+            {
+                if (!_mUnknown_TrustDirection) return _mValue_TrustDirection;
+                throw new UndeferrableValueException("Value 'TrustArgs.TrustDirection' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the Trust.
@@ -208,21 +341,35 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// Can contain upper- and lower-case letters, numbers, and punctuation characters.
         /// May be up to 128 characters long.
         /// </summary>
-        [Input("trustPassword")]
+        [PolicyResourceProperty("trustPassword", "_mUnknown_TrustPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustPassword;
-
-        public string? TrustPassword => _mTrustPassword.GetValue("trustPassword");
+        private string? _mValue_TrustPassword;
+        private bool _mUnknown_TrustPassword;
+        public string? TrustPassword
+        {
+            get
+            {
+                if (!_mUnknown_TrustPassword) return _mValue_TrustPassword;
+                throw new UndeferrableValueException("Value 'TrustArgs.TrustPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the Trust relationship.
         /// Valid values are `Forest` and `External`.
         /// Default value is `Forest`.
         /// </summary>
-        [Input("trustType")]
+        [PolicyResourceProperty("trustType", "_mUnknown_TrustType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustType;
-
-        public string? TrustType => _mTrustType.GetValue("trustType");
+        private string? _mValue_TrustType;
+        private bool _mUnknown_TrustType;
+        public string? TrustType
+        {
+            get
+            {
+                if (!_mUnknown_TrustType) return _mValue_TrustType;
+                throw new UndeferrableValueException("Value 'TrustArgs.TrustType' is not present");
+            }
+        }
     }
 }

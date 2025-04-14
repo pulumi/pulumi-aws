@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The ID of the member AWS account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Member.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The email of the member AWS account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'Member.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         /// </summary>
-        [Input("invite")]
+        [PolicyResourceProperty("invite", "_mUnknown_Invite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
-
-        public bool? Invite => _mInvite.GetValue("invite");
+        private bool? _mValue_Invite;
+        private bool _mUnknown_Invite;
+        public bool? Invite
+        {
+            get
+            {
+                if (!_mUnknown_Invite) return _mValue_Invite;
+                throw new UndeferrableValueException("Value 'Member.Invite' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the master Security Hub AWS account.
         /// </summary>
-        [Input("masterId")]
+        [PolicyResourceProperty("masterId", "_mUnknown_MasterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterId;
-
-        public string? MasterId => _mMasterId.GetValue("masterId");
+        private string? _mValue_MasterId;
+        private bool _mUnknown_MasterId;
+        public string? MasterId
+        {
+            get
+            {
+                if (!_mUnknown_MasterId) return _mValue_MasterId;
+                throw new UndeferrableValueException("Value 'Member.MasterId' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the member account relationship.
         /// </summary>
-        [Input("memberStatus")]
+        [PolicyResourceProperty("memberStatus", "_mUnknown_MemberStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberStatus;
-
-        public string? MemberStatus => _mMemberStatus.GetValue("memberStatus");
+        private string? _mValue_MemberStatus;
+        private bool _mUnknown_MemberStatus;
+        public string? MemberStatus
+        {
+            get
+            {
+                if (!_mUnknown_MemberStatus) return _mValue_MemberStatus;
+                throw new UndeferrableValueException("Value 'Member.MemberStatus' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/member:Member")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The ID of the member AWS account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The email of the member AWS account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'MemberArgs.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         /// </summary>
-        [Input("invite")]
+        [PolicyResourceProperty("invite", "_mUnknown_Invite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
-
-        public bool? Invite => _mInvite.GetValue("invite");
+        private bool? _mValue_Invite;
+        private bool _mUnknown_Invite;
+        public bool? Invite
+        {
+            get
+            {
+                if (!_mUnknown_Invite) return _mValue_Invite;
+                throw new UndeferrableValueException("Value 'MemberArgs.Invite' is not present");
+            }
+        }
     }
 }

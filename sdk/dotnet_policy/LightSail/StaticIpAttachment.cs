@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the Lightsail instance to attach the IP to
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'StaticIpAttachment.InstanceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The allocated static IP address
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'StaticIpAttachment.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the allocated static IP
         /// </summary>
-        [Input("staticIpName")]
+        [PolicyResourceProperty("staticIpName", "_mUnknown_StaticIpName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStaticIpName;
-
-        public string? StaticIpName => _mStaticIpName.GetValue("staticIpName");
+        private string? _mValue_StaticIpName;
+        private bool _mUnknown_StaticIpName;
+        public string? StaticIpName
+        {
+            get
+            {
+                if (!_mUnknown_StaticIpName) return _mValue_StaticIpName;
+                throw new UndeferrableValueException("Value 'StaticIpAttachment.StaticIpName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/staticIpAttachment:StaticIpAttachment")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the Lightsail instance to attach the IP to
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'StaticIpAttachmentArgs.InstanceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the allocated static IP
         /// </summary>
-        [Input("staticIpName")]
+        [PolicyResourceProperty("staticIpName", "_mUnknown_StaticIpName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStaticIpName;
-
-        public string? StaticIpName => _mStaticIpName.GetValue("staticIpName");
+        private string? _mValue_StaticIpName;
+        private bool _mUnknown_StaticIpName;
+        public string? StaticIpName
+        {
+            get
+            {
+                if (!_mUnknown_StaticIpName) return _mValue_StaticIpName;
+                throw new UndeferrableValueException("Value 'StaticIpAttachmentArgs.StaticIpName' is not present");
+            }
+        }
     }
 }

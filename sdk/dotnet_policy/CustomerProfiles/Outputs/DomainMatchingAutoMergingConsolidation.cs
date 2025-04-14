@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Outputs
         /// <summary>
         /// A list of matching criteria.
         /// </summary>
-        [Input("matchingAttributesLists")]
+        [PolicyResourceProperty("matchingAttributesLists", "_mUnknown_MatchingAttributesLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<List<string>>> _mMatchingAttributesLists;
-
-        public List<List<string>>? MatchingAttributesLists => _mMatchingAttributesLists.GetValue("matchingAttributesLists");
+        private List<List<string>>? _mValue_MatchingAttributesLists;
+        private bool _mUnknown_MatchingAttributesLists;
+        public List<List<string>>? MatchingAttributesLists
+        {
+            get
+            {
+                if (!_mUnknown_MatchingAttributesLists) return _mValue_MatchingAttributesLists;
+                throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingConsolidation.MatchingAttributesLists' is not present");
+            }
+        }
     }
 }

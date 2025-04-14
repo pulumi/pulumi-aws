@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Version of the agent with which the alias is associated.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasRoutingConfigurationArgs.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Provisioned Throughput assigned to the agent alias.
         /// </summary>
-        [Input("provisionedThroughput")]
+        [PolicyResourceProperty("provisionedThroughput", "_mUnknown_ProvisionedThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisionedThroughput;
-
-        public string? ProvisionedThroughput => _mProvisionedThroughput.GetValue("provisionedThroughput");
+        private string? _mValue_ProvisionedThroughput;
+        private bool _mUnknown_ProvisionedThroughput;
+        public string? ProvisionedThroughput
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedThroughput) return _mValue_ProvisionedThroughput;
+                throw new UndeferrableValueException("Value 'AgentAgentAliasRoutingConfigurationArgs.ProvisionedThroughput' is not present");
+            }
+        }
     }
 }

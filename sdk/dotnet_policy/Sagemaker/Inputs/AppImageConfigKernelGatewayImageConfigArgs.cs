@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The URL where the Git repository is located. See File System Config details below.
         /// </summary>
-        [Input("fileSystemConfig")]
+        [PolicyResourceProperty("fileSystemConfig", "_mUnknown_FileSystemConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs> _mFileSystemConfig;
-
-        public Inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs? FileSystemConfig => _mFileSystemConfig.GetValue("fileSystemConfig");
+        private Inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs? _mValue_FileSystemConfig;
+        private bool _mUnknown_FileSystemConfig;
+        public Inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs? FileSystemConfig
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemConfig) return _mValue_FileSystemConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigKernelGatewayImageConfigArgs.FileSystemConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The default branch for the Git repository. See Kernel Spec details below.
         /// </summary>
-        [Input("kernelSpec")]
+        [PolicyResourceProperty("kernelSpec", "_mUnknown_KernelSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs> _mKernelSpec;
-
-        public Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs? KernelSpec => _mKernelSpec.GetValue("kernelSpec");
+        private Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs? _mValue_KernelSpec;
+        private bool _mUnknown_KernelSpec;
+        public Inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs? KernelSpec
+        {
+            get
+            {
+                if (!_mUnknown_KernelSpec) return _mValue_KernelSpec;
+                throw new UndeferrableValueException("Value 'AppImageConfigKernelGatewayImageConfigArgs.KernelSpec' is not present");
+            }
+        }
     }
 }

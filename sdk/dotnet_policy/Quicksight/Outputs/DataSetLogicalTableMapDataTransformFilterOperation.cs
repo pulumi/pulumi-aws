@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
         /// </summary>
-        [Input("conditionExpression")]
+        [PolicyResourceProperty("conditionExpression", "_mUnknown_ConditionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConditionExpression;
-
-        public string? ConditionExpression => _mConditionExpression.GetValue("conditionExpression");
+        private string? _mValue_ConditionExpression;
+        private bool _mUnknown_ConditionExpression;
+        public string? ConditionExpression
+        {
+            get
+            {
+                if (!_mUnknown_ConditionExpression) return _mValue_ConditionExpression;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformFilterOperation.ConditionExpression' is not present");
+            }
+        }
     }
 }

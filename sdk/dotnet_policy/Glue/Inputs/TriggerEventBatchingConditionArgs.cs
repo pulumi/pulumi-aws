@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'TriggerEventBatchingConditionArgs.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
         /// </summary>
-        [Input("batchWindow")]
+        [PolicyResourceProperty("batchWindow", "_mUnknown_BatchWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchWindow;
-
-        public int? BatchWindow => _mBatchWindow.GetValue("batchWindow");
+        private int? _mValue_BatchWindow;
+        private bool _mUnknown_BatchWindow;
+        public int? BatchWindow
+        {
+            get
+            {
+                if (!_mUnknown_BatchWindow) return _mValue_BatchWindow;
+                throw new UndeferrableValueException("Value 'TriggerEventBatchingConditionArgs.BatchWindow' is not present");
+            }
+        }
     }
 }

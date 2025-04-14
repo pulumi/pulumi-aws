@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Outputs
         /// <summary>
         /// A string value containing the IPv4 network range to allow or deny, in CIDR notation.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEgress;
-
-        public bool? Egress => _mEgress.GetValue("egress");
+        private bool? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public bool? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
         /// </summary>
-        [Input("icmpTypeCodes")]
+        [PolicyResourceProperty("icmpTypeCodes", "_mUnknown_IcmpTypeCodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode>> _mIcmpTypeCodes;
-
-        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode>? IcmpTypeCodes => _mIcmpTypeCodes.GetValue("icmpTypeCodes");
+        private List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode>? _mValue_IcmpTypeCodes;
+        private bool _mUnknown_IcmpTypeCodes;
+        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCode>? IcmpTypeCodes
+        {
+            get
+            {
+                if (!_mUnknown_IcmpTypeCodes) return _mValue_IcmpTypeCodes;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry.IcmpTypeCodes' is not present");
+            }
+        }
 
         /// <summary>
         /// A string value containing the IPv6 network range to allow or deny, in CIDR notation.
         /// </summary>
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
-
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry.Ipv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block for PortRange. See the `port_range` block.
         /// </summary>
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange>> _mPortRanges;
-
-        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange>? PortRanges => _mPortRanges.GetValue("portRanges");
+        private List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry.PortRanges' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol number. A value of "-1" means all protocols.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
         /// </summary>
-        [Input("ruleAction")]
+        [PolicyResourceProperty("ruleAction", "_mUnknown_RuleAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
-
-        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+        private string? _mValue_RuleAction;
+        private bool _mUnknown_RuleAction;
+        public string? RuleAction
+        {
+            get
+            {
+                if (!_mUnknown_RuleAction) return _mValue_RuleAction;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry.RuleAction' is not present");
+            }
+        }
     }
 }

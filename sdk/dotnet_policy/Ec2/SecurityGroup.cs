@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ARN of the security group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SecurityGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SecurityGroup.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SecurityGroupEgress>> _mEgress;
-
-        public List<Outputs.SecurityGroupEgress>? Egress => _mEgress.GetValue("egress");
+        private List<Outputs.SecurityGroupEgress>? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public List<Outputs.SecurityGroupEgress>? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'SecurityGroup.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Input("ingress")]
+        [PolicyResourceProperty("ingress", "_mUnknown_Ingress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SecurityGroupIngress>> _mIngress;
-
-        public List<Outputs.SecurityGroupIngress>? Ingress => _mIngress.GetValue("ingress");
+        private List<Outputs.SecurityGroupIngress>? _mValue_Ingress;
+        private bool _mUnknown_Ingress;
+        public List<Outputs.SecurityGroupIngress>? Ingress
+        {
+            get
+            {
+                if (!_mUnknown_Ingress) return _mValue_Ingress;
+                throw new UndeferrableValueException("Value 'SecurityGroup.Ingress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the security group. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SecurityGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'SecurityGroup.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Owner ID.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'SecurityGroup.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         /// </summary>
-        [Input("revokeRulesOnDelete")]
+        [PolicyResourceProperty("revokeRulesOnDelete", "_mUnknown_RevokeRulesOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRevokeRulesOnDelete;
-
-        public bool? RevokeRulesOnDelete => _mRevokeRulesOnDelete.GetValue("revokeRulesOnDelete");
+        private bool? _mValue_RevokeRulesOnDelete;
+        private bool _mUnknown_RevokeRulesOnDelete;
+        public bool? RevokeRulesOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_RevokeRulesOnDelete) return _mValue_RevokeRulesOnDelete;
+                throw new UndeferrableValueException("Value 'SecurityGroup.RevokeRulesOnDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SecurityGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SecurityGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC ID. Defaults to the region's default VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'SecurityGroup.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/securityGroup:SecurityGroup")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SecurityGroupEgressArgs>> _mEgress;
-
-        public List<Inputs.SecurityGroupEgressArgs>? Egress => _mEgress.GetValue("egress");
+        private List<Inputs.SecurityGroupEgressArgs>? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public List<Inputs.SecurityGroupEgressArgs>? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.Egress' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         /// </summary>
-        [Input("ingress")]
+        [PolicyResourceProperty("ingress", "_mUnknown_Ingress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SecurityGroupIngressArgs>> _mIngress;
-
-        public List<Inputs.SecurityGroupIngressArgs>? Ingress => _mIngress.GetValue("ingress");
+        private List<Inputs.SecurityGroupIngressArgs>? _mValue_Ingress;
+        private bool _mUnknown_Ingress;
+        public List<Inputs.SecurityGroupIngressArgs>? Ingress
+        {
+            get
+            {
+                if (!_mUnknown_Ingress) return _mValue_Ingress;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.Ingress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the security group. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         /// </summary>
-        [Input("revokeRulesOnDelete")]
+        [PolicyResourceProperty("revokeRulesOnDelete", "_mUnknown_RevokeRulesOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRevokeRulesOnDelete;
-
-        public bool? RevokeRulesOnDelete => _mRevokeRulesOnDelete.GetValue("revokeRulesOnDelete");
+        private bool? _mValue_RevokeRulesOnDelete;
+        private bool _mUnknown_RevokeRulesOnDelete;
+        public bool? RevokeRulesOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_RevokeRulesOnDelete) return _mValue_RevokeRulesOnDelete;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.RevokeRulesOnDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC ID. Defaults to the region's default VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'SecurityGroupArgs.VpcId' is not present");
+            }
+        }
     }
 }

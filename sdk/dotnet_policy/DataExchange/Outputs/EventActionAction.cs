@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange.Outputs
         /// Configuration for an Export Revision to S3 action.
         /// Described in `export_revision_to_s3` Configuration Block
         /// </summary>
-        [Input("exportRevisionToS3")]
+        [PolicyResourceProperty("exportRevisionToS3", "_mUnknown_ExportRevisionToS3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventActionActionExportRevisionToS3> _mExportRevisionToS3;
-
-        public Outputs.EventActionActionExportRevisionToS3? ExportRevisionToS3 => _mExportRevisionToS3.GetValue("exportRevisionToS3");
+        private Outputs.EventActionActionExportRevisionToS3? _mValue_ExportRevisionToS3;
+        private bool _mUnknown_ExportRevisionToS3;
+        public Outputs.EventActionActionExportRevisionToS3? ExportRevisionToS3
+        {
+            get
+            {
+                if (!_mUnknown_ExportRevisionToS3) return _mValue_ExportRevisionToS3;
+                throw new UndeferrableValueException("Value 'EventActionAction.ExportRevisionToS3' is not present");
+            }
+        }
     }
 }

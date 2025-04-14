@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
         /// </summary>
-        [Input("connectionPasswordEncryption")]
+        [PolicyResourceProperty("connectionPasswordEncryption", "_mUnknown_ConnectionPasswordEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs> _mConnectionPasswordEncryption;
-
-        public Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs? ConnectionPasswordEncryption => _mConnectionPasswordEncryption.GetValue("connectionPasswordEncryption");
+        private Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs? _mValue_ConnectionPasswordEncryption;
+        private bool _mUnknown_ConnectionPasswordEncryption;
+        public Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs? ConnectionPasswordEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionPasswordEncryption) return _mValue_ConnectionPasswordEncryption;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.ConnectionPasswordEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         /// </summary>
-        [Input("encryptionAtRest")]
+        [PolicyResourceProperty("encryptionAtRest", "_mUnknown_EncryptionAtRest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs> _mEncryptionAtRest;
-
-        public Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs? EncryptionAtRest => _mEncryptionAtRest.GetValue("encryptionAtRest");
+        private Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs? _mValue_EncryptionAtRest;
+        private bool _mUnknown_EncryptionAtRest;
+        public Inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs? EncryptionAtRest
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAtRest) return _mValue_EncryptionAtRest;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.EncryptionAtRest' is not present");
+            }
+        }
     }
 }

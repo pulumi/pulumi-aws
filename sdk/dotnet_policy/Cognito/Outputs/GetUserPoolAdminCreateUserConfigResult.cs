@@ -15,26 +15,47 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// - Whether only admins can create users.
         /// </summary>
-        [Input("allowAdminCreateUserOnly")]
+        [PolicyResourceProperty("allowAdminCreateUserOnly", "_mUnknown_AllowAdminCreateUserOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAdminCreateUserOnly;
+        private bool? _mValue_AllowAdminCreateUserOnly;
+        private bool _mUnknown_AllowAdminCreateUserOnly;
+        public bool? AllowAdminCreateUserOnly
+        {
+            get
+            {
+                if (!_mUnknown_AllowAdminCreateUserOnly) return _mValue_AllowAdminCreateUserOnly;
+                throw new UndeferrableValueException("Value 'GetUserPoolAdminCreateUserConfigResult.AllowAdminCreateUserOnly' is not present");
+            }
+        }
 
-        public bool? AllowAdminCreateUserOnly => _mAllowAdminCreateUserOnly.GetValue("allowAdminCreateUserOnly");
-
-        [Input("inviteMessageTemplates")]
+        [PolicyResourceProperty("inviteMessageTemplates", "_mUnknown_InviteMessageTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult>> _mInviteMessageTemplates;
-
-        public List<Outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult>? InviteMessageTemplates => _mInviteMessageTemplates.GetValue("inviteMessageTemplates");
+        private List<Outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult>? _mValue_InviteMessageTemplates;
+        private bool _mUnknown_InviteMessageTemplates;
+        public List<Outputs.GetUserPoolAdminCreateUserConfigInviteMessageTemplateResult>? InviteMessageTemplates
+        {
+            get
+            {
+                if (!_mUnknown_InviteMessageTemplates) return _mValue_InviteMessageTemplates;
+                throw new UndeferrableValueException("Value 'GetUserPoolAdminCreateUserConfigResult.InviteMessageTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// - Number of days an unconfirmed user account remains valid.
         /// * invite_message_template - Templates for invitation messages.
         /// </summary>
-        [Input("unusedAccountValidityDays")]
+        [PolicyResourceProperty("unusedAccountValidityDays", "_mUnknown_UnusedAccountValidityDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnusedAccountValidityDays;
-
-        public int? UnusedAccountValidityDays => _mUnusedAccountValidityDays.GetValue("unusedAccountValidityDays");
+        private int? _mValue_UnusedAccountValidityDays;
+        private bool _mUnknown_UnusedAccountValidityDays;
+        public int? UnusedAccountValidityDays
+        {
+            get
+            {
+                if (!_mUnknown_UnusedAccountValidityDays) return _mValue_UnusedAccountValidityDays;
+                throw new UndeferrableValueException("Value 'GetUserPoolAdminCreateUserConfigResult.UnusedAccountValidityDays' is not present");
+            }
+        }
     }
 }

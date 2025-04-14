@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator.Inputs
         /// <summary>
         /// The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupDestinationConfigurationArgs.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
         /// </summary>
-        [Input("protocols")]
+        [PolicyResourceProperty("protocols", "_mUnknown_Protocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtocols;
-
-        public List<string>? Protocols => _mProtocols.GetValue("protocols");
+        private List<string>? _mValue_Protocols;
+        private bool _mUnknown_Protocols;
+        public List<string>? Protocols
+        {
+            get
+            {
+                if (!_mUnknown_Protocols) return _mValue_Protocols;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupDestinationConfigurationArgs.Protocols' is not present");
+            }
+        }
 
         /// <summary>
         /// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupDestinationConfigurationArgs.ToPort' is not present");
+            }
+        }
     }
 }

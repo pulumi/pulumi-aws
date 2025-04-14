@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The identifier of the security standard control.
         /// </summary>
-        [Input("controlId")]
+        [PolicyResourceProperty("controlId", "_mUnknown_ControlId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlId;
-
-        public string? ControlId => _mControlId.GetValue("controlId");
+        private string? _mValue_ControlId;
+        private bool _mUnknown_ControlId;
+        public string? ControlId
+        {
+            get
+            {
+                if (!_mUnknown_ControlId) return _mValue_ControlId;
+                throw new UndeferrableValueException("Value 'StandardsControl.ControlId' is not present");
+            }
+        }
 
         /// <summary>
         /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         /// </summary>
-        [Input("controlStatus")]
+        [PolicyResourceProperty("controlStatus", "_mUnknown_ControlStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlStatus;
-
-        public string? ControlStatus => _mControlStatus.GetValue("controlStatus");
+        private string? _mValue_ControlStatus;
+        private bool _mUnknown_ControlStatus;
+        public string? ControlStatus
+        {
+            get
+            {
+                if (!_mUnknown_ControlStatus) return _mValue_ControlStatus;
+                throw new UndeferrableValueException("Value 'StandardsControl.ControlStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the status of the security standard control was most recently updated.
         /// </summary>
-        [Input("controlStatusUpdatedAt")]
+        [PolicyResourceProperty("controlStatusUpdatedAt", "_mUnknown_ControlStatusUpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlStatusUpdatedAt;
-
-        public string? ControlStatusUpdatedAt => _mControlStatusUpdatedAt.GetValue("controlStatusUpdatedAt");
+        private string? _mValue_ControlStatusUpdatedAt;
+        private bool _mUnknown_ControlStatusUpdatedAt;
+        public string? ControlStatusUpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_ControlStatusUpdatedAt) return _mValue_ControlStatusUpdatedAt;
+                throw new UndeferrableValueException("Value 'StandardsControl.ControlStatusUpdatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The standard control longer description. Provides information about what the control is checking for.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'StandardsControl.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         /// </summary>
-        [Input("disabledReason")]
+        [PolicyResourceProperty("disabledReason", "_mUnknown_DisabledReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisabledReason;
-
-        public string? DisabledReason => _mDisabledReason.GetValue("disabledReason");
+        private string? _mValue_DisabledReason;
+        private bool _mUnknown_DisabledReason;
+        public string? DisabledReason
+        {
+            get
+            {
+                if (!_mUnknown_DisabledReason) return _mValue_DisabledReason;
+                throw new UndeferrableValueException("Value 'StandardsControl.DisabledReason' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of requirements that are related to this control.
         /// </summary>
-        [Input("relatedRequirements")]
+        [PolicyResourceProperty("relatedRequirements", "_mUnknown_RelatedRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRelatedRequirements;
-
-        public List<string>? RelatedRequirements => _mRelatedRequirements.GetValue("relatedRequirements");
+        private List<string>? _mValue_RelatedRequirements;
+        private bool _mUnknown_RelatedRequirements;
+        public List<string>? RelatedRequirements
+        {
+            get
+            {
+                if (!_mUnknown_RelatedRequirements) return _mValue_RelatedRequirements;
+                throw new UndeferrableValueException("Value 'StandardsControl.RelatedRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// A link to remediation information for the control in the Security Hub user documentation.
         /// </summary>
-        [Input("remediationUrl")]
+        [PolicyResourceProperty("remediationUrl", "_mUnknown_RemediationUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemediationUrl;
-
-        public string? RemediationUrl => _mRemediationUrl.GetValue("remediationUrl");
+        private string? _mValue_RemediationUrl;
+        private bool _mUnknown_RemediationUrl;
+        public string? RemediationUrl
+        {
+            get
+            {
+                if (!_mUnknown_RemediationUrl) return _mValue_RemediationUrl;
+                throw new UndeferrableValueException("Value 'StandardsControl.RemediationUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The severity of findings generated from this security standard control.
         /// </summary>
-        [Input("severityRating")]
+        [PolicyResourceProperty("severityRating", "_mUnknown_SeverityRating")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSeverityRating;
-
-        public string? SeverityRating => _mSeverityRating.GetValue("severityRating");
+        private string? _mValue_SeverityRating;
+        private bool _mUnknown_SeverityRating;
+        public string? SeverityRating
+        {
+            get
+            {
+                if (!_mUnknown_SeverityRating) return _mValue_SeverityRating;
+                throw new UndeferrableValueException("Value 'StandardsControl.SeverityRating' is not present");
+            }
+        }
 
         /// <summary>
         /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         /// </summary>
-        [Input("standardsControlArn")]
+        [PolicyResourceProperty("standardsControlArn", "_mUnknown_StandardsControlArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsControlArn;
-
-        public string? StandardsControlArn => _mStandardsControlArn.GetValue("standardsControlArn");
+        private string? _mValue_StandardsControlArn;
+        private bool _mUnknown_StandardsControlArn;
+        public string? StandardsControlArn
+        {
+            get
+            {
+                if (!_mUnknown_StandardsControlArn) return _mValue_StandardsControlArn;
+                throw new UndeferrableValueException("Value 'StandardsControl.StandardsControlArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The standard control title.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'StandardsControl.Title' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/standardsControl:StandardsControl")]
@@ -110,28 +180,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         /// </summary>
-        [Input("controlStatus")]
+        [PolicyResourceProperty("controlStatus", "_mUnknown_ControlStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlStatus;
-
-        public string? ControlStatus => _mControlStatus.GetValue("controlStatus");
+        private string? _mValue_ControlStatus;
+        private bool _mUnknown_ControlStatus;
+        public string? ControlStatus
+        {
+            get
+            {
+                if (!_mUnknown_ControlStatus) return _mValue_ControlStatus;
+                throw new UndeferrableValueException("Value 'StandardsControlArgs.ControlStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         /// </summary>
-        [Input("disabledReason")]
+        [PolicyResourceProperty("disabledReason", "_mUnknown_DisabledReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisabledReason;
-
-        public string? DisabledReason => _mDisabledReason.GetValue("disabledReason");
+        private string? _mValue_DisabledReason;
+        private bool _mUnknown_DisabledReason;
+        public string? DisabledReason
+        {
+            get
+            {
+                if (!_mUnknown_DisabledReason) return _mValue_DisabledReason;
+                throw new UndeferrableValueException("Value 'StandardsControlArgs.DisabledReason' is not present");
+            }
+        }
 
         /// <summary>
         /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         /// </summary>
-        [Input("standardsControlArn")]
+        [PolicyResourceProperty("standardsControlArn", "_mUnknown_StandardsControlArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsControlArn;
-
-        public string? StandardsControlArn => _mStandardsControlArn.GetValue("standardsControlArn");
+        private string? _mValue_StandardsControlArn;
+        private bool _mUnknown_StandardsControlArn;
+        public string? StandardsControlArn
+        {
+            get
+            {
+                if (!_mUnknown_StandardsControlArn) return _mValue_StandardsControlArn;
+                throw new UndeferrableValueException("Value 'StandardsControlArgs.StandardsControlArn' is not present");
+            }
+        }
     }
 }

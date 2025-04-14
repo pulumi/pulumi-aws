@@ -16,95 +16,172 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
-        [Input("accessRole")]
+        [PolicyResourceProperty("accessRole", "_mUnknown_AccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
-
-        public string? AccessRole => _mAccessRole.GetValue("accessRole");
+        private string? _mValue_AccessRole;
+        private bool _mUnknown_AccessRole;
+        public string? AccessRole
+        {
+            get
+            {
+                if (!_mUnknown_AccessRole) return _mValue_AccessRole;
+                throw new UndeferrableValueException("Value 'Agreement.AccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 agreement.
         /// </summary>
-        [Input("agreementId")]
+        [PolicyResourceProperty("agreementId", "_mUnknown_AgreementId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgreementId;
-
-        public string? AgreementId => _mAgreementId.GetValue("agreementId");
+        private string? _mValue_AgreementId;
+        private bool _mUnknown_AgreementId;
+        public string? AgreementId
+        {
+            get
+            {
+                if (!_mUnknown_AgreementId) return _mValue_AgreementId;
+                throw new UndeferrableValueException("Value 'Agreement.AgreementId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the agreement.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Agreement.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The landing directory for the files transferred by using the AS2 protocol.
         /// </summary>
-        [Input("baseDirectory")]
+        [PolicyResourceProperty("baseDirectory", "_mUnknown_BaseDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseDirectory;
-
-        public string? BaseDirectory => _mBaseDirectory.GetValue("baseDirectory");
+        private string? _mValue_BaseDirectory;
+        private bool _mUnknown_BaseDirectory;
+        public string? BaseDirectory
+        {
+            get
+            {
+                if (!_mUnknown_BaseDirectory) return _mValue_BaseDirectory;
+                throw new UndeferrableValueException("Value 'Agreement.BaseDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// The Optional description of the transdfer.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Agreement.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 local profile.
         /// </summary>
-        [Input("localProfileId")]
+        [PolicyResourceProperty("localProfileId", "_mUnknown_LocalProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalProfileId;
-
-        public string? LocalProfileId => _mLocalProfileId.GetValue("localProfileId");
+        private string? _mValue_LocalProfileId;
+        private bool _mUnknown_LocalProfileId;
+        public string? LocalProfileId
+        {
+            get
+            {
+                if (!_mUnknown_LocalProfileId) return _mValue_LocalProfileId;
+                throw new UndeferrableValueException("Value 'Agreement.LocalProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 partner profile.
         /// </summary>
-        [Input("partnerProfileId")]
+        [PolicyResourceProperty("partnerProfileId", "_mUnknown_PartnerProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerProfileId;
-
-        public string? PartnerProfileId => _mPartnerProfileId.GetValue("partnerProfileId");
+        private string? _mValue_PartnerProfileId;
+        private bool _mUnknown_PartnerProfileId;
+        public string? PartnerProfileId
+        {
+            get
+            {
+                if (!_mUnknown_PartnerProfileId) return _mValue_PartnerProfileId;
+                throw new UndeferrableValueException("Value 'Agreement.PartnerProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
-        [Input("serverId")]
+        [PolicyResourceProperty("serverId", "_mUnknown_ServerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
+        private string? _mValue_ServerId;
+        private bool _mUnknown_ServerId;
+        public string? ServerId
+        {
+            get
+            {
+                if (!_mUnknown_ServerId) return _mValue_ServerId;
+                throw new UndeferrableValueException("Value 'Agreement.ServerId' is not present");
+            }
+        }
 
-        public string? ServerId => _mServerId.GetValue("serverId");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Agreement.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Agreement.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Agreement.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/agreement:Agreement")]
@@ -113,64 +190,113 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
-        [Input("accessRole")]
+        [PolicyResourceProperty("accessRole", "_mUnknown_AccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
-
-        public string? AccessRole => _mAccessRole.GetValue("accessRole");
+        private string? _mValue_AccessRole;
+        private bool _mUnknown_AccessRole;
+        public string? AccessRole
+        {
+            get
+            {
+                if (!_mUnknown_AccessRole) return _mValue_AccessRole;
+                throw new UndeferrableValueException("Value 'AgreementArgs.AccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The landing directory for the files transferred by using the AS2 protocol.
         /// </summary>
-        [Input("baseDirectory")]
+        [PolicyResourceProperty("baseDirectory", "_mUnknown_BaseDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseDirectory;
-
-        public string? BaseDirectory => _mBaseDirectory.GetValue("baseDirectory");
+        private string? _mValue_BaseDirectory;
+        private bool _mUnknown_BaseDirectory;
+        public string? BaseDirectory
+        {
+            get
+            {
+                if (!_mUnknown_BaseDirectory) return _mValue_BaseDirectory;
+                throw new UndeferrableValueException("Value 'AgreementArgs.BaseDirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// The Optional description of the transdfer.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgreementArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 local profile.
         /// </summary>
-        [Input("localProfileId")]
+        [PolicyResourceProperty("localProfileId", "_mUnknown_LocalProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalProfileId;
-
-        public string? LocalProfileId => _mLocalProfileId.GetValue("localProfileId");
+        private string? _mValue_LocalProfileId;
+        private bool _mUnknown_LocalProfileId;
+        public string? LocalProfileId
+        {
+            get
+            {
+                if (!_mUnknown_LocalProfileId) return _mValue_LocalProfileId;
+                throw new UndeferrableValueException("Value 'AgreementArgs.LocalProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 partner profile.
         /// </summary>
-        [Input("partnerProfileId")]
+        [PolicyResourceProperty("partnerProfileId", "_mUnknown_PartnerProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerProfileId;
-
-        public string? PartnerProfileId => _mPartnerProfileId.GetValue("partnerProfileId");
+        private string? _mValue_PartnerProfileId;
+        private bool _mUnknown_PartnerProfileId;
+        public string? PartnerProfileId
+        {
+            get
+            {
+                if (!_mUnknown_PartnerProfileId) return _mValue_PartnerProfileId;
+                throw new UndeferrableValueException("Value 'AgreementArgs.PartnerProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
-        [Input("serverId")]
+        [PolicyResourceProperty("serverId", "_mUnknown_ServerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerId;
-
-        public string? ServerId => _mServerId.GetValue("serverId");
+        private string? _mValue_ServerId;
+        private bool _mUnknown_ServerId;
+        public string? ServerId
+        {
+            get
+            {
+                if (!_mUnknown_ServerId) return _mValue_ServerId;
+                throw new UndeferrableValueException("Value 'AgreementArgs.ServerId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgreementArgs.Tags' is not present");
+            }
+        }
     }
 }

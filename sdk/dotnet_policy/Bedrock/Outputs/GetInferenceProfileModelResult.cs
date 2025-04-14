@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the model.
         /// </summary>
-        [Input("modelArn")]
+        [PolicyResourceProperty("modelArn", "_mUnknown_ModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
-
-        public string? ModelArn => _mModelArn.GetValue("modelArn");
+        private string? _mValue_ModelArn;
+        private bool _mUnknown_ModelArn;
+        public string? ModelArn
+        {
+            get
+            {
+                if (!_mUnknown_ModelArn) return _mValue_ModelArn;
+                throw new UndeferrableValueException("Value 'GetInferenceProfileModelResult.ModelArn' is not present");
+            }
+        }
     }
 }

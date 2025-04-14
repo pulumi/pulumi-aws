@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents.Outputs
         /// <summary>
         /// Details about the PagerDuty configuration for a response plan. The following values are supported:
         /// </summary>
-        [Input("pagerduties")]
+        [PolicyResourceProperty("pagerduties", "_mUnknown_Pagerduties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetResponsePlanIntegrationPagerdutyResult>> _mPagerduties;
-
-        public List<Outputs.GetResponsePlanIntegrationPagerdutyResult>? Pagerduties => _mPagerduties.GetValue("pagerduties");
+        private List<Outputs.GetResponsePlanIntegrationPagerdutyResult>? _mValue_Pagerduties;
+        private bool _mUnknown_Pagerduties;
+        public List<Outputs.GetResponsePlanIntegrationPagerdutyResult>? Pagerduties
+        {
+            get
+            {
+                if (!_mUnknown_Pagerduties) return _mValue_Pagerduties;
+                throw new UndeferrableValueException("Value 'GetResponsePlanIntegrationResult.Pagerduties' is not present");
+            }
+        }
     }
 }

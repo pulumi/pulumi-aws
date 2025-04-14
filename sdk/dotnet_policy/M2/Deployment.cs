@@ -16,56 +16,105 @@ namespace Pulumi.PolicyPacks.Aws.M2
         /// <summary>
         /// Application to deploy.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'Deployment.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version to application to deploy
         /// </summary>
-        [Input("applicationVersion")]
+        [PolicyResourceProperty("applicationVersion", "_mUnknown_ApplicationVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationVersion;
+        private int? _mValue_ApplicationVersion;
+        private bool _mUnknown_ApplicationVersion;
+        public int? ApplicationVersion
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationVersion) return _mValue_ApplicationVersion;
+                throw new UndeferrableValueException("Value 'Deployment.ApplicationVersion' is not present");
+            }
+        }
 
-        public int? ApplicationVersion => _mApplicationVersion.GetValue("applicationVersion");
-
-        [Input("deploymentId")]
+        [PolicyResourceProperty("deploymentId", "_mUnknown_DeploymentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentId;
-
-        public string? DeploymentId => _mDeploymentId.GetValue("deploymentId");
+        private string? _mValue_DeploymentId;
+        private bool _mUnknown_DeploymentId;
+        public string? DeploymentId
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentId) return _mValue_DeploymentId;
+                throw new UndeferrableValueException("Value 'Deployment.DeploymentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment to deploy application to.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'Deployment.EnvironmentId' is not present");
+            }
+        }
 
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
-
-        [Input("forceStop")]
+        [PolicyResourceProperty("forceStop", "_mUnknown_ForceStop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
-
-        public bool? ForceStop => _mForceStop.GetValue("forceStop");
+        private bool? _mValue_ForceStop;
+        private bool _mUnknown_ForceStop;
+        public bool? ForceStop
+        {
+            get
+            {
+                if (!_mUnknown_ForceStop) return _mValue_ForceStop;
+                throw new UndeferrableValueException("Value 'Deployment.ForceStop' is not present");
+            }
+        }
 
         /// <summary>
         /// Start the application once deployed.
         /// </summary>
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStart;
+        private bool? _mValue_Start;
+        private bool _mUnknown_Start;
+        public bool? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'Deployment.Start' is not present");
+            }
+        }
 
-        public bool? Start => _mStart.GetValue("start");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentTimeouts> _mTimeouts;
-
-        public Outputs.DeploymentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DeploymentTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DeploymentTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Deployment.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:m2/deployment:Deployment")]
@@ -74,49 +123,91 @@ namespace Pulumi.PolicyPacks.Aws.M2
         /// <summary>
         /// Application to deploy.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version to application to deploy
         /// </summary>
-        [Input("applicationVersion")]
+        [PolicyResourceProperty("applicationVersion", "_mUnknown_ApplicationVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mApplicationVersion;
-
-        public int? ApplicationVersion => _mApplicationVersion.GetValue("applicationVersion");
+        private int? _mValue_ApplicationVersion;
+        private bool _mUnknown_ApplicationVersion;
+        public int? ApplicationVersion
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationVersion) return _mValue_ApplicationVersion;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ApplicationVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment to deploy application to.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.EnvironmentId' is not present");
+            }
+        }
 
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
-
-        [Input("forceStop")]
+        [PolicyResourceProperty("forceStop", "_mUnknown_ForceStop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
-
-        public bool? ForceStop => _mForceStop.GetValue("forceStop");
+        private bool? _mValue_ForceStop;
+        private bool _mUnknown_ForceStop;
+        public bool? ForceStop
+        {
+            get
+            {
+                if (!_mUnknown_ForceStop) return _mValue_ForceStop;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.ForceStop' is not present");
+            }
+        }
 
         /// <summary>
         /// Start the application once deployed.
         /// </summary>
-        [Input("start")]
+        [PolicyResourceProperty("start", "_mUnknown_Start")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStart;
+        private bool? _mValue_Start;
+        private bool _mUnknown_Start;
+        public bool? Start
+        {
+            get
+            {
+                if (!_mUnknown_Start) return _mValue_Start;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.Start' is not present");
+            }
+        }
 
-        public bool? Start => _mStart.GetValue("start");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DeploymentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DeploymentTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DeploymentTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DeploymentArgs.Timeouts' is not present");
+            }
+        }
     }
 }

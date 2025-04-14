@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
         /// </summary>
-        [Input("mergeType")]
+        [PolicyResourceProperty("mergeType", "_mUnknown_MergeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMergeType;
-
-        public string? MergeType => _mMergeType.GetValue("mergeType");
+        private string? _mValue_MergeType;
+        private bool _mUnknown_MergeType;
+        public string? MergeType
+        {
+            get
+            {
+                if (!_mUnknown_MergeType) return _mValue_MergeType;
+                throw new UndeferrableValueException("Value 'SourceApiAssociationSourceApiAssociationConfig.MergeType' is not present");
+            }
+        }
     }
 }

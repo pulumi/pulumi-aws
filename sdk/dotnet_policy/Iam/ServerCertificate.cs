@@ -16,60 +16,102 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the server certificate.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServerCertificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the public key certificate in
         /// PEM-encoded format.
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'ServerCertificate.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the certificate chain.
         /// This is typically a concatenation of the PEM-encoded public key certificates
         /// of the chain.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'ServerCertificate.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
         /// </summary>
-        [Input("expiration")]
+        [PolicyResourceProperty("expiration", "_mUnknown_Expiration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpiration;
-
-        public string? Expiration => _mExpiration.GetValue("expiration");
+        private string? _mValue_Expiration;
+        private bool _mUnknown_Expiration;
+        public string? Expiration
+        {
+            get
+            {
+                if (!_mUnknown_Expiration) return _mValue_Expiration;
+                throw new UndeferrableValueException("Value 'ServerCertificate.Expiration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerCertificate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'ServerCertificate.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM path for the server certificate.  If it is not
@@ -77,49 +119,84 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
         /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ServerCertificate.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the private key in PEM-encoded format.
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'ServerCertificate.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerCertificate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServerCertificate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
         /// </summary>
-        [Input("uploadDate")]
+        [PolicyResourceProperty("uploadDate", "_mUnknown_UploadDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUploadDate;
-
-        public string? UploadDate => _mUploadDate.GetValue("uploadDate");
+        private string? _mValue_UploadDate;
+        private bool _mUnknown_UploadDate;
+        public string? UploadDate
+        {
+            get
+            {
+                if (!_mUnknown_UploadDate) return _mValue_UploadDate;
+                throw new UndeferrableValueException("Value 'ServerCertificate.UploadDate' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/serverCertificate:ServerCertificate")]
@@ -129,41 +206,69 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// The contents of the public key certificate in
         /// PEM-encoded format.
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'ServerCertificateArgs.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the certificate chain.
         /// This is typically a concatenation of the PEM-encoded public key certificates
         /// of the chain.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'ServerCertificateArgs.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerCertificateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'ServerCertificateArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM path for the server certificate.  If it is not
@@ -171,30 +276,51 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
         /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ServerCertificateArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the private key in PEM-encoded format.
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'ServerCertificateArgs.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerCertificateArgs.Tags' is not present");
+            }
+        }
     }
 }

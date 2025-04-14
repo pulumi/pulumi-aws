@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociation.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         /// </summary>
-        [Input("ipv4IpamPoolId")]
+        [PolicyResourceProperty("ipv4IpamPoolId", "_mUnknown_Ipv4IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv4IpamPoolId;
-
-        public string? Ipv4IpamPoolId => _mIpv4IpamPoolId.GetValue("ipv4IpamPoolId");
+        private string? _mValue_Ipv4IpamPoolId;
+        private bool _mUnknown_Ipv4IpamPoolId;
+        public string? Ipv4IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4IpamPoolId) return _mValue_Ipv4IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociation.Ipv4IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         /// </summary>
-        [Input("ipv4NetmaskLength")]
+        [PolicyResourceProperty("ipv4NetmaskLength", "_mUnknown_Ipv4NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4NetmaskLength;
-
-        public int? Ipv4NetmaskLength => _mIpv4NetmaskLength.GetValue("ipv4NetmaskLength");
+        private int? _mValue_Ipv4NetmaskLength;
+        private bool _mUnknown_Ipv4NetmaskLength;
+        public int? Ipv4NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4NetmaskLength) return _mValue_Ipv4NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociation.Ipv4NetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC to make the association with.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         /// </summary>
-        [Input("ipv4IpamPoolId")]
+        [PolicyResourceProperty("ipv4IpamPoolId", "_mUnknown_Ipv4IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv4IpamPoolId;
-
-        public string? Ipv4IpamPoolId => _mIpv4IpamPoolId.GetValue("ipv4IpamPoolId");
+        private string? _mValue_Ipv4IpamPoolId;
+        private bool _mUnknown_Ipv4IpamPoolId;
+        public string? Ipv4IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4IpamPoolId) return _mValue_Ipv4IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.Ipv4IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         /// </summary>
-        [Input("ipv4NetmaskLength")]
+        [PolicyResourceProperty("ipv4NetmaskLength", "_mUnknown_Ipv4NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4NetmaskLength;
-
-        public int? Ipv4NetmaskLength => _mIpv4NetmaskLength.GetValue("ipv4NetmaskLength");
+        private int? _mValue_Ipv4NetmaskLength;
+        private bool _mUnknown_Ipv4NetmaskLength;
+        public int? Ipv4NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4NetmaskLength) return _mValue_Ipv4NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.Ipv4NetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC to make the association with.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.VpcId' is not present");
+            }
+        }
     }
 }

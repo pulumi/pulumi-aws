@@ -12,27 +12,48 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelector
     {
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelector.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Channel.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelector.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("selectorSettings")]
+        [PolicyResourceProperty("selectorSettings", "_mUnknown_SelectorSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings> _mSelectorSettings;
-
-        public Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? SelectorSettings => _mSelectorSettings.GetValue("selectorSettings");
+        private Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? _mValue_SelectorSettings;
+        private bool _mUnknown_SelectorSettings;
+        public Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings? SelectorSettings
+        {
+            get
+            {
+                if (!_mUnknown_SelectorSettings) return _mValue_SelectorSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelector.SelectorSettings' is not present");
+            }
+        }
     }
 }

@@ -12,46 +12,95 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess.Outputs
 {
     public sealed class TrustProviderOidcOptions
     {
-        [Input("authorizationEndpoint")]
+        [PolicyResourceProperty("authorizationEndpoint", "_mUnknown_AuthorizationEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationEndpoint;
+        private string? _mValue_AuthorizationEndpoint;
+        private bool _mUnknown_AuthorizationEndpoint;
+        public string? AuthorizationEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationEndpoint) return _mValue_AuthorizationEndpoint;
+                throw new UndeferrableValueException("Value 'TrustProviderOidcOptions.AuthorizationEndpoint' is not present");
+            }
+        }
 
-        public string? AuthorizationEndpoint => _mAuthorizationEndpoint.GetValue("authorizationEndpoint");
-
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'TrustProviderOidcOptions.ClientId' is not present");
+            }
+        }
 
-        public string? ClientId => _mClientId.GetValue("clientId");
-
-        [Input("clientSecret")]
+        [PolicyResourceProperty("clientSecret", "_mUnknown_ClientSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
+        private string? _mValue_ClientSecret;
+        private bool _mUnknown_ClientSecret;
+        public string? ClientSecret
+        {
+            get
+            {
+                if (!_mUnknown_ClientSecret) return _mValue_ClientSecret;
+                throw new UndeferrableValueException("Value 'TrustProviderOidcOptions.ClientSecret' is not present");
+            }
+        }
 
-        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
-
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'TrustProviderOidcOptions.Issuer' is not present");
+            }
+        }
 
-        public string? Issuer => _mIssuer.GetValue("issuer");
-
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'TrustProviderOidcOptions.Scope' is not present");
+            }
+        }
 
-        public string? Scope => _mScope.GetValue("scope");
-
-        [Input("tokenEndpoint")]
+        [PolicyResourceProperty("tokenEndpoint", "_mUnknown_TokenEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenEndpoint;
+        private string? _mValue_TokenEndpoint;
+        private bool _mUnknown_TokenEndpoint;
+        public string? TokenEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_TokenEndpoint) return _mValue_TokenEndpoint;
+                throw new UndeferrableValueException("Value 'TrustProviderOidcOptions.TokenEndpoint' is not present");
+            }
+        }
 
-        public string? TokenEndpoint => _mTokenEndpoint.GetValue("tokenEndpoint");
-
-        [Input("userInfoEndpoint")]
+        [PolicyResourceProperty("userInfoEndpoint", "_mUnknown_UserInfoEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserInfoEndpoint;
-
-        public string? UserInfoEndpoint => _mUserInfoEndpoint.GetValue("userInfoEndpoint");
+        private string? _mValue_UserInfoEndpoint;
+        private bool _mUnknown_UserInfoEndpoint;
+        public string? UserInfoEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_UserInfoEndpoint) return _mValue_UserInfoEndpoint;
+                throw new UndeferrableValueException("Value 'TrustProviderOidcOptions.UserInfoEndpoint' is not present");
+            }
+        }
     }
 }

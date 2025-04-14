@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer.Inputs
         /// <summary>
         /// A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
         /// </summary>
-        [Input("unusedAccess")]
+        [PolicyResourceProperty("unusedAccess", "_mUnknown_UnusedAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyzerConfigurationUnusedAccessArgs> _mUnusedAccess;
-
-        public Inputs.AnalyzerConfigurationUnusedAccessArgs? UnusedAccess => _mUnusedAccess.GetValue("unusedAccess");
+        private Inputs.AnalyzerConfigurationUnusedAccessArgs? _mValue_UnusedAccess;
+        private bool _mUnknown_UnusedAccess;
+        public Inputs.AnalyzerConfigurationUnusedAccessArgs? UnusedAccess
+        {
+            get
+            {
+                if (!_mUnknown_UnusedAccess) return _mValue_UnusedAccess;
+                throw new UndeferrableValueException("Value 'AnalyzerConfigurationArgs.UnusedAccess' is not present");
+            }
+        }
     }
 }

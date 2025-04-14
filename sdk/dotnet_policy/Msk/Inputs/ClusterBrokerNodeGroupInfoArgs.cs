@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
         /// </summary>
-        [Input("azDistribution")]
+        [PolicyResourceProperty("azDistribution", "_mUnknown_AzDistribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzDistribution;
-
-        public string? AzDistribution => _mAzDistribution.GetValue("azDistribution");
+        private string? _mValue_AzDistribution;
+        private bool _mUnknown_AzDistribution;
+        public string? AzDistribution
+        {
+            get
+            {
+                if (!_mUnknown_AzDistribution) return _mValue_AzDistribution;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.AzDistribution' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
         /// </summary>
-        [Input("clientSubnets")]
+        [PolicyResourceProperty("clientSubnets", "_mUnknown_ClientSubnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientSubnets;
-
-        public List<string>? ClientSubnets => _mClientSubnets.GetValue("clientSubnets");
+        private List<string>? _mValue_ClientSubnets;
+        private bool _mUnknown_ClientSubnets;
+        public List<string>? ClientSubnets
+        {
+            get
+            {
+                if (!_mUnknown_ClientSubnets) return _mValue_ClientSubnets;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.ClientSubnets' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
         /// </summary>
-        [Input("connectivityInfo")]
+        [PolicyResourceProperty("connectivityInfo", "_mUnknown_ConnectivityInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoArgs> _mConnectivityInfo;
-
-        public Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoArgs? ConnectivityInfo => _mConnectivityInfo.GetValue("connectivityInfo");
+        private Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoArgs? _mValue_ConnectivityInfo;
+        private bool _mUnknown_ConnectivityInfo;
+        public Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoArgs? ConnectivityInfo
+        {
+            get
+            {
+                if (!_mUnknown_ConnectivityInfo) return _mValue_ConnectivityInfo;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.ConnectivityInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about storage volumes attached to MSK broker nodes. See below.
         /// </summary>
-        [Input("storageInfo")]
+        [PolicyResourceProperty("storageInfo", "_mUnknown_StorageInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs> _mStorageInfo;
-
-        public Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs? StorageInfo => _mStorageInfo.GetValue("storageInfo");
+        private Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs? _mValue_StorageInfo;
+        private bool _mUnknown_StorageInfo;
+        public Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs? StorageInfo
+        {
+            get
+            {
+                if (!_mUnknown_StorageInfo) return _mValue_StorageInfo;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.StorageInfo' is not present");
+            }
+        }
     }
 }

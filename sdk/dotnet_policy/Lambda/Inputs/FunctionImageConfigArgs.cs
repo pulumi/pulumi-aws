@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// Parameters that you want to pass in with `entry_point`.
         /// </summary>
-        [Input("commands")]
+        [PolicyResourceProperty("commands", "_mUnknown_Commands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCommands;
-
-        public List<string>? Commands => _mCommands.GetValue("commands");
+        private List<string>? _mValue_Commands;
+        private bool _mUnknown_Commands;
+        public List<string>? Commands
+        {
+            get
+            {
+                if (!_mUnknown_Commands) return _mValue_Commands;
+                throw new UndeferrableValueException("Value 'FunctionImageConfigArgs.Commands' is not present");
+            }
+        }
 
         /// <summary>
         /// Entry point to your application, which is typically the location of the runtime executable.
         /// </summary>
-        [Input("entryPoints")]
+        [PolicyResourceProperty("entryPoints", "_mUnknown_EntryPoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEntryPoints;
-
-        public List<string>? EntryPoints => _mEntryPoints.GetValue("entryPoints");
+        private List<string>? _mValue_EntryPoints;
+        private bool _mUnknown_EntryPoints;
+        public List<string>? EntryPoints
+        {
+            get
+            {
+                if (!_mUnknown_EntryPoints) return _mValue_EntryPoints;
+                throw new UndeferrableValueException("Value 'FunctionImageConfigArgs.EntryPoints' is not present");
+            }
+        }
 
         /// <summary>
         /// Working directory.
         /// </summary>
-        [Input("workingDirectory")]
+        [PolicyResourceProperty("workingDirectory", "_mUnknown_WorkingDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
-
-        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
+        private string? _mValue_WorkingDirectory;
+        private bool _mUnknown_WorkingDirectory;
+        public string? WorkingDirectory
+        {
+            get
+            {
+                if (!_mUnknown_WorkingDirectory) return _mValue_WorkingDirectory;
+                throw new UndeferrableValueException("Value 'FunctionImageConfigArgs.WorkingDirectory' is not present");
+            }
+        }
     }
 }

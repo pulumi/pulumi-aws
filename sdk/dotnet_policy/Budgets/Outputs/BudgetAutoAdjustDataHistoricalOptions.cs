@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
         /// <summary>
         /// (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
         /// </summary>
-        [Input("budgetAdjustmentPeriod")]
+        [PolicyResourceProperty("budgetAdjustmentPeriod", "_mUnknown_BudgetAdjustmentPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBudgetAdjustmentPeriod;
-
-        public int? BudgetAdjustmentPeriod => _mBudgetAdjustmentPeriod.GetValue("budgetAdjustmentPeriod");
+        private int? _mValue_BudgetAdjustmentPeriod;
+        private bool _mUnknown_BudgetAdjustmentPeriod;
+        public int? BudgetAdjustmentPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BudgetAdjustmentPeriod) return _mValue_BudgetAdjustmentPeriod;
+                throw new UndeferrableValueException("Value 'BudgetAutoAdjustDataHistoricalOptions.BudgetAdjustmentPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
         /// </summary>
-        [Input("lookbackAvailablePeriods")]
+        [PolicyResourceProperty("lookbackAvailablePeriods", "_mUnknown_LookbackAvailablePeriods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLookbackAvailablePeriods;
-
-        public int? LookbackAvailablePeriods => _mLookbackAvailablePeriods.GetValue("lookbackAvailablePeriods");
+        private int? _mValue_LookbackAvailablePeriods;
+        private bool _mUnknown_LookbackAvailablePeriods;
+        public int? LookbackAvailablePeriods
+        {
+            get
+            {
+                if (!_mUnknown_LookbackAvailablePeriods) return _mValue_LookbackAvailablePeriods;
+                throw new UndeferrableValueException("Value 'BudgetAutoAdjustDataHistoricalOptions.LookbackAvailablePeriods' is not present");
+            }
+        }
     }
 }

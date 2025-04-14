@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerTimeoutGrpcResult
     {
-        [Input("idles")]
+        [PolicyResourceProperty("idles", "_mUnknown_Idles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult>> _mIdles;
+        private List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult>? _mValue_Idles;
+        private bool _mUnknown_Idles;
+        public List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult>? Idles
+        {
+            get
+            {
+                if (!_mUnknown_Idles) return _mValue_Idles;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTimeoutGrpcResult.Idles' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult>? Idles => _mIdles.GetValue("idles");
-
-        [Input("perRequests")]
+        [PolicyResourceProperty("perRequests", "_mUnknown_PerRequests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult>> _mPerRequests;
-
-        public List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult>? PerRequests => _mPerRequests.GetValue("perRequests");
+        private List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult>? _mValue_PerRequests;
+        private bool _mUnknown_PerRequests;
+        public List<Outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult>? PerRequests
+        {
+            get
+            {
+                if (!_mUnknown_PerRequests) return _mValue_PerRequests;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTimeoutGrpcResult.PerRequests' is not present");
+            }
+        }
     }
 }

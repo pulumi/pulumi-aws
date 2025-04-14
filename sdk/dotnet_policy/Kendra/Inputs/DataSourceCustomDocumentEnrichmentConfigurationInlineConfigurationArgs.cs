@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs> _mCondition;
-
-        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs? Condition => _mCondition.GetValue("condition");
+        private Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// `TRUE` to delete content if the condition used for the target attribute is met.
         /// </summary>
-        [Input("documentContentDeletion")]
+        [PolicyResourceProperty("documentContentDeletion", "_mUnknown_DocumentContentDeletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDocumentContentDeletion;
-
-        public bool? DocumentContentDeletion => _mDocumentContentDeletion.GetValue("documentContentDeletion");
+        private bool? _mValue_DocumentContentDeletion;
+        private bool _mUnknown_DocumentContentDeletion;
+        public bool? DocumentContentDeletion
+        {
+            get
+            {
+                if (!_mUnknown_DocumentContentDeletion) return _mValue_DocumentContentDeletion;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs.DocumentContentDeletion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs> _mTarget;
-
-        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs? Target => _mTarget.GetValue("target");
+        private Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs.Target' is not present");
+            }
+        }
     }
 }

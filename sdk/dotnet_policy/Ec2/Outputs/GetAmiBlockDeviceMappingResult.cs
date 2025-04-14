@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Physical name of the device.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'GetAmiBlockDeviceMappingResult.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
         /// </summary>
-        [Input("ebs")]
+        [PolicyResourceProperty("ebs", "_mUnknown_Ebs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEbs;
-
-        public Dictionary<string, string>? Ebs => _mEbs.GetValue("ebs");
+        private Dictionary<string, string>? _mValue_Ebs;
+        private bool _mUnknown_Ebs;
+        public Dictionary<string, string>? Ebs
+        {
+            get
+            {
+                if (!_mUnknown_Ebs) return _mValue_Ebs;
+                throw new UndeferrableValueException("Value 'GetAmiBlockDeviceMappingResult.Ebs' is not present");
+            }
+        }
 
         /// <summary>
         /// Suppresses the specified device included in the block device mapping of the AMI.
         /// </summary>
-        [Input("noDevice")]
+        [PolicyResourceProperty("noDevice", "_mUnknown_NoDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNoDevice;
-
-        public string? NoDevice => _mNoDevice.GetValue("noDevice");
+        private string? _mValue_NoDevice;
+        private bool _mUnknown_NoDevice;
+        public string? NoDevice
+        {
+            get
+            {
+                if (!_mUnknown_NoDevice) return _mValue_NoDevice;
+                throw new UndeferrableValueException("Value 'GetAmiBlockDeviceMappingResult.NoDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual device name (for instance stores).
         /// </summary>
-        [Input("virtualName")]
+        [PolicyResourceProperty("virtualName", "_mUnknown_VirtualName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualName;
-
-        public string? VirtualName => _mVirtualName.GetValue("virtualName");
+        private string? _mValue_VirtualName;
+        private bool _mUnknown_VirtualName;
+        public string? VirtualName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualName) return _mValue_VirtualName;
+                throw new UndeferrableValueException("Value 'GetAmiBlockDeviceMappingResult.VirtualName' is not present");
+            }
+        }
     }
 }

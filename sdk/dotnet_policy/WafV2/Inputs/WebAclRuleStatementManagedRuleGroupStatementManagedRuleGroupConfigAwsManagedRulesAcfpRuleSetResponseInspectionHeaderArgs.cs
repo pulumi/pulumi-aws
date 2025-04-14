@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Values in the response header with the specified name that indicate a failed login attempt.
         /// </summary>
-        [Input("failureValues")]
+        [PolicyResourceProperty("failureValues", "_mUnknown_FailureValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFailureValues;
-
-        public List<string>? FailureValues => _mFailureValues.GetValue("failureValues");
+        private List<string>? _mValue_FailureValues;
+        private bool _mUnknown_FailureValues;
+        public List<string>? FailureValues
+        {
+            get
+            {
+                if (!_mUnknown_FailureValues) return _mValue_FailureValues;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs.FailureValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the header to use.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Values in the response header with the specified name that indicate a successful login attempt.
         /// </summary>
-        [Input("successValues")]
+        [PolicyResourceProperty("successValues", "_mUnknown_SuccessValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuccessValues;
-
-        public List<string>? SuccessValues => _mSuccessValues.GetValue("successValues");
+        private List<string>? _mValue_SuccessValues;
+        private bool _mUnknown_SuccessValues;
+        public List<string>? SuccessValues
+        {
+            get
+            {
+                if (!_mUnknown_SuccessValues) return _mValue_SuccessValues;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs.SuccessValues' is not present");
+            }
+        }
     }
 }

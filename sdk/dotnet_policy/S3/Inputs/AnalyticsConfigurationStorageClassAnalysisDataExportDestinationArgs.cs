@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Analytics data export currently only supports an S3 bucket destination (documented below).
         /// </summary>
-        [Input("s3BucketDestination")]
+        [PolicyResourceProperty("s3BucketDestination", "_mUnknown_S3BucketDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs> _mS3BucketDestination;
-
-        public Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs? S3BucketDestination => _mS3BucketDestination.GetValue("s3BucketDestination");
+        private Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs? _mValue_S3BucketDestination;
+        private bool _mUnknown_S3BucketDestination;
+        public Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs? S3BucketDestination
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketDestination) return _mValue_S3BucketDestination;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.S3BucketDestination' is not present");
+            }
+        }
     }
 }

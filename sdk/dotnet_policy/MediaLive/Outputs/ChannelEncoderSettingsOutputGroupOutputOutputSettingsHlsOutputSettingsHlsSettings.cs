@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings
     {
-        [Input("audioOnlyHlsSettings")]
+        [PolicyResourceProperty("audioOnlyHlsSettings", "_mUnknown_AudioOnlyHlsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings> _mAudioOnlyHlsSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings? _mValue_AudioOnlyHlsSettings;
+        private bool _mUnknown_AudioOnlyHlsSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings? AudioOnlyHlsSettings
+        {
+            get
+            {
+                if (!_mUnknown_AudioOnlyHlsSettings) return _mValue_AudioOnlyHlsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.AudioOnlyHlsSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings? AudioOnlyHlsSettings => _mAudioOnlyHlsSettings.GetValue("audioOnlyHlsSettings");
-
-        [Input("fmp4HlsSettings")]
+        [PolicyResourceProperty("fmp4HlsSettings", "_mUnknown_Fmp4HlsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings> _mFmp4HlsSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings? _mValue_Fmp4HlsSettings;
+        private bool _mUnknown_Fmp4HlsSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings? Fmp4HlsSettings
+        {
+            get
+            {
+                if (!_mUnknown_Fmp4HlsSettings) return _mValue_Fmp4HlsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.Fmp4HlsSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings? Fmp4HlsSettings => _mFmp4HlsSettings.GetValue("fmp4HlsSettings");
-
-        [Input("frameCaptureHlsSettings")]
+        [PolicyResourceProperty("frameCaptureHlsSettings", "_mUnknown_FrameCaptureHlsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings> _mFrameCaptureHlsSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings? _mValue_FrameCaptureHlsSettings;
+        private bool _mUnknown_FrameCaptureHlsSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings? FrameCaptureHlsSettings
+        {
+            get
+            {
+                if (!_mUnknown_FrameCaptureHlsSettings) return _mValue_FrameCaptureHlsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.FrameCaptureHlsSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings? FrameCaptureHlsSettings => _mFrameCaptureHlsSettings.GetValue("frameCaptureHlsSettings");
-
-        [Input("standardHlsSettings")]
+        [PolicyResourceProperty("standardHlsSettings", "_mUnknown_StandardHlsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings> _mStandardHlsSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings? StandardHlsSettings => _mStandardHlsSettings.GetValue("standardHlsSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings? _mValue_StandardHlsSettings;
+        private bool _mUnknown_StandardHlsSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings? StandardHlsSettings
+        {
+            get
+            {
+                if (!_mUnknown_StandardHlsSettings) return _mValue_StandardHlsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.StandardHlsSettings' is not present");
+            }
+        }
     }
 }

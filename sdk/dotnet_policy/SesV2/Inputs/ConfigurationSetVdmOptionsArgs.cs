@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Inputs
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
         /// </summary>
-        [Input("dashboardOptions")]
+        [PolicyResourceProperty("dashboardOptions", "_mUnknown_DashboardOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetVdmOptionsDashboardOptionsArgs> _mDashboardOptions;
-
-        public Inputs.ConfigurationSetVdmOptionsDashboardOptionsArgs? DashboardOptions => _mDashboardOptions.GetValue("dashboardOptions");
+        private Inputs.ConfigurationSetVdmOptionsDashboardOptionsArgs? _mValue_DashboardOptions;
+        private bool _mUnknown_DashboardOptions;
+        public Inputs.ConfigurationSetVdmOptionsDashboardOptionsArgs? DashboardOptions
+        {
+            get
+            {
+                if (!_mUnknown_DashboardOptions) return _mValue_DashboardOptions;
+                throw new UndeferrableValueException("Value 'ConfigurationSetVdmOptionsArgs.DashboardOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         /// </summary>
-        [Input("guardianOptions")]
+        [PolicyResourceProperty("guardianOptions", "_mUnknown_GuardianOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationSetVdmOptionsGuardianOptionsArgs> _mGuardianOptions;
-
-        public Inputs.ConfigurationSetVdmOptionsGuardianOptionsArgs? GuardianOptions => _mGuardianOptions.GetValue("guardianOptions");
+        private Inputs.ConfigurationSetVdmOptionsGuardianOptionsArgs? _mValue_GuardianOptions;
+        private bool _mUnknown_GuardianOptions;
+        public Inputs.ConfigurationSetVdmOptionsGuardianOptionsArgs? GuardianOptions
+        {
+            get
+            {
+                if (!_mUnknown_GuardianOptions) return _mValue_GuardianOptions;
+                throw new UndeferrableValueException("Value 'ConfigurationSetVdmOptionsArgs.GuardianOptions' is not present");
+            }
+        }
     }
 }

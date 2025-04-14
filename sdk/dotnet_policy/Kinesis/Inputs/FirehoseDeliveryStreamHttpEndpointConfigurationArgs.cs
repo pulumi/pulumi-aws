@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
         /// </summary>
-        [Input("accessKey")]
+        [PolicyResourceProperty("accessKey", "_mUnknown_AccessKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKey;
-
-        public string? AccessKey => _mAccessKey.GetValue("accessKey");
+        private string? _mValue_AccessKey;
+        private bool _mUnknown_AccessKey;
+        public string? AccessKey
+        {
+            get
+            {
+                if (!_mUnknown_AccessKey) return _mValue_AccessKey;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.AccessKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
         /// </summary>
-        [Input("bufferingInterval")]
+        [PolicyResourceProperty("bufferingInterval", "_mUnknown_BufferingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingInterval;
-
-        public int? BufferingInterval => _mBufferingInterval.GetValue("bufferingInterval");
+        private int? _mValue_BufferingInterval;
+        private bool _mUnknown_BufferingInterval;
+        public int? BufferingInterval
+        {
+            get
+            {
+                if (!_mUnknown_BufferingInterval) return _mValue_BufferingInterval;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.BufferingInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
         /// </summary>
-        [Input("bufferingSize")]
+        [PolicyResourceProperty("bufferingSize", "_mUnknown_BufferingSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingSize;
-
-        public int? BufferingSize => _mBufferingSize.GetValue("bufferingSize");
+        private int? _mValue_BufferingSize;
+        private bool _mUnknown_BufferingSize;
+        public int? BufferingSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferingSize) return _mValue_BufferingSize;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.BufferingSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
-
-        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP endpoint name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs> _mProcessingConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The request configuration.  See `request_configuration` block below for details.
         /// </summary>
-        [Input("requestConfiguration")]
+        [PolicyResourceProperty("requestConfiguration", "_mUnknown_RequestConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs> _mRequestConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs? RequestConfiguration => _mRequestConfiguration.GetValue("requestConfiguration");
+        private Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs? _mValue_RequestConfiguration;
+        private bool _mUnknown_RequestConfiguration;
+        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs? RequestConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RequestConfiguration) return _mValue_RequestConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.RequestConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
         /// </summary>
-        [Input("retryDuration")]
+        [PolicyResourceProperty("retryDuration", "_mUnknown_RetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryDuration;
-
-        public int? RetryDuration => _mRetryDuration.GetValue("retryDuration");
+        private int? _mValue_RetryDuration;
+        private bool _mUnknown_RetryDuration;
+        public int? RetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_RetryDuration) return _mValue_RetryDuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.RetryDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         /// </summary>
-        [Input("s3BackupMode")]
+        [PolicyResourceProperty("s3BackupMode", "_mUnknown_S3BackupMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BackupMode;
-
-        public string? S3BackupMode => _mS3BackupMode.GetValue("s3BackupMode");
+        private string? _mValue_S3BackupMode;
+        private bool _mUnknown_S3BackupMode;
+        public string? S3BackupMode
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupMode) return _mValue_S3BackupMode;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.S3BackupMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> _mS3Configuration;
-
-        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.S3Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
         /// </summary>
-        [Input("secretsManagerConfiguration")]
+        [PolicyResourceProperty("secretsManagerConfiguration", "_mUnknown_SecretsManagerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs> _mSecretsManagerConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs? SecretsManagerConfiguration => _mSecretsManagerConfiguration.GetValue("secretsManagerConfiguration");
+        private Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs? _mValue_SecretsManagerConfiguration;
+        private bool _mUnknown_SecretsManagerConfiguration;
+        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs? SecretsManagerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerConfiguration) return _mValue_SecretsManagerConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.SecretsManagerConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP endpoint URL to which Kinesis Firehose sends your data.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationArgs.Url' is not present");
+            }
+        }
     }
 }

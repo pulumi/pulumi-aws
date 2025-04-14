@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// <summary>
         /// The ARN of the certificate to attach to the listener.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'ListenerCertificate.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the listener to which to attach the certificate.
         /// </summary>
-        [Input("listenerArn")]
+        [PolicyResourceProperty("listenerArn", "_mUnknown_ListenerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
-
-        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+        private string? _mValue_ListenerArn;
+        private bool _mUnknown_ListenerArn;
+        public string? ListenerArn
+        {
+            get
+            {
+                if (!_mUnknown_ListenerArn) return _mValue_ListenerArn;
+                throw new UndeferrableValueException("Value 'ListenerCertificate.ListenerArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:alb/listenerCertificate:ListenerCertificate")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Alb
         /// <summary>
         /// The ARN of the certificate to attach to the listener.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'ListenerCertificateArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the listener to which to attach the certificate.
         /// </summary>
-        [Input("listenerArn")]
+        [PolicyResourceProperty("listenerArn", "_mUnknown_ListenerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerArn;
-
-        public string? ListenerArn => _mListenerArn.GetValue("listenerArn");
+        private string? _mValue_ListenerArn;
+        private bool _mUnknown_ListenerArn;
+        public string? ListenerArn
+        {
+            get
+            {
+                if (!_mUnknown_ListenerArn) return _mValue_ListenerArn;
+                throw new UndeferrableValueException("Value 'ListenerCertificateArgs.ListenerArn' is not present");
+            }
+        }
     }
 }

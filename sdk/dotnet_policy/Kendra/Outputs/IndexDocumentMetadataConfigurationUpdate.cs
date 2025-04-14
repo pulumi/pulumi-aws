@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
         /// </summary>
-        [Input("relevance")]
+        [PolicyResourceProperty("relevance", "_mUnknown_Relevance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexDocumentMetadataConfigurationUpdateRelevance> _mRelevance;
-
-        public Outputs.IndexDocumentMetadataConfigurationUpdateRelevance? Relevance => _mRelevance.GetValue("relevance");
+        private Outputs.IndexDocumentMetadataConfigurationUpdateRelevance? _mValue_Relevance;
+        private bool _mUnknown_Relevance;
+        public Outputs.IndexDocumentMetadataConfigurationUpdateRelevance? Relevance
+        {
+            get
+            {
+                if (!_mUnknown_Relevance) return _mValue_Relevance;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdate.Relevance' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that provides information about how the field is used during a search. Documented below. Detailed below
         /// </summary>
-        [Input("search")]
+        [PolicyResourceProperty("search", "_mUnknown_Search")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexDocumentMetadataConfigurationUpdateSearch> _mSearch;
-
-        public Outputs.IndexDocumentMetadataConfigurationUpdateSearch? Search => _mSearch.GetValue("search");
+        private Outputs.IndexDocumentMetadataConfigurationUpdateSearch? _mValue_Search;
+        private bool _mUnknown_Search;
+        public Outputs.IndexDocumentMetadataConfigurationUpdateSearch? Search
+        {
+            get
+            {
+                if (!_mUnknown_Search) return _mValue_Search;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdate.Search' is not present");
+            }
+        }
 
         /// <summary>
         /// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdate.Type' is not present");
+            }
+        }
     }
 }

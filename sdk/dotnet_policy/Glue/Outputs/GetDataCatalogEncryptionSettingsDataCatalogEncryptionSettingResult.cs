@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
         /// </summary>
-        [Input("connectionPasswordEncryptions")]
+        [PolicyResourceProperty("connectionPasswordEncryptions", "_mUnknown_ConnectionPasswordEncryptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult>> _mConnectionPasswordEncryptions;
-
-        public List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult>? ConnectionPasswordEncryptions => _mConnectionPasswordEncryptions.GetValue("connectionPasswordEncryptions");
+        private List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult>? _mValue_ConnectionPasswordEncryptions;
+        private bool _mUnknown_ConnectionPasswordEncryptions;
+        public List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult>? ConnectionPasswordEncryptions
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionPasswordEncryptions) return _mValue_ConnectionPasswordEncryptions;
+                throw new UndeferrableValueException("Value 'GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult.ConnectionPasswordEncryptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         /// </summary>
-        [Input("encryptionAtRests")]
+        [PolicyResourceProperty("encryptionAtRests", "_mUnknown_EncryptionAtRests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult>> _mEncryptionAtRests;
-
-        public List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult>? EncryptionAtRests => _mEncryptionAtRests.GetValue("encryptionAtRests");
+        private List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult>? _mValue_EncryptionAtRests;
+        private bool _mUnknown_EncryptionAtRests;
+        public List<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult>? EncryptionAtRests
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAtRests) return _mValue_EncryptionAtRests;
+                throw new UndeferrableValueException("Value 'GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult.EncryptionAtRests' is not present");
+            }
+        }
     }
 }

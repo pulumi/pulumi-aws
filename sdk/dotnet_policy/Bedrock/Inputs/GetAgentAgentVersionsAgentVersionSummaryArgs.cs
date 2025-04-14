@@ -15,62 +15,111 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Name of agent to which the version belongs.
         /// </summary>
-        [Input("agentName")]
+        [PolicyResourceProperty("agentName", "_mUnknown_AgentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentName;
-
-        public string? AgentName => _mAgentName.GetValue("agentName");
+        private string? _mValue_AgentName;
+        private bool _mUnknown_AgentName;
+        public string? AgentName
+        {
+            get
+            {
+                if (!_mUnknown_AgentName) return _mValue_AgentName;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryInputArgs.AgentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the agent to which the version belongs.
         /// </summary>
-        [Input("agentStatus")]
+        [PolicyResourceProperty("agentStatus", "_mUnknown_AgentStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentStatus;
-
-        public string? AgentStatus => _mAgentStatus.GetValue("agentStatus");
+        private string? _mValue_AgentStatus;
+        private bool _mUnknown_AgentStatus;
+        public string? AgentStatus
+        {
+            get
+            {
+                if (!_mUnknown_AgentStatus) return _mValue_AgentStatus;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryInputArgs.AgentStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the agent.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryInputArgs.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the version was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryInputArgs.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the version of the agent.
         /// * `GuardrailConfiguration` - Details aout the guardrail associated with the agent. See Guardrail Configuration
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryInputArgs.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("guardrailConfigurations")]
+        [PolicyResourceProperty("guardrailConfigurations", "_mUnknown_GuardrailConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationInputArgs>> _mGuardrailConfigurations;
-
-        public List<Inputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationInputArgs>? GuardrailConfigurations => _mGuardrailConfigurations.GetValue("guardrailConfigurations");
+        private List<Inputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationInputArgs>? _mValue_GuardrailConfigurations;
+        private bool _mUnknown_GuardrailConfigurations;
+        public List<Inputs.GetAgentAgentVersionsAgentVersionSummaryGuardrailConfigurationInputArgs>? GuardrailConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailConfigurations) return _mValue_GuardrailConfigurations;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryInputArgs.GuardrailConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the version was last updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'GetAgentAgentVersionsAgentVersionSummaryInputArgs.UpdatedAt' is not present");
+            }
+        }
     }
 }

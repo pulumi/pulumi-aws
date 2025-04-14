@@ -16,229 +16,404 @@ namespace Pulumi.PolicyPacks.Aws.Mq
         /// <summary>
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'Broker.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the broker.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Broker.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         /// </summary>
-        [Input("authenticationStrategy")]
+        [PolicyResourceProperty("authenticationStrategy", "_mUnknown_AuthenticationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationStrategy;
-
-        public string? AuthenticationStrategy => _mAuthenticationStrategy.GetValue("authenticationStrategy");
+        private string? _mValue_AuthenticationStrategy;
+        private bool _mUnknown_AuthenticationStrategy;
+        public string? AuthenticationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationStrategy) return _mValue_AuthenticationStrategy;
+                throw new UndeferrableValueException("Value 'Broker.AuthenticationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
-
-        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private bool? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public bool? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'Broker.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the broker.
         /// </summary>
-        [Input("brokerName")]
+        [PolicyResourceProperty("brokerName", "_mUnknown_BrokerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBrokerName;
-
-        public string? BrokerName => _mBrokerName.GetValue("brokerName");
+        private string? _mValue_BrokerName;
+        private bool _mUnknown_BrokerName;
+        public string? BrokerName
+        {
+            get
+            {
+                if (!_mUnknown_BrokerName) return _mValue_BrokerName;
+                throw new UndeferrableValueException("Value 'Broker.BrokerName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerConfiguration> _mConfiguration;
-
-        public Outputs.BrokerConfiguration? Configuration => _mConfiguration.GetValue("configuration");
+        private Outputs.BrokerConfiguration? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Outputs.BrokerConfiguration? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'Broker.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
         /// </summary>
-        [Input("dataReplicationMode")]
+        [PolicyResourceProperty("dataReplicationMode", "_mUnknown_DataReplicationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationMode;
-
-        public string? DataReplicationMode => _mDataReplicationMode.GetValue("dataReplicationMode");
+        private string? _mValue_DataReplicationMode;
+        private bool _mUnknown_DataReplicationMode;
+        public string? DataReplicationMode
+        {
+            get
+            {
+                if (!_mUnknown_DataReplicationMode) return _mValue_DataReplicationMode;
+                throw new UndeferrableValueException("Value 'Broker.DataReplicationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
         /// </summary>
-        [Input("dataReplicationPrimaryBrokerArn")]
+        [PolicyResourceProperty("dataReplicationPrimaryBrokerArn", "_mUnknown_DataReplicationPrimaryBrokerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationPrimaryBrokerArn;
-
-        public string? DataReplicationPrimaryBrokerArn => _mDataReplicationPrimaryBrokerArn.GetValue("dataReplicationPrimaryBrokerArn");
+        private string? _mValue_DataReplicationPrimaryBrokerArn;
+        private bool _mUnknown_DataReplicationPrimaryBrokerArn;
+        public string? DataReplicationPrimaryBrokerArn
+        {
+            get
+            {
+                if (!_mUnknown_DataReplicationPrimaryBrokerArn) return _mValue_DataReplicationPrimaryBrokerArn;
+                throw new UndeferrableValueException("Value 'Broker.DataReplicationPrimaryBrokerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         /// </summary>
-        [Input("deploymentMode")]
+        [PolicyResourceProperty("deploymentMode", "_mUnknown_DeploymentMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentMode;
-
-        public string? DeploymentMode => _mDeploymentMode.GetValue("deploymentMode");
+        private string? _mValue_DeploymentMode;
+        private bool _mUnknown_DeploymentMode;
+        public string? DeploymentMode
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentMode) return _mValue_DeploymentMode;
+                throw new UndeferrableValueException("Value 'Broker.DeploymentMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing encryption options. Detailed below.
         /// </summary>
-        [Input("encryptionOptions")]
+        [PolicyResourceProperty("encryptionOptions", "_mUnknown_EncryptionOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerEncryptionOptions> _mEncryptionOptions;
-
-        public Outputs.BrokerEncryptionOptions? EncryptionOptions => _mEncryptionOptions.GetValue("encryptionOptions");
+        private Outputs.BrokerEncryptionOptions? _mValue_EncryptionOptions;
+        private bool _mUnknown_EncryptionOptions;
+        public Outputs.BrokerEncryptionOptions? EncryptionOptions
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionOptions) return _mValue_EncryptionOptions;
+                throw new UndeferrableValueException("Value 'Broker.EncryptionOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'Broker.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Broker.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         /// </summary>
-        [Input("hostInstanceType")]
+        [PolicyResourceProperty("hostInstanceType", "_mUnknown_HostInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostInstanceType;
-
-        public string? HostInstanceType => _mHostInstanceType.GetValue("hostInstanceType");
+        private string? _mValue_HostInstanceType;
+        private bool _mUnknown_HostInstanceType;
+        public string? HostInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_HostInstanceType) return _mValue_HostInstanceType;
+                throw new UndeferrableValueException("Value 'Broker.HostInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of information about allocated brokers (both active &amp; standby).
         /// </summary>
-        [Input("instances")]
+        [PolicyResourceProperty("instances", "_mUnknown_Instances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BrokerInstance>> _mInstances;
-
-        public List<Outputs.BrokerInstance>? Instances => _mInstances.GetValue("instances");
+        private List<Outputs.BrokerInstance>? _mValue_Instances;
+        private bool _mUnknown_Instances;
+        public List<Outputs.BrokerInstance>? Instances
+        {
+            get
+            {
+                if (!_mUnknown_Instances) return _mValue_Instances;
+                throw new UndeferrableValueException("Value 'Broker.Instances' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
         /// </summary>
-        [Input("ldapServerMetadata")]
+        [PolicyResourceProperty("ldapServerMetadata", "_mUnknown_LdapServerMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerLdapServerMetadata> _mLdapServerMetadata;
-
-        public Outputs.BrokerLdapServerMetadata? LdapServerMetadata => _mLdapServerMetadata.GetValue("ldapServerMetadata");
+        private Outputs.BrokerLdapServerMetadata? _mValue_LdapServerMetadata;
+        private bool _mUnknown_LdapServerMetadata;
+        public Outputs.BrokerLdapServerMetadata? LdapServerMetadata
+        {
+            get
+            {
+                if (!_mUnknown_LdapServerMetadata) return _mValue_LdapServerMetadata;
+                throw new UndeferrableValueException("Value 'Broker.LdapServerMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the logging configuration of the broker. Detailed below.
         /// </summary>
-        [Input("logs")]
+        [PolicyResourceProperty("logs", "_mUnknown_Logs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerLogs> _mLogs;
-
-        public Outputs.BrokerLogs? Logs => _mLogs.GetValue("logs");
+        private Outputs.BrokerLogs? _mValue_Logs;
+        private bool _mUnknown_Logs;
+        public Outputs.BrokerLogs? Logs
+        {
+            get
+            {
+                if (!_mUnknown_Logs) return _mValue_Logs;
+                throw new UndeferrableValueException("Value 'Broker.Logs' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the maintenance window start time. Detailed below.
         /// </summary>
-        [Input("maintenanceWindowStartTime")]
+        [PolicyResourceProperty("maintenanceWindowStartTime", "_mUnknown_MaintenanceWindowStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BrokerMaintenanceWindowStartTime> _mMaintenanceWindowStartTime;
-
-        public Outputs.BrokerMaintenanceWindowStartTime? MaintenanceWindowStartTime => _mMaintenanceWindowStartTime.GetValue("maintenanceWindowStartTime");
+        private Outputs.BrokerMaintenanceWindowStartTime? _mValue_MaintenanceWindowStartTime;
+        private bool _mUnknown_MaintenanceWindowStartTime;
+        public Outputs.BrokerMaintenanceWindowStartTime? MaintenanceWindowStartTime
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindowStartTime) return _mValue_MaintenanceWindowStartTime;
+                throw new UndeferrableValueException("Value 'Broker.MaintenanceWindowStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) The data replication mode that will be applied after reboot.
         /// </summary>
-        [Input("pendingDataReplicationMode")]
+        [PolicyResourceProperty("pendingDataReplicationMode", "_mUnknown_PendingDataReplicationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPendingDataReplicationMode;
-
-        public string? PendingDataReplicationMode => _mPendingDataReplicationMode.GetValue("pendingDataReplicationMode");
+        private string? _mValue_PendingDataReplicationMode;
+        private bool _mUnknown_PendingDataReplicationMode;
+        public string? PendingDataReplicationMode
+        {
+            get
+            {
+                if (!_mUnknown_PendingDataReplicationMode) return _mValue_PendingDataReplicationMode;
+                throw new UndeferrableValueException("Value 'Broker.PendingDataReplicationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'Broker.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs assigned to the broker.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'Broker.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'Broker.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'Broker.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Broker.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Broker.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("users")]
+        [PolicyResourceProperty("users", "_mUnknown_Users")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BrokerUser>> _mUsers;
-
-        public List<Outputs.BrokerUser>? Users => _mUsers.GetValue("users");
+        private List<Outputs.BrokerUser>? _mValue_Users;
+        private bool _mUnknown_Users;
+        public List<Outputs.BrokerUser>? Users
+        {
+            get
+            {
+                if (!_mUnknown_Users) return _mValue_Users;
+                throw new UndeferrableValueException("Value 'Broker.Users' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:mq/broker:Broker")]
@@ -247,192 +422,339 @@ namespace Pulumi.PolicyPacks.Aws.Mq
         /// <summary>
         /// Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'BrokerArgs.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         /// </summary>
-        [Input("authenticationStrategy")]
+        [PolicyResourceProperty("authenticationStrategy", "_mUnknown_AuthenticationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationStrategy;
-
-        public string? AuthenticationStrategy => _mAuthenticationStrategy.GetValue("authenticationStrategy");
+        private string? _mValue_AuthenticationStrategy;
+        private bool _mUnknown_AuthenticationStrategy;
+        public string? AuthenticationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationStrategy) return _mValue_AuthenticationStrategy;
+                throw new UndeferrableValueException("Value 'BrokerArgs.AuthenticationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
-
-        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private bool? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public bool? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'BrokerArgs.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the broker.
         /// </summary>
-        [Input("brokerName")]
+        [PolicyResourceProperty("brokerName", "_mUnknown_BrokerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBrokerName;
-
-        public string? BrokerName => _mBrokerName.GetValue("brokerName");
+        private string? _mValue_BrokerName;
+        private bool _mUnknown_BrokerName;
+        public string? BrokerName
+        {
+            get
+            {
+                if (!_mUnknown_BrokerName) return _mValue_BrokerName;
+                throw new UndeferrableValueException("Value 'BrokerArgs.BrokerName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerConfigurationArgs> _mConfiguration;
-
-        public Inputs.BrokerConfigurationArgs? Configuration => _mConfiguration.GetValue("configuration");
+        private Inputs.BrokerConfigurationArgs? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Inputs.BrokerConfigurationArgs? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'BrokerArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
         /// </summary>
-        [Input("dataReplicationMode")]
+        [PolicyResourceProperty("dataReplicationMode", "_mUnknown_DataReplicationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationMode;
-
-        public string? DataReplicationMode => _mDataReplicationMode.GetValue("dataReplicationMode");
+        private string? _mValue_DataReplicationMode;
+        private bool _mUnknown_DataReplicationMode;
+        public string? DataReplicationMode
+        {
+            get
+            {
+                if (!_mUnknown_DataReplicationMode) return _mValue_DataReplicationMode;
+                throw new UndeferrableValueException("Value 'BrokerArgs.DataReplicationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
         /// </summary>
-        [Input("dataReplicationPrimaryBrokerArn")]
+        [PolicyResourceProperty("dataReplicationPrimaryBrokerArn", "_mUnknown_DataReplicationPrimaryBrokerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataReplicationPrimaryBrokerArn;
-
-        public string? DataReplicationPrimaryBrokerArn => _mDataReplicationPrimaryBrokerArn.GetValue("dataReplicationPrimaryBrokerArn");
+        private string? _mValue_DataReplicationPrimaryBrokerArn;
+        private bool _mUnknown_DataReplicationPrimaryBrokerArn;
+        public string? DataReplicationPrimaryBrokerArn
+        {
+            get
+            {
+                if (!_mUnknown_DataReplicationPrimaryBrokerArn) return _mValue_DataReplicationPrimaryBrokerArn;
+                throw new UndeferrableValueException("Value 'BrokerArgs.DataReplicationPrimaryBrokerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         /// </summary>
-        [Input("deploymentMode")]
+        [PolicyResourceProperty("deploymentMode", "_mUnknown_DeploymentMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentMode;
-
-        public string? DeploymentMode => _mDeploymentMode.GetValue("deploymentMode");
+        private string? _mValue_DeploymentMode;
+        private bool _mUnknown_DeploymentMode;
+        public string? DeploymentMode
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentMode) return _mValue_DeploymentMode;
+                throw new UndeferrableValueException("Value 'BrokerArgs.DeploymentMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing encryption options. Detailed below.
         /// </summary>
-        [Input("encryptionOptions")]
+        [PolicyResourceProperty("encryptionOptions", "_mUnknown_EncryptionOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerEncryptionOptionsArgs> _mEncryptionOptions;
-
-        public Inputs.BrokerEncryptionOptionsArgs? EncryptionOptions => _mEncryptionOptions.GetValue("encryptionOptions");
+        private Inputs.BrokerEncryptionOptionsArgs? _mValue_EncryptionOptions;
+        private bool _mUnknown_EncryptionOptions;
+        public Inputs.BrokerEncryptionOptionsArgs? EncryptionOptions
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionOptions) return _mValue_EncryptionOptions;
+                throw new UndeferrableValueException("Value 'BrokerArgs.EncryptionOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'BrokerArgs.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'BrokerArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
         /// </summary>
-        [Input("hostInstanceType")]
+        [PolicyResourceProperty("hostInstanceType", "_mUnknown_HostInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostInstanceType;
-
-        public string? HostInstanceType => _mHostInstanceType.GetValue("hostInstanceType");
+        private string? _mValue_HostInstanceType;
+        private bool _mUnknown_HostInstanceType;
+        public string? HostInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_HostInstanceType) return _mValue_HostInstanceType;
+                throw new UndeferrableValueException("Value 'BrokerArgs.HostInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
         /// </summary>
-        [Input("ldapServerMetadata")]
+        [PolicyResourceProperty("ldapServerMetadata", "_mUnknown_LdapServerMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerLdapServerMetadataArgs> _mLdapServerMetadata;
-
-        public Inputs.BrokerLdapServerMetadataArgs? LdapServerMetadata => _mLdapServerMetadata.GetValue("ldapServerMetadata");
+        private Inputs.BrokerLdapServerMetadataArgs? _mValue_LdapServerMetadata;
+        private bool _mUnknown_LdapServerMetadata;
+        public Inputs.BrokerLdapServerMetadataArgs? LdapServerMetadata
+        {
+            get
+            {
+                if (!_mUnknown_LdapServerMetadata) return _mValue_LdapServerMetadata;
+                throw new UndeferrableValueException("Value 'BrokerArgs.LdapServerMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the logging configuration of the broker. Detailed below.
         /// </summary>
-        [Input("logs")]
+        [PolicyResourceProperty("logs", "_mUnknown_Logs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerLogsArgs> _mLogs;
-
-        public Inputs.BrokerLogsArgs? Logs => _mLogs.GetValue("logs");
+        private Inputs.BrokerLogsArgs? _mValue_Logs;
+        private bool _mUnknown_Logs;
+        public Inputs.BrokerLogsArgs? Logs
+        {
+            get
+            {
+                if (!_mUnknown_Logs) return _mValue_Logs;
+                throw new UndeferrableValueException("Value 'BrokerArgs.Logs' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the maintenance window start time. Detailed below.
         /// </summary>
-        [Input("maintenanceWindowStartTime")]
+        [PolicyResourceProperty("maintenanceWindowStartTime", "_mUnknown_MaintenanceWindowStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BrokerMaintenanceWindowStartTimeArgs> _mMaintenanceWindowStartTime;
-
-        public Inputs.BrokerMaintenanceWindowStartTimeArgs? MaintenanceWindowStartTime => _mMaintenanceWindowStartTime.GetValue("maintenanceWindowStartTime");
+        private Inputs.BrokerMaintenanceWindowStartTimeArgs? _mValue_MaintenanceWindowStartTime;
+        private bool _mUnknown_MaintenanceWindowStartTime;
+        public Inputs.BrokerMaintenanceWindowStartTimeArgs? MaintenanceWindowStartTime
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindowStartTime) return _mValue_MaintenanceWindowStartTime;
+                throw new UndeferrableValueException("Value 'BrokerArgs.MaintenanceWindowStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'BrokerArgs.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs assigned to the broker.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'BrokerArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'BrokerArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'BrokerArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BrokerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("users")]
+        [PolicyResourceProperty("users", "_mUnknown_Users")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BrokerUserArgs>> _mUsers;
-
-        public List<Inputs.BrokerUserArgs>? Users => _mUsers.GetValue("users");
+        private List<Inputs.BrokerUserArgs>? _mValue_Users;
+        private bool _mUnknown_Users;
+        public List<Inputs.BrokerUserArgs>? Users
+        {
+            get
+            {
+                if (!_mUnknown_Users) return _mValue_Users;
+                throw new UndeferrableValueException("Value 'BrokerArgs.Users' is not present");
+            }
+        }
     }
 }

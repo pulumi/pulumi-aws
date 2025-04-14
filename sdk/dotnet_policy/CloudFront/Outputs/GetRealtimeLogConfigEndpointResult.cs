@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// (Required) Amazon Kinesis data stream configuration.
         /// </summary>
-        [Input("kinesisStreamConfigs")]
+        [PolicyResourceProperty("kinesisStreamConfigs", "_mUnknown_KinesisStreamConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult>> _mKinesisStreamConfigs;
-
-        public List<Outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult>? KinesisStreamConfigs => _mKinesisStreamConfigs.GetValue("kinesisStreamConfigs");
+        private List<Outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult>? _mValue_KinesisStreamConfigs;
+        private bool _mUnknown_KinesisStreamConfigs;
+        public List<Outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult>? KinesisStreamConfigs
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamConfigs) return _mValue_KinesisStreamConfigs;
+                throw new UndeferrableValueException("Value 'GetRealtimeLogConfigEndpointResult.KinesisStreamConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         /// </summary>
-        [Input("streamType")]
+        [PolicyResourceProperty("streamType", "_mUnknown_StreamType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamType;
-
-        public string? StreamType => _mStreamType.GetValue("streamType");
+        private string? _mValue_StreamType;
+        private bool _mUnknown_StreamType;
+        public string? StreamType
+        {
+            get
+            {
+                if (!_mUnknown_StreamType) return _mValue_StreamType;
+                throw new UndeferrableValueException("Value 'GetRealtimeLogConfigEndpointResult.StreamType' is not present");
+            }
+        }
     }
 }

@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Macie
         /// <summary>
         /// The Amazon Resource Name (ARN) of the custom data identifier.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
         /// </summary>
-        [Input("ignoreWords")]
+        [PolicyResourceProperty("ignoreWords", "_mUnknown_IgnoreWords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIgnoreWords;
-
-        public List<string>? IgnoreWords => _mIgnoreWords.GetValue("ignoreWords");
+        private List<string>? _mValue_IgnoreWords;
+        private bool _mUnknown_IgnoreWords;
+        public List<string>? IgnoreWords
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreWords) return _mValue_IgnoreWords;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.IgnoreWords' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
         /// </summary>
-        [Input("keywords")]
+        [PolicyResourceProperty("keywords", "_mUnknown_Keywords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeywords;
-
-        public List<string>? Keywords => _mKeywords.GetValue("keywords");
+        private List<string>? _mValue_Keywords;
+        private bool _mUnknown_Keywords;
+        public List<string>? Keywords
+        {
+            get
+            {
+                if (!_mUnknown_Keywords) return _mValue_Keywords;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.Keywords' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
         /// </summary>
-        [Input("maximumMatchDistance")]
+        [PolicyResourceProperty("maximumMatchDistance", "_mUnknown_MaximumMatchDistance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMatchDistance;
-
-        public int? MaximumMatchDistance => _mMaximumMatchDistance.GetValue("maximumMatchDistance");
+        private int? _mValue_MaximumMatchDistance;
+        private bool _mUnknown_MaximumMatchDistance;
+        public int? MaximumMatchDistance
+        {
+            get
+            {
+                if (!_mUnknown_MaximumMatchDistance) return _mValue_MaximumMatchDistance;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.MaximumMatchDistance' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
         /// </summary>
-        [Input("regex")]
+        [PolicyResourceProperty("regex", "_mUnknown_Regex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegex;
-
-        public string? Regex => _mRegex.GetValue("regex");
+        private string? _mValue_Regex;
+        private bool _mUnknown_Regex;
+        public string? Regex
+        {
+            get
+            {
+                if (!_mUnknown_Regex) return _mValue_Regex;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.Regex' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifier.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:macie/customDataIdentifier:CustomDataIdentifier")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.Macie
         /// <summary>
         /// A custom description of the custom data identifier. The description can contain as many as 512 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
         /// </summary>
-        [Input("ignoreWords")]
+        [PolicyResourceProperty("ignoreWords", "_mUnknown_IgnoreWords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIgnoreWords;
-
-        public List<string>? IgnoreWords => _mIgnoreWords.GetValue("ignoreWords");
+        private List<string>? _mValue_IgnoreWords;
+        private bool _mUnknown_IgnoreWords;
+        public List<string>? IgnoreWords
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreWords) return _mValue_IgnoreWords;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.IgnoreWords' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.
         /// </summary>
-        [Input("keywords")]
+        [PolicyResourceProperty("keywords", "_mUnknown_Keywords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeywords;
-
-        public List<string>? Keywords => _mKeywords.GetValue("keywords");
+        private List<string>? _mValue_Keywords;
+        private bool _mUnknown_Keywords;
+        public List<string>? Keywords
+        {
+            get
+            {
+                if (!_mUnknown_Keywords) return _mValue_Keywords;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.Keywords' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
         /// </summary>
-        [Input("maximumMatchDistance")]
+        [PolicyResourceProperty("maximumMatchDistance", "_mUnknown_MaximumMatchDistance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumMatchDistance;
-
-        public int? MaximumMatchDistance => _mMaximumMatchDistance.GetValue("maximumMatchDistance");
+        private int? _mValue_MaximumMatchDistance;
+        private bool _mUnknown_MaximumMatchDistance;
+        public int? MaximumMatchDistance
+        {
+            get
+            {
+                if (!_mUnknown_MaximumMatchDistance) return _mValue_MaximumMatchDistance;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.MaximumMatchDistance' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
         /// </summary>
-        [Input("regex")]
+        [PolicyResourceProperty("regex", "_mUnknown_Regex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegex;
-
-        public string? Regex => _mRegex.GetValue("regex");
+        private string? _mValue_Regex;
+        private bool _mUnknown_Regex;
+        public string? Regex
+        {
+            get
+            {
+                if (!_mUnknown_Regex) return _mValue_Regex;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.Regex' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.Tags' is not present");
+            }
+        }
     }
 }

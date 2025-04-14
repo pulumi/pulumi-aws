@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces.Outputs
         /// <summary>
         /// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
         /// </summary>
-        [Input("computeTypeName")]
+        [PolicyResourceProperty("computeTypeName", "_mUnknown_ComputeTypeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeTypeName;
-
-        public string? ComputeTypeName => _mComputeTypeName.GetValue("computeTypeName");
+        private string? _mValue_ComputeTypeName;
+        private bool _mUnknown_ComputeTypeName;
+        public string? ComputeTypeName
+        {
+            get
+            {
+                if (!_mUnknown_ComputeTypeName) return _mValue_ComputeTypeName;
+                throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.ComputeTypeName' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the root volume.
         /// </summary>
-        [Input("rootVolumeSizeGib")]
+        [PolicyResourceProperty("rootVolumeSizeGib", "_mUnknown_RootVolumeSizeGib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRootVolumeSizeGib;
-
-        public int? RootVolumeSizeGib => _mRootVolumeSizeGib.GetValue("rootVolumeSizeGib");
+        private int? _mValue_RootVolumeSizeGib;
+        private bool _mUnknown_RootVolumeSizeGib;
+        public int? RootVolumeSizeGib
+        {
+            get
+            {
+                if (!_mUnknown_RootVolumeSizeGib) return _mValue_RootVolumeSizeGib;
+                throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.RootVolumeSizeGib' is not present");
+            }
+        }
 
         /// <summary>
         /// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
         /// </summary>
-        [Input("runningMode")]
+        [PolicyResourceProperty("runningMode", "_mUnknown_RunningMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRunningMode;
-
-        public string? RunningMode => _mRunningMode.GetValue("runningMode");
+        private string? _mValue_RunningMode;
+        private bool _mUnknown_RunningMode;
+        public string? RunningMode
+        {
+            get
+            {
+                if (!_mUnknown_RunningMode) return _mValue_RunningMode;
+                throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.RunningMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
         /// </summary>
-        [Input("runningModeAutoStopTimeoutInMinutes")]
+        [PolicyResourceProperty("runningModeAutoStopTimeoutInMinutes", "_mUnknown_RunningModeAutoStopTimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunningModeAutoStopTimeoutInMinutes;
-
-        public int? RunningModeAutoStopTimeoutInMinutes => _mRunningModeAutoStopTimeoutInMinutes.GetValue("runningModeAutoStopTimeoutInMinutes");
+        private int? _mValue_RunningModeAutoStopTimeoutInMinutes;
+        private bool _mUnknown_RunningModeAutoStopTimeoutInMinutes;
+        public int? RunningModeAutoStopTimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_RunningModeAutoStopTimeoutInMinutes) return _mValue_RunningModeAutoStopTimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.RunningModeAutoStopTimeoutInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the user storage.
         /// </summary>
-        [Input("userVolumeSizeGib")]
+        [PolicyResourceProperty("userVolumeSizeGib", "_mUnknown_UserVolumeSizeGib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUserVolumeSizeGib;
-
-        public int? UserVolumeSizeGib => _mUserVolumeSizeGib.GetValue("userVolumeSizeGib");
+        private int? _mValue_UserVolumeSizeGib;
+        private bool _mUnknown_UserVolumeSizeGib;
+        public int? UserVolumeSizeGib
+        {
+            get
+            {
+                if (!_mUnknown_UserVolumeSizeGib) return _mValue_UserVolumeSizeGib;
+                throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.UserVolumeSizeGib' is not present");
+            }
+        }
     }
 }

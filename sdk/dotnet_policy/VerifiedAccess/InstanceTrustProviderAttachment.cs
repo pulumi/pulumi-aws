@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
-        [Input("verifiedaccessInstanceId")]
+        [PolicyResourceProperty("verifiedaccessInstanceId", "_mUnknown_VerifiedaccessInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
-
-        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+        private string? _mValue_VerifiedaccessInstanceId;
+        private bool _mUnknown_VerifiedaccessInstanceId;
+        public string? VerifiedaccessInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessInstanceId) return _mValue_VerifiedaccessInstanceId;
+                throw new UndeferrableValueException("Value 'InstanceTrustProviderAttachment.VerifiedaccessInstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Verified Access trust provider.
         /// </summary>
-        [Input("verifiedaccessTrustProviderId")]
+        [PolicyResourceProperty("verifiedaccessTrustProviderId", "_mUnknown_VerifiedaccessTrustProviderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessTrustProviderId;
-
-        public string? VerifiedaccessTrustProviderId => _mVerifiedaccessTrustProviderId.GetValue("verifiedaccessTrustProviderId");
+        private string? _mValue_VerifiedaccessTrustProviderId;
+        private bool _mUnknown_VerifiedaccessTrustProviderId;
+        public string? VerifiedaccessTrustProviderId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessTrustProviderId) return _mValue_VerifiedaccessTrustProviderId;
+                throw new UndeferrableValueException("Value 'InstanceTrustProviderAttachment.VerifiedaccessTrustProviderId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         /// </summary>
-        [Input("verifiedaccessInstanceId")]
+        [PolicyResourceProperty("verifiedaccessInstanceId", "_mUnknown_VerifiedaccessInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
-
-        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+        private string? _mValue_VerifiedaccessInstanceId;
+        private bool _mUnknown_VerifiedaccessInstanceId;
+        public string? VerifiedaccessInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessInstanceId) return _mValue_VerifiedaccessInstanceId;
+                throw new UndeferrableValueException("Value 'InstanceTrustProviderAttachmentArgs.VerifiedaccessInstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Verified Access trust provider.
         /// </summary>
-        [Input("verifiedaccessTrustProviderId")]
+        [PolicyResourceProperty("verifiedaccessTrustProviderId", "_mUnknown_VerifiedaccessTrustProviderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessTrustProviderId;
-
-        public string? VerifiedaccessTrustProviderId => _mVerifiedaccessTrustProviderId.GetValue("verifiedaccessTrustProviderId");
+        private string? _mValue_VerifiedaccessTrustProviderId;
+        private bool _mUnknown_VerifiedaccessTrustProviderId;
+        public string? VerifiedaccessTrustProviderId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessTrustProviderId) return _mValue_VerifiedaccessTrustProviderId;
+                throw new UndeferrableValueException("Value 'InstanceTrustProviderAttachmentArgs.VerifiedaccessTrustProviderId' is not present");
+            }
+        }
     }
 }

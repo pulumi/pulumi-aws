@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'FlowDefinitionOutputConfig.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 path where the object containing human output will be made available.
         /// </summary>
-        [Input("s3OutputPath")]
+        [PolicyResourceProperty("s3OutputPath", "_mUnknown_S3OutputPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3OutputPath;
-
-        public string? S3OutputPath => _mS3OutputPath.GetValue("s3OutputPath");
+        private string? _mValue_S3OutputPath;
+        private bool _mUnknown_S3OutputPath;
+        public string? S3OutputPath
+        {
+            get
+            {
+                if (!_mUnknown_S3OutputPath) return _mValue_S3OutputPath;
+                throw new UndeferrableValueException("Value 'FlowDefinitionOutputConfig.S3OutputPath' is not present");
+            }
+        }
     }
 }

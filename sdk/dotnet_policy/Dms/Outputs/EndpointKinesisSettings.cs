@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
         /// <summary>
         /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
         /// </summary>
-        [Input("includeControlDetails")]
+        [PolicyResourceProperty("includeControlDetails", "_mUnknown_IncludeControlDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeControlDetails;
-
-        public bool? IncludeControlDetails => _mIncludeControlDetails.GetValue("includeControlDetails");
+        private bool? _mValue_IncludeControlDetails;
+        private bool _mUnknown_IncludeControlDetails;
+        public bool? IncludeControlDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeControlDetails) return _mValue_IncludeControlDetails;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.IncludeControlDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Include NULL and empty columns in the target. Default is `false`.
         /// </summary>
-        [Input("includeNullAndEmpty")]
+        [PolicyResourceProperty("includeNullAndEmpty", "_mUnknown_IncludeNullAndEmpty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeNullAndEmpty;
-
-        public bool? IncludeNullAndEmpty => _mIncludeNullAndEmpty.GetValue("includeNullAndEmpty");
+        private bool? _mValue_IncludeNullAndEmpty;
+        private bool _mUnknown_IncludeNullAndEmpty;
+        public bool? IncludeNullAndEmpty
+        {
+            get
+            {
+                if (!_mUnknown_IncludeNullAndEmpty) return _mValue_IncludeNullAndEmpty;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.IncludeNullAndEmpty' is not present");
+            }
+        }
 
         /// <summary>
         /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         /// </summary>
-        [Input("includePartitionValue")]
+        [PolicyResourceProperty("includePartitionValue", "_mUnknown_IncludePartitionValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludePartitionValue;
-
-        public bool? IncludePartitionValue => _mIncludePartitionValue.GetValue("includePartitionValue");
+        private bool? _mValue_IncludePartitionValue;
+        private bool _mUnknown_IncludePartitionValue;
+        public bool? IncludePartitionValue
+        {
+            get
+            {
+                if (!_mUnknown_IncludePartitionValue) return _mValue_IncludePartitionValue;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.IncludePartitionValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         /// </summary>
-        [Input("includeTableAlterOperations")]
+        [PolicyResourceProperty("includeTableAlterOperations", "_mUnknown_IncludeTableAlterOperations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTableAlterOperations;
-
-        public bool? IncludeTableAlterOperations => _mIncludeTableAlterOperations.GetValue("includeTableAlterOperations");
+        private bool? _mValue_IncludeTableAlterOperations;
+        private bool _mUnknown_IncludeTableAlterOperations;
+        public bool? IncludeTableAlterOperations
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTableAlterOperations) return _mValue_IncludeTableAlterOperations;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.IncludeTableAlterOperations' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides detailed transaction information from the source database. Default is `false`.
         /// </summary>
-        [Input("includeTransactionDetails")]
+        [PolicyResourceProperty("includeTransactionDetails", "_mUnknown_IncludeTransactionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTransactionDetails;
-
-        public bool? IncludeTransactionDetails => _mIncludeTransactionDetails.GetValue("includeTransactionDetails");
+        private bool? _mValue_IncludeTransactionDetails;
+        private bool _mUnknown_IncludeTransactionDetails;
+        public bool? IncludeTransactionDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTransactionDetails) return _mValue_IncludeTransactionDetails;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.IncludeTransactionDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         /// </summary>
-        [Input("messageFormat")]
+        [PolicyResourceProperty("messageFormat", "_mUnknown_MessageFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageFormat;
-
-        public string? MessageFormat => _mMessageFormat.GetValue("messageFormat");
+        private string? _mValue_MessageFormat;
+        private bool _mUnknown_MessageFormat;
+        public string? MessageFormat
+        {
+            get
+            {
+                if (!_mUnknown_MessageFormat) return _mValue_MessageFormat;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.MessageFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         /// </summary>
-        [Input("partitionIncludeSchemaTable")]
+        [PolicyResourceProperty("partitionIncludeSchemaTable", "_mUnknown_PartitionIncludeSchemaTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPartitionIncludeSchemaTable;
-
-        public bool? PartitionIncludeSchemaTable => _mPartitionIncludeSchemaTable.GetValue("partitionIncludeSchemaTable");
+        private bool? _mValue_PartitionIncludeSchemaTable;
+        private bool _mUnknown_PartitionIncludeSchemaTable;
+        public bool? PartitionIncludeSchemaTable
+        {
+            get
+            {
+                if (!_mUnknown_PartitionIncludeSchemaTable) return _mValue_PartitionIncludeSchemaTable;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.PartitionIncludeSchemaTable' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM Role with permissions to write to the Kinesis data stream.
         /// </summary>
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
-
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.ServiceAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Kinesis data stream.
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'EndpointKinesisSettings.StreamArn' is not present");
+            }
+        }
     }
 }

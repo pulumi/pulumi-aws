@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         /// </summary>
-        [Input("matchPattern")]
+        [PolicyResourceProperty("matchPattern", "_mUnknown_MatchPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs> _mMatchPattern;
-
-        public Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs? MatchPattern => _mMatchPattern.GetValue("matchPattern");
+        private Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs? _mValue_MatchPattern;
+        private bool _mUnknown_MatchPattern;
+        public Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs? MatchPattern
+        {
+            get
+            {
+                if (!_mUnknown_MatchPattern) return _mValue_MatchPattern;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs.MatchPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         /// </summary>
-        [Input("matchScope")]
+        [PolicyResourceProperty("matchScope", "_mUnknown_MatchScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMatchScope;
-
-        public string? MatchScope => _mMatchScope.GetValue("matchScope");
+        private string? _mValue_MatchScope;
+        private bool _mUnknown_MatchScope;
+        public string? MatchScope
+        {
+            get
+            {
+                if (!_mUnknown_MatchScope) return _mValue_MatchScope;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs.MatchScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         /// </summary>
-        [Input("oversizeHandling")]
+        [PolicyResourceProperty("oversizeHandling", "_mUnknown_OversizeHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOversizeHandling;
-
-        public string? OversizeHandling => _mOversizeHandling.GetValue("oversizeHandling");
+        private string? _mValue_OversizeHandling;
+        private bool _mUnknown_OversizeHandling;
+        public string? OversizeHandling
+        {
+            get
+            {
+                if (!_mUnknown_OversizeHandling) return _mValue_OversizeHandling;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs.OversizeHandling' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
         /// </summary>
-        [Input("pattern")]
+        [PolicyResourceProperty("pattern", "_mUnknown_Pattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
-
-        public string? Pattern => _mPattern.GetValue("pattern");
+        private string? _mValue_Pattern;
+        private bool _mUnknown_Pattern;
+        public string? Pattern
+        {
+            get
+            {
+                if (!_mUnknown_Pattern) return _mValue_Pattern;
+                throw new UndeferrableValueException("Value 'EventSourceMappingFilterCriteriaFilterArgs.Pattern' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Outputs
         /// <summary>
         /// Container to specify sizing of a node type.
         /// </summary>
-        [Input("nodeConfig")]
+        [PolicyResourceProperty("nodeConfig", "_mUnknown_NodeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainClusterConfigNodeOptionNodeConfig> _mNodeConfig;
-
-        public Outputs.DomainClusterConfigNodeOptionNodeConfig? NodeConfig => _mNodeConfig.GetValue("nodeConfig");
+        private Outputs.DomainClusterConfigNodeOptionNodeConfig? _mValue_NodeConfig;
+        private bool _mUnknown_NodeConfig;
+        public Outputs.DomainClusterConfigNodeOptionNodeConfig? NodeConfig
+        {
+            get
+            {
+                if (!_mUnknown_NodeConfig) return _mValue_NodeConfig;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigNodeOption.NodeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of node this configuration describes. Valid values: `coordinator`.
         /// </summary>
-        [Input("nodeType")]
+        [PolicyResourceProperty("nodeType", "_mUnknown_NodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeType;
-
-        public string? NodeType => _mNodeType.GetValue("nodeType");
+        private string? _mValue_NodeType;
+        private bool _mUnknown_NodeType;
+        public string? NodeType
+        {
+            get
+            {
+                if (!_mUnknown_NodeType) return _mValue_NodeType;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigNodeOption.NodeType' is not present");
+            }
+        }
     }
 }

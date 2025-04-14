@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// The field to apply the placement strategy against.
         /// </summary>
-        [Input("field")]
+        [PolicyResourceProperty("field", "_mUnknown_Field")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mField;
-
-        public string? Field => _mField.GetValue("field");
+        private string? _mValue_Field;
+        private bool _mUnknown_Field;
+        public string? Field
+        {
+            get
+            {
+                if (!_mUnknown_Field) return _mValue_Field;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionPlacementStrategyInputArgs.Field' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of placement strategy. Valid values are `random`, `spread`, and `binpack`.
         /// 
         /// For more information, see the [Placement Strategy](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PlacementStrategy.html) documentation.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionPlacementStrategyInputArgs.Type' is not present");
+            }
+        }
     }
 }

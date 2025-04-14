@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
         /// </summary>
-        [Input("crawlState")]
+        [PolicyResourceProperty("crawlState", "_mUnknown_CrawlState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCrawlState;
-
-        public string? CrawlState => _mCrawlState.GetValue("crawlState");
+        private string? _mValue_CrawlState;
+        private bool _mUnknown_CrawlState;
+        public string? CrawlState
+        {
+            get
+            {
+                if (!_mUnknown_CrawlState) return _mValue_CrawlState;
+                throw new UndeferrableValueException("Value 'TriggerPredicateCondition.CrawlState' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
         /// </summary>
-        [Input("crawlerName")]
+        [PolicyResourceProperty("crawlerName", "_mUnknown_CrawlerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCrawlerName;
-
-        public string? CrawlerName => _mCrawlerName.GetValue("crawlerName");
+        private string? _mValue_CrawlerName;
+        private bool _mUnknown_CrawlerName;
+        public string? CrawlerName
+        {
+            get
+            {
+                if (!_mUnknown_CrawlerName) return _mValue_CrawlerName;
+                throw new UndeferrableValueException("Value 'TriggerPredicateCondition.CrawlerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
         /// </summary>
-        [Input("jobName")]
+        [PolicyResourceProperty("jobName", "_mUnknown_JobName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
-
-        public string? JobName => _mJobName.GetValue("jobName");
+        private string? _mValue_JobName;
+        private bool _mUnknown_JobName;
+        public string? JobName
+        {
+            get
+            {
+                if (!_mUnknown_JobName) return _mValue_JobName;
+                throw new UndeferrableValueException("Value 'TriggerPredicateCondition.JobName' is not present");
+            }
+        }
 
         /// <summary>
         /// A logical operator. Defaults to `EQUALS`.
         /// </summary>
-        [Input("logicalOperator")]
+        [PolicyResourceProperty("logicalOperator", "_mUnknown_LogicalOperator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogicalOperator;
-
-        public string? LogicalOperator => _mLogicalOperator.GetValue("logicalOperator");
+        private string? _mValue_LogicalOperator;
+        private bool _mUnknown_LogicalOperator;
+        public string? LogicalOperator
+        {
+            get
+            {
+                if (!_mUnknown_LogicalOperator) return _mValue_LogicalOperator;
+                throw new UndeferrableValueException("Value 'TriggerPredicateCondition.LogicalOperator' is not present");
+            }
+        }
 
         /// <summary>
         /// The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'TriggerPredicateCondition.State' is not present");
+            }
+        }
     }
 }

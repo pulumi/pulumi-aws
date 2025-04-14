@@ -17,64 +17,106 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend.Outputs
         /// See the `annotations` Configuration Block section below.
         /// One of `annotations` or `entity_list` is required.
         /// </summary>
-        [Input("annotations")]
+        [PolicyResourceProperty("annotations", "_mUnknown_Annotations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EntityRecognizerInputDataConfigAnnotations> _mAnnotations;
-
-        public Outputs.EntityRecognizerInputDataConfigAnnotations? Annotations => _mAnnotations.GetValue("annotations");
+        private Outputs.EntityRecognizerInputDataConfigAnnotations? _mValue_Annotations;
+        private bool _mUnknown_Annotations;
+        public Outputs.EntityRecognizerInputDataConfigAnnotations? Annotations
+        {
+            get
+            {
+                if (!_mUnknown_Annotations) return _mValue_Annotations;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfig.Annotations' is not present");
+            }
+        }
 
         /// <summary>
         /// List of training datasets produced by Amazon SageMaker AI Ground Truth.
         /// Used if `data_format` is `AUGMENTED_MANIFEST`.
         /// See the `augmented_manifests` Configuration Block section below.
         /// </summary>
-        [Input("augmentedManifests")]
+        [PolicyResourceProperty("augmentedManifests", "_mUnknown_AugmentedManifests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EntityRecognizerInputDataConfigAugmentedManifest>> _mAugmentedManifests;
-
-        public List<Outputs.EntityRecognizerInputDataConfigAugmentedManifest>? AugmentedManifests => _mAugmentedManifests.GetValue("augmentedManifests");
+        private List<Outputs.EntityRecognizerInputDataConfigAugmentedManifest>? _mValue_AugmentedManifests;
+        private bool _mUnknown_AugmentedManifests;
+        public List<Outputs.EntityRecognizerInputDataConfigAugmentedManifest>? AugmentedManifests
+        {
+            get
+            {
+                if (!_mUnknown_AugmentedManifests) return _mValue_AugmentedManifests;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfig.AugmentedManifests' is not present");
+            }
+        }
 
         /// <summary>
         /// The format for the training data.
         /// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
         /// </summary>
-        [Input("dataFormat")]
+        [PolicyResourceProperty("dataFormat", "_mUnknown_DataFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
-
-        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
+        private string? _mValue_DataFormat;
+        private bool _mUnknown_DataFormat;
+        public string? DataFormat
+        {
+            get
+            {
+                if (!_mUnknown_DataFormat) return _mValue_DataFormat;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfig.DataFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a collection of training documents.
         /// Used if `data_format` is `COMPREHEND_CSV`.
         /// See the `documents` Configuration Block section below.
         /// </summary>
-        [Input("documents")]
+        [PolicyResourceProperty("documents", "_mUnknown_Documents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EntityRecognizerInputDataConfigDocuments> _mDocuments;
-
-        public Outputs.EntityRecognizerInputDataConfigDocuments? Documents => _mDocuments.GetValue("documents");
+        private Outputs.EntityRecognizerInputDataConfigDocuments? _mValue_Documents;
+        private bool _mUnknown_Documents;
+        public Outputs.EntityRecognizerInputDataConfigDocuments? Documents
+        {
+            get
+            {
+                if (!_mUnknown_Documents) return _mValue_Documents;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfig.Documents' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies location of the entity list data.
         /// See the `entity_list` Configuration Block section below.
         /// One of `entity_list` or `annotations` is required.
         /// </summary>
-        [Input("entityList")]
+        [PolicyResourceProperty("entityList", "_mUnknown_EntityList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EntityRecognizerInputDataConfigEntityList> _mEntityList;
-
-        public Outputs.EntityRecognizerInputDataConfigEntityList? EntityList => _mEntityList.GetValue("entityList");
+        private Outputs.EntityRecognizerInputDataConfigEntityList? _mValue_EntityList;
+        private bool _mUnknown_EntityList;
+        public Outputs.EntityRecognizerInputDataConfigEntityList? EntityList
+        {
+            get
+            {
+                if (!_mUnknown_EntityList) return _mValue_EntityList;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfig.EntityList' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of entity types to be recognized.
         /// Has a maximum of 25 items.
         /// See the `entity_types` Configuration Block section below.
         /// </summary>
-        [Input("entityTypes")]
+        [PolicyResourceProperty("entityTypes", "_mUnknown_EntityTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EntityRecognizerInputDataConfigEntityType>> _mEntityTypes;
-
-        public List<Outputs.EntityRecognizerInputDataConfigEntityType>? EntityTypes => _mEntityTypes.GetValue("entityTypes");
+        private List<Outputs.EntityRecognizerInputDataConfigEntityType>? _mValue_EntityTypes;
+        private bool _mUnknown_EntityTypes;
+        public List<Outputs.EntityRecognizerInputDataConfigEntityType>? EntityTypes
+        {
+            get
+            {
+                if (!_mUnknown_EntityTypes) return _mValue_EntityTypes;
+                throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfig.EntityTypes' is not present");
+            }
+        }
     }
 }

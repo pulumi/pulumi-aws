@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesS3Args
     {
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3Args.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3Args.BucketPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
         /// </summary>
-        [Input("s3InputFormatConfig")]
+        [PolicyResourceProperty("s3InputFormatConfig", "_mUnknown_S3InputFormatConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs> _mS3InputFormatConfig;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs? S3InputFormatConfig => _mS3InputFormatConfig.GetValue("s3InputFormatConfig");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs? _mValue_S3InputFormatConfig;
+        private bool _mUnknown_S3InputFormatConfig;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs? S3InputFormatConfig
+        {
+            get
+            {
+                if (!_mUnknown_S3InputFormatConfig) return _mValue_S3InputFormatConfig;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3Args.S3InputFormatConfig' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
         /// </summary>
-        [Input("cloudwatchLogsLogDestination")]
+        [PolicyResourceProperty("cloudwatchLogsLogDestination", "_mUnknown_CloudwatchLogsLogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeLogConfigurationCloudwatchLogsLogDestination> _mCloudwatchLogsLogDestination;
-
-        public Outputs.PipeLogConfigurationCloudwatchLogsLogDestination? CloudwatchLogsLogDestination => _mCloudwatchLogsLogDestination.GetValue("cloudwatchLogsLogDestination");
+        private Outputs.PipeLogConfigurationCloudwatchLogsLogDestination? _mValue_CloudwatchLogsLogDestination;
+        private bool _mUnknown_CloudwatchLogsLogDestination;
+        public Outputs.PipeLogConfigurationCloudwatchLogsLogDestination? CloudwatchLogsLogDestination
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogsLogDestination) return _mValue_CloudwatchLogsLogDestination;
+                throw new UndeferrableValueException("Value 'PipeLogConfiguration.CloudwatchLogsLogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
         /// </summary>
-        [Input("firehoseLogDestination")]
+        [PolicyResourceProperty("firehoseLogDestination", "_mUnknown_FirehoseLogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeLogConfigurationFirehoseLogDestination> _mFirehoseLogDestination;
-
-        public Outputs.PipeLogConfigurationFirehoseLogDestination? FirehoseLogDestination => _mFirehoseLogDestination.GetValue("firehoseLogDestination");
+        private Outputs.PipeLogConfigurationFirehoseLogDestination? _mValue_FirehoseLogDestination;
+        private bool _mUnknown_FirehoseLogDestination;
+        public Outputs.PipeLogConfigurationFirehoseLogDestination? FirehoseLogDestination
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseLogDestination) return _mValue_FirehoseLogDestination;
+                throw new UndeferrableValueException("Value 'PipeLogConfiguration.FirehoseLogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
         /// </summary>
-        [Input("includeExecutionDatas")]
+        [PolicyResourceProperty("includeExecutionDatas", "_mUnknown_IncludeExecutionDatas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludeExecutionDatas;
-
-        public List<string>? IncludeExecutionDatas => _mIncludeExecutionDatas.GetValue("includeExecutionDatas");
+        private List<string>? _mValue_IncludeExecutionDatas;
+        private bool _mUnknown_IncludeExecutionDatas;
+        public List<string>? IncludeExecutionDatas
+        {
+            get
+            {
+                if (!_mUnknown_IncludeExecutionDatas) return _mValue_IncludeExecutionDatas;
+                throw new UndeferrableValueException("Value 'PipeLogConfiguration.IncludeExecutionDatas' is not present");
+            }
+        }
 
         /// <summary>
         /// The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
         /// </summary>
-        [Input("level")]
+        [PolicyResourceProperty("level", "_mUnknown_Level")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
-
-        public string? Level => _mLevel.GetValue("level");
+        private string? _mValue_Level;
+        private bool _mUnknown_Level;
+        public string? Level
+        {
+            get
+            {
+                if (!_mUnknown_Level) return _mValue_Level;
+                throw new UndeferrableValueException("Value 'PipeLogConfiguration.Level' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 logging configuration settings for the pipe. Detailed below.
         /// </summary>
-        [Input("s3LogDestination")]
+        [PolicyResourceProperty("s3LogDestination", "_mUnknown_S3LogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeLogConfigurationS3LogDestination> _mS3LogDestination;
-
-        public Outputs.PipeLogConfigurationS3LogDestination? S3LogDestination => _mS3LogDestination.GetValue("s3LogDestination");
+        private Outputs.PipeLogConfigurationS3LogDestination? _mValue_S3LogDestination;
+        private bool _mUnknown_S3LogDestination;
+        public Outputs.PipeLogConfigurationS3LogDestination? S3LogDestination
+        {
+            get
+            {
+                if (!_mUnknown_S3LogDestination) return _mValue_S3LogDestination;
+                throw new UndeferrableValueException("Value 'PipeLogConfiguration.S3LogDestination' is not present");
+            }
+        }
     }
 }

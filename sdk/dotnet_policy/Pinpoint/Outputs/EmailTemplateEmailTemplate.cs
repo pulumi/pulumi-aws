@@ -15,58 +15,107 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint.Outputs
         /// <summary>
         /// JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
         /// </summary>
-        [Input("defaultSubstitutions")]
+        [PolicyResourceProperty("defaultSubstitutions", "_mUnknown_DefaultSubstitutions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSubstitutions;
+        private string? _mValue_DefaultSubstitutions;
+        private bool _mUnknown_DefaultSubstitutions;
+        public string? DefaultSubstitutions
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSubstitutions) return _mValue_DefaultSubstitutions;
+                throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.DefaultSubstitutions' is not present");
+            }
+        }
 
-        public string? DefaultSubstitutions => _mDefaultSubstitutions.GetValue("defaultSubstitutions");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EmailTemplateEmailTemplateHeader>> _mHeaders;
-
-        public List<Outputs.EmailTemplateEmailTemplateHeader>? Headers => _mHeaders.GetValue("headers");
+        private List<Outputs.EmailTemplateEmailTemplateHeader>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Outputs.EmailTemplateEmailTemplateHeader>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         /// </summary>
-        [Input("htmlPart")]
+        [PolicyResourceProperty("htmlPart", "_mUnknown_HtmlPart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHtmlPart;
-
-        public string? HtmlPart => _mHtmlPart.GetValue("htmlPart");
+        private string? _mValue_HtmlPart;
+        private bool _mUnknown_HtmlPart;
+        public string? HtmlPart
+        {
+            get
+            {
+                if (!_mUnknown_HtmlPart) return _mValue_HtmlPart;
+                throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.HtmlPart' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
         /// </summary>
-        [Input("recommenderId")]
+        [PolicyResourceProperty("recommenderId", "_mUnknown_RecommenderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecommenderId;
-
-        public string? RecommenderId => _mRecommenderId.GetValue("recommenderId");
+        private string? _mValue_RecommenderId;
+        private bool _mUnknown_RecommenderId;
+        public string? RecommenderId
+        {
+            get
+            {
+                if (!_mUnknown_RecommenderId) return _mValue_RecommenderId;
+                throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.RecommenderId' is not present");
+            }
+        }
 
         /// <summary>
         /// Subject line, or title, to use in email messages that are based on the message template.
         /// </summary>
-        [Input("subject")]
+        [PolicyResourceProperty("subject", "_mUnknown_Subject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubject;
-
-        public string? Subject => _mSubject.GetValue("subject");
+        private string? _mValue_Subject;
+        private bool _mUnknown_Subject;
+        public string? Subject
+        {
+            get
+            {
+                if (!_mUnknown_Subject) return _mValue_Subject;
+                throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.Subject' is not present");
+            }
+        }
 
         /// <summary>
         /// Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
         /// </summary>
-        [Input("textPart")]
+        [PolicyResourceProperty("textPart", "_mUnknown_TextPart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextPart;
-
-        public string? TextPart => _mTextPart.GetValue("textPart");
+        private string? _mValue_TextPart;
+        private bool _mUnknown_TextPart;
+        public string? TextPart
+        {
+            get
+            {
+                if (!_mUnknown_TextPart) return _mValue_TextPart;
+                throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.TextPart' is not present");
+            }
+        }
     }
 }

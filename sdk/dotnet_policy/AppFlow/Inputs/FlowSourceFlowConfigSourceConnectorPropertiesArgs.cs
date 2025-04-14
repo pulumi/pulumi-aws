@@ -15,145 +15,257 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// Information that is required for querying Amplitude. See Generic Source Properties for more details.
         /// </summary>
-        [Input("amplitude")]
+        [PolicyResourceProperty("amplitude", "_mUnknown_Amplitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs> _mAmplitude;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs? Amplitude => _mAmplitude.GetValue("amplitude");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs? _mValue_Amplitude;
+        private bool _mUnknown_Amplitude;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs? Amplitude
+        {
+            get
+            {
+                if (!_mUnknown_Amplitude) return _mValue_Amplitude;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Amplitude' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
         /// </summary>
-        [Input("customConnector")]
+        [PolicyResourceProperty("customConnector", "_mUnknown_CustomConnector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs> _mCustomConnector;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs? CustomConnector => _mCustomConnector.GetValue("customConnector");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs? _mValue_CustomConnector;
+        private bool _mUnknown_CustomConnector;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs? CustomConnector
+        {
+            get
+            {
+                if (!_mUnknown_CustomConnector) return _mValue_CustomConnector;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.CustomConnector' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Datadog. See Generic Source Properties for more details.
         /// </summary>
-        [Input("datadog")]
+        [PolicyResourceProperty("datadog", "_mUnknown_Datadog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs> _mDatadog;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs? Datadog => _mDatadog.GetValue("datadog");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs? _mValue_Datadog;
+        private bool _mUnknown_Datadog;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs? Datadog
+        {
+            get
+            {
+                if (!_mUnknown_Datadog) return _mValue_Datadog;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Datadog' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("dynatrace")]
+        [PolicyResourceProperty("dynatrace", "_mUnknown_Dynatrace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs> _mDynatrace;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs? Dynatrace => _mDynatrace.GetValue("dynatrace");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs? _mValue_Dynatrace;
+        private bool _mUnknown_Dynatrace;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs? Dynatrace
+        {
+            get
+            {
+                if (!_mUnknown_Dynatrace) return _mValue_Dynatrace;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Dynatrace' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
         /// </summary>
-        [Input("googleAnalytics")]
+        [PolicyResourceProperty("googleAnalytics", "_mUnknown_GoogleAnalytics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs> _mGoogleAnalytics;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs? GoogleAnalytics => _mGoogleAnalytics.GetValue("googleAnalytics");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs? _mValue_GoogleAnalytics;
+        private bool _mUnknown_GoogleAnalytics;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs? GoogleAnalytics
+        {
+            get
+            {
+                if (!_mUnknown_GoogleAnalytics) return _mValue_GoogleAnalytics;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.GoogleAnalytics' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
         /// </summary>
-        [Input("inforNexus")]
+        [PolicyResourceProperty("inforNexus", "_mUnknown_InforNexus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs> _mInforNexus;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs? InforNexus => _mInforNexus.GetValue("inforNexus");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs? _mValue_InforNexus;
+        private bool _mUnknown_InforNexus;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs? InforNexus
+        {
+            get
+            {
+                if (!_mUnknown_InforNexus) return _mValue_InforNexus;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.InforNexus' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Marketo. See Generic Source Properties for more details.
         /// </summary>
-        [Input("marketo")]
+        [PolicyResourceProperty("marketo", "_mUnknown_Marketo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs> _mMarketo;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs? Marketo => _mMarketo.GetValue("marketo");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs? _mValue_Marketo;
+        private bool _mUnknown_Marketo;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs? Marketo
+        {
+            get
+            {
+                if (!_mUnknown_Marketo) return _mValue_Marketo;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Marketo' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Amazon S3. See S3 Source Properties for more details.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args> _mS3;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
         /// </summary>
-        [Input("salesforce")]
+        [PolicyResourceProperty("salesforce", "_mUnknown_Salesforce")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs> _mSalesforce;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs? Salesforce => _mSalesforce.GetValue("salesforce");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs? _mValue_Salesforce;
+        private bool _mUnknown_Salesforce;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs? Salesforce
+        {
+            get
+            {
+                if (!_mUnknown_Salesforce) return _mValue_Salesforce;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Salesforce' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
         /// </summary>
-        [Input("sapoData")]
+        [PolicyResourceProperty("sapoData", "_mUnknown_SapoData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs> _mSapoData;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs? SapoData => _mSapoData.GetValue("sapoData");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs? _mValue_SapoData;
+        private bool _mUnknown_SapoData;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs? SapoData
+        {
+            get
+            {
+                if (!_mUnknown_SapoData) return _mValue_SapoData;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.SapoData' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying ServiceNow. See Generic Source Properties for more details.
         /// </summary>
-        [Input("serviceNow")]
+        [PolicyResourceProperty("serviceNow", "_mUnknown_ServiceNow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs> _mServiceNow;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs? ServiceNow => _mServiceNow.GetValue("serviceNow");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs? _mValue_ServiceNow;
+        private bool _mUnknown_ServiceNow;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs? ServiceNow
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNow) return _mValue_ServiceNow;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.ServiceNow' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Singular. See Generic Source Properties for more details.
         /// </summary>
-        [Input("singular")]
+        [PolicyResourceProperty("singular", "_mUnknown_Singular")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs> _mSingular;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs? Singular => _mSingular.GetValue("singular");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs? _mValue_Singular;
+        private bool _mUnknown_Singular;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs? Singular
+        {
+            get
+            {
+                if (!_mUnknown_Singular) return _mValue_Singular;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Singular' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Slack. See Generic Source Properties for more details.
         /// </summary>
-        [Input("slack")]
+        [PolicyResourceProperty("slack", "_mUnknown_Slack")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs> _mSlack;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs? Slack => _mSlack.GetValue("slack");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs? _mValue_Slack;
+        private bool _mUnknown_Slack;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs? Slack
+        {
+            get
+            {
+                if (!_mUnknown_Slack) return _mValue_Slack;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Slack' is not present");
+            }
+        }
 
         /// <summary>
         /// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
         /// </summary>
-        [Input("trendmicro")]
+        [PolicyResourceProperty("trendmicro", "_mUnknown_Trendmicro")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs> _mTrendmicro;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs? Trendmicro => _mTrendmicro.GetValue("trendmicro");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs? _mValue_Trendmicro;
+        private bool _mUnknown_Trendmicro;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs? Trendmicro
+        {
+            get
+            {
+                if (!_mUnknown_Trendmicro) return _mValue_Trendmicro;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Trendmicro' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Veeva. See Veeva Source Properties for more details.
         /// </summary>
-        [Input("veeva")]
+        [PolicyResourceProperty("veeva", "_mUnknown_Veeva")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs> _mVeeva;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs? Veeva => _mVeeva.GetValue("veeva");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs? _mValue_Veeva;
+        private bool _mUnknown_Veeva;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs? Veeva
+        {
+            get
+            {
+                if (!_mUnknown_Veeva) return _mValue_Veeva;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Veeva' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required for querying Zendesk. See Generic Source Properties for more details.
         /// </summary>
-        [Input("zendesk")]
+        [PolicyResourceProperty("zendesk", "_mUnknown_Zendesk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs> _mZendesk;
-
-        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs? Zendesk => _mZendesk.GetValue("zendesk");
+        private Inputs.FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs? _mValue_Zendesk;
+        private bool _mUnknown_Zendesk;
+        public Inputs.FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs? Zendesk
+        {
+            get
+            {
+                if (!_mUnknown_Zendesk) return _mValue_Zendesk;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.Zendesk' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
         /// </summary>
-        [Input("usageStrategy")]
+        [PolicyResourceProperty("usageStrategy", "_mUnknown_UsageStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsageStrategy;
-
-        public string? UsageStrategy => _mUsageStrategy.GetValue("usageStrategy");
+        private string? _mValue_UsageStrategy;
+        private bool _mUnknown_UsageStrategy;
+        public string? UsageStrategy
+        {
+            get
+            {
+                if (!_mUnknown_UsageStrategy) return _mValue_UsageStrategy;
+                throw new UndeferrableValueException("Value 'FleetOnDemandOptionsCapacityReservationOptions.UsageStrategy' is not present");
+            }
+        }
     }
 }

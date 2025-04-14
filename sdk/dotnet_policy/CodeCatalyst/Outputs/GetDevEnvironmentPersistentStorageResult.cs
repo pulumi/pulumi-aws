@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst.Outputs
 {
     public sealed class GetDevEnvironmentPersistentStorageResult
     {
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'GetDevEnvironmentPersistentStorageResult.Size' is not present");
+            }
+        }
     }
 }

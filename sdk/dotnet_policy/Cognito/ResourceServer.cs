@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// An identifier for the resource server.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'ResourceServer.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the resource server.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceServer.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of all scopes configured for this resource server in the format identifier/scope_name.
         /// </summary>
-        [Input("scopeIdentifiers")]
+        [PolicyResourceProperty("scopeIdentifiers", "_mUnknown_ScopeIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mScopeIdentifiers;
-
-        public List<string>? ScopeIdentifiers => _mScopeIdentifiers.GetValue("scopeIdentifiers");
+        private List<string>? _mValue_ScopeIdentifiers;
+        private bool _mUnknown_ScopeIdentifiers;
+        public List<string>? ScopeIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_ScopeIdentifiers) return _mValue_ScopeIdentifiers;
+                throw new UndeferrableValueException("Value 'ResourceServer.ScopeIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Authorization Scope.
         /// </summary>
-        [Input("scopes")]
+        [PolicyResourceProperty("scopes", "_mUnknown_Scopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResourceServerScope>> _mScopes;
-
-        public List<Outputs.ResourceServerScope>? Scopes => _mScopes.GetValue("scopes");
+        private List<Outputs.ResourceServerScope>? _mValue_Scopes;
+        private bool _mUnknown_Scopes;
+        public List<Outputs.ResourceServerScope>? Scopes
+        {
+            get
+            {
+                if (!_mUnknown_Scopes) return _mValue_Scopes;
+                throw new UndeferrableValueException("Value 'ResourceServer.Scopes' is not present");
+            }
+        }
 
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'ResourceServer.UserPoolId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/resourceServer:ResourceServer")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// An identifier for the resource server.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'ResourceServerArgs.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the resource server.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceServerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Authorization Scope.
         /// </summary>
-        [Input("scopes")]
+        [PolicyResourceProperty("scopes", "_mUnknown_Scopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResourceServerScopeArgs>> _mScopes;
-
-        public List<Inputs.ResourceServerScopeArgs>? Scopes => _mScopes.GetValue("scopes");
+        private List<Inputs.ResourceServerScopeArgs>? _mValue_Scopes;
+        private bool _mUnknown_Scopes;
+        public List<Inputs.ResourceServerScopeArgs>? Scopes
+        {
+            get
+            {
+                if (!_mUnknown_Scopes) return _mValue_Scopes;
+                throw new UndeferrableValueException("Value 'ResourceServerArgs.Scopes' is not present");
+            }
+        }
 
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'ResourceServerArgs.UserPoolId' is not present");
+            }
+        }
     }
 }

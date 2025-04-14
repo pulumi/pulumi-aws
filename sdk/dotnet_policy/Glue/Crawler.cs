@@ -16,218 +16,386 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// The ARN of the crawler
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Crawler.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         /// </summary>
-        [Input("catalogTargets")]
+        [PolicyResourceProperty("catalogTargets", "_mUnknown_CatalogTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerCatalogTarget>> _mCatalogTargets;
-
-        public List<Outputs.CrawlerCatalogTarget>? CatalogTargets => _mCatalogTargets.GetValue("catalogTargets");
+        private List<Outputs.CrawlerCatalogTarget>? _mValue_CatalogTargets;
+        private bool _mUnknown_CatalogTargets;
+        public List<Outputs.CrawlerCatalogTarget>? CatalogTargets
+        {
+            get
+            {
+                if (!_mUnknown_CatalogTargets) return _mValue_CatalogTargets;
+                throw new UndeferrableValueException("Value 'Crawler.CatalogTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         /// </summary>
-        [Input("classifiers")]
+        [PolicyResourceProperty("classifiers", "_mUnknown_Classifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClassifiers;
-
-        public List<string>? Classifiers => _mClassifiers.GetValue("classifiers");
+        private List<string>? _mValue_Classifiers;
+        private bool _mUnknown_Classifiers;
+        public List<string>? Classifiers
+        {
+            get
+            {
+                if (!_mUnknown_Classifiers) return _mValue_Classifiers;
+                throw new UndeferrableValueException("Value 'Crawler.Classifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
-
-        public string? Configuration => _mConfiguration.GetValue("configuration");
+        private string? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public string? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'Crawler.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Glue database where results are written.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'Crawler.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Delta Lake target arguments. See Delta Target below.
         /// </summary>
-        [Input("deltaTargets")]
+        [PolicyResourceProperty("deltaTargets", "_mUnknown_DeltaTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerDeltaTarget>> _mDeltaTargets;
-
-        public List<Outputs.CrawlerDeltaTarget>? DeltaTargets => _mDeltaTargets.GetValue("deltaTargets");
+        private List<Outputs.CrawlerDeltaTarget>? _mValue_DeltaTargets;
+        private bool _mUnknown_DeltaTargets;
+        public List<Outputs.CrawlerDeltaTarget>? DeltaTargets
+        {
+            get
+            {
+                if (!_mUnknown_DeltaTargets) return _mValue_DeltaTargets;
+                throw new UndeferrableValueException("Value 'Crawler.DeltaTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the crawler.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Crawler.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested DynamoDB target arguments. See Dynamodb Target below.
         /// </summary>
-        [Input("dynamodbTargets")]
+        [PolicyResourceProperty("dynamodbTargets", "_mUnknown_DynamodbTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerDynamodbTarget>> _mDynamodbTargets;
-
-        public List<Outputs.CrawlerDynamodbTarget>? DynamodbTargets => _mDynamodbTargets.GetValue("dynamodbTargets");
+        private List<Outputs.CrawlerDynamodbTarget>? _mValue_DynamodbTargets;
+        private bool _mUnknown_DynamodbTargets;
+        public List<Outputs.CrawlerDynamodbTarget>? DynamodbTargets
+        {
+            get
+            {
+                if (!_mUnknown_DynamodbTargets) return _mValue_DynamodbTargets;
+                throw new UndeferrableValueException("Value 'Crawler.DynamodbTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Hudi target arguments. See Iceberg Target below.
         /// </summary>
-        [Input("hudiTargets")]
+        [PolicyResourceProperty("hudiTargets", "_mUnknown_HudiTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerHudiTarget>> _mHudiTargets;
-
-        public List<Outputs.CrawlerHudiTarget>? HudiTargets => _mHudiTargets.GetValue("hudiTargets");
+        private List<Outputs.CrawlerHudiTarget>? _mValue_HudiTargets;
+        private bool _mUnknown_HudiTargets;
+        public List<Outputs.CrawlerHudiTarget>? HudiTargets
+        {
+            get
+            {
+                if (!_mUnknown_HudiTargets) return _mValue_HudiTargets;
+                throw new UndeferrableValueException("Value 'Crawler.HudiTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Iceberg target arguments. See Iceberg Target below.
         /// </summary>
-        [Input("icebergTargets")]
+        [PolicyResourceProperty("icebergTargets", "_mUnknown_IcebergTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerIcebergTarget>> _mIcebergTargets;
-
-        public List<Outputs.CrawlerIcebergTarget>? IcebergTargets => _mIcebergTargets.GetValue("icebergTargets");
+        private List<Outputs.CrawlerIcebergTarget>? _mValue_IcebergTargets;
+        private bool _mUnknown_IcebergTargets;
+        public List<Outputs.CrawlerIcebergTarget>? IcebergTargets
+        {
+            get
+            {
+                if (!_mUnknown_IcebergTargets) return _mValue_IcebergTargets;
+                throw new UndeferrableValueException("Value 'Crawler.IcebergTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
-        [Input("jdbcTargets")]
+        [PolicyResourceProperty("jdbcTargets", "_mUnknown_JdbcTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerJdbcTarget>> _mJdbcTargets;
-
-        public List<Outputs.CrawlerJdbcTarget>? JdbcTargets => _mJdbcTargets.GetValue("jdbcTargets");
+        private List<Outputs.CrawlerJdbcTarget>? _mValue_JdbcTargets;
+        private bool _mUnknown_JdbcTargets;
+        public List<Outputs.CrawlerJdbcTarget>? JdbcTargets
+        {
+            get
+            {
+                if (!_mUnknown_JdbcTargets) return _mValue_JdbcTargets;
+                throw new UndeferrableValueException("Value 'Crawler.JdbcTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         /// </summary>
-        [Input("lakeFormationConfiguration")]
+        [PolicyResourceProperty("lakeFormationConfiguration", "_mUnknown_LakeFormationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerLakeFormationConfiguration> _mLakeFormationConfiguration;
-
-        public Outputs.CrawlerLakeFormationConfiguration? LakeFormationConfiguration => _mLakeFormationConfiguration.GetValue("lakeFormationConfiguration");
+        private Outputs.CrawlerLakeFormationConfiguration? _mValue_LakeFormationConfiguration;
+        private bool _mUnknown_LakeFormationConfiguration;
+        public Outputs.CrawlerLakeFormationConfiguration? LakeFormationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LakeFormationConfiguration) return _mValue_LakeFormationConfiguration;
+                throw new UndeferrableValueException("Value 'Crawler.LakeFormationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         /// </summary>
-        [Input("lineageConfiguration")]
+        [PolicyResourceProperty("lineageConfiguration", "_mUnknown_LineageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerLineageConfiguration> _mLineageConfiguration;
-
-        public Outputs.CrawlerLineageConfiguration? LineageConfiguration => _mLineageConfiguration.GetValue("lineageConfiguration");
+        private Outputs.CrawlerLineageConfiguration? _mValue_LineageConfiguration;
+        private bool _mUnknown_LineageConfiguration;
+        public Outputs.CrawlerLineageConfiguration? LineageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LineageConfiguration) return _mValue_LineageConfiguration;
+                throw new UndeferrableValueException("Value 'Crawler.LineageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
-        [Input("mongodbTargets")]
+        [PolicyResourceProperty("mongodbTargets", "_mUnknown_MongodbTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerMongodbTarget>> _mMongodbTargets;
-
-        public List<Outputs.CrawlerMongodbTarget>? MongodbTargets => _mMongodbTargets.GetValue("mongodbTargets");
+        private List<Outputs.CrawlerMongodbTarget>? _mValue_MongodbTargets;
+        private bool _mUnknown_MongodbTargets;
+        public List<Outputs.CrawlerMongodbTarget>? MongodbTargets
+        {
+            get
+            {
+                if (!_mUnknown_MongodbTargets) return _mValue_MongodbTargets;
+                throw new UndeferrableValueException("Value 'Crawler.MongodbTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the crawler.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Crawler.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         /// </summary>
-        [Input("recrawlPolicy")]
+        [PolicyResourceProperty("recrawlPolicy", "_mUnknown_RecrawlPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerRecrawlPolicy> _mRecrawlPolicy;
-
-        public Outputs.CrawlerRecrawlPolicy? RecrawlPolicy => _mRecrawlPolicy.GetValue("recrawlPolicy");
+        private Outputs.CrawlerRecrawlPolicy? _mValue_RecrawlPolicy;
+        private bool _mUnknown_RecrawlPolicy;
+        public Outputs.CrawlerRecrawlPolicy? RecrawlPolicy
+        {
+            get
+            {
+                if (!_mUnknown_RecrawlPolicy) return _mValue_RecrawlPolicy;
+                throw new UndeferrableValueException("Value 'Crawler.RecrawlPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'Crawler.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
-        [Input("s3Targets")]
+        [PolicyResourceProperty("s3Targets", "_mUnknown_S3Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrawlerS3Target>> _mS3Targets;
-
-        public List<Outputs.CrawlerS3Target>? S3Targets => _mS3Targets.GetValue("s3Targets");
+        private List<Outputs.CrawlerS3Target>? _mValue_S3Targets;
+        private bool _mUnknown_S3Targets;
+        public List<Outputs.CrawlerS3Target>? S3Targets
+        {
+            get
+            {
+                if (!_mUnknown_S3Targets) return _mValue_S3Targets;
+                throw new UndeferrableValueException("Value 'Crawler.S3Targets' is not present");
+            }
+        }
 
         /// <summary>
         /// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'Crawler.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         /// </summary>
-        [Input("schemaChangePolicy")]
+        [PolicyResourceProperty("schemaChangePolicy", "_mUnknown_SchemaChangePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CrawlerSchemaChangePolicy> _mSchemaChangePolicy;
-
-        public Outputs.CrawlerSchemaChangePolicy? SchemaChangePolicy => _mSchemaChangePolicy.GetValue("schemaChangePolicy");
+        private Outputs.CrawlerSchemaChangePolicy? _mValue_SchemaChangePolicy;
+        private bool _mUnknown_SchemaChangePolicy;
+        public Outputs.CrawlerSchemaChangePolicy? SchemaChangePolicy
+        {
+            get
+            {
+                if (!_mUnknown_SchemaChangePolicy) return _mValue_SchemaChangePolicy;
+                throw new UndeferrableValueException("Value 'Crawler.SchemaChangePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of Security Configuration to be used by the crawler
         /// </summary>
-        [Input("securityConfiguration")]
+        [PolicyResourceProperty("securityConfiguration", "_mUnknown_SecurityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
-
-        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+        private string? _mValue_SecurityConfiguration;
+        private bool _mUnknown_SecurityConfiguration;
+        public string? SecurityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfiguration) return _mValue_SecurityConfiguration;
+                throw new UndeferrableValueException("Value 'Crawler.SecurityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The table prefix used for catalog tables that are created.
         /// </summary>
-        [Input("tablePrefix")]
+        [PolicyResourceProperty("tablePrefix", "_mUnknown_TablePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTablePrefix;
-
-        public string? TablePrefix => _mTablePrefix.GetValue("tablePrefix");
+        private string? _mValue_TablePrefix;
+        private bool _mUnknown_TablePrefix;
+        public string? TablePrefix
+        {
+            get
+            {
+                if (!_mUnknown_TablePrefix) return _mValue_TablePrefix;
+                throw new UndeferrableValueException("Value 'Crawler.TablePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Crawler.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Crawler.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/crawler:Crawler")]
@@ -236,199 +404,353 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         /// </summary>
-        [Input("catalogTargets")]
+        [PolicyResourceProperty("catalogTargets", "_mUnknown_CatalogTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerCatalogTargetArgs>> _mCatalogTargets;
-
-        public List<Inputs.CrawlerCatalogTargetArgs>? CatalogTargets => _mCatalogTargets.GetValue("catalogTargets");
+        private List<Inputs.CrawlerCatalogTargetArgs>? _mValue_CatalogTargets;
+        private bool _mUnknown_CatalogTargets;
+        public List<Inputs.CrawlerCatalogTargetArgs>? CatalogTargets
+        {
+            get
+            {
+                if (!_mUnknown_CatalogTargets) return _mValue_CatalogTargets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.CatalogTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         /// </summary>
-        [Input("classifiers")]
+        [PolicyResourceProperty("classifiers", "_mUnknown_Classifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClassifiers;
-
-        public List<string>? Classifiers => _mClassifiers.GetValue("classifiers");
+        private List<string>? _mValue_Classifiers;
+        private bool _mUnknown_Classifiers;
+        public List<string>? Classifiers
+        {
+            get
+            {
+                if (!_mUnknown_Classifiers) return _mValue_Classifiers;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.Classifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
-
-        public string? Configuration => _mConfiguration.GetValue("configuration");
+        private string? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public string? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Glue database where results are written.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Delta Lake target arguments. See Delta Target below.
         /// </summary>
-        [Input("deltaTargets")]
+        [PolicyResourceProperty("deltaTargets", "_mUnknown_DeltaTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerDeltaTargetArgs>> _mDeltaTargets;
-
-        public List<Inputs.CrawlerDeltaTargetArgs>? DeltaTargets => _mDeltaTargets.GetValue("deltaTargets");
+        private List<Inputs.CrawlerDeltaTargetArgs>? _mValue_DeltaTargets;
+        private bool _mUnknown_DeltaTargets;
+        public List<Inputs.CrawlerDeltaTargetArgs>? DeltaTargets
+        {
+            get
+            {
+                if (!_mUnknown_DeltaTargets) return _mValue_DeltaTargets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.DeltaTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the crawler.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested DynamoDB target arguments. See Dynamodb Target below.
         /// </summary>
-        [Input("dynamodbTargets")]
+        [PolicyResourceProperty("dynamodbTargets", "_mUnknown_DynamodbTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerDynamodbTargetArgs>> _mDynamodbTargets;
-
-        public List<Inputs.CrawlerDynamodbTargetArgs>? DynamodbTargets => _mDynamodbTargets.GetValue("dynamodbTargets");
+        private List<Inputs.CrawlerDynamodbTargetArgs>? _mValue_DynamodbTargets;
+        private bool _mUnknown_DynamodbTargets;
+        public List<Inputs.CrawlerDynamodbTargetArgs>? DynamodbTargets
+        {
+            get
+            {
+                if (!_mUnknown_DynamodbTargets) return _mValue_DynamodbTargets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.DynamodbTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Hudi target arguments. See Iceberg Target below.
         /// </summary>
-        [Input("hudiTargets")]
+        [PolicyResourceProperty("hudiTargets", "_mUnknown_HudiTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerHudiTargetArgs>> _mHudiTargets;
-
-        public List<Inputs.CrawlerHudiTargetArgs>? HudiTargets => _mHudiTargets.GetValue("hudiTargets");
+        private List<Inputs.CrawlerHudiTargetArgs>? _mValue_HudiTargets;
+        private bool _mUnknown_HudiTargets;
+        public List<Inputs.CrawlerHudiTargetArgs>? HudiTargets
+        {
+            get
+            {
+                if (!_mUnknown_HudiTargets) return _mValue_HudiTargets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.HudiTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Iceberg target arguments. See Iceberg Target below.
         /// </summary>
-        [Input("icebergTargets")]
+        [PolicyResourceProperty("icebergTargets", "_mUnknown_IcebergTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerIcebergTargetArgs>> _mIcebergTargets;
-
-        public List<Inputs.CrawlerIcebergTargetArgs>? IcebergTargets => _mIcebergTargets.GetValue("icebergTargets");
+        private List<Inputs.CrawlerIcebergTargetArgs>? _mValue_IcebergTargets;
+        private bool _mUnknown_IcebergTargets;
+        public List<Inputs.CrawlerIcebergTargetArgs>? IcebergTargets
+        {
+            get
+            {
+                if (!_mUnknown_IcebergTargets) return _mValue_IcebergTargets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.IcebergTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested JDBC target arguments. See JDBC Target below.
         /// </summary>
-        [Input("jdbcTargets")]
+        [PolicyResourceProperty("jdbcTargets", "_mUnknown_JdbcTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerJdbcTargetArgs>> _mJdbcTargets;
-
-        public List<Inputs.CrawlerJdbcTargetArgs>? JdbcTargets => _mJdbcTargets.GetValue("jdbcTargets");
+        private List<Inputs.CrawlerJdbcTargetArgs>? _mValue_JdbcTargets;
+        private bool _mUnknown_JdbcTargets;
+        public List<Inputs.CrawlerJdbcTargetArgs>? JdbcTargets
+        {
+            get
+            {
+                if (!_mUnknown_JdbcTargets) return _mValue_JdbcTargets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.JdbcTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         /// </summary>
-        [Input("lakeFormationConfiguration")]
+        [PolicyResourceProperty("lakeFormationConfiguration", "_mUnknown_LakeFormationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerLakeFormationConfigurationArgs> _mLakeFormationConfiguration;
-
-        public Inputs.CrawlerLakeFormationConfigurationArgs? LakeFormationConfiguration => _mLakeFormationConfiguration.GetValue("lakeFormationConfiguration");
+        private Inputs.CrawlerLakeFormationConfigurationArgs? _mValue_LakeFormationConfiguration;
+        private bool _mUnknown_LakeFormationConfiguration;
+        public Inputs.CrawlerLakeFormationConfigurationArgs? LakeFormationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LakeFormationConfiguration) return _mValue_LakeFormationConfiguration;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.LakeFormationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         /// </summary>
-        [Input("lineageConfiguration")]
+        [PolicyResourceProperty("lineageConfiguration", "_mUnknown_LineageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerLineageConfigurationArgs> _mLineageConfiguration;
-
-        public Inputs.CrawlerLineageConfigurationArgs? LineageConfiguration => _mLineageConfiguration.GetValue("lineageConfiguration");
+        private Inputs.CrawlerLineageConfigurationArgs? _mValue_LineageConfiguration;
+        private bool _mUnknown_LineageConfiguration;
+        public Inputs.CrawlerLineageConfigurationArgs? LineageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LineageConfiguration) return _mValue_LineageConfiguration;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.LineageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested MongoDB target arguments. See MongoDB Target below.
         /// </summary>
-        [Input("mongodbTargets")]
+        [PolicyResourceProperty("mongodbTargets", "_mUnknown_MongodbTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerMongodbTargetArgs>> _mMongodbTargets;
-
-        public List<Inputs.CrawlerMongodbTargetArgs>? MongodbTargets => _mMongodbTargets.GetValue("mongodbTargets");
+        private List<Inputs.CrawlerMongodbTargetArgs>? _mValue_MongodbTargets;
+        private bool _mUnknown_MongodbTargets;
+        public List<Inputs.CrawlerMongodbTargetArgs>? MongodbTargets
+        {
+            get
+            {
+                if (!_mUnknown_MongodbTargets) return _mValue_MongodbTargets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.MongodbTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the crawler.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         /// </summary>
-        [Input("recrawlPolicy")]
+        [PolicyResourceProperty("recrawlPolicy", "_mUnknown_RecrawlPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerRecrawlPolicyArgs> _mRecrawlPolicy;
-
-        public Inputs.CrawlerRecrawlPolicyArgs? RecrawlPolicy => _mRecrawlPolicy.GetValue("recrawlPolicy");
+        private Inputs.CrawlerRecrawlPolicyArgs? _mValue_RecrawlPolicy;
+        private bool _mUnknown_RecrawlPolicy;
+        public Inputs.CrawlerRecrawlPolicyArgs? RecrawlPolicy
+        {
+            get
+            {
+                if (!_mUnknown_RecrawlPolicy) return _mValue_RecrawlPolicy;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.RecrawlPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// List of nested Amazon S3 target arguments. See S3 Target below.
         /// </summary>
-        [Input("s3Targets")]
+        [PolicyResourceProperty("s3Targets", "_mUnknown_S3Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrawlerS3TargetArgs>> _mS3Targets;
-
-        public List<Inputs.CrawlerS3TargetArgs>? S3Targets => _mS3Targets.GetValue("s3Targets");
+        private List<Inputs.CrawlerS3TargetArgs>? _mValue_S3Targets;
+        private bool _mUnknown_S3Targets;
+        public List<Inputs.CrawlerS3TargetArgs>? S3Targets
+        {
+            get
+            {
+                if (!_mUnknown_S3Targets) return _mValue_S3Targets;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.S3Targets' is not present");
+            }
+        }
 
         /// <summary>
         /// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         /// </summary>
-        [Input("schemaChangePolicy")]
+        [PolicyResourceProperty("schemaChangePolicy", "_mUnknown_SchemaChangePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CrawlerSchemaChangePolicyArgs> _mSchemaChangePolicy;
-
-        public Inputs.CrawlerSchemaChangePolicyArgs? SchemaChangePolicy => _mSchemaChangePolicy.GetValue("schemaChangePolicy");
+        private Inputs.CrawlerSchemaChangePolicyArgs? _mValue_SchemaChangePolicy;
+        private bool _mUnknown_SchemaChangePolicy;
+        public Inputs.CrawlerSchemaChangePolicyArgs? SchemaChangePolicy
+        {
+            get
+            {
+                if (!_mUnknown_SchemaChangePolicy) return _mValue_SchemaChangePolicy;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.SchemaChangePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of Security Configuration to be used by the crawler
         /// </summary>
-        [Input("securityConfiguration")]
+        [PolicyResourceProperty("securityConfiguration", "_mUnknown_SecurityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
-
-        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+        private string? _mValue_SecurityConfiguration;
+        private bool _mUnknown_SecurityConfiguration;
+        public string? SecurityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfiguration) return _mValue_SecurityConfiguration;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.SecurityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The table prefix used for catalog tables that are created.
         /// </summary>
-        [Input("tablePrefix")]
+        [PolicyResourceProperty("tablePrefix", "_mUnknown_TablePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTablePrefix;
-
-        public string? TablePrefix => _mTablePrefix.GetValue("tablePrefix");
+        private string? _mValue_TablePrefix;
+        private bool _mUnknown_TablePrefix;
+        public string? TablePrefix
+        {
+            get
+            {
+                if (!_mUnknown_TablePrefix) return _mValue_TablePrefix;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.TablePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CrawlerArgs.Tags' is not present");
+            }
+        }
     }
 }

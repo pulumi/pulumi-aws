@@ -16,120 +16,211 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the user.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'User.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         /// </summary>
-        [Input("directoryUserId")]
+        [PolicyResourceProperty("directoryUserId", "_mUnknown_DirectoryUserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryUserId;
-
-        public string? DirectoryUserId => _mDirectoryUserId.GetValue("directoryUserId");
+        private string? _mValue_DirectoryUserId;
+        private bool _mUnknown_DirectoryUserId;
+        public string? DirectoryUserId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryUserId) return _mValue_DirectoryUserId;
+                throw new UndeferrableValueException("Value 'User.DirectoryUserId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the hierarchy group for the user.
         /// </summary>
-        [Input("hierarchyGroupId")]
+        [PolicyResourceProperty("hierarchyGroupId", "_mUnknown_HierarchyGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHierarchyGroupId;
-
-        public string? HierarchyGroupId => _mHierarchyGroupId.GetValue("hierarchyGroupId");
+        private string? _mValue_HierarchyGroupId;
+        private bool _mUnknown_HierarchyGroupId;
+        public string? HierarchyGroupId
+        {
+            get
+            {
+                if (!_mUnknown_HierarchyGroupId) return _mValue_HierarchyGroupId;
+                throw new UndeferrableValueException("Value 'User.HierarchyGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about the identity of the user. Documented below.
         /// </summary>
-        [Input("identityInfo")]
+        [PolicyResourceProperty("identityInfo", "_mUnknown_IdentityInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserIdentityInfo> _mIdentityInfo;
-
-        public Outputs.UserIdentityInfo? IdentityInfo => _mIdentityInfo.GetValue("identityInfo");
+        private Outputs.UserIdentityInfo? _mValue_IdentityInfo;
+        private bool _mUnknown_IdentityInfo;
+        public Outputs.UserIdentityInfo? IdentityInfo
+        {
+            get
+            {
+                if (!_mUnknown_IdentityInfo) return _mValue_IdentityInfo;
+                throw new UndeferrableValueException("Value 'User.IdentityInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'User.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'User.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'User.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about the phone settings for the user. Documented below.
         /// </summary>
-        [Input("phoneConfig")]
+        [PolicyResourceProperty("phoneConfig", "_mUnknown_PhoneConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPhoneConfig> _mPhoneConfig;
-
-        public Outputs.UserPhoneConfig? PhoneConfig => _mPhoneConfig.GetValue("phoneConfig");
+        private Outputs.UserPhoneConfig? _mValue_PhoneConfig;
+        private bool _mUnknown_PhoneConfig;
+        public Outputs.UserPhoneConfig? PhoneConfig
+        {
+            get
+            {
+                if (!_mUnknown_PhoneConfig) return _mValue_PhoneConfig;
+                throw new UndeferrableValueException("Value 'User.PhoneConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the routing profile for the user.
         /// </summary>
-        [Input("routingProfileId")]
+        [PolicyResourceProperty("routingProfileId", "_mUnknown_RoutingProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingProfileId;
-
-        public string? RoutingProfileId => _mRoutingProfileId.GetValue("routingProfileId");
+        private string? _mValue_RoutingProfileId;
+        private bool _mUnknown_RoutingProfileId;
+        public string? RoutingProfileId
+        {
+            get
+            {
+                if (!_mUnknown_RoutingProfileId) return _mValue_RoutingProfileId;
+                throw new UndeferrableValueException("Value 'User.RoutingProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         /// </summary>
-        [Input("securityProfileIds")]
+        [PolicyResourceProperty("securityProfileIds", "_mUnknown_SecurityProfileIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityProfileIds;
-
-        public List<string>? SecurityProfileIds => _mSecurityProfileIds.GetValue("securityProfileIds");
+        private List<string>? _mValue_SecurityProfileIds;
+        private bool _mUnknown_SecurityProfileIds;
+        public List<string>? SecurityProfileIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityProfileIds) return _mValue_SecurityProfileIds;
+                throw new UndeferrableValueException("Value 'User.SecurityProfileIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the user. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'User.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'User.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the user.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'User.UserId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/user:User")]
@@ -138,92 +229,162 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         /// </summary>
-        [Input("directoryUserId")]
+        [PolicyResourceProperty("directoryUserId", "_mUnknown_DirectoryUserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryUserId;
-
-        public string? DirectoryUserId => _mDirectoryUserId.GetValue("directoryUserId");
+        private string? _mValue_DirectoryUserId;
+        private bool _mUnknown_DirectoryUserId;
+        public string? DirectoryUserId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryUserId) return _mValue_DirectoryUserId;
+                throw new UndeferrableValueException("Value 'UserArgs.DirectoryUserId' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the hierarchy group for the user.
         /// </summary>
-        [Input("hierarchyGroupId")]
+        [PolicyResourceProperty("hierarchyGroupId", "_mUnknown_HierarchyGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHierarchyGroupId;
-
-        public string? HierarchyGroupId => _mHierarchyGroupId.GetValue("hierarchyGroupId");
+        private string? _mValue_HierarchyGroupId;
+        private bool _mUnknown_HierarchyGroupId;
+        public string? HierarchyGroupId
+        {
+            get
+            {
+                if (!_mUnknown_HierarchyGroupId) return _mValue_HierarchyGroupId;
+                throw new UndeferrableValueException("Value 'UserArgs.HierarchyGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about the identity of the user. Documented below.
         /// </summary>
-        [Input("identityInfo")]
+        [PolicyResourceProperty("identityInfo", "_mUnknown_IdentityInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserIdentityInfoArgs> _mIdentityInfo;
-
-        public Inputs.UserIdentityInfoArgs? IdentityInfo => _mIdentityInfo.GetValue("identityInfo");
+        private Inputs.UserIdentityInfoArgs? _mValue_IdentityInfo;
+        private bool _mUnknown_IdentityInfo;
+        public Inputs.UserIdentityInfoArgs? IdentityInfo
+        {
+            get
+            {
+                if (!_mUnknown_IdentityInfo) return _mValue_IdentityInfo;
+                throw new UndeferrableValueException("Value 'UserArgs.IdentityInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'UserArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'UserArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about the phone settings for the user. Documented below.
         /// </summary>
-        [Input("phoneConfig")]
+        [PolicyResourceProperty("phoneConfig", "_mUnknown_PhoneConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPhoneConfigArgs> _mPhoneConfig;
-
-        public Inputs.UserPhoneConfigArgs? PhoneConfig => _mPhoneConfig.GetValue("phoneConfig");
+        private Inputs.UserPhoneConfigArgs? _mValue_PhoneConfig;
+        private bool _mUnknown_PhoneConfig;
+        public Inputs.UserPhoneConfigArgs? PhoneConfig
+        {
+            get
+            {
+                if (!_mUnknown_PhoneConfig) return _mValue_PhoneConfig;
+                throw new UndeferrableValueException("Value 'UserArgs.PhoneConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the routing profile for the user.
         /// </summary>
-        [Input("routingProfileId")]
+        [PolicyResourceProperty("routingProfileId", "_mUnknown_RoutingProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingProfileId;
-
-        public string? RoutingProfileId => _mRoutingProfileId.GetValue("routingProfileId");
+        private string? _mValue_RoutingProfileId;
+        private bool _mUnknown_RoutingProfileId;
+        public string? RoutingProfileId
+        {
+            get
+            {
+                if (!_mUnknown_RoutingProfileId) return _mValue_RoutingProfileId;
+                throw new UndeferrableValueException("Value 'UserArgs.RoutingProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         /// </summary>
-        [Input("securityProfileIds")]
+        [PolicyResourceProperty("securityProfileIds", "_mUnknown_SecurityProfileIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityProfileIds;
-
-        public List<string>? SecurityProfileIds => _mSecurityProfileIds.GetValue("securityProfileIds");
+        private List<string>? _mValue_SecurityProfileIds;
+        private bool _mUnknown_SecurityProfileIds;
+        public List<string>? SecurityProfileIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityProfileIds) return _mValue_SecurityProfileIds;
+                throw new UndeferrableValueException("Value 'UserArgs.SecurityProfileIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the user. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserArgs.Tags' is not present");
+            }
+        }
     }
 }

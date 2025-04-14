@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Whether to enable encryption at rest. Default is `false`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamServerSideEncryption.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
         /// </summary>
-        [Input("keyArn")]
+        [PolicyResourceProperty("keyArn", "_mUnknown_KeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
-
-        public string? KeyArn => _mKeyArn.GetValue("keyArn");
+        private string? _mValue_KeyArn;
+        private bool _mUnknown_KeyArn;
+        public string? KeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyArn) return _mValue_KeyArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamServerSideEncryption.KeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
         /// </summary>
-        [Input("keyType")]
+        [PolicyResourceProperty("keyType", "_mUnknown_KeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyType;
-
-        public string? KeyType => _mKeyType.GetValue("keyType");
+        private string? _mValue_KeyType;
+        private bool _mUnknown_KeyType;
+        public string? KeyType
+        {
+            get
+            {
+                if (!_mUnknown_KeyType) return _mValue_KeyType;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamServerSideEncryption.KeyType' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// Specifies the name and path of a customer managed policy. See below.
         /// </summary>
-        [Input("customerManagedPolicyReference")]
+        [PolicyResourceProperty("customerManagedPolicyReference", "_mUnknown_CustomerManagedPolicyReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> _mCustomerManagedPolicyReference;
-
-        public Outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference? CustomerManagedPolicyReference => _mCustomerManagedPolicyReference.GetValue("customerManagedPolicyReference");
+        private Outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference? _mValue_CustomerManagedPolicyReference;
+        private bool _mUnknown_CustomerManagedPolicyReference;
+        public Outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference? CustomerManagedPolicyReference
+        {
+            get
+            {
+                if (!_mUnknown_CustomerManagedPolicyReference) return _mValue_CustomerManagedPolicyReference;
+                throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachment.CustomerManagedPolicyReference' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachment.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachment.PermissionSetArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// Specifies the name and path of a customer managed policy. See below.
         /// </summary>
-        [Input("customerManagedPolicyReference")]
+        [PolicyResourceProperty("customerManagedPolicyReference", "_mUnknown_CustomerManagedPolicyReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs> _mCustomerManagedPolicyReference;
-
-        public Inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs? CustomerManagedPolicyReference => _mCustomerManagedPolicyReference.GetValue("customerManagedPolicyReference");
+        private Inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs? _mValue_CustomerManagedPolicyReference;
+        private bool _mUnknown_CustomerManagedPolicyReference;
+        public Inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs? CustomerManagedPolicyReference
+        {
+            get
+            {
+                if (!_mUnknown_CustomerManagedPolicyReference) return _mValue_CustomerManagedPolicyReference;
+                throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachmentArgs.CustomerManagedPolicyReference' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachmentArgs.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachmentArgs.PermissionSetArn' is not present");
+            }
+        }
     }
 }

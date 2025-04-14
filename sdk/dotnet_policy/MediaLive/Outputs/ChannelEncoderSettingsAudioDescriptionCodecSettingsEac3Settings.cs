@@ -15,145 +15,285 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Sets the attenuation control.
         /// </summary>
-        [Input("attenuationControl")]
+        [PolicyResourceProperty("attenuationControl", "_mUnknown_AttenuationControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttenuationControl;
-
-        public string? AttenuationControl => _mAttenuationControl.GetValue("attenuationControl");
+        private string? _mValue_AttenuationControl;
+        private bool _mUnknown_AttenuationControl;
+        public string? AttenuationControl
+        {
+            get
+            {
+                if (!_mUnknown_AttenuationControl) return _mValue_AttenuationControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.AttenuationControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Average bitrate in bits/second.
         /// </summary>
-        [Input("bitrate")]
+        [PolicyResourceProperty("bitrate", "_mUnknown_Bitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBitrate;
-
-        public double? Bitrate => _mBitrate.GetValue("bitrate");
+        private double? _mValue_Bitrate;
+        private bool _mUnknown_Bitrate;
+        public double? Bitrate
+        {
+            get
+            {
+                if (!_mUnknown_Bitrate) return _mValue_Bitrate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.Bitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
         /// </summary>
-        [Input("bitstreamMode")]
+        [PolicyResourceProperty("bitstreamMode", "_mUnknown_BitstreamMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBitstreamMode;
-
-        public string? BitstreamMode => _mBitstreamMode.GetValue("bitstreamMode");
+        private string? _mValue_BitstreamMode;
+        private bool _mUnknown_BitstreamMode;
+        public string? BitstreamMode
+        {
+            get
+            {
+                if (!_mUnknown_BitstreamMode) return _mValue_BitstreamMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.BitstreamMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Dolby Digital Plus coding mode.
         /// </summary>
-        [Input("codingMode")]
+        [PolicyResourceProperty("codingMode", "_mUnknown_CodingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodingMode;
+        private string? _mValue_CodingMode;
+        private bool _mUnknown_CodingMode;
+        public string? CodingMode
+        {
+            get
+            {
+                if (!_mUnknown_CodingMode) return _mValue_CodingMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.CodingMode' is not present");
+            }
+        }
 
-        public string? CodingMode => _mCodingMode.GetValue("codingMode");
-
-        [Input("dcFilter")]
+        [PolicyResourceProperty("dcFilter", "_mUnknown_DcFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDcFilter;
+        private string? _mValue_DcFilter;
+        private bool _mUnknown_DcFilter;
+        public string? DcFilter
+        {
+            get
+            {
+                if (!_mUnknown_DcFilter) return _mValue_DcFilter;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.DcFilter' is not present");
+            }
+        }
 
-        public string? DcFilter => _mDcFilter.GetValue("dcFilter");
-
-        [Input("dialnorm")]
+        [PolicyResourceProperty("dialnorm", "_mUnknown_Dialnorm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDialnorm;
-
-        public int? Dialnorm => _mDialnorm.GetValue("dialnorm");
+        private int? _mValue_Dialnorm;
+        private bool _mUnknown_Dialnorm;
+        public int? Dialnorm
+        {
+            get
+            {
+                if (!_mUnknown_Dialnorm) return _mValue_Dialnorm;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.Dialnorm' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the Dolby dynamic range compression profile.
         /// </summary>
-        [Input("drcLine")]
+        [PolicyResourceProperty("drcLine", "_mUnknown_DrcLine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDrcLine;
-
-        public string? DrcLine => _mDrcLine.GetValue("drcLine");
+        private string? _mValue_DrcLine;
+        private bool _mUnknown_DrcLine;
+        public string? DrcLine
+        {
+            get
+            {
+                if (!_mUnknown_DrcLine) return _mValue_DrcLine;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.DrcLine' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the profile for heavy Dolby dynamic range compression.
         /// </summary>
-        [Input("drcRf")]
+        [PolicyResourceProperty("drcRf", "_mUnknown_DrcRf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDrcRf;
+        private string? _mValue_DrcRf;
+        private bool _mUnknown_DrcRf;
+        public string? DrcRf
+        {
+            get
+            {
+                if (!_mUnknown_DrcRf) return _mValue_DrcRf;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.DrcRf' is not present");
+            }
+        }
 
-        public string? DrcRf => _mDrcRf.GetValue("drcRf");
-
-        [Input("lfeControl")]
+        [PolicyResourceProperty("lfeControl", "_mUnknown_LfeControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLfeControl;
-
-        public string? LfeControl => _mLfeControl.GetValue("lfeControl");
+        private string? _mValue_LfeControl;
+        private bool _mUnknown_LfeControl;
+        public string? LfeControl
+        {
+            get
+            {
+                if (!_mUnknown_LfeControl) return _mValue_LfeControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.LfeControl' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
         /// </summary>
-        [Input("lfeFilter")]
+        [PolicyResourceProperty("lfeFilter", "_mUnknown_LfeFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLfeFilter;
+        private string? _mValue_LfeFilter;
+        private bool _mUnknown_LfeFilter;
+        public string? LfeFilter
+        {
+            get
+            {
+                if (!_mUnknown_LfeFilter) return _mValue_LfeFilter;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.LfeFilter' is not present");
+            }
+        }
 
-        public string? LfeFilter => _mLfeFilter.GetValue("lfeFilter");
-
-        [Input("loRoCenterMixLevel")]
+        [PolicyResourceProperty("loRoCenterMixLevel", "_mUnknown_LoRoCenterMixLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLoRoCenterMixLevel;
+        private double? _mValue_LoRoCenterMixLevel;
+        private bool _mUnknown_LoRoCenterMixLevel;
+        public double? LoRoCenterMixLevel
+        {
+            get
+            {
+                if (!_mUnknown_LoRoCenterMixLevel) return _mValue_LoRoCenterMixLevel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.LoRoCenterMixLevel' is not present");
+            }
+        }
 
-        public double? LoRoCenterMixLevel => _mLoRoCenterMixLevel.GetValue("loRoCenterMixLevel");
-
-        [Input("loRoSurroundMixLevel")]
+        [PolicyResourceProperty("loRoSurroundMixLevel", "_mUnknown_LoRoSurroundMixLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLoRoSurroundMixLevel;
+        private double? _mValue_LoRoSurroundMixLevel;
+        private bool _mUnknown_LoRoSurroundMixLevel;
+        public double? LoRoSurroundMixLevel
+        {
+            get
+            {
+                if (!_mUnknown_LoRoSurroundMixLevel) return _mValue_LoRoSurroundMixLevel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.LoRoSurroundMixLevel' is not present");
+            }
+        }
 
-        public double? LoRoSurroundMixLevel => _mLoRoSurroundMixLevel.GetValue("loRoSurroundMixLevel");
-
-        [Input("ltRtCenterMixLevel")]
+        [PolicyResourceProperty("ltRtCenterMixLevel", "_mUnknown_LtRtCenterMixLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLtRtCenterMixLevel;
+        private double? _mValue_LtRtCenterMixLevel;
+        private bool _mUnknown_LtRtCenterMixLevel;
+        public double? LtRtCenterMixLevel
+        {
+            get
+            {
+                if (!_mUnknown_LtRtCenterMixLevel) return _mValue_LtRtCenterMixLevel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.LtRtCenterMixLevel' is not present");
+            }
+        }
 
-        public double? LtRtCenterMixLevel => _mLtRtCenterMixLevel.GetValue("ltRtCenterMixLevel");
-
-        [Input("ltRtSurroundMixLevel")]
+        [PolicyResourceProperty("ltRtSurroundMixLevel", "_mUnknown_LtRtSurroundMixLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLtRtSurroundMixLevel;
-
-        public double? LtRtSurroundMixLevel => _mLtRtSurroundMixLevel.GetValue("ltRtSurroundMixLevel");
+        private double? _mValue_LtRtSurroundMixLevel;
+        private bool _mUnknown_LtRtSurroundMixLevel;
+        public double? LtRtSurroundMixLevel
+        {
+            get
+            {
+                if (!_mUnknown_LtRtSurroundMixLevel) return _mValue_LtRtSurroundMixLevel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.LtRtSurroundMixLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata control.
         /// </summary>
-        [Input("metadataControl")]
+        [PolicyResourceProperty("metadataControl", "_mUnknown_MetadataControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataControl;
+        private string? _mValue_MetadataControl;
+        private bool _mUnknown_MetadataControl;
+        public string? MetadataControl
+        {
+            get
+            {
+                if (!_mUnknown_MetadataControl) return _mValue_MetadataControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.MetadataControl' is not present");
+            }
+        }
 
-        public string? MetadataControl => _mMetadataControl.GetValue("metadataControl");
-
-        [Input("passthroughControl")]
+        [PolicyResourceProperty("passthroughControl", "_mUnknown_PassthroughControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassthroughControl;
+        private string? _mValue_PassthroughControl;
+        private bool _mUnknown_PassthroughControl;
+        public string? PassthroughControl
+        {
+            get
+            {
+                if (!_mUnknown_PassthroughControl) return _mValue_PassthroughControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.PassthroughControl' is not present");
+            }
+        }
 
-        public string? PassthroughControl => _mPassthroughControl.GetValue("passthroughControl");
-
-        [Input("phaseControl")]
+        [PolicyResourceProperty("phaseControl", "_mUnknown_PhaseControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhaseControl;
+        private string? _mValue_PhaseControl;
+        private bool _mUnknown_PhaseControl;
+        public string? PhaseControl
+        {
+            get
+            {
+                if (!_mUnknown_PhaseControl) return _mValue_PhaseControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.PhaseControl' is not present");
+            }
+        }
 
-        public string? PhaseControl => _mPhaseControl.GetValue("phaseControl");
-
-        [Input("stereoDownmix")]
+        [PolicyResourceProperty("stereoDownmix", "_mUnknown_StereoDownmix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStereoDownmix;
+        private string? _mValue_StereoDownmix;
+        private bool _mUnknown_StereoDownmix;
+        public string? StereoDownmix
+        {
+            get
+            {
+                if (!_mUnknown_StereoDownmix) return _mValue_StereoDownmix;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.StereoDownmix' is not present");
+            }
+        }
 
-        public string? StereoDownmix => _mStereoDownmix.GetValue("stereoDownmix");
-
-        [Input("surroundExMode")]
+        [PolicyResourceProperty("surroundExMode", "_mUnknown_SurroundExMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSurroundExMode;
+        private string? _mValue_SurroundExMode;
+        private bool _mUnknown_SurroundExMode;
+        public string? SurroundExMode
+        {
+            get
+            {
+                if (!_mUnknown_SurroundExMode) return _mValue_SurroundExMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.SurroundExMode' is not present");
+            }
+        }
 
-        public string? SurroundExMode => _mSurroundExMode.GetValue("surroundExMode");
-
-        [Input("surroundMode")]
+        [PolicyResourceProperty("surroundMode", "_mUnknown_SurroundMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSurroundMode;
-
-        public string? SurroundMode => _mSurroundMode.GetValue("surroundMode");
+        private string? _mValue_SurroundMode;
+        private bool _mUnknown_SurroundMode;
+        public string? SurroundMode
+        {
+            get
+            {
+                if (!_mUnknown_SurroundMode) return _mValue_SurroundMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.SurroundMode' is not present");
+            }
+        }
     }
 }

@@ -16,243 +16,432 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// <summary>
         /// ARN for the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'Endpoint.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the endpoint database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'Endpoint.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for OpenSearch settings. See below.
         /// </summary>
-        [Input("elasticsearchSettings")]
+        [PolicyResourceProperty("elasticsearchSettings", "_mUnknown_ElasticsearchSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointElasticsearchSettings> _mElasticsearchSettings;
-
-        public Outputs.EndpointElasticsearchSettings? ElasticsearchSettings => _mElasticsearchSettings.GetValue("elasticsearchSettings");
+        private Outputs.EndpointElasticsearchSettings? _mValue_ElasticsearchSettings;
+        private bool _mUnknown_ElasticsearchSettings;
+        public Outputs.EndpointElasticsearchSettings? ElasticsearchSettings
+        {
+            get
+            {
+                if (!_mUnknown_ElasticsearchSettings) return _mValue_ElasticsearchSettings;
+                throw new UndeferrableValueException("Value 'Endpoint.ElasticsearchSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the endpoint.
         /// </summary>
-        [Input("endpointArn")]
+        [PolicyResourceProperty("endpointArn", "_mUnknown_EndpointArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointArn;
-
-        public string? EndpointArn => _mEndpointArn.GetValue("endpointArn");
+        private string? _mValue_EndpointArn;
+        private bool _mUnknown_EndpointArn;
+        public string? EndpointArn
+        {
+            get
+            {
+                if (!_mUnknown_EndpointArn) return _mValue_EndpointArn;
+                throw new UndeferrableValueException("Value 'Endpoint.EndpointArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'Endpoint.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of endpoint. Valid values are `source`, `target`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'Endpoint.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         /// </summary>
-        [Input("engineName")]
+        [PolicyResourceProperty("engineName", "_mUnknown_EngineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
-
-        public string? EngineName => _mEngineName.GetValue("engineName");
+        private string? _mValue_EngineName;
+        private bool _mUnknown_EngineName;
+        public string? EngineName
+        {
+            get
+            {
+                if (!_mUnknown_EngineName) return _mValue_EngineName;
+                throw new UndeferrableValueException("Value 'Endpoint.EngineName' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         /// </summary>
-        [Input("extraConnectionAttributes")]
+        [PolicyResourceProperty("extraConnectionAttributes", "_mUnknown_ExtraConnectionAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtraConnectionAttributes;
-
-        public string? ExtraConnectionAttributes => _mExtraConnectionAttributes.GetValue("extraConnectionAttributes");
+        private string? _mValue_ExtraConnectionAttributes;
+        private bool _mUnknown_ExtraConnectionAttributes;
+        public string? ExtraConnectionAttributes
+        {
+            get
+            {
+                if (!_mUnknown_ExtraConnectionAttributes) return _mValue_ExtraConnectionAttributes;
+                throw new UndeferrableValueException("Value 'Endpoint.ExtraConnectionAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Kafka settings. See below.
         /// </summary>
-        [Input("kafkaSettings")]
+        [PolicyResourceProperty("kafkaSettings", "_mUnknown_KafkaSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointKafkaSettings> _mKafkaSettings;
-
-        public Outputs.EndpointKafkaSettings? KafkaSettings => _mKafkaSettings.GetValue("kafkaSettings");
+        private Outputs.EndpointKafkaSettings? _mValue_KafkaSettings;
+        private bool _mUnknown_KafkaSettings;
+        public Outputs.EndpointKafkaSettings? KafkaSettings
+        {
+            get
+            {
+                if (!_mUnknown_KafkaSettings) return _mValue_KafkaSettings;
+                throw new UndeferrableValueException("Value 'Endpoint.KafkaSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Kinesis settings. See below.
         /// </summary>
-        [Input("kinesisSettings")]
+        [PolicyResourceProperty("kinesisSettings", "_mUnknown_KinesisSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointKinesisSettings> _mKinesisSettings;
-
-        public Outputs.EndpointKinesisSettings? KinesisSettings => _mKinesisSettings.GetValue("kinesisSettings");
+        private Outputs.EndpointKinesisSettings? _mValue_KinesisSettings;
+        private bool _mUnknown_KinesisSettings;
+        public Outputs.EndpointKinesisSettings? KinesisSettings
+        {
+            get
+            {
+                if (!_mUnknown_KinesisSettings) return _mValue_KinesisSettings;
+                throw new UndeferrableValueException("Value 'Endpoint.KinesisSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'Endpoint.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for MongoDB settings. See below.
         /// </summary>
-        [Input("mongodbSettings")]
+        [PolicyResourceProperty("mongodbSettings", "_mUnknown_MongodbSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointMongodbSettings> _mMongodbSettings;
-
-        public Outputs.EndpointMongodbSettings? MongodbSettings => _mMongodbSettings.GetValue("mongodbSettings");
+        private Outputs.EndpointMongodbSettings? _mValue_MongodbSettings;
+        private bool _mUnknown_MongodbSettings;
+        public Outputs.EndpointMongodbSettings? MongodbSettings
+        {
+            get
+            {
+                if (!_mUnknown_MongodbSettings) return _mValue_MongodbSettings;
+                throw new UndeferrableValueException("Value 'Endpoint.MongodbSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Password to be used to login to the endpoint database.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'Endpoint.Password' is not present");
+            }
+        }
 
-        public string? Password => _mPassword.GetValue("password");
-
-        [Input("pauseReplicationTasks")]
+        [PolicyResourceProperty("pauseReplicationTasks", "_mUnknown_PauseReplicationTasks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPauseReplicationTasks;
-
-        public bool? PauseReplicationTasks => _mPauseReplicationTasks.GetValue("pauseReplicationTasks");
+        private bool? _mValue_PauseReplicationTasks;
+        private bool _mUnknown_PauseReplicationTasks;
+        public bool? PauseReplicationTasks
+        {
+            get
+            {
+                if (!_mUnknown_PauseReplicationTasks) return _mValue_PauseReplicationTasks;
+                throw new UndeferrableValueException("Value 'Endpoint.PauseReplicationTasks' is not present");
+            }
+        }
 
         /// <summary>
         /// Port used by the endpoint database.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Endpoint.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Postgres settings. See below.
         /// </summary>
-        [Input("postgresSettings")]
+        [PolicyResourceProperty("postgresSettings", "_mUnknown_PostgresSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointPostgresSettings> _mPostgresSettings;
+        private Outputs.EndpointPostgresSettings? _mValue_PostgresSettings;
+        private bool _mUnknown_PostgresSettings;
+        public Outputs.EndpointPostgresSettings? PostgresSettings
+        {
+            get
+            {
+                if (!_mUnknown_PostgresSettings) return _mValue_PostgresSettings;
+                throw new UndeferrableValueException("Value 'Endpoint.PostgresSettings' is not present");
+            }
+        }
 
-        public Outputs.EndpointPostgresSettings? PostgresSettings => _mPostgresSettings.GetValue("postgresSettings");
-
-        [Input("redisSettings")]
+        [PolicyResourceProperty("redisSettings", "_mUnknown_RedisSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointRedisSettings> _mRedisSettings;
-
-        public Outputs.EndpointRedisSettings? RedisSettings => _mRedisSettings.GetValue("redisSettings");
+        private Outputs.EndpointRedisSettings? _mValue_RedisSettings;
+        private bool _mUnknown_RedisSettings;
+        public Outputs.EndpointRedisSettings? RedisSettings
+        {
+            get
+            {
+                if (!_mUnknown_RedisSettings) return _mValue_RedisSettings;
+                throw new UndeferrableValueException("Value 'Endpoint.RedisSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Redshift settings. See below.
         /// </summary>
-        [Input("redshiftSettings")]
+        [PolicyResourceProperty("redshiftSettings", "_mUnknown_RedshiftSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointRedshiftSettings> _mRedshiftSettings;
-
-        public Outputs.EndpointRedshiftSettings? RedshiftSettings => _mRedshiftSettings.GetValue("redshiftSettings");
+        private Outputs.EndpointRedshiftSettings? _mValue_RedshiftSettings;
+        private bool _mUnknown_RedshiftSettings;
+        public Outputs.EndpointRedshiftSettings? RedshiftSettings
+        {
+            get
+            {
+                if (!_mUnknown_RedshiftSettings) return _mValue_RedshiftSettings;
+                throw new UndeferrableValueException("Value 'Endpoint.RedshiftSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         /// </summary>
-        [Input("s3Settings")]
+        [PolicyResourceProperty("s3Settings", "_mUnknown_S3Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointS3Settings> _mS3Settings;
-
-        public Outputs.EndpointS3Settings? S3Settings => _mS3Settings.GetValue("s3Settings");
+        private Outputs.EndpointS3Settings? _mValue_S3Settings;
+        private bool _mUnknown_S3Settings;
+        public Outputs.EndpointS3Settings? S3Settings
+        {
+            get
+            {
+                if (!_mUnknown_S3Settings) return _mValue_S3Settings;
+                throw new UndeferrableValueException("Value 'Endpoint.S3Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
         /// 
         /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
-        [Input("secretsManagerAccessRoleArn")]
+        [PolicyResourceProperty("secretsManagerAccessRoleArn", "_mUnknown_SecretsManagerAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerAccessRoleArn;
-
-        public string? SecretsManagerAccessRoleArn => _mSecretsManagerAccessRoleArn.GetValue("secretsManagerAccessRoleArn");
+        private string? _mValue_SecretsManagerAccessRoleArn;
+        private bool _mUnknown_SecretsManagerAccessRoleArn;
+        public string? SecretsManagerAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerAccessRoleArn) return _mValue_SecretsManagerAccessRoleArn;
+                throw new UndeferrableValueException("Value 'Endpoint.SecretsManagerAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
-        [Input("secretsManagerArn")]
+        [PolicyResourceProperty("secretsManagerArn", "_mUnknown_SecretsManagerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerArn;
-
-        public string? SecretsManagerArn => _mSecretsManagerArn.GetValue("secretsManagerArn");
+        private string? _mValue_SecretsManagerArn;
+        private bool _mUnknown_SecretsManagerArn;
+        public string? SecretsManagerArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerArn) return _mValue_SecretsManagerArn;
+                throw new UndeferrableValueException("Value 'Endpoint.SecretsManagerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Host name of the server.
         /// </summary>
-        [Input("serverName")]
+        [PolicyResourceProperty("serverName", "_mUnknown_ServerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerName;
-
-        public string? ServerName => _mServerName.GetValue("serverName");
+        private string? _mValue_ServerName;
+        private bool _mUnknown_ServerName;
+        public string? ServerName
+        {
+            get
+            {
+                if (!_mUnknown_ServerName) return _mValue_ServerName;
+                throw new UndeferrableValueException("Value 'Endpoint.ServerName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN used by the service access IAM role for dynamodb endpoints.
         /// </summary>
-        [Input("serviceAccessRole")]
+        [PolicyResourceProperty("serviceAccessRole", "_mUnknown_ServiceAccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRole;
-
-        public string? ServiceAccessRole => _mServiceAccessRole.GetValue("serviceAccessRole");
+        private string? _mValue_ServiceAccessRole;
+        private bool _mUnknown_ServiceAccessRole;
+        public string? ServiceAccessRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRole) return _mValue_ServiceAccessRole;
+                throw new UndeferrableValueException("Value 'Endpoint.ServiceAccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         /// </summary>
-        [Input("sslMode")]
+        [PolicyResourceProperty("sslMode", "_mUnknown_SslMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslMode;
-
-        public string? SslMode => _mSslMode.GetValue("sslMode");
+        private string? _mValue_SslMode;
+        private bool _mUnknown_SslMode;
+        public string? SslMode
+        {
+            get
+            {
+                if (!_mUnknown_SslMode) return _mValue_SslMode;
+                throw new UndeferrableValueException("Value 'Endpoint.SslMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Endpoint.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Endpoint.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// User name to be used to login to the endpoint database.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'Endpoint.Username' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dms/endpoint:Endpoint")]
@@ -261,224 +450,399 @@ namespace Pulumi.PolicyPacks.Aws.Dms
         /// <summary>
         /// ARN for the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'EndpointArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the endpoint database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'EndpointArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for OpenSearch settings. See below.
         /// </summary>
-        [Input("elasticsearchSettings")]
+        [PolicyResourceProperty("elasticsearchSettings", "_mUnknown_ElasticsearchSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointElasticsearchSettingsArgs> _mElasticsearchSettings;
-
-        public Inputs.EndpointElasticsearchSettingsArgs? ElasticsearchSettings => _mElasticsearchSettings.GetValue("elasticsearchSettings");
+        private Inputs.EndpointElasticsearchSettingsArgs? _mValue_ElasticsearchSettings;
+        private bool _mUnknown_ElasticsearchSettings;
+        public Inputs.EndpointElasticsearchSettingsArgs? ElasticsearchSettings
+        {
+            get
+            {
+                if (!_mUnknown_ElasticsearchSettings) return _mValue_ElasticsearchSettings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.ElasticsearchSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'EndpointArgs.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of endpoint. Valid values are `source`, `target`.
         /// </summary>
-        [Input("endpointType")]
+        [PolicyResourceProperty("endpointType", "_mUnknown_EndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointType;
-
-        public string? EndpointType => _mEndpointType.GetValue("endpointType");
+        private string? _mValue_EndpointType;
+        private bool _mUnknown_EndpointType;
+        public string? EndpointType
+        {
+            get
+            {
+                if (!_mUnknown_EndpointType) return _mValue_EndpointType;
+                throw new UndeferrableValueException("Value 'EndpointArgs.EndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         /// </summary>
-        [Input("engineName")]
+        [PolicyResourceProperty("engineName", "_mUnknown_EngineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
-
-        public string? EngineName => _mEngineName.GetValue("engineName");
+        private string? _mValue_EngineName;
+        private bool _mUnknown_EngineName;
+        public string? EngineName
+        {
+            get
+            {
+                if (!_mUnknown_EngineName) return _mValue_EngineName;
+                throw new UndeferrableValueException("Value 'EndpointArgs.EngineName' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
         /// </summary>
-        [Input("extraConnectionAttributes")]
+        [PolicyResourceProperty("extraConnectionAttributes", "_mUnknown_ExtraConnectionAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtraConnectionAttributes;
-
-        public string? ExtraConnectionAttributes => _mExtraConnectionAttributes.GetValue("extraConnectionAttributes");
+        private string? _mValue_ExtraConnectionAttributes;
+        private bool _mUnknown_ExtraConnectionAttributes;
+        public string? ExtraConnectionAttributes
+        {
+            get
+            {
+                if (!_mUnknown_ExtraConnectionAttributes) return _mValue_ExtraConnectionAttributes;
+                throw new UndeferrableValueException("Value 'EndpointArgs.ExtraConnectionAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Kafka settings. See below.
         /// </summary>
-        [Input("kafkaSettings")]
+        [PolicyResourceProperty("kafkaSettings", "_mUnknown_KafkaSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointKafkaSettingsArgs> _mKafkaSettings;
-
-        public Inputs.EndpointKafkaSettingsArgs? KafkaSettings => _mKafkaSettings.GetValue("kafkaSettings");
+        private Inputs.EndpointKafkaSettingsArgs? _mValue_KafkaSettings;
+        private bool _mUnknown_KafkaSettings;
+        public Inputs.EndpointKafkaSettingsArgs? KafkaSettings
+        {
+            get
+            {
+                if (!_mUnknown_KafkaSettings) return _mValue_KafkaSettings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.KafkaSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Kinesis settings. See below.
         /// </summary>
-        [Input("kinesisSettings")]
+        [PolicyResourceProperty("kinesisSettings", "_mUnknown_KinesisSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointKinesisSettingsArgs> _mKinesisSettings;
-
-        public Inputs.EndpointKinesisSettingsArgs? KinesisSettings => _mKinesisSettings.GetValue("kinesisSettings");
+        private Inputs.EndpointKinesisSettingsArgs? _mValue_KinesisSettings;
+        private bool _mUnknown_KinesisSettings;
+        public Inputs.EndpointKinesisSettingsArgs? KinesisSettings
+        {
+            get
+            {
+                if (!_mUnknown_KinesisSettings) return _mValue_KinesisSettings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.KinesisSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'EndpointArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for MongoDB settings. See below.
         /// </summary>
-        [Input("mongodbSettings")]
+        [PolicyResourceProperty("mongodbSettings", "_mUnknown_MongodbSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointMongodbSettingsArgs> _mMongodbSettings;
-
-        public Inputs.EndpointMongodbSettingsArgs? MongodbSettings => _mMongodbSettings.GetValue("mongodbSettings");
+        private Inputs.EndpointMongodbSettingsArgs? _mValue_MongodbSettings;
+        private bool _mUnknown_MongodbSettings;
+        public Inputs.EndpointMongodbSettingsArgs? MongodbSettings
+        {
+            get
+            {
+                if (!_mUnknown_MongodbSettings) return _mValue_MongodbSettings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.MongodbSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Password to be used to login to the endpoint database.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'EndpointArgs.Password' is not present");
+            }
+        }
 
-        public string? Password => _mPassword.GetValue("password");
-
-        [Input("pauseReplicationTasks")]
+        [PolicyResourceProperty("pauseReplicationTasks", "_mUnknown_PauseReplicationTasks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPauseReplicationTasks;
-
-        public bool? PauseReplicationTasks => _mPauseReplicationTasks.GetValue("pauseReplicationTasks");
+        private bool? _mValue_PauseReplicationTasks;
+        private bool _mUnknown_PauseReplicationTasks;
+        public bool? PauseReplicationTasks
+        {
+            get
+            {
+                if (!_mUnknown_PauseReplicationTasks) return _mValue_PauseReplicationTasks;
+                throw new UndeferrableValueException("Value 'EndpointArgs.PauseReplicationTasks' is not present");
+            }
+        }
 
         /// <summary>
         /// Port used by the endpoint database.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'EndpointArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Postgres settings. See below.
         /// </summary>
-        [Input("postgresSettings")]
+        [PolicyResourceProperty("postgresSettings", "_mUnknown_PostgresSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointPostgresSettingsArgs> _mPostgresSettings;
+        private Inputs.EndpointPostgresSettingsArgs? _mValue_PostgresSettings;
+        private bool _mUnknown_PostgresSettings;
+        public Inputs.EndpointPostgresSettingsArgs? PostgresSettings
+        {
+            get
+            {
+                if (!_mUnknown_PostgresSettings) return _mValue_PostgresSettings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.PostgresSettings' is not present");
+            }
+        }
 
-        public Inputs.EndpointPostgresSettingsArgs? PostgresSettings => _mPostgresSettings.GetValue("postgresSettings");
-
-        [Input("redisSettings")]
+        [PolicyResourceProperty("redisSettings", "_mUnknown_RedisSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointRedisSettingsArgs> _mRedisSettings;
-
-        public Inputs.EndpointRedisSettingsArgs? RedisSettings => _mRedisSettings.GetValue("redisSettings");
+        private Inputs.EndpointRedisSettingsArgs? _mValue_RedisSettings;
+        private bool _mUnknown_RedisSettings;
+        public Inputs.EndpointRedisSettingsArgs? RedisSettings
+        {
+            get
+            {
+                if (!_mUnknown_RedisSettings) return _mValue_RedisSettings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.RedisSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Redshift settings. See below.
         /// </summary>
-        [Input("redshiftSettings")]
+        [PolicyResourceProperty("redshiftSettings", "_mUnknown_RedshiftSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointRedshiftSettingsArgs> _mRedshiftSettings;
-
-        public Inputs.EndpointRedshiftSettingsArgs? RedshiftSettings => _mRedshiftSettings.GetValue("redshiftSettings");
+        private Inputs.EndpointRedshiftSettingsArgs? _mValue_RedshiftSettings;
+        private bool _mUnknown_RedshiftSettings;
+        public Inputs.EndpointRedshiftSettingsArgs? RedshiftSettings
+        {
+            get
+            {
+                if (!_mUnknown_RedshiftSettings) return _mValue_RedshiftSettings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.RedshiftSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         /// </summary>
-        [Input("s3Settings")]
+        [PolicyResourceProperty("s3Settings", "_mUnknown_S3Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EndpointS3SettingsArgs> _mS3Settings;
-
-        public Inputs.EndpointS3SettingsArgs? S3Settings => _mS3Settings.GetValue("s3Settings");
+        private Inputs.EndpointS3SettingsArgs? _mValue_S3Settings;
+        private bool _mUnknown_S3Settings;
+        public Inputs.EndpointS3SettingsArgs? S3Settings
+        {
+            get
+            {
+                if (!_mUnknown_S3Settings) return _mValue_S3Settings;
+                throw new UndeferrableValueException("Value 'EndpointArgs.S3Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
         /// 
         /// &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
         /// </summary>
-        [Input("secretsManagerAccessRoleArn")]
+        [PolicyResourceProperty("secretsManagerAccessRoleArn", "_mUnknown_SecretsManagerAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerAccessRoleArn;
-
-        public string? SecretsManagerAccessRoleArn => _mSecretsManagerAccessRoleArn.GetValue("secretsManagerAccessRoleArn");
+        private string? _mValue_SecretsManagerAccessRoleArn;
+        private bool _mUnknown_SecretsManagerAccessRoleArn;
+        public string? SecretsManagerAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerAccessRoleArn) return _mValue_SecretsManagerAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EndpointArgs.SecretsManagerAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
         /// </summary>
-        [Input("secretsManagerArn")]
+        [PolicyResourceProperty("secretsManagerArn", "_mUnknown_SecretsManagerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsManagerArn;
-
-        public string? SecretsManagerArn => _mSecretsManagerArn.GetValue("secretsManagerArn");
+        private string? _mValue_SecretsManagerArn;
+        private bool _mUnknown_SecretsManagerArn;
+        public string? SecretsManagerArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretsManagerArn) return _mValue_SecretsManagerArn;
+                throw new UndeferrableValueException("Value 'EndpointArgs.SecretsManagerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Host name of the server.
         /// </summary>
-        [Input("serverName")]
+        [PolicyResourceProperty("serverName", "_mUnknown_ServerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerName;
-
-        public string? ServerName => _mServerName.GetValue("serverName");
+        private string? _mValue_ServerName;
+        private bool _mUnknown_ServerName;
+        public string? ServerName
+        {
+            get
+            {
+                if (!_mUnknown_ServerName) return _mValue_ServerName;
+                throw new UndeferrableValueException("Value 'EndpointArgs.ServerName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN used by the service access IAM role for dynamodb endpoints.
         /// </summary>
-        [Input("serviceAccessRole")]
+        [PolicyResourceProperty("serviceAccessRole", "_mUnknown_ServiceAccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRole;
-
-        public string? ServiceAccessRole => _mServiceAccessRole.GetValue("serviceAccessRole");
+        private string? _mValue_ServiceAccessRole;
+        private bool _mUnknown_ServiceAccessRole;
+        public string? ServiceAccessRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRole) return _mValue_ServiceAccessRole;
+                throw new UndeferrableValueException("Value 'EndpointArgs.ServiceAccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
         /// </summary>
-        [Input("sslMode")]
+        [PolicyResourceProperty("sslMode", "_mUnknown_SslMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslMode;
-
-        public string? SslMode => _mSslMode.GetValue("sslMode");
+        private string? _mValue_SslMode;
+        private bool _mUnknown_SslMode;
+        public string? SslMode
+        {
+            get
+            {
+                if (!_mUnknown_SslMode) return _mValue_SslMode;
+                throw new UndeferrableValueException("Value 'EndpointArgs.SslMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EndpointArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// User name to be used to login to the endpoint database.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'EndpointArgs.Username' is not present");
+            }
+        }
     }
 }

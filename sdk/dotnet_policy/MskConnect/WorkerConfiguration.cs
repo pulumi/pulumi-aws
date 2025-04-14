@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect
         /// <summary>
         /// the Amazon Resource Name (ARN) of the worker configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'WorkerConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A summary description of the worker configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WorkerConfiguration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// an ID of the latest successfully created revision of the worker configuration.
         /// </summary>
-        [Input("latestRevision")]
+        [PolicyResourceProperty("latestRevision", "_mUnknown_LatestRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLatestRevision;
-
-        public int? LatestRevision => _mLatestRevision.GetValue("latestRevision");
+        private int? _mValue_LatestRevision;
+        private bool _mUnknown_LatestRevision;
+        public int? LatestRevision
+        {
+            get
+            {
+                if (!_mUnknown_LatestRevision) return _mValue_LatestRevision;
+                throw new UndeferrableValueException("Value 'WorkerConfiguration.LatestRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the worker configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkerConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("propertiesFileContent")]
+        [PolicyResourceProperty("propertiesFileContent", "_mUnknown_PropertiesFileContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPropertiesFileContent;
-
-        public string? PropertiesFileContent => _mPropertiesFileContent.GetValue("propertiesFileContent");
+        private string? _mValue_PropertiesFileContent;
+        private bool _mUnknown_PropertiesFileContent;
+        public string? PropertiesFileContent
+        {
+            get
+            {
+                if (!_mUnknown_PropertiesFileContent) return _mValue_PropertiesFileContent;
+                throw new UndeferrableValueException("Value 'WorkerConfiguration.PropertiesFileContent' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkerConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'WorkerConfiguration.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:mskconnect/workerConfiguration:WorkerConfiguration")]
@@ -85,39 +134,67 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect
         /// <summary>
         /// A summary description of the worker configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WorkerConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the worker configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkerConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("propertiesFileContent")]
+        [PolicyResourceProperty("propertiesFileContent", "_mUnknown_PropertiesFileContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPropertiesFileContent;
-
-        public string? PropertiesFileContent => _mPropertiesFileContent.GetValue("propertiesFileContent");
+        private string? _mValue_PropertiesFileContent;
+        private bool _mUnknown_PropertiesFileContent;
+        public string? PropertiesFileContent
+        {
+            get
+            {
+                if (!_mUnknown_PropertiesFileContent) return _mValue_PropertiesFileContent;
+                throw new UndeferrableValueException("Value 'WorkerConfigurationArgs.PropertiesFileContent' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkerConfigurationArgs.Tags' is not present");
+            }
+        }
     }
 }

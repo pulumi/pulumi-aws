@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventSourceMappingFilterCriteriaFilterArgs>> _mFilters;
-
-        public List<Inputs.EventSourceMappingFilterCriteriaFilterArgs>? Filters => _mFilters.GetValue("filters");
+        private List<Inputs.EventSourceMappingFilterCriteriaFilterArgs>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Inputs.EventSourceMappingFilterCriteriaFilterArgs>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'EventSourceMappingFilterCriteriaArgs.Filters' is not present");
+            }
+        }
     }
 }

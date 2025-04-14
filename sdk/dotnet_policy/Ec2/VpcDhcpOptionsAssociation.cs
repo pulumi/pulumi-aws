@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the DHCP Options Set to associate to the VPC.
         /// </summary>
-        [Input("dhcpOptionsId")]
+        [PolicyResourceProperty("dhcpOptionsId", "_mUnknown_DhcpOptionsId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDhcpOptionsId;
-
-        public string? DhcpOptionsId => _mDhcpOptionsId.GetValue("dhcpOptionsId");
+        private string? _mValue_DhcpOptionsId;
+        private bool _mUnknown_DhcpOptionsId;
+        public string? DhcpOptionsId
+        {
+            get
+            {
+                if (!_mUnknown_DhcpOptionsId) return _mValue_DhcpOptionsId;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsAssociation.DhcpOptionsId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC to which we would like to associate a DHCP Options Set.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the DHCP Options Set to associate to the VPC.
         /// </summary>
-        [Input("dhcpOptionsId")]
+        [PolicyResourceProperty("dhcpOptionsId", "_mUnknown_DhcpOptionsId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDhcpOptionsId;
-
-        public string? DhcpOptionsId => _mDhcpOptionsId.GetValue("dhcpOptionsId");
+        private string? _mValue_DhcpOptionsId;
+        private bool _mUnknown_DhcpOptionsId;
+        public string? DhcpOptionsId
+        {
+            get
+            {
+                if (!_mUnknown_DhcpOptionsId) return _mValue_DhcpOptionsId;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsAssociationArgs.DhcpOptionsId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC to which we would like to associate a DHCP Options Set.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsAssociationArgs.VpcId' is not present");
+            }
+        }
     }
 }

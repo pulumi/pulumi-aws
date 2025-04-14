@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// ID of the Capacity Reservation in which to run the instance.
         /// </summary>
-        [Input("capacityReservationId")]
+        [PolicyResourceProperty("capacityReservationId", "_mUnknown_CapacityReservationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityReservationId;
-
-        public string? CapacityReservationId => _mCapacityReservationId.GetValue("capacityReservationId");
+        private string? _mValue_CapacityReservationId;
+        private bool _mUnknown_CapacityReservationId;
+        public string? CapacityReservationId
+        {
+            get
+            {
+                if (!_mUnknown_CapacityReservationId) return _mValue_CapacityReservationId;
+                throw new UndeferrableValueException("Value 'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs.CapacityReservationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Capacity Reservation resource group in which to run the instance.
         /// </summary>
-        [Input("capacityReservationResourceGroupArn")]
+        [PolicyResourceProperty("capacityReservationResourceGroupArn", "_mUnknown_CapacityReservationResourceGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityReservationResourceGroupArn;
-
-        public string? CapacityReservationResourceGroupArn => _mCapacityReservationResourceGroupArn.GetValue("capacityReservationResourceGroupArn");
+        private string? _mValue_CapacityReservationResourceGroupArn;
+        private bool _mUnknown_CapacityReservationResourceGroupArn;
+        public string? CapacityReservationResourceGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CapacityReservationResourceGroupArn) return _mValue_CapacityReservationResourceGroupArn;
+                throw new UndeferrableValueException("Value 'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs.CapacityReservationResourceGroupArn' is not present");
+            }
+        }
     }
 }

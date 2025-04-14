@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings
     {
-        [Input("h265PackagingType")]
+        [PolicyResourceProperty("h265PackagingType", "_mUnknown_H265PackagingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mH265PackagingType;
-
-        public string? H265PackagingType => _mH265PackagingType.GetValue("h265PackagingType");
+        private string? _mValue_H265PackagingType;
+        private bool _mUnknown_H265PackagingType;
+        public string? H265PackagingType
+        {
+            get
+            {
+                if (!_mUnknown_H265PackagingType) return _mValue_H265PackagingType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings.H265PackagingType' is not present");
+            }
+        }
 
         /// <summary>
         /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         /// </summary>
-        [Input("nameModifier")]
+        [PolicyResourceProperty("nameModifier", "_mUnknown_NameModifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameModifier;
-
-        public string? NameModifier => _mNameModifier.GetValue("nameModifier");
+        private string? _mValue_NameModifier;
+        private bool _mUnknown_NameModifier;
+        public string? NameModifier
+        {
+            get
+            {
+                if (!_mUnknown_NameModifier) return _mValue_NameModifier;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings.NameModifier' is not present");
+            }
+        }
     }
 }

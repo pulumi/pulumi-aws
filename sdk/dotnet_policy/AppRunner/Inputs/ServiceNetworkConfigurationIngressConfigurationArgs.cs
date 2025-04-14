@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Inputs
         /// <summary>
         /// Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
         /// </summary>
-        [Input("isPubliclyAccessible")]
+        [PolicyResourceProperty("isPubliclyAccessible", "_mUnknown_IsPubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsPubliclyAccessible;
-
-        public bool? IsPubliclyAccessible => _mIsPubliclyAccessible.GetValue("isPubliclyAccessible");
+        private bool? _mValue_IsPubliclyAccessible;
+        private bool _mUnknown_IsPubliclyAccessible;
+        public bool? IsPubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_IsPubliclyAccessible) return _mValue_IsPubliclyAccessible;
+                throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationIngressConfigurationArgs.IsPubliclyAccessible' is not present");
+            }
+        }
     }
 }

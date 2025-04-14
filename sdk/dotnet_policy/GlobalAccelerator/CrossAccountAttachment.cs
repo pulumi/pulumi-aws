@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// ARN of the Cross Account Attachment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Creation Time when the Cross Account Attachment.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Last modified time of the Cross Account Attachment.
         /// </summary>
-        [Input("lastModifiedTime")]
+        [PolicyResourceProperty("lastModifiedTime", "_mUnknown_LastModifiedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTime;
-
-        public string? LastModifiedTime => _mLastModifiedTime.GetValue("lastModifiedTime");
+        private string? _mValue_LastModifiedTime;
+        private bool _mUnknown_LastModifiedTime;
+        public string? LastModifiedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedTime) return _mValue_LastModifiedTime;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.LastModifiedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Cross Account Attachment.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS account IDs that are allowed to associate resources with the accelerator.
         /// </summary>
-        [Input("principals")]
+        [PolicyResourceProperty("principals", "_mUnknown_Principals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrincipals;
-
-        public List<string>? Principals => _mPrincipals.GetValue("principals");
+        private List<string>? _mValue_Principals;
+        private bool _mUnknown_Principals;
+        public List<string>? Principals
+        {
+            get
+            {
+                if (!_mUnknown_Principals) return _mValue_Principals;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.Principals' is not present");
+            }
+        }
 
         /// <summary>
         /// List of resources to be associated with the accelerator.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CrossAccountAttachmentResource>> _mResources;
-
-        public List<Outputs.CrossAccountAttachmentResource>? Resources => _mResources.GetValue("resources");
+        private List<Outputs.CrossAccountAttachmentResource>? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public List<Outputs.CrossAccountAttachmentResource>? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.Resources' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachment.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment")]
@@ -96,37 +152,65 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS account IDs that are allowed to associate resources with the accelerator.
         /// </summary>
-        [Input("principals")]
+        [PolicyResourceProperty("principals", "_mUnknown_Principals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrincipals;
-
-        public List<string>? Principals => _mPrincipals.GetValue("principals");
+        private List<string>? _mValue_Principals;
+        private bool _mUnknown_Principals;
+        public List<string>? Principals
+        {
+            get
+            {
+                if (!_mUnknown_Principals) return _mValue_Principals;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.Principals' is not present");
+            }
+        }
 
         /// <summary>
         /// List of resources to be associated with the accelerator.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CrossAccountAttachmentResourceArgs>> _mResources;
-
-        public List<Inputs.CrossAccountAttachmentResourceArgs>? Resources => _mResources.GetValue("resources");
+        private List<Inputs.CrossAccountAttachmentResourceArgs>? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public List<Inputs.CrossAccountAttachmentResourceArgs>? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.Resources' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.Tags' is not present");
+            }
+        }
     }
 }

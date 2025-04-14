@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("volumeThroughput")]
+        [PolicyResourceProperty("volumeThroughput", "_mUnknown_VolumeThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeThroughput;
-
-        public int? VolumeThroughput => _mVolumeThroughput.GetValue("volumeThroughput");
+        private int? _mValue_VolumeThroughput;
+        private bool _mUnknown_VolumeThroughput;
+        public int? VolumeThroughput
+        {
+            get
+            {
+                if (!_mUnknown_VolumeThroughput) return _mValue_VolumeThroughput;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputResult.VolumeThroughput' is not present");
+            }
+        }
     }
 }

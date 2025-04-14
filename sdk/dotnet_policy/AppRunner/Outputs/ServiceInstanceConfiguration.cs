@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// <summary>
         /// Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpu;
-
-        public string? Cpu => _mCpu.GetValue("cpu");
+        private string? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public string? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'ServiceInstanceConfiguration.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
         /// </summary>
-        [Input("instanceRoleArn")]
+        [PolicyResourceProperty("instanceRoleArn", "_mUnknown_InstanceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceRoleArn;
-
-        public string? InstanceRoleArn => _mInstanceRoleArn.GetValue("instanceRoleArn");
+        private string? _mValue_InstanceRoleArn;
+        private bool _mUnknown_InstanceRoleArn;
+        public string? InstanceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRoleArn) return _mValue_InstanceRoleArn;
+                throw new UndeferrableValueException("Value 'ServiceInstanceConfiguration.InstanceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemory;
-
-        public string? Memory => _mMemory.GetValue("memory");
+        private string? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public string? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'ServiceInstanceConfiguration.Memory' is not present");
+            }
+        }
     }
 }

@@ -16,17 +16,31 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of the model package group.
         /// </summary>
-        [Input("modelPackageGroupName")]
+        [PolicyResourceProperty("modelPackageGroupName", "_mUnknown_ModelPackageGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupName;
+        private string? _mValue_ModelPackageGroupName;
+        private bool _mUnknown_ModelPackageGroupName;
+        public string? ModelPackageGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ModelPackageGroupName) return _mValue_ModelPackageGroupName;
+                throw new UndeferrableValueException("Value 'ModelPackageGroupPolicy.ModelPackageGroupName' is not present");
+            }
+        }
 
-        public string? ModelPackageGroupName => _mModelPackageGroupName.GetValue("modelPackageGroupName");
-
-        [Input("resourcePolicy")]
+        [PolicyResourceProperty("resourcePolicy", "_mUnknown_ResourcePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
-
-        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+        private string? _mValue_ResourcePolicy;
+        private bool _mUnknown_ResourcePolicy;
+        public string? ResourcePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePolicy) return _mValue_ResourcePolicy;
+                throw new UndeferrableValueException("Value 'ModelPackageGroupPolicy.ResourcePolicy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy")]
@@ -35,16 +49,30 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of the model package group.
         /// </summary>
-        [Input("modelPackageGroupName")]
+        [PolicyResourceProperty("modelPackageGroupName", "_mUnknown_ModelPackageGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelPackageGroupName;
+        private string? _mValue_ModelPackageGroupName;
+        private bool _mUnknown_ModelPackageGroupName;
+        public string? ModelPackageGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ModelPackageGroupName) return _mValue_ModelPackageGroupName;
+                throw new UndeferrableValueException("Value 'ModelPackageGroupPolicyArgs.ModelPackageGroupName' is not present");
+            }
+        }
 
-        public string? ModelPackageGroupName => _mModelPackageGroupName.GetValue("modelPackageGroupName");
-
-        [Input("resourcePolicy")]
+        [PolicyResourceProperty("resourcePolicy", "_mUnknown_ResourcePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
-
-        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+        private string? _mValue_ResourcePolicy;
+        private bool _mUnknown_ResourcePolicy;
+        public string? ResourcePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePolicy) return _mValue_ResourcePolicy;
+                throw new UndeferrableValueException("Value 'ModelPackageGroupPolicyArgs.ResourcePolicy' is not present");
+            }
+        }
     }
 }

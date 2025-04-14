@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway.Outputs
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
-        [Input("groupIpAddress")]
+        [PolicyResourceProperty("groupIpAddress", "_mUnknown_GroupIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupIpAddress;
-
-        public string? GroupIpAddress => _mGroupIpAddress.GetValue("groupIpAddress");
+        private string? _mValue_GroupIpAddress;
+        private bool _mUnknown_GroupIpAddress;
+        public string? GroupIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_GroupIpAddress) return _mValue_GroupIpAddress;
+                throw new UndeferrableValueException("Value 'GetMulticastDomainMemberResult.GroupIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The group members' network interface ID.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'GetMulticastDomainMemberResult.NetworkInterfaceId' is not present");
+            }
+        }
     }
 }

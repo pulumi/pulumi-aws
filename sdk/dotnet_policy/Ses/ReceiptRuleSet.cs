@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// SES receipt rule set ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the rule set.
         /// </summary>
-        [Input("ruleSetName")]
+        [PolicyResourceProperty("ruleSetName", "_mUnknown_RuleSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
-
-        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
+        private string? _mValue_RuleSetName;
+        private bool _mUnknown_RuleSetName;
+        public string? RuleSetName
+        {
+            get
+            {
+                if (!_mUnknown_RuleSetName) return _mValue_RuleSetName;
+                throw new UndeferrableValueException("Value 'ReceiptRuleSet.RuleSetName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/receiptRuleSet:ReceiptRuleSet")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// Name of the rule set.
         /// </summary>
-        [Input("ruleSetName")]
+        [PolicyResourceProperty("ruleSetName", "_mUnknown_RuleSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
-
-        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
+        private string? _mValue_RuleSetName;
+        private bool _mUnknown_RuleSetName;
+        public string? RuleSetName
+        {
+            get
+            {
+                if (!_mUnknown_RuleSetName) return _mValue_RuleSetName;
+                throw new UndeferrableValueException("Value 'ReceiptRuleSetArgs.RuleSetName' is not present");
+            }
+        }
     }
 }

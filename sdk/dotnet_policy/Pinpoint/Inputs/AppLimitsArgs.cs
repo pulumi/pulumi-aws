@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint.Inputs
         /// <summary>
         /// The maximum number of messages that the campaign can send daily.
         /// </summary>
-        [Input("daily")]
+        [PolicyResourceProperty("daily", "_mUnknown_Daily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDaily;
-
-        public int? Daily => _mDaily.GetValue("daily");
+        private int? _mValue_Daily;
+        private bool _mUnknown_Daily;
+        public int? Daily
+        {
+            get
+            {
+                if (!_mUnknown_Daily) return _mValue_Daily;
+                throw new UndeferrableValueException("Value 'AppLimitsArgs.Daily' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
         /// </summary>
-        [Input("maximumDuration")]
+        [PolicyResourceProperty("maximumDuration", "_mUnknown_MaximumDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumDuration;
-
-        public int? MaximumDuration => _mMaximumDuration.GetValue("maximumDuration");
+        private int? _mValue_MaximumDuration;
+        private bool _mUnknown_MaximumDuration;
+        public int? MaximumDuration
+        {
+            get
+            {
+                if (!_mUnknown_MaximumDuration) return _mValue_MaximumDuration;
+                throw new UndeferrableValueException("Value 'AppLimitsArgs.MaximumDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
         /// </summary>
-        [Input("messagesPerSecond")]
+        [PolicyResourceProperty("messagesPerSecond", "_mUnknown_MessagesPerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMessagesPerSecond;
-
-        public int? MessagesPerSecond => _mMessagesPerSecond.GetValue("messagesPerSecond");
+        private int? _mValue_MessagesPerSecond;
+        private bool _mUnknown_MessagesPerSecond;
+        public int? MessagesPerSecond
+        {
+            get
+            {
+                if (!_mUnknown_MessagesPerSecond) return _mValue_MessagesPerSecond;
+                throw new UndeferrableValueException("Value 'AppLimitsArgs.MessagesPerSecond' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum total number of messages that the campaign can send.
         /// </summary>
-        [Input("total")]
+        [PolicyResourceProperty("total", "_mUnknown_Total")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTotal;
-
-        public int? Total => _mTotal.GetValue("total");
+        private int? _mValue_Total;
+        private bool _mUnknown_Total;
+        public int? Total
+        {
+            get
+            {
+                if (!_mUnknown_Total) return _mValue_Total;
+                throw new UndeferrableValueException("Value 'AppLimitsArgs.Total' is not present");
+            }
+        }
     }
 }

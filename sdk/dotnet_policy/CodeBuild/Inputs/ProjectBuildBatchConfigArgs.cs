@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// Specifies if the build artifacts for the batch build should be combined into a single
         /// artifact location.
         /// </summary>
-        [Input("combineArtifacts")]
+        [PolicyResourceProperty("combineArtifacts", "_mUnknown_CombineArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCombineArtifacts;
-
-        public bool? CombineArtifacts => _mCombineArtifacts.GetValue("combineArtifacts");
+        private bool? _mValue_CombineArtifacts;
+        private bool _mUnknown_CombineArtifacts;
+        public bool? CombineArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_CombineArtifacts) return _mValue_CombineArtifacts;
+                throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigArgs.CombineArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block specifying the restrictions for the batch build. Detailed below.
         /// </summary>
-        [Input("restrictions")]
+        [PolicyResourceProperty("restrictions", "_mUnknown_Restrictions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectBuildBatchConfigRestrictionsArgs> _mRestrictions;
-
-        public Inputs.ProjectBuildBatchConfigRestrictionsArgs? Restrictions => _mRestrictions.GetValue("restrictions");
+        private Inputs.ProjectBuildBatchConfigRestrictionsArgs? _mValue_Restrictions;
+        private bool _mUnknown_Restrictions;
+        public Inputs.ProjectBuildBatchConfigRestrictionsArgs? Restrictions
+        {
+            get
+            {
+                if (!_mUnknown_Restrictions) return _mValue_Restrictions;
+                throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigArgs.Restrictions' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the service role ARN for the batch build project.
         /// </summary>
-        [Input("serviceRole")]
+        [PolicyResourceProperty("serviceRole", "_mUnknown_ServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
-
-        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+        private string? _mValue_ServiceRole;
+        private bool _mUnknown_ServiceRole;
+        public string? ServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRole) return _mValue_ServiceRole;
+                throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigArgs.ServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum amount of time, in minutes, that the batch build must be
         /// completed in.
         /// </summary>
-        [Input("timeoutInMins")]
+        [PolicyResourceProperty("timeoutInMins", "_mUnknown_TimeoutInMins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInMins;
-
-        public int? TimeoutInMins => _mTimeoutInMins.GetValue("timeoutInMins");
+        private int? _mValue_TimeoutInMins;
+        private bool _mUnknown_TimeoutInMins;
+        public int? TimeoutInMins
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutInMins) return _mValue_TimeoutInMins;
+                throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigArgs.TimeoutInMins' is not present");
+            }
+        }
     }
 }

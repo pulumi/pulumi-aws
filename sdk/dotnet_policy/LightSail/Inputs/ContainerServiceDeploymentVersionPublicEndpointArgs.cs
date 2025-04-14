@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// The name of the container for the endpoint.
         /// </summary>
-        [Input("containerName")]
+        [PolicyResourceProperty("containerName", "_mUnknown_ContainerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerName;
-
-        public string? ContainerName => _mContainerName.GetValue("containerName");
+        private string? _mValue_ContainerName;
+        private bool _mUnknown_ContainerName;
+        public string? ContainerName
+        {
+            get
+            {
+                if (!_mUnknown_ContainerName) return _mValue_ContainerName;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointArgs.ContainerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The port of the container to which traffic is forwarded to.
         /// </summary>
-        [Input("containerPort")]
+        [PolicyResourceProperty("containerPort", "_mUnknown_ContainerPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mContainerPort;
-
-        public int? ContainerPort => _mContainerPort.GetValue("containerPort");
+        private int? _mValue_ContainerPort;
+        private bool _mUnknown_ContainerPort;
+        public int? ContainerPort
+        {
+            get
+            {
+                if (!_mUnknown_ContainerPort) return _mValue_ContainerPort;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointArgs.ContainerPort' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that describes the health check configuration of the container. Detailed below.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs> _mHealthCheck;
-
-        public Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public Inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointArgs.HealthCheck' is not present");
+            }
+        }
     }
 }

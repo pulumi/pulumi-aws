@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The Mapping reference to the data element.
         /// </summary>
-        [Input("mapping")]
+        [PolicyResourceProperty("mapping", "_mUnknown_Mapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapping;
-
-        public string? Mapping => _mMapping.GetValue("mapping");
+        private string? _mValue_Mapping;
+        private bool _mUnknown_Mapping;
+        public string? Mapping
+        {
+            get
+            {
+                if (!_mUnknown_Mapping) return _mValue_Mapping;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs.Mapping' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the column.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The SQL Type of the column.
         /// </summary>
-        [Input("sqlType")]
+        [PolicyResourceProperty("sqlType", "_mUnknown_SqlType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqlType;
-
-        public string? SqlType => _mSqlType.GetValue("sqlType");
+        private string? _mValue_SqlType;
+        private bool _mUnknown_SqlType;
+        public string? SqlType
+        {
+            get
+            {
+                if (!_mUnknown_SqlType) return _mValue_SqlType;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs.SqlType' is not present");
+            }
+        }
     }
 }

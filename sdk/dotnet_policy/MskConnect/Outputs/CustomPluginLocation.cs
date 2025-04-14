@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Outputs
         /// <summary>
         /// Information of the plugin file stored in Amazon S3. See `s3` Block for details..
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomPluginLocationS3> _mS3;
-
-        public Outputs.CustomPluginLocationS3? S3 => _mS3.GetValue("s3");
+        private Outputs.CustomPluginLocationS3? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Outputs.CustomPluginLocationS3? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'CustomPluginLocation.S3' is not present");
+            }
+        }
     }
 }

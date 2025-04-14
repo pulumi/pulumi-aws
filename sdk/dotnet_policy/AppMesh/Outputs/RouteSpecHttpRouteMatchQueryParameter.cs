@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// The query parameter to match on.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RouteSpecHttpRouteMatchQueryParameterMatch> _mMatch;
-
-        public Outputs.RouteSpecHttpRouteMatchQueryParameterMatch? Match => _mMatch.GetValue("match");
+        private Outputs.RouteSpecHttpRouteMatchQueryParameterMatch? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Outputs.RouteSpecHttpRouteMatchQueryParameterMatch? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'RouteSpecHttpRouteMatchQueryParameter.Match' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the query parameter that will be matched on.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RouteSpecHttpRouteMatchQueryParameter.Name' is not present");
+            }
+        }
     }
 }

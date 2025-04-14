@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Inputs
 {
     public sealed class HaproxyLayerCloudwatchConfigurationArgs
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationArgs.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("logStreams")]
+        [PolicyResourceProperty("logStreams", "_mUnknown_LogStreams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.HaproxyLayerCloudwatchConfigurationLogStreamArgs>> _mLogStreams;
-
-        public List<Inputs.HaproxyLayerCloudwatchConfigurationLogStreamArgs>? LogStreams => _mLogStreams.GetValue("logStreams");
+        private List<Inputs.HaproxyLayerCloudwatchConfigurationLogStreamArgs>? _mValue_LogStreams;
+        private bool _mUnknown_LogStreams;
+        public List<Inputs.HaproxyLayerCloudwatchConfigurationLogStreamArgs>? LogStreams
+        {
+            get
+            {
+                if (!_mUnknown_LogStreams) return _mValue_LogStreams;
+                throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationArgs.LogStreams' is not present");
+            }
+        }
     }
 }

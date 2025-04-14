@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// Required for cross account crawls. For same account crawls as the target data, this can omitted.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'CrawlerLakeFormationConfigurationArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
         /// </summary>
-        [Input("useLakeFormationCredentials")]
+        [PolicyResourceProperty("useLakeFormationCredentials", "_mUnknown_UseLakeFormationCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseLakeFormationCredentials;
-
-        public bool? UseLakeFormationCredentials => _mUseLakeFormationCredentials.GetValue("useLakeFormationCredentials");
+        private bool? _mValue_UseLakeFormationCredentials;
+        private bool _mUnknown_UseLakeFormationCredentials;
+        public bool? UseLakeFormationCredentials
+        {
+            get
+            {
+                if (!_mUnknown_UseLakeFormationCredentials) return _mValue_UseLakeFormationCredentials;
+                throw new UndeferrableValueException("Value 'CrawlerLakeFormationConfigurationArgs.UseLakeFormationCredentials' is not present");
+            }
+        }
     }
 }

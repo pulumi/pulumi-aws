@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
 {
     public sealed class EventConnectionInvocationConnectivityParametersResourceParametersArgs
     {
-        [Input("resourceAssociationArn")]
+        [PolicyResourceProperty("resourceAssociationArn", "_mUnknown_ResourceAssociationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceAssociationArn;
-
-        public string? ResourceAssociationArn => _mResourceAssociationArn.GetValue("resourceAssociationArn");
+        private string? _mValue_ResourceAssociationArn;
+        private bool _mUnknown_ResourceAssociationArn;
+        public string? ResourceAssociationArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceAssociationArn) return _mValue_ResourceAssociationArn;
+                throw new UndeferrableValueException("Value 'EventConnectionInvocationConnectivityParametersResourceParametersArgs.ResourceAssociationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
         /// </summary>
-        [Input("resourceConfigurationArn")]
+        [PolicyResourceProperty("resourceConfigurationArn", "_mUnknown_ResourceConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceConfigurationArn;
-
-        public string? ResourceConfigurationArn => _mResourceConfigurationArn.GetValue("resourceConfigurationArn");
+        private string? _mValue_ResourceConfigurationArn;
+        private bool _mUnknown_ResourceConfigurationArn;
+        public string? ResourceConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceConfigurationArn) return _mValue_ResourceConfigurationArn;
+                throw new UndeferrableValueException("Value 'EventConnectionInvocationConnectivityParametersResourceParametersArgs.ResourceConfigurationArn' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
         /// </summary>
-        [Input("connectorProfileCredentials")]
+        [PolicyResourceProperty("connectorProfileCredentials", "_mUnknown_ConnectorProfileCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials> _mConnectorProfileCredentials;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials? ConnectorProfileCredentials => _mConnectorProfileCredentials.GetValue("connectorProfileCredentials");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials? _mValue_ConnectorProfileCredentials;
+        private bool _mUnknown_ConnectorProfileCredentials;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials? ConnectorProfileCredentials
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorProfileCredentials) return _mValue_ConnectorProfileCredentials;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfig.ConnectorProfileCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
         /// </summary>
-        [Input("connectorProfileProperties")]
+        [PolicyResourceProperty("connectorProfileProperties", "_mUnknown_ConnectorProfileProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties> _mConnectorProfileProperties;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties? ConnectorProfileProperties => _mConnectorProfileProperties.GetValue("connectorProfileProperties");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties? _mValue_ConnectorProfileProperties;
+        private bool _mUnknown_ConnectorProfileProperties;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties? ConnectorProfileProperties
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorProfileProperties) return _mValue_ConnectorProfileProperties;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfig.ConnectorProfileProperties' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Match status to assign to the web request if there is insufficient TSL Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         /// </summary>
-        [Input("fallbackBehavior")]
+        [PolicyResourceProperty("fallbackBehavior", "_mUnknown_FallbackBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFallbackBehavior;
-
-        public string? FallbackBehavior => _mFallbackBehavior.GetValue("fallbackBehavior");
+        private string? _mValue_FallbackBehavior;
+        private bool _mUnknown_FallbackBehavior;
+        public string? FallbackBehavior
+        {
+            get
+            {
+                if (!_mUnknown_FallbackBehavior) return _mValue_FallbackBehavior;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fingerprint.FallbackBehavior' is not present");
+            }
+        }
     }
 }

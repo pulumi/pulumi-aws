@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
         /// </summary>
-        [Input("multiMeasureAttributeMappings")]
+        [PolicyResourceProperty("multiMeasureAttributeMappings", "_mUnknown_MultiMeasureAttributeMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> _mMultiMeasureAttributeMappings;
-
-        public List<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>? MultiMeasureAttributeMappings => _mMultiMeasureAttributeMappings.GetValue("multiMeasureAttributeMappings");
+        private List<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>? _mValue_MultiMeasureAttributeMappings;
+        private bool _mUnknown_MultiMeasureAttributeMappings;
+        public List<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>? MultiMeasureAttributeMappings
+        {
+            get
+            {
+                if (!_mUnknown_MultiMeasureAttributeMappings) return _mValue_MultiMeasureAttributeMappings;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.MultiMeasureAttributeMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
         /// </summary>
-        [Input("targetMultiMeasureName")]
+        [PolicyResourceProperty("targetMultiMeasureName", "_mUnknown_TargetMultiMeasureName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetMultiMeasureName;
-
-        public string? TargetMultiMeasureName => _mTargetMultiMeasureName.GetValue("targetMultiMeasureName");
+        private string? _mValue_TargetMultiMeasureName;
+        private bool _mUnknown_TargetMultiMeasureName;
+        public string? TargetMultiMeasureName
+        {
+            get
+            {
+                if (!_mUnknown_TargetMultiMeasureName) return _mValue_TargetMultiMeasureName;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.TargetMultiMeasureName' is not present");
+            }
+        }
     }
 }

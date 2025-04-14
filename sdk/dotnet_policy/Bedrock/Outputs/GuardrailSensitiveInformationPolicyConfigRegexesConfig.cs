@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Options for sensitive information action.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfig.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The regex description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfig.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The regex name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfig.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The regex pattern.
         /// </summary>
-        [Input("pattern")]
+        [PolicyResourceProperty("pattern", "_mUnknown_Pattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
-
-        public string? Pattern => _mPattern.GetValue("pattern");
+        private string? _mValue_Pattern;
+        private bool _mUnknown_Pattern;
+        public string? Pattern
+        {
+            get
+            {
+                if (!_mUnknown_Pattern) return _mValue_Pattern;
+                throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfig.Pattern' is not present");
+            }
+        }
     }
 }

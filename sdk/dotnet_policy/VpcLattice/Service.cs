@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// ARN of the service.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Service.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of IAM policy. Either `NONE` or `AWS_IAM`.
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'Service.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'Service.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom domain name of the service.
         /// </summary>
-        [Input("customDomainName")]
+        [PolicyResourceProperty("customDomainName", "_mUnknown_CustomDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomainName;
-
-        public string? CustomDomainName => _mCustomDomainName.GetValue("customDomainName");
+        private string? _mValue_CustomDomainName;
+        private bool _mUnknown_CustomDomainName;
+        public string? CustomDomainName
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomainName) return _mValue_CustomDomainName;
+                throw new UndeferrableValueException("Value 'Service.CustomDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS name of the service.
         /// </summary>
-        [Input("dnsEntries")]
+        [PolicyResourceProperty("dnsEntries", "_mUnknown_DnsEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServiceDnsEntry>> _mDnsEntries;
-
-        public List<Outputs.ServiceDnsEntry>? DnsEntries => _mDnsEntries.GetValue("dnsEntries");
+        private List<Outputs.ServiceDnsEntry>? _mValue_DnsEntries;
+        private bool _mUnknown_DnsEntries;
+        public List<Outputs.ServiceDnsEntry>? DnsEntries
+        {
+            get
+            {
+                if (!_mUnknown_DnsEntries) return _mValue_DnsEntries;
+                throw new UndeferrableValueException("Value 'Service.DnsEntries' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Service.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the service.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Service.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Service.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Service.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/service:Service")]
@@ -103,48 +166,83 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// Type of IAM policy. Either `NONE` or `AWS_IAM`.
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'ServiceArgs.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'ServiceArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom domain name of the service.
         /// </summary>
-        [Input("customDomainName")]
+        [PolicyResourceProperty("customDomainName", "_mUnknown_CustomDomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomainName;
-
-        public string? CustomDomainName => _mCustomDomainName.GetValue("customDomainName");
+        private string? _mValue_CustomDomainName;
+        private bool _mUnknown_CustomDomainName;
+        public string? CustomDomainName
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomainName) return _mValue_CustomDomainName;
+                throw new UndeferrableValueException("Value 'ServiceArgs.CustomDomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServiceArgs.Tags' is not present");
+            }
+        }
     }
 }

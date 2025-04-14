@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs
     {
-        [Input("checkDigitString")]
+        [PolicyResourceProperty("checkDigitString", "_mUnknown_CheckDigitString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCheckDigitString;
-
-        public string? CheckDigitString => _mCheckDigitString.GetValue("checkDigitString");
+        private string? _mValue_CheckDigitString;
+        private bool _mUnknown_CheckDigitString;
+        public string? CheckDigitString
+        {
+            get
+            {
+                if (!_mUnknown_CheckDigitString) return _mValue_CheckDigitString;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs.CheckDigitString' is not present");
+            }
+        }
 
         /// <summary>
         /// The Nielsen Source ID to include in the watermark.
         /// </summary>
-        [Input("sid")]
+        [PolicyResourceProperty("sid", "_mUnknown_Sid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mSid;
-
-        public double? Sid => _mSid.GetValue("sid");
+        private double? _mValue_Sid;
+        private bool _mUnknown_Sid;
+        public double? Sid
+        {
+            get
+            {
+                if (!_mUnknown_Sid) return _mValue_Sid;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs.Sid' is not present");
+            }
+        }
     }
 }

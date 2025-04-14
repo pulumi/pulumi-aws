@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Catalog associated with the table.
         /// </summary>
-        [Input("catalog")]
+        [PolicyResourceProperty("catalog", "_mUnknown_Catalog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalog;
-
-        public string? Catalog => _mCatalog.GetValue("catalog");
+        private string? _mValue_Catalog;
+        private bool _mUnknown_Catalog;
+        public string? Catalog
+        {
+            get
+            {
+                if (!_mUnknown_Catalog) return _mValue_Catalog;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.Catalog' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the data source.
         /// </summary>
-        [Input("dataSourceArn")]
+        [PolicyResourceProperty("dataSourceArn", "_mUnknown_DataSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
-
-        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
+        private string? _mValue_DataSourceArn;
+        private bool _mUnknown_DataSourceArn;
+        public string? DataSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceArn) return _mValue_DataSourceArn;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.DataSourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Column schema of the table. See input_columns.
         /// </summary>
-        [Input("inputColumns")]
+        [PolicyResourceProperty("inputColumns", "_mUnknown_InputColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs>> _mInputColumns;
-
-        public List<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs>? InputColumns => _mInputColumns.GetValue("inputColumns");
+        private List<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs>? _mValue_InputColumns;
+        private bool _mUnknown_InputColumns;
+        public List<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs>? InputColumns
+        {
+            get
+            {
+                if (!_mUnknown_InputColumns) return _mValue_InputColumns;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.InputColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the relational table.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Schema name. This name applies to certain relational database engines.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.Schema' is not present");
+            }
+        }
     }
 }

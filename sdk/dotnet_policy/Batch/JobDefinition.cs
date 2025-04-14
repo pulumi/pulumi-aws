@@ -16,166 +16,292 @@ namespace Pulumi.PolicyPacks.Aws.Batch
         /// <summary>
         /// ARN of the job definition, includes revision (`:#`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'JobDefinition.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN without the revision number.
         /// </summary>
-        [Input("arnPrefix")]
+        [PolicyResourceProperty("arnPrefix", "_mUnknown_ArnPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArnPrefix;
-
-        public string? ArnPrefix => _mArnPrefix.GetValue("arnPrefix");
+        private string? _mValue_ArnPrefix;
+        private bool _mUnknown_ArnPrefix;
+        public string? ArnPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ArnPrefix) return _mValue_ArnPrefix;
+                throw new UndeferrableValueException("Value 'JobDefinition.ArnPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
-        [Input("containerProperties")]
+        [PolicyResourceProperty("containerProperties", "_mUnknown_ContainerProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerProperties;
-
-        public string? ContainerProperties => _mContainerProperties.GetValue("containerProperties");
+        private string? _mValue_ContainerProperties;
+        private bool _mUnknown_ContainerProperties;
+        public string? ContainerProperties
+        {
+            get
+            {
+                if (!_mUnknown_ContainerProperties) return _mValue_ContainerProperties;
+                throw new UndeferrableValueException("Value 'JobDefinition.ContainerProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         /// </summary>
-        [Input("deregisterOnNewRevision")]
+        [PolicyResourceProperty("deregisterOnNewRevision", "_mUnknown_DeregisterOnNewRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeregisterOnNewRevision;
-
-        public bool? DeregisterOnNewRevision => _mDeregisterOnNewRevision.GetValue("deregisterOnNewRevision");
+        private bool? _mValue_DeregisterOnNewRevision;
+        private bool _mUnknown_DeregisterOnNewRevision;
+        public bool? DeregisterOnNewRevision
+        {
+            get
+            {
+                if (!_mUnknown_DeregisterOnNewRevision) return _mValue_DeregisterOnNewRevision;
+                throw new UndeferrableValueException("Value 'JobDefinition.DeregisterOnNewRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
-        [Input("ecsProperties")]
+        [PolicyResourceProperty("ecsProperties", "_mUnknown_EcsProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcsProperties;
-
-        public string? EcsProperties => _mEcsProperties.GetValue("ecsProperties");
+        private string? _mValue_EcsProperties;
+        private bool _mUnknown_EcsProperties;
+        public string? EcsProperties
+        {
+            get
+            {
+                if (!_mUnknown_EcsProperties) return _mValue_EcsProperties;
+                throw new UndeferrableValueException("Value 'JobDefinition.EcsProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
-        [Input("eksProperties")]
+        [PolicyResourceProperty("eksProperties", "_mUnknown_EksProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobDefinitionEksProperties> _mEksProperties;
-
-        public Outputs.JobDefinitionEksProperties? EksProperties => _mEksProperties.GetValue("eksProperties");
+        private Outputs.JobDefinitionEksProperties? _mValue_EksProperties;
+        private bool _mUnknown_EksProperties;
+        public Outputs.JobDefinitionEksProperties? EksProperties
+        {
+            get
+            {
+                if (!_mUnknown_EksProperties) return _mValue_EksProperties;
+                throw new UndeferrableValueException("Value 'JobDefinition.EksProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the job definition.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobDefinition.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
-        [Input("nodeProperties")]
+        [PolicyResourceProperty("nodeProperties", "_mUnknown_NodeProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeProperties;
-
-        public string? NodeProperties => _mNodeProperties.GetValue("nodeProperties");
+        private string? _mValue_NodeProperties;
+        private bool _mUnknown_NodeProperties;
+        public string? NodeProperties
+        {
+            get
+            {
+                if (!_mUnknown_NodeProperties) return _mValue_NodeProperties;
+                throw new UndeferrableValueException("Value 'JobDefinition.NodeProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter substitution placeholders to set in the job definition.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'JobDefinition.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         /// </summary>
-        [Input("platformCapabilities")]
+        [PolicyResourceProperty("platformCapabilities", "_mUnknown_PlatformCapabilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPlatformCapabilities;
-
-        public List<string>? PlatformCapabilities => _mPlatformCapabilities.GetValue("platformCapabilities");
+        private List<string>? _mValue_PlatformCapabilities;
+        private bool _mUnknown_PlatformCapabilities;
+        public List<string>? PlatformCapabilities
+        {
+            get
+            {
+                if (!_mUnknown_PlatformCapabilities) return _mValue_PlatformCapabilities;
+                throw new UndeferrableValueException("Value 'JobDefinition.PlatformCapabilities' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         /// </summary>
-        [Input("propagateTags")]
+        [PolicyResourceProperty("propagateTags", "_mUnknown_PropagateTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPropagateTags;
-
-        public bool? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+        private bool? _mValue_PropagateTags;
+        private bool _mUnknown_PropagateTags;
+        public bool? PropagateTags
+        {
+            get
+            {
+                if (!_mUnknown_PropagateTags) return _mValue_PropagateTags;
+                throw new UndeferrableValueException("Value 'JobDefinition.PropagateTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
-        [Input("retryStrategy")]
+        [PolicyResourceProperty("retryStrategy", "_mUnknown_RetryStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobDefinitionRetryStrategy> _mRetryStrategy;
-
-        public Outputs.JobDefinitionRetryStrategy? RetryStrategy => _mRetryStrategy.GetValue("retryStrategy");
+        private Outputs.JobDefinitionRetryStrategy? _mValue_RetryStrategy;
+        private bool _mUnknown_RetryStrategy;
+        public Outputs.JobDefinitionRetryStrategy? RetryStrategy
+        {
+            get
+            {
+                if (!_mUnknown_RetryStrategy) return _mValue_RetryStrategy;
+                throw new UndeferrableValueException("Value 'JobDefinition.RetryStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Revision of the job definition.
         /// </summary>
-        [Input("revision")]
+        [PolicyResourceProperty("revision", "_mUnknown_Revision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRevision;
-
-        public int? Revision => _mRevision.GetValue("revision");
+        private int? _mValue_Revision;
+        private bool _mUnknown_Revision;
+        public int? Revision
+        {
+            get
+            {
+                if (!_mUnknown_Revision) return _mValue_Revision;
+                throw new UndeferrableValueException("Value 'JobDefinition.Revision' is not present");
+            }
+        }
 
         /// <summary>
         /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         /// </summary>
-        [Input("schedulingPriority")]
+        [PolicyResourceProperty("schedulingPriority", "_mUnknown_SchedulingPriority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSchedulingPriority;
-
-        public int? SchedulingPriority => _mSchedulingPriority.GetValue("schedulingPriority");
+        private int? _mValue_SchedulingPriority;
+        private bool _mUnknown_SchedulingPriority;
+        public int? SchedulingPriority
+        {
+            get
+            {
+                if (!_mUnknown_SchedulingPriority) return _mValue_SchedulingPriority;
+                throw new UndeferrableValueException("Value 'JobDefinition.SchedulingPriority' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'JobDefinition.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'JobDefinition.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobDefinitionTimeout> _mTimeout;
-
-        public Outputs.JobDefinitionTimeout? Timeout => _mTimeout.GetValue("timeout");
+        private Outputs.JobDefinitionTimeout? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public Outputs.JobDefinitionTimeout? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'JobDefinition.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'JobDefinition.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:batch/jobDefinition:JobDefinition")]
@@ -184,129 +310,227 @@ namespace Pulumi.PolicyPacks.Aws.Batch
         /// <summary>
         /// Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
-        [Input("containerProperties")]
+        [PolicyResourceProperty("containerProperties", "_mUnknown_ContainerProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerProperties;
-
-        public string? ContainerProperties => _mContainerProperties.GetValue("containerProperties");
+        private string? _mValue_ContainerProperties;
+        private bool _mUnknown_ContainerProperties;
+        public string? ContainerProperties
+        {
+            get
+            {
+                if (!_mUnknown_ContainerProperties) return _mValue_ContainerProperties;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.ContainerProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
         /// </summary>
-        [Input("deregisterOnNewRevision")]
+        [PolicyResourceProperty("deregisterOnNewRevision", "_mUnknown_DeregisterOnNewRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeregisterOnNewRevision;
-
-        public bool? DeregisterOnNewRevision => _mDeregisterOnNewRevision.GetValue("deregisterOnNewRevision");
+        private bool? _mValue_DeregisterOnNewRevision;
+        private bool _mUnknown_DeregisterOnNewRevision;
+        public bool? DeregisterOnNewRevision
+        {
+            get
+            {
+                if (!_mUnknown_DeregisterOnNewRevision) return _mValue_DeregisterOnNewRevision;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.DeregisterOnNewRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
-        [Input("ecsProperties")]
+        [PolicyResourceProperty("ecsProperties", "_mUnknown_EcsProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcsProperties;
-
-        public string? EcsProperties => _mEcsProperties.GetValue("ecsProperties");
+        private string? _mValue_EcsProperties;
+        private bool _mUnknown_EcsProperties;
+        public string? EcsProperties
+        {
+            get
+            {
+                if (!_mUnknown_EcsProperties) return _mValue_EcsProperties;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.EcsProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
         /// </summary>
-        [Input("eksProperties")]
+        [PolicyResourceProperty("eksProperties", "_mUnknown_EksProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobDefinitionEksPropertiesArgs> _mEksProperties;
-
-        public Inputs.JobDefinitionEksPropertiesArgs? EksProperties => _mEksProperties.GetValue("eksProperties");
+        private Inputs.JobDefinitionEksPropertiesArgs? _mValue_EksProperties;
+        private bool _mUnknown_EksProperties;
+        public Inputs.JobDefinitionEksPropertiesArgs? EksProperties
+        {
+            get
+            {
+                if (!_mUnknown_EksProperties) return _mValue_EksProperties;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.EksProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the job definition.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
         /// </summary>
-        [Input("nodeProperties")]
+        [PolicyResourceProperty("nodeProperties", "_mUnknown_NodeProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeProperties;
-
-        public string? NodeProperties => _mNodeProperties.GetValue("nodeProperties");
+        private string? _mValue_NodeProperties;
+        private bool _mUnknown_NodeProperties;
+        public string? NodeProperties
+        {
+            get
+            {
+                if (!_mUnknown_NodeProperties) return _mValue_NodeProperties;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.NodeProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter substitution placeholders to set in the job definition.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
         /// </summary>
-        [Input("platformCapabilities")]
+        [PolicyResourceProperty("platformCapabilities", "_mUnknown_PlatformCapabilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPlatformCapabilities;
-
-        public List<string>? PlatformCapabilities => _mPlatformCapabilities.GetValue("platformCapabilities");
+        private List<string>? _mValue_PlatformCapabilities;
+        private bool _mUnknown_PlatformCapabilities;
+        public List<string>? PlatformCapabilities
+        {
+            get
+            {
+                if (!_mUnknown_PlatformCapabilities) return _mValue_PlatformCapabilities;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.PlatformCapabilities' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
         /// </summary>
-        [Input("propagateTags")]
+        [PolicyResourceProperty("propagateTags", "_mUnknown_PropagateTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPropagateTags;
-
-        public bool? PropagateTags => _mPropagateTags.GetValue("propagateTags");
+        private bool? _mValue_PropagateTags;
+        private bool _mUnknown_PropagateTags;
+        public bool? PropagateTags
+        {
+            get
+            {
+                if (!_mUnknown_PropagateTags) return _mValue_PropagateTags;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.PropagateTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
         /// </summary>
-        [Input("retryStrategy")]
+        [PolicyResourceProperty("retryStrategy", "_mUnknown_RetryStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobDefinitionRetryStrategyArgs> _mRetryStrategy;
-
-        public Inputs.JobDefinitionRetryStrategyArgs? RetryStrategy => _mRetryStrategy.GetValue("retryStrategy");
+        private Inputs.JobDefinitionRetryStrategyArgs? _mValue_RetryStrategy;
+        private bool _mUnknown_RetryStrategy;
+        public Inputs.JobDefinitionRetryStrategyArgs? RetryStrategy
+        {
+            get
+            {
+                if (!_mUnknown_RetryStrategy) return _mValue_RetryStrategy;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.RetryStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
         /// </summary>
-        [Input("schedulingPriority")]
+        [PolicyResourceProperty("schedulingPriority", "_mUnknown_SchedulingPriority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSchedulingPriority;
-
-        public int? SchedulingPriority => _mSchedulingPriority.GetValue("schedulingPriority");
+        private int? _mValue_SchedulingPriority;
+        private bool _mUnknown_SchedulingPriority;
+        public int? SchedulingPriority
+        {
+            get
+            {
+                if (!_mUnknown_SchedulingPriority) return _mValue_SchedulingPriority;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.SchedulingPriority' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobDefinitionTimeoutArgs> _mTimeout;
-
-        public Inputs.JobDefinitionTimeoutArgs? Timeout => _mTimeout.GetValue("timeout");
+        private Inputs.JobDefinitionTimeoutArgs? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public Inputs.JobDefinitionTimeoutArgs? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of job definition. Must be `container` or `multinode`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'JobDefinitionArgs.Type' is not present");
+            }
+        }
     }
 }

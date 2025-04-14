@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
         /// </summary>
-        [Input("cak")]
+        [PolicyResourceProperty("cak", "_mUnknown_Cak")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCak;
-
-        public string? Cak => _mCak.GetValue("cak");
+        private string? _mValue_Cak;
+        private bool _mUnknown_Cak;
+        public string? Cak
+        {
+            get
+            {
+                if (!_mUnknown_Cak) return _mValue_Cak;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociation.Cak' is not present");
+            }
+        }
 
         /// <summary>
         /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
         /// </summary>
-        [Input("ckn")]
+        [PolicyResourceProperty("ckn", "_mUnknown_Ckn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCkn;
-
-        public string? Ckn => _mCkn.GetValue("ckn");
+        private string? _mValue_Ckn;
+        private bool _mUnknown_Ckn;
+        public string? Ckn
+        {
+            get
+            {
+                if (!_mUnknown_Ckn) return _mValue_Ckn;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociation.Ckn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociation.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
         /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociation.SecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date in UTC format that the MAC Security (MACsec) secret key takes effect.
         /// </summary>
-        [Input("startOn")]
+        [PolicyResourceProperty("startOn", "_mUnknown_StartOn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartOn;
-
-        public string? StartOn => _mStartOn.GetValue("startOn");
+        private string? _mValue_StartOn;
+        private bool _mUnknown_StartOn;
+        public string? StartOn
+        {
+            get
+            {
+                if (!_mUnknown_StartOn) return _mValue_StartOn;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociation.StartOn' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociation.State' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation")]
@@ -76,39 +118,67 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
         /// </summary>
-        [Input("cak")]
+        [PolicyResourceProperty("cak", "_mUnknown_Cak")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCak;
-
-        public string? Cak => _mCak.GetValue("cak");
+        private string? _mValue_Cak;
+        private bool _mUnknown_Cak;
+        public string? Cak
+        {
+            get
+            {
+                if (!_mUnknown_Cak) return _mValue_Cak;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.Cak' is not present");
+            }
+        }
 
         /// <summary>
         /// The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
         /// </summary>
-        [Input("ckn")]
+        [PolicyResourceProperty("ckn", "_mUnknown_Ckn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCkn;
-
-        public string? Ckn => _mCkn.GetValue("ckn");
+        private string? _mValue_Ckn;
+        private bool _mUnknown_Ckn;
+        public string? Ckn
+        {
+            get
+            {
+                if (!_mUnknown_Ckn) return _mValue_Ckn;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.Ckn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
         /// 
         /// &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.SecretArn' is not present");
+            }
+        }
     }
 }

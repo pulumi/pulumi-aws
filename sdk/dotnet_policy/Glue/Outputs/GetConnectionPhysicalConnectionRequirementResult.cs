@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
 {
     public sealed class GetConnectionPhysicalConnectionRequirementResult
     {
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'GetConnectionPhysicalConnectionRequirementResult.AvailabilityZone' is not present");
+            }
+        }
 
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
-
-        [Input("securityGroupIdLists")]
+        [PolicyResourceProperty("securityGroupIdLists", "_mUnknown_SecurityGroupIdLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIdLists;
+        private List<string>? _mValue_SecurityGroupIdLists;
+        private bool _mUnknown_SecurityGroupIdLists;
+        public List<string>? SecurityGroupIdLists
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIdLists) return _mValue_SecurityGroupIdLists;
+                throw new UndeferrableValueException("Value 'GetConnectionPhysicalConnectionRequirementResult.SecurityGroupIdLists' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroupIdLists => _mSecurityGroupIdLists.GetValue("securityGroupIdLists");
-
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'GetConnectionPhysicalConnectionRequirementResult.SubnetId' is not present");
+            }
+        }
     }
 }

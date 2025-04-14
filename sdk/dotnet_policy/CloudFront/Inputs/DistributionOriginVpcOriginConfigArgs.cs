@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
 {
     public sealed class DistributionOriginVpcOriginConfigArgs
     {
-        [Input("originKeepaliveTimeout")]
+        [PolicyResourceProperty("originKeepaliveTimeout", "_mUnknown_OriginKeepaliveTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOriginKeepaliveTimeout;
+        private int? _mValue_OriginKeepaliveTimeout;
+        private bool _mUnknown_OriginKeepaliveTimeout;
+        public int? OriginKeepaliveTimeout
+        {
+            get
+            {
+                if (!_mUnknown_OriginKeepaliveTimeout) return _mValue_OriginKeepaliveTimeout;
+                throw new UndeferrableValueException("Value 'DistributionOriginVpcOriginConfigArgs.OriginKeepaliveTimeout' is not present");
+            }
+        }
 
-        public int? OriginKeepaliveTimeout => _mOriginKeepaliveTimeout.GetValue("originKeepaliveTimeout");
-
-        [Input("originReadTimeout")]
+        [PolicyResourceProperty("originReadTimeout", "_mUnknown_OriginReadTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOriginReadTimeout;
-
-        public int? OriginReadTimeout => _mOriginReadTimeout.GetValue("originReadTimeout");
+        private int? _mValue_OriginReadTimeout;
+        private bool _mUnknown_OriginReadTimeout;
+        public int? OriginReadTimeout
+        {
+            get
+            {
+                if (!_mUnknown_OriginReadTimeout) return _mValue_OriginReadTimeout;
+                throw new UndeferrableValueException("Value 'DistributionOriginVpcOriginConfigArgs.OriginReadTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC origin ID.
         /// </summary>
-        [Input("vpcOriginId")]
+        [PolicyResourceProperty("vpcOriginId", "_mUnknown_VpcOriginId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcOriginId;
-
-        public string? VpcOriginId => _mVpcOriginId.GetValue("vpcOriginId");
+        private string? _mValue_VpcOriginId;
+        private bool _mUnknown_VpcOriginId;
+        public string? VpcOriginId
+        {
+            get
+            {
+                if (!_mUnknown_VpcOriginId) return _mValue_VpcOriginId;
+                throw new UndeferrableValueException("Value 'DistributionOriginVpcOriginConfigArgs.VpcOriginId' is not present");
+            }
+        }
     }
 }

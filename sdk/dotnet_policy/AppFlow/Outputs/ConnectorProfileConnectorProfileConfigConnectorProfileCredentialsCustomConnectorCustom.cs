@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// A map that holds custom authentication credentials.
         /// </summary>
-        [Input("credentialsMap")]
+        [PolicyResourceProperty("credentialsMap", "_mUnknown_CredentialsMap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mCredentialsMap;
-
-        public Dictionary<string, string>? CredentialsMap => _mCredentialsMap.GetValue("credentialsMap");
+        private Dictionary<string, string>? _mValue_CredentialsMap;
+        private bool _mUnknown_CredentialsMap;
+        public Dictionary<string, string>? CredentialsMap
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsMap) return _mValue_CredentialsMap;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom.CredentialsMap' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom authentication type that the connector uses.
         /// </summary>
-        [Input("customAuthenticationType")]
+        [PolicyResourceProperty("customAuthenticationType", "_mUnknown_CustomAuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomAuthenticationType;
-
-        public string? CustomAuthenticationType => _mCustomAuthenticationType.GetValue("customAuthenticationType");
+        private string? _mValue_CustomAuthenticationType;
+        private bool _mUnknown_CustomAuthenticationType;
+        public string? CustomAuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_CustomAuthenticationType) return _mValue_CustomAuthenticationType;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom.CustomAuthenticationType' is not present");
+            }
+        }
     }
 }

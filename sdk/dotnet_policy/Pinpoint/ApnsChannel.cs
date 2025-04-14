@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'ApnsChannel.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'ApnsChannel.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The pem encoded TLS Certificate from Apple.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'ApnsChannel.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The default authentication method used for APNs.
@@ -50,58 +71,100 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// 
         /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
-        [Input("defaultAuthenticationMethod")]
+        [PolicyResourceProperty("defaultAuthenticationMethod", "_mUnknown_DefaultAuthenticationMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
-
-        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
+        private string? _mValue_DefaultAuthenticationMethod;
+        private bool _mUnknown_DefaultAuthenticationMethod;
+        public string? DefaultAuthenticationMethod
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAuthenticationMethod) return _mValue_DefaultAuthenticationMethod;
+                throw new UndeferrableValueException("Value 'ApnsChannel.DefaultAuthenticationMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ApnsChannel.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
         /// 
         /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'ApnsChannel.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         /// </summary>
-        [Input("teamId")]
+        [PolicyResourceProperty("teamId", "_mUnknown_TeamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTeamId;
-
-        public string? TeamId => _mTeamId.GetValue("teamId");
+        private string? _mValue_TeamId;
+        private bool _mUnknown_TeamId;
+        public string? TeamId
+        {
+            get
+            {
+                if (!_mUnknown_TeamId) return _mValue_TeamId;
+                throw new UndeferrableValueException("Value 'ApnsChannel.TeamId' is not present");
+            }
+        }
 
         /// <summary>
         /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
-        [Input("tokenKey")]
+        [PolicyResourceProperty("tokenKey", "_mUnknown_TokenKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKey;
-
-        public string? TokenKey => _mTokenKey.GetValue("tokenKey");
+        private string? _mValue_TokenKey;
+        private bool _mUnknown_TokenKey;
+        public string? TokenKey
+        {
+            get
+            {
+                if (!_mUnknown_TokenKey) return _mValue_TokenKey;
+                throw new UndeferrableValueException("Value 'ApnsChannel.TokenKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
         /// </summary>
-        [Input("tokenKeyId")]
+        [PolicyResourceProperty("tokenKeyId", "_mUnknown_TokenKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKeyId;
-
-        public string? TokenKeyId => _mTokenKeyId.GetValue("tokenKeyId");
+        private string? _mValue_TokenKeyId;
+        private bool _mUnknown_TokenKeyId;
+        public string? TokenKeyId
+        {
+            get
+            {
+                if (!_mUnknown_TokenKeyId) return _mValue_TokenKeyId;
+                throw new UndeferrableValueException("Value 'ApnsChannel.TokenKeyId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/apnsChannel:ApnsChannel")]
@@ -110,29 +173,50 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The pem encoded TLS Certificate from Apple.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The default authentication method used for APNs.
@@ -144,57 +228,99 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// 
         /// If you choose to use __Certificate credentials__ you will have to provide:
         /// </summary>
-        [Input("defaultAuthenticationMethod")]
+        [PolicyResourceProperty("defaultAuthenticationMethod", "_mUnknown_DefaultAuthenticationMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthenticationMethod;
-
-        public string? DefaultAuthenticationMethod => _mDefaultAuthenticationMethod.GetValue("defaultAuthenticationMethod");
+        private string? _mValue_DefaultAuthenticationMethod;
+        private bool _mUnknown_DefaultAuthenticationMethod;
+        public string? DefaultAuthenticationMethod
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAuthenticationMethod) return _mValue_DefaultAuthenticationMethod;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.DefaultAuthenticationMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Certificate Private Key file (ie. `.key` file).
         /// 
         /// If you choose to use __Key credentials__ you will have to provide:
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         /// </summary>
-        [Input("teamId")]
+        [PolicyResourceProperty("teamId", "_mUnknown_TeamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTeamId;
-
-        public string? TeamId => _mTeamId.GetValue("teamId");
+        private string? _mValue_TeamId;
+        private bool _mUnknown_TeamId;
+        public string? TeamId
+        {
+            get
+            {
+                if (!_mUnknown_TeamId) return _mValue_TeamId;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.TeamId' is not present");
+            }
+        }
 
         /// <summary>
         /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         /// </summary>
-        [Input("tokenKey")]
+        [PolicyResourceProperty("tokenKey", "_mUnknown_TokenKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKey;
-
-        public string? TokenKey => _mTokenKey.GetValue("tokenKey");
+        private string? _mValue_TokenKey;
+        private bool _mUnknown_TokenKey;
+        public string? TokenKey
+        {
+            get
+            {
+                if (!_mUnknown_TokenKey) return _mValue_TokenKey;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.TokenKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
         /// </summary>
-        [Input("tokenKeyId")]
+        [PolicyResourceProperty("tokenKeyId", "_mUnknown_TokenKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenKeyId;
-
-        public string? TokenKeyId => _mTokenKeyId.GetValue("tokenKeyId");
+        private string? _mValue_TokenKeyId;
+        private bool _mUnknown_TokenKeyId;
+        public string? TokenKeyId
+        {
+            get
+            {
+                if (!_mUnknown_TokenKeyId) return _mValue_TokenKeyId;
+                throw new UndeferrableValueException("Value 'ApnsChannelArgs.TokenKeyId' is not present");
+            }
+        }
     }
 }

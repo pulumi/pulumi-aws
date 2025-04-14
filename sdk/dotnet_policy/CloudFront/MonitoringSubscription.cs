@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The ID of the distribution that you are enabling metrics for.
         /// </summary>
-        [Input("distributionId")]
+        [PolicyResourceProperty("distributionId", "_mUnknown_DistributionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionId;
-
-        public string? DistributionId => _mDistributionId.GetValue("distributionId");
+        private string? _mValue_DistributionId;
+        private bool _mUnknown_DistributionId;
+        public string? DistributionId
+        {
+            get
+            {
+                if (!_mUnknown_DistributionId) return _mValue_DistributionId;
+                throw new UndeferrableValueException("Value 'MonitoringSubscription.DistributionId' is not present");
+            }
+        }
 
         /// <summary>
         /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         /// </summary>
-        [Input("monitoringSubscription")]
+        [PolicyResourceProperty("monitoringSubscription", "_mUnknown_MonitoringSubscriptionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MonitoringSubscriptionMonitoringSubscription> _mMonitoringSubscriptionDetails;
-
-        public Outputs.MonitoringSubscriptionMonitoringSubscription? MonitoringSubscriptionDetails => _mMonitoringSubscriptionDetails.GetValue("monitoringSubscription");
+        private Outputs.MonitoringSubscriptionMonitoringSubscription? _mValue_MonitoringSubscriptionDetails;
+        private bool _mUnknown_MonitoringSubscriptionDetails;
+        public Outputs.MonitoringSubscriptionMonitoringSubscription? MonitoringSubscriptionDetails
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringSubscriptionDetails) return _mValue_MonitoringSubscriptionDetails;
+                throw new UndeferrableValueException("Value 'MonitoringSubscription.MonitoringSubscriptionDetails' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/monitoringSubscription:MonitoringSubscription")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The ID of the distribution that you are enabling metrics for.
         /// </summary>
-        [Input("distributionId")]
+        [PolicyResourceProperty("distributionId", "_mUnknown_DistributionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistributionId;
-
-        public string? DistributionId => _mDistributionId.GetValue("distributionId");
+        private string? _mValue_DistributionId;
+        private bool _mUnknown_DistributionId;
+        public string? DistributionId
+        {
+            get
+            {
+                if (!_mUnknown_DistributionId) return _mValue_DistributionId;
+                throw new UndeferrableValueException("Value 'MonitoringSubscriptionArgs.DistributionId' is not present");
+            }
+        }
 
         /// <summary>
         /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         /// </summary>
-        [Input("monitoringSubscription")]
+        [PolicyResourceProperty("monitoringSubscription", "_mUnknown_MonitoringSubscriptionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs> _mMonitoringSubscriptionDetails;
-
-        public Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs? MonitoringSubscriptionDetails => _mMonitoringSubscriptionDetails.GetValue("monitoringSubscription");
+        private Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs? _mValue_MonitoringSubscriptionDetails;
+        private bool _mUnknown_MonitoringSubscriptionDetails;
+        public Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs? MonitoringSubscriptionDetails
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringSubscriptionDetails) return _mValue_MonitoringSubscriptionDetails;
+                throw new UndeferrableValueException("Value 'MonitoringSubscriptionArgs.MonitoringSubscriptionDetails' is not present");
+            }
+        }
     }
 }

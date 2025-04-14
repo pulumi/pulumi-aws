@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Outputs
         /// <summary>
         /// The ID of the template.
         /// </summary>
-        [Input("policyTemplateId")]
+        [PolicyResourceProperty("policyTemplateId", "_mUnknown_PolicyTemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyTemplateId;
-
-        public string? PolicyTemplateId => _mPolicyTemplateId.GetValue("policyTemplateId");
+        private string? _mValue_PolicyTemplateId;
+        private bool _mUnknown_PolicyTemplateId;
+        public string? PolicyTemplateId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyTemplateId) return _mValue_PolicyTemplateId;
+                throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinked.PolicyTemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal of the template linked policy.
         /// </summary>
-        [Input("principal")]
+        [PolicyResourceProperty("principal", "_mUnknown_Principal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyDefinitionTemplateLinkedPrincipal> _mPrincipal;
-
-        public Outputs.PolicyDefinitionTemplateLinkedPrincipal? Principal => _mPrincipal.GetValue("principal");
+        private Outputs.PolicyDefinitionTemplateLinkedPrincipal? _mValue_Principal;
+        private bool _mUnknown_Principal;
+        public Outputs.PolicyDefinitionTemplateLinkedPrincipal? Principal
+        {
+            get
+            {
+                if (!_mUnknown_Principal) return _mValue_Principal;
+                throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinked.Principal' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource of the template linked policy.
         /// </summary>
-        [Input("resource")]
+        [PolicyResourceProperty("resource", "_mUnknown_Resource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyDefinitionTemplateLinkedResource> _mResource;
-
-        public Outputs.PolicyDefinitionTemplateLinkedResource? Resource => _mResource.GetValue("resource");
+        private Outputs.PolicyDefinitionTemplateLinkedResource? _mValue_Resource;
+        private bool _mUnknown_Resource;
+        public Outputs.PolicyDefinitionTemplateLinkedResource? Resource
+        {
+            get
+            {
+                if (!_mUnknown_Resource) return _mValue_Resource;
+                throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinked.Resource' is not present");
+            }
+        }
     }
 }

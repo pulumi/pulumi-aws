@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Description of the API documentation version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DocumentationVersion.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated Rest API
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
-
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'DocumentationVersion.RestApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version identifier of the API documentation snapshot.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'DocumentationVersion.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/documentationVersion:DocumentationVersion")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Description of the API documentation version.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DocumentationVersionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated Rest API
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
-
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'DocumentationVersionArgs.RestApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version identifier of the API documentation snapshot.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'DocumentationVersionArgs.Version' is not present");
+            }
+        }
     }
 }

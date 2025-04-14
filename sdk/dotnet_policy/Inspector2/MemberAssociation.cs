@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// <summary>
         /// ID of the account to associate
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberAssociation.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the delegated administrator account
         /// </summary>
-        [Input("delegatedAdminAccountId")]
+        [PolicyResourceProperty("delegatedAdminAccountId", "_mUnknown_DelegatedAdminAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegatedAdminAccountId;
-
-        public string? DelegatedAdminAccountId => _mDelegatedAdminAccountId.GetValue("delegatedAdminAccountId");
+        private string? _mValue_DelegatedAdminAccountId;
+        private bool _mUnknown_DelegatedAdminAccountId;
+        public string? DelegatedAdminAccountId
+        {
+            get
+            {
+                if (!_mUnknown_DelegatedAdminAccountId) return _mValue_DelegatedAdminAccountId;
+                throw new UndeferrableValueException("Value 'MemberAssociation.DelegatedAdminAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the member relationship
         /// </summary>
-        [Input("relationshipStatus")]
+        [PolicyResourceProperty("relationshipStatus", "_mUnknown_RelationshipStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelationshipStatus;
-
-        public string? RelationshipStatus => _mRelationshipStatus.GetValue("relationshipStatus");
+        private string? _mValue_RelationshipStatus;
+        private bool _mUnknown_RelationshipStatus;
+        public string? RelationshipStatus
+        {
+            get
+            {
+                if (!_mUnknown_RelationshipStatus) return _mValue_RelationshipStatus;
+                throw new UndeferrableValueException("Value 'MemberAssociation.RelationshipStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time of the last update of the relationship
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'MemberAssociation.UpdatedAt' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:inspector2/memberAssociation:MemberAssociation")]
@@ -56,10 +84,17 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2
         /// <summary>
         /// ID of the account to associate
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberAssociationArgs.AccountId' is not present");
+            }
+        }
     }
 }

@@ -15,64 +15,120 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Archive output settings. See Archive Output Settings for more details.
         /// </summary>
-        [Input("archiveOutputSettings")]
+        [PolicyResourceProperty("archiveOutputSettings", "_mUnknown_ArchiveOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings> _mArchiveOutputSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings? _mValue_ArchiveOutputSettings;
+        private bool _mUnknown_ArchiveOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings? ArchiveOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_ArchiveOutputSettings) return _mValue_ArchiveOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.ArchiveOutputSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings? ArchiveOutputSettings => _mArchiveOutputSettings.GetValue("archiveOutputSettings");
-
-        [Input("frameCaptureOutputSettings")]
+        [PolicyResourceProperty("frameCaptureOutputSettings", "_mUnknown_FrameCaptureOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings> _mFrameCaptureOutputSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings? _mValue_FrameCaptureOutputSettings;
+        private bool _mUnknown_FrameCaptureOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings? FrameCaptureOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_FrameCaptureOutputSettings) return _mValue_FrameCaptureOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.FrameCaptureOutputSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings? FrameCaptureOutputSettings => _mFrameCaptureOutputSettings.GetValue("frameCaptureOutputSettings");
-
-        [Input("hlsOutputSettings")]
+        [PolicyResourceProperty("hlsOutputSettings", "_mUnknown_HlsOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings> _mHlsOutputSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings? HlsOutputSettings => _mHlsOutputSettings.GetValue("hlsOutputSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings? _mValue_HlsOutputSettings;
+        private bool _mUnknown_HlsOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings? HlsOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsOutputSettings) return _mValue_HlsOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.HlsOutputSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Media package output settings. This can be set as an empty block.
         /// </summary>
-        [Input("mediaPackageOutputSettings")]
+        [PolicyResourceProperty("mediaPackageOutputSettings", "_mUnknown_MediaPackageOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings> _mMediaPackageOutputSettings;
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings? _mValue_MediaPackageOutputSettings;
+        private bool _mUnknown_MediaPackageOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings? MediaPackageOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_MediaPackageOutputSettings) return _mValue_MediaPackageOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.MediaPackageOutputSettings' is not present");
+            }
+        }
 
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings? MediaPackageOutputSettings => _mMediaPackageOutputSettings.GetValue("mediaPackageOutputSettings");
-
-        [Input("msSmoothOutputSettings")]
+        [PolicyResourceProperty("msSmoothOutputSettings", "_mUnknown_MsSmoothOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings> _mMsSmoothOutputSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings? MsSmoothOutputSettings => _mMsSmoothOutputSettings.GetValue("msSmoothOutputSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings? _mValue_MsSmoothOutputSettings;
+        private bool _mUnknown_MsSmoothOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings? MsSmoothOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_MsSmoothOutputSettings) return _mValue_MsSmoothOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.MsSmoothOutputSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Multiplex output settings. See Multiplex Output Settings for more details.
         /// </summary>
-        [Input("multiplexOutputSettings")]
+        [PolicyResourceProperty("multiplexOutputSettings", "_mUnknown_MultiplexOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings> _mMultiplexOutputSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings? MultiplexOutputSettings => _mMultiplexOutputSettings.GetValue("multiplexOutputSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings? _mValue_MultiplexOutputSettings;
+        private bool _mUnknown_MultiplexOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings? MultiplexOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexOutputSettings) return _mValue_MultiplexOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.MultiplexOutputSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// RTMP output settings. See RTMP Output Settings for more details.
         /// </summary>
-        [Input("rtmpOutputSettings")]
+        [PolicyResourceProperty("rtmpOutputSettings", "_mUnknown_RtmpOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings> _mRtmpOutputSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings? RtmpOutputSettings => _mRtmpOutputSettings.GetValue("rtmpOutputSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings? _mValue_RtmpOutputSettings;
+        private bool _mUnknown_RtmpOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings? RtmpOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_RtmpOutputSettings) return _mValue_RtmpOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.RtmpOutputSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// UDP output settings. See UDP Output Settings for more details.
         /// </summary>
-        [Input("udpOutputSettings")]
+        [PolicyResourceProperty("udpOutputSettings", "_mUnknown_UdpOutputSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings> _mUdpOutputSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings? UdpOutputSettings => _mUdpOutputSettings.GetValue("udpOutputSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings? _mValue_UdpOutputSettings;
+        private bool _mUnknown_UdpOutputSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings? UdpOutputSettings
+        {
+            get
+            {
+                if (!_mUnknown_UdpOutputSettings) return _mValue_UdpOutputSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettings.UdpOutputSettings' is not present");
+            }
+        }
     }
 }

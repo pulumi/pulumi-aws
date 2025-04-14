@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of the App Image Config.
         /// </summary>
-        [Input("appImageConfigName")]
+        [PolicyResourceProperty("appImageConfigName", "_mUnknown_AppImageConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppImageConfigName;
-
-        public string? AppImageConfigName => _mAppImageConfigName.GetValue("appImageConfigName");
+        private string? _mValue_AppImageConfigName;
+        private bool _mUnknown_AppImageConfigName;
+        public string? AppImageConfigName
+        {
+            get
+            {
+                if (!_mUnknown_AppImageConfigName) return _mValue_AppImageConfigName;
+                throw new UndeferrableValueException("Value 'AppImageConfig.AppImageConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AppImageConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
         /// </summary>
-        [Input("codeEditorAppImageConfig")]
+        [PolicyResourceProperty("codeEditorAppImageConfig", "_mUnknown_CodeEditorAppImageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppImageConfigCodeEditorAppImageConfig> _mCodeEditorAppImageConfig;
-
-        public Outputs.AppImageConfigCodeEditorAppImageConfig? CodeEditorAppImageConfig => _mCodeEditorAppImageConfig.GetValue("codeEditorAppImageConfig");
+        private Outputs.AppImageConfigCodeEditorAppImageConfig? _mValue_CodeEditorAppImageConfig;
+        private bool _mUnknown_CodeEditorAppImageConfig;
+        public Outputs.AppImageConfigCodeEditorAppImageConfig? CodeEditorAppImageConfig
+        {
+            get
+            {
+                if (!_mUnknown_CodeEditorAppImageConfig) return _mValue_CodeEditorAppImageConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfig.CodeEditorAppImageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
         /// </summary>
-        [Input("jupyterLabImageConfig")]
+        [PolicyResourceProperty("jupyterLabImageConfig", "_mUnknown_JupyterLabImageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppImageConfigJupyterLabImageConfig> _mJupyterLabImageConfig;
-
-        public Outputs.AppImageConfigJupyterLabImageConfig? JupyterLabImageConfig => _mJupyterLabImageConfig.GetValue("jupyterLabImageConfig");
+        private Outputs.AppImageConfigJupyterLabImageConfig? _mValue_JupyterLabImageConfig;
+        private bool _mUnknown_JupyterLabImageConfig;
+        public Outputs.AppImageConfigJupyterLabImageConfig? JupyterLabImageConfig
+        {
+            get
+            {
+                if (!_mUnknown_JupyterLabImageConfig) return _mValue_JupyterLabImageConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfig.JupyterLabImageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         /// </summary>
-        [Input("kernelGatewayImageConfig")]
+        [PolicyResourceProperty("kernelGatewayImageConfig", "_mUnknown_KernelGatewayImageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppImageConfigKernelGatewayImageConfig> _mKernelGatewayImageConfig;
-
-        public Outputs.AppImageConfigKernelGatewayImageConfig? KernelGatewayImageConfig => _mKernelGatewayImageConfig.GetValue("kernelGatewayImageConfig");
+        private Outputs.AppImageConfigKernelGatewayImageConfig? _mValue_KernelGatewayImageConfig;
+        private bool _mUnknown_KernelGatewayImageConfig;
+        public Outputs.AppImageConfigKernelGatewayImageConfig? KernelGatewayImageConfig
+        {
+            get
+            {
+                if (!_mUnknown_KernelGatewayImageConfig) return _mValue_KernelGatewayImageConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfig.KernelGatewayImageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AppImageConfig.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AppImageConfig.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/appImageConfig:AppImageConfig")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of the App Image Config.
         /// </summary>
-        [Input("appImageConfigName")]
+        [PolicyResourceProperty("appImageConfigName", "_mUnknown_AppImageConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppImageConfigName;
-
-        public string? AppImageConfigName => _mAppImageConfigName.GetValue("appImageConfigName");
+        private string? _mValue_AppImageConfigName;
+        private bool _mUnknown_AppImageConfigName;
+        public string? AppImageConfigName
+        {
+            get
+            {
+                if (!_mUnknown_AppImageConfigName) return _mValue_AppImageConfigName;
+                throw new UndeferrableValueException("Value 'AppImageConfigArgs.AppImageConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
         /// </summary>
-        [Input("codeEditorAppImageConfig")]
+        [PolicyResourceProperty("codeEditorAppImageConfig", "_mUnknown_CodeEditorAppImageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigCodeEditorAppImageConfigArgs> _mCodeEditorAppImageConfig;
-
-        public Inputs.AppImageConfigCodeEditorAppImageConfigArgs? CodeEditorAppImageConfig => _mCodeEditorAppImageConfig.GetValue("codeEditorAppImageConfig");
+        private Inputs.AppImageConfigCodeEditorAppImageConfigArgs? _mValue_CodeEditorAppImageConfig;
+        private bool _mUnknown_CodeEditorAppImageConfig;
+        public Inputs.AppImageConfigCodeEditorAppImageConfigArgs? CodeEditorAppImageConfig
+        {
+            get
+            {
+                if (!_mUnknown_CodeEditorAppImageConfig) return _mValue_CodeEditorAppImageConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigArgs.CodeEditorAppImageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
         /// </summary>
-        [Input("jupyterLabImageConfig")]
+        [PolicyResourceProperty("jupyterLabImageConfig", "_mUnknown_JupyterLabImageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigJupyterLabImageConfigArgs> _mJupyterLabImageConfig;
-
-        public Inputs.AppImageConfigJupyterLabImageConfigArgs? JupyterLabImageConfig => _mJupyterLabImageConfig.GetValue("jupyterLabImageConfig");
+        private Inputs.AppImageConfigJupyterLabImageConfigArgs? _mValue_JupyterLabImageConfig;
+        private bool _mUnknown_JupyterLabImageConfig;
+        public Inputs.AppImageConfigJupyterLabImageConfigArgs? JupyterLabImageConfig
+        {
+            get
+            {
+                if (!_mUnknown_JupyterLabImageConfig) return _mValue_JupyterLabImageConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigArgs.JupyterLabImageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         /// </summary>
-        [Input("kernelGatewayImageConfig")]
+        [PolicyResourceProperty("kernelGatewayImageConfig", "_mUnknown_KernelGatewayImageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigKernelGatewayImageConfigArgs> _mKernelGatewayImageConfig;
-
-        public Inputs.AppImageConfigKernelGatewayImageConfigArgs? KernelGatewayImageConfig => _mKernelGatewayImageConfig.GetValue("kernelGatewayImageConfig");
+        private Inputs.AppImageConfigKernelGatewayImageConfigArgs? _mValue_KernelGatewayImageConfig;
+        private bool _mUnknown_KernelGatewayImageConfig;
+        public Inputs.AppImageConfigKernelGatewayImageConfigArgs? KernelGatewayImageConfig
+        {
+            get
+            {
+                if (!_mUnknown_KernelGatewayImageConfig) return _mValue_KernelGatewayImageConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigArgs.KernelGatewayImageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AppImageConfigArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// <summary>
         /// Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
         /// </summary>
-        [Input("dnsFailover")]
+        [PolicyResourceProperty("dnsFailover", "_mUnknown_DnsFailover")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetGroupTargetGroupHealthDnsFailoverArgs> _mDnsFailover;
-
-        public Inputs.TargetGroupTargetGroupHealthDnsFailoverArgs? DnsFailover => _mDnsFailover.GetValue("dnsFailover");
+        private Inputs.TargetGroupTargetGroupHealthDnsFailoverArgs? _mValue_DnsFailover;
+        private bool _mUnknown_DnsFailover;
+        public Inputs.TargetGroupTargetGroupHealthDnsFailoverArgs? DnsFailover
+        {
+            get
+            {
+                if (!_mUnknown_DnsFailover) return _mValue_DnsFailover;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthArgs.DnsFailover' is not present");
+            }
+        }
 
         /// <summary>
         /// Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
         /// </summary>
-        [Input("unhealthyStateRouting")]
+        [PolicyResourceProperty("unhealthyStateRouting", "_mUnknown_UnhealthyStateRouting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs> _mUnhealthyStateRouting;
-
-        public Inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs? UnhealthyStateRouting => _mUnhealthyStateRouting.GetValue("unhealthyStateRouting");
+        private Inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs? _mValue_UnhealthyStateRouting;
+        private bool _mUnknown_UnhealthyStateRouting;
+        public Inputs.TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs? UnhealthyStateRouting
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyStateRouting) return _mValue_UnhealthyStateRouting;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthArgs.UnhealthyStateRouting' is not present");
+            }
+        }
     }
 }

@@ -18,20 +18,34 @@ namespace Pulumi.PolicyPacks.Aws.PaymentCryptography
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("aliasName")]
+        [PolicyResourceProperty("aliasName", "_mUnknown_AliasName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
-
-        public string? AliasName => _mAliasName.GetValue("aliasName");
+        private string? _mValue_AliasName;
+        private bool _mUnknown_AliasName;
+        public string? AliasName
+        {
+            get
+            {
+                if (!_mUnknown_AliasName) return _mValue_AliasName;
+                throw new UndeferrableValueException("Value 'KeyAlias.AliasName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the key.
         /// </summary>
-        [Input("keyArn")]
+        [PolicyResourceProperty("keyArn", "_mUnknown_KeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
-
-        public string? KeyArn => _mKeyArn.GetValue("keyArn");
+        private string? _mValue_KeyArn;
+        private bool _mUnknown_KeyArn;
+        public string? KeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyArn) return _mValue_KeyArn;
+                throw new UndeferrableValueException("Value 'KeyAlias.KeyArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:paymentcryptography/keyAlias:KeyAlias")]
@@ -42,19 +56,33 @@ namespace Pulumi.PolicyPacks.Aws.PaymentCryptography
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("aliasName")]
+        [PolicyResourceProperty("aliasName", "_mUnknown_AliasName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
-
-        public string? AliasName => _mAliasName.GetValue("aliasName");
+        private string? _mValue_AliasName;
+        private bool _mUnknown_AliasName;
+        public string? AliasName
+        {
+            get
+            {
+                if (!_mUnknown_AliasName) return _mValue_AliasName;
+                throw new UndeferrableValueException("Value 'KeyAliasArgs.AliasName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the key.
         /// </summary>
-        [Input("keyArn")]
+        [PolicyResourceProperty("keyArn", "_mUnknown_KeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
-
-        public string? KeyArn => _mKeyArn.GetValue("keyArn");
+        private string? _mValue_KeyArn;
+        private bool _mUnknown_KeyArn;
+        public string? KeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyArn) return _mValue_KeyArn;
+                throw new UndeferrableValueException("Value 'KeyAliasArgs.KeyArn' is not present");
+            }
+        }
     }
 }

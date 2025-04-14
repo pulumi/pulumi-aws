@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetColumnGroupGeoSpatialColumnGroupResult
     {
-        [Input("columns")]
+        [PolicyResourceProperty("columns", "_mUnknown_Columns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColumns;
+        private List<string>? _mValue_Columns;
+        private bool _mUnknown_Columns;
+        public List<string>? Columns
+        {
+            get
+            {
+                if (!_mUnknown_Columns) return _mValue_Columns;
+                throw new UndeferrableValueException("Value 'GetDataSetColumnGroupGeoSpatialColumnGroupResult.Columns' is not present");
+            }
+        }
 
-        public List<string>? Columns => _mColumns.GetValue("columns");
-
-        [Input("countryCode")]
+        [PolicyResourceProperty("countryCode", "_mUnknown_CountryCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountryCode;
+        private string? _mValue_CountryCode;
+        private bool _mUnknown_CountryCode;
+        public string? CountryCode
+        {
+            get
+            {
+                if (!_mUnknown_CountryCode) return _mValue_CountryCode;
+                throw new UndeferrableValueException("Value 'GetDataSetColumnGroupGeoSpatialColumnGroupResult.CountryCode' is not present");
+            }
+        }
 
-        public string? CountryCode => _mCountryCode.GetValue("countryCode");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetDataSetColumnGroupGeoSpatialColumnGroupResult.Name' is not present");
+            }
+        }
     }
 }

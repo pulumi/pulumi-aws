@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// Artifact identifier. Must be the same specified inside the AWS CodeBuild build
         /// specification.
         /// </summary>
-        [Input("artifactIdentifier")]
+        [PolicyResourceProperty("artifactIdentifier", "_mUnknown_ArtifactIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactIdentifier;
-
-        public string? ArtifactIdentifier => _mArtifactIdentifier.GetValue("artifactIdentifier");
+        private string? _mValue_ArtifactIdentifier;
+        private bool _mUnknown_ArtifactIdentifier;
+        public string? ArtifactIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactIdentifier) return _mValue_ArtifactIdentifier;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.ArtifactIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the bucket owner's access for objects that another account uploads to
@@ -29,90 +36,153 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// `READ_ONLY`, and `FULL`. The CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows
         /// CodeBuild to modify the access control list for the bucket.
         /// </summary>
-        [Input("bucketOwnerAccess")]
+        [PolicyResourceProperty("bucketOwnerAccess", "_mUnknown_BucketOwnerAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketOwnerAccess;
-
-        public string? BucketOwnerAccess => _mBucketOwnerAccess.GetValue("bucketOwnerAccess");
+        private string? _mValue_BucketOwnerAccess;
+        private bool _mUnknown_BucketOwnerAccess;
+        public string? BucketOwnerAccess
+        {
+            get
+            {
+                if (!_mUnknown_BucketOwnerAccess) return _mValue_BucketOwnerAccess;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.BucketOwnerAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`,
         /// this value is ignored. Defaults to `false`.
         /// </summary>
-        [Input("encryptionDisabled")]
+        [PolicyResourceProperty("encryptionDisabled", "_mUnknown_EncryptionDisabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncryptionDisabled;
-
-        public bool? EncryptionDisabled => _mEncryptionDisabled.GetValue("encryptionDisabled");
+        private bool? _mValue_EncryptionDisabled;
+        private bool _mUnknown_EncryptionDisabled;
+        public bool? EncryptionDisabled
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionDisabled) return _mValue_EncryptionDisabled;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.EncryptionDisabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the build output artifact location. If `type` is set to `CODEPIPELINE` or
         /// `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, this is the name of the output bucket.
         /// If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the project. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored
         /// if specified. If `type` is set to `S3`, this is the name of the output artifact object.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace to use in storing build artifacts. If `type` is set to `CODEPIPELINE` or
         /// `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
         /// </summary>
-        [Input("namespaceType")]
+        [PolicyResourceProperty("namespaceType", "_mUnknown_NamespaceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespaceType;
-
-        public string? NamespaceType => _mNamespaceType.GetValue("namespaceType");
+        private string? _mValue_NamespaceType;
+        private bool _mUnknown_NamespaceType;
+        public string? NamespaceType
+        {
+            get
+            {
+                if (!_mUnknown_NamespaceType) return _mValue_NamespaceType;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.NamespaceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a name specified in the build specification overrides the artifact name.
         /// </summary>
-        [Input("overrideArtifactName")]
+        [PolicyResourceProperty("overrideArtifactName", "_mUnknown_OverrideArtifactName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverrideArtifactName;
-
-        public bool? OverrideArtifactName => _mOverrideArtifactName.GetValue("overrideArtifactName");
+        private bool? _mValue_OverrideArtifactName;
+        private bool _mUnknown_OverrideArtifactName;
+        public bool? OverrideArtifactName
+        {
+            get
+            {
+                if (!_mUnknown_OverrideArtifactName) return _mValue_OverrideArtifactName;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.OverrideArtifactName' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of build output artifact to create. If `type` is set to `CODEPIPELINE` or
         /// `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
         /// </summary>
-        [Input("packaging")]
+        [PolicyResourceProperty("packaging", "_mUnknown_Packaging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPackaging;
-
-        public string? Packaging => _mPackaging.GetValue("packaging");
+        private string? _mValue_Packaging;
+        private bool _mUnknown_Packaging;
+        public string? Packaging
+        {
+            get
+            {
+                if (!_mUnknown_Packaging) return _mValue_Packaging;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.Packaging' is not present");
+            }
+        }
 
         /// <summary>
         /// Along with `namespace_type` and `name`, the pattern that AWS CodeBuild uses to name and store the
         /// output artifact. If `type` is set to `CODEPIPELINE` or `NO_ARTIFACTS`, this value is ignored if specified. If `type`
         /// is set to `S3`, this is the path to the output artifact.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Build output artifact's type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProjectSecondaryArtifact.Type' is not present");
+            }
+        }
     }
 }

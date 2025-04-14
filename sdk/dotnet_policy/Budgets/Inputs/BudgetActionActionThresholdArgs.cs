@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Inputs
         /// <summary>
         /// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
         /// </summary>
-        [Input("actionThresholdType")]
+        [PolicyResourceProperty("actionThresholdType", "_mUnknown_ActionThresholdType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionThresholdType;
-
-        public string? ActionThresholdType => _mActionThresholdType.GetValue("actionThresholdType");
+        private string? _mValue_ActionThresholdType;
+        private bool _mUnknown_ActionThresholdType;
+        public string? ActionThresholdType
+        {
+            get
+            {
+                if (!_mUnknown_ActionThresholdType) return _mValue_ActionThresholdType;
+                throw new UndeferrableValueException("Value 'BudgetActionActionThresholdArgs.ActionThresholdType' is not present");
+            }
+        }
 
         /// <summary>
         /// The threshold of a notification.
         /// </summary>
-        [Input("actionThresholdValue")]
+        [PolicyResourceProperty("actionThresholdValue", "_mUnknown_ActionThresholdValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mActionThresholdValue;
-
-        public double? ActionThresholdValue => _mActionThresholdValue.GetValue("actionThresholdValue");
+        private double? _mValue_ActionThresholdValue;
+        private bool _mUnknown_ActionThresholdValue;
+        public double? ActionThresholdValue
+        {
+            get
+            {
+                if (!_mUnknown_ActionThresholdValue) return _mValue_ActionThresholdValue;
+                throw new UndeferrableValueException("Value 'BudgetActionActionThresholdArgs.ActionThresholdValue' is not present");
+            }
+        }
     }
 }

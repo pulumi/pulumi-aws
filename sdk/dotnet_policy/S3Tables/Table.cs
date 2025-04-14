@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// <summary>
         /// ARN of the table.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Table.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time when the namespace was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Table.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the account that created the namespace.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'Table.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Format of the table.
         /// Must be `ICEBERG`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'Table.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
-        [Input("maintenanceConfiguration")]
+        [PolicyResourceProperty("maintenanceConfiguration", "_mUnknown_MaintenanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableMaintenanceConfiguration> _mMaintenanceConfiguration;
-
-        public Outputs.TableMaintenanceConfiguration? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
+        private Outputs.TableMaintenanceConfiguration? _mValue_MaintenanceConfiguration;
+        private bool _mUnknown_MaintenanceConfiguration;
+        public Outputs.TableMaintenanceConfiguration? MaintenanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceConfiguration) return _mValue_MaintenanceConfiguration;
+                throw new UndeferrableValueException("Value 'Table.MaintenanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of table metadata.
         /// </summary>
-        [Input("metadataLocation")]
+        [PolicyResourceProperty("metadataLocation", "_mUnknown_MetadataLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataLocation;
-
-        public string? MetadataLocation => _mMetadataLocation.GetValue("metadataLocation");
+        private string? _mValue_MetadataLocation;
+        private bool _mUnknown_MetadataLocation;
+        public string? MetadataLocation
+        {
+            get
+            {
+                if (!_mUnknown_MetadataLocation) return _mValue_MetadataLocation;
+                throw new UndeferrableValueException("Value 'Table.MetadataLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time when the namespace was last modified.
         /// </summary>
-        [Input("modifiedAt")]
+        [PolicyResourceProperty("modifiedAt", "_mUnknown_ModifiedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModifiedAt;
-
-        public string? ModifiedAt => _mModifiedAt.GetValue("modifiedAt");
+        private string? _mValue_ModifiedAt;
+        private bool _mUnknown_ModifiedAt;
+        public string? ModifiedAt
+        {
+            get
+            {
+                if (!_mUnknown_ModifiedAt) return _mValue_ModifiedAt;
+                throw new UndeferrableValueException("Value 'Table.ModifiedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the account that last modified the namespace.
         /// </summary>
-        [Input("modifiedBy")]
+        [PolicyResourceProperty("modifiedBy", "_mUnknown_ModifiedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModifiedBy;
-
-        public string? ModifiedBy => _mModifiedBy.GetValue("modifiedBy");
+        private string? _mValue_ModifiedBy;
+        private bool _mUnknown_ModifiedBy;
+        public string? ModifiedBy
+        {
+            get
+            {
+                if (!_mUnknown_ModifiedBy) return _mValue_ModifiedBy;
+                throw new UndeferrableValueException("Value 'Table.ModifiedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table.
@@ -93,70 +149,119 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Table.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the namespace for this table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'Table.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the account that owns the namespace.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'Table.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'Table.TableBucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the table.
         /// One of `customer` or `aws`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Table.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the current version of table data.
         /// </summary>
-        [Input("versionToken")]
+        [PolicyResourceProperty("versionToken", "_mUnknown_VersionToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionToken;
-
-        public string? VersionToken => _mVersionToken.GetValue("versionToken");
+        private string? _mValue_VersionToken;
+        private bool _mUnknown_VersionToken;
+        public string? VersionToken
+        {
+            get
+            {
+                if (!_mUnknown_VersionToken) return _mValue_VersionToken;
+                throw new UndeferrableValueException("Value 'Table.VersionToken' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI pointing to the S3 Bucket that contains the table data.
         /// </summary>
-        [Input("warehouseLocation")]
+        [PolicyResourceProperty("warehouseLocation", "_mUnknown_WarehouseLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarehouseLocation;
-
-        public string? WarehouseLocation => _mWarehouseLocation.GetValue("warehouseLocation");
+        private string? _mValue_WarehouseLocation;
+        private bool _mUnknown_WarehouseLocation;
+        public string? WarehouseLocation
+        {
+            get
+            {
+                if (!_mUnknown_WarehouseLocation) return _mValue_WarehouseLocation;
+                throw new UndeferrableValueException("Value 'Table.WarehouseLocation' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3tables/table:Table")]
@@ -166,21 +271,35 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Format of the table.
         /// Must be `ICEBERG`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'TableArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// A single table bucket maintenance configuration object.
         /// See `maintenance_configuration` below.
         /// </summary>
-        [Input("maintenanceConfiguration")]
+        [PolicyResourceProperty("maintenanceConfiguration", "_mUnknown_MaintenanceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMaintenanceConfigurationArgs> _mMaintenanceConfiguration;
-
-        public Inputs.TableMaintenanceConfigurationArgs? MaintenanceConfiguration => _mMaintenanceConfiguration.GetValue("maintenanceConfiguration");
+        private Inputs.TableMaintenanceConfigurationArgs? _mValue_MaintenanceConfiguration;
+        private bool _mUnknown_MaintenanceConfiguration;
+        public Inputs.TableMaintenanceConfigurationArgs? MaintenanceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceConfiguration) return _mValue_MaintenanceConfiguration;
+                throw new UndeferrableValueException("Value 'TableArgs.MaintenanceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table.
@@ -188,32 +307,53 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TableArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the namespace for this table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'TableArgs.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'TableArgs.TableBucketArn' is not present");
+            }
+        }
     }
 }

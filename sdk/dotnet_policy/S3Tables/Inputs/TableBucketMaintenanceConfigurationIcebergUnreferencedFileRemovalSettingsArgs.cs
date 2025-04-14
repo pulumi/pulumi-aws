@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables.Inputs
         /// Data objects marked for deletion are deleted after this many days.
         /// Must be at least `1`.
         /// </summary>
-        [Input("nonCurrentDays")]
+        [PolicyResourceProperty("nonCurrentDays", "_mUnknown_NonCurrentDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNonCurrentDays;
-
-        public int? NonCurrentDays => _mNonCurrentDays.GetValue("nonCurrentDays");
+        private int? _mValue_NonCurrentDays;
+        private bool _mUnknown_NonCurrentDays;
+        public int? NonCurrentDays
+        {
+            get
+            {
+                if (!_mUnknown_NonCurrentDays) return _mValue_NonCurrentDays;
+                throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs.NonCurrentDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Unreferenced data objects are marked for deletion after this many days.
         /// Must be at least `1`.
         /// </summary>
-        [Input("unreferencedDays")]
+        [PolicyResourceProperty("unreferencedDays", "_mUnknown_UnreferencedDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnreferencedDays;
-
-        public int? UnreferencedDays => _mUnreferencedDays.GetValue("unreferencedDays");
+        private int? _mValue_UnreferencedDays;
+        private bool _mUnknown_UnreferencedDays;
+        public int? UnreferencedDays
+        {
+            get
+            {
+                if (!_mUnknown_UnreferencedDays) return _mValue_UnreferencedDays;
+                throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs.UnreferencedDays' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecHttp2RouteTimeoutResult
     {
-        [Input("idles")]
+        [PolicyResourceProperty("idles", "_mUnknown_Idles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteTimeoutIdleResult>> _mIdles;
+        private List<Outputs.GetRouteSpecHttp2RouteTimeoutIdleResult>? _mValue_Idles;
+        private bool _mUnknown_Idles;
+        public List<Outputs.GetRouteSpecHttp2RouteTimeoutIdleResult>? Idles
+        {
+            get
+            {
+                if (!_mUnknown_Idles) return _mValue_Idles;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteTimeoutResult.Idles' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttp2RouteTimeoutIdleResult>? Idles => _mIdles.GetValue("idles");
-
-        [Input("perRequests")]
+        [PolicyResourceProperty("perRequests", "_mUnknown_PerRequests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult>> _mPerRequests;
-
-        public List<Outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult>? PerRequests => _mPerRequests.GetValue("perRequests");
+        private List<Outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult>? _mValue_PerRequests;
+        private bool _mUnknown_PerRequests;
+        public List<Outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult>? PerRequests
+        {
+            get
+            {
+                if (!_mUnknown_PerRequests) return _mValue_PerRequests;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteTimeoutResult.PerRequests' is not present");
+            }
+        }
     }
 }

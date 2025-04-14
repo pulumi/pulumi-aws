@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// <summary>
         /// ARN of the secret.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Secret.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the secret.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Secret.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
         /// </summary>
-        [Input("forceOverwriteReplicaSecret")]
+        [PolicyResourceProperty("forceOverwriteReplicaSecret", "_mUnknown_ForceOverwriteReplicaSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceOverwriteReplicaSecret;
-
-        public bool? ForceOverwriteReplicaSecret => _mForceOverwriteReplicaSecret.GetValue("forceOverwriteReplicaSecret");
+        private bool? _mValue_ForceOverwriteReplicaSecret;
+        private bool _mUnknown_ForceOverwriteReplicaSecret;
+        public bool? ForceOverwriteReplicaSecret
+        {
+            get
+            {
+                if (!_mUnknown_ForceOverwriteReplicaSecret) return _mValue_ForceOverwriteReplicaSecret;
+                throw new UndeferrableValueException("Value 'Secret.ForceOverwriteReplicaSecret' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Secret.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Secret.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'Secret.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'Secret.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         /// </summary>
-        [Input("recoveryWindowInDays")]
+        [PolicyResourceProperty("recoveryWindowInDays", "_mUnknown_RecoveryWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecoveryWindowInDays;
-
-        public int? RecoveryWindowInDays => _mRecoveryWindowInDays.GetValue("recoveryWindowInDays");
+        private int? _mValue_RecoveryWindowInDays;
+        private bool _mUnknown_RecoveryWindowInDays;
+        public int? RecoveryWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryWindowInDays) return _mValue_RecoveryWindowInDays;
+                throw new UndeferrableValueException("Value 'Secret.RecoveryWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to support secret replication. See details below.
         /// </summary>
-        [Input("replicas")]
+        [PolicyResourceProperty("replicas", "_mUnknown_Replicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SecretReplica>> _mReplicas;
-
-        public List<Outputs.SecretReplica>? Replicas => _mReplicas.GetValue("replicas");
+        private List<Outputs.SecretReplica>? _mValue_Replicas;
+        private bool _mUnknown_Replicas;
+        public List<Outputs.SecretReplica>? Replicas
+        {
+            get
+            {
+                if (!_mUnknown_Replicas) return _mValue_Replicas;
+                throw new UndeferrableValueException("Value 'Secret.Replicas' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Secret.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Secret.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:secretsmanager/secret:Secret")]
@@ -119,82 +196,145 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager
         /// <summary>
         /// Description of the secret.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SecretArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
         /// </summary>
-        [Input("forceOverwriteReplicaSecret")]
+        [PolicyResourceProperty("forceOverwriteReplicaSecret", "_mUnknown_ForceOverwriteReplicaSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceOverwriteReplicaSecret;
-
-        public bool? ForceOverwriteReplicaSecret => _mForceOverwriteReplicaSecret.GetValue("forceOverwriteReplicaSecret");
+        private bool? _mValue_ForceOverwriteReplicaSecret;
+        private bool _mUnknown_ForceOverwriteReplicaSecret;
+        public bool? ForceOverwriteReplicaSecret
+        {
+            get
+            {
+                if (!_mUnknown_ForceOverwriteReplicaSecret) return _mValue_ForceOverwriteReplicaSecret;
+                throw new UndeferrableValueException("Value 'SecretArgs.ForceOverwriteReplicaSecret' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'SecretArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SecretArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'SecretArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'SecretArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         /// </summary>
-        [Input("recoveryWindowInDays")]
+        [PolicyResourceProperty("recoveryWindowInDays", "_mUnknown_RecoveryWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecoveryWindowInDays;
-
-        public int? RecoveryWindowInDays => _mRecoveryWindowInDays.GetValue("recoveryWindowInDays");
+        private int? _mValue_RecoveryWindowInDays;
+        private bool _mUnknown_RecoveryWindowInDays;
+        public int? RecoveryWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryWindowInDays) return _mValue_RecoveryWindowInDays;
+                throw new UndeferrableValueException("Value 'SecretArgs.RecoveryWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to support secret replication. See details below.
         /// </summary>
-        [Input("replicas")]
+        [PolicyResourceProperty("replicas", "_mUnknown_Replicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SecretReplicaArgs>> _mReplicas;
-
-        public List<Inputs.SecretReplicaArgs>? Replicas => _mReplicas.GetValue("replicas");
+        private List<Inputs.SecretReplicaArgs>? _mValue_Replicas;
+        private bool _mUnknown_Replicas;
+        public List<Inputs.SecretReplicaArgs>? Replicas
+        {
+            get
+            {
+                if (!_mUnknown_Replicas) return _mValue_Replicas;
+                throw new UndeferrableValueException("Value 'SecretArgs.Replicas' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SecretArgs.Tags' is not present");
+            }
+        }
     }
 }

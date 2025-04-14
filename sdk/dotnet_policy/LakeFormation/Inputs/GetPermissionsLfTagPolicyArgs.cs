@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Inputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'GetPermissionsLfTagPolicyInputArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("expressions")]
+        [PolicyResourceProperty("expressions", "_mUnknown_Expressions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs>> _mExpressions;
-
-        public List<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs>? Expressions => _mExpressions.GetValue("expressions");
+        private List<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs>? _mValue_Expressions;
+        private bool _mUnknown_Expressions;
+        public List<Inputs.GetPermissionsLfTagPolicyExpressionInputArgs>? Expressions
+        {
+            get
+            {
+                if (!_mUnknown_Expressions) return _mValue_Expressions;
+                throw new UndeferrableValueException("Value 'GetPermissionsLfTagPolicyInputArgs.Expressions' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'GetPermissionsLfTagPolicyInputArgs.ResourceType' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
         /// <summary>
         /// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
         /// </summary>
-        [Input("complianceResourceId")]
+        [PolicyResourceProperty("complianceResourceId", "_mUnknown_ComplianceResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceResourceId;
-
-        public string? ComplianceResourceId => _mComplianceResourceId.GetValue("complianceResourceId");
+        private string? _mValue_ComplianceResourceId;
+        private bool _mUnknown_ComplianceResourceId;
+        public string? ComplianceResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceResourceId) return _mValue_ComplianceResourceId;
+                throw new UndeferrableValueException("Value 'RuleScopeArgs.ComplianceResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         /// </summary>
-        [Input("complianceResourceTypes")]
+        [PolicyResourceProperty("complianceResourceTypes", "_mUnknown_ComplianceResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComplianceResourceTypes;
-
-        public List<string>? ComplianceResourceTypes => _mComplianceResourceTypes.GetValue("complianceResourceTypes");
+        private List<string>? _mValue_ComplianceResourceTypes;
+        private bool _mUnknown_ComplianceResourceTypes;
+        public List<string>? ComplianceResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceResourceTypes) return _mValue_ComplianceResourceTypes;
+                throw new UndeferrableValueException("Value 'RuleScopeArgs.ComplianceResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
         /// </summary>
-        [Input("tagKey")]
+        [PolicyResourceProperty("tagKey", "_mUnknown_TagKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagKey;
-
-        public string? TagKey => _mTagKey.GetValue("tagKey");
+        private string? _mValue_TagKey;
+        private bool _mUnknown_TagKey;
+        public string? TagKey
+        {
+            get
+            {
+                if (!_mUnknown_TagKey) return _mValue_TagKey;
+                throw new UndeferrableValueException("Value 'RuleScopeArgs.TagKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
         /// </summary>
-        [Input("tagValue")]
+        [PolicyResourceProperty("tagValue", "_mUnknown_TagValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagValue;
-
-        public string? TagValue => _mTagValue.GetValue("tagValue");
+        private string? _mValue_TagValue;
+        private bool _mUnknown_TagValue;
+        public string? TagValue
+        {
+            get
+            {
+                if (!_mUnknown_TagValue) return _mValue_TagValue;
+                throw new UndeferrableValueException("Value 'RuleScopeArgs.TagValue' is not present");
+            }
+        }
     }
 }

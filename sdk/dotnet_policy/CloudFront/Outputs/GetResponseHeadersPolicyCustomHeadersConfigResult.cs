@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class GetResponseHeadersPolicyCustomHeadersConfigResult
     {
-        [Input("items")]
+        [PolicyResourceProperty("items", "_mUnknown_Items")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetResponseHeadersPolicyCustomHeadersConfigItemResult>> _mItems;
-
-        public List<Outputs.GetResponseHeadersPolicyCustomHeadersConfigItemResult>? Items => _mItems.GetValue("items");
+        private List<Outputs.GetResponseHeadersPolicyCustomHeadersConfigItemResult>? _mValue_Items;
+        private bool _mUnknown_Items;
+        public List<Outputs.GetResponseHeadersPolicyCustomHeadersConfigItemResult>? Items
+        {
+            get
+            {
+                if (!_mUnknown_Items) return _mValue_Items;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicyCustomHeadersConfigResult.Items' is not present");
+            }
+        }
     }
 }

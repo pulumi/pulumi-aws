@@ -15,61 +15,110 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// The location of the SAPOData resource.
         /// </summary>
-        [Input("applicationHostUrl")]
+        [PolicyResourceProperty("applicationHostUrl", "_mUnknown_ApplicationHostUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationHostUrl;
-
-        public string? ApplicationHostUrl => _mApplicationHostUrl.GetValue("applicationHostUrl");
+        private string? _mValue_ApplicationHostUrl;
+        private bool _mUnknown_ApplicationHostUrl;
+        public string? ApplicationHostUrl
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationHostUrl) return _mValue_ApplicationHostUrl;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData.ApplicationHostUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The application path to catalog service.
         /// </summary>
-        [Input("applicationServicePath")]
+        [PolicyResourceProperty("applicationServicePath", "_mUnknown_ApplicationServicePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationServicePath;
-
-        public string? ApplicationServicePath => _mApplicationServicePath.GetValue("applicationServicePath");
+        private string? _mValue_ApplicationServicePath;
+        private bool _mUnknown_ApplicationServicePath;
+        public string? ApplicationServicePath
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationServicePath) return _mValue_ApplicationServicePath;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData.ApplicationServicePath' is not present");
+            }
+        }
 
         /// <summary>
         /// The client number for the client creating the connection.
         /// </summary>
-        [Input("clientNumber")]
+        [PolicyResourceProperty("clientNumber", "_mUnknown_ClientNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientNumber;
-
-        public string? ClientNumber => _mClientNumber.GetValue("clientNumber");
+        private string? _mValue_ClientNumber;
+        private bool _mUnknown_ClientNumber;
+        public string? ClientNumber
+        {
+            get
+            {
+                if (!_mUnknown_ClientNumber) return _mValue_ClientNumber;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData.ClientNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The logon language of SAPOData instance.
         /// </summary>
-        [Input("logonLanguage")]
+        [PolicyResourceProperty("logonLanguage", "_mUnknown_LogonLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogonLanguage;
-
-        public string? LogonLanguage => _mLogonLanguage.GetValue("logonLanguage");
+        private string? _mValue_LogonLanguage;
+        private bool _mUnknown_LogonLanguage;
+        public string? LogonLanguage
+        {
+            get
+            {
+                if (!_mUnknown_LogonLanguage) return _mValue_LogonLanguage;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData.LogonLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// The SAPOData OAuth properties required for OAuth type authentication.
         /// </summary>
-        [Input("oauthProperties")]
+        [PolicyResourceProperty("oauthProperties", "_mUnknown_OauthProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties> _mOauthProperties;
-
-        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties? OauthProperties => _mOauthProperties.GetValue("oauthProperties");
+        private Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties? _mValue_OauthProperties;
+        private bool _mUnknown_OauthProperties;
+        public Outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties? OauthProperties
+        {
+            get
+            {
+                if (!_mUnknown_OauthProperties) return _mValue_OauthProperties;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData.OauthProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number of the SAPOData instance.
         /// </summary>
-        [Input("portNumber")]
+        [PolicyResourceProperty("portNumber", "_mUnknown_PortNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPortNumber;
+        private int? _mValue_PortNumber;
+        private bool _mUnknown_PortNumber;
+        public int? PortNumber
+        {
+            get
+            {
+                if (!_mUnknown_PortNumber) return _mValue_PortNumber;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData.PortNumber' is not present");
+            }
+        }
 
-        public int? PortNumber => _mPortNumber.GetValue("portNumber");
-
-        [Input("privateLinkServiceName")]
+        [PolicyResourceProperty("privateLinkServiceName", "_mUnknown_PrivateLinkServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateLinkServiceName;
-
-        public string? PrivateLinkServiceName => _mPrivateLinkServiceName.GetValue("privateLinkServiceName");
+        private string? _mValue_PrivateLinkServiceName;
+        private bool _mUnknown_PrivateLinkServiceName;
+        public string? PrivateLinkServiceName
+        {
+            get
+            {
+                if (!_mUnknown_PrivateLinkServiceName) return _mValue_PrivateLinkServiceName;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData.PrivateLinkServiceName' is not present");
+            }
+        }
     }
 }

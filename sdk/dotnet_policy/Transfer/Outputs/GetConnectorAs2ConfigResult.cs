@@ -15,79 +15,142 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// Basic authentication for AS2 connector API. Returns a null value if not set.
         /// </summary>
-        [Input("basicAuthSecretId")]
+        [PolicyResourceProperty("basicAuthSecretId", "_mUnknown_BasicAuthSecretId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthSecretId;
-
-        public string? BasicAuthSecretId => _mBasicAuthSecretId.GetValue("basicAuthSecretId");
+        private string? _mValue_BasicAuthSecretId;
+        private bool _mUnknown_BasicAuthSecretId;
+        public string? BasicAuthSecretId
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthSecretId) return _mValue_BasicAuthSecretId;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.BasicAuthSecretId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
         /// </summary>
-        [Input("compression")]
+        [PolicyResourceProperty("compression", "_mUnknown_Compression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
-
-        public string? Compression => _mCompression.GetValue("compression");
+        private string? _mValue_Compression;
+        private bool _mUnknown_Compression;
+        public string? Compression
+        {
+            get
+            {
+                if (!_mUnknown_Compression) return _mValue_Compression;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.Compression' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm used to encrypt file. Will be AES128_CBC or AES192_CBC or AES256_CBC or DES_EDE3_CBC or NONE.
         /// </summary>
-        [Input("encryptionAlgorithm")]
+        [PolicyResourceProperty("encryptionAlgorithm", "_mUnknown_EncryptionAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionAlgorithm;
-
-        public string? EncryptionAlgorithm => _mEncryptionAlgorithm.GetValue("encryptionAlgorithm");
+        private string? _mValue_EncryptionAlgorithm;
+        private bool _mUnknown_EncryptionAlgorithm;
+        public string? EncryptionAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAlgorithm) return _mValue_EncryptionAlgorithm;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.EncryptionAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for AS2 local profile.
         /// </summary>
-        [Input("localProfileId")]
+        [PolicyResourceProperty("localProfileId", "_mUnknown_LocalProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalProfileId;
-
-        public string? LocalProfileId => _mLocalProfileId.GetValue("localProfileId");
+        private string? _mValue_LocalProfileId;
+        private bool _mUnknown_LocalProfileId;
+        public string? LocalProfileId
+        {
+            get
+            {
+                if (!_mUnknown_LocalProfileId) return _mValue_LocalProfileId;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.LocalProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
         /// </summary>
-        [Input("mdnResponse")]
+        [PolicyResourceProperty("mdnResponse", "_mUnknown_MdnResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMdnResponse;
-
-        public string? MdnResponse => _mMdnResponse.GetValue("mdnResponse");
+        private string? _mValue_MdnResponse;
+        private bool _mUnknown_MdnResponse;
+        public string? MdnResponse
+        {
+            get
+            {
+                if (!_mUnknown_MdnResponse) return _mValue_MdnResponse;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.MdnResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Signing algorithm for MDN response. Will be SHA256 or SHA384 or SHA512 or SHA1 or NONE or DEFAULT.
         /// </summary>
-        [Input("mdnSigningAlgorithm")]
+        [PolicyResourceProperty("mdnSigningAlgorithm", "_mUnknown_MdnSigningAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMdnSigningAlgorithm;
-
-        public string? MdnSigningAlgorithm => _mMdnSigningAlgorithm.GetValue("mdnSigningAlgorithm");
+        private string? _mValue_MdnSigningAlgorithm;
+        private bool _mUnknown_MdnSigningAlgorithm;
+        public string? MdnSigningAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_MdnSigningAlgorithm) return _mValue_MdnSigningAlgorithm;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.MdnSigningAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Subject HTTP header attribute in outbound AS2 messages to the connector.
         /// </summary>
-        [Input("messageSubject")]
+        [PolicyResourceProperty("messageSubject", "_mUnknown_MessageSubject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageSubject;
-
-        public string? MessageSubject => _mMessageSubject.GetValue("messageSubject");
+        private string? _mValue_MessageSubject;
+        private bool _mUnknown_MessageSubject;
+        public string? MessageSubject
+        {
+            get
+            {
+                if (!_mUnknown_MessageSubject) return _mValue_MessageSubject;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.MessageSubject' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier used by connector for partner profile.
         /// </summary>
-        [Input("partnerProfileId")]
+        [PolicyResourceProperty("partnerProfileId", "_mUnknown_PartnerProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerProfileId;
+        private string? _mValue_PartnerProfileId;
+        private bool _mUnknown_PartnerProfileId;
+        public string? PartnerProfileId
+        {
+            get
+            {
+                if (!_mUnknown_PartnerProfileId) return _mValue_PartnerProfileId;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.PartnerProfileId' is not present");
+            }
+        }
 
-        public string? PartnerProfileId => _mPartnerProfileId.GetValue("partnerProfileId");
-
-        [Input("singingAlgorithm")]
+        [PolicyResourceProperty("singingAlgorithm", "_mUnknown_SingingAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSingingAlgorithm;
-
-        public string? SingingAlgorithm => _mSingingAlgorithm.GetValue("singingAlgorithm");
+        private string? _mValue_SingingAlgorithm;
+        private bool _mUnknown_SingingAlgorithm;
+        public string? SingingAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SingingAlgorithm) return _mValue_SingingAlgorithm;
+                throw new UndeferrableValueException("Value 'GetConnectorAs2ConfigResult.SingingAlgorithm' is not present");
+            }
+        }
     }
 }

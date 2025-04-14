@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Default client policy for virtual service backends. See above for details.
         /// </summary>
-        [Input("clientPolicy")]
+        [PolicyResourceProperty("clientPolicy", "_mUnknown_ClientPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecBackendDefaultsClientPolicy> _mClientPolicy;
-
-        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicy? ClientPolicy => _mClientPolicy.GetValue("clientPolicy");
+        private Outputs.VirtualNodeSpecBackendDefaultsClientPolicy? _mValue_ClientPolicy;
+        private bool _mUnknown_ClientPolicy;
+        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicy? ClientPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ClientPolicy) return _mValue_ClientPolicy;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaults.ClientPolicy' is not present");
+            }
+        }
     }
 }

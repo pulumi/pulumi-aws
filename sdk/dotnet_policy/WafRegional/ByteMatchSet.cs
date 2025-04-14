@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         /// </summary>
-        [Input("byteMatchTuples")]
+        [PolicyResourceProperty("byteMatchTuples", "_mUnknown_ByteMatchTuples")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ByteMatchSetByteMatchTuple>> _mByteMatchTuples;
-
-        public List<Outputs.ByteMatchSetByteMatchTuple>? ByteMatchTuples => _mByteMatchTuples.GetValue("byteMatchTuples");
+        private List<Outputs.ByteMatchSetByteMatchTuple>? _mValue_ByteMatchTuples;
+        private bool _mUnknown_ByteMatchTuples;
+        public List<Outputs.ByteMatchSetByteMatchTuple>? ByteMatchTuples
+        {
+            get
+            {
+                if (!_mUnknown_ByteMatchTuples) return _mValue_ByteMatchTuples;
+                throw new UndeferrableValueException("Value 'ByteMatchSet.ByteMatchTuples' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the ByteMatchSet.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ByteMatchSet.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafregional/byteMatchSet:ByteMatchSet")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
         /// </summary>
-        [Input("byteMatchTuples")]
+        [PolicyResourceProperty("byteMatchTuples", "_mUnknown_ByteMatchTuples")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ByteMatchSetByteMatchTupleArgs>> _mByteMatchTuples;
-
-        public List<Inputs.ByteMatchSetByteMatchTupleArgs>? ByteMatchTuples => _mByteMatchTuples.GetValue("byteMatchTuples");
+        private List<Inputs.ByteMatchSetByteMatchTupleArgs>? _mValue_ByteMatchTuples;
+        private bool _mUnknown_ByteMatchTuples;
+        public List<Inputs.ByteMatchSetByteMatchTupleArgs>? ByteMatchTuples
+        {
+            get
+            {
+                if (!_mUnknown_ByteMatchTuples) return _mValue_ByteMatchTuples;
+                throw new UndeferrableValueException("Value 'ByteMatchSetArgs.ByteMatchTuples' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the ByteMatchSet.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ByteMatchSetArgs.Name' is not present");
+            }
+        }
     }
 }

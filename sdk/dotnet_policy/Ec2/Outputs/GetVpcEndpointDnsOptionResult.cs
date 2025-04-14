@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// The DNS records created for the endpoint.
         /// </summary>
-        [Input("dnsRecordIpType")]
+        [PolicyResourceProperty("dnsRecordIpType", "_mUnknown_DnsRecordIpType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsRecordIpType;
-
-        public string? DnsRecordIpType => _mDnsRecordIpType.GetValue("dnsRecordIpType");
+        private string? _mValue_DnsRecordIpType;
+        private bool _mUnknown_DnsRecordIpType;
+        public string? DnsRecordIpType
+        {
+            get
+            {
+                if (!_mUnknown_DnsRecordIpType) return _mValue_DnsRecordIpType;
+                throw new UndeferrableValueException("Value 'GetVpcEndpointDnsOptionResult.DnsRecordIpType' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable private DNS only for inbound endpoints.
         /// </summary>
-        [Input("privateDnsOnlyForInboundResolverEndpoint")]
+        [PolicyResourceProperty("privateDnsOnlyForInboundResolverEndpoint", "_mUnknown_PrivateDnsOnlyForInboundResolverEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateDnsOnlyForInboundResolverEndpoint;
-
-        public bool? PrivateDnsOnlyForInboundResolverEndpoint => _mPrivateDnsOnlyForInboundResolverEndpoint.GetValue("privateDnsOnlyForInboundResolverEndpoint");
+        private bool? _mValue_PrivateDnsOnlyForInboundResolverEndpoint;
+        private bool _mUnknown_PrivateDnsOnlyForInboundResolverEndpoint;
+        public bool? PrivateDnsOnlyForInboundResolverEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDnsOnlyForInboundResolverEndpoint) return _mValue_PrivateDnsOnlyForInboundResolverEndpoint;
+                throw new UndeferrableValueException("Value 'GetVpcEndpointDnsOptionResult.PrivateDnsOnlyForInboundResolverEndpoint' is not present");
+            }
+        }
     }
 }

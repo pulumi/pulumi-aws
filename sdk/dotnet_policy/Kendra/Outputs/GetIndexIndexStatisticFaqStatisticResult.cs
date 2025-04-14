@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The total number of FAQ questions and answers contained in the index.
         /// </summary>
-        [Input("indexedQuestionAnswersCount")]
+        [PolicyResourceProperty("indexedQuestionAnswersCount", "_mUnknown_IndexedQuestionAnswersCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIndexedQuestionAnswersCount;
-
-        public int? IndexedQuestionAnswersCount => _mIndexedQuestionAnswersCount.GetValue("indexedQuestionAnswersCount");
+        private int? _mValue_IndexedQuestionAnswersCount;
+        private bool _mUnknown_IndexedQuestionAnswersCount;
+        public int? IndexedQuestionAnswersCount
+        {
+            get
+            {
+                if (!_mUnknown_IndexedQuestionAnswersCount) return _mValue_IndexedQuestionAnswersCount;
+                throw new UndeferrableValueException("Value 'GetIndexIndexStatisticFaqStatisticResult.IndexedQuestionAnswersCount' is not present");
+            }
+        }
     }
 }

@@ -16,96 +16,166 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The status of the VPC Peering Connection request.
         /// </summary>
-        [Input("acceptStatus")]
+        [PolicyResourceProperty("acceptStatus", "_mUnknown_AcceptStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceptStatus;
-
-        public string? AcceptStatus => _mAcceptStatus.GetValue("acceptStatus");
+        private string? _mValue_AcceptStatus;
+        private bool _mUnknown_AcceptStatus;
+        public string? AcceptStatus
+        {
+            get
+            {
+                if (!_mUnknown_AcceptStatus) return _mValue_AcceptStatus;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.AcceptStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
         /// </summary>
-        [Input("accepter")]
+        [PolicyResourceProperty("accepter", "_mUnknown_Accepter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcPeeringConnectionAccepter> _mAccepter;
-
-        public Outputs.VpcPeeringConnectionAccepter? Accepter => _mAccepter.GetValue("accepter");
+        private Outputs.VpcPeeringConnectionAccepter? _mValue_Accepter;
+        private bool _mUnknown_Accepter;
+        public Outputs.VpcPeeringConnectionAccepter? Accepter
+        {
+            get
+            {
+                if (!_mUnknown_Accepter) return _mValue_Accepter;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.Accepter' is not present");
+            }
+        }
 
         /// <summary>
         /// Accept the peering (both VPCs need to be in the same AWS account and region).
         /// </summary>
-        [Input("autoAccept")]
+        [PolicyResourceProperty("autoAccept", "_mUnknown_AutoAccept")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAccept;
-
-        public bool? AutoAccept => _mAutoAccept.GetValue("autoAccept");
+        private bool? _mValue_AutoAccept;
+        private bool _mUnknown_AutoAccept;
+        public bool? AutoAccept
+        {
+            get
+            {
+                if (!_mUnknown_AutoAccept) return _mValue_AutoAccept;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.AutoAccept' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the target peer VPC.
         /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
-        [Input("peerOwnerId")]
+        [PolicyResourceProperty("peerOwnerId", "_mUnknown_PeerOwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerOwnerId;
-
-        public string? PeerOwnerId => _mPeerOwnerId.GetValue("peerOwnerId");
+        private string? _mValue_PeerOwnerId;
+        private bool _mUnknown_PeerOwnerId;
+        public string? PeerOwnerId
+        {
+            get
+            {
+                if (!_mUnknown_PeerOwnerId) return _mValue_PeerOwnerId;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.PeerOwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         /// </summary>
-        [Input("peerRegion")]
+        [PolicyResourceProperty("peerRegion", "_mUnknown_PeerRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerRegion;
-
-        public string? PeerRegion => _mPeerRegion.GetValue("peerRegion");
+        private string? _mValue_PeerRegion;
+        private bool _mUnknown_PeerRegion;
+        public string? PeerRegion
+        {
+            get
+            {
+                if (!_mUnknown_PeerRegion) return _mValue_PeerRegion;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.PeerRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
-        [Input("peerVpcId")]
+        [PolicyResourceProperty("peerVpcId", "_mUnknown_PeerVpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerVpcId;
-
-        public string? PeerVpcId => _mPeerVpcId.GetValue("peerVpcId");
+        private string? _mValue_PeerVpcId;
+        private bool _mUnknown_PeerVpcId;
+        public string? PeerVpcId
+        {
+            get
+            {
+                if (!_mUnknown_PeerVpcId) return _mValue_PeerVpcId;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.PeerVpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         /// the peering connection (a maximum of one).
         /// </summary>
-        [Input("requester")]
+        [PolicyResourceProperty("requester", "_mUnknown_Requester")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcPeeringConnectionRequester> _mRequester;
-
-        public Outputs.VpcPeeringConnectionRequester? Requester => _mRequester.GetValue("requester");
+        private Outputs.VpcPeeringConnectionRequester? _mValue_Requester;
+        private bool _mUnknown_Requester;
+        public Outputs.VpcPeeringConnectionRequester? Requester
+        {
+            get
+            {
+                if (!_mUnknown_Requester) return _mValue_Requester;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.Requester' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the requester VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnection.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcPeeringConnection:VpcPeeringConnection")]
@@ -115,76 +185,132 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
         /// </summary>
-        [Input("accepter")]
+        [PolicyResourceProperty("accepter", "_mUnknown_Accepter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcPeeringConnectionAccepterArgs> _mAccepter;
-
-        public Inputs.VpcPeeringConnectionAccepterArgs? Accepter => _mAccepter.GetValue("accepter");
+        private Inputs.VpcPeeringConnectionAccepterArgs? _mValue_Accepter;
+        private bool _mUnknown_Accepter;
+        public Inputs.VpcPeeringConnectionAccepterArgs? Accepter
+        {
+            get
+            {
+                if (!_mUnknown_Accepter) return _mValue_Accepter;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.Accepter' is not present");
+            }
+        }
 
         /// <summary>
         /// Accept the peering (both VPCs need to be in the same AWS account and region).
         /// </summary>
-        [Input("autoAccept")]
+        [PolicyResourceProperty("autoAccept", "_mUnknown_AutoAccept")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAccept;
-
-        public bool? AutoAccept => _mAutoAccept.GetValue("autoAccept");
+        private bool? _mValue_AutoAccept;
+        private bool _mUnknown_AutoAccept;
+        public bool? AutoAccept
+        {
+            get
+            {
+                if (!_mUnknown_AutoAccept) return _mValue_AutoAccept;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.AutoAccept' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the target peer VPC.
         /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
-        [Input("peerOwnerId")]
+        [PolicyResourceProperty("peerOwnerId", "_mUnknown_PeerOwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerOwnerId;
-
-        public string? PeerOwnerId => _mPeerOwnerId.GetValue("peerOwnerId");
+        private string? _mValue_PeerOwnerId;
+        private bool _mUnknown_PeerOwnerId;
+        public string? PeerOwnerId
+        {
+            get
+            {
+                if (!_mUnknown_PeerOwnerId) return _mValue_PeerOwnerId;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.PeerOwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         /// </summary>
-        [Input("peerRegion")]
+        [PolicyResourceProperty("peerRegion", "_mUnknown_PeerRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerRegion;
-
-        public string? PeerRegion => _mPeerRegion.GetValue("peerRegion");
+        private string? _mValue_PeerRegion;
+        private bool _mUnknown_PeerRegion;
+        public string? PeerRegion
+        {
+            get
+            {
+                if (!_mUnknown_PeerRegion) return _mValue_PeerRegion;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.PeerRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         /// </summary>
-        [Input("peerVpcId")]
+        [PolicyResourceProperty("peerVpcId", "_mUnknown_PeerVpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerVpcId;
-
-        public string? PeerVpcId => _mPeerVpcId.GetValue("peerVpcId");
+        private string? _mValue_PeerVpcId;
+        private bool _mUnknown_PeerVpcId;
+        public string? PeerVpcId
+        {
+            get
+            {
+                if (!_mUnknown_PeerVpcId) return _mValue_PeerVpcId;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.PeerVpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         /// the peering connection (a maximum of one).
         /// </summary>
-        [Input("requester")]
+        [PolicyResourceProperty("requester", "_mUnknown_Requester")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcPeeringConnectionRequesterArgs> _mRequester;
-
-        public Inputs.VpcPeeringConnectionRequesterArgs? Requester => _mRequester.GetValue("requester");
+        private Inputs.VpcPeeringConnectionRequesterArgs? _mValue_Requester;
+        private bool _mUnknown_Requester;
+        public Inputs.VpcPeeringConnectionRequesterArgs? Requester
+        {
+            get
+            {
+                if (!_mUnknown_Requester) return _mValue_Requester;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.Requester' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the requester VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpcPeeringConnectionArgs.VpcId' is not present");
+            }
+        }
     }
 }

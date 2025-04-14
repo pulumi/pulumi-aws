@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
 {
     public sealed class GetEndpointElasticsearchSettingResult
     {
-        [Input("endpointUri")]
+        [PolicyResourceProperty("endpointUri", "_mUnknown_EndpointUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointUri;
+        private string? _mValue_EndpointUri;
+        private bool _mUnknown_EndpointUri;
+        public string? EndpointUri
+        {
+            get
+            {
+                if (!_mUnknown_EndpointUri) return _mValue_EndpointUri;
+                throw new UndeferrableValueException("Value 'GetEndpointElasticsearchSettingResult.EndpointUri' is not present");
+            }
+        }
 
-        public string? EndpointUri => _mEndpointUri.GetValue("endpointUri");
-
-        [Input("errorRetryDuration")]
+        [PolicyResourceProperty("errorRetryDuration", "_mUnknown_ErrorRetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mErrorRetryDuration;
+        private int? _mValue_ErrorRetryDuration;
+        private bool _mUnknown_ErrorRetryDuration;
+        public int? ErrorRetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_ErrorRetryDuration) return _mValue_ErrorRetryDuration;
+                throw new UndeferrableValueException("Value 'GetEndpointElasticsearchSettingResult.ErrorRetryDuration' is not present");
+            }
+        }
 
-        public int? ErrorRetryDuration => _mErrorRetryDuration.GetValue("errorRetryDuration");
-
-        [Input("fullLoadErrorPercentage")]
+        [PolicyResourceProperty("fullLoadErrorPercentage", "_mUnknown_FullLoadErrorPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFullLoadErrorPercentage;
+        private int? _mValue_FullLoadErrorPercentage;
+        private bool _mUnknown_FullLoadErrorPercentage;
+        public int? FullLoadErrorPercentage
+        {
+            get
+            {
+                if (!_mUnknown_FullLoadErrorPercentage) return _mValue_FullLoadErrorPercentage;
+                throw new UndeferrableValueException("Value 'GetEndpointElasticsearchSettingResult.FullLoadErrorPercentage' is not present");
+            }
+        }
 
-        public int? FullLoadErrorPercentage => _mFullLoadErrorPercentage.GetValue("fullLoadErrorPercentage");
-
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
-
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'GetEndpointElasticsearchSettingResult.ServiceAccessRoleArn' is not present");
+            }
+        }
     }
 }

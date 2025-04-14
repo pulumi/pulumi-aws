@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec> _mDefaultResourceSpec;
-
-        public Outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.DefaultResourceSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the execution role for the RStudioServerPro Domain-level app.
         /// </summary>
-        [Input("domainExecutionRoleArn")]
+        [PolicyResourceProperty("domainExecutionRoleArn", "_mUnknown_DomainExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainExecutionRoleArn;
-
-        public string? DomainExecutionRoleArn => _mDomainExecutionRoleArn.GetValue("domainExecutionRoleArn");
+        private string? _mValue_DomainExecutionRoleArn;
+        private bool _mUnknown_DomainExecutionRoleArn;
+        public string? DomainExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DomainExecutionRoleArn) return _mValue_DomainExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.DomainExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A URL pointing to an RStudio Connect server.
         /// </summary>
-        [Input("rStudioConnectUrl")]
+        [PolicyResourceProperty("rStudioConnectUrl", "_mUnknown_RStudioConnectUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRStudioConnectUrl;
-
-        public string? RStudioConnectUrl => _mRStudioConnectUrl.GetValue("rStudioConnectUrl");
+        private string? _mValue_RStudioConnectUrl;
+        private bool _mUnknown_RStudioConnectUrl;
+        public string? RStudioConnectUrl
+        {
+            get
+            {
+                if (!_mUnknown_RStudioConnectUrl) return _mValue_RStudioConnectUrl;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.RStudioConnectUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// A URL pointing to an RStudio Package Manager server.
         /// </summary>
-        [Input("rStudioPackageManagerUrl")]
+        [PolicyResourceProperty("rStudioPackageManagerUrl", "_mUnknown_RStudioPackageManagerUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRStudioPackageManagerUrl;
-
-        public string? RStudioPackageManagerUrl => _mRStudioPackageManagerUrl.GetValue("rStudioPackageManagerUrl");
+        private string? _mValue_RStudioPackageManagerUrl;
+        private bool _mUnknown_RStudioPackageManagerUrl;
+        public string? RStudioPackageManagerUrl
+        {
+            get
+            {
+                if (!_mUnknown_RStudioPackageManagerUrl) return _mValue_RStudioPackageManagerUrl;
+                throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.RStudioPackageManagerUrl' is not present");
+            }
+        }
     }
 }

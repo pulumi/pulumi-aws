@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces.Inputs
         /// <summary>
         /// The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
         /// </summary>
-        [Input("relayStateParameterName")]
+        [PolicyResourceProperty("relayStateParameterName", "_mUnknown_RelayStateParameterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelayStateParameterName;
-
-        public string? RelayStateParameterName => _mRelayStateParameterName.GetValue("relayStateParameterName");
+        private string? _mValue_RelayStateParameterName;
+        private bool _mUnknown_RelayStateParameterName;
+        public string? RelayStateParameterName
+        {
+            get
+            {
+                if (!_mUnknown_RelayStateParameterName) return _mValue_RelayStateParameterName;
+                throw new UndeferrableValueException("Value 'DirectorySamlPropertiesArgs.RelayStateParameterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of SAML 2.0 authentication. Default `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DirectorySamlPropertiesArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The SAML 2.0 identity provider (IdP) user access URL.
         /// </summary>
-        [Input("userAccessUrl")]
+        [PolicyResourceProperty("userAccessUrl", "_mUnknown_UserAccessUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserAccessUrl;
-
-        public string? UserAccessUrl => _mUserAccessUrl.GetValue("userAccessUrl");
+        private string? _mValue_UserAccessUrl;
+        private bool _mUnknown_UserAccessUrl;
+        public string? UserAccessUrl
+        {
+            get
+            {
+                if (!_mUnknown_UserAccessUrl) return _mValue_UserAccessUrl;
+                throw new UndeferrableValueException("Value 'DirectorySamlPropertiesArgs.UserAccessUrl' is not present");
+            }
+        }
     }
 }

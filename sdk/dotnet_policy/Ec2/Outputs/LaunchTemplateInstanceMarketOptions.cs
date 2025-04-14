@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// The market type. Can be `spot`.
         /// </summary>
-        [Input("marketType")]
+        [PolicyResourceProperty("marketType", "_mUnknown_MarketType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMarketType;
-
-        public string? MarketType => _mMarketType.GetValue("marketType");
+        private string? _mValue_MarketType;
+        private bool _mUnknown_MarketType;
+        public string? MarketType
+        {
+            get
+            {
+                if (!_mUnknown_MarketType) return _mValue_MarketType;
+                throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptions.MarketType' is not present");
+            }
+        }
 
         /// <summary>
         /// The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         /// </summary>
-        [Input("spotOptions")]
+        [PolicyResourceProperty("spotOptions", "_mUnknown_SpotOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateInstanceMarketOptionsSpotOptions> _mSpotOptions;
-
-        public Outputs.LaunchTemplateInstanceMarketOptionsSpotOptions? SpotOptions => _mSpotOptions.GetValue("spotOptions");
+        private Outputs.LaunchTemplateInstanceMarketOptionsSpotOptions? _mValue_SpotOptions;
+        private bool _mUnknown_SpotOptions;
+        public Outputs.LaunchTemplateInstanceMarketOptionsSpotOptions? SpotOptions
+        {
+            get
+            {
+                if (!_mUnknown_SpotOptions) return _mValue_SpotOptions;
+                throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptions.SpotOptions' is not present");
+            }
+        }
     }
 }

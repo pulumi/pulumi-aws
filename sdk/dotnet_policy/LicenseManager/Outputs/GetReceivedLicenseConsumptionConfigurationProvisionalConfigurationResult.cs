@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager.Outputs
         /// <summary>
         /// Maximum time for the provisional configuration, in minutes.
         /// </summary>
-        [Input("maxTimeToLiveInMinutes")]
+        [PolicyResourceProperty("maxTimeToLiveInMinutes", "_mUnknown_MaxTimeToLiveInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTimeToLiveInMinutes;
-
-        public int? MaxTimeToLiveInMinutes => _mMaxTimeToLiveInMinutes.GetValue("maxTimeToLiveInMinutes");
+        private int? _mValue_MaxTimeToLiveInMinutes;
+        private bool _mUnknown_MaxTimeToLiveInMinutes;
+        public int? MaxTimeToLiveInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_MaxTimeToLiveInMinutes) return _mValue_MaxTimeToLiveInMinutes;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult.MaxTimeToLiveInMinutes' is not present");
+            }
+        }
     }
 }

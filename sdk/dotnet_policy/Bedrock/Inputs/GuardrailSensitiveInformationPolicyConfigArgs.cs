@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// List of entities. See PII Entities Config for more information.
         /// </summary>
-        [Input("piiEntitiesConfigs")]
+        [PolicyResourceProperty("piiEntitiesConfigs", "_mUnknown_PiiEntitiesConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>> _mPiiEntitiesConfigs;
-
-        public List<Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>? PiiEntitiesConfigs => _mPiiEntitiesConfigs.GetValue("piiEntitiesConfigs");
+        private List<Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>? _mValue_PiiEntitiesConfigs;
+        private bool _mUnknown_PiiEntitiesConfigs;
+        public List<Inputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs>? PiiEntitiesConfigs
+        {
+            get
+            {
+                if (!_mUnknown_PiiEntitiesConfigs) return _mValue_PiiEntitiesConfigs;
+                throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigArgs.PiiEntitiesConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// List of regex. See Regexes Config for more information.
         /// </summary>
-        [Input("regexesConfigs")]
+        [PolicyResourceProperty("regexesConfigs", "_mUnknown_RegexesConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>> _mRegexesConfigs;
-
-        public List<Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>? RegexesConfigs => _mRegexesConfigs.GetValue("regexesConfigs");
+        private List<Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>? _mValue_RegexesConfigs;
+        private bool _mUnknown_RegexesConfigs;
+        public List<Inputs.GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs>? RegexesConfigs
+        {
+            get
+            {
+                if (!_mUnknown_RegexesConfigs) return _mValue_RegexesConfigs;
+                throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigArgs.RegexesConfigs' is not present");
+            }
+        }
     }
 }

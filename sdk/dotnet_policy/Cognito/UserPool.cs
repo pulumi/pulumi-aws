@@ -16,328 +16,580 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
         /// </summary>
-        [Input("accountRecoverySetting")]
+        [PolicyResourceProperty("accountRecoverySetting", "_mUnknown_AccountRecoverySetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolAccountRecoverySetting> _mAccountRecoverySetting;
-
-        public Outputs.UserPoolAccountRecoverySetting? AccountRecoverySetting => _mAccountRecoverySetting.GetValue("accountRecoverySetting");
+        private Outputs.UserPoolAccountRecoverySetting? _mValue_AccountRecoverySetting;
+        private bool _mUnknown_AccountRecoverySetting;
+        public Outputs.UserPoolAccountRecoverySetting? AccountRecoverySetting
+        {
+            get
+            {
+                if (!_mUnknown_AccountRecoverySetting) return _mValue_AccountRecoverySetting;
+                throw new UndeferrableValueException("Value 'UserPool.AccountRecoverySetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for creating a new user profile. Detailed below.
         /// </summary>
-        [Input("adminCreateUserConfig")]
+        [PolicyResourceProperty("adminCreateUserConfig", "_mUnknown_AdminCreateUserConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolAdminCreateUserConfig> _mAdminCreateUserConfig;
-
-        public Outputs.UserPoolAdminCreateUserConfig? AdminCreateUserConfig => _mAdminCreateUserConfig.GetValue("adminCreateUserConfig");
+        private Outputs.UserPoolAdminCreateUserConfig? _mValue_AdminCreateUserConfig;
+        private bool _mUnknown_AdminCreateUserConfig;
+        public Outputs.UserPoolAdminCreateUserConfig? AdminCreateUserConfig
+        {
+            get
+            {
+                if (!_mUnknown_AdminCreateUserConfig) return _mValue_AdminCreateUserConfig;
+                throw new UndeferrableValueException("Value 'UserPool.AdminCreateUserConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
         /// </summary>
-        [Input("aliasAttributes")]
+        [PolicyResourceProperty("aliasAttributes", "_mUnknown_AliasAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAliasAttributes;
-
-        public List<string>? AliasAttributes => _mAliasAttributes.GetValue("aliasAttributes");
+        private List<string>? _mValue_AliasAttributes;
+        private bool _mUnknown_AliasAttributes;
+        public List<string>? AliasAttributes
+        {
+            get
+            {
+                if (!_mUnknown_AliasAttributes) return _mValue_AliasAttributes;
+                throw new UndeferrableValueException("Value 'UserPool.AliasAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the user pool.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'UserPool.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Attributes to be auto-verified. Valid values: `email`, `phone_number`.
         /// </summary>
-        [Input("autoVerifiedAttributes")]
+        [PolicyResourceProperty("autoVerifiedAttributes", "_mUnknown_AutoVerifiedAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoVerifiedAttributes;
-
-        public List<string>? AutoVerifiedAttributes => _mAutoVerifiedAttributes.GetValue("autoVerifiedAttributes");
+        private List<string>? _mValue_AutoVerifiedAttributes;
+        private bool _mUnknown_AutoVerifiedAttributes;
+        public List<string>? AutoVerifiedAttributes
+        {
+            get
+            {
+                if (!_mUnknown_AutoVerifiedAttributes) return _mValue_AutoVerifiedAttributes;
+                throw new UndeferrableValueException("Value 'UserPool.AutoVerifiedAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Date the user pool was created.
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'UserPool.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
         /// </summary>
-        [Input("customDomain")]
+        [PolicyResourceProperty("customDomain", "_mUnknown_CustomDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomDomain;
-
-        public string? CustomDomain => _mCustomDomain.GetValue("customDomain");
+        private string? _mValue_CustomDomain;
+        private bool _mUnknown_CustomDomain;
+        public string? CustomDomain
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomain) return _mValue_CustomDomain;
+                throw new UndeferrableValueException("Value 'UserPool.CustomDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeletionProtection;
-
-        public string? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private string? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public string? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'UserPool.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the user pool's device tracking. Detailed below.
         /// </summary>
-        [Input("deviceConfiguration")]
+        [PolicyResourceProperty("deviceConfiguration", "_mUnknown_DeviceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolDeviceConfiguration> _mDeviceConfiguration;
-
-        public Outputs.UserPoolDeviceConfiguration? DeviceConfiguration => _mDeviceConfiguration.GetValue("deviceConfiguration");
+        private Outputs.UserPoolDeviceConfiguration? _mValue_DeviceConfiguration;
+        private bool _mUnknown_DeviceConfiguration;
+        public Outputs.UserPoolDeviceConfiguration? DeviceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DeviceConfiguration) return _mValue_DeviceConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.DeviceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Holds the domain prefix if the user pool has a domain associated with it.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'UserPool.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for configuring email. Detailed below.
         /// </summary>
-        [Input("emailConfiguration")]
+        [PolicyResourceProperty("emailConfiguration", "_mUnknown_EmailConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolEmailConfiguration> _mEmailConfiguration;
-
-        public Outputs.UserPoolEmailConfiguration? EmailConfiguration => _mEmailConfiguration.GetValue("emailConfiguration");
+        private Outputs.UserPoolEmailConfiguration? _mValue_EmailConfiguration;
+        private bool _mUnknown_EmailConfiguration;
+        public Outputs.UserPoolEmailConfiguration? EmailConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EmailConfiguration) return _mValue_EmailConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.EmailConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
         /// </summary>
-        [Input("emailMfaConfiguration")]
+        [PolicyResourceProperty("emailMfaConfiguration", "_mUnknown_EmailMfaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolEmailMfaConfiguration> _mEmailMfaConfiguration;
-
-        public Outputs.UserPoolEmailMfaConfiguration? EmailMfaConfiguration => _mEmailMfaConfiguration.GetValue("emailMfaConfiguration");
+        private Outputs.UserPoolEmailMfaConfiguration? _mValue_EmailMfaConfiguration;
+        private bool _mUnknown_EmailMfaConfiguration;
+        public Outputs.UserPoolEmailMfaConfiguration? EmailMfaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EmailMfaConfiguration) return _mValue_EmailMfaConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.EmailMfaConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         /// </summary>
-        [Input("emailVerificationMessage")]
+        [PolicyResourceProperty("emailVerificationMessage", "_mUnknown_EmailVerificationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailVerificationMessage;
-
-        public string? EmailVerificationMessage => _mEmailVerificationMessage.GetValue("emailVerificationMessage");
+        private string? _mValue_EmailVerificationMessage;
+        private bool _mUnknown_EmailVerificationMessage;
+        public string? EmailVerificationMessage
+        {
+            get
+            {
+                if (!_mUnknown_EmailVerificationMessage) return _mValue_EmailVerificationMessage;
+                throw new UndeferrableValueException("Value 'UserPool.EmailVerificationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         /// </summary>
-        [Input("emailVerificationSubject")]
+        [PolicyResourceProperty("emailVerificationSubject", "_mUnknown_EmailVerificationSubject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailVerificationSubject;
-
-        public string? EmailVerificationSubject => _mEmailVerificationSubject.GetValue("emailVerificationSubject");
+        private string? _mValue_EmailVerificationSubject;
+        private bool _mUnknown_EmailVerificationSubject;
+        public string? EmailVerificationSubject
+        {
+            get
+            {
+                if (!_mUnknown_EmailVerificationSubject) return _mValue_EmailVerificationSubject;
+                throw new UndeferrableValueException("Value 'UserPool.EmailVerificationSubject' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'UserPool.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// A number estimating the size of the user pool.
         /// </summary>
-        [Input("estimatedNumberOfUsers")]
+        [PolicyResourceProperty("estimatedNumberOfUsers", "_mUnknown_EstimatedNumberOfUsers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEstimatedNumberOfUsers;
-
-        public int? EstimatedNumberOfUsers => _mEstimatedNumberOfUsers.GetValue("estimatedNumberOfUsers");
+        private int? _mValue_EstimatedNumberOfUsers;
+        private bool _mUnknown_EstimatedNumberOfUsers;
+        public int? EstimatedNumberOfUsers
+        {
+            get
+            {
+                if (!_mUnknown_EstimatedNumberOfUsers) return _mValue_EstimatedNumberOfUsers;
+                throw new UndeferrableValueException("Value 'UserPool.EstimatedNumberOfUsers' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         /// </summary>
-        [Input("lambdaConfig")]
+        [PolicyResourceProperty("lambdaConfig", "_mUnknown_LambdaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolLambdaConfig> _mLambdaConfig;
-
-        public Outputs.UserPoolLambdaConfig? LambdaConfig => _mLambdaConfig.GetValue("lambdaConfig");
+        private Outputs.UserPoolLambdaConfig? _mValue_LambdaConfig;
+        private bool _mUnknown_LambdaConfig;
+        public Outputs.UserPoolLambdaConfig? LambdaConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaConfig) return _mValue_LambdaConfig;
+                throw new UndeferrableValueException("Value 'UserPool.LambdaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Date the user pool was last modified.
         /// </summary>
-        [Input("lastModifiedDate")]
+        [PolicyResourceProperty("lastModifiedDate", "_mUnknown_LastModifiedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedDate;
-
-        public string? LastModifiedDate => _mLastModifiedDate.GetValue("lastModifiedDate");
+        private string? _mValue_LastModifiedDate;
+        private bool _mUnknown_LastModifiedDate;
+        public string? LastModifiedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedDate) return _mValue_LastModifiedDate;
+                throw new UndeferrableValueException("Value 'UserPool.LastModifiedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
         /// </summary>
-        [Input("mfaConfiguration")]
+        [PolicyResourceProperty("mfaConfiguration", "_mUnknown_MfaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMfaConfiguration;
-
-        public string? MfaConfiguration => _mMfaConfiguration.GetValue("mfaConfiguration");
+        private string? _mValue_MfaConfiguration;
+        private bool _mUnknown_MfaConfiguration;
+        public string? MfaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MfaConfiguration) return _mValue_MfaConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.MfaConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the user pool.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserPool.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
-        [Input("passwordPolicy")]
+        [PolicyResourceProperty("passwordPolicy", "_mUnknown_PasswordPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolPasswordPolicy> _mPasswordPolicy;
-
-        public Outputs.UserPoolPasswordPolicy? PasswordPolicy => _mPasswordPolicy.GetValue("passwordPolicy");
+        private Outputs.UserPoolPasswordPolicy? _mValue_PasswordPolicy;
+        private bool _mUnknown_PasswordPolicy;
+        public Outputs.UserPoolPasswordPolicy? PasswordPolicy
+        {
+            get
+            {
+                if (!_mUnknown_PasswordPolicy) return _mValue_PasswordPolicy;
+                throw new UndeferrableValueException("Value 'UserPool.PasswordPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         /// </summary>
-        [Input("schemas")]
+        [PolicyResourceProperty("schemas", "_mUnknown_Schemas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserPoolSchema>> _mSchemas;
-
-        public List<Outputs.UserPoolSchema>? Schemas => _mSchemas.GetValue("schemas");
+        private List<Outputs.UserPoolSchema>? _mValue_Schemas;
+        private bool _mUnknown_Schemas;
+        public List<Outputs.UserPoolSchema>? Schemas
+        {
+            get
+            {
+                if (!_mUnknown_Schemas) return _mValue_Schemas;
+                throw new UndeferrableValueException("Value 'UserPool.Schemas' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information about the user pool sign in policy. Detailed below.
         /// </summary>
-        [Input("signInPolicy")]
+        [PolicyResourceProperty("signInPolicy", "_mUnknown_SignInPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolSignInPolicy> _mSignInPolicy;
-
-        public Outputs.UserPoolSignInPolicy? SignInPolicy => _mSignInPolicy.GetValue("signInPolicy");
+        private Outputs.UserPoolSignInPolicy? _mValue_SignInPolicy;
+        private bool _mUnknown_SignInPolicy;
+        public Outputs.UserPoolSignInPolicy? SignInPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SignInPolicy) return _mValue_SignInPolicy;
+                throw new UndeferrableValueException("Value 'UserPool.SignInPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
-        [Input("smsAuthenticationMessage")]
+        [PolicyResourceProperty("smsAuthenticationMessage", "_mUnknown_SmsAuthenticationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmsAuthenticationMessage;
-
-        public string? SmsAuthenticationMessage => _mSmsAuthenticationMessage.GetValue("smsAuthenticationMessage");
+        private string? _mValue_SmsAuthenticationMessage;
+        private bool _mUnknown_SmsAuthenticationMessage;
+        public string? SmsAuthenticationMessage
+        {
+            get
+            {
+                if (!_mUnknown_SmsAuthenticationMessage) return _mValue_SmsAuthenticationMessage;
+                throw new UndeferrableValueException("Value 'UserPool.SmsAuthenticationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
-        [Input("smsConfiguration")]
+        [PolicyResourceProperty("smsConfiguration", "_mUnknown_SmsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolSmsConfiguration> _mSmsConfiguration;
-
-        public Outputs.UserPoolSmsConfiguration? SmsConfiguration => _mSmsConfiguration.GetValue("smsConfiguration");
+        private Outputs.UserPoolSmsConfiguration? _mValue_SmsConfiguration;
+        private bool _mUnknown_SmsConfiguration;
+        public Outputs.UserPoolSmsConfiguration? SmsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SmsConfiguration) return _mValue_SmsConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.SmsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         /// </summary>
-        [Input("smsVerificationMessage")]
+        [PolicyResourceProperty("smsVerificationMessage", "_mUnknown_SmsVerificationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmsVerificationMessage;
-
-        public string? SmsVerificationMessage => _mSmsVerificationMessage.GetValue("smsVerificationMessage");
+        private string? _mValue_SmsVerificationMessage;
+        private bool _mUnknown_SmsVerificationMessage;
+        public string? SmsVerificationMessage
+        {
+            get
+            {
+                if (!_mUnknown_SmsVerificationMessage) return _mValue_SmsVerificationMessage;
+                throw new UndeferrableValueException("Value 'UserPool.SmsVerificationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
         /// </summary>
-        [Input("softwareTokenMfaConfiguration")]
+        [PolicyResourceProperty("softwareTokenMfaConfiguration", "_mUnknown_SoftwareTokenMfaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolSoftwareTokenMfaConfiguration> _mSoftwareTokenMfaConfiguration;
-
-        public Outputs.UserPoolSoftwareTokenMfaConfiguration? SoftwareTokenMfaConfiguration => _mSoftwareTokenMfaConfiguration.GetValue("softwareTokenMfaConfiguration");
+        private Outputs.UserPoolSoftwareTokenMfaConfiguration? _mValue_SoftwareTokenMfaConfiguration;
+        private bool _mUnknown_SoftwareTokenMfaConfiguration;
+        public Outputs.UserPoolSoftwareTokenMfaConfiguration? SoftwareTokenMfaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SoftwareTokenMfaConfiguration) return _mValue_SoftwareTokenMfaConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.SoftwareTokenMfaConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserPool.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'UserPool.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for user attribute update settings. Detailed below.
         /// </summary>
-        [Input("userAttributeUpdateSettings")]
+        [PolicyResourceProperty("userAttributeUpdateSettings", "_mUnknown_UserAttributeUpdateSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolUserAttributeUpdateSettings> _mUserAttributeUpdateSettings;
-
-        public Outputs.UserPoolUserAttributeUpdateSettings? UserAttributeUpdateSettings => _mUserAttributeUpdateSettings.GetValue("userAttributeUpdateSettings");
+        private Outputs.UserPoolUserAttributeUpdateSettings? _mValue_UserAttributeUpdateSettings;
+        private bool _mUnknown_UserAttributeUpdateSettings;
+        public Outputs.UserPoolUserAttributeUpdateSettings? UserAttributeUpdateSettings
+        {
+            get
+            {
+                if (!_mUnknown_UserAttributeUpdateSettings) return _mValue_UserAttributeUpdateSettings;
+                throw new UndeferrableValueException("Value 'UserPool.UserAttributeUpdateSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         /// </summary>
-        [Input("userPoolAddOns")]
+        [PolicyResourceProperty("userPoolAddOns", "_mUnknown_UserPoolAddOns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolUserPoolAddOns> _mUserPoolAddOns;
-
-        public Outputs.UserPoolUserPoolAddOns? UserPoolAddOns => _mUserPoolAddOns.GetValue("userPoolAddOns");
+        private Outputs.UserPoolUserPoolAddOns? _mValue_UserPoolAddOns;
+        private bool _mUnknown_UserPoolAddOns;
+        public Outputs.UserPoolUserPoolAddOns? UserPoolAddOns
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolAddOns) return _mValue_UserPoolAddOns;
+                throw new UndeferrableValueException("Value 'UserPool.UserPoolAddOns' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
         /// </summary>
-        [Input("userPoolTier")]
+        [PolicyResourceProperty("userPoolTier", "_mUnknown_UserPoolTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolTier;
-
-        public string? UserPoolTier => _mUserPoolTier.GetValue("userPoolTier");
+        private string? _mValue_UserPoolTier;
+        private bool _mUnknown_UserPoolTier;
+        public string? UserPoolTier
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolTier) return _mValue_UserPoolTier;
+                throw new UndeferrableValueException("Value 'UserPool.UserPoolTier' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
         /// </summary>
-        [Input("usernameAttributes")]
+        [PolicyResourceProperty("usernameAttributes", "_mUnknown_UsernameAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsernameAttributes;
-
-        public List<string>? UsernameAttributes => _mUsernameAttributes.GetValue("usernameAttributes");
+        private List<string>? _mValue_UsernameAttributes;
+        private bool _mUnknown_UsernameAttributes;
+        public List<string>? UsernameAttributes
+        {
+            get
+            {
+                if (!_mUnknown_UsernameAttributes) return _mValue_UsernameAttributes;
+                throw new UndeferrableValueException("Value 'UserPool.UsernameAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for username configuration. Detailed below.
         /// </summary>
-        [Input("usernameConfiguration")]
+        [PolicyResourceProperty("usernameConfiguration", "_mUnknown_UsernameConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolUsernameConfiguration> _mUsernameConfiguration;
-
-        public Outputs.UserPoolUsernameConfiguration? UsernameConfiguration => _mUsernameConfiguration.GetValue("usernameConfiguration");
+        private Outputs.UserPoolUsernameConfiguration? _mValue_UsernameConfiguration;
+        private bool _mUnknown_UsernameConfiguration;
+        public Outputs.UserPoolUsernameConfiguration? UsernameConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_UsernameConfiguration) return _mValue_UsernameConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.UsernameConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for verification message templates. Detailed below.
         /// </summary>
-        [Input("verificationMessageTemplate")]
+        [PolicyResourceProperty("verificationMessageTemplate", "_mUnknown_VerificationMessageTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolVerificationMessageTemplate> _mVerificationMessageTemplate;
-
-        public Outputs.UserPoolVerificationMessageTemplate? VerificationMessageTemplate => _mVerificationMessageTemplate.GetValue("verificationMessageTemplate");
+        private Outputs.UserPoolVerificationMessageTemplate? _mValue_VerificationMessageTemplate;
+        private bool _mUnknown_VerificationMessageTemplate;
+        public Outputs.UserPoolVerificationMessageTemplate? VerificationMessageTemplate
+        {
+            get
+            {
+                if (!_mUnknown_VerificationMessageTemplate) return _mValue_VerificationMessageTemplate;
+                throw new UndeferrableValueException("Value 'UserPool.VerificationMessageTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for web authn configuration. Detailed below.
         /// </summary>
-        [Input("webAuthnConfiguration")]
+        [PolicyResourceProperty("webAuthnConfiguration", "_mUnknown_WebAuthnConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserPoolWebAuthnConfiguration> _mWebAuthnConfiguration;
-
-        public Outputs.UserPoolWebAuthnConfiguration? WebAuthnConfiguration => _mWebAuthnConfiguration.GetValue("webAuthnConfiguration");
+        private Outputs.UserPoolWebAuthnConfiguration? _mValue_WebAuthnConfiguration;
+        private bool _mUnknown_WebAuthnConfiguration;
+        public Outputs.UserPoolWebAuthnConfiguration? WebAuthnConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_WebAuthnConfiguration) return _mValue_WebAuthnConfiguration;
+                throw new UndeferrableValueException("Value 'UserPool.WebAuthnConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/userPool:UserPool")]
@@ -346,255 +598,451 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
         /// </summary>
-        [Input("accountRecoverySetting")]
+        [PolicyResourceProperty("accountRecoverySetting", "_mUnknown_AccountRecoverySetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolAccountRecoverySettingArgs> _mAccountRecoverySetting;
-
-        public Inputs.UserPoolAccountRecoverySettingArgs? AccountRecoverySetting => _mAccountRecoverySetting.GetValue("accountRecoverySetting");
+        private Inputs.UserPoolAccountRecoverySettingArgs? _mValue_AccountRecoverySetting;
+        private bool _mUnknown_AccountRecoverySetting;
+        public Inputs.UserPoolAccountRecoverySettingArgs? AccountRecoverySetting
+        {
+            get
+            {
+                if (!_mUnknown_AccountRecoverySetting) return _mValue_AccountRecoverySetting;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.AccountRecoverySetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for creating a new user profile. Detailed below.
         /// </summary>
-        [Input("adminCreateUserConfig")]
+        [PolicyResourceProperty("adminCreateUserConfig", "_mUnknown_AdminCreateUserConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolAdminCreateUserConfigArgs> _mAdminCreateUserConfig;
-
-        public Inputs.UserPoolAdminCreateUserConfigArgs? AdminCreateUserConfig => _mAdminCreateUserConfig.GetValue("adminCreateUserConfig");
+        private Inputs.UserPoolAdminCreateUserConfigArgs? _mValue_AdminCreateUserConfig;
+        private bool _mUnknown_AdminCreateUserConfig;
+        public Inputs.UserPoolAdminCreateUserConfigArgs? AdminCreateUserConfig
+        {
+            get
+            {
+                if (!_mUnknown_AdminCreateUserConfig) return _mValue_AdminCreateUserConfig;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.AdminCreateUserConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
         /// </summary>
-        [Input("aliasAttributes")]
+        [PolicyResourceProperty("aliasAttributes", "_mUnknown_AliasAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAliasAttributes;
-
-        public List<string>? AliasAttributes => _mAliasAttributes.GetValue("aliasAttributes");
+        private List<string>? _mValue_AliasAttributes;
+        private bool _mUnknown_AliasAttributes;
+        public List<string>? AliasAttributes
+        {
+            get
+            {
+                if (!_mUnknown_AliasAttributes) return _mValue_AliasAttributes;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.AliasAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Attributes to be auto-verified. Valid values: `email`, `phone_number`.
         /// </summary>
-        [Input("autoVerifiedAttributes")]
+        [PolicyResourceProperty("autoVerifiedAttributes", "_mUnknown_AutoVerifiedAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoVerifiedAttributes;
-
-        public List<string>? AutoVerifiedAttributes => _mAutoVerifiedAttributes.GetValue("autoVerifiedAttributes");
+        private List<string>? _mValue_AutoVerifiedAttributes;
+        private bool _mUnknown_AutoVerifiedAttributes;
+        public List<string>? AutoVerifiedAttributes
+        {
+            get
+            {
+                if (!_mUnknown_AutoVerifiedAttributes) return _mValue_AutoVerifiedAttributes;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.AutoVerifiedAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeletionProtection;
-
-        public string? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private string? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public string? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the user pool's device tracking. Detailed below.
         /// </summary>
-        [Input("deviceConfiguration")]
+        [PolicyResourceProperty("deviceConfiguration", "_mUnknown_DeviceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolDeviceConfigurationArgs> _mDeviceConfiguration;
-
-        public Inputs.UserPoolDeviceConfigurationArgs? DeviceConfiguration => _mDeviceConfiguration.GetValue("deviceConfiguration");
+        private Inputs.UserPoolDeviceConfigurationArgs? _mValue_DeviceConfiguration;
+        private bool _mUnknown_DeviceConfiguration;
+        public Inputs.UserPoolDeviceConfigurationArgs? DeviceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DeviceConfiguration) return _mValue_DeviceConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.DeviceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for configuring email. Detailed below.
         /// </summary>
-        [Input("emailConfiguration")]
+        [PolicyResourceProperty("emailConfiguration", "_mUnknown_EmailConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolEmailConfigurationArgs> _mEmailConfiguration;
-
-        public Inputs.UserPoolEmailConfigurationArgs? EmailConfiguration => _mEmailConfiguration.GetValue("emailConfiguration");
+        private Inputs.UserPoolEmailConfigurationArgs? _mValue_EmailConfiguration;
+        private bool _mUnknown_EmailConfiguration;
+        public Inputs.UserPoolEmailConfigurationArgs? EmailConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EmailConfiguration) return _mValue_EmailConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.EmailConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
         /// </summary>
-        [Input("emailMfaConfiguration")]
+        [PolicyResourceProperty("emailMfaConfiguration", "_mUnknown_EmailMfaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolEmailMfaConfigurationArgs> _mEmailMfaConfiguration;
-
-        public Inputs.UserPoolEmailMfaConfigurationArgs? EmailMfaConfiguration => _mEmailMfaConfiguration.GetValue("emailMfaConfiguration");
+        private Inputs.UserPoolEmailMfaConfigurationArgs? _mValue_EmailMfaConfiguration;
+        private bool _mUnknown_EmailMfaConfiguration;
+        public Inputs.UserPoolEmailMfaConfigurationArgs? EmailMfaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EmailMfaConfiguration) return _mValue_EmailMfaConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.EmailMfaConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         /// </summary>
-        [Input("emailVerificationMessage")]
+        [PolicyResourceProperty("emailVerificationMessage", "_mUnknown_EmailVerificationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailVerificationMessage;
-
-        public string? EmailVerificationMessage => _mEmailVerificationMessage.GetValue("emailVerificationMessage");
+        private string? _mValue_EmailVerificationMessage;
+        private bool _mUnknown_EmailVerificationMessage;
+        public string? EmailVerificationMessage
+        {
+            get
+            {
+                if (!_mUnknown_EmailVerificationMessage) return _mValue_EmailVerificationMessage;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.EmailVerificationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         /// </summary>
-        [Input("emailVerificationSubject")]
+        [PolicyResourceProperty("emailVerificationSubject", "_mUnknown_EmailVerificationSubject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailVerificationSubject;
-
-        public string? EmailVerificationSubject => _mEmailVerificationSubject.GetValue("emailVerificationSubject");
+        private string? _mValue_EmailVerificationSubject;
+        private bool _mUnknown_EmailVerificationSubject;
+        public string? EmailVerificationSubject
+        {
+            get
+            {
+                if (!_mUnknown_EmailVerificationSubject) return _mValue_EmailVerificationSubject;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.EmailVerificationSubject' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         /// </summary>
-        [Input("lambdaConfig")]
+        [PolicyResourceProperty("lambdaConfig", "_mUnknown_LambdaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolLambdaConfigArgs> _mLambdaConfig;
-
-        public Inputs.UserPoolLambdaConfigArgs? LambdaConfig => _mLambdaConfig.GetValue("lambdaConfig");
+        private Inputs.UserPoolLambdaConfigArgs? _mValue_LambdaConfig;
+        private bool _mUnknown_LambdaConfig;
+        public Inputs.UserPoolLambdaConfigArgs? LambdaConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaConfig) return _mValue_LambdaConfig;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.LambdaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
         /// </summary>
-        [Input("mfaConfiguration")]
+        [PolicyResourceProperty("mfaConfiguration", "_mUnknown_MfaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMfaConfiguration;
-
-        public string? MfaConfiguration => _mMfaConfiguration.GetValue("mfaConfiguration");
+        private string? _mValue_MfaConfiguration;
+        private bool _mUnknown_MfaConfiguration;
+        public string? MfaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MfaConfiguration) return _mValue_MfaConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.MfaConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the user pool.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
-        [Input("passwordPolicy")]
+        [PolicyResourceProperty("passwordPolicy", "_mUnknown_PasswordPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolPasswordPolicyArgs> _mPasswordPolicy;
-
-        public Inputs.UserPoolPasswordPolicyArgs? PasswordPolicy => _mPasswordPolicy.GetValue("passwordPolicy");
+        private Inputs.UserPoolPasswordPolicyArgs? _mValue_PasswordPolicy;
+        private bool _mUnknown_PasswordPolicy;
+        public Inputs.UserPoolPasswordPolicyArgs? PasswordPolicy
+        {
+            get
+            {
+                if (!_mUnknown_PasswordPolicy) return _mValue_PasswordPolicy;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.PasswordPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         /// </summary>
-        [Input("schemas")]
+        [PolicyResourceProperty("schemas", "_mUnknown_Schemas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserPoolSchemaArgs>> _mSchemas;
-
-        public List<Inputs.UserPoolSchemaArgs>? Schemas => _mSchemas.GetValue("schemas");
+        private List<Inputs.UserPoolSchemaArgs>? _mValue_Schemas;
+        private bool _mUnknown_Schemas;
+        public List<Inputs.UserPoolSchemaArgs>? Schemas
+        {
+            get
+            {
+                if (!_mUnknown_Schemas) return _mValue_Schemas;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.Schemas' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for information about the user pool sign in policy. Detailed below.
         /// </summary>
-        [Input("signInPolicy")]
+        [PolicyResourceProperty("signInPolicy", "_mUnknown_SignInPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolSignInPolicyArgs> _mSignInPolicy;
-
-        public Inputs.UserPoolSignInPolicyArgs? SignInPolicy => _mSignInPolicy.GetValue("signInPolicy");
+        private Inputs.UserPoolSignInPolicyArgs? _mValue_SignInPolicy;
+        private bool _mUnknown_SignInPolicy;
+        public Inputs.UserPoolSignInPolicyArgs? SignInPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SignInPolicy) return _mValue_SignInPolicy;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.SignInPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         /// </summary>
-        [Input("smsAuthenticationMessage")]
+        [PolicyResourceProperty("smsAuthenticationMessage", "_mUnknown_SmsAuthenticationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmsAuthenticationMessage;
-
-        public string? SmsAuthenticationMessage => _mSmsAuthenticationMessage.GetValue("smsAuthenticationMessage");
+        private string? _mValue_SmsAuthenticationMessage;
+        private bool _mUnknown_SmsAuthenticationMessage;
+        public string? SmsAuthenticationMessage
+        {
+            get
+            {
+                if (!_mUnknown_SmsAuthenticationMessage) return _mValue_SmsAuthenticationMessage;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.SmsAuthenticationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
-        [Input("smsConfiguration")]
+        [PolicyResourceProperty("smsConfiguration", "_mUnknown_SmsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolSmsConfigurationArgs> _mSmsConfiguration;
-
-        public Inputs.UserPoolSmsConfigurationArgs? SmsConfiguration => _mSmsConfiguration.GetValue("smsConfiguration");
+        private Inputs.UserPoolSmsConfigurationArgs? _mValue_SmsConfiguration;
+        private bool _mUnknown_SmsConfiguration;
+        public Inputs.UserPoolSmsConfigurationArgs? SmsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SmsConfiguration) return _mValue_SmsConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.SmsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         /// </summary>
-        [Input("smsVerificationMessage")]
+        [PolicyResourceProperty("smsVerificationMessage", "_mUnknown_SmsVerificationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSmsVerificationMessage;
-
-        public string? SmsVerificationMessage => _mSmsVerificationMessage.GetValue("smsVerificationMessage");
+        private string? _mValue_SmsVerificationMessage;
+        private bool _mUnknown_SmsVerificationMessage;
+        public string? SmsVerificationMessage
+        {
+            get
+            {
+                if (!_mUnknown_SmsVerificationMessage) return _mValue_SmsVerificationMessage;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.SmsVerificationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
         /// </summary>
-        [Input("softwareTokenMfaConfiguration")]
+        [PolicyResourceProperty("softwareTokenMfaConfiguration", "_mUnknown_SoftwareTokenMfaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolSoftwareTokenMfaConfigurationArgs> _mSoftwareTokenMfaConfiguration;
-
-        public Inputs.UserPoolSoftwareTokenMfaConfigurationArgs? SoftwareTokenMfaConfiguration => _mSoftwareTokenMfaConfiguration.GetValue("softwareTokenMfaConfiguration");
+        private Inputs.UserPoolSoftwareTokenMfaConfigurationArgs? _mValue_SoftwareTokenMfaConfiguration;
+        private bool _mUnknown_SoftwareTokenMfaConfiguration;
+        public Inputs.UserPoolSoftwareTokenMfaConfigurationArgs? SoftwareTokenMfaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SoftwareTokenMfaConfiguration) return _mValue_SoftwareTokenMfaConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.SoftwareTokenMfaConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for user attribute update settings. Detailed below.
         /// </summary>
-        [Input("userAttributeUpdateSettings")]
+        [PolicyResourceProperty("userAttributeUpdateSettings", "_mUnknown_UserAttributeUpdateSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolUserAttributeUpdateSettingsArgs> _mUserAttributeUpdateSettings;
-
-        public Inputs.UserPoolUserAttributeUpdateSettingsArgs? UserAttributeUpdateSettings => _mUserAttributeUpdateSettings.GetValue("userAttributeUpdateSettings");
+        private Inputs.UserPoolUserAttributeUpdateSettingsArgs? _mValue_UserAttributeUpdateSettings;
+        private bool _mUnknown_UserAttributeUpdateSettings;
+        public Inputs.UserPoolUserAttributeUpdateSettingsArgs? UserAttributeUpdateSettings
+        {
+            get
+            {
+                if (!_mUnknown_UserAttributeUpdateSettings) return _mValue_UserAttributeUpdateSettings;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.UserAttributeUpdateSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         /// </summary>
-        [Input("userPoolAddOns")]
+        [PolicyResourceProperty("userPoolAddOns", "_mUnknown_UserPoolAddOns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolUserPoolAddOnsArgs> _mUserPoolAddOns;
-
-        public Inputs.UserPoolUserPoolAddOnsArgs? UserPoolAddOns => _mUserPoolAddOns.GetValue("userPoolAddOns");
+        private Inputs.UserPoolUserPoolAddOnsArgs? _mValue_UserPoolAddOns;
+        private bool _mUnknown_UserPoolAddOns;
+        public Inputs.UserPoolUserPoolAddOnsArgs? UserPoolAddOns
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolAddOns) return _mValue_UserPoolAddOns;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.UserPoolAddOns' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
         /// </summary>
-        [Input("userPoolTier")]
+        [PolicyResourceProperty("userPoolTier", "_mUnknown_UserPoolTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolTier;
-
-        public string? UserPoolTier => _mUserPoolTier.GetValue("userPoolTier");
+        private string? _mValue_UserPoolTier;
+        private bool _mUnknown_UserPoolTier;
+        public string? UserPoolTier
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolTier) return _mValue_UserPoolTier;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.UserPoolTier' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
         /// </summary>
-        [Input("usernameAttributes")]
+        [PolicyResourceProperty("usernameAttributes", "_mUnknown_UsernameAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsernameAttributes;
-
-        public List<string>? UsernameAttributes => _mUsernameAttributes.GetValue("usernameAttributes");
+        private List<string>? _mValue_UsernameAttributes;
+        private bool _mUnknown_UsernameAttributes;
+        public List<string>? UsernameAttributes
+        {
+            get
+            {
+                if (!_mUnknown_UsernameAttributes) return _mValue_UsernameAttributes;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.UsernameAttributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for username configuration. Detailed below.
         /// </summary>
-        [Input("usernameConfiguration")]
+        [PolicyResourceProperty("usernameConfiguration", "_mUnknown_UsernameConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolUsernameConfigurationArgs> _mUsernameConfiguration;
-
-        public Inputs.UserPoolUsernameConfigurationArgs? UsernameConfiguration => _mUsernameConfiguration.GetValue("usernameConfiguration");
+        private Inputs.UserPoolUsernameConfigurationArgs? _mValue_UsernameConfiguration;
+        private bool _mUnknown_UsernameConfiguration;
+        public Inputs.UserPoolUsernameConfigurationArgs? UsernameConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_UsernameConfiguration) return _mValue_UsernameConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.UsernameConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for verification message templates. Detailed below.
         /// </summary>
-        [Input("verificationMessageTemplate")]
+        [PolicyResourceProperty("verificationMessageTemplate", "_mUnknown_VerificationMessageTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolVerificationMessageTemplateArgs> _mVerificationMessageTemplate;
-
-        public Inputs.UserPoolVerificationMessageTemplateArgs? VerificationMessageTemplate => _mVerificationMessageTemplate.GetValue("verificationMessageTemplate");
+        private Inputs.UserPoolVerificationMessageTemplateArgs? _mValue_VerificationMessageTemplate;
+        private bool _mUnknown_VerificationMessageTemplate;
+        public Inputs.UserPoolVerificationMessageTemplateArgs? VerificationMessageTemplate
+        {
+            get
+            {
+                if (!_mUnknown_VerificationMessageTemplate) return _mValue_VerificationMessageTemplate;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.VerificationMessageTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for web authn configuration. Detailed below.
         /// </summary>
-        [Input("webAuthnConfiguration")]
+        [PolicyResourceProperty("webAuthnConfiguration", "_mUnknown_WebAuthnConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserPoolWebAuthnConfigurationArgs> _mWebAuthnConfiguration;
-
-        public Inputs.UserPoolWebAuthnConfigurationArgs? WebAuthnConfiguration => _mWebAuthnConfiguration.GetValue("webAuthnConfiguration");
+        private Inputs.UserPoolWebAuthnConfigurationArgs? _mValue_WebAuthnConfiguration;
+        private bool _mUnknown_WebAuthnConfiguration;
+        public Inputs.UserPoolWebAuthnConfigurationArgs? WebAuthnConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_WebAuthnConfiguration) return _mValue_WebAuthnConfiguration;
+                throw new UndeferrableValueException("Value 'UserPoolArgs.WebAuthnConfiguration' is not present");
+            }
+        }
     }
 }

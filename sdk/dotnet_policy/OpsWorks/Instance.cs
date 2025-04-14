@@ -16,409 +16,724 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// OpsWorks agent to install. Default is `INHERIT`.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'Instance.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
         /// </summary>
-        [Input("amiId")]
+        [PolicyResourceProperty("amiId", "_mUnknown_AmiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmiId;
-
-        public string? AmiId => _mAmiId.GetValue("amiId");
+        private string? _mValue_AmiId;
+        private bool _mUnknown_AmiId;
+        public string? AmiId
+        {
+            get
+            {
+                if (!_mUnknown_AmiId) return _mValue_AmiId;
+                throw new UndeferrableValueException("Value 'Instance.AmiId' is not present");
+            }
+        }
 
         /// <summary>
         /// Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
         /// </summary>
-        [Input("architecture")]
+        [PolicyResourceProperty("architecture", "_mUnknown_Architecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
-
-        public string? Architecture => _mArchitecture.GetValue("architecture");
+        private string? _mValue_Architecture;
+        private bool _mUnknown_Architecture;
+        public string? Architecture
+        {
+            get
+            {
+                if (!_mUnknown_Architecture) return _mValue_Architecture;
+                throw new UndeferrableValueException("Value 'Instance.Architecture' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
         /// </summary>
-        [Input("autoScalingType")]
+        [PolicyResourceProperty("autoScalingType", "_mUnknown_AutoScalingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingType;
-
-        public string? AutoScalingType => _mAutoScalingType.GetValue("autoScalingType");
+        private string? _mValue_AutoScalingType;
+        private bool _mUnknown_AutoScalingType;
+        public string? AutoScalingType
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingType) return _mValue_AutoScalingType;
+                throw new UndeferrableValueException("Value 'Instance.AutoScalingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the availability zone where instances will be created by default.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Instance.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Time that the instance was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Instance.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to delete EBS volume on deletion. Default is `true`.
         /// </summary>
-        [Input("deleteEbs")]
+        [PolicyResourceProperty("deleteEbs", "_mUnknown_DeleteEbs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEbs;
-
-        public bool? DeleteEbs => _mDeleteEbs.GetValue("deleteEbs");
+        private bool? _mValue_DeleteEbs;
+        private bool _mUnknown_DeleteEbs;
+        public bool? DeleteEbs
+        {
+            get
+            {
+                if (!_mUnknown_DeleteEbs) return _mValue_DeleteEbs;
+                throw new UndeferrableValueException("Value 'Instance.DeleteEbs' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to delete the Elastic IP on deletion.
         /// </summary>
-        [Input("deleteEip")]
+        [PolicyResourceProperty("deleteEip", "_mUnknown_DeleteEip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEip;
-
-        public bool? DeleteEip => _mDeleteEip.GetValue("deleteEip");
+        private bool? _mValue_DeleteEip;
+        private bool _mUnknown_DeleteEip;
+        public bool? DeleteEip
+        {
+            get
+            {
+                if (!_mUnknown_DeleteEip) return _mValue_DeleteEip;
+                throw new UndeferrableValueException("Value 'Instance.DeleteEip' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
         /// </summary>
-        [Input("ebsBlockDevices")]
+        [PolicyResourceProperty("ebsBlockDevices", "_mUnknown_EbsBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceEbsBlockDevice>> _mEbsBlockDevices;
-
-        public List<Outputs.InstanceEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+        private List<Outputs.InstanceEbsBlockDevice>? _mValue_EbsBlockDevices;
+        private bool _mUnknown_EbsBlockDevices;
+        public List<Outputs.InstanceEbsBlockDevice>? EbsBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EbsBlockDevices) return _mValue_EbsBlockDevices;
+                throw new UndeferrableValueException("Value 'Instance.EbsBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the launched EC2 instance will be EBS-optimized.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
-
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'Instance.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 instance ID.
         /// </summary>
-        [Input("ec2InstanceId")]
+        [PolicyResourceProperty("ec2InstanceId", "_mUnknown_Ec2InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEc2InstanceId;
-
-        public string? Ec2InstanceId => _mEc2InstanceId.GetValue("ec2InstanceId");
+        private string? _mValue_Ec2InstanceId;
+        private bool _mUnknown_Ec2InstanceId;
+        public string? Ec2InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_Ec2InstanceId) return _mValue_Ec2InstanceId;
+                throw new UndeferrableValueException("Value 'Instance.Ec2InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ECS cluster's ARN for container instances.
         /// </summary>
-        [Input("ecsClusterArn")]
+        [PolicyResourceProperty("ecsClusterArn", "_mUnknown_EcsClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
-
-        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
+        private string? _mValue_EcsClusterArn;
+        private bool _mUnknown_EcsClusterArn;
+        public string? EcsClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_EcsClusterArn) return _mValue_EcsClusterArn;
+                throw new UndeferrableValueException("Value 'Instance.EcsClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance Elastic IP address.
         /// </summary>
-        [Input("elasticIp")]
+        [PolicyResourceProperty("elasticIp", "_mUnknown_ElasticIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticIp;
-
-        public string? ElasticIp => _mElasticIp.GetValue("elasticIp");
+        private string? _mValue_ElasticIp;
+        private bool _mUnknown_ElasticIp;
+        public string? ElasticIp
+        {
+            get
+            {
+                if (!_mUnknown_ElasticIp) return _mValue_ElasticIp;
+                throw new UndeferrableValueException("Value 'Instance.ElasticIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
         /// </summary>
-        [Input("ephemeralBlockDevices")]
+        [PolicyResourceProperty("ephemeralBlockDevices", "_mUnknown_EphemeralBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceEphemeralBlockDevice>> _mEphemeralBlockDevices;
-
-        public List<Outputs.InstanceEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+        private List<Outputs.InstanceEphemeralBlockDevice>? _mValue_EphemeralBlockDevices;
+        private bool _mUnknown_EphemeralBlockDevices;
+        public List<Outputs.InstanceEphemeralBlockDevice>? EphemeralBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralBlockDevices) return _mValue_EphemeralBlockDevices;
+                throw new UndeferrableValueException("Value 'Instance.EphemeralBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance's host name.
         /// </summary>
-        [Input("hostname")]
+        [PolicyResourceProperty("hostname", "_mUnknown_Hostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostname;
-
-        public string? Hostname => _mHostname.GetValue("hostname");
+        private string? _mValue_Hostname;
+        private bool _mUnknown_Hostname;
+        public string? Hostname
+        {
+            get
+            {
+                if (!_mUnknown_Hostname) return _mValue_Hostname;
+                throw new UndeferrableValueException("Value 'Instance.Hostname' is not present");
+            }
+        }
 
         /// <summary>
         /// For registered instances, infrastructure class: ec2 or on-premises.
         /// </summary>
-        [Input("infrastructureClass")]
+        [PolicyResourceProperty("infrastructureClass", "_mUnknown_InfrastructureClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureClass;
-
-        public string? InfrastructureClass => _mInfrastructureClass.GetValue("infrastructureClass");
+        private string? _mValue_InfrastructureClass;
+        private bool _mUnknown_InfrastructureClass;
+        public string? InfrastructureClass
+        {
+            get
+            {
+                if (!_mUnknown_InfrastructureClass) return _mValue_InfrastructureClass;
+                throw new UndeferrableValueException("Value 'Instance.InfrastructureClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls where to install OS and package updates when the instance boots.  Default is `true`.
         /// </summary>
-        [Input("installUpdatesOnBoot")]
+        [PolicyResourceProperty("installUpdatesOnBoot", "_mUnknown_InstallUpdatesOnBoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
-
-        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
+        private bool? _mValue_InstallUpdatesOnBoot;
+        private bool _mUnknown_InstallUpdatesOnBoot;
+        public bool? InstallUpdatesOnBoot
+        {
+            get
+            {
+                if (!_mUnknown_InstallUpdatesOnBoot) return _mValue_InstallUpdatesOnBoot;
+                throw new UndeferrableValueException("Value 'Instance.InstallUpdatesOnBoot' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the instance's IAM profile.
         /// </summary>
-        [Input("instanceProfileArn")]
+        [PolicyResourceProperty("instanceProfileArn", "_mUnknown_InstanceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileArn;
-
-        public string? InstanceProfileArn => _mInstanceProfileArn.GetValue("instanceProfileArn");
+        private string? _mValue_InstanceProfileArn;
+        private bool _mUnknown_InstanceProfileArn;
+        public string? InstanceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceProfileArn) return _mValue_InstanceProfileArn;
+                throw new UndeferrableValueException("Value 'Instance.InstanceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of instance to start.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'Instance.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the last service error.
         /// </summary>
-        [Input("lastServiceErrorId")]
+        [PolicyResourceProperty("lastServiceErrorId", "_mUnknown_LastServiceErrorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastServiceErrorId;
-
-        public string? LastServiceErrorId => _mLastServiceErrorId.GetValue("lastServiceErrorId");
+        private string? _mValue_LastServiceErrorId;
+        private bool _mUnknown_LastServiceErrorId;
+        public string? LastServiceErrorId
+        {
+            get
+            {
+                if (!_mUnknown_LastServiceErrorId) return _mValue_LastServiceErrorId;
+                throw new UndeferrableValueException("Value 'Instance.LastServiceErrorId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the layers the instance will belong to.
         /// </summary>
-        [Input("layerIds")]
+        [PolicyResourceProperty("layerIds", "_mUnknown_LayerIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLayerIds;
-
-        public List<string>? LayerIds => _mLayerIds.GetValue("layerIds");
+        private List<string>? _mValue_LayerIds;
+        private bool _mUnknown_LayerIds;
+        public List<string>? LayerIds
+        {
+            get
+            {
+                if (!_mUnknown_LayerIds) return _mValue_LayerIds;
+                throw new UndeferrableValueException("Value 'Instance.LayerIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of operating system that will be installed.
         /// </summary>
-        [Input("os")]
+        [PolicyResourceProperty("os", "_mUnknown_Os")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOs;
-
-        public string? Os => _mOs.GetValue("os");
+        private string? _mValue_Os;
+        private bool _mUnknown_Os;
+        public string? Os
+        {
+            get
+            {
+                if (!_mUnknown_Os) return _mValue_Os;
+                throw new UndeferrableValueException("Value 'Instance.Os' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance's platform.
         /// </summary>
-        [Input("platform")]
+        [PolicyResourceProperty("platform", "_mUnknown_Platform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatform;
-
-        public string? Platform => _mPlatform.GetValue("platform");
+        private string? _mValue_Platform;
+        private bool _mUnknown_Platform;
+        public string? Platform
+        {
+            get
+            {
+                if (!_mUnknown_Platform) return _mValue_Platform;
+                throw new UndeferrableValueException("Value 'Instance.Platform' is not present");
+            }
+        }
 
         /// <summary>
         /// Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
-        [Input("privateDns")]
+        [PolicyResourceProperty("privateDns", "_mUnknown_PrivateDns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDns;
-
-        public string? PrivateDns => _mPrivateDns.GetValue("privateDns");
+        private string? _mValue_PrivateDns;
+        private bool _mUnknown_PrivateDns;
+        public string? PrivateDns
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDns) return _mValue_PrivateDns;
+                throw new UndeferrableValueException("Value 'Instance.PrivateDns' is not present");
+            }
+        }
 
         /// <summary>
         /// Private IP address assigned to the instance.
         /// </summary>
-        [Input("privateIp")]
+        [PolicyResourceProperty("privateIp", "_mUnknown_PrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
-
-        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+        private string? _mValue_PrivateIp;
+        private bool _mUnknown_PrivateIp;
+        public string? PrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIp) return _mValue_PrivateIp;
+                throw new UndeferrableValueException("Value 'Instance.PrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
         /// </summary>
-        [Input("publicDns")]
+        [PolicyResourceProperty("publicDns", "_mUnknown_PublicDns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDns;
-
-        public string? PublicDns => _mPublicDns.GetValue("publicDns");
+        private string? _mValue_PublicDns;
+        private bool _mUnknown_PublicDns;
+        public string? PublicDns
+        {
+            get
+            {
+                if (!_mUnknown_PublicDns) return _mValue_PublicDns;
+                throw new UndeferrableValueException("Value 'Instance.PublicDns' is not present");
+            }
+        }
 
         /// <summary>
         /// Public IP address assigned to the instance, if applicable.
         /// </summary>
-        [Input("publicIp")]
+        [PolicyResourceProperty("publicIp", "_mUnknown_PublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
-
-        public string? PublicIp => _mPublicIp.GetValue("publicIp");
+        private string? _mValue_PublicIp;
+        private bool _mUnknown_PublicIp;
+        public string? PublicIp
+        {
+            get
+            {
+                if (!_mUnknown_PublicIp) return _mValue_PublicIp;
+                throw new UndeferrableValueException("Value 'Instance.PublicIp' is not present");
+            }
+        }
 
         /// <summary>
         /// For registered instances, who performed the registration.
         /// </summary>
-        [Input("registeredBy")]
+        [PolicyResourceProperty("registeredBy", "_mUnknown_RegisteredBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegisteredBy;
-
-        public string? RegisteredBy => _mRegisteredBy.GetValue("registeredBy");
+        private string? _mValue_RegisteredBy;
+        private bool _mUnknown_RegisteredBy;
+        public string? RegisteredBy
+        {
+            get
+            {
+                if (!_mUnknown_RegisteredBy) return _mValue_RegisteredBy;
+                throw new UndeferrableValueException("Value 'Instance.RegisteredBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance's reported AWS OpsWorks Stacks agent version.
         /// </summary>
-        [Input("reportedAgentVersion")]
+        [PolicyResourceProperty("reportedAgentVersion", "_mUnknown_ReportedAgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportedAgentVersion;
-
-        public string? ReportedAgentVersion => _mReportedAgentVersion.GetValue("reportedAgentVersion");
+        private string? _mValue_ReportedAgentVersion;
+        private bool _mUnknown_ReportedAgentVersion;
+        public string? ReportedAgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_ReportedAgentVersion) return _mValue_ReportedAgentVersion;
+                throw new UndeferrableValueException("Value 'Instance.ReportedAgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// For registered instances, the reported operating system family.
         /// </summary>
-        [Input("reportedOsFamily")]
+        [PolicyResourceProperty("reportedOsFamily", "_mUnknown_ReportedOsFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportedOsFamily;
-
-        public string? ReportedOsFamily => _mReportedOsFamily.GetValue("reportedOsFamily");
+        private string? _mValue_ReportedOsFamily;
+        private bool _mUnknown_ReportedOsFamily;
+        public string? ReportedOsFamily
+        {
+            get
+            {
+                if (!_mUnknown_ReportedOsFamily) return _mValue_ReportedOsFamily;
+                throw new UndeferrableValueException("Value 'Instance.ReportedOsFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// For registered instances, the reported operating system name.
         /// </summary>
-        [Input("reportedOsName")]
+        [PolicyResourceProperty("reportedOsName", "_mUnknown_ReportedOsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportedOsName;
-
-        public string? ReportedOsName => _mReportedOsName.GetValue("reportedOsName");
+        private string? _mValue_ReportedOsName;
+        private bool _mUnknown_ReportedOsName;
+        public string? ReportedOsName
+        {
+            get
+            {
+                if (!_mUnknown_ReportedOsName) return _mValue_ReportedOsName;
+                throw new UndeferrableValueException("Value 'Instance.ReportedOsName' is not present");
+            }
+        }
 
         /// <summary>
         /// For registered instances, the reported operating system version.
         /// </summary>
-        [Input("reportedOsVersion")]
+        [PolicyResourceProperty("reportedOsVersion", "_mUnknown_ReportedOsVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReportedOsVersion;
-
-        public string? ReportedOsVersion => _mReportedOsVersion.GetValue("reportedOsVersion");
+        private string? _mValue_ReportedOsVersion;
+        private bool _mUnknown_ReportedOsVersion;
+        public string? ReportedOsVersion
+        {
+            get
+            {
+                if (!_mUnknown_ReportedOsVersion) return _mValue_ReportedOsVersion;
+                throw new UndeferrableValueException("Value 'Instance.ReportedOsVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the root block device of the instance. See Block Devices below.
         /// </summary>
-        [Input("rootBlockDevices")]
+        [PolicyResourceProperty("rootBlockDevices", "_mUnknown_RootBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceRootBlockDevice>> _mRootBlockDevices;
-
-        public List<Outputs.InstanceRootBlockDevice>? RootBlockDevices => _mRootBlockDevices.GetValue("rootBlockDevices");
+        private List<Outputs.InstanceRootBlockDevice>? _mValue_RootBlockDevices;
+        private bool _mUnknown_RootBlockDevices;
+        public List<Outputs.InstanceRootBlockDevice>? RootBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_RootBlockDevices) return _mValue_RootBlockDevices;
+                throw new UndeferrableValueException("Value 'Instance.RootBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
         /// </summary>
-        [Input("rootDeviceType")]
+        [PolicyResourceProperty("rootDeviceType", "_mUnknown_RootDeviceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceType;
-
-        public string? RootDeviceType => _mRootDeviceType.GetValue("rootDeviceType");
+        private string? _mValue_RootDeviceType;
+        private bool _mUnknown_RootDeviceType;
+        public string? RootDeviceType
+        {
+            get
+            {
+                if (!_mUnknown_RootDeviceType) return _mValue_RootDeviceType;
+                throw new UndeferrableValueException("Value 'Instance.RootDeviceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Root device volume ID.
         /// </summary>
-        [Input("rootDeviceVolumeId")]
+        [PolicyResourceProperty("rootDeviceVolumeId", "_mUnknown_RootDeviceVolumeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceVolumeId;
-
-        public string? RootDeviceVolumeId => _mRootDeviceVolumeId.GetValue("rootDeviceVolumeId");
+        private string? _mValue_RootDeviceVolumeId;
+        private bool _mUnknown_RootDeviceVolumeId;
+        public string? RootDeviceVolumeId
+        {
+            get
+            {
+                if (!_mUnknown_RootDeviceVolumeId) return _mValue_RootDeviceVolumeId;
+                throw new UndeferrableValueException("Value 'Instance.RootDeviceVolumeId' is not present");
+            }
+        }
 
         /// <summary>
         /// Associated security groups.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Instance.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// SSH key's Deep Security Agent (DSA) fingerprint.
         /// </summary>
-        [Input("sshHostDsaKeyFingerprint")]
+        [PolicyResourceProperty("sshHostDsaKeyFingerprint", "_mUnknown_SshHostDsaKeyFingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshHostDsaKeyFingerprint;
-
-        public string? SshHostDsaKeyFingerprint => _mSshHostDsaKeyFingerprint.GetValue("sshHostDsaKeyFingerprint");
+        private string? _mValue_SshHostDsaKeyFingerprint;
+        private bool _mUnknown_SshHostDsaKeyFingerprint;
+        public string? SshHostDsaKeyFingerprint
+        {
+            get
+            {
+                if (!_mUnknown_SshHostDsaKeyFingerprint) return _mValue_SshHostDsaKeyFingerprint;
+                throw new UndeferrableValueException("Value 'Instance.SshHostDsaKeyFingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// SSH key's RSA fingerprint.
         /// </summary>
-        [Input("sshHostRsaKeyFingerprint")]
+        [PolicyResourceProperty("sshHostRsaKeyFingerprint", "_mUnknown_SshHostRsaKeyFingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshHostRsaKeyFingerprint;
-
-        public string? SshHostRsaKeyFingerprint => _mSshHostRsaKeyFingerprint.GetValue("sshHostRsaKeyFingerprint");
+        private string? _mValue_SshHostRsaKeyFingerprint;
+        private bool _mUnknown_SshHostRsaKeyFingerprint;
+        public string? SshHostRsaKeyFingerprint
+        {
+            get
+            {
+                if (!_mUnknown_SshHostRsaKeyFingerprint) return _mValue_SshHostRsaKeyFingerprint;
+                throw new UndeferrableValueException("Value 'Instance.SshHostRsaKeyFingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the SSH keypair that instances will have by default.
         /// </summary>
-        [Input("sshKeyName")]
+        [PolicyResourceProperty("sshKeyName", "_mUnknown_SshKeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshKeyName;
-
-        public string? SshKeyName => _mSshKeyName.GetValue("sshKeyName");
+        private string? _mValue_SshKeyName;
+        private bool _mUnknown_SshKeyName;
+        public string? SshKeyName
+        {
+            get
+            {
+                if (!_mUnknown_SshKeyName) return _mValue_SshKeyName;
+                throw new UndeferrableValueException("Value 'Instance.SshKeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'Instance.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired state of the instance. Valid values are `running` or `stopped`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Instance.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Instance.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'Instance.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
         /// </summary>
-        [Input("tenancy")]
+        [PolicyResourceProperty("tenancy", "_mUnknown_Tenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
-
-        public string? Tenancy => _mTenancy.GetValue("tenancy");
+        private string? _mValue_Tenancy;
+        private bool _mUnknown_Tenancy;
+        public string? Tenancy
+        {
+            get
+            {
+                if (!_mUnknown_Tenancy) return _mValue_Tenancy;
+                throw new UndeferrableValueException("Value 'Instance.Tenancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
         /// </summary>
-        [Input("virtualizationType")]
+        [PolicyResourceProperty("virtualizationType", "_mUnknown_VirtualizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualizationType;
-
-        public string? VirtualizationType => _mVirtualizationType.GetValue("virtualizationType");
+        private string? _mValue_VirtualizationType;
+        private bool _mUnknown_VirtualizationType;
+        public string? VirtualizationType
+        {
+            get
+            {
+                if (!_mUnknown_VirtualizationType) return _mValue_VirtualizationType;
+                throw new UndeferrableValueException("Value 'Instance.VirtualizationType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opsworks/instance:Instance")]
@@ -427,273 +742,483 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// OpsWorks agent to install. Default is `INHERIT`.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
         /// </summary>
-        [Input("amiId")]
+        [PolicyResourceProperty("amiId", "_mUnknown_AmiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmiId;
-
-        public string? AmiId => _mAmiId.GetValue("amiId");
+        private string? _mValue_AmiId;
+        private bool _mUnknown_AmiId;
+        public string? AmiId
+        {
+            get
+            {
+                if (!_mUnknown_AmiId) return _mValue_AmiId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AmiId' is not present");
+            }
+        }
 
         /// <summary>
         /// Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
         /// </summary>
-        [Input("architecture")]
+        [PolicyResourceProperty("architecture", "_mUnknown_Architecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
-
-        public string? Architecture => _mArchitecture.GetValue("architecture");
+        private string? _mValue_Architecture;
+        private bool _mUnknown_Architecture;
+        public string? Architecture
+        {
+            get
+            {
+                if (!_mUnknown_Architecture) return _mValue_Architecture;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Architecture' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates load-based or time-based instances.  Valid values are `load`, `timer`.
         /// </summary>
-        [Input("autoScalingType")]
+        [PolicyResourceProperty("autoScalingType", "_mUnknown_AutoScalingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingType;
-
-        public string? AutoScalingType => _mAutoScalingType.GetValue("autoScalingType");
+        private string? _mValue_AutoScalingType;
+        private bool _mUnknown_AutoScalingType;
+        public string? AutoScalingType
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingType) return _mValue_AutoScalingType;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AutoScalingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the availability zone where instances will be created by default.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Time that the instance was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'InstanceArgs.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to delete EBS volume on deletion. Default is `true`.
         /// </summary>
-        [Input("deleteEbs")]
+        [PolicyResourceProperty("deleteEbs", "_mUnknown_DeleteEbs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEbs;
-
-        public bool? DeleteEbs => _mDeleteEbs.GetValue("deleteEbs");
+        private bool? _mValue_DeleteEbs;
+        private bool _mUnknown_DeleteEbs;
+        public bool? DeleteEbs
+        {
+            get
+            {
+                if (!_mUnknown_DeleteEbs) return _mValue_DeleteEbs;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DeleteEbs' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to delete the Elastic IP on deletion.
         /// </summary>
-        [Input("deleteEip")]
+        [PolicyResourceProperty("deleteEip", "_mUnknown_DeleteEip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteEip;
-
-        public bool? DeleteEip => _mDeleteEip.GetValue("deleteEip");
+        private bool? _mValue_DeleteEip;
+        private bool _mUnknown_DeleteEip;
+        public bool? DeleteEip
+        {
+            get
+            {
+                if (!_mUnknown_DeleteEip) return _mValue_DeleteEip;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DeleteEip' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
         /// </summary>
-        [Input("ebsBlockDevices")]
+        [PolicyResourceProperty("ebsBlockDevices", "_mUnknown_EbsBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceEbsBlockDeviceArgs>> _mEbsBlockDevices;
-
-        public List<Inputs.InstanceEbsBlockDeviceArgs>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
+        private List<Inputs.InstanceEbsBlockDeviceArgs>? _mValue_EbsBlockDevices;
+        private bool _mUnknown_EbsBlockDevices;
+        public List<Inputs.InstanceEbsBlockDeviceArgs>? EbsBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EbsBlockDevices) return _mValue_EbsBlockDevices;
+                throw new UndeferrableValueException("Value 'InstanceArgs.EbsBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the launched EC2 instance will be EBS-optimized.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
-
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'InstanceArgs.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// ECS cluster's ARN for container instances.
         /// </summary>
-        [Input("ecsClusterArn")]
+        [PolicyResourceProperty("ecsClusterArn", "_mUnknown_EcsClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
-
-        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
+        private string? _mValue_EcsClusterArn;
+        private bool _mUnknown_EcsClusterArn;
+        public string? EcsClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_EcsClusterArn) return _mValue_EcsClusterArn;
+                throw new UndeferrableValueException("Value 'InstanceArgs.EcsClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance Elastic IP address.
         /// </summary>
-        [Input("elasticIp")]
+        [PolicyResourceProperty("elasticIp", "_mUnknown_ElasticIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticIp;
-
-        public string? ElasticIp => _mElasticIp.GetValue("elasticIp");
+        private string? _mValue_ElasticIp;
+        private bool _mUnknown_ElasticIp;
+        public string? ElasticIp
+        {
+            get
+            {
+                if (!_mUnknown_ElasticIp) return _mValue_ElasticIp;
+                throw new UndeferrableValueException("Value 'InstanceArgs.ElasticIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
         /// </summary>
-        [Input("ephemeralBlockDevices")]
+        [PolicyResourceProperty("ephemeralBlockDevices", "_mUnknown_EphemeralBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceEphemeralBlockDeviceArgs>> _mEphemeralBlockDevices;
-
-        public List<Inputs.InstanceEphemeralBlockDeviceArgs>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
+        private List<Inputs.InstanceEphemeralBlockDeviceArgs>? _mValue_EphemeralBlockDevices;
+        private bool _mUnknown_EphemeralBlockDevices;
+        public List<Inputs.InstanceEphemeralBlockDeviceArgs>? EphemeralBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralBlockDevices) return _mValue_EphemeralBlockDevices;
+                throw new UndeferrableValueException("Value 'InstanceArgs.EphemeralBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance's host name.
         /// </summary>
-        [Input("hostname")]
+        [PolicyResourceProperty("hostname", "_mUnknown_Hostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostname;
-
-        public string? Hostname => _mHostname.GetValue("hostname");
+        private string? _mValue_Hostname;
+        private bool _mUnknown_Hostname;
+        public string? Hostname
+        {
+            get
+            {
+                if (!_mUnknown_Hostname) return _mValue_Hostname;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Hostname' is not present");
+            }
+        }
 
         /// <summary>
         /// For registered instances, infrastructure class: ec2 or on-premises.
         /// </summary>
-        [Input("infrastructureClass")]
+        [PolicyResourceProperty("infrastructureClass", "_mUnknown_InfrastructureClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInfrastructureClass;
-
-        public string? InfrastructureClass => _mInfrastructureClass.GetValue("infrastructureClass");
+        private string? _mValue_InfrastructureClass;
+        private bool _mUnknown_InfrastructureClass;
+        public string? InfrastructureClass
+        {
+            get
+            {
+                if (!_mUnknown_InfrastructureClass) return _mValue_InfrastructureClass;
+                throw new UndeferrableValueException("Value 'InstanceArgs.InfrastructureClass' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls where to install OS and package updates when the instance boots.  Default is `true`.
         /// </summary>
-        [Input("installUpdatesOnBoot")]
+        [PolicyResourceProperty("installUpdatesOnBoot", "_mUnknown_InstallUpdatesOnBoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
-
-        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
+        private bool? _mValue_InstallUpdatesOnBoot;
+        private bool _mUnknown_InstallUpdatesOnBoot;
+        public bool? InstallUpdatesOnBoot
+        {
+            get
+            {
+                if (!_mUnknown_InstallUpdatesOnBoot) return _mValue_InstallUpdatesOnBoot;
+                throw new UndeferrableValueException("Value 'InstanceArgs.InstallUpdatesOnBoot' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the instance's IAM profile.
         /// </summary>
-        [Input("instanceProfileArn")]
+        [PolicyResourceProperty("instanceProfileArn", "_mUnknown_InstanceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfileArn;
-
-        public string? InstanceProfileArn => _mInstanceProfileArn.GetValue("instanceProfileArn");
+        private string? _mValue_InstanceProfileArn;
+        private bool _mUnknown_InstanceProfileArn;
+        public string? InstanceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceProfileArn) return _mValue_InstanceProfileArn;
+                throw new UndeferrableValueException("Value 'InstanceArgs.InstanceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of instance to start.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'InstanceArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the layers the instance will belong to.
         /// </summary>
-        [Input("layerIds")]
+        [PolicyResourceProperty("layerIds", "_mUnknown_LayerIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLayerIds;
-
-        public List<string>? LayerIds => _mLayerIds.GetValue("layerIds");
+        private List<string>? _mValue_LayerIds;
+        private bool _mUnknown_LayerIds;
+        public List<string>? LayerIds
+        {
+            get
+            {
+                if (!_mUnknown_LayerIds) return _mValue_LayerIds;
+                throw new UndeferrableValueException("Value 'InstanceArgs.LayerIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of operating system that will be installed.
         /// </summary>
-        [Input("os")]
+        [PolicyResourceProperty("os", "_mUnknown_Os")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOs;
-
-        public string? Os => _mOs.GetValue("os");
+        private string? _mValue_Os;
+        private bool _mUnknown_Os;
+        public string? Os
+        {
+            get
+            {
+                if (!_mUnknown_Os) return _mValue_Os;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Os' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the root block device of the instance. See Block Devices below.
         /// </summary>
-        [Input("rootBlockDevices")]
+        [PolicyResourceProperty("rootBlockDevices", "_mUnknown_RootBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InstanceRootBlockDeviceArgs>> _mRootBlockDevices;
-
-        public List<Inputs.InstanceRootBlockDeviceArgs>? RootBlockDevices => _mRootBlockDevices.GetValue("rootBlockDevices");
+        private List<Inputs.InstanceRootBlockDeviceArgs>? _mValue_RootBlockDevices;
+        private bool _mUnknown_RootBlockDevices;
+        public List<Inputs.InstanceRootBlockDeviceArgs>? RootBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_RootBlockDevices) return _mValue_RootBlockDevices;
+                throw new UndeferrableValueException("Value 'InstanceArgs.RootBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
         /// </summary>
-        [Input("rootDeviceType")]
+        [PolicyResourceProperty("rootDeviceType", "_mUnknown_RootDeviceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootDeviceType;
-
-        public string? RootDeviceType => _mRootDeviceType.GetValue("rootDeviceType");
+        private string? _mValue_RootDeviceType;
+        private bool _mUnknown_RootDeviceType;
+        public string? RootDeviceType
+        {
+            get
+            {
+                if (!_mUnknown_RootDeviceType) return _mValue_RootDeviceType;
+                throw new UndeferrableValueException("Value 'InstanceArgs.RootDeviceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Associated security groups.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'InstanceArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the SSH keypair that instances will have by default.
         /// </summary>
-        [Input("sshKeyName")]
+        [PolicyResourceProperty("sshKeyName", "_mUnknown_SshKeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshKeyName;
-
-        public string? SshKeyName => _mSshKeyName.GetValue("sshKeyName");
+        private string? _mValue_SshKeyName;
+        private bool _mUnknown_SshKeyName;
+        public string? SshKeyName
+        {
+            get
+            {
+                if (!_mUnknown_SshKeyName) return _mValue_SshKeyName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.SshKeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the stack the instance will belong to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired state of the instance. Valid values are `running` or `stopped`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'InstanceArgs.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet ID to attach to.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
         /// </summary>
-        [Input("tenancy")]
+        [PolicyResourceProperty("tenancy", "_mUnknown_Tenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
-
-        public string? Tenancy => _mTenancy.GetValue("tenancy");
+        private string? _mValue_Tenancy;
+        private bool _mUnknown_Tenancy;
+        public string? Tenancy
+        {
+            get
+            {
+                if (!_mUnknown_Tenancy) return _mValue_Tenancy;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Tenancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
         /// </summary>
-        [Input("virtualizationType")]
+        [PolicyResourceProperty("virtualizationType", "_mUnknown_VirtualizationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualizationType;
-
-        public string? VirtualizationType => _mVirtualizationType.GetValue("virtualizationType");
+        private string? _mValue_VirtualizationType;
+        private bool _mUnknown_VirtualizationType;
+        public string? VirtualizationType
+        {
+            get
+            {
+                if (!_mUnknown_VirtualizationType) return _mValue_VirtualizationType;
+                throw new UndeferrableValueException("Value 'InstanceArgs.VirtualizationType' is not present");
+            }
+        }
     }
 }

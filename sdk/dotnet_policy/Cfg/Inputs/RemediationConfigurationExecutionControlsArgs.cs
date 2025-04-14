@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
         /// <summary>
         /// Configuration block for SSM controls. See below.
         /// </summary>
-        [Input("ssmControls")]
+        [PolicyResourceProperty("ssmControls", "_mUnknown_SsmControls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs> _mSsmControls;
-
-        public Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs? SsmControls => _mSsmControls.GetValue("ssmControls");
+        private Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs? _mValue_SsmControls;
+        private bool _mUnknown_SsmControls;
+        public Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs? SsmControls
+        {
+            get
+            {
+                if (!_mUnknown_SsmControls) return _mValue_SsmControls;
+                throw new UndeferrableValueException("Value 'RemediationConfigurationExecutionControlsArgs.SsmControls' is not present");
+            }
+        }
     }
 }

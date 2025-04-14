@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualGatewaySpecListenerTlValidationResult
     {
-        [Input("subjectAlternativeNames")]
+        [PolicyResourceProperty("subjectAlternativeNames", "_mUnknown_SubjectAlternativeNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult>> _mSubjectAlternativeNames;
+        private List<Outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult>? _mValue_SubjectAlternativeNames;
+        private bool _mUnknown_SubjectAlternativeNames;
+        public List<Outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult>? SubjectAlternativeNames
+        {
+            get
+            {
+                if (!_mUnknown_SubjectAlternativeNames) return _mValue_SubjectAlternativeNames;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecListenerTlValidationResult.SubjectAlternativeNames' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult>? SubjectAlternativeNames => _mSubjectAlternativeNames.GetValue("subjectAlternativeNames");
-
-        [Input("trusts")]
+        [PolicyResourceProperty("trusts", "_mUnknown_Trusts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult>> _mTrusts;
-
-        public List<Outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult>? Trusts => _mTrusts.GetValue("trusts");
+        private List<Outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult>? _mValue_Trusts;
+        private bool _mUnknown_Trusts;
+        public List<Outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult>? Trusts
+        {
+            get
+            {
+                if (!_mUnknown_Trusts) return _mValue_Trusts;
+                throw new UndeferrableValueException("Value 'GetVirtualGatewaySpecListenerTlValidationResult.Trusts' is not present");
+            }
+        }
     }
 }

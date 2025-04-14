@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RepositoryPolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
-        [Input("registryId")]
+        [PolicyResourceProperty("registryId", "_mUnknown_RegistryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
-
-        public string? RegistryId => _mRegistryId.GetValue("registryId");
+        private string? _mValue_RegistryId;
+        private bool _mUnknown_RegistryId;
+        public string? RegistryId
+        {
+            get
+            {
+                if (!_mUnknown_RegistryId) return _mValue_RegistryId;
+                throw new UndeferrableValueException("Value 'RepositoryPolicy.RegistryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the repository to apply the policy.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
-
-        public string? Repository => _mRepository.GetValue("repository");
+        private string? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public string? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'RepositoryPolicy.Repository' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecr/repositoryPolicy:RepositoryPolicy")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RepositoryPolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the repository to apply the policy.
         /// </summary>
-        [Input("repository")]
+        [PolicyResourceProperty("repository", "_mUnknown_Repository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepository;
-
-        public string? Repository => _mRepository.GetValue("repository");
+        private string? _mValue_Repository;
+        private bool _mUnknown_Repository;
+        public string? Repository
+        {
+            get
+            {
+                if (!_mUnknown_Repository) return _mValue_Repository;
+                throw new UndeferrableValueException("Value 'RepositoryPolicyArgs.Repository' is not present");
+            }
+        }
     }
 }

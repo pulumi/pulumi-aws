@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Inputs
         /// <summary>
         /// ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
         /// </summary>
-        [Input("masterUserArn")]
+        [PolicyResourceProperty("masterUserArn", "_mUnknown_MasterUserArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserArn;
-
-        public string? MasterUserArn => _mMasterUserArn.GetValue("masterUserArn");
+        private string? _mValue_MasterUserArn;
+        private bool _mUnknown_MasterUserArn;
+        public string? MasterUserArn
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserArn) return _mValue_MasterUserArn;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsMasterUserOptionsArgs.MasterUserArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         /// </summary>
-        [Input("masterUserName")]
+        [PolicyResourceProperty("masterUserName", "_mUnknown_MasterUserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserName;
-
-        public string? MasterUserName => _mMasterUserName.GetValue("masterUserName");
+        private string? _mValue_MasterUserName;
+        private bool _mUnknown_MasterUserName;
+        public string? MasterUserName
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserName) return _mValue_MasterUserName;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsMasterUserOptionsArgs.MasterUserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         /// </summary>
-        [Input("masterUserPassword")]
+        [PolicyResourceProperty("masterUserPassword", "_mUnknown_MasterUserPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserPassword;
-
-        public string? MasterUserPassword => _mMasterUserPassword.GetValue("masterUserPassword");
+        private string? _mValue_MasterUserPassword;
+        private bool _mUnknown_MasterUserPassword;
+        public string? MasterUserPassword
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserPassword) return _mValue_MasterUserPassword;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsMasterUserOptionsArgs.MasterUserPassword' is not present");
+            }
+        }
     }
 }

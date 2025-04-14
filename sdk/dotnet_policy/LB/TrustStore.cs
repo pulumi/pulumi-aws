@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// ARN of the Trust Store (matches `id`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrustStore.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN suffix for use with CloudWatch Metrics.
         /// </summary>
-        [Input("arnSuffix")]
+        [PolicyResourceProperty("arnSuffix", "_mUnknown_ArnSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArnSuffix;
-
-        public string? ArnSuffix => _mArnSuffix.GetValue("arnSuffix");
+        private string? _mValue_ArnSuffix;
+        private bool _mUnknown_ArnSuffix;
+        public string? ArnSuffix
+        {
+            get
+            {
+                if (!_mUnknown_ArnSuffix) return _mValue_ArnSuffix;
+                throw new UndeferrableValueException("Value 'TrustStore.ArnSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 Bucket name holding the client certificate CA bundle.
         /// </summary>
-        [Input("caCertificatesBundleS3Bucket")]
+        [PolicyResourceProperty("caCertificatesBundleS3Bucket", "_mUnknown_CaCertificatesBundleS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Bucket;
-
-        public string? CaCertificatesBundleS3Bucket => _mCaCertificatesBundleS3Bucket.GetValue("caCertificatesBundleS3Bucket");
+        private string? _mValue_CaCertificatesBundleS3Bucket;
+        private bool _mUnknown_CaCertificatesBundleS3Bucket;
+        public string? CaCertificatesBundleS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatesBundleS3Bucket) return _mValue_CaCertificatesBundleS3Bucket;
+                throw new UndeferrableValueException("Value 'TrustStore.CaCertificatesBundleS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object key holding the client certificate CA bundle.
         /// </summary>
-        [Input("caCertificatesBundleS3Key")]
+        [PolicyResourceProperty("caCertificatesBundleS3Key", "_mUnknown_CaCertificatesBundleS3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Key;
-
-        public string? CaCertificatesBundleS3Key => _mCaCertificatesBundleS3Key.GetValue("caCertificatesBundleS3Key");
+        private string? _mValue_CaCertificatesBundleS3Key;
+        private bool _mUnknown_CaCertificatesBundleS3Key;
+        public string? CaCertificatesBundleS3Key
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatesBundleS3Key) return _mValue_CaCertificatesBundleS3Key;
+                throw new UndeferrableValueException("Value 'TrustStore.CaCertificatesBundleS3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
-        [Input("caCertificatesBundleS3ObjectVersion")]
+        [PolicyResourceProperty("caCertificatesBundleS3ObjectVersion", "_mUnknown_CaCertificatesBundleS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3ObjectVersion;
-
-        public string? CaCertificatesBundleS3ObjectVersion => _mCaCertificatesBundleS3ObjectVersion.GetValue("caCertificatesBundleS3ObjectVersion");
+        private string? _mValue_CaCertificatesBundleS3ObjectVersion;
+        private bool _mUnknown_CaCertificatesBundleS3ObjectVersion;
+        public string? CaCertificatesBundleS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatesBundleS3ObjectVersion) return _mValue_CaCertificatesBundleS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'TrustStore.CaCertificatesBundleS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrustStore.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'TrustStore.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustStore.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TrustStore.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lb/trustStore:TrustStore")]
@@ -101,55 +164,97 @@ namespace Pulumi.PolicyPacks.Aws.LB
         /// <summary>
         /// S3 Bucket name holding the client certificate CA bundle.
         /// </summary>
-        [Input("caCertificatesBundleS3Bucket")]
+        [PolicyResourceProperty("caCertificatesBundleS3Bucket", "_mUnknown_CaCertificatesBundleS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Bucket;
-
-        public string? CaCertificatesBundleS3Bucket => _mCaCertificatesBundleS3Bucket.GetValue("caCertificatesBundleS3Bucket");
+        private string? _mValue_CaCertificatesBundleS3Bucket;
+        private bool _mUnknown_CaCertificatesBundleS3Bucket;
+        public string? CaCertificatesBundleS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatesBundleS3Bucket) return _mValue_CaCertificatesBundleS3Bucket;
+                throw new UndeferrableValueException("Value 'TrustStoreArgs.CaCertificatesBundleS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object key holding the client certificate CA bundle.
         /// </summary>
-        [Input("caCertificatesBundleS3Key")]
+        [PolicyResourceProperty("caCertificatesBundleS3Key", "_mUnknown_CaCertificatesBundleS3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3Key;
-
-        public string? CaCertificatesBundleS3Key => _mCaCertificatesBundleS3Key.GetValue("caCertificatesBundleS3Key");
+        private string? _mValue_CaCertificatesBundleS3Key;
+        private bool _mUnknown_CaCertificatesBundleS3Key;
+        public string? CaCertificatesBundleS3Key
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatesBundleS3Key) return _mValue_CaCertificatesBundleS3Key;
+                throw new UndeferrableValueException("Value 'TrustStoreArgs.CaCertificatesBundleS3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
         /// </summary>
-        [Input("caCertificatesBundleS3ObjectVersion")]
+        [PolicyResourceProperty("caCertificatesBundleS3ObjectVersion", "_mUnknown_CaCertificatesBundleS3ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificatesBundleS3ObjectVersion;
-
-        public string? CaCertificatesBundleS3ObjectVersion => _mCaCertificatesBundleS3ObjectVersion.GetValue("caCertificatesBundleS3ObjectVersion");
+        private string? _mValue_CaCertificatesBundleS3ObjectVersion;
+        private bool _mUnknown_CaCertificatesBundleS3ObjectVersion;
+        public string? CaCertificatesBundleS3ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificatesBundleS3ObjectVersion) return _mValue_CaCertificatesBundleS3ObjectVersion;
+                throw new UndeferrableValueException("Value 'TrustStoreArgs.CaCertificatesBundleS3ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrustStoreArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'TrustStoreArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustStoreArgs.Tags' is not present");
+            }
+        }
     }
 }

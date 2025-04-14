@@ -18,19 +18,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// * You must use JSON dot notation, not bracket notation.
         /// * The keys can't start with "AWS".
         /// </summary>
-        [Input("inputPaths")]
+        [PolicyResourceProperty("inputPaths", "_mUnknown_InputPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mInputPaths;
-
-        public Dictionary<string, string>? InputPaths => _mInputPaths.GetValue("inputPaths");
+        private Dictionary<string, string>? _mValue_InputPaths;
+        private bool _mUnknown_InputPaths;
+        public Dictionary<string, string>? InputPaths
+        {
+            get
+            {
+                if (!_mUnknown_InputPaths) return _mValue_InputPaths;
+                throw new UndeferrableValueException("Value 'EventTargetInputTransformerArgs.InputPaths' is not present");
+            }
+        }
 
         /// <summary>
         /// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
         /// </summary>
-        [Input("inputTemplate")]
+        [PolicyResourceProperty("inputTemplate", "_mUnknown_InputTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputTemplate;
-
-        public string? InputTemplate => _mInputTemplate.GetValue("inputTemplate");
+        private string? _mValue_InputTemplate;
+        private bool _mUnknown_InputTemplate;
+        public string? InputTemplate
+        {
+            get
+            {
+                if (!_mUnknown_InputTemplate) return _mValue_InputTemplate;
+                throw new UndeferrableValueException("Value 'EventTargetInputTransformerArgs.InputTemplate' is not present");
+            }
+        }
     }
 }

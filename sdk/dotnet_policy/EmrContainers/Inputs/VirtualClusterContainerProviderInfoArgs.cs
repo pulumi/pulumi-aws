@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Inputs
         /// <summary>
         /// Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
         /// </summary>
-        [Input("eksInfo")]
+        [PolicyResourceProperty("eksInfo", "_mUnknown_EksInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualClusterContainerProviderInfoEksInfoArgs> _mEksInfo;
-
-        public Inputs.VirtualClusterContainerProviderInfoEksInfoArgs? EksInfo => _mEksInfo.GetValue("eksInfo");
+        private Inputs.VirtualClusterContainerProviderInfoEksInfoArgs? _mValue_EksInfo;
+        private bool _mUnknown_EksInfo;
+        public Inputs.VirtualClusterContainerProviderInfoEksInfoArgs? EksInfo
+        {
+            get
+            {
+                if (!_mUnknown_EksInfo) return _mValue_EksInfo;
+                throw new UndeferrableValueException("Value 'VirtualClusterContainerProviderInfoArgs.EksInfo' is not present");
+            }
+        }
     }
 }

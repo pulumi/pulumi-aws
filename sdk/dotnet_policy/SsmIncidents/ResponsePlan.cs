@@ -13,128 +13,254 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents
     [PolicyResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]
     public sealed class ResponsePlan : global::Pulumi.PolicyResourceOutput
     {
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponsePlanAction> _mAction;
-
-        public Outputs.ResponsePlanAction? Action => _mAction.GetValue("action");
+        private Outputs.ResponsePlanAction? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.ResponsePlanAction? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ResponsePlan.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the response plan.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResponsePlan.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("chatChannels")]
+        [PolicyResourceProperty("chatChannels", "_mUnknown_ChatChannels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChatChannels;
+        private List<string>? _mValue_ChatChannels;
+        private bool _mUnknown_ChatChannels;
+        public List<string>? ChatChannels
+        {
+            get
+            {
+                if (!_mUnknown_ChatChannels) return _mValue_ChatChannels;
+                throw new UndeferrableValueException("Value 'ResponsePlan.ChatChannels' is not present");
+            }
+        }
 
-        public List<string>? ChatChannels => _mChatChannels.GetValue("chatChannels");
-
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ResponsePlan.DisplayName' is not present");
+            }
+        }
 
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
-
-        [Input("engagements")]
+        [PolicyResourceProperty("engagements", "_mUnknown_Engagements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEngagements;
+        private List<string>? _mValue_Engagements;
+        private bool _mUnknown_Engagements;
+        public List<string>? Engagements
+        {
+            get
+            {
+                if (!_mUnknown_Engagements) return _mValue_Engagements;
+                throw new UndeferrableValueException("Value 'ResponsePlan.Engagements' is not present");
+            }
+        }
 
-        public List<string>? Engagements => _mEngagements.GetValue("engagements");
-
-        [Input("incidentTemplate")]
+        [PolicyResourceProperty("incidentTemplate", "_mUnknown_IncidentTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponsePlanIncidentTemplate> _mIncidentTemplate;
+        private Outputs.ResponsePlanIncidentTemplate? _mValue_IncidentTemplate;
+        private bool _mUnknown_IncidentTemplate;
+        public Outputs.ResponsePlanIncidentTemplate? IncidentTemplate
+        {
+            get
+            {
+                if (!_mUnknown_IncidentTemplate) return _mValue_IncidentTemplate;
+                throw new UndeferrableValueException("Value 'ResponsePlan.IncidentTemplate' is not present");
+            }
+        }
 
-        public Outputs.ResponsePlanIncidentTemplate? IncidentTemplate => _mIncidentTemplate.GetValue("incidentTemplate");
-
-        [Input("integration")]
+        [PolicyResourceProperty("integration", "_mUnknown_Integration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponsePlanIntegration> _mIntegration;
-
-        public Outputs.ResponsePlanIntegration? Integration => _mIntegration.GetValue("integration");
+        private Outputs.ResponsePlanIntegration? _mValue_Integration;
+        private bool _mUnknown_Integration;
+        public Outputs.ResponsePlanIntegration? Integration
+        {
+            get
+            {
+                if (!_mUnknown_Integration) return _mValue_Integration;
+                throw new UndeferrableValueException("Value 'ResponsePlan.Integration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the response plan.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResponsePlan.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResponsePlan.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResponsePlan.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]
     public sealed class ResponsePlanArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponsePlanActionArgs> _mAction;
+        private Inputs.ResponsePlanActionArgs? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Inputs.ResponsePlanActionArgs? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.Action' is not present");
+            }
+        }
 
-        public Inputs.ResponsePlanActionArgs? Action => _mAction.GetValue("action");
-
-        [Input("chatChannels")]
+        [PolicyResourceProperty("chatChannels", "_mUnknown_ChatChannels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChatChannels;
+        private List<string>? _mValue_ChatChannels;
+        private bool _mUnknown_ChatChannels;
+        public List<string>? ChatChannels
+        {
+            get
+            {
+                if (!_mUnknown_ChatChannels) return _mValue_ChatChannels;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.ChatChannels' is not present");
+            }
+        }
 
-        public List<string>? ChatChannels => _mChatChannels.GetValue("chatChannels");
-
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.DisplayName' is not present");
+            }
+        }
 
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
-
-        [Input("engagements")]
+        [PolicyResourceProperty("engagements", "_mUnknown_Engagements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEngagements;
+        private List<string>? _mValue_Engagements;
+        private bool _mUnknown_Engagements;
+        public List<string>? Engagements
+        {
+            get
+            {
+                if (!_mUnknown_Engagements) return _mValue_Engagements;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.Engagements' is not present");
+            }
+        }
 
-        public List<string>? Engagements => _mEngagements.GetValue("engagements");
-
-        [Input("incidentTemplate")]
+        [PolicyResourceProperty("incidentTemplate", "_mUnknown_IncidentTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponsePlanIncidentTemplateArgs> _mIncidentTemplate;
+        private Inputs.ResponsePlanIncidentTemplateArgs? _mValue_IncidentTemplate;
+        private bool _mUnknown_IncidentTemplate;
+        public Inputs.ResponsePlanIncidentTemplateArgs? IncidentTemplate
+        {
+            get
+            {
+                if (!_mUnknown_IncidentTemplate) return _mValue_IncidentTemplate;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.IncidentTemplate' is not present");
+            }
+        }
 
-        public Inputs.ResponsePlanIncidentTemplateArgs? IncidentTemplate => _mIncidentTemplate.GetValue("incidentTemplate");
-
-        [Input("integration")]
+        [PolicyResourceProperty("integration", "_mUnknown_Integration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ResponsePlanIntegrationArgs> _mIntegration;
-
-        public Inputs.ResponsePlanIntegrationArgs? Integration => _mIntegration.GetValue("integration");
+        private Inputs.ResponsePlanIntegrationArgs? _mValue_Integration;
+        private bool _mUnknown_Integration;
+        public Inputs.ResponsePlanIntegrationArgs? Integration
+        {
+            get
+            {
+                if (!_mUnknown_Integration) return _mValue_Integration;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.Integration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the response plan.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResponsePlanArgs.Tags' is not present");
+            }
+        }
     }
 }

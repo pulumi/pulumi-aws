@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The CIDR you want to assign to the pool.
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the allocation.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Exclude a particular CIDR range from being returned by the pool.
         /// </summary>
-        [Input("disallowedCidrs")]
+        [PolicyResourceProperty("disallowedCidrs", "_mUnknown_DisallowedCidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
+        private List<string>? _mValue_DisallowedCidrs;
+        private bool _mUnknown_DisallowedCidrs;
+        public List<string>? DisallowedCidrs
+        {
+            get
+            {
+                if (!_mUnknown_DisallowedCidrs) return _mValue_DisallowedCidrs;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.DisallowedCidrs' is not present");
+            }
+        }
 
-        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
-
-        [Input("ipamPoolAllocationId")]
+        [PolicyResourceProperty("ipamPoolAllocationId", "_mUnknown_IpamPoolAllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolAllocationId;
-
-        public string? IpamPoolAllocationId => _mIpamPoolAllocationId.GetValue("ipamPoolAllocationId");
+        private string? _mValue_IpamPoolAllocationId;
+        private bool _mUnknown_IpamPoolAllocationId;
+        public string? IpamPoolAllocationId
+        {
+            get
+            {
+                if (!_mUnknown_IpamPoolAllocationId) return _mValue_IpamPoolAllocationId;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.IpamPoolAllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
-        [Input("ipamPoolId")]
+        [PolicyResourceProperty("ipamPoolId", "_mUnknown_IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
-
-        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+        private string? _mValue_IpamPoolId;
+        private bool _mUnknown_IpamPoolId;
+        public string? IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IpamPoolId) return _mValue_IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         /// </summary>
-        [Input("netmaskLength")]
+        [PolicyResourceProperty("netmaskLength", "_mUnknown_NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
-
-        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
+        private int? _mValue_NetmaskLength;
+        private bool _mUnknown_NetmaskLength;
+        public int? NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_NetmaskLength) return _mValue_NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.NetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the resource.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner of the resource.
         /// </summary>
-        [Input("resourceOwner")]
+        [PolicyResourceProperty("resourceOwner", "_mUnknown_ResourceOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceOwner;
-
-        public string? ResourceOwner => _mResourceOwner.GetValue("resourceOwner");
+        private string? _mValue_ResourceOwner;
+        private bool _mUnknown_ResourceOwner;
+        public string? ResourceOwner
+        {
+            get
+            {
+                if (!_mUnknown_ResourceOwner) return _mValue_ResourceOwner;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.ResourceOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the resource.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.ResourceType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")]
@@ -98,46 +161,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The CIDR you want to assign to the pool.
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocationArgs.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the allocation.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Exclude a particular CIDR range from being returned by the pool.
         /// </summary>
-        [Input("disallowedCidrs")]
+        [PolicyResourceProperty("disallowedCidrs", "_mUnknown_DisallowedCidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
-
-        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
+        private List<string>? _mValue_DisallowedCidrs;
+        private bool _mUnknown_DisallowedCidrs;
+        public List<string>? DisallowedCidrs
+        {
+            get
+            {
+                if (!_mUnknown_DisallowedCidrs) return _mValue_DisallowedCidrs;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocationArgs.DisallowedCidrs' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
-        [Input("ipamPoolId")]
+        [PolicyResourceProperty("ipamPoolId", "_mUnknown_IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
-
-        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+        private string? _mValue_IpamPoolId;
+        private bool _mUnknown_IpamPoolId;
+        public string? IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IpamPoolId) return _mValue_IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocationArgs.IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         /// </summary>
-        [Input("netmaskLength")]
+        [PolicyResourceProperty("netmaskLength", "_mUnknown_NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
-
-        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
+        private int? _mValue_NetmaskLength;
+        private bool _mUnknown_NetmaskLength;
+        public int? NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_NetmaskLength) return _mValue_NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocationArgs.NetmaskLength' is not present");
+            }
+        }
     }
 }

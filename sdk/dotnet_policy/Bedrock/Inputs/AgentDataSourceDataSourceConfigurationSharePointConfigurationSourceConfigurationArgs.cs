@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
         /// </summary>
-        [Input("credentialsSecretArn")]
+        [PolicyResourceProperty("credentialsSecretArn", "_mUnknown_CredentialsSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsSecretArn;
-
-        public string? CredentialsSecretArn => _mCredentialsSecretArn.GetValue("credentialsSecretArn");
+        private string? _mValue_CredentialsSecretArn;
+        private bool _mUnknown_CredentialsSecretArn;
+        public string? CredentialsSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsSecretArn) return _mValue_CredentialsSecretArn;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.CredentialsSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain of your SharePoint instance or site URL/URLs.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
         /// </summary>
-        [Input("hostType")]
+        [PolicyResourceProperty("hostType", "_mUnknown_HostType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostType;
-
-        public string? HostType => _mHostType.GetValue("hostType");
+        private string? _mValue_HostType;
+        private bool _mUnknown_HostType;
+        public string? HostType
+        {
+            get
+            {
+                if (!_mUnknown_HostType) return _mValue_HostType;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.HostType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of one or more SharePoint site URLs.
         /// </summary>
-        [Input("siteUrls")]
+        [PolicyResourceProperty("siteUrls", "_mUnknown_SiteUrls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSiteUrls;
-
-        public List<string>? SiteUrls => _mSiteUrls.GetValue("siteUrls");
+        private List<string>? _mValue_SiteUrls;
+        private bool _mUnknown_SiteUrls;
+        public List<string>? SiteUrls
+        {
+            get
+            {
+                if (!_mUnknown_SiteUrls) return _mValue_SiteUrls;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.SiteUrls' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of your Microsoft 365 tenant.
         /// </summary>
-        [Input("tenantId")]
+        [PolicyResourceProperty("tenantId", "_mUnknown_TenantId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
-
-        public string? TenantId => _mTenantId.GetValue("tenantId");
+        private string? _mValue_TenantId;
+        private bool _mUnknown_TenantId;
+        public string? TenantId
+        {
+            get
+            {
+                if (!_mUnknown_TenantId) return _mValue_TenantId;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.TenantId' is not present");
+            }
+        }
     }
 }

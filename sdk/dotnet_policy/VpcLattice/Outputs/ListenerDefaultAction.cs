@@ -12,21 +12,35 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
 {
     public sealed class ListenerDefaultAction
     {
-        [Input("fixedResponse")]
+        [PolicyResourceProperty("fixedResponse", "_mUnknown_FixedResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultActionFixedResponse> _mFixedResponse;
-
-        public Outputs.ListenerDefaultActionFixedResponse? FixedResponse => _mFixedResponse.GetValue("fixedResponse");
+        private Outputs.ListenerDefaultActionFixedResponse? _mValue_FixedResponse;
+        private bool _mUnknown_FixedResponse;
+        public Outputs.ListenerDefaultActionFixedResponse? FixedResponse
+        {
+            get
+            {
+                if (!_mUnknown_FixedResponse) return _mValue_FixedResponse;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.FixedResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Route requests to one or more target groups. See Forward blocks below.
         /// 
         /// &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
         /// </summary>
-        [Input("forwards")]
+        [PolicyResourceProperty("forwards", "_mUnknown_Forwards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerDefaultActionForward>> _mForwards;
-
-        public List<Outputs.ListenerDefaultActionForward>? Forwards => _mForwards.GetValue("forwards");
+        private List<Outputs.ListenerDefaultActionForward>? _mValue_Forwards;
+        private bool _mUnknown_Forwards;
+        public List<Outputs.ListenerDefaultActionForward>? Forwards
+        {
+            get
+            {
+                if (!_mUnknown_Forwards) return _mValue_Forwards;
+                throw new UndeferrableValueException("Value 'ListenerDefaultAction.Forwards' is not present");
+            }
+        }
     }
 }

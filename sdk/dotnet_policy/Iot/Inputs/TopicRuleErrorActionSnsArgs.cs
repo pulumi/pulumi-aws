@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
         /// </summary>
-        [Input("messageFormat")]
+        [PolicyResourceProperty("messageFormat", "_mUnknown_MessageFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageFormat;
-
-        public string? MessageFormat => _mMessageFormat.GetValue("messageFormat");
+        private string? _mValue_MessageFormat;
+        private bool _mUnknown_MessageFormat;
+        public string? MessageFormat
+        {
+            get
+            {
+                if (!_mUnknown_MessageFormat) return _mValue_MessageFormat;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionSnsArgs.MessageFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionSnsArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SNS topic.
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
-
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionSnsArgs.TargetArn' is not present");
+            }
+        }
     }
 }

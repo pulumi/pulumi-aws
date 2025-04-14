@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The type of app created within the space.
         /// </summary>
-        [Input("appType")]
+        [PolicyResourceProperty("appType", "_mUnknown_AppType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppType;
-
-        public string? AppType => _mAppType.GetValue("appType");
+        private string? _mValue_AppType;
+        private bool _mUnknown_AppType;
+        public string? AppType
+        {
+            get
+            {
+                if (!_mUnknown_AppType) return _mValue_AppType;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.AppType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Code Editor application settings. See `code_editor_app_settings` Block below.
         /// </summary>
-        [Input("codeEditorAppSettings")]
+        [PolicyResourceProperty("codeEditorAppSettings", "_mUnknown_CodeEditorAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsCodeEditorAppSettingsArgs> _mCodeEditorAppSettings;
-
-        public Inputs.SpaceSpaceSettingsCodeEditorAppSettingsArgs? CodeEditorAppSettings => _mCodeEditorAppSettings.GetValue("codeEditorAppSettings");
+        private Inputs.SpaceSpaceSettingsCodeEditorAppSettingsArgs? _mValue_CodeEditorAppSettings;
+        private bool _mUnknown_CodeEditorAppSettings;
+        public Inputs.SpaceSpaceSettingsCodeEditorAppSettingsArgs? CodeEditorAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_CodeEditorAppSettings) return _mValue_CodeEditorAppSettings;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.CodeEditorAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
         /// </summary>
-        [Input("customFileSystems")]
+        [PolicyResourceProperty("customFileSystems", "_mUnknown_CustomFileSystems")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SpaceSpaceSettingsCustomFileSystemArgs>> _mCustomFileSystems;
-
-        public List<Inputs.SpaceSpaceSettingsCustomFileSystemArgs>? CustomFileSystems => _mCustomFileSystems.GetValue("customFileSystems");
+        private List<Inputs.SpaceSpaceSettingsCustomFileSystemArgs>? _mValue_CustomFileSystems;
+        private bool _mUnknown_CustomFileSystems;
+        public List<Inputs.SpaceSpaceSettingsCustomFileSystemArgs>? CustomFileSystems
+        {
+            get
+            {
+                if (!_mUnknown_CustomFileSystems) return _mValue_CustomFileSystems;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.CustomFileSystems' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         /// </summary>
-        [Input("jupyterLabAppSettings")]
+        [PolicyResourceProperty("jupyterLabAppSettings", "_mUnknown_JupyterLabAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsArgs> _mJupyterLabAppSettings;
-
-        public Inputs.SpaceSpaceSettingsJupyterLabAppSettingsArgs? JupyterLabAppSettings => _mJupyterLabAppSettings.GetValue("jupyterLabAppSettings");
+        private Inputs.SpaceSpaceSettingsJupyterLabAppSettingsArgs? _mValue_JupyterLabAppSettings;
+        private bool _mUnknown_JupyterLabAppSettings;
+        public Inputs.SpaceSpaceSettingsJupyterLabAppSettingsArgs? JupyterLabAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_JupyterLabAppSettings) return _mValue_JupyterLabAppSettings;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.JupyterLabAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         /// </summary>
-        [Input("jupyterServerAppSettings")]
+        [PolicyResourceProperty("jupyterServerAppSettings", "_mUnknown_JupyterServerAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsJupyterServerAppSettingsArgs> _mJupyterServerAppSettings;
-
-        public Inputs.SpaceSpaceSettingsJupyterServerAppSettingsArgs? JupyterServerAppSettings => _mJupyterServerAppSettings.GetValue("jupyterServerAppSettings");
+        private Inputs.SpaceSpaceSettingsJupyterServerAppSettingsArgs? _mValue_JupyterServerAppSettings;
+        private bool _mUnknown_JupyterServerAppSettings;
+        public Inputs.SpaceSpaceSettingsJupyterServerAppSettingsArgs? JupyterServerAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_JupyterServerAppSettings) return _mValue_JupyterServerAppSettings;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.JupyterServerAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         /// </summary>
-        [Input("kernelGatewayAppSettings")]
+        [PolicyResourceProperty("kernelGatewayAppSettings", "_mUnknown_KernelGatewayAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsKernelGatewayAppSettingsArgs> _mKernelGatewayAppSettings;
-
-        public Inputs.SpaceSpaceSettingsKernelGatewayAppSettingsArgs? KernelGatewayAppSettings => _mKernelGatewayAppSettings.GetValue("kernelGatewayAppSettings");
+        private Inputs.SpaceSpaceSettingsKernelGatewayAppSettingsArgs? _mValue_KernelGatewayAppSettings;
+        private bool _mUnknown_KernelGatewayAppSettings;
+        public Inputs.SpaceSpaceSettingsKernelGatewayAppSettingsArgs? KernelGatewayAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_KernelGatewayAppSettings) return _mValue_KernelGatewayAppSettings;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.KernelGatewayAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage settings. See `space_storage_settings` Block below.
         /// </summary>
-        [Input("spaceStorageSettings")]
+        [PolicyResourceProperty("spaceStorageSettings", "_mUnknown_SpaceStorageSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SpaceSpaceSettingsSpaceStorageSettingsArgs> _mSpaceStorageSettings;
-
-        public Inputs.SpaceSpaceSettingsSpaceStorageSettingsArgs? SpaceStorageSettings => _mSpaceStorageSettings.GetValue("spaceStorageSettings");
+        private Inputs.SpaceSpaceSettingsSpaceStorageSettingsArgs? _mValue_SpaceStorageSettings;
+        private bool _mUnknown_SpaceStorageSettings;
+        public Inputs.SpaceSpaceSettingsSpaceStorageSettingsArgs? SpaceStorageSettings
+        {
+            get
+            {
+                if (!_mUnknown_SpaceStorageSettings) return _mValue_SpaceStorageSettings;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.SpaceStorageSettings' is not present");
+            }
+        }
     }
 }

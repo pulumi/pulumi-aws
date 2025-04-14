@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery
         /// <summary>
         /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'Instance.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the service instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'Instance.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the service that you want to use to create the instance.
         /// </summary>
-        [Input("serviceId")]
+        [PolicyResourceProperty("serviceId", "_mUnknown_ServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
-
-        public string? ServiceId => _mServiceId.GetValue("serviceId");
+        private string? _mValue_ServiceId;
+        private bool _mUnknown_ServiceId;
+        public string? ServiceId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceId) return _mValue_ServiceId;
+                throw new UndeferrableValueException("Value 'Instance.ServiceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:servicediscovery/instance:Instance")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery
         /// <summary>
         /// A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the service instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the service that you want to use to create the instance.
         /// </summary>
-        [Input("serviceId")]
+        [PolicyResourceProperty("serviceId", "_mUnknown_ServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
-
-        public string? ServiceId => _mServiceId.GetValue("serviceId");
+        private string? _mValue_ServiceId;
+        private bool _mUnknown_ServiceId;
+        public string? ServiceId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceId) return _mValue_ServiceId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.ServiceId' is not present");
+            }
+        }
     }
 }

@@ -16,117 +16,201 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Identifier of the bot associated with this slot type.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the bot associated with this slot type.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
-        [Input("compositeSlotTypeSetting")]
+        [PolicyResourceProperty("compositeSlotTypeSetting", "_mUnknown_CompositeSlotTypeSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeCompositeSlotTypeSetting> _mCompositeSlotTypeSetting;
-
-        public Outputs.V2modelsSlotTypeCompositeSlotTypeSetting? CompositeSlotTypeSetting => _mCompositeSlotTypeSetting.GetValue("compositeSlotTypeSetting");
+        private Outputs.V2modelsSlotTypeCompositeSlotTypeSetting? _mValue_CompositeSlotTypeSetting;
+        private bool _mUnknown_CompositeSlotTypeSetting;
+        public Outputs.V2modelsSlotTypeCompositeSlotTypeSetting? CompositeSlotTypeSetting
+        {
+            get
+            {
+                if (!_mUnknown_CompositeSlotTypeSetting) return _mValue_CompositeSlotTypeSetting;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.CompositeSlotTypeSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the slot type.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
         /// </summary>
-        [Input("externalSourceSetting")]
+        [PolicyResourceProperty("externalSourceSetting", "_mUnknown_ExternalSourceSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeExternalSourceSetting> _mExternalSourceSetting;
-
-        public Outputs.V2modelsSlotTypeExternalSourceSetting? ExternalSourceSetting => _mExternalSourceSetting.GetValue("externalSourceSetting");
+        private Outputs.V2modelsSlotTypeExternalSourceSetting? _mValue_ExternalSourceSetting;
+        private bool _mUnknown_ExternalSourceSetting;
+        public Outputs.V2modelsSlotTypeExternalSourceSetting? ExternalSourceSetting
+        {
+            get
+            {
+                if (!_mUnknown_ExternalSourceSetting) return _mValue_ExternalSourceSetting;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.ExternalSourceSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the language and locale where this slot type is used.
         /// All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
-        [Input("localeId")]
+        [PolicyResourceProperty("localeId", "_mUnknown_LocaleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
-
-        public string? LocaleId => _mLocaleId.GetValue("localeId");
+        private string? _mValue_LocaleId;
+        private bool _mUnknown_LocaleId;
+        public string? LocaleId
+        {
+            get
+            {
+                if (!_mUnknown_LocaleId) return _mValue_LocaleId;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.LocaleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the slot type.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Built-in slot type used as a parent of this slot type.
         /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
         /// Only `AMAZON.AlphaNumeric` is supported.
         /// </summary>
-        [Input("parentSlotTypeSignature")]
+        [PolicyResourceProperty("parentSlotTypeSignature", "_mUnknown_ParentSlotTypeSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentSlotTypeSignature;
-
-        public string? ParentSlotTypeSignature => _mParentSlotTypeSignature.GetValue("parentSlotTypeSignature");
+        private string? _mValue_ParentSlotTypeSignature;
+        private bool _mUnknown_ParentSlotTypeSignature;
+        public string? ParentSlotTypeSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentSlotTypeSignature) return _mValue_ParentSlotTypeSignature;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.ParentSlotTypeSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the slot type.
         /// </summary>
-        [Input("slotTypeId")]
+        [PolicyResourceProperty("slotTypeId", "_mUnknown_SlotTypeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotTypeId;
-
-        public string? SlotTypeId => _mSlotTypeId.GetValue("slotTypeId");
+        private string? _mValue_SlotTypeId;
+        private bool _mUnknown_SlotTypeId;
+        public string? SlotTypeId
+        {
+            get
+            {
+                if (!_mUnknown_SlotTypeId) return _mValue_SlotTypeId;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.SlotTypeId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
         /// See `slot_type_values` argument reference below.
         /// </summary>
-        [Input("slotTypeValues")]
+        [PolicyResourceProperty("slotTypeValues", "_mUnknown_SlotTypeValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeSlotTypeValues> _mSlotTypeValues;
+        private Outputs.V2modelsSlotTypeSlotTypeValues? _mValue_SlotTypeValues;
+        private bool _mUnknown_SlotTypeValues;
+        public Outputs.V2modelsSlotTypeSlotTypeValues? SlotTypeValues
+        {
+            get
+            {
+                if (!_mUnknown_SlotTypeValues) return _mValue_SlotTypeValues;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.SlotTypeValues' is not present");
+            }
+        }
 
-        public Outputs.V2modelsSlotTypeSlotTypeValues? SlotTypeValues => _mSlotTypeValues.GetValue("slotTypeValues");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeTimeouts> _mTimeouts;
-
-        public Outputs.V2modelsSlotTypeTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.V2modelsSlotTypeTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.V2modelsSlotTypeTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
         /// See `value_selection_setting` argument reference below.
         /// </summary>
-        [Input("valueSelectionSetting")]
+        [PolicyResourceProperty("valueSelectionSetting", "_mUnknown_ValueSelectionSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeValueSelectionSetting> _mValueSelectionSetting;
-
-        public Outputs.V2modelsSlotTypeValueSelectionSetting? ValueSelectionSetting => _mValueSelectionSetting.GetValue("valueSelectionSetting");
+        private Outputs.V2modelsSlotTypeValueSelectionSetting? _mValue_ValueSelectionSetting;
+        private bool _mUnknown_ValueSelectionSetting;
+        public Outputs.V2modelsSlotTypeValueSelectionSetting? ValueSelectionSetting
+        {
+            get
+            {
+                if (!_mUnknown_ValueSelectionSetting) return _mValue_ValueSelectionSetting;
+                throw new UndeferrableValueException("Value 'V2modelsSlotType.ValueSelectionSetting' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/v2modelsSlotType:V2modelsSlotType")]
@@ -135,107 +219,184 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Identifier of the bot associated with this slot type.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the bot associated with this slot type.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
         /// </summary>
-        [Input("compositeSlotTypeSetting")]
+        [PolicyResourceProperty("compositeSlotTypeSetting", "_mUnknown_CompositeSlotTypeSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs> _mCompositeSlotTypeSetting;
-
-        public Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs? CompositeSlotTypeSetting => _mCompositeSlotTypeSetting.GetValue("compositeSlotTypeSetting");
+        private Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs? _mValue_CompositeSlotTypeSetting;
+        private bool _mUnknown_CompositeSlotTypeSetting;
+        public Inputs.V2modelsSlotTypeCompositeSlotTypeSettingArgs? CompositeSlotTypeSetting
+        {
+            get
+            {
+                if (!_mUnknown_CompositeSlotTypeSetting) return _mValue_CompositeSlotTypeSetting;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.CompositeSlotTypeSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the slot type.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
         /// </summary>
-        [Input("externalSourceSetting")]
+        [PolicyResourceProperty("externalSourceSetting", "_mUnknown_ExternalSourceSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeExternalSourceSettingArgs> _mExternalSourceSetting;
-
-        public Inputs.V2modelsSlotTypeExternalSourceSettingArgs? ExternalSourceSetting => _mExternalSourceSetting.GetValue("externalSourceSetting");
+        private Inputs.V2modelsSlotTypeExternalSourceSettingArgs? _mValue_ExternalSourceSetting;
+        private bool _mUnknown_ExternalSourceSetting;
+        public Inputs.V2modelsSlotTypeExternalSourceSettingArgs? ExternalSourceSetting
+        {
+            get
+            {
+                if (!_mUnknown_ExternalSourceSetting) return _mValue_ExternalSourceSetting;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.ExternalSourceSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the language and locale where this slot type is used.
         /// All of the bots, slot types, and slots used by the intent must have the same locale.
         /// </summary>
-        [Input("localeId")]
+        [PolicyResourceProperty("localeId", "_mUnknown_LocaleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocaleId;
-
-        public string? LocaleId => _mLocaleId.GetValue("localeId");
+        private string? _mValue_LocaleId;
+        private bool _mUnknown_LocaleId;
+        public string? LocaleId
+        {
+            get
+            {
+                if (!_mUnknown_LocaleId) return _mValue_LocaleId;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.LocaleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the slot type.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Built-in slot type used as a parent of this slot type.
         /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
         /// Only `AMAZON.AlphaNumeric` is supported.
         /// </summary>
-        [Input("parentSlotTypeSignature")]
+        [PolicyResourceProperty("parentSlotTypeSignature", "_mUnknown_ParentSlotTypeSignature")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentSlotTypeSignature;
-
-        public string? ParentSlotTypeSignature => _mParentSlotTypeSignature.GetValue("parentSlotTypeSignature");
+        private string? _mValue_ParentSlotTypeSignature;
+        private bool _mUnknown_ParentSlotTypeSignature;
+        public string? ParentSlotTypeSignature
+        {
+            get
+            {
+                if (!_mUnknown_ParentSlotTypeSignature) return _mValue_ParentSlotTypeSignature;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.ParentSlotTypeSignature' is not present");
+            }
+        }
 
         /// <summary>
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
         /// See `slot_type_values` argument reference below.
         /// </summary>
-        [Input("slotTypeValues")]
+        [PolicyResourceProperty("slotTypeValues", "_mUnknown_SlotTypeValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeSlotTypeValuesArgs> _mSlotTypeValues;
+        private Inputs.V2modelsSlotTypeSlotTypeValuesArgs? _mValue_SlotTypeValues;
+        private bool _mUnknown_SlotTypeValues;
+        public Inputs.V2modelsSlotTypeSlotTypeValuesArgs? SlotTypeValues
+        {
+            get
+            {
+                if (!_mUnknown_SlotTypeValues) return _mValue_SlotTypeValues;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.SlotTypeValues' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotTypeSlotTypeValuesArgs? SlotTypeValues => _mSlotTypeValues.GetValue("slotTypeValues");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeTimeoutsArgs> _mTimeouts;
-
-        public Inputs.V2modelsSlotTypeTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.V2modelsSlotTypeTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.V2modelsSlotTypeTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
         /// See `value_selection_setting` argument reference below.
         /// </summary>
-        [Input("valueSelectionSetting")]
+        [PolicyResourceProperty("valueSelectionSetting", "_mUnknown_ValueSelectionSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotTypeValueSelectionSettingArgs> _mValueSelectionSetting;
-
-        public Inputs.V2modelsSlotTypeValueSelectionSettingArgs? ValueSelectionSetting => _mValueSelectionSetting.GetValue("valueSelectionSetting");
+        private Inputs.V2modelsSlotTypeValueSelectionSettingArgs? _mValue_ValueSelectionSetting;
+        private bool _mUnknown_ValueSelectionSetting;
+        public Inputs.V2modelsSlotTypeValueSelectionSettingArgs? ValueSelectionSetting
+        {
+            get
+            {
+                if (!_mUnknown_ValueSelectionSetting) return _mValue_ValueSelectionSetting;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeArgs.ValueSelectionSetting' is not present");
+            }
+        }
     }
 }

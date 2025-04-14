@@ -16,86 +16,156 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AutomationRuleAction>> _mActions;
-
-        public List<Outputs.AutomationRuleAction>? Actions => _mActions.GetValue("actions");
+        private List<Outputs.AutomationRuleAction>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Outputs.AutomationRuleAction>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'AutomationRule.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Security Hub automation rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AutomationRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         /// </summary>
-        [Input("criteria")]
+        [PolicyResourceProperty("criteria", "_mUnknown_Criteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AutomationRuleCriteria> _mCriteria;
-
-        public Outputs.AutomationRuleCriteria? Criteria => _mCriteria.GetValue("criteria");
+        private Outputs.AutomationRuleCriteria? _mValue_Criteria;
+        private bool _mUnknown_Criteria;
+        public Outputs.AutomationRuleCriteria? Criteria
+        {
+            get
+            {
+                if (!_mUnknown_Criteria) return _mValue_Criteria;
+                throw new UndeferrableValueException("Value 'AutomationRule.Criteria' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AutomationRule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         /// </summary>
-        [Input("isTerminal")]
+        [PolicyResourceProperty("isTerminal", "_mUnknown_IsTerminal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsTerminal;
-
-        public bool? IsTerminal => _mIsTerminal.GetValue("isTerminal");
+        private bool? _mValue_IsTerminal;
+        private bool _mUnknown_IsTerminal;
+        public bool? IsTerminal
+        {
+            get
+            {
+                if (!_mUnknown_IsTerminal) return _mValue_IsTerminal;
+                throw new UndeferrableValueException("Value 'AutomationRule.IsTerminal' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'AutomationRule.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         /// </summary>
-        [Input("ruleOrder")]
+        [PolicyResourceProperty("ruleOrder", "_mUnknown_RuleOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleOrder;
-
-        public int? RuleOrder => _mRuleOrder.GetValue("ruleOrder");
+        private int? _mValue_RuleOrder;
+        private bool _mUnknown_RuleOrder;
+        public int? RuleOrder
+        {
+            get
+            {
+                if (!_mUnknown_RuleOrder) return _mValue_RuleOrder;
+                throw new UndeferrableValueException("Value 'AutomationRule.RuleOrder' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule is active after it is created.
         /// </summary>
-        [Input("ruleStatus")]
+        [PolicyResourceProperty("ruleStatus", "_mUnknown_RuleStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleStatus;
+        private string? _mValue_RuleStatus;
+        private bool _mUnknown_RuleStatus;
+        public string? RuleStatus
+        {
+            get
+            {
+                if (!_mUnknown_RuleStatus) return _mValue_RuleStatus;
+                throw new UndeferrableValueException("Value 'AutomationRule.RuleStatus' is not present");
+            }
+        }
 
-        public string? RuleStatus => _mRuleStatus.GetValue("ruleStatus");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AutomationRule.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AutomationRule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/automationRule:AutomationRule")]
@@ -104,70 +174,126 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleActionArgs>> _mActions;
-
-        public List<Inputs.AutomationRuleActionArgs>? Actions => _mActions.GetValue("actions");
+        private List<Inputs.AutomationRuleActionArgs>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Inputs.AutomationRuleActionArgs>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         /// </summary>
-        [Input("criteria")]
+        [PolicyResourceProperty("criteria", "_mUnknown_Criteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AutomationRuleCriteriaArgs> _mCriteria;
-
-        public Inputs.AutomationRuleCriteriaArgs? Criteria => _mCriteria.GetValue("criteria");
+        private Inputs.AutomationRuleCriteriaArgs? _mValue_Criteria;
+        private bool _mUnknown_Criteria;
+        public Inputs.AutomationRuleCriteriaArgs? Criteria
+        {
+            get
+            {
+                if (!_mUnknown_Criteria) return _mValue_Criteria;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.Criteria' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         /// </summary>
-        [Input("isTerminal")]
+        [PolicyResourceProperty("isTerminal", "_mUnknown_IsTerminal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsTerminal;
-
-        public bool? IsTerminal => _mIsTerminal.GetValue("isTerminal");
+        private bool? _mValue_IsTerminal;
+        private bool _mUnknown_IsTerminal;
+        public bool? IsTerminal
+        {
+            get
+            {
+                if (!_mUnknown_IsTerminal) return _mValue_IsTerminal;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.IsTerminal' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.RuleName' is not present");
+            }
+        }
 
         /// <summary>
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         /// </summary>
-        [Input("ruleOrder")]
+        [PolicyResourceProperty("ruleOrder", "_mUnknown_RuleOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleOrder;
-
-        public int? RuleOrder => _mRuleOrder.GetValue("ruleOrder");
+        private int? _mValue_RuleOrder;
+        private bool _mUnknown_RuleOrder;
+        public int? RuleOrder
+        {
+            get
+            {
+                if (!_mUnknown_RuleOrder) return _mValue_RuleOrder;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.RuleOrder' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rule is active after it is created.
         /// </summary>
-        [Input("ruleStatus")]
+        [PolicyResourceProperty("ruleStatus", "_mUnknown_RuleStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleStatus;
+        private string? _mValue_RuleStatus;
+        private bool _mUnknown_RuleStatus;
+        public string? RuleStatus
+        {
+            get
+            {
+                if (!_mUnknown_RuleStatus) return _mValue_RuleStatus;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.RuleStatus' is not present");
+            }
+        }
 
-        public string? RuleStatus => _mRuleStatus.GetValue("ruleStatus");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AutomationRuleArgs.Tags' is not present");
+            }
+        }
     }
 }

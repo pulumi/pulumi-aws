@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// The definition of the schema.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SchemaDefinition> _mDefinition;
-
-        public Outputs.SchemaDefinition? Definition => _mDefinition.GetValue("definition");
+        private Outputs.SchemaDefinition? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Outputs.SchemaDefinition? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'Schema.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Identifies the namespaces of the entities referenced by this schema.
         /// </summary>
-        [Input("namespaces")]
+        [PolicyResourceProperty("namespaces", "_mUnknown_Namespaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNamespaces;
-
-        public List<string>? Namespaces => _mNamespaces.GetValue("namespaces");
+        private List<string>? _mValue_Namespaces;
+        private bool _mUnknown_Namespaces;
+        public List<string>? Namespaces
+        {
+            get
+            {
+                if (!_mUnknown_Namespaces) return _mValue_Namespaces;
+                throw new UndeferrableValueException("Value 'Schema.Namespaces' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'Schema.PolicyStoreId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedpermissions/schema:Schema")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// The definition of the schema.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SchemaDefinitionArgs> _mDefinition;
-
-        public Inputs.SchemaDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+        private Inputs.SchemaDefinitionArgs? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Inputs.SchemaDefinitionArgs? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'SchemaArgs.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'SchemaArgs.PolicyStoreId' is not present");
+            }
+        }
     }
 }

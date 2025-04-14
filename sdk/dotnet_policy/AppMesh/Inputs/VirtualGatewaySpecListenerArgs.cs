@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Connection pool information for the listener.
         /// </summary>
-        [Input("connectionPool")]
+        [PolicyResourceProperty("connectionPool", "_mUnknown_ConnectionPool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerConnectionPoolArgs> _mConnectionPool;
-
-        public Inputs.VirtualGatewaySpecListenerConnectionPoolArgs? ConnectionPool => _mConnectionPool.GetValue("connectionPool");
+        private Inputs.VirtualGatewaySpecListenerConnectionPoolArgs? _mValue_ConnectionPool;
+        private bool _mUnknown_ConnectionPool;
+        public Inputs.VirtualGatewaySpecListenerConnectionPoolArgs? ConnectionPool
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionPool) return _mValue_ConnectionPool;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.ConnectionPool' is not present");
+            }
+        }
 
         /// <summary>
         /// Health check information for the listener.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerHealthCheckArgs> _mHealthCheck;
-
-        public Inputs.VirtualGatewaySpecListenerHealthCheckArgs? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private Inputs.VirtualGatewaySpecListenerHealthCheckArgs? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public Inputs.VirtualGatewaySpecListenerHealthCheckArgs? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.HealthCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Port mapping information for the listener.
         /// </summary>
-        [Input("portMapping")]
+        [PolicyResourceProperty("portMapping", "_mUnknown_PortMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerPortMappingArgs> _mPortMapping;
-
-        public Inputs.VirtualGatewaySpecListenerPortMappingArgs? PortMapping => _mPortMapping.GetValue("portMapping");
+        private Inputs.VirtualGatewaySpecListenerPortMappingArgs? _mValue_PortMapping;
+        private bool _mUnknown_PortMapping;
+        public Inputs.VirtualGatewaySpecListenerPortMappingArgs? PortMapping
+        {
+            get
+            {
+                if (!_mUnknown_PortMapping) return _mValue_PortMapping;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.PortMapping' is not present");
+            }
+        }
 
         /// <summary>
         /// Transport Layer Security (TLS) properties for the listener
         /// </summary>
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecListenerTlsArgs> _mTls;
-
-        public Inputs.VirtualGatewaySpecListenerTlsArgs? Tls => _mTls.GetValue("tls");
+        private Inputs.VirtualGatewaySpecListenerTlsArgs? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public Inputs.VirtualGatewaySpecListenerTlsArgs? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.Tls' is not present");
+            }
+        }
     }
 }

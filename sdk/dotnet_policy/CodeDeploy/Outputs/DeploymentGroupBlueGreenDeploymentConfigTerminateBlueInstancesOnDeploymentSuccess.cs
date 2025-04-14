@@ -17,19 +17,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Outputs
         /// * `TERMINATE`: Instances are terminated after a specified wait time.
         /// * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
         /// </summary>
-        [Input("terminationWaitTimeInMinutes")]
+        [PolicyResourceProperty("terminationWaitTimeInMinutes", "_mUnknown_TerminationWaitTimeInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTerminationWaitTimeInMinutes;
-
-        public int? TerminationWaitTimeInMinutes => _mTerminationWaitTimeInMinutes.GetValue("terminationWaitTimeInMinutes");
+        private int? _mValue_TerminationWaitTimeInMinutes;
+        private bool _mUnknown_TerminationWaitTimeInMinutes;
+        public int? TerminationWaitTimeInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_TerminationWaitTimeInMinutes) return _mValue_TerminationWaitTimeInMinutes;
+                throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.TerminationWaitTimeInMinutes' is not present");
+            }
+        }
     }
 }

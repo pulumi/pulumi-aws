@@ -16,77 +16,140 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Amazon Resource Name (ARN) of the scope.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the scope you're creating.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IPAM for which you're creating this scope.
         /// </summary>
-        [Input("ipamArn")]
+        [PolicyResourceProperty("ipamArn", "_mUnknown_IpamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamArn;
-
-        public string? IpamArn => _mIpamArn.GetValue("ipamArn");
+        private string? _mValue_IpamArn;
+        private bool _mUnknown_IpamArn;
+        public string? IpamArn
+        {
+            get
+            {
+                if (!_mUnknown_IpamArn) return _mValue_IpamArn;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.IpamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the IPAM for which you're creating this scope.
         /// </summary>
-        [Input("ipamId")]
+        [PolicyResourceProperty("ipamId", "_mUnknown_IpamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamId;
+        private string? _mValue_IpamId;
+        private bool _mUnknown_IpamId;
+        public string? IpamId
+        {
+            get
+            {
+                if (!_mUnknown_IpamId) return _mValue_IpamId;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.IpamId' is not present");
+            }
+        }
 
-        public string? IpamId => _mIpamId.GetValue("ipamId");
-
-        [Input("ipamScopeType")]
+        [PolicyResourceProperty("ipamScopeType", "_mUnknown_IpamScopeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamScopeType;
-
-        public string? IpamScopeType => _mIpamScopeType.GetValue("ipamScopeType");
+        private string? _mValue_IpamScopeType;
+        private bool _mUnknown_IpamScopeType;
+        public string? IpamScopeType
+        {
+            get
+            {
+                if (!_mUnknown_IpamScopeType) return _mValue_IpamScopeType;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.IpamScopeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines if the scope is the default scope or not.
         /// </summary>
-        [Input("isDefault")]
+        [PolicyResourceProperty("isDefault", "_mUnknown_IsDefault")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
-
-        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
+        private bool? _mValue_IsDefault;
+        private bool _mUnknown_IsDefault;
+        public bool? IsDefault
+        {
+            get
+            {
+                if (!_mUnknown_IsDefault) return _mValue_IsDefault;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.IsDefault' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of pools in the scope.
         /// </summary>
-        [Input("poolCount")]
+        [PolicyResourceProperty("poolCount", "_mUnknown_PoolCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPoolCount;
-
-        public int? PoolCount => _mPoolCount.GetValue("poolCount");
+        private int? _mValue_PoolCount;
+        private bool _mUnknown_PoolCount;
+        public int? PoolCount
+        {
+            get
+            {
+                if (!_mUnknown_PoolCount) return _mValue_PoolCount;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.PoolCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcIpamScope.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpamScope:VpcIpamScope")]
@@ -95,28 +158,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A description for the scope you're creating.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpamScopeArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the IPAM for which you're creating this scope.
         /// </summary>
-        [Input("ipamId")]
+        [PolicyResourceProperty("ipamId", "_mUnknown_IpamId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamId;
-
-        public string? IpamId => _mIpamId.GetValue("ipamId");
+        private string? _mValue_IpamId;
+        private bool _mUnknown_IpamId;
+        public string? IpamId
+        {
+            get
+            {
+                if (!_mUnknown_IpamId) return _mValue_IpamId;
+                throw new UndeferrableValueException("Value 'VpcIpamScopeArgs.IpamId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIpamScopeArgs.Tags' is not present");
+            }
+        }
     }
 }

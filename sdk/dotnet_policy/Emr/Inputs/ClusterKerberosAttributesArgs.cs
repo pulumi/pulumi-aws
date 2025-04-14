@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("adDomainJoinPassword")]
+        [PolicyResourceProperty("adDomainJoinPassword", "_mUnknown_AdDomainJoinPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdDomainJoinPassword;
-
-        public string? AdDomainJoinPassword => _mAdDomainJoinPassword.GetValue("adDomainJoinPassword");
+        private string? _mValue_AdDomainJoinPassword;
+        private bool _mUnknown_AdDomainJoinPassword;
+        public string? AdDomainJoinPassword
+        {
+            get
+            {
+                if (!_mUnknown_AdDomainJoinPassword) return _mValue_AdDomainJoinPassword;
+                throw new UndeferrableValueException("Value 'ClusterKerberosAttributesArgs.AdDomainJoinPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("adDomainJoinUser")]
+        [PolicyResourceProperty("adDomainJoinUser", "_mUnknown_AdDomainJoinUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdDomainJoinUser;
-
-        public string? AdDomainJoinUser => _mAdDomainJoinUser.GetValue("adDomainJoinUser");
+        private string? _mValue_AdDomainJoinUser;
+        private bool _mUnknown_AdDomainJoinUser;
+        public string? AdDomainJoinUser
+        {
+            get
+            {
+                if (!_mUnknown_AdDomainJoinUser) return _mValue_AdDomainJoinUser;
+                throw new UndeferrableValueException("Value 'ClusterKerberosAttributesArgs.AdDomainJoinUser' is not present");
+            }
+        }
 
         /// <summary>
         /// Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("crossRealmTrustPrincipalPassword")]
+        [PolicyResourceProperty("crossRealmTrustPrincipalPassword", "_mUnknown_CrossRealmTrustPrincipalPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCrossRealmTrustPrincipalPassword;
-
-        public string? CrossRealmTrustPrincipalPassword => _mCrossRealmTrustPrincipalPassword.GetValue("crossRealmTrustPrincipalPassword");
+        private string? _mValue_CrossRealmTrustPrincipalPassword;
+        private bool _mUnknown_CrossRealmTrustPrincipalPassword;
+        public string? CrossRealmTrustPrincipalPassword
+        {
+            get
+            {
+                if (!_mUnknown_CrossRealmTrustPrincipalPassword) return _mValue_CrossRealmTrustPrincipalPassword;
+                throw new UndeferrableValueException("Value 'ClusterKerberosAttributesArgs.CrossRealmTrustPrincipalPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("kdcAdminPassword")]
+        [PolicyResourceProperty("kdcAdminPassword", "_mUnknown_KdcAdminPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKdcAdminPassword;
-
-        public string? KdcAdminPassword => _mKdcAdminPassword.GetValue("kdcAdminPassword");
+        private string? _mValue_KdcAdminPassword;
+        private bool _mUnknown_KdcAdminPassword;
+        public string? KdcAdminPassword
+        {
+            get
+            {
+                if (!_mUnknown_KdcAdminPassword) return _mValue_KdcAdminPassword;
+                throw new UndeferrableValueException("Value 'ClusterKerberosAttributesArgs.KdcAdminPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
         /// </summary>
-        [Input("realm")]
+        [PolicyResourceProperty("realm", "_mUnknown_Realm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRealm;
-
-        public string? Realm => _mRealm.GetValue("realm");
+        private string? _mValue_Realm;
+        private bool _mUnknown_Realm;
+        public string? Realm
+        {
+            get
+            {
+                if (!_mUnknown_Realm) return _mValue_Realm;
+                throw new UndeferrableValueException("Value 'ClusterKerberosAttributesArgs.Realm' is not present");
+            }
+        }
     }
 }

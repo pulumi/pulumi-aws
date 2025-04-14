@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationS3Encryption.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
         /// </summary>
-        [Input("s3EncryptionMode")]
+        [PolicyResourceProperty("s3EncryptionMode", "_mUnknown_S3EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3EncryptionMode;
-
-        public string? S3EncryptionMode => _mS3EncryptionMode.GetValue("s3EncryptionMode");
+        private string? _mValue_S3EncryptionMode;
+        private bool _mUnknown_S3EncryptionMode;
+        public string? S3EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_S3EncryptionMode) return _mValue_S3EncryptionMode;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationS3Encryption.S3EncryptionMode' is not present");
+            }
+        }
     }
 }

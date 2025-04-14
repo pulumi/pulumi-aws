@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'DeviceFleetOutputConfig.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Simple Storage (S3) bucker URI.
         /// </summary>
-        [Input("s3OutputLocation")]
+        [PolicyResourceProperty("s3OutputLocation", "_mUnknown_S3OutputLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3OutputLocation;
-
-        public string? S3OutputLocation => _mS3OutputLocation.GetValue("s3OutputLocation");
+        private string? _mValue_S3OutputLocation;
+        private bool _mUnknown_S3OutputLocation;
+        public string? S3OutputLocation
+        {
+            get
+            {
+                if (!_mUnknown_S3OutputLocation) return _mValue_S3OutputLocation;
+                throw new UndeferrableValueException("Value 'DeviceFleetOutputConfig.S3OutputLocation' is not present");
+            }
+        }
     }
 }

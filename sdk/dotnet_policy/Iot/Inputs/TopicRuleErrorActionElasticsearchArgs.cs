@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The endpoint of your Elasticsearch domain.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the document you are storing.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The Elasticsearch index where you want to store your data.
         /// </summary>
-        [Input("index")]
+        [PolicyResourceProperty("index", "_mUnknown_Index")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndex;
-
-        public string? Index => _mIndex.GetValue("index");
+        private string? _mValue_Index;
+        private bool _mUnknown_Index;
+        public string? Index
+        {
+            get
+            {
+                if (!_mUnknown_Index) return _mValue_Index;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.Index' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN that has access to Elasticsearch.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of document you are storing.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.Type' is not present");
+            }
+        }
     }
 }

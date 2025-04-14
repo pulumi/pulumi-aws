@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Specifies the DNS address of the DB instance.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'Instance.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         /// </summary>
-        [Input("allocatedStorage")]
+        [PolicyResourceProperty("allocatedStorage", "_mUnknown_AllocatedStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
-
-        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
+        private int? _mValue_AllocatedStorage;
+        private bool _mUnknown_AllocatedStorage;
+        public int? AllocatedStorage
+        {
+            get
+            {
+                if (!_mUnknown_AllocatedStorage) return _mValue_AllocatedStorage;
+                throw new UndeferrableValueException("Value 'Instance.AllocatedStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that major version
         /// upgrades are allowed. Changing this parameter does not result in an outage and
         /// the change is asynchronously applied as soon as possible.
         /// </summary>
-        [Input("allowMajorVersionUpgrade")]
+        [PolicyResourceProperty("allowMajorVersionUpgrade", "_mUnknown_AllowMajorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
-
-        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+        private bool? _mValue_AllowMajorVersionUpgrade;
+        private bool _mUnknown_AllowMajorVersionUpgrade;
+        public bool? AllowMajorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AllowMajorVersionUpgrade) return _mValue_AllowMajorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'Instance.AllowMajorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether any database modifications
@@ -48,40 +69,68 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// `false`. See [Amazon RDS Documentation for more
         /// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'Instance.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the RDS instance.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Instance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that minor engine upgrades
         /// will be applied automatically to the DB instance during the maintenance window.
         /// Defaults to true.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
-
-        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private bool? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public bool? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'Instance.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// The AZ for the RDS instance.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Instance.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The days to retain backups for.
@@ -91,49 +140,84 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// uses low-downtime updates,
         /// or will use [RDS Blue/Green deployments][blue-green].
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'Instance.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         /// </summary>
-        [Input("backupTarget")]
+        [PolicyResourceProperty("backupTarget", "_mUnknown_BackupTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupTarget;
-
-        public string? BackupTarget => _mBackupTarget.GetValue("backupTarget");
+        private string? _mValue_BackupTarget;
+        private bool _mUnknown_BackupTarget;
+        public string? BackupTarget
+        {
+            get
+            {
+                if (!_mUnknown_BackupTarget) return _mValue_BackupTarget;
+                throw new UndeferrableValueException("Value 'Instance.BackupTarget' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
         /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         /// </summary>
-        [Input("backupWindow")]
+        [PolicyResourceProperty("backupWindow", "_mUnknown_BackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupWindow;
-
-        public string? BackupWindow => _mBackupWindow.GetValue("backupWindow");
+        private string? _mValue_BackupWindow;
+        private bool _mUnknown_BackupWindow;
+        public string? BackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_BackupWindow) return _mValue_BackupWindow;
+                throw new UndeferrableValueException("Value 'Instance.BackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         /// See `blue_green_update` below.
         /// </summary>
-        [Input("blueGreenUpdate")]
+        [PolicyResourceProperty("blueGreenUpdate", "_mUnknown_BlueGreenUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceBlueGreenUpdate> _mBlueGreenUpdate;
-
-        public Outputs.InstanceBlueGreenUpdate? BlueGreenUpdate => _mBlueGreenUpdate.GetValue("blueGreenUpdate");
+        private Outputs.InstanceBlueGreenUpdate? _mValue_BlueGreenUpdate;
+        private bool _mUnknown_BlueGreenUpdate;
+        public Outputs.InstanceBlueGreenUpdate? BlueGreenUpdate
+        {
+            get
+            {
+                if (!_mUnknown_BlueGreenUpdate) return _mValue_BlueGreenUpdate;
+                throw new UndeferrableValueException("Value 'Instance.BlueGreenUpdate' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the CA certificate for the DB instance.
         /// </summary>
-        [Input("caCertIdentifier")]
+        [PolicyResourceProperty("caCertIdentifier", "_mUnknown_CaCertIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertIdentifier;
-
-        public string? CaCertIdentifier => _mCaCertIdentifier.GetValue("caCertIdentifier");
+        private string? _mValue_CaCertIdentifier;
+        private bool _mUnknown_CaCertIdentifier;
+        public string? CaCertIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_CaCertIdentifier) return _mValue_CaCertIdentifier;
+                throw new UndeferrableValueException("Value 'Instance.CaCertIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
@@ -142,29 +226,50 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         /// </summary>
-        [Input("characterSetName")]
+        [PolicyResourceProperty("characterSetName", "_mUnknown_CharacterSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCharacterSetName;
-
-        public string? CharacterSetName => _mCharacterSetName.GetValue("characterSetName");
+        private string? _mValue_CharacterSetName;
+        private bool _mUnknown_CharacterSetName;
+        public string? CharacterSetName
+        {
+            get
+            {
+                if (!_mUnknown_CharacterSetName) return _mValue_CharacterSetName;
+                throw new UndeferrableValueException("Value 'Instance.CharacterSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Copy all Instance `tags` to snapshots. Default is `false`.
         /// </summary>
-        [Input("copyTagsToSnapshot")]
+        [PolicyResourceProperty("copyTagsToSnapshot", "_mUnknown_CopyTagsToSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
-
-        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+        private bool? _mValue_CopyTagsToSnapshot;
+        private bool _mUnknown_CopyTagsToSnapshot;
+        public bool? CopyTagsToSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToSnapshot) return _mValue_CopyTagsToSnapshot;
+                throw new UndeferrableValueException("Value 'Instance.CopyTagsToSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         /// </summary>
-        [Input("customIamInstanceProfile")]
+        [PolicyResourceProperty("customIamInstanceProfile", "_mUnknown_CustomIamInstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomIamInstanceProfile;
-
-        public string? CustomIamInstanceProfile => _mCustomIamInstanceProfile.GetValue("customIamInstanceProfile");
+        private string? _mValue_CustomIamInstanceProfile;
+        private bool _mUnknown_CustomIamInstanceProfile;
+        public string? CustomIamInstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_CustomIamInstanceProfile) return _mValue_CustomIamInstanceProfile;
+                throw new UndeferrableValueException("Value 'Instance.CustomIamInstanceProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -173,29 +278,50 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Replicate database managed by the provider will promote the database to a fully
         /// standalone database.
         /// </summary>
-        [Input("customerOwnedIpEnabled")]
+        [PolicyResourceProperty("customerOwnedIpEnabled", "_mUnknown_CustomerOwnedIpEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomerOwnedIpEnabled;
-
-        public bool? CustomerOwnedIpEnabled => _mCustomerOwnedIpEnabled.GetValue("customerOwnedIpEnabled");
+        private bool? _mValue_CustomerOwnedIpEnabled;
+        private bool _mUnknown_CustomerOwnedIpEnabled;
+        public bool? CustomerOwnedIpEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpEnabled) return _mValue_CustomerOwnedIpEnabled;
+                throw new UndeferrableValueException("Value 'Instance.CustomerOwnedIpEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
         /// </summary>
-        [Input("databaseInsightsMode")]
+        [PolicyResourceProperty("databaseInsightsMode", "_mUnknown_DatabaseInsightsMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInsightsMode;
-
-        public string? DatabaseInsightsMode => _mDatabaseInsightsMode.GetValue("databaseInsightsMode");
+        private string? _mValue_DatabaseInsightsMode;
+        private bool _mUnknown_DatabaseInsightsMode;
+        public string? DatabaseInsightsMode
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseInsightsMode) return _mValue_DatabaseInsightsMode;
+                throw new UndeferrableValueException("Value 'Instance.DatabaseInsightsMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         /// </summary>
-        [Input("dbName")]
+        [PolicyResourceProperty("dbName", "_mUnknown_DbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbName;
-
-        public string? DbName => _mDbName.GetValue("dbName");
+        private string? _mValue_DbName;
+        private bool _mUnknown_DbName;
+        public string? DbName
+        {
+            get
+            {
+                if (!_mUnknown_DbName) return _mValue_DbName;
+                throw new UndeferrableValueException("Value 'Instance.DbName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of DB subnet group.
@@ -205,203 +331,357 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// When working with read replicas created in a different region, defaults to the `default` Subnet Group.
         /// See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         /// </summary>
-        [Input("dbSubnetGroupName")]
+        [PolicyResourceProperty("dbSubnetGroupName", "_mUnknown_DbSubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
-
-        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
+        private string? _mValue_DbSubnetGroupName;
+        private bool _mUnknown_DbSubnetGroupName;
+        public string? DbSubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DbSubnetGroupName) return _mValue_DbSubnetGroupName;
+                throw new UndeferrableValueException("Value 'Instance.DbSubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         /// </summary>
-        [Input("dedicatedLogVolume")]
+        [PolicyResourceProperty("dedicatedLogVolume", "_mUnknown_DedicatedLogVolume")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDedicatedLogVolume;
-
-        public bool? DedicatedLogVolume => _mDedicatedLogVolume.GetValue("dedicatedLogVolume");
+        private bool? _mValue_DedicatedLogVolume;
+        private bool _mUnknown_DedicatedLogVolume;
+        public bool? DedicatedLogVolume
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedLogVolume) return _mValue_DedicatedLogVolume;
+                throw new UndeferrableValueException("Value 'Instance.DedicatedLogVolume' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         /// </summary>
-        [Input("deleteAutomatedBackups")]
+        [PolicyResourceProperty("deleteAutomatedBackups", "_mUnknown_DeleteAutomatedBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAutomatedBackups;
-
-        public bool? DeleteAutomatedBackups => _mDeleteAutomatedBackups.GetValue("deleteAutomatedBackups");
+        private bool? _mValue_DeleteAutomatedBackups;
+        private bool _mUnknown_DeleteAutomatedBackups;
+        public bool? DeleteAutomatedBackups
+        {
+            get
+            {
+                if (!_mUnknown_DeleteAutomatedBackups) return _mValue_DeleteAutomatedBackups;
+                throw new UndeferrableValueException("Value 'Instance.DeleteAutomatedBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'Instance.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'Instance.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainAuthSecretArn")]
+        [PolicyResourceProperty("domainAuthSecretArn", "_mUnknown_DomainAuthSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainAuthSecretArn;
-
-        public string? DomainAuthSecretArn => _mDomainAuthSecretArn.GetValue("domainAuthSecretArn");
+        private string? _mValue_DomainAuthSecretArn;
+        private bool _mUnknown_DomainAuthSecretArn;
+        public string? DomainAuthSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_DomainAuthSecretArn) return _mValue_DomainAuthSecretArn;
+                throw new UndeferrableValueException("Value 'Instance.DomainAuthSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainDnsIps")]
+        [PolicyResourceProperty("domainDnsIps", "_mUnknown_DomainDnsIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainDnsIps;
-
-        public List<string>? DomainDnsIps => _mDomainDnsIps.GetValue("domainDnsIps");
+        private List<string>? _mValue_DomainDnsIps;
+        private bool _mUnknown_DomainDnsIps;
+        public List<string>? DomainDnsIps
+        {
+            get
+            {
+                if (!_mUnknown_DomainDnsIps) return _mValue_DomainDnsIps;
+                throw new UndeferrableValueException("Value 'Instance.DomainDnsIps' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainFqdn")]
+        [PolicyResourceProperty("domainFqdn", "_mUnknown_DomainFqdn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainFqdn;
-
-        public string? DomainFqdn => _mDomainFqdn.GetValue("domainFqdn");
+        private string? _mValue_DomainFqdn;
+        private bool _mUnknown_DomainFqdn;
+        public string? DomainFqdn
+        {
+            get
+            {
+                if (!_mUnknown_DomainFqdn) return _mValue_DomainFqdn;
+                throw new UndeferrableValueException("Value 'Instance.DomainFqdn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
-        [Input("domainIamRoleName")]
+        [PolicyResourceProperty("domainIamRoleName", "_mUnknown_DomainIamRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIamRoleName;
-
-        public string? DomainIamRoleName => _mDomainIamRoleName.GetValue("domainIamRoleName");
+        private string? _mValue_DomainIamRoleName;
+        private bool _mUnknown_DomainIamRoleName;
+        public string? DomainIamRoleName
+        {
+            get
+            {
+                if (!_mUnknown_DomainIamRoleName) return _mValue_DomainIamRoleName;
+                throw new UndeferrableValueException("Value 'Instance.DomainIamRoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainOu")]
+        [PolicyResourceProperty("domainOu", "_mUnknown_DomainOu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOu;
-
-        public string? DomainOu => _mDomainOu.GetValue("domainOu");
+        private string? _mValue_DomainOu;
+        private bool _mUnknown_DomainOu;
+        public string? DomainOu
+        {
+            get
+            {
+                if (!_mUnknown_DomainOu) return _mValue_DomainOu;
+                throw new UndeferrableValueException("Value 'Instance.DomainOu' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
-        [Input("enabledCloudwatchLogsExports")]
+        [PolicyResourceProperty("enabledCloudwatchLogsExports", "_mUnknown_EnabledCloudwatchLogsExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
-
-        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
+        private List<string>? _mValue_EnabledCloudwatchLogsExports;
+        private bool _mUnknown_EnabledCloudwatchLogsExports;
+        public List<string>? EnabledCloudwatchLogsExports
+        {
+            get
+            {
+                if (!_mUnknown_EnabledCloudwatchLogsExports) return _mValue_EnabledCloudwatchLogsExports;
+                throw new UndeferrableValueException("Value 'Instance.EnabledCloudwatchLogsExports' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection endpoint in `address:port` format.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Instance.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'Instance.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
-        [Input("engineLifecycleSupport")]
+        [PolicyResourceProperty("engineLifecycleSupport", "_mUnknown_EngineLifecycleSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineLifecycleSupport;
-
-        public string? EngineLifecycleSupport => _mEngineLifecycleSupport.GetValue("engineLifecycleSupport");
+        private string? _mValue_EngineLifecycleSupport;
+        private bool _mUnknown_EngineLifecycleSupport;
+        public string? EngineLifecycleSupport
+        {
+            get
+            {
+                if (!_mUnknown_EngineLifecycleSupport) return _mValue_EngineLifecycleSupport;
+                throw new UndeferrableValueException("Value 'Instance.EngineLifecycleSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Instance.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The running version of the database.
         /// </summary>
-        [Input("engineVersionActual")]
+        [PolicyResourceProperty("engineVersionActual", "_mUnknown_EngineVersionActual")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersionActual;
-
-        public string? EngineVersionActual => _mEngineVersionActual.GetValue("engineVersionActual");
+        private string? _mValue_EngineVersionActual;
+        private bool _mUnknown_EngineVersionActual;
+        public string? EngineVersionActual
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersionActual) return _mValue_EngineVersionActual;
+                throw new UndeferrableValueException("Value 'Instance.EngineVersionActual' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your final DB snapshot
         /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
         /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'Instance.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'Instance.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
         /// accounts is enabled.
         /// </summary>
-        [Input("iamDatabaseAuthenticationEnabled")]
+        [PolicyResourceProperty("iamDatabaseAuthenticationEnabled", "_mUnknown_IamDatabaseAuthenticationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
-
-        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
+        private bool? _mValue_IamDatabaseAuthenticationEnabled;
+        private bool _mUnknown_IamDatabaseAuthenticationEnabled;
+        public bool? IamDatabaseAuthenticationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IamDatabaseAuthenticationEnabled) return _mValue_IamDatabaseAuthenticationEnabled;
+                throw new UndeferrableValueException("Value 'Instance.IamDatabaseAuthenticationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'Instance.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
-        [Input("identifierPrefix")]
+        [PolicyResourceProperty("identifierPrefix", "_mUnknown_IdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
-
-        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+        private string? _mValue_IdentifierPrefix;
+        private bool _mUnknown_IdentifierPrefix;
+        public string? IdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_IdentifierPrefix) return _mValue_IdentifierPrefix;
+                throw new UndeferrableValueException("Value 'Instance.IdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type of the RDS instance.
         /// </summary>
-        [Input("instanceClass")]
+        [PolicyResourceProperty("instanceClass", "_mUnknown_InstanceClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
-
-        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
+        private string? _mValue_InstanceClass;
+        private bool _mUnknown_InstanceClass;
+        public string? InstanceClass
+        {
+            get
+            {
+                if (!_mUnknown_InstanceClass) return _mValue_InstanceClass;
+                throw new UndeferrableValueException("Value 'Instance.InstanceClass' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
@@ -409,30 +689,51 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
         /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'Instance.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. If creating an
         /// encrypted replica, set this to the destination KMS ARN.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Instance.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         /// </summary>
-        [Input("latestRestorableTime")]
+        [PolicyResourceProperty("latestRestorableTime", "_mUnknown_LatestRestorableTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatestRestorableTime;
-
-        public string? LatestRestorableTime => _mLatestRestorableTime.GetValue("latestRestorableTime");
+        private string? _mValue_LatestRestorableTime;
+        private bool _mUnknown_LatestRestorableTime;
+        public string? LatestRestorableTime
+        {
+            get
+            {
+                if (!_mUnknown_LatestRestorableTime) return _mValue_LatestRestorableTime;
+                throw new UndeferrableValueException("Value 'Instance.LatestRestorableTime' is not present");
+            }
+        }
 
         /// <summary>
         /// License model information for this DB instance. Valid values for this field are as follows:
@@ -442,20 +743,34 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// * RDS for Oracle: `bring-your-own-license | license-included`
         /// * RDS for PostgreSQL: `postgresql-license`
         /// </summary>
-        [Input("licenseModel")]
+        [PolicyResourceProperty("licenseModel", "_mUnknown_LicenseModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseModel;
-
-        public string? LicenseModel => _mLicenseModel.GetValue("licenseModel");
+        private string? _mValue_LicenseModel;
+        private bool _mUnknown_LicenseModel;
+        public string? LicenseModel
+        {
+            get
+            {
+                if (!_mUnknown_LicenseModel) return _mValue_LicenseModel;
+                throw new UndeferrableValueException("Value 'Instance.LicenseModel' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the listener connection endpoint for SQL Server Always On. See endpoint below.
         /// </summary>
-        [Input("listenerEndpoints")]
+        [PolicyResourceProperty("listenerEndpoints", "_mUnknown_ListenerEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceListenerEndpoint>> _mListenerEndpoints;
-
-        public List<Outputs.InstanceListenerEndpoint>? ListenerEndpoints => _mListenerEndpoints.GetValue("listenerEndpoints");
+        private List<Outputs.InstanceListenerEndpoint>? _mValue_ListenerEndpoints;
+        private bool _mUnknown_ListenerEndpoints;
+        public List<Outputs.InstanceListenerEndpoint>? ListenerEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_ListenerEndpoints) return _mValue_ListenerEndpoints;
+                throw new UndeferrableValueException("Value 'Instance.ListenerEndpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The window to perform maintenance in.
@@ -464,47 +779,82 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
         /// for more information.
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Instance.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         /// </summary>
-        [Input("manageMasterUserPassword")]
+        [PolicyResourceProperty("manageMasterUserPassword", "_mUnknown_ManageMasterUserPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageMasterUserPassword;
-
-        public bool? ManageMasterUserPassword => _mManageMasterUserPassword.GetValue("manageMasterUserPassword");
+        private bool? _mValue_ManageMasterUserPassword;
+        private bool _mUnknown_ManageMasterUserPassword;
+        public bool? ManageMasterUserPassword
+        {
+            get
+            {
+                if (!_mUnknown_ManageMasterUserPassword) return _mValue_ManageMasterUserPassword;
+                throw new UndeferrableValueException("Value 'Instance.ManageMasterUserPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
-        [Input("masterUserSecretKmsKeyId")]
+        [PolicyResourceProperty("masterUserSecretKmsKeyId", "_mUnknown_MasterUserSecretKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserSecretKmsKeyId;
-
-        public string? MasterUserSecretKmsKeyId => _mMasterUserSecretKmsKeyId.GetValue("masterUserSecretKmsKeyId");
+        private string? _mValue_MasterUserSecretKmsKeyId;
+        private bool _mUnknown_MasterUserSecretKmsKeyId;
+        public string? MasterUserSecretKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserSecretKmsKeyId) return _mValue_MasterUserSecretKmsKeyId;
+                throw new UndeferrableValueException("Value 'Instance.MasterUserSecretKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         /// </summary>
-        [Input("masterUserSecrets")]
+        [PolicyResourceProperty("masterUserSecrets", "_mUnknown_MasterUserSecrets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceMasterUserSecret>> _mMasterUserSecrets;
-
-        public List<Outputs.InstanceMasterUserSecret>? MasterUserSecrets => _mMasterUserSecrets.GetValue("masterUserSecrets");
+        private List<Outputs.InstanceMasterUserSecret>? _mValue_MasterUserSecrets;
+        private bool _mUnknown_MasterUserSecrets;
+        public List<Outputs.InstanceMasterUserSecret>? MasterUserSecrets
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserSecrets) return _mValue_MasterUserSecrets;
+                throw new UndeferrableValueException("Value 'Instance.MasterUserSecrets' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
         /// </summary>
-        [Input("maxAllocatedStorage")]
+        [PolicyResourceProperty("maxAllocatedStorage", "_mUnknown_MaxAllocatedStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAllocatedStorage;
-
-        public int? MaxAllocatedStorage => _mMaxAllocatedStorage.GetValue("maxAllocatedStorage");
+        private int? _mValue_MaxAllocatedStorage;
+        private bool _mUnknown_MaxAllocatedStorage;
+        public int? MaxAllocatedStorage
+        {
+            get
+            {
+                if (!_mUnknown_MaxAllocatedStorage) return _mValue_MaxAllocatedStorage;
+                throw new UndeferrableValueException("Value 'Instance.MaxAllocatedStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// The interval, in seconds, between points
@@ -512,11 +862,18 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
         /// Values: 0, 1, 5, 10, 15, 30, 60.
         /// </summary>
-        [Input("monitoringInterval")]
+        [PolicyResourceProperty("monitoringInterval", "_mUnknown_MonitoringInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMonitoringInterval;
-
-        public int? MonitoringInterval => _mMonitoringInterval.GetValue("monitoringInterval");
+        private int? _mValue_MonitoringInterval;
+        private bool _mUnknown_MonitoringInterval;
+        public int? MonitoringInterval
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringInterval) return _mValue_MonitoringInterval;
+                throw new UndeferrableValueException("Value 'Instance.MonitoringInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the IAM role that permits RDS
@@ -525,134 +882,239 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
         /// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         /// </summary>
-        [Input("monitoringRoleArn")]
+        [PolicyResourceProperty("monitoringRoleArn", "_mUnknown_MonitoringRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringRoleArn;
-
-        public string? MonitoringRoleArn => _mMonitoringRoleArn.GetValue("monitoringRoleArn");
+        private string? _mValue_MonitoringRoleArn;
+        private bool _mUnknown_MonitoringRoleArn;
+        public string? MonitoringRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringRoleArn) return _mValue_MonitoringRoleArn;
+                throw new UndeferrableValueException("Value 'Instance.MonitoringRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies if the RDS instance is multi-AZ
         /// </summary>
-        [Input("multiAz")]
+        [PolicyResourceProperty("multiAz", "_mUnknown_MultiAz")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+        private bool? _mValue_MultiAz;
+        private bool _mUnknown_MultiAz;
+        public bool? MultiAz
+        {
+            get
+            {
+                if (!_mUnknown_MultiAz) return _mValue_MultiAz;
+                throw new UndeferrableValueException("Value 'Instance.MultiAz' is not present");
+            }
+        }
 
-        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Instance.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         /// </summary>
-        [Input("ncharCharacterSetName")]
+        [PolicyResourceProperty("ncharCharacterSetName", "_mUnknown_NcharCharacterSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNcharCharacterSetName;
-
-        public string? NcharCharacterSetName => _mNcharCharacterSetName.GetValue("ncharCharacterSetName");
+        private string? _mValue_NcharCharacterSetName;
+        private bool _mUnknown_NcharCharacterSetName;
+        public string? NcharCharacterSetName
+        {
+            get
+            {
+                if (!_mUnknown_NcharCharacterSetName) return _mValue_NcharCharacterSetName;
+                throw new UndeferrableValueException("Value 'Instance.NcharCharacterSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         /// </summary>
-        [Input("networkType")]
+        [PolicyResourceProperty("networkType", "_mUnknown_NetworkType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
-
-        public string? NetworkType => _mNetworkType.GetValue("networkType");
+        private string? _mValue_NetworkType;
+        private bool _mUnknown_NetworkType;
+        public string? NetworkType
+        {
+            get
+            {
+                if (!_mUnknown_NetworkType) return _mValue_NetworkType;
+                throw new UndeferrableValueException("Value 'Instance.NetworkType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DB option group to associate.
         /// </summary>
-        [Input("optionGroupName")]
+        [PolicyResourceProperty("optionGroupName", "_mUnknown_OptionGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupName;
-
-        public string? OptionGroupName => _mOptionGroupName.GetValue("optionGroupName");
+        private string? _mValue_OptionGroupName;
+        private bool _mUnknown_OptionGroupName;
+        public string? OptionGroupName
+        {
+            get
+            {
+                if (!_mUnknown_OptionGroupName) return _mValue_OptionGroupName;
+                throw new UndeferrableValueException("Value 'Instance.OptionGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DB parameter group to associate.
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'Instance.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'Instance.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.
         /// </summary>
-        [Input("performanceInsightsEnabled")]
+        [PolicyResourceProperty("performanceInsightsEnabled", "_mUnknown_PerformanceInsightsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPerformanceInsightsEnabled;
-
-        public bool? PerformanceInsightsEnabled => _mPerformanceInsightsEnabled.GetValue("performanceInsightsEnabled");
+        private bool? _mValue_PerformanceInsightsEnabled;
+        private bool _mUnknown_PerformanceInsightsEnabled;
+        public bool? PerformanceInsightsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsEnabled) return _mValue_PerformanceInsightsEnabled;
+                throw new UndeferrableValueException("Value 'Instance.PerformanceInsightsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         /// </summary>
-        [Input("performanceInsightsKmsKeyId")]
+        [PolicyResourceProperty("performanceInsightsKmsKeyId", "_mUnknown_PerformanceInsightsKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
-
-        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
+        private string? _mValue_PerformanceInsightsKmsKeyId;
+        private bool _mUnknown_PerformanceInsightsKmsKeyId;
+        public string? PerformanceInsightsKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsKmsKeyId) return _mValue_PerformanceInsightsKmsKeyId;
+                throw new UndeferrableValueException("Value 'Instance.PerformanceInsightsKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
-        [Input("performanceInsightsRetentionPeriod")]
+        [PolicyResourceProperty("performanceInsightsRetentionPeriod", "_mUnknown_PerformanceInsightsRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPerformanceInsightsRetentionPeriod;
-
-        public int? PerformanceInsightsRetentionPeriod => _mPerformanceInsightsRetentionPeriod.GetValue("performanceInsightsRetentionPeriod");
+        private int? _mValue_PerformanceInsightsRetentionPeriod;
+        private bool _mUnknown_PerformanceInsightsRetentionPeriod;
+        public int? PerformanceInsightsRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsRetentionPeriod) return _mValue_PerformanceInsightsRetentionPeriod;
+                throw new UndeferrableValueException("Value 'Instance.PerformanceInsightsRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the DB accepts connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Instance.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Bool to control if instance is publicly
         /// accessible. Default is `false`.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'Instance.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
         /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         /// </summary>
-        [Input("replicaMode")]
+        [PolicyResourceProperty("replicaMode", "_mUnknown_ReplicaMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicaMode;
+        private string? _mValue_ReplicaMode;
+        private bool _mUnknown_ReplicaMode;
+        public string? ReplicaMode
+        {
+            get
+            {
+                if (!_mUnknown_ReplicaMode) return _mValue_ReplicaMode;
+                throw new UndeferrableValueException("Value 'Instance.ReplicaMode' is not present");
+            }
+        }
 
-        public string? ReplicaMode => _mReplicaMode.GetValue("replicaMode");
-
-        [Input("replicas")]
+        [PolicyResourceProperty("replicas", "_mUnknown_Replicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReplicas;
-
-        public List<string>? Replicas => _mReplicas.GetValue("replicas");
+        private List<string>? _mValue_Replicas;
+        private bool _mUnknown_Replicas;
+        public List<string>? Replicas
+        {
+            get
+            {
+                if (!_mUnknown_Replicas) return _mValue_Replicas;
+                throw new UndeferrableValueException("Value 'Instance.Replicas' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -662,40 +1124,68 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
         /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         /// </summary>
-        [Input("replicateSourceDb")]
+        [PolicyResourceProperty("replicateSourceDb", "_mUnknown_ReplicateSourceDb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateSourceDb;
-
-        public string? ReplicateSourceDb => _mReplicateSourceDb.GetValue("replicateSourceDb");
+        private string? _mValue_ReplicateSourceDb;
+        private bool _mUnknown_ReplicateSourceDb;
+        public string? ReplicateSourceDb
+        {
+            get
+            {
+                if (!_mUnknown_ReplicateSourceDb) return _mValue_ReplicateSourceDb;
+                throw new UndeferrableValueException("Value 'Instance.ReplicateSourceDb' is not present");
+            }
+        }
 
         /// <summary>
         /// The RDS Resource ID of this instance.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'Instance.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block for restoring a DB instance to an arbitrary point in time.
         /// Requires the `identifier` argument to be set with the name of the new DB instance to be created.
         /// See Restore To Point In Time below for details.
         /// </summary>
-        [Input("restoreToPointInTime")]
+        [PolicyResourceProperty("restoreToPointInTime", "_mUnknown_RestoreToPointInTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceRestoreToPointInTime> _mRestoreToPointInTime;
-
-        public Outputs.InstanceRestoreToPointInTime? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
+        private Outputs.InstanceRestoreToPointInTime? _mValue_RestoreToPointInTime;
+        private bool _mUnknown_RestoreToPointInTime;
+        public Outputs.InstanceRestoreToPointInTime? RestoreToPointInTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToPointInTime) return _mValue_RestoreToPointInTime;
+                throw new UndeferrableValueException("Value 'Instance.RestoreToPointInTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         /// </summary>
-        [Input("s3Import")]
+        [PolicyResourceProperty("s3Import", "_mUnknown_S3Import")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceS3Import> _mS3Import;
-
-        public Outputs.InstanceS3Import? S3Import => _mS3Import.GetValue("s3Import");
+        private Outputs.InstanceS3Import? _mValue_S3Import;
+        private bool _mUnknown_S3Import;
+        public Outputs.InstanceS3Import? S3Import
+        {
+            get
+            {
+                if (!_mUnknown_S3Import) return _mValue_S3Import;
+                throw new UndeferrableValueException("Value 'Instance.S3Import' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final DB snapshot is
@@ -704,30 +1194,51 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// instance is deleted, using the value from `final_snapshot_identifier`. Default
         /// is `false`.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'Instance.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not to create this database from a snapshot.
         /// This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'Instance.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The RDS instance status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Instance.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB instance is
@@ -735,20 +1246,34 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// is ignored and you should instead declare `kms_key_id` with a valid ARN. The
         /// default is `false` if not specified.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'Instance.StorageEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
-        [Input("storageThroughput")]
+        [PolicyResourceProperty("storageThroughput", "_mUnknown_StorageThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageThroughput;
-
-        public int? StorageThroughput => _mStorageThroughput.GetValue("storageThroughput");
+        private int? _mValue_StorageThroughput;
+        private bool _mUnknown_StorageThroughput;
+        public int? StorageThroughput
+        {
+            get
+            {
+                if (!_mUnknown_StorageThroughput) return _mValue_StorageThroughput;
+                throw new UndeferrableValueException("Value 'Instance.StorageThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// One of "standard" (magnetic), "gp2" (general
@@ -756,29 +1281,50 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
         /// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'Instance.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Instance.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Instance.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone of the DB instance. `timezone` is currently
@@ -787,41 +1333,69 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
         /// for more information.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'Instance.Timezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.
         /// Can only be set with `replicate_source_db`.
         /// </summary>
-        [Input("upgradeStorageConfig")]
+        [PolicyResourceProperty("upgradeStorageConfig", "_mUnknown_UpgradeStorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUpgradeStorageConfig;
-
-        public bool? UpgradeStorageConfig => _mUpgradeStorageConfig.GetValue("upgradeStorageConfig");
+        private bool? _mValue_UpgradeStorageConfig;
+        private bool _mUnknown_UpgradeStorageConfig;
+        public bool? UpgradeStorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_UpgradeStorageConfig) return _mValue_UpgradeStorageConfig;
+                throw new UndeferrableValueException("Value 'Instance.UpgradeStorageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'Instance.Username' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to
         /// associate.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Instance.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/instance:Instance")]
@@ -830,22 +1404,36 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         /// </summary>
-        [Input("allocatedStorage")]
+        [PolicyResourceProperty("allocatedStorage", "_mUnknown_AllocatedStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
-
-        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
+        private int? _mValue_AllocatedStorage;
+        private bool _mUnknown_AllocatedStorage;
+        public int? AllocatedStorage
+        {
+            get
+            {
+                if (!_mUnknown_AllocatedStorage) return _mValue_AllocatedStorage;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AllocatedStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that major version
         /// upgrades are allowed. Changing this parameter does not result in an outage and
         /// the change is asynchronously applied as soon as possible.
         /// </summary>
-        [Input("allowMajorVersionUpgrade")]
+        [PolicyResourceProperty("allowMajorVersionUpgrade", "_mUnknown_AllowMajorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
-
-        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+        private bool? _mValue_AllowMajorVersionUpgrade;
+        private bool _mUnknown_AllowMajorVersionUpgrade;
+        public bool? AllowMajorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AllowMajorVersionUpgrade) return _mValue_AllowMajorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AllowMajorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether any database modifications
@@ -853,31 +1441,52 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// `false`. See [Amazon RDS Documentation for more
         /// information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'InstanceArgs.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that minor engine upgrades
         /// will be applied automatically to the DB instance during the maintenance window.
         /// Defaults to true.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
-
-        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private bool? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public bool? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// The AZ for the RDS instance.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'InstanceArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The days to retain backups for.
@@ -887,49 +1496,84 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// uses low-downtime updates,
         /// or will use [RDS Blue/Green deployments][blue-green].
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'InstanceArgs.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         /// </summary>
-        [Input("backupTarget")]
+        [PolicyResourceProperty("backupTarget", "_mUnknown_BackupTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupTarget;
-
-        public string? BackupTarget => _mBackupTarget.GetValue("backupTarget");
+        private string? _mValue_BackupTarget;
+        private bool _mUnknown_BackupTarget;
+        public string? BackupTarget
+        {
+            get
+            {
+                if (!_mUnknown_BackupTarget) return _mValue_BackupTarget;
+                throw new UndeferrableValueException("Value 'InstanceArgs.BackupTarget' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
         /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         /// </summary>
-        [Input("backupWindow")]
+        [PolicyResourceProperty("backupWindow", "_mUnknown_BackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupWindow;
-
-        public string? BackupWindow => _mBackupWindow.GetValue("backupWindow");
+        private string? _mValue_BackupWindow;
+        private bool _mUnknown_BackupWindow;
+        public string? BackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_BackupWindow) return _mValue_BackupWindow;
+                throw new UndeferrableValueException("Value 'InstanceArgs.BackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
         /// See `blue_green_update` below.
         /// </summary>
-        [Input("blueGreenUpdate")]
+        [PolicyResourceProperty("blueGreenUpdate", "_mUnknown_BlueGreenUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceBlueGreenUpdateArgs> _mBlueGreenUpdate;
-
-        public Inputs.InstanceBlueGreenUpdateArgs? BlueGreenUpdate => _mBlueGreenUpdate.GetValue("blueGreenUpdate");
+        private Inputs.InstanceBlueGreenUpdateArgs? _mValue_BlueGreenUpdate;
+        private bool _mUnknown_BlueGreenUpdate;
+        public Inputs.InstanceBlueGreenUpdateArgs? BlueGreenUpdate
+        {
+            get
+            {
+                if (!_mUnknown_BlueGreenUpdate) return _mValue_BlueGreenUpdate;
+                throw new UndeferrableValueException("Value 'InstanceArgs.BlueGreenUpdate' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the CA certificate for the DB instance.
         /// </summary>
-        [Input("caCertIdentifier")]
+        [PolicyResourceProperty("caCertIdentifier", "_mUnknown_CaCertIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertIdentifier;
-
-        public string? CaCertIdentifier => _mCaCertIdentifier.GetValue("caCertIdentifier");
+        private string? _mValue_CaCertIdentifier;
+        private bool _mUnknown_CaCertIdentifier;
+        public string? CaCertIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_CaCertIdentifier) return _mValue_CaCertIdentifier;
+                throw new UndeferrableValueException("Value 'InstanceArgs.CaCertIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation).
@@ -938,29 +1582,50 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         /// Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         /// </summary>
-        [Input("characterSetName")]
+        [PolicyResourceProperty("characterSetName", "_mUnknown_CharacterSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCharacterSetName;
-
-        public string? CharacterSetName => _mCharacterSetName.GetValue("characterSetName");
+        private string? _mValue_CharacterSetName;
+        private bool _mUnknown_CharacterSetName;
+        public string? CharacterSetName
+        {
+            get
+            {
+                if (!_mUnknown_CharacterSetName) return _mValue_CharacterSetName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.CharacterSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Copy all Instance `tags` to snapshots. Default is `false`.
         /// </summary>
-        [Input("copyTagsToSnapshot")]
+        [PolicyResourceProperty("copyTagsToSnapshot", "_mUnknown_CopyTagsToSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
-
-        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+        private bool? _mValue_CopyTagsToSnapshot;
+        private bool _mUnknown_CopyTagsToSnapshot;
+        public bool? CopyTagsToSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToSnapshot) return _mValue_CopyTagsToSnapshot;
+                throw new UndeferrableValueException("Value 'InstanceArgs.CopyTagsToSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         /// </summary>
-        [Input("customIamInstanceProfile")]
+        [PolicyResourceProperty("customIamInstanceProfile", "_mUnknown_CustomIamInstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomIamInstanceProfile;
-
-        public string? CustomIamInstanceProfile => _mCustomIamInstanceProfile.GetValue("customIamInstanceProfile");
+        private string? _mValue_CustomIamInstanceProfile;
+        private bool _mUnknown_CustomIamInstanceProfile;
+        public string? CustomIamInstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_CustomIamInstanceProfile) return _mValue_CustomIamInstanceProfile;
+                throw new UndeferrableValueException("Value 'InstanceArgs.CustomIamInstanceProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
@@ -969,29 +1634,50 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Replicate database managed by the provider will promote the database to a fully
         /// standalone database.
         /// </summary>
-        [Input("customerOwnedIpEnabled")]
+        [PolicyResourceProperty("customerOwnedIpEnabled", "_mUnknown_CustomerOwnedIpEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomerOwnedIpEnabled;
-
-        public bool? CustomerOwnedIpEnabled => _mCustomerOwnedIpEnabled.GetValue("customerOwnedIpEnabled");
+        private bool? _mValue_CustomerOwnedIpEnabled;
+        private bool _mUnknown_CustomerOwnedIpEnabled;
+        public bool? CustomerOwnedIpEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpEnabled) return _mValue_CustomerOwnedIpEnabled;
+                throw new UndeferrableValueException("Value 'InstanceArgs.CustomerOwnedIpEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
         /// </summary>
-        [Input("databaseInsightsMode")]
+        [PolicyResourceProperty("databaseInsightsMode", "_mUnknown_DatabaseInsightsMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseInsightsMode;
-
-        public string? DatabaseInsightsMode => _mDatabaseInsightsMode.GetValue("databaseInsightsMode");
+        private string? _mValue_DatabaseInsightsMode;
+        private bool _mUnknown_DatabaseInsightsMode;
+        public string? DatabaseInsightsMode
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseInsightsMode) return _mValue_DatabaseInsightsMode;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DatabaseInsightsMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
         /// </summary>
-        [Input("dbName")]
+        [PolicyResourceProperty("dbName", "_mUnknown_DbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbName;
-
-        public string? DbName => _mDbName.GetValue("dbName");
+        private string? _mValue_DbName;
+        private bool _mUnknown_DbName;
+        public string? DbName
+        {
+            get
+            {
+                if (!_mUnknown_DbName) return _mValue_DbName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DbName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of DB subnet group.
@@ -1001,176 +1687,309 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// When working with read replicas created in a different region, defaults to the `default` Subnet Group.
         /// See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
         /// </summary>
-        [Input("dbSubnetGroupName")]
+        [PolicyResourceProperty("dbSubnetGroupName", "_mUnknown_DbSubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
-
-        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
+        private string? _mValue_DbSubnetGroupName;
+        private bool _mUnknown_DbSubnetGroupName;
+        public string? DbSubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DbSubnetGroupName) return _mValue_DbSubnetGroupName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DbSubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
         /// </summary>
-        [Input("dedicatedLogVolume")]
+        [PolicyResourceProperty("dedicatedLogVolume", "_mUnknown_DedicatedLogVolume")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDedicatedLogVolume;
-
-        public bool? DedicatedLogVolume => _mDedicatedLogVolume.GetValue("dedicatedLogVolume");
+        private bool? _mValue_DedicatedLogVolume;
+        private bool _mUnknown_DedicatedLogVolume;
+        public bool? DedicatedLogVolume
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedLogVolume) return _mValue_DedicatedLogVolume;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DedicatedLogVolume' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
         /// </summary>
-        [Input("deleteAutomatedBackups")]
+        [PolicyResourceProperty("deleteAutomatedBackups", "_mUnknown_DeleteAutomatedBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteAutomatedBackups;
-
-        public bool? DeleteAutomatedBackups => _mDeleteAutomatedBackups.GetValue("deleteAutomatedBackups");
+        private bool? _mValue_DeleteAutomatedBackups;
+        private bool _mUnknown_DeleteAutomatedBackups;
+        public bool? DeleteAutomatedBackups
+        {
+            get
+            {
+                if (!_mUnknown_DeleteAutomatedBackups) return _mValue_DeleteAutomatedBackups;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DeleteAutomatedBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainAuthSecretArn")]
+        [PolicyResourceProperty("domainAuthSecretArn", "_mUnknown_DomainAuthSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainAuthSecretArn;
-
-        public string? DomainAuthSecretArn => _mDomainAuthSecretArn.GetValue("domainAuthSecretArn");
+        private string? _mValue_DomainAuthSecretArn;
+        private bool _mUnknown_DomainAuthSecretArn;
+        public string? DomainAuthSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_DomainAuthSecretArn) return _mValue_DomainAuthSecretArn;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DomainAuthSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn't a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainDnsIps")]
+        [PolicyResourceProperty("domainDnsIps", "_mUnknown_DomainDnsIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainDnsIps;
-
-        public List<string>? DomainDnsIps => _mDomainDnsIps.GetValue("domainDnsIps");
+        private List<string>? _mValue_DomainDnsIps;
+        private bool _mUnknown_DomainDnsIps;
+        public List<string>? DomainDnsIps
+        {
+            get
+            {
+                if (!_mUnknown_DomainDnsIps) return _mValue_DomainDnsIps;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DomainDnsIps' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainFqdn")]
+        [PolicyResourceProperty("domainFqdn", "_mUnknown_DomainFqdn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainFqdn;
-
-        public string? DomainFqdn => _mDomainFqdn.GetValue("domainFqdn");
+        private string? _mValue_DomainFqdn;
+        private bool _mUnknown_DomainFqdn;
+        public string? DomainFqdn
+        {
+            get
+            {
+                if (!_mUnknown_DomainFqdn) return _mValue_DomainFqdn;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DomainFqdn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
         /// </summary>
-        [Input("domainIamRoleName")]
+        [PolicyResourceProperty("domainIamRoleName", "_mUnknown_DomainIamRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIamRoleName;
-
-        public string? DomainIamRoleName => _mDomainIamRoleName.GetValue("domainIamRoleName");
+        private string? _mValue_DomainIamRoleName;
+        private bool _mUnknown_DomainIamRoleName;
+        public string? DomainIamRoleName
+        {
+            get
+            {
+                if (!_mUnknown_DomainIamRoleName) return _mValue_DomainIamRoleName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DomainIamRoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
         /// </summary>
-        [Input("domainOu")]
+        [PolicyResourceProperty("domainOu", "_mUnknown_DomainOu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainOu;
-
-        public string? DomainOu => _mDomainOu.GetValue("domainOu");
+        private string? _mValue_DomainOu;
+        private bool _mUnknown_DomainOu;
+        public string? DomainOu
+        {
+            get
+            {
+                if (!_mUnknown_DomainOu) return _mValue_DomainOu;
+                throw new UndeferrableValueException("Value 'InstanceArgs.DomainOu' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         /// </summary>
-        [Input("enabledCloudwatchLogsExports")]
+        [PolicyResourceProperty("enabledCloudwatchLogsExports", "_mUnknown_EnabledCloudwatchLogsExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
-
-        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
+        private List<string>? _mValue_EnabledCloudwatchLogsExports;
+        private bool _mUnknown_EnabledCloudwatchLogsExports;
+        public List<string>? EnabledCloudwatchLogsExports
+        {
+            get
+            {
+                if (!_mUnknown_EnabledCloudwatchLogsExports) return _mValue_EnabledCloudwatchLogsExports;
+                throw new UndeferrableValueException("Value 'InstanceArgs.EnabledCloudwatchLogsExports' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
-        [Input("engineLifecycleSupport")]
+        [PolicyResourceProperty("engineLifecycleSupport", "_mUnknown_EngineLifecycleSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineLifecycleSupport;
-
-        public string? EngineLifecycleSupport => _mEngineLifecycleSupport.GetValue("engineLifecycleSupport");
+        private string? _mValue_EngineLifecycleSupport;
+        private bool _mUnknown_EngineLifecycleSupport;
+        public string? EngineLifecycleSupport
+        {
+            get
+            {
+                if (!_mUnknown_EngineLifecycleSupport) return _mValue_EngineLifecycleSupport;
+                throw new UndeferrableValueException("Value 'InstanceArgs.EngineLifecycleSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'InstanceArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your final DB snapshot
         /// when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
         /// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'InstanceArgs.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
         /// accounts is enabled.
         /// </summary>
-        [Input("iamDatabaseAuthenticationEnabled")]
+        [PolicyResourceProperty("iamDatabaseAuthenticationEnabled", "_mUnknown_IamDatabaseAuthenticationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIamDatabaseAuthenticationEnabled;
-
-        public bool? IamDatabaseAuthenticationEnabled => _mIamDatabaseAuthenticationEnabled.GetValue("iamDatabaseAuthenticationEnabled");
+        private bool? _mValue_IamDatabaseAuthenticationEnabled;
+        private bool _mUnknown_IamDatabaseAuthenticationEnabled;
+        public bool? IamDatabaseAuthenticationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_IamDatabaseAuthenticationEnabled) return _mValue_IamDatabaseAuthenticationEnabled;
+                throw new UndeferrableValueException("Value 'InstanceArgs.IamDatabaseAuthenticationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
-        [Input("identifierPrefix")]
+        [PolicyResourceProperty("identifierPrefix", "_mUnknown_IdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
-
-        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+        private string? _mValue_IdentifierPrefix;
+        private bool _mUnknown_IdentifierPrefix;
+        public string? IdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_IdentifierPrefix) return _mValue_IdentifierPrefix;
+                throw new UndeferrableValueException("Value 'InstanceArgs.IdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type of the RDS instance.
         /// </summary>
-        [Input("instanceClass")]
+        [PolicyResourceProperty("instanceClass", "_mUnknown_InstanceClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
-
-        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
+        private string? _mValue_InstanceClass;
+        private bool _mUnknown_InstanceClass;
+        public string? InstanceClass
+        {
+            get
+            {
+                if (!_mUnknown_InstanceClass) return _mValue_InstanceClass;
+                throw new UndeferrableValueException("Value 'InstanceArgs.InstanceClass' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of provisioned IOPS. Setting this implies a
@@ -1178,21 +1997,35 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
         /// See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. If creating an
         /// encrypted replica, set this to the destination KMS ARN.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// License model information for this DB instance. Valid values for this field are as follows:
@@ -1202,11 +2035,18 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// * RDS for Oracle: `bring-your-own-license | license-included`
         /// * RDS for PostgreSQL: `postgresql-license`
         /// </summary>
-        [Input("licenseModel")]
+        [PolicyResourceProperty("licenseModel", "_mUnknown_LicenseModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseModel;
-
-        public string? LicenseModel => _mLicenseModel.GetValue("licenseModel");
+        private string? _mValue_LicenseModel;
+        private bool _mUnknown_LicenseModel;
+        public string? LicenseModel
+        {
+            get
+            {
+                if (!_mUnknown_LicenseModel) return _mValue_LicenseModel;
+                throw new UndeferrableValueException("Value 'InstanceArgs.LicenseModel' is not present");
+            }
+        }
 
         /// <summary>
         /// The window to perform maintenance in.
@@ -1215,38 +2055,66 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
         /// for more information.
         /// </summary>
-        [Input("maintenanceWindow")]
+        [PolicyResourceProperty("maintenanceWindow", "_mUnknown_MaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceWindow;
-
-        public string? MaintenanceWindow => _mMaintenanceWindow.GetValue("maintenanceWindow");
+        private string? _mValue_MaintenanceWindow;
+        private bool _mUnknown_MaintenanceWindow;
+        public string? MaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceWindow) return _mValue_MaintenanceWindow;
+                throw new UndeferrableValueException("Value 'InstanceArgs.MaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         /// </summary>
-        [Input("manageMasterUserPassword")]
+        [PolicyResourceProperty("manageMasterUserPassword", "_mUnknown_ManageMasterUserPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageMasterUserPassword;
-
-        public bool? ManageMasterUserPassword => _mManageMasterUserPassword.GetValue("manageMasterUserPassword");
+        private bool? _mValue_ManageMasterUserPassword;
+        private bool _mUnknown_ManageMasterUserPassword;
+        public bool? ManageMasterUserPassword
+        {
+            get
+            {
+                if (!_mUnknown_ManageMasterUserPassword) return _mValue_ManageMasterUserPassword;
+                throw new UndeferrableValueException("Value 'InstanceArgs.ManageMasterUserPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
         /// </summary>
-        [Input("masterUserSecretKmsKeyId")]
+        [PolicyResourceProperty("masterUserSecretKmsKeyId", "_mUnknown_MasterUserSecretKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserSecretKmsKeyId;
-
-        public string? MasterUserSecretKmsKeyId => _mMasterUserSecretKmsKeyId.GetValue("masterUserSecretKmsKeyId");
+        private string? _mValue_MasterUserSecretKmsKeyId;
+        private bool _mUnknown_MasterUserSecretKmsKeyId;
+        public string? MasterUserSecretKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserSecretKmsKeyId) return _mValue_MasterUserSecretKmsKeyId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.MasterUserSecretKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
         /// </summary>
-        [Input("maxAllocatedStorage")]
+        [PolicyResourceProperty("maxAllocatedStorage", "_mUnknown_MaxAllocatedStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAllocatedStorage;
-
-        public int? MaxAllocatedStorage => _mMaxAllocatedStorage.GetValue("maxAllocatedStorage");
+        private int? _mValue_MaxAllocatedStorage;
+        private bool _mUnknown_MaxAllocatedStorage;
+        public int? MaxAllocatedStorage
+        {
+            get
+            {
+                if (!_mUnknown_MaxAllocatedStorage) return _mValue_MaxAllocatedStorage;
+                throw new UndeferrableValueException("Value 'InstanceArgs.MaxAllocatedStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// The interval, in seconds, between points
@@ -1254,11 +2122,18 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
         /// Values: 0, 1, 5, 10, 15, 30, 60.
         /// </summary>
-        [Input("monitoringInterval")]
+        [PolicyResourceProperty("monitoringInterval", "_mUnknown_MonitoringInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMonitoringInterval;
-
-        public int? MonitoringInterval => _mMonitoringInterval.GetValue("monitoringInterval");
+        private int? _mValue_MonitoringInterval;
+        private bool _mUnknown_MonitoringInterval;
+        public int? MonitoringInterval
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringInterval) return _mValue_MonitoringInterval;
+                throw new UndeferrableValueException("Value 'InstanceArgs.MonitoringInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the IAM role that permits RDS
@@ -1267,128 +2142,226 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
         /// what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         /// </summary>
-        [Input("monitoringRoleArn")]
+        [PolicyResourceProperty("monitoringRoleArn", "_mUnknown_MonitoringRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitoringRoleArn;
-
-        public string? MonitoringRoleArn => _mMonitoringRoleArn.GetValue("monitoringRoleArn");
+        private string? _mValue_MonitoringRoleArn;
+        private bool _mUnknown_MonitoringRoleArn;
+        public string? MonitoringRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringRoleArn) return _mValue_MonitoringRoleArn;
+                throw new UndeferrableValueException("Value 'InstanceArgs.MonitoringRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies if the RDS instance is multi-AZ
         /// </summary>
-        [Input("multiAz")]
+        [PolicyResourceProperty("multiAz", "_mUnknown_MultiAz")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAz;
+        private bool? _mValue_MultiAz;
+        private bool _mUnknown_MultiAz;
+        public bool? MultiAz
+        {
+            get
+            {
+                if (!_mUnknown_MultiAz) return _mValue_MultiAz;
+                throw new UndeferrableValueException("Value 'InstanceArgs.MultiAz' is not present");
+            }
+        }
 
-        public bool? MultiAz => _mMultiAz.GetValue("multiAz");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         /// </summary>
-        [Input("ncharCharacterSetName")]
+        [PolicyResourceProperty("ncharCharacterSetName", "_mUnknown_NcharCharacterSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNcharCharacterSetName;
-
-        public string? NcharCharacterSetName => _mNcharCharacterSetName.GetValue("ncharCharacterSetName");
+        private string? _mValue_NcharCharacterSetName;
+        private bool _mUnknown_NcharCharacterSetName;
+        public string? NcharCharacterSetName
+        {
+            get
+            {
+                if (!_mUnknown_NcharCharacterSetName) return _mValue_NcharCharacterSetName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.NcharCharacterSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
         /// </summary>
-        [Input("networkType")]
+        [PolicyResourceProperty("networkType", "_mUnknown_NetworkType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
-
-        public string? NetworkType => _mNetworkType.GetValue("networkType");
+        private string? _mValue_NetworkType;
+        private bool _mUnknown_NetworkType;
+        public string? NetworkType
+        {
+            get
+            {
+                if (!_mUnknown_NetworkType) return _mValue_NetworkType;
+                throw new UndeferrableValueException("Value 'InstanceArgs.NetworkType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DB option group to associate.
         /// </summary>
-        [Input("optionGroupName")]
+        [PolicyResourceProperty("optionGroupName", "_mUnknown_OptionGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupName;
-
-        public string? OptionGroupName => _mOptionGroupName.GetValue("optionGroupName");
+        private string? _mValue_OptionGroupName;
+        private bool _mUnknown_OptionGroupName;
+        public string? OptionGroupName
+        {
+            get
+            {
+                if (!_mUnknown_OptionGroupName) return _mValue_OptionGroupName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.OptionGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DB parameter group to associate.
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'InstanceArgs.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether Performance Insights are enabled. Defaults to false.
         /// </summary>
-        [Input("performanceInsightsEnabled")]
+        [PolicyResourceProperty("performanceInsightsEnabled", "_mUnknown_PerformanceInsightsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPerformanceInsightsEnabled;
-
-        public bool? PerformanceInsightsEnabled => _mPerformanceInsightsEnabled.GetValue("performanceInsightsEnabled");
+        private bool? _mValue_PerformanceInsightsEnabled;
+        private bool _mUnknown_PerformanceInsightsEnabled;
+        public bool? PerformanceInsightsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsEnabled) return _mValue_PerformanceInsightsEnabled;
+                throw new UndeferrableValueException("Value 'InstanceArgs.PerformanceInsightsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
         /// </summary>
-        [Input("performanceInsightsKmsKeyId")]
+        [PolicyResourceProperty("performanceInsightsKmsKeyId", "_mUnknown_PerformanceInsightsKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
-
-        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
+        private string? _mValue_PerformanceInsightsKmsKeyId;
+        private bool _mUnknown_PerformanceInsightsKmsKeyId;
+        public string? PerformanceInsightsKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsKmsKeyId) return _mValue_PerformanceInsightsKmsKeyId;
+                throw new UndeferrableValueException("Value 'InstanceArgs.PerformanceInsightsKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         /// </summary>
-        [Input("performanceInsightsRetentionPeriod")]
+        [PolicyResourceProperty("performanceInsightsRetentionPeriod", "_mUnknown_PerformanceInsightsRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPerformanceInsightsRetentionPeriod;
-
-        public int? PerformanceInsightsRetentionPeriod => _mPerformanceInsightsRetentionPeriod.GetValue("performanceInsightsRetentionPeriod");
+        private int? _mValue_PerformanceInsightsRetentionPeriod;
+        private bool _mUnknown_PerformanceInsightsRetentionPeriod;
+        public int? PerformanceInsightsRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsRetentionPeriod) return _mValue_PerformanceInsightsRetentionPeriod;
+                throw new UndeferrableValueException("Value 'InstanceArgs.PerformanceInsightsRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the DB accepts connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Bool to control if instance is publicly
         /// accessible. Default is `false`.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'InstanceArgs.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
         /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         /// </summary>
-        [Input("replicaMode")]
+        [PolicyResourceProperty("replicaMode", "_mUnknown_ReplicaMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicaMode;
-
-        public string? ReplicaMode => _mReplicaMode.GetValue("replicaMode");
+        private string? _mValue_ReplicaMode;
+        private bool _mUnknown_ReplicaMode;
+        public string? ReplicaMode
+        {
+            get
+            {
+                if (!_mUnknown_ReplicaMode) return _mValue_ReplicaMode;
+                throw new UndeferrableValueException("Value 'InstanceArgs.ReplicaMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -1398,31 +2371,52 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`.
         /// See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         /// </summary>
-        [Input("replicateSourceDb")]
+        [PolicyResourceProperty("replicateSourceDb", "_mUnknown_ReplicateSourceDb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateSourceDb;
-
-        public string? ReplicateSourceDb => _mReplicateSourceDb.GetValue("replicateSourceDb");
+        private string? _mValue_ReplicateSourceDb;
+        private bool _mUnknown_ReplicateSourceDb;
+        public string? ReplicateSourceDb
+        {
+            get
+            {
+                if (!_mUnknown_ReplicateSourceDb) return _mValue_ReplicateSourceDb;
+                throw new UndeferrableValueException("Value 'InstanceArgs.ReplicateSourceDb' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block for restoring a DB instance to an arbitrary point in time.
         /// Requires the `identifier` argument to be set with the name of the new DB instance to be created.
         /// See Restore To Point In Time below for details.
         /// </summary>
-        [Input("restoreToPointInTime")]
+        [PolicyResourceProperty("restoreToPointInTime", "_mUnknown_RestoreToPointInTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceRestoreToPointInTimeArgs> _mRestoreToPointInTime;
-
-        public Inputs.InstanceRestoreToPointInTimeArgs? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
+        private Inputs.InstanceRestoreToPointInTimeArgs? _mValue_RestoreToPointInTime;
+        private bool _mUnknown_RestoreToPointInTime;
+        public Inputs.InstanceRestoreToPointInTimeArgs? RestoreToPointInTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToPointInTime) return _mValue_RestoreToPointInTime;
+                throw new UndeferrableValueException("Value 'InstanceArgs.RestoreToPointInTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
         /// </summary>
-        [Input("s3Import")]
+        [PolicyResourceProperty("s3Import", "_mUnknown_S3Import")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InstanceS3ImportArgs> _mS3Import;
-
-        public Inputs.InstanceS3ImportArgs? S3Import => _mS3Import.GetValue("s3Import");
+        private Inputs.InstanceS3ImportArgs? _mValue_S3Import;
+        private bool _mUnknown_S3Import;
+        public Inputs.InstanceS3ImportArgs? S3Import
+        {
+            get
+            {
+                if (!_mUnknown_S3Import) return _mValue_S3Import;
+                throw new UndeferrableValueException("Value 'InstanceArgs.S3Import' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final DB snapshot is
@@ -1431,21 +2425,35 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// instance is deleted, using the value from `final_snapshot_identifier`. Default
         /// is `false`.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'InstanceArgs.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not to create this database from a snapshot.
         /// This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'InstanceArgs.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB instance is
@@ -1453,20 +2461,34 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// is ignored and you should instead declare `kms_key_id` with a valid ARN. The
         /// default is `false` if not specified.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'InstanceArgs.StorageEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage throughput value for the DB instance. Can only be set when `storage_type` is `"gp3"`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
         /// </summary>
-        [Input("storageThroughput")]
+        [PolicyResourceProperty("storageThroughput", "_mUnknown_StorageThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageThroughput;
-
-        public int? StorageThroughput => _mStorageThroughput.GetValue("storageThroughput");
+        private int? _mValue_StorageThroughput;
+        private bool _mUnknown_StorageThroughput;
+        public int? StorageThroughput
+        {
+            get
+            {
+                if (!_mUnknown_StorageThroughput) return _mValue_StorageThroughput;
+                throw new UndeferrableValueException("Value 'InstanceArgs.StorageThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// One of "standard" (magnetic), "gp2" (general
@@ -1474,20 +2496,34 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// "io1" (provisioned IOPS SSD) or "io2" (block express storage provisioned IOPS
         /// SSD). The default is "io1" if `iops` is specified, "gp2" if not.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'InstanceArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone of the DB instance. `timezone` is currently
@@ -1496,40 +2532,68 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
         /// for more information.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Timezone' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to upgrade the storage file system configuration on the read replica.
         /// Can only be set with `replicate_source_db`.
         /// </summary>
-        [Input("upgradeStorageConfig")]
+        [PolicyResourceProperty("upgradeStorageConfig", "_mUnknown_UpgradeStorageConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUpgradeStorageConfig;
-
-        public bool? UpgradeStorageConfig => _mUpgradeStorageConfig.GetValue("upgradeStorageConfig");
+        private bool? _mValue_UpgradeStorageConfig;
+        private bool _mUnknown_UpgradeStorageConfig;
+        public bool? UpgradeStorageConfig
+        {
+            get
+            {
+                if (!_mUnknown_UpgradeStorageConfig) return _mValue_UpgradeStorageConfig;
+                throw new UndeferrableValueException("Value 'InstanceArgs.UpgradeStorageConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required unless a `snapshot_identifier` or `replicate_source_db`
         /// is provided) Username for the master DB user. Cannot be specified for a replica.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'InstanceArgs.Username' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to
         /// associate.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'InstanceArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 }

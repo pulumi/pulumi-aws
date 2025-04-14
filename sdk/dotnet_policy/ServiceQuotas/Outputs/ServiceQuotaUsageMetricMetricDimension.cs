@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.ServiceQuotas.Outputs
 {
     public sealed class ServiceQuotaUsageMetricMetricDimension
     {
-        [Input("class")]
+        [PolicyResourceProperty("class", "_mUnknown_Class")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClass;
+        private string? _mValue_Class;
+        private bool _mUnknown_Class;
+        public string? Class
+        {
+            get
+            {
+                if (!_mUnknown_Class) return _mValue_Class;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.Class' is not present");
+            }
+        }
 
-        public string? Class => _mClass.GetValue("class");
-
-        [Input("resource")]
+        [PolicyResourceProperty("resource", "_mUnknown_Resource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResource;
+        private string? _mValue_Resource;
+        private bool _mUnknown_Resource;
+        public string? Resource
+        {
+            get
+            {
+                if (!_mUnknown_Resource) return _mValue_Resource;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.Resource' is not present");
+            }
+        }
 
-        public string? Resource => _mResource.GetValue("resource");
-
-        [Input("service")]
+        [PolicyResourceProperty("service", "_mUnknown_Service")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mService;
+        private string? _mValue_Service;
+        private bool _mUnknown_Service;
+        public string? Service
+        {
+            get
+            {
+                if (!_mUnknown_Service) return _mValue_Service;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.Service' is not present");
+            }
+        }
 
-        public string? Service => _mService.GetValue("service");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.Type' is not present");
+            }
+        }
     }
 }

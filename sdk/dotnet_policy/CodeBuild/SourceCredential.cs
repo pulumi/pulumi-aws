@@ -16,52 +16,87 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// The ARN of Source Credential.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SourceCredential.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
         /// repository. Valid values are `BASIC_AUTH`,
         /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'SourceCredential.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The source provider used for this project.
         /// </summary>
-        [Input("serverType")]
+        [PolicyResourceProperty("serverType", "_mUnknown_ServerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerType;
-
-        public string? ServerType => _mServerType.GetValue("serverType");
+        private string? _mValue_ServerType;
+        private bool _mUnknown_ServerType;
+        public string? ServerType
+        {
+            get
+            {
+                if (!_mUnknown_ServerType) return _mValue_ServerType;
+                throw new UndeferrableValueException("Value 'SourceCredential.ServerType' is not present");
+            }
+        }
 
         /// <summary>
         /// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
         /// app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
         /// Connection ARN.
         /// </summary>
-        [Input("token")]
+        [PolicyResourceProperty("token", "_mUnknown_Token")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
-
-        public string? Token => _mToken.GetValue("token");
+        private string? _mValue_Token;
+        private bool _mUnknown_Token;
+        public string? Token
+        {
+            get
+            {
+                if (!_mUnknown_Token) return _mValue_Token;
+                throw new UndeferrableValueException("Value 'SourceCredential.Token' is not present");
+            }
+        }
 
         /// <summary>
         /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
         /// other types of source providers or connections.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'SourceCredential.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codebuild/sourceCredential:SourceCredential")]
@@ -72,40 +107,68 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// repository. Valid values are `BASIC_AUTH`,
         /// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'SourceCredentialArgs.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The source provider used for this project.
         /// </summary>
-        [Input("serverType")]
+        [PolicyResourceProperty("serverType", "_mUnknown_ServerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerType;
-
-        public string? ServerType => _mServerType.GetValue("serverType");
+        private string? _mValue_ServerType;
+        private bool _mUnknown_ServerType;
+        public string? ServerType
+        {
+            get
+            {
+                if (!_mUnknown_ServerType) return _mValue_ServerType;
+                throw new UndeferrableValueException("Value 'SourceCredentialArgs.ServerType' is not present");
+            }
+        }
 
         /// <summary>
         /// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
         /// app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
         /// Connection ARN.
         /// </summary>
-        [Input("token")]
+        [PolicyResourceProperty("token", "_mUnknown_Token")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
-
-        public string? Token => _mToken.GetValue("token");
+        private string? _mValue_Token;
+        private bool _mUnknown_Token;
+        public string? Token
+        {
+            get
+            {
+                if (!_mUnknown_Token) return _mValue_Token;
+                throw new UndeferrableValueException("Value 'SourceCredentialArgs.Token' is not present");
+            }
+        }
 
         /// <summary>
         /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
         /// other types of source providers or connections.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'SourceCredentialArgs.UserName' is not present");
+            }
+        }
     }
 }

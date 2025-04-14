@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Inputs
         /// <summary>
         /// Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
         /// </summary>
-        [Input("test")]
+        [PolicyResourceProperty("test", "_mUnknown_Test")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTest;
-
-        public string? Test => _mTest.GetValue("test");
+        private string? _mValue_Test;
+        private bool _mUnknown_Test;
+        public string? Test
+        {
+            get
+            {
+                if (!_mUnknown_Test) return _mValue_Test;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementConditionArgs.Test' is not present");
+            }
+        }
 
         /// <summary>
         /// Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementConditionArgs.Values' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
         /// </summary>
-        [Input("variable")]
+        [PolicyResourceProperty("variable", "_mUnknown_Variable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVariable;
-
-        public string? Variable => _mVariable.GetValue("variable");
+        private string? _mValue_Variable;
+        private bool _mUnknown_Variable;
+        public string? Variable
+        {
+            get
+            {
+                if (!_mUnknown_Variable) return _mValue_Variable;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementConditionArgs.Variable' is not present");
+            }
+        }
     }
 }

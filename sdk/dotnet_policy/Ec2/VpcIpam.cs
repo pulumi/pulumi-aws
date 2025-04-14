@@ -16,120 +16,211 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Amazon Resource Name (ARN) of IPAM
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcIpam.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         /// </summary>
-        [Input("cascade")]
+        [PolicyResourceProperty("cascade", "_mUnknown_Cascade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCascade;
-
-        public bool? Cascade => _mCascade.GetValue("cascade");
+        private bool? _mValue_Cascade;
+        private bool _mUnknown_Cascade;
+        public bool? Cascade
+        {
+            get
+            {
+                if (!_mUnknown_Cascade) return _mValue_Cascade;
+                throw new UndeferrableValueException("Value 'VpcIpam.Cascade' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPAM's default resource discovery association ID.
         /// </summary>
-        [Input("defaultResourceDiscoveryAssociationId")]
+        [PolicyResourceProperty("defaultResourceDiscoveryAssociationId", "_mUnknown_DefaultResourceDiscoveryAssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResourceDiscoveryAssociationId;
-
-        public string? DefaultResourceDiscoveryAssociationId => _mDefaultResourceDiscoveryAssociationId.GetValue("defaultResourceDiscoveryAssociationId");
+        private string? _mValue_DefaultResourceDiscoveryAssociationId;
+        private bool _mUnknown_DefaultResourceDiscoveryAssociationId;
+        public string? DefaultResourceDiscoveryAssociationId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceDiscoveryAssociationId) return _mValue_DefaultResourceDiscoveryAssociationId;
+                throw new UndeferrableValueException("Value 'VpcIpam.DefaultResourceDiscoveryAssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPAM's default resource discovery ID.
         /// </summary>
-        [Input("defaultResourceDiscoveryId")]
+        [PolicyResourceProperty("defaultResourceDiscoveryId", "_mUnknown_DefaultResourceDiscoveryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResourceDiscoveryId;
-
-        public string? DefaultResourceDiscoveryId => _mDefaultResourceDiscoveryId.GetValue("defaultResourceDiscoveryId");
+        private string? _mValue_DefaultResourceDiscoveryId;
+        private bool _mUnknown_DefaultResourceDiscoveryId;
+        public string? DefaultResourceDiscoveryId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceDiscoveryId) return _mValue_DefaultResourceDiscoveryId;
+                throw new UndeferrableValueException("Value 'VpcIpam.DefaultResourceDiscoveryId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the IPAM.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpam.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         /// </summary>
-        [Input("enablePrivateGua")]
+        [PolicyResourceProperty("enablePrivateGua", "_mUnknown_EnablePrivateGua")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrivateGua;
-
-        public bool? EnablePrivateGua => _mEnablePrivateGua.GetValue("enablePrivateGua");
+        private bool? _mValue_EnablePrivateGua;
+        private bool _mUnknown_EnablePrivateGua;
+        public bool? EnablePrivateGua
+        {
+            get
+            {
+                if (!_mUnknown_EnablePrivateGua) return _mValue_EnablePrivateGua;
+                throw new UndeferrableValueException("Value 'VpcIpam.EnablePrivateGua' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         /// </summary>
-        [Input("operatingRegions")]
+        [PolicyResourceProperty("operatingRegions", "_mUnknown_OperatingRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpcIpamOperatingRegion>> _mOperatingRegions;
-
-        public List<Outputs.VpcIpamOperatingRegion>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
+        private List<Outputs.VpcIpamOperatingRegion>? _mValue_OperatingRegions;
+        private bool _mUnknown_OperatingRegions;
+        public List<Outputs.VpcIpamOperatingRegion>? OperatingRegions
+        {
+            get
+            {
+                if (!_mUnknown_OperatingRegions) return _mValue_OperatingRegions;
+                throw new UndeferrableValueException("Value 'VpcIpam.OperatingRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         /// </summary>
-        [Input("privateDefaultScopeId")]
+        [PolicyResourceProperty("privateDefaultScopeId", "_mUnknown_PrivateDefaultScopeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDefaultScopeId;
-
-        public string? PrivateDefaultScopeId => _mPrivateDefaultScopeId.GetValue("privateDefaultScopeId");
+        private string? _mValue_PrivateDefaultScopeId;
+        private bool _mUnknown_PrivateDefaultScopeId;
+        public string? PrivateDefaultScopeId
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDefaultScopeId) return _mValue_PrivateDefaultScopeId;
+                throw new UndeferrableValueException("Value 'VpcIpam.PrivateDefaultScopeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
         /// IP space. The public scope is intended for all internet-routable IP space.
         /// </summary>
-        [Input("publicDefaultScopeId")]
+        [PolicyResourceProperty("publicDefaultScopeId", "_mUnknown_PublicDefaultScopeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDefaultScopeId;
-
-        public string? PublicDefaultScopeId => _mPublicDefaultScopeId.GetValue("publicDefaultScopeId");
+        private string? _mValue_PublicDefaultScopeId;
+        private bool _mUnknown_PublicDefaultScopeId;
+        public string? PublicDefaultScopeId
+        {
+            get
+            {
+                if (!_mUnknown_PublicDefaultScopeId) return _mValue_PublicDefaultScopeId;
+                throw new UndeferrableValueException("Value 'VpcIpam.PublicDefaultScopeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of scopes in the IPAM.
         /// </summary>
-        [Input("scopeCount")]
+        [PolicyResourceProperty("scopeCount", "_mUnknown_ScopeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScopeCount;
-
-        public int? ScopeCount => _mScopeCount.GetValue("scopeCount");
+        private int? _mValue_ScopeCount;
+        private bool _mUnknown_ScopeCount;
+        public int? ScopeCount
+        {
+            get
+            {
+                if (!_mUnknown_ScopeCount) return _mValue_ScopeCount;
+                throw new UndeferrableValueException("Value 'VpcIpam.ScopeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIpam.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcIpam.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
-
-        public string? Tier => _mTier.GetValue("tier");
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'VpcIpam.Tier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpam:VpcIpam")]
@@ -138,55 +229,97 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         /// </summary>
-        [Input("cascade")]
+        [PolicyResourceProperty("cascade", "_mUnknown_Cascade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCascade;
-
-        public bool? Cascade => _mCascade.GetValue("cascade");
+        private bool? _mValue_Cascade;
+        private bool _mUnknown_Cascade;
+        public bool? Cascade
+        {
+            get
+            {
+                if (!_mUnknown_Cascade) return _mValue_Cascade;
+                throw new UndeferrableValueException("Value 'VpcIpamArgs.Cascade' is not present");
+            }
+        }
 
         /// <summary>
         /// A description for the IPAM.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'VpcIpamArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         /// </summary>
-        [Input("enablePrivateGua")]
+        [PolicyResourceProperty("enablePrivateGua", "_mUnknown_EnablePrivateGua")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrivateGua;
-
-        public bool? EnablePrivateGua => _mEnablePrivateGua.GetValue("enablePrivateGua");
+        private bool? _mValue_EnablePrivateGua;
+        private bool _mUnknown_EnablePrivateGua;
+        public bool? EnablePrivateGua
+        {
+            get
+            {
+                if (!_mUnknown_EnablePrivateGua) return _mValue_EnablePrivateGua;
+                throw new UndeferrableValueException("Value 'VpcIpamArgs.EnablePrivateGua' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         /// </summary>
-        [Input("operatingRegions")]
+        [PolicyResourceProperty("operatingRegions", "_mUnknown_OperatingRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.VpcIpamOperatingRegionArgs>> _mOperatingRegions;
-
-        public List<Inputs.VpcIpamOperatingRegionArgs>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
+        private List<Inputs.VpcIpamOperatingRegionArgs>? _mValue_OperatingRegions;
+        private bool _mUnknown_OperatingRegions;
+        public List<Inputs.VpcIpamOperatingRegionArgs>? OperatingRegions
+        {
+            get
+            {
+                if (!_mUnknown_OperatingRegions) return _mValue_OperatingRegions;
+                throw new UndeferrableValueException("Value 'VpcIpamArgs.OperatingRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcIpamArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
-
-        public string? Tier => _mTier.GetValue("tier");
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'VpcIpamArgs.Tier' is not present");
+            }
+        }
     }
 }

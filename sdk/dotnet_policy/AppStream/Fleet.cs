@@ -16,199 +16,353 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// ARN of the appstream fleet.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Fleet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the desired capacity of the fleet. See below.
         /// </summary>
-        [Input("computeCapacity")]
+        [PolicyResourceProperty("computeCapacity", "_mUnknown_ComputeCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetComputeCapacity> _mComputeCapacity;
-
-        public Outputs.FleetComputeCapacity? ComputeCapacity => _mComputeCapacity.GetValue("computeCapacity");
+        private Outputs.FleetComputeCapacity? _mValue_ComputeCapacity;
+        private bool _mUnknown_ComputeCapacity;
+        public Outputs.FleetComputeCapacity? ComputeCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ComputeCapacity) return _mValue_ComputeCapacity;
+                throw new UndeferrableValueException("Value 'Fleet.ComputeCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Fleet.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Description to display.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Fleet.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time that a streaming session remains active after users disconnect.
         /// </summary>
-        [Input("disconnectTimeoutInSeconds")]
+        [PolicyResourceProperty("disconnectTimeoutInSeconds", "_mUnknown_DisconnectTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDisconnectTimeoutInSeconds;
-
-        public int? DisconnectTimeoutInSeconds => _mDisconnectTimeoutInSeconds.GetValue("disconnectTimeoutInSeconds");
+        private int? _mValue_DisconnectTimeoutInSeconds;
+        private bool _mUnknown_DisconnectTimeoutInSeconds;
+        public int? DisconnectTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_DisconnectTimeoutInSeconds) return _mValue_DisconnectTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'Fleet.DisconnectTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Human-readable friendly name for the AppStream fleet.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Fleet.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
         /// </summary>
-        [Input("domainJoinInfo")]
+        [PolicyResourceProperty("domainJoinInfo", "_mUnknown_DomainJoinInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetDomainJoinInfo> _mDomainJoinInfo;
-
-        public Outputs.FleetDomainJoinInfo? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
+        private Outputs.FleetDomainJoinInfo? _mValue_DomainJoinInfo;
+        private bool _mUnknown_DomainJoinInfo;
+        public Outputs.FleetDomainJoinInfo? DomainJoinInfo
+        {
+            get
+            {
+                if (!_mUnknown_DomainJoinInfo) return _mValue_DomainJoinInfo;
+                throw new UndeferrableValueException("Value 'Fleet.DomainJoinInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables default internet access for the fleet.
         /// </summary>
-        [Input("enableDefaultInternetAccess")]
+        [PolicyResourceProperty("enableDefaultInternetAccess", "_mUnknown_EnableDefaultInternetAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
-
-        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
+        private bool? _mValue_EnableDefaultInternetAccess;
+        private bool _mUnknown_EnableDefaultInternetAccess;
+        public bool? EnableDefaultInternetAccess
+        {
+            get
+            {
+                if (!_mUnknown_EnableDefaultInternetAccess) return _mValue_EnableDefaultInternetAccess;
+                throw new UndeferrableValueException("Value 'Fleet.EnableDefaultInternetAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         /// </summary>
-        [Input("fleetType")]
+        [PolicyResourceProperty("fleetType", "_mUnknown_FleetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
-
-        public string? FleetType => _mFleetType.GetValue("fleetType");
+        private string? _mValue_FleetType;
+        private bool _mUnknown_FleetType;
+        public string? FleetType
+        {
+            get
+            {
+                if (!_mUnknown_FleetType) return _mValue_FleetType;
+                throw new UndeferrableValueException("Value 'Fleet.FleetType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to apply to the fleet.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'Fleet.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
         /// </summary>
-        [Input("idleDisconnectTimeoutInSeconds")]
+        [PolicyResourceProperty("idleDisconnectTimeoutInSeconds", "_mUnknown_IdleDisconnectTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleDisconnectTimeoutInSeconds;
-
-        public int? IdleDisconnectTimeoutInSeconds => _mIdleDisconnectTimeoutInSeconds.GetValue("idleDisconnectTimeoutInSeconds");
+        private int? _mValue_IdleDisconnectTimeoutInSeconds;
+        private bool _mUnknown_IdleDisconnectTimeoutInSeconds;
+        public int? IdleDisconnectTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleDisconnectTimeoutInSeconds) return _mValue_IdleDisconnectTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'Fleet.IdleDisconnectTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the public, private, or shared image to use.
         /// </summary>
-        [Input("imageArn")]
+        [PolicyResourceProperty("imageArn", "_mUnknown_ImageArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
-
-        public string? ImageArn => _mImageArn.GetValue("imageArn");
+        private string? _mValue_ImageArn;
+        private bool _mUnknown_ImageArn;
+        public string? ImageArn
+        {
+            get
+            {
+                if (!_mUnknown_ImageArn) return _mValue_ImageArn;
+                throw new UndeferrableValueException("Value 'Fleet.ImageArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the image used to create the fleet.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'Fleet.ImageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type to use when launching fleet instances.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'Fleet.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
         /// </summary>
-        [Input("maxSessionsPerInstance")]
+        [PolicyResourceProperty("maxSessionsPerInstance", "_mUnknown_MaxSessionsPerInstance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSessionsPerInstance;
-
-        public int? MaxSessionsPerInstance => _mMaxSessionsPerInstance.GetValue("maxSessionsPerInstance");
+        private int? _mValue_MaxSessionsPerInstance;
+        private bool _mUnknown_MaxSessionsPerInstance;
+        public int? MaxSessionsPerInstance
+        {
+            get
+            {
+                if (!_mUnknown_MaxSessionsPerInstance) return _mValue_MaxSessionsPerInstance;
+                throw new UndeferrableValueException("Value 'Fleet.MaxSessionsPerInstance' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of time that a streaming session can remain active, in seconds.
         /// </summary>
-        [Input("maxUserDurationInSeconds")]
+        [PolicyResourceProperty("maxUserDurationInSeconds", "_mUnknown_MaxUserDurationInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUserDurationInSeconds;
-
-        public int? MaxUserDurationInSeconds => _mMaxUserDurationInSeconds.GetValue("maxUserDurationInSeconds");
+        private int? _mValue_MaxUserDurationInSeconds;
+        private bool _mUnknown_MaxUserDurationInSeconds;
+        public int? MaxUserDurationInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaxUserDurationInSeconds) return _mValue_MaxUserDurationInSeconds;
+                throw new UndeferrableValueException("Value 'Fleet.MaxUserDurationInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the fleet.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Fleet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Fleet.State' is not present");
+            }
+        }
 
         /// <summary>
         /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         /// </summary>
-        [Input("streamView")]
+        [PolicyResourceProperty("streamView", "_mUnknown_StreamView")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamView;
-
-        public string? StreamView => _mStreamView.GetValue("streamView");
+        private string? _mValue_StreamView;
+        private bool _mUnknown_StreamView;
+        public string? StreamView
+        {
+            get
+            {
+                if (!_mUnknown_StreamView) return _mValue_StreamView;
+                throw new UndeferrableValueException("Value 'Fleet.StreamView' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to attach to AppStream instances.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Fleet.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Fleet.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetVpcConfig> _mVpcConfig;
-
-        public Outputs.FleetVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.FleetVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.FleetVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'Fleet.VpcConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appstream/fleet:Fleet")]
@@ -217,165 +371,291 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Configuration block for the desired capacity of the fleet. See below.
         /// </summary>
-        [Input("computeCapacity")]
+        [PolicyResourceProperty("computeCapacity", "_mUnknown_ComputeCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetComputeCapacityArgs> _mComputeCapacity;
-
-        public Inputs.FleetComputeCapacityArgs? ComputeCapacity => _mComputeCapacity.GetValue("computeCapacity");
+        private Inputs.FleetComputeCapacityArgs? _mValue_ComputeCapacity;
+        private bool _mUnknown_ComputeCapacity;
+        public Inputs.FleetComputeCapacityArgs? ComputeCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ComputeCapacity) return _mValue_ComputeCapacity;
+                throw new UndeferrableValueException("Value 'FleetArgs.ComputeCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Description to display.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FleetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time that a streaming session remains active after users disconnect.
         /// </summary>
-        [Input("disconnectTimeoutInSeconds")]
+        [PolicyResourceProperty("disconnectTimeoutInSeconds", "_mUnknown_DisconnectTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDisconnectTimeoutInSeconds;
-
-        public int? DisconnectTimeoutInSeconds => _mDisconnectTimeoutInSeconds.GetValue("disconnectTimeoutInSeconds");
+        private int? _mValue_DisconnectTimeoutInSeconds;
+        private bool _mUnknown_DisconnectTimeoutInSeconds;
+        public int? DisconnectTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_DisconnectTimeoutInSeconds) return _mValue_DisconnectTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'FleetArgs.DisconnectTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Human-readable friendly name for the AppStream fleet.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'FleetArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
         /// </summary>
-        [Input("domainJoinInfo")]
+        [PolicyResourceProperty("domainJoinInfo", "_mUnknown_DomainJoinInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetDomainJoinInfoArgs> _mDomainJoinInfo;
-
-        public Inputs.FleetDomainJoinInfoArgs? DomainJoinInfo => _mDomainJoinInfo.GetValue("domainJoinInfo");
+        private Inputs.FleetDomainJoinInfoArgs? _mValue_DomainJoinInfo;
+        private bool _mUnknown_DomainJoinInfo;
+        public Inputs.FleetDomainJoinInfoArgs? DomainJoinInfo
+        {
+            get
+            {
+                if (!_mUnknown_DomainJoinInfo) return _mValue_DomainJoinInfo;
+                throw new UndeferrableValueException("Value 'FleetArgs.DomainJoinInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables default internet access for the fleet.
         /// </summary>
-        [Input("enableDefaultInternetAccess")]
+        [PolicyResourceProperty("enableDefaultInternetAccess", "_mUnknown_EnableDefaultInternetAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDefaultInternetAccess;
-
-        public bool? EnableDefaultInternetAccess => _mEnableDefaultInternetAccess.GetValue("enableDefaultInternetAccess");
+        private bool? _mValue_EnableDefaultInternetAccess;
+        private bool _mUnknown_EnableDefaultInternetAccess;
+        public bool? EnableDefaultInternetAccess
+        {
+            get
+            {
+                if (!_mUnknown_EnableDefaultInternetAccess) return _mValue_EnableDefaultInternetAccess;
+                throw new UndeferrableValueException("Value 'FleetArgs.EnableDefaultInternetAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
         /// </summary>
-        [Input("fleetType")]
+        [PolicyResourceProperty("fleetType", "_mUnknown_FleetType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetType;
-
-        public string? FleetType => _mFleetType.GetValue("fleetType");
+        private string? _mValue_FleetType;
+        private bool _mUnknown_FleetType;
+        public string? FleetType
+        {
+            get
+            {
+                if (!_mUnknown_FleetType) return _mValue_FleetType;
+                throw new UndeferrableValueException("Value 'FleetArgs.FleetType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to apply to the fleet.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'FleetArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and `3600 `seconds.
         /// </summary>
-        [Input("idleDisconnectTimeoutInSeconds")]
+        [PolicyResourceProperty("idleDisconnectTimeoutInSeconds", "_mUnknown_IdleDisconnectTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleDisconnectTimeoutInSeconds;
-
-        public int? IdleDisconnectTimeoutInSeconds => _mIdleDisconnectTimeoutInSeconds.GetValue("idleDisconnectTimeoutInSeconds");
+        private int? _mValue_IdleDisconnectTimeoutInSeconds;
+        private bool _mUnknown_IdleDisconnectTimeoutInSeconds;
+        public int? IdleDisconnectTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleDisconnectTimeoutInSeconds) return _mValue_IdleDisconnectTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'FleetArgs.IdleDisconnectTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the public, private, or shared image to use.
         /// </summary>
-        [Input("imageArn")]
+        [PolicyResourceProperty("imageArn", "_mUnknown_ImageArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageArn;
-
-        public string? ImageArn => _mImageArn.GetValue("imageArn");
+        private string? _mValue_ImageArn;
+        private bool _mUnknown_ImageArn;
+        public string? ImageArn
+        {
+            get
+            {
+                if (!_mUnknown_ImageArn) return _mValue_ImageArn;
+                throw new UndeferrableValueException("Value 'FleetArgs.ImageArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the image used to create the fleet.
         /// </summary>
-        [Input("imageName")]
+        [PolicyResourceProperty("imageName", "_mUnknown_ImageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageName;
-
-        public string? ImageName => _mImageName.GetValue("imageName");
+        private string? _mValue_ImageName;
+        private bool _mUnknown_ImageName;
+        public string? ImageName
+        {
+            get
+            {
+                if (!_mUnknown_ImageName) return _mValue_ImageName;
+                throw new UndeferrableValueException("Value 'FleetArgs.ImageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type to use when launching fleet instances.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'FleetArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of user sessions on an instance. This only applies to multi-session fleets.
         /// </summary>
-        [Input("maxSessionsPerInstance")]
+        [PolicyResourceProperty("maxSessionsPerInstance", "_mUnknown_MaxSessionsPerInstance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSessionsPerInstance;
-
-        public int? MaxSessionsPerInstance => _mMaxSessionsPerInstance.GetValue("maxSessionsPerInstance");
+        private int? _mValue_MaxSessionsPerInstance;
+        private bool _mUnknown_MaxSessionsPerInstance;
+        public int? MaxSessionsPerInstance
+        {
+            get
+            {
+                if (!_mUnknown_MaxSessionsPerInstance) return _mValue_MaxSessionsPerInstance;
+                throw new UndeferrableValueException("Value 'FleetArgs.MaxSessionsPerInstance' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of time that a streaming session can remain active, in seconds.
         /// </summary>
-        [Input("maxUserDurationInSeconds")]
+        [PolicyResourceProperty("maxUserDurationInSeconds", "_mUnknown_MaxUserDurationInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUserDurationInSeconds;
-
-        public int? MaxUserDurationInSeconds => _mMaxUserDurationInSeconds.GetValue("maxUserDurationInSeconds");
+        private int? _mValue_MaxUserDurationInSeconds;
+        private bool _mUnknown_MaxUserDurationInSeconds;
+        public int? MaxUserDurationInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaxUserDurationInSeconds) return _mValue_MaxUserDurationInSeconds;
+                throw new UndeferrableValueException("Value 'FleetArgs.MaxUserDurationInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the fleet.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FleetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
         /// </summary>
-        [Input("streamView")]
+        [PolicyResourceProperty("streamView", "_mUnknown_StreamView")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamView;
-
-        public string? StreamView => _mStreamView.GetValue("streamView");
+        private string? _mValue_StreamView;
+        private bool _mUnknown_StreamView;
+        public string? StreamView
+        {
+            get
+            {
+                if (!_mUnknown_StreamView) return _mValue_StreamView;
+                throw new UndeferrableValueException("Value 'FleetArgs.StreamView' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to attach to AppStream instances.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FleetArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the VPC configuration for the image builder. See below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.FleetVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.FleetVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.FleetVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'FleetArgs.VpcConfig' is not present");
+            }
+        }
     }
 }

@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args
     {
-        [Input("accessToken")]
+        [PolicyResourceProperty("accessToken", "_mUnknown_AccessToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessToken;
+        private string? _mValue_AccessToken;
+        private bool _mUnknown_AccessToken;
+        public string? AccessToken
+        {
+            get
+            {
+                if (!_mUnknown_AccessToken) return _mValue_AccessToken;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args.AccessToken' is not present");
+            }
+        }
 
-        public string? AccessToken => _mAccessToken.GetValue("accessToken");
-
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args.ClientId' is not present");
+            }
+        }
 
-        public string? ClientId => _mClientId.GetValue("clientId");
-
-        [Input("clientSecret")]
+        [PolicyResourceProperty("clientSecret", "_mUnknown_ClientSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
+        private string? _mValue_ClientSecret;
+        private bool _mUnknown_ClientSecret;
+        public string? ClientSecret
+        {
+            get
+            {
+                if (!_mUnknown_ClientSecret) return _mValue_ClientSecret;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args.ClientSecret' is not present");
+            }
+        }
 
-        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
-
-        [Input("oauthRequest")]
+        [PolicyResourceProperty("oauthRequest", "_mUnknown_OauthRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs> _mOauthRequest;
+        private Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs? _mValue_OauthRequest;
+        private bool _mUnknown_OauthRequest;
+        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs? OauthRequest
+        {
+            get
+            {
+                if (!_mUnknown_OauthRequest) return _mValue_OauthRequest;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args.OauthRequest' is not present");
+            }
+        }
 
-        public Inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs? OauthRequest => _mOauthRequest.GetValue("oauthRequest");
-
-        [Input("refreshToken")]
+        [PolicyResourceProperty("refreshToken", "_mUnknown_RefreshToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRefreshToken;
-
-        public string? RefreshToken => _mRefreshToken.GetValue("refreshToken");
+        private string? _mValue_RefreshToken;
+        private bool _mUnknown_RefreshToken;
+        public string? RefreshToken
+        {
+            get
+            {
+                if (!_mUnknown_RefreshToken) return _mValue_RefreshToken;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args.RefreshToken' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Inputs
         /// <summary>
         /// Group attribute for this SAML integration.
         /// </summary>
-        [Input("groupAttribute")]
+        [PolicyResourceProperty("groupAttribute", "_mUnknown_GroupAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupAttribute;
-
-        public string? GroupAttribute => _mGroupAttribute.GetValue("groupAttribute");
+        private string? _mValue_GroupAttribute;
+        private bool _mUnknown_GroupAttribute;
+        public string? GroupAttribute
+        {
+            get
+            {
+                if (!_mUnknown_GroupAttribute) return _mValue_GroupAttribute;
+                throw new UndeferrableValueException("Value 'GetServerlessSecurityConfigSamlOptionsArgs.GroupAttribute' is not present");
+            }
+        }
 
         /// <summary>
         /// The XML IdP metadata file generated from your identity provider.
         /// </summary>
-        [Input("metadata")]
+        [PolicyResourceProperty("metadata", "_mUnknown_Metadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadata;
-
-        public string? Metadata => _mMetadata.GetValue("metadata");
+        private string? _mValue_Metadata;
+        private bool _mUnknown_Metadata;
+        public string? Metadata
+        {
+            get
+            {
+                if (!_mUnknown_Metadata) return _mValue_Metadata;
+                throw new UndeferrableValueException("Value 'GetServerlessSecurityConfigSamlOptionsArgs.Metadata' is not present");
+            }
+        }
 
         /// <summary>
         /// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
         /// </summary>
-        [Input("sessionTimeout")]
+        [PolicyResourceProperty("sessionTimeout", "_mUnknown_SessionTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSessionTimeout;
-
-        public int? SessionTimeout => _mSessionTimeout.GetValue("sessionTimeout");
+        private int? _mValue_SessionTimeout;
+        private bool _mUnknown_SessionTimeout;
+        public int? SessionTimeout
+        {
+            get
+            {
+                if (!_mUnknown_SessionTimeout) return _mValue_SessionTimeout;
+                throw new UndeferrableValueException("Value 'GetServerlessSecurityConfigSamlOptionsArgs.SessionTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// User attribute for this SAML integration.
         /// </summary>
-        [Input("userAttribute")]
+        [PolicyResourceProperty("userAttribute", "_mUnknown_UserAttribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserAttribute;
-
-        public string? UserAttribute => _mUserAttribute.GetValue("userAttribute");
+        private string? _mValue_UserAttribute;
+        private bool _mUnknown_UserAttribute;
+        public string? UserAttribute
+        {
+            get
+            {
+                if (!_mUnknown_UserAttribute) return _mValue_UserAttribute;
+                throw new UndeferrableValueException("Value 'GetServerlessSecurityConfigSamlOptionsArgs.UserAttribute' is not present");
+            }
+        }
     }
 }

@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Inputs
         /// <summary>
         /// The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
         /// </summary>
-        [Input("horizontalAlign")]
+        [PolicyResourceProperty("horizontalAlign", "_mUnknown_HorizontalAlign")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHorizontalAlign;
-
-        public string? HorizontalAlign => _mHorizontalAlign.GetValue("horizontalAlign");
+        private string? _mValue_HorizontalAlign;
+        private bool _mUnknown_HorizontalAlign;
+        public string? HorizontalAlign
+        {
+            get
+            {
+                if (!_mUnknown_HorizontalAlign) return _mValue_HorizontalAlign;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.HorizontalAlign' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
         /// </summary>
-        [Input("horizontalOffset")]
+        [PolicyResourceProperty("horizontalOffset", "_mUnknown_HorizontalOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHorizontalOffset;
-
-        public string? HorizontalOffset => _mHorizontalOffset.GetValue("horizontalOffset");
+        private string? _mValue_HorizontalOffset;
+        private bool _mUnknown_HorizontalOffset;
+        public string? HorizontalOffset
+        {
+            get
+            {
+                if (!_mUnknown_HorizontalOffset) return _mValue_HorizontalOffset;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.HorizontalOffset' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum height of the watermark.
         /// </summary>
-        [Input("maxHeight")]
+        [PolicyResourceProperty("maxHeight", "_mUnknown_MaxHeight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxHeight;
-
-        public string? MaxHeight => _mMaxHeight.GetValue("maxHeight");
+        private string? _mValue_MaxHeight;
+        private bool _mUnknown_MaxHeight;
+        public string? MaxHeight
+        {
+            get
+            {
+                if (!_mUnknown_MaxHeight) return _mValue_MaxHeight;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.MaxHeight' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum width of the watermark.
         /// </summary>
-        [Input("maxWidth")]
+        [PolicyResourceProperty("maxWidth", "_mUnknown_MaxWidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxWidth;
-
-        public string? MaxWidth => _mMaxWidth.GetValue("maxWidth");
+        private string? _mValue_MaxWidth;
+        private bool _mUnknown_MaxWidth;
+        public string? MaxWidth
+        {
+            get
+            {
+                if (!_mUnknown_MaxWidth) return _mValue_MaxWidth;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.MaxWidth' is not present");
+            }
+        }
 
         /// <summary>
         /// A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
         /// </summary>
-        [Input("opacity")]
+        [PolicyResourceProperty("opacity", "_mUnknown_Opacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpacity;
-
-        public string? Opacity => _mOpacity.GetValue("opacity");
+        private string? _mValue_Opacity;
+        private bool _mUnknown_Opacity;
+        public string? Opacity
+        {
+            get
+            {
+                if (!_mUnknown_Opacity) return _mValue_Opacity;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.Opacity' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
         /// </summary>
-        [Input("sizingPolicy")]
+        [PolicyResourceProperty("sizingPolicy", "_mUnknown_SizingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSizingPolicy;
-
-        public string? SizingPolicy => _mSizingPolicy.GetValue("sizingPolicy");
+        private string? _mValue_SizingPolicy;
+        private bool _mUnknown_SizingPolicy;
+        public string? SizingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SizingPolicy) return _mValue_SizingPolicy;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.SizingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
         /// </summary>
-        [Input("verticalAlign")]
+        [PolicyResourceProperty("verticalAlign", "_mUnknown_VerticalAlign")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerticalAlign;
-
-        public string? VerticalAlign => _mVerticalAlign.GetValue("verticalAlign");
+        private string? _mValue_VerticalAlign;
+        private bool _mUnknown_VerticalAlign;
+        public string? VerticalAlign
+        {
+            get
+            {
+                if (!_mUnknown_VerticalAlign) return _mValue_VerticalAlign;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.VerticalAlign' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
         /// </summary>
-        [Input("verticalOffset")]
+        [PolicyResourceProperty("verticalOffset", "_mUnknown_VerticalOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerticalOffset;
-
-        public string? VerticalOffset => _mVerticalOffset.GetValue("verticalOffset");
+        private string? _mValue_VerticalOffset;
+        private bool _mUnknown_VerticalOffset;
+        public string? VerticalOffset
+        {
+            get
+            {
+                if (!_mUnknown_VerticalOffset) return _mValue_VerticalOffset;
+                throw new UndeferrableValueException("Value 'PresetVideoWatermarkArgs.VerticalOffset' is not present");
+            }
+        }
     }
 }

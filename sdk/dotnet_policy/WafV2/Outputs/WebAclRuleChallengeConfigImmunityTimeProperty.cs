@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         /// </summary>
-        [Input("immunityTime")]
+        [PolicyResourceProperty("immunityTime", "_mUnknown_ImmunityTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImmunityTime;
-
-        public int? ImmunityTime => _mImmunityTime.GetValue("immunityTime");
+        private int? _mValue_ImmunityTime;
+        private bool _mUnknown_ImmunityTime;
+        public int? ImmunityTime
+        {
+            get
+            {
+                if (!_mUnknown_ImmunityTime) return _mValue_ImmunityTime;
+                throw new UndeferrableValueException("Value 'WebAclRuleChallengeConfigImmunityTimeProperty.ImmunityTime' is not present");
+            }
+        }
     }
 }

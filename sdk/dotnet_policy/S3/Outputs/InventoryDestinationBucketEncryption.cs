@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
         /// </summary>
-        [Input("sseKms")]
+        [PolicyResourceProperty("sseKms", "_mUnknown_SseKms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InventoryDestinationBucketEncryptionSseKms> _mSseKms;
-
-        public Outputs.InventoryDestinationBucketEncryptionSseKms? SseKms => _mSseKms.GetValue("sseKms");
+        private Outputs.InventoryDestinationBucketEncryptionSseKms? _mValue_SseKms;
+        private bool _mUnknown_SseKms;
+        public Outputs.InventoryDestinationBucketEncryptionSseKms? SseKms
+        {
+            get
+            {
+                if (!_mUnknown_SseKms) return _mValue_SseKms;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketEncryption.SseKms' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
         /// </summary>
-        [Input("sseS3")]
+        [PolicyResourceProperty("sseS3", "_mUnknown_SseS3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InventoryDestinationBucketEncryptionSseS3> _mSseS3;
-
-        public Outputs.InventoryDestinationBucketEncryptionSseS3? SseS3 => _mSseS3.GetValue("sseS3");
+        private Outputs.InventoryDestinationBucketEncryptionSseS3? _mValue_SseS3;
+        private bool _mUnknown_SseS3;
+        public Outputs.InventoryDestinationBucketEncryptionSseS3? SseS3
+        {
+            get
+            {
+                if (!_mUnknown_SseS3) return _mValue_SseS3;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketEncryption.SseS3' is not present");
+            }
+        }
     }
 }

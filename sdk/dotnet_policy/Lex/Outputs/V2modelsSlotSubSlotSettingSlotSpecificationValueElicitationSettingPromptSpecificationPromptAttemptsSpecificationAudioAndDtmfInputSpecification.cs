@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
 {
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification
     {
-        [Input("audioSpecification")]
+        [PolicyResourceProperty("audioSpecification", "_mUnknown_AudioSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> _mAudioSpecification;
+        private Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? _mValue_AudioSpecification;
+        private bool _mUnknown_AudioSpecification;
+        public Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? AudioSpecification
+        {
+            get
+            {
+                if (!_mUnknown_AudioSpecification) return _mValue_AudioSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.AudioSpecification' is not present");
+            }
+        }
 
-        public Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification? AudioSpecification => _mAudioSpecification.GetValue("audioSpecification");
-
-        [Input("dtmfSpecification")]
+        [PolicyResourceProperty("dtmfSpecification", "_mUnknown_DtmfSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> _mDtmfSpecification;
+        private Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? _mValue_DtmfSpecification;
+        private bool _mUnknown_DtmfSpecification;
+        public Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? DtmfSpecification
+        {
+            get
+            {
+                if (!_mUnknown_DtmfSpecification) return _mValue_DtmfSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.DtmfSpecification' is not present");
+            }
+        }
 
-        public Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification? DtmfSpecification => _mDtmfSpecification.GetValue("dtmfSpecification");
-
-        [Input("startTimeoutMs")]
+        [PolicyResourceProperty("startTimeoutMs", "_mUnknown_StartTimeoutMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartTimeoutMs;
-
-        public int? StartTimeoutMs => _mStartTimeoutMs.GetValue("startTimeoutMs");
+        private int? _mValue_StartTimeoutMs;
+        private bool _mUnknown_StartTimeoutMs;
+        public int? StartTimeoutMs
+        {
+            get
+            {
+                if (!_mUnknown_StartTimeoutMs) return _mValue_StartTimeoutMs;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.StartTimeoutMs' is not present");
+            }
+        }
     }
 }

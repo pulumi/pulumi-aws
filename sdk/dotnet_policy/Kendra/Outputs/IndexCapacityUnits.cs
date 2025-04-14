@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
         /// </summary>
-        [Input("queryCapacityUnits")]
+        [PolicyResourceProperty("queryCapacityUnits", "_mUnknown_QueryCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQueryCapacityUnits;
-
-        public int? QueryCapacityUnits => _mQueryCapacityUnits.GetValue("queryCapacityUnits");
+        private int? _mValue_QueryCapacityUnits;
+        private bool _mUnknown_QueryCapacityUnits;
+        public int? QueryCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_QueryCapacityUnits) return _mValue_QueryCapacityUnits;
+                throw new UndeferrableValueException("Value 'IndexCapacityUnits.QueryCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
         /// </summary>
-        [Input("storageCapacityUnits")]
+        [PolicyResourceProperty("storageCapacityUnits", "_mUnknown_StorageCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacityUnits;
-
-        public int? StorageCapacityUnits => _mStorageCapacityUnits.GetValue("storageCapacityUnits");
+        private int? _mValue_StorageCapacityUnits;
+        private bool _mUnknown_StorageCapacityUnits;
+        public int? StorageCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacityUnits) return _mValue_StorageCapacityUnits;
+                throw new UndeferrableValueException("Value 'IndexCapacityUnits.StorageCapacityUnits' is not present");
+            }
+        }
     }
 }

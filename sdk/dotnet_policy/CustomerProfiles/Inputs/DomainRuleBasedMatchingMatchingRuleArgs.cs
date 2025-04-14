@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Inputs
         /// <summary>
         /// A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRules;
-
-        public List<string>? Rules => _mRules.GetValue("rules");
+        private List<string>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<string>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingMatchingRuleArgs.Rules' is not present");
+            }
+        }
     }
 }

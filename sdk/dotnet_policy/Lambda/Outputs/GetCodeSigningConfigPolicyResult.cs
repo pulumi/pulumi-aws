@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// Code signing configuration policy for deployment validation failure.
         /// </summary>
-        [Input("untrustedArtifactOnDeployment")]
+        [PolicyResourceProperty("untrustedArtifactOnDeployment", "_mUnknown_UntrustedArtifactOnDeployment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUntrustedArtifactOnDeployment;
-
-        public string? UntrustedArtifactOnDeployment => _mUntrustedArtifactOnDeployment.GetValue("untrustedArtifactOnDeployment");
+        private string? _mValue_UntrustedArtifactOnDeployment;
+        private bool _mUnknown_UntrustedArtifactOnDeployment;
+        public string? UntrustedArtifactOnDeployment
+        {
+            get
+            {
+                if (!_mUnknown_UntrustedArtifactOnDeployment) return _mValue_UntrustedArtifactOnDeployment;
+                throw new UndeferrableValueException("Value 'GetCodeSigningConfigPolicyResult.UntrustedArtifactOnDeployment' is not present");
+            }
+        }
     }
 }

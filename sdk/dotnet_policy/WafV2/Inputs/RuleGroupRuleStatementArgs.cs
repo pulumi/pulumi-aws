@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         /// </summary>
-        [Input("andStatement")]
+        [PolicyResourceProperty("andStatement", "_mUnknown_AndStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementAndStatementArgs> _mAndStatement;
-
-        public Inputs.RuleGroupRuleStatementAndStatementArgs? AndStatement => _mAndStatement.GetValue("andStatement");
+        private Inputs.RuleGroupRuleStatementAndStatementArgs? _mValue_AndStatement;
+        private bool _mUnknown_AndStatement;
+        public Inputs.RuleGroupRuleStatementAndStatementArgs? AndStatement
+        {
+            get
+            {
+                if (!_mUnknown_AndStatement) return _mValue_AndStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.AndStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         /// </summary>
-        [Input("byteMatchStatement")]
+        [PolicyResourceProperty("byteMatchStatement", "_mUnknown_ByteMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementByteMatchStatementArgs> _mByteMatchStatement;
-
-        public Inputs.RuleGroupRuleStatementByteMatchStatementArgs? ByteMatchStatement => _mByteMatchStatement.GetValue("byteMatchStatement");
+        private Inputs.RuleGroupRuleStatementByteMatchStatementArgs? _mValue_ByteMatchStatement;
+        private bool _mUnknown_ByteMatchStatement;
+        public Inputs.RuleGroupRuleStatementByteMatchStatementArgs? ByteMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_ByteMatchStatement) return _mValue_ByteMatchStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.ByteMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         /// </summary>
-        [Input("geoMatchStatement")]
+        [PolicyResourceProperty("geoMatchStatement", "_mUnknown_GeoMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementGeoMatchStatementArgs> _mGeoMatchStatement;
-
-        public Inputs.RuleGroupRuleStatementGeoMatchStatementArgs? GeoMatchStatement => _mGeoMatchStatement.GetValue("geoMatchStatement");
+        private Inputs.RuleGroupRuleStatementGeoMatchStatementArgs? _mValue_GeoMatchStatement;
+        private bool _mUnknown_GeoMatchStatement;
+        public Inputs.RuleGroupRuleStatementGeoMatchStatementArgs? GeoMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_GeoMatchStatement) return _mValue_GeoMatchStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.GeoMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
         /// </summary>
-        [Input("ipSetReferenceStatement")]
+        [PolicyResourceProperty("ipSetReferenceStatement", "_mUnknown_IpSetReferenceStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementIpSetReferenceStatementArgs> _mIpSetReferenceStatement;
-
-        public Inputs.RuleGroupRuleStatementIpSetReferenceStatementArgs? IpSetReferenceStatement => _mIpSetReferenceStatement.GetValue("ipSetReferenceStatement");
+        private Inputs.RuleGroupRuleStatementIpSetReferenceStatementArgs? _mValue_IpSetReferenceStatement;
+        private bool _mUnknown_IpSetReferenceStatement;
+        public Inputs.RuleGroupRuleStatementIpSetReferenceStatementArgs? IpSetReferenceStatement
+        {
+            get
+            {
+                if (!_mUnknown_IpSetReferenceStatement) return _mValue_IpSetReferenceStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.IpSetReferenceStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
         /// </summary>
-        [Input("labelMatchStatement")]
+        [PolicyResourceProperty("labelMatchStatement", "_mUnknown_LabelMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementLabelMatchStatementArgs> _mLabelMatchStatement;
-
-        public Inputs.RuleGroupRuleStatementLabelMatchStatementArgs? LabelMatchStatement => _mLabelMatchStatement.GetValue("labelMatchStatement");
+        private Inputs.RuleGroupRuleStatementLabelMatchStatementArgs? _mValue_LabelMatchStatement;
+        private bool _mUnknown_LabelMatchStatement;
+        public Inputs.RuleGroupRuleStatementLabelMatchStatementArgs? LabelMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_LabelMatchStatement) return _mValue_LabelMatchStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.LabelMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
         /// </summary>
-        [Input("notStatement")]
+        [PolicyResourceProperty("notStatement", "_mUnknown_NotStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementNotStatementArgs> _mNotStatement;
-
-        public Inputs.RuleGroupRuleStatementNotStatementArgs? NotStatement => _mNotStatement.GetValue("notStatement");
+        private Inputs.RuleGroupRuleStatementNotStatementArgs? _mValue_NotStatement;
+        private bool _mUnknown_NotStatement;
+        public Inputs.RuleGroupRuleStatementNotStatementArgs? NotStatement
+        {
+            get
+            {
+                if (!_mUnknown_NotStatement) return _mValue_NotStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.NotStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
         /// </summary>
-        [Input("orStatement")]
+        [PolicyResourceProperty("orStatement", "_mUnknown_OrStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementOrStatementArgs> _mOrStatement;
-
-        public Inputs.RuleGroupRuleStatementOrStatementArgs? OrStatement => _mOrStatement.GetValue("orStatement");
+        private Inputs.RuleGroupRuleStatementOrStatementArgs? _mValue_OrStatement;
+        private bool _mUnknown_OrStatement;
+        public Inputs.RuleGroupRuleStatementOrStatementArgs? OrStatement
+        {
+            get
+            {
+                if (!_mUnknown_OrStatement) return _mValue_OrStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.OrStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
         /// </summary>
-        [Input("rateBasedStatement")]
+        [PolicyResourceProperty("rateBasedStatement", "_mUnknown_RateBasedStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRateBasedStatementArgs> _mRateBasedStatement;
-
-        public Inputs.RuleGroupRuleStatementRateBasedStatementArgs? RateBasedStatement => _mRateBasedStatement.GetValue("rateBasedStatement");
+        private Inputs.RuleGroupRuleStatementRateBasedStatementArgs? _mValue_RateBasedStatement;
+        private bool _mUnknown_RateBasedStatement;
+        public Inputs.RuleGroupRuleStatementRateBasedStatementArgs? RateBasedStatement
+        {
+            get
+            {
+                if (!_mUnknown_RateBasedStatement) return _mValue_RateBasedStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.RateBasedStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
         /// </summary>
-        [Input("regexMatchStatement")]
+        [PolicyResourceProperty("regexMatchStatement", "_mUnknown_RegexMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRegexMatchStatementArgs> _mRegexMatchStatement;
-
-        public Inputs.RuleGroupRuleStatementRegexMatchStatementArgs? RegexMatchStatement => _mRegexMatchStatement.GetValue("regexMatchStatement");
+        private Inputs.RuleGroupRuleStatementRegexMatchStatementArgs? _mValue_RegexMatchStatement;
+        private bool _mUnknown_RegexMatchStatement;
+        public Inputs.RuleGroupRuleStatementRegexMatchStatementArgs? RegexMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_RegexMatchStatement) return _mValue_RegexMatchStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.RegexMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         /// </summary>
-        [Input("regexPatternSetReferenceStatement")]
+        [PolicyResourceProperty("regexPatternSetReferenceStatement", "_mUnknown_RegexPatternSetReferenceStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs> _mRegexPatternSetReferenceStatement;
-
-        public Inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs? RegexPatternSetReferenceStatement => _mRegexPatternSetReferenceStatement.GetValue("regexPatternSetReferenceStatement");
+        private Inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs? _mValue_RegexPatternSetReferenceStatement;
+        private bool _mUnknown_RegexPatternSetReferenceStatement;
+        public Inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs? RegexPatternSetReferenceStatement
+        {
+            get
+            {
+                if (!_mUnknown_RegexPatternSetReferenceStatement) return _mValue_RegexPatternSetReferenceStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.RegexPatternSetReferenceStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
         /// </summary>
-        [Input("sizeConstraintStatement")]
+        [PolicyResourceProperty("sizeConstraintStatement", "_mUnknown_SizeConstraintStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSizeConstraintStatementArgs> _mSizeConstraintStatement;
-
-        public Inputs.RuleGroupRuleStatementSizeConstraintStatementArgs? SizeConstraintStatement => _mSizeConstraintStatement.GetValue("sizeConstraintStatement");
+        private Inputs.RuleGroupRuleStatementSizeConstraintStatementArgs? _mValue_SizeConstraintStatement;
+        private bool _mUnknown_SizeConstraintStatement;
+        public Inputs.RuleGroupRuleStatementSizeConstraintStatementArgs? SizeConstraintStatement
+        {
+            get
+            {
+                if (!_mUnknown_SizeConstraintStatement) return _mValue_SizeConstraintStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.SizeConstraintStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
         /// </summary>
-        [Input("sqliMatchStatement")]
+        [PolicyResourceProperty("sqliMatchStatement", "_mUnknown_SqliMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementSqliMatchStatementArgs> _mSqliMatchStatement;
-
-        public Inputs.RuleGroupRuleStatementSqliMatchStatementArgs? SqliMatchStatement => _mSqliMatchStatement.GetValue("sqliMatchStatement");
+        private Inputs.RuleGroupRuleStatementSqliMatchStatementArgs? _mValue_SqliMatchStatement;
+        private bool _mUnknown_SqliMatchStatement;
+        public Inputs.RuleGroupRuleStatementSqliMatchStatementArgs? SqliMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_SqliMatchStatement) return _mValue_SqliMatchStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.SqliMatchStatement' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         /// </summary>
-        [Input("xssMatchStatement")]
+        [PolicyResourceProperty("xssMatchStatement", "_mUnknown_XssMatchStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementXssMatchStatementArgs> _mXssMatchStatement;
-
-        public Inputs.RuleGroupRuleStatementXssMatchStatementArgs? XssMatchStatement => _mXssMatchStatement.GetValue("xssMatchStatement");
+        private Inputs.RuleGroupRuleStatementXssMatchStatementArgs? _mValue_XssMatchStatement;
+        private bool _mUnknown_XssMatchStatement;
+        public Inputs.RuleGroupRuleStatementXssMatchStatementArgs? XssMatchStatement
+        {
+            get
+            {
+                if (!_mUnknown_XssMatchStatement) return _mValue_XssMatchStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementArgs.XssMatchStatement' is not present");
+            }
+        }
     }
 }

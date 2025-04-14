@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// The unique identifier (ID) of the policy that you want to attach to the target.
         /// </summary>
-        [Input("policyId")]
+        [PolicyResourceProperty("policyId", "_mUnknown_PolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
-
-        public string? PolicyId => _mPolicyId.GetValue("policyId");
+        private string? _mValue_PolicyId;
+        private bool _mUnknown_PolicyId;
+        public string? PolicyId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyId) return _mValue_PolicyId;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.PolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.TargetId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:organizations/policyAttachment:PolicyAttachment")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// The unique identifier (ID) of the policy that you want to attach to the target.
         /// </summary>
-        [Input("policyId")]
+        [PolicyResourceProperty("policyId", "_mUnknown_PolicyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyId;
-
-        public string? PolicyId => _mPolicyId.GetValue("policyId");
+        private string? _mValue_PolicyId;
+        private bool _mUnknown_PolicyId;
+        public string? PolicyId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyId) return _mValue_PolicyId;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.PolicyId' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
         /// </summary>
-        [Input("targetId")]
+        [PolicyResourceProperty("targetId", "_mUnknown_TargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetId;
-
-        public string? TargetId => _mTargetId.GetValue("targetId");
+        private string? _mValue_TargetId;
+        private bool _mUnknown_TargetId;
+        public string? TargetId
+        {
+            get
+            {
+                if (!_mUnknown_TargetId) return _mValue_TargetId;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.TargetId' is not present");
+            }
+        }
     }
 }

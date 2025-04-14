@@ -16,155 +16,274 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation
         /// <summary>
         /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         /// </summary>
-        [Input("administrationRoleArn")]
+        [PolicyResourceProperty("administrationRoleArn", "_mUnknown_AdministrationRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdministrationRoleArn;
-
-        public string? AdministrationRoleArn => _mAdministrationRoleArn.GetValue("administrationRoleArn");
+        private string? _mValue_AdministrationRoleArn;
+        private bool _mUnknown_AdministrationRoleArn;
+        public string? AdministrationRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AdministrationRoleArn) return _mValue_AdministrationRoleArn;
+                throw new UndeferrableValueException("Value 'StackSet.AdministrationRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the StackSet.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StackSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
-        [Input("autoDeployment")]
+        [PolicyResourceProperty("autoDeployment", "_mUnknown_AutoDeployment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetAutoDeployment> _mAutoDeployment;
-
-        public Outputs.StackSetAutoDeployment? AutoDeployment => _mAutoDeployment.GetValue("autoDeployment");
+        private Outputs.StackSetAutoDeployment? _mValue_AutoDeployment;
+        private bool _mUnknown_AutoDeployment;
+        public Outputs.StackSetAutoDeployment? AutoDeployment
+        {
+            get
+            {
+                if (!_mUnknown_AutoDeployment) return _mValue_AutoDeployment;
+                throw new UndeferrableValueException("Value 'StackSet.AutoDeployment' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         /// </summary>
-        [Input("callAs")]
+        [PolicyResourceProperty("callAs", "_mUnknown_CallAs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
-
-        public string? CallAs => _mCallAs.GetValue("callAs");
+        private string? _mValue_CallAs;
+        private bool _mUnknown_CallAs;
+        public string? CallAs
+        {
+            get
+            {
+                if (!_mUnknown_CallAs) return _mValue_CallAs;
+                throw new UndeferrableValueException("Value 'StackSet.CallAs' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         /// </summary>
-        [Input("capabilities")]
+        [PolicyResourceProperty("capabilities", "_mUnknown_Capabilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
-
-        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
+        private List<string>? _mValue_Capabilities;
+        private bool _mUnknown_Capabilities;
+        public List<string>? Capabilities
+        {
+            get
+            {
+                if (!_mUnknown_Capabilities) return _mValue_Capabilities;
+                throw new UndeferrableValueException("Value 'StackSet.Capabilities' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the StackSet.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'StackSet.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
-        [Input("executionRoleName")]
+        [PolicyResourceProperty("executionRoleName", "_mUnknown_ExecutionRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleName;
-
-        public string? ExecutionRoleName => _mExecutionRoleName.GetValue("executionRoleName");
+        private string? _mValue_ExecutionRoleName;
+        private bool _mUnknown_ExecutionRoleName;
+        public string? ExecutionRoleName
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleName) return _mValue_ExecutionRoleName;
+                throw new UndeferrableValueException("Value 'StackSet.ExecutionRoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         /// </summary>
-        [Input("managedExecution")]
+        [PolicyResourceProperty("managedExecution", "_mUnknown_ManagedExecution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetManagedExecution> _mManagedExecution;
-
-        public Outputs.StackSetManagedExecution? ManagedExecution => _mManagedExecution.GetValue("managedExecution");
+        private Outputs.StackSetManagedExecution? _mValue_ManagedExecution;
+        private bool _mUnknown_ManagedExecution;
+        public Outputs.StackSetManagedExecution? ManagedExecution
+        {
+            get
+            {
+                if (!_mUnknown_ManagedExecution) return _mValue_ManagedExecution;
+                throw new UndeferrableValueException("Value 'StackSet.ManagedExecution' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StackSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Preferences for how AWS CloudFormation performs a stack set update.
         /// </summary>
-        [Input("operationPreferences")]
+        [PolicyResourceProperty("operationPreferences", "_mUnknown_OperationPreferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StackSetOperationPreferences> _mOperationPreferences;
-
-        public Outputs.StackSetOperationPreferences? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
+        private Outputs.StackSetOperationPreferences? _mValue_OperationPreferences;
+        private bool _mUnknown_OperationPreferences;
+        public Outputs.StackSetOperationPreferences? OperationPreferences
+        {
+            get
+            {
+                if (!_mUnknown_OperationPreferences) return _mValue_OperationPreferences;
+                throw new UndeferrableValueException("Value 'StackSet.OperationPreferences' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'StackSet.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         /// </summary>
-        [Input("permissionModel")]
+        [PolicyResourceProperty("permissionModel", "_mUnknown_PermissionModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionModel;
-
-        public string? PermissionModel => _mPermissionModel.GetValue("permissionModel");
+        private string? _mValue_PermissionModel;
+        private bool _mUnknown_PermissionModel;
+        public string? PermissionModel
+        {
+            get
+            {
+                if (!_mUnknown_PermissionModel) return _mValue_PermissionModel;
+                throw new UndeferrableValueException("Value 'StackSet.PermissionModel' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the StackSet.
         /// </summary>
-        [Input("stackSetId")]
+        [PolicyResourceProperty("stackSetId", "_mUnknown_StackSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetId;
-
-        public string? StackSetId => _mStackSetId.GetValue("stackSetId");
+        private string? _mValue_StackSetId;
+        private bool _mUnknown_StackSetId;
+        public string? StackSetId
+        {
+            get
+            {
+                if (!_mUnknown_StackSetId) return _mValue_StackSetId;
+                throw new UndeferrableValueException("Value 'StackSet.StackSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StackSet.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'StackSet.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         /// </summary>
-        [Input("templateBody")]
+        [PolicyResourceProperty("templateBody", "_mUnknown_TemplateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
-
-        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+        private string? _mValue_TemplateBody;
+        private bool _mUnknown_TemplateBody;
+        public string? TemplateBody
+        {
+            get
+            {
+                if (!_mUnknown_TemplateBody) return _mValue_TemplateBody;
+                throw new UndeferrableValueException("Value 'StackSet.TemplateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         /// </summary>
-        [Input("templateUrl")]
+        [PolicyResourceProperty("templateUrl", "_mUnknown_TemplateUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
-
-        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
+        private string? _mValue_TemplateUrl;
+        private bool _mUnknown_TemplateUrl;
+        public string? TemplateUrl
+        {
+            get
+            {
+                if (!_mUnknown_TemplateUrl) return _mValue_TemplateUrl;
+                throw new UndeferrableValueException("Value 'StackSet.TemplateUrl' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudformation/stackSet:StackSet")]
@@ -173,127 +292,225 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation
         /// <summary>
         /// Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
         /// </summary>
-        [Input("administrationRoleArn")]
+        [PolicyResourceProperty("administrationRoleArn", "_mUnknown_AdministrationRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdministrationRoleArn;
-
-        public string? AdministrationRoleArn => _mAdministrationRoleArn.GetValue("administrationRoleArn");
+        private string? _mValue_AdministrationRoleArn;
+        private bool _mUnknown_AdministrationRoleArn;
+        public string? AdministrationRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AdministrationRoleArn) return _mValue_AdministrationRoleArn;
+                throw new UndeferrableValueException("Value 'StackSetArgs.AdministrationRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
-        [Input("autoDeployment")]
+        [PolicyResourceProperty("autoDeployment", "_mUnknown_AutoDeployment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetAutoDeploymentArgs> _mAutoDeployment;
-
-        public Inputs.StackSetAutoDeploymentArgs? AutoDeployment => _mAutoDeployment.GetValue("autoDeployment");
+        private Inputs.StackSetAutoDeploymentArgs? _mValue_AutoDeployment;
+        private bool _mUnknown_AutoDeployment;
+        public Inputs.StackSetAutoDeploymentArgs? AutoDeployment
+        {
+            get
+            {
+                if (!_mUnknown_AutoDeployment) return _mValue_AutoDeployment;
+                throw new UndeferrableValueException("Value 'StackSetArgs.AutoDeployment' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         /// </summary>
-        [Input("callAs")]
+        [PolicyResourceProperty("callAs", "_mUnknown_CallAs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCallAs;
-
-        public string? CallAs => _mCallAs.GetValue("callAs");
+        private string? _mValue_CallAs;
+        private bool _mUnknown_CallAs;
+        public string? CallAs
+        {
+            get
+            {
+                if (!_mUnknown_CallAs) return _mValue_CallAs;
+                throw new UndeferrableValueException("Value 'StackSetArgs.CallAs' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
         /// </summary>
-        [Input("capabilities")]
+        [PolicyResourceProperty("capabilities", "_mUnknown_Capabilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
-
-        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
+        private List<string>? _mValue_Capabilities;
+        private bool _mUnknown_Capabilities;
+        public List<string>? Capabilities
+        {
+            get
+            {
+                if (!_mUnknown_Capabilities) return _mValue_Capabilities;
+                throw new UndeferrableValueException("Value 'StackSetArgs.Capabilities' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the StackSet.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'StackSetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         /// </summary>
-        [Input("executionRoleName")]
+        [PolicyResourceProperty("executionRoleName", "_mUnknown_ExecutionRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleName;
-
-        public string? ExecutionRoleName => _mExecutionRoleName.GetValue("executionRoleName");
+        private string? _mValue_ExecutionRoleName;
+        private bool _mUnknown_ExecutionRoleName;
+        public string? ExecutionRoleName
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleName) return _mValue_ExecutionRoleName;
+                throw new UndeferrableValueException("Value 'StackSetArgs.ExecutionRoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
         /// </summary>
-        [Input("managedExecution")]
+        [PolicyResourceProperty("managedExecution", "_mUnknown_ManagedExecution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetManagedExecutionArgs> _mManagedExecution;
-
-        public Inputs.StackSetManagedExecutionArgs? ManagedExecution => _mManagedExecution.GetValue("managedExecution");
+        private Inputs.StackSetManagedExecutionArgs? _mValue_ManagedExecution;
+        private bool _mUnknown_ManagedExecution;
+        public Inputs.StackSetManagedExecutionArgs? ManagedExecution
+        {
+            get
+            {
+                if (!_mUnknown_ManagedExecution) return _mValue_ManagedExecution;
+                throw new UndeferrableValueException("Value 'StackSetArgs.ManagedExecution' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StackSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Preferences for how AWS CloudFormation performs a stack set update.
         /// </summary>
-        [Input("operationPreferences")]
+        [PolicyResourceProperty("operationPreferences", "_mUnknown_OperationPreferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StackSetOperationPreferencesArgs> _mOperationPreferences;
-
-        public Inputs.StackSetOperationPreferencesArgs? OperationPreferences => _mOperationPreferences.GetValue("operationPreferences");
+        private Inputs.StackSetOperationPreferencesArgs? _mValue_OperationPreferences;
+        private bool _mUnknown_OperationPreferences;
+        public Inputs.StackSetOperationPreferencesArgs? OperationPreferences
+        {
+            get
+            {
+                if (!_mUnknown_OperationPreferences) return _mValue_OperationPreferences;
+                throw new UndeferrableValueException("Value 'StackSetArgs.OperationPreferences' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'StackSetArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         /// </summary>
-        [Input("permissionModel")]
+        [PolicyResourceProperty("permissionModel", "_mUnknown_PermissionModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionModel;
-
-        public string? PermissionModel => _mPermissionModel.GetValue("permissionModel");
+        private string? _mValue_PermissionModel;
+        private bool _mUnknown_PermissionModel;
+        public string? PermissionModel
+        {
+            get
+            {
+                if (!_mUnknown_PermissionModel) return _mValue_PermissionModel;
+                throw new UndeferrableValueException("Value 'StackSetArgs.PermissionModel' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StackSetArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
         /// </summary>
-        [Input("templateBody")]
+        [PolicyResourceProperty("templateBody", "_mUnknown_TemplateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
-
-        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+        private string? _mValue_TemplateBody;
+        private bool _mUnknown_TemplateBody;
+        public string? TemplateBody
+        {
+            get
+            {
+                if (!_mUnknown_TemplateBody) return _mValue_TemplateBody;
+                throw new UndeferrableValueException("Value 'StackSetArgs.TemplateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
         /// </summary>
-        [Input("templateUrl")]
+        [PolicyResourceProperty("templateUrl", "_mUnknown_TemplateUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateUrl;
-
-        public string? TemplateUrl => _mTemplateUrl.GetValue("templateUrl");
+        private string? _mValue_TemplateUrl;
+        private bool _mUnknown_TemplateUrl;
+        public string? TemplateUrl
+        {
+            get
+            {
+                if (!_mUnknown_TemplateUrl) return _mValue_TemplateUrl;
+                throw new UndeferrableValueException("Value 'StackSetArgs.TemplateUrl' is not present");
+            }
+        }
     }
 }

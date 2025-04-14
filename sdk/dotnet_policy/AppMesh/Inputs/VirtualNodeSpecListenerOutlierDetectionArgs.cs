@@ -15,38 +15,66 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Base amount of time for which a host is ejected.
         /// </summary>
-        [Input("baseEjectionDuration")]
+        [PolicyResourceProperty("baseEjectionDuration", "_mUnknown_BaseEjectionDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs> _mBaseEjectionDuration;
-
-        public Inputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs? BaseEjectionDuration => _mBaseEjectionDuration.GetValue("baseEjectionDuration");
+        private Inputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs? _mValue_BaseEjectionDuration;
+        private bool _mUnknown_BaseEjectionDuration;
+        public Inputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs? BaseEjectionDuration
+        {
+            get
+            {
+                if (!_mUnknown_BaseEjectionDuration) return _mValue_BaseEjectionDuration;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.BaseEjectionDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Time interval between ejection sweep analysis.
         /// </summary>
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecListenerOutlierDetectionIntervalArgs> _mInterval;
-
-        public Inputs.VirtualNodeSpecListenerOutlierDetectionIntervalArgs? Interval => _mInterval.GetValue("interval");
+        private Inputs.VirtualNodeSpecListenerOutlierDetectionIntervalArgs? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public Inputs.VirtualNodeSpecListenerOutlierDetectionIntervalArgs? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.Interval' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
         /// Minimum value of `0`. Maximum value of `100`.
         /// </summary>
-        [Input("maxEjectionPercent")]
+        [PolicyResourceProperty("maxEjectionPercent", "_mUnknown_MaxEjectionPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxEjectionPercent;
-
-        public int? MaxEjectionPercent => _mMaxEjectionPercent.GetValue("maxEjectionPercent");
+        private int? _mValue_MaxEjectionPercent;
+        private bool _mUnknown_MaxEjectionPercent;
+        public int? MaxEjectionPercent
+        {
+            get
+            {
+                if (!_mUnknown_MaxEjectionPercent) return _mValue_MaxEjectionPercent;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.MaxEjectionPercent' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
         /// </summary>
-        [Input("maxServerErrors")]
+        [PolicyResourceProperty("maxServerErrors", "_mUnknown_MaxServerErrors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxServerErrors;
-
-        public int? MaxServerErrors => _mMaxServerErrors.GetValue("maxServerErrors");
+        private int? _mValue_MaxServerErrors;
+        private bool _mUnknown_MaxServerErrors;
+        public int? MaxServerErrors
+        {
+            get
+            {
+                if (!_mUnknown_MaxServerErrors) return _mValue_MaxServerErrors;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.MaxServerErrors' is not present");
+            }
+        }
     }
 }

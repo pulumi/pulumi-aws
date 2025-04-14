@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Name of the host where requests are redirected.
         /// </summary>
-        [Input("hostName")]
+        [PolicyResourceProperty("hostName", "_mUnknown_HostName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostName;
-
-        public string? HostName => _mHostName.GetValue("hostName");
+        private string? _mValue_HostName;
+        private bool _mUnknown_HostName;
+        public string? HostName
+        {
+            get
+            {
+                if (!_mUnknown_HostName) return _mValue_HostName;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgs.HostName' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgs.Protocol' is not present");
+            }
+        }
     }
 }

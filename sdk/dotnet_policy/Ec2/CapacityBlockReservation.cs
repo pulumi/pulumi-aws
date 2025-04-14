@@ -16,161 +16,287 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the reservation.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone in which to create the Capacity Block Reservation.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The Capacity Block Reservation ID.
         /// </summary>
-        [Input("capacityBlockOfferingId")]
+        [PolicyResourceProperty("capacityBlockOfferingId", "_mUnknown_CapacityBlockOfferingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityBlockOfferingId;
-
-        public string? CapacityBlockOfferingId => _mCapacityBlockOfferingId.GetValue("capacityBlockOfferingId");
+        private string? _mValue_CapacityBlockOfferingId;
+        private bool _mUnknown_CapacityBlockOfferingId;
+        public string? CapacityBlockOfferingId
+        {
+            get
+            {
+                if (!_mUnknown_CapacityBlockOfferingId) return _mValue_CapacityBlockOfferingId;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.CapacityBlockOfferingId' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time at which the Capacity Block Reservation was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the Capacity Reservation supports EBS-optimized instances.
         /// </summary>
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
-
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.EbsOptimized' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
-        [Input("endDate")]
+        [PolicyResourceProperty("endDate", "_mUnknown_EndDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndDate;
-
-        public string? EndDate => _mEndDate.GetValue("endDate");
+        private string? _mValue_EndDate;
+        private bool _mUnknown_EndDate;
+        public string? EndDate
+        {
+            get
+            {
+                if (!_mUnknown_EndDate) return _mValue_EndDate;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.EndDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the way in which the Capacity Reservation ends.
         /// </summary>
-        [Input("endDateType")]
+        [PolicyResourceProperty("endDateType", "_mUnknown_EndDateType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndDateType;
-
-        public string? EndDateType => _mEndDateType.GetValue("endDateType");
+        private string? _mValue_EndDateType;
+        private bool _mUnknown_EndDateType;
+        public string? EndDateType
+        {
+            get
+            {
+                if (!_mUnknown_EndDateType) return _mValue_EndDateType;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.EndDateType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of instances for which to reserve capacity.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         /// </summary>
-        [Input("instancePlatform")]
+        [PolicyResourceProperty("instancePlatform", "_mUnknown_InstancePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstancePlatform;
-
-        public string? InstancePlatform => _mInstancePlatform.GetValue("instancePlatform");
+        private string? _mValue_InstancePlatform;
+        private bool _mUnknown_InstancePlatform;
+        public string? InstancePlatform
+        {
+            get
+            {
+                if (!_mUnknown_InstancePlatform) return _mValue_InstancePlatform;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.InstancePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type for which to reserve capacity.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Outpost on which to create the Capacity Block Reservation.
         /// </summary>
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the placement group in which to create the Capacity Block Reservation.
         /// </summary>
-        [Input("placementGroupArn")]
+        [PolicyResourceProperty("placementGroupArn", "_mUnknown_PlacementGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroupArn;
-
-        public string? PlacementGroupArn => _mPlacementGroupArn.GetValue("placementGroupArn");
+        private string? _mValue_PlacementGroupArn;
+        private bool _mUnknown_PlacementGroupArn;
+        public string? PlacementGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_PlacementGroupArn) return _mValue_PlacementGroupArn;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.PlacementGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of Capacity Reservation.
         /// </summary>
-        [Input("reservationType")]
+        [PolicyResourceProperty("reservationType", "_mUnknown_ReservationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReservationType;
-
-        public string? ReservationType => _mReservationType.GetValue("reservationType");
+        private string? _mValue_ReservationType;
+        private bool _mUnknown_ReservationType;
+        public string? ReservationType
+        {
+            get
+            {
+                if (!_mUnknown_ReservationType) return _mValue_ReservationType;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.ReservationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
-        [Input("startDate")]
+        [PolicyResourceProperty("startDate", "_mUnknown_StartDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
-
-        public string? StartDate => _mStartDate.GetValue("startDate");
+        private string? _mValue_StartDate;
+        private bool _mUnknown_StartDate;
+        public string? StartDate
+        {
+            get
+            {
+                if (!_mUnknown_StartDate) return _mValue_StartDate;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.StartDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
         /// </summary>
-        [Input("tenancy")]
+        [PolicyResourceProperty("tenancy", "_mUnknown_Tenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
+        private string? _mValue_Tenancy;
+        private bool _mUnknown_Tenancy;
+        public string? Tenancy
+        {
+            get
+            {
+                if (!_mUnknown_Tenancy) return _mValue_Tenancy;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.Tenancy' is not present");
+            }
+        }
 
-        public string? Tenancy => _mTenancy.GetValue("tenancy");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CapacityBlockReservationTimeouts> _mTimeouts;
-
-        public Outputs.CapacityBlockReservationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.CapacityBlockReservationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.CapacityBlockReservationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/capacityBlockReservation:CapacityBlockReservation")]
@@ -179,34 +305,62 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Capacity Block Reservation ID.
         /// </summary>
-        [Input("capacityBlockOfferingId")]
+        [PolicyResourceProperty("capacityBlockOfferingId", "_mUnknown_CapacityBlockOfferingId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityBlockOfferingId;
-
-        public string? CapacityBlockOfferingId => _mCapacityBlockOfferingId.GetValue("capacityBlockOfferingId");
+        private string? _mValue_CapacityBlockOfferingId;
+        private bool _mUnknown_CapacityBlockOfferingId;
+        public string? CapacityBlockOfferingId
+        {
+            get
+            {
+                if (!_mUnknown_CapacityBlockOfferingId) return _mValue_CapacityBlockOfferingId;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.CapacityBlockOfferingId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         /// </summary>
-        [Input("instancePlatform")]
+        [PolicyResourceProperty("instancePlatform", "_mUnknown_InstancePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstancePlatform;
-
-        public string? InstancePlatform => _mInstancePlatform.GetValue("instancePlatform");
+        private string? _mValue_InstancePlatform;
+        private bool _mUnknown_InstancePlatform;
+        public string? InstancePlatform
+        {
+            get
+            {
+                if (!_mUnknown_InstancePlatform) return _mValue_InstancePlatform;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.InstancePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CapacityBlockReservationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.CapacityBlockReservationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.CapacityBlockReservationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.CapacityBlockReservationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplatePrivateDnsNameOptionResult
     {
-        [Input("enableResourceNameDnsARecord")]
+        [PolicyResourceProperty("enableResourceNameDnsARecord", "_mUnknown_EnableResourceNameDnsARecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsARecord;
+        private bool? _mValue_EnableResourceNameDnsARecord;
+        private bool _mUnknown_EnableResourceNameDnsARecord;
+        public bool? EnableResourceNameDnsARecord
+        {
+            get
+            {
+                if (!_mUnknown_EnableResourceNameDnsARecord) return _mValue_EnableResourceNameDnsARecord;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePrivateDnsNameOptionResult.EnableResourceNameDnsARecord' is not present");
+            }
+        }
 
-        public bool? EnableResourceNameDnsARecord => _mEnableResourceNameDnsARecord.GetValue("enableResourceNameDnsARecord");
-
-        [Input("enableResourceNameDnsAaaaRecord")]
+        [PolicyResourceProperty("enableResourceNameDnsAaaaRecord", "_mUnknown_EnableResourceNameDnsAaaaRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsAaaaRecord;
+        private bool? _mValue_EnableResourceNameDnsAaaaRecord;
+        private bool _mUnknown_EnableResourceNameDnsAaaaRecord;
+        public bool? EnableResourceNameDnsAaaaRecord
+        {
+            get
+            {
+                if (!_mUnknown_EnableResourceNameDnsAaaaRecord) return _mValue_EnableResourceNameDnsAaaaRecord;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePrivateDnsNameOptionResult.EnableResourceNameDnsAaaaRecord' is not present");
+            }
+        }
 
-        public bool? EnableResourceNameDnsAaaaRecord => _mEnableResourceNameDnsAaaaRecord.GetValue("enableResourceNameDnsAaaaRecord");
-
-        [Input("hostnameType")]
+        [PolicyResourceProperty("hostnameType", "_mUnknown_HostnameType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostnameType;
-
-        public string? HostnameType => _mHostnameType.GetValue("hostnameType");
+        private string? _mValue_HostnameType;
+        private bool _mUnknown_HostnameType;
+        public string? HostnameType
+        {
+            get
+            {
+                if (!_mUnknown_HostnameType) return _mValue_HostnameType;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePrivateDnsNameOptionResult.HostnameType' is not present");
+            }
+        }
     }
 }

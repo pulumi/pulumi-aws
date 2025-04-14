@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The Amazon Web Services account ID to grant access to.
         /// </summary>
-        [Input("account")]
+        [PolicyResourceProperty("account", "_mUnknown_Account")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
-
-        public string? Account => _mAccount.GetValue("account");
+        private string? _mValue_Account;
+        private bool _mUnknown_Account;
+        public string? Account
+        {
+            get
+            {
+                if (!_mUnknown_Account) return _mValue_Account;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.Account' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether all VPCs in the grantee account are allowed access to the cluster.
         /// </summary>
-        [Input("allowedAllVpcs")]
+        [PolicyResourceProperty("allowedAllVpcs", "_mUnknown_AllowedAllVpcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowedAllVpcs;
-
-        public bool? AllowedAllVpcs => _mAllowedAllVpcs.GetValue("allowedAllVpcs");
+        private bool? _mValue_AllowedAllVpcs;
+        private bool _mUnknown_AllowedAllVpcs;
+        public bool? AllowedAllVpcs
+        {
+            get
+            {
+                if (!_mUnknown_AllowedAllVpcs) return _mValue_AllowedAllVpcs;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.AllowedAllVpcs' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier of the cluster to grant access to.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of Redshift-managed VPC endpoints created for the authorization.
         /// </summary>
-        [Input("endpointCount")]
+        [PolicyResourceProperty("endpointCount", "_mUnknown_EndpointCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEndpointCount;
-
-        public int? EndpointCount => _mEndpointCount.GetValue("endpointCount");
+        private int? _mValue_EndpointCount;
+        private bool _mUnknown_EndpointCount;
+        public int? EndpointCount
+        {
+            get
+            {
+                if (!_mUnknown_EndpointCount) return _mValue_EndpointCount;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.EndpointCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services account ID of the grantee of the cluster.
         /// </summary>
-        [Input("grantee")]
+        [PolicyResourceProperty("grantee", "_mUnknown_Grantee")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrantee;
-
-        public string? Grantee => _mGrantee.GetValue("grantee");
+        private string? _mValue_Grantee;
+        private bool _mUnknown_Grantee;
+        public string? Grantee
+        {
+            get
+            {
+                if (!_mUnknown_Grantee) return _mValue_Grantee;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.Grantee' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services account ID of the cluster owner.
         /// </summary>
-        [Input("grantor")]
+        [PolicyResourceProperty("grantor", "_mUnknown_Grantor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrantor;
-
-        public string? Grantor => _mGrantor.GetValue("grantor");
+        private string? _mValue_Grantor;
+        private bool _mUnknown_Grantor;
+        public string? Grantor
+        {
+            get
+            {
+                if (!_mUnknown_Grantor) return _mValue_Grantor;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.Grantor' is not present");
+            }
+        }
 
         /// <summary>
         /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         /// </summary>
-        [Input("vpcIds")]
+        [PolicyResourceProperty("vpcIds", "_mUnknown_VpcIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcIds;
-
-        public List<string>? VpcIds => _mVpcIds.GetValue("vpcIds");
+        private List<string>? _mValue_VpcIds;
+        private bool _mUnknown_VpcIds;
+        public List<string>? VpcIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcIds) return _mValue_VpcIds;
+                throw new UndeferrableValueException("Value 'EndpointAuthorization.VpcIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/endpointAuthorization:EndpointAuthorization")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The Amazon Web Services account ID to grant access to.
         /// </summary>
-        [Input("account")]
+        [PolicyResourceProperty("account", "_mUnknown_Account")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
-
-        public string? Account => _mAccount.GetValue("account");
+        private string? _mValue_Account;
+        private bool _mUnknown_Account;
+        public string? Account
+        {
+            get
+            {
+                if (!_mUnknown_Account) return _mValue_Account;
+                throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.Account' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier of the cluster to grant access to.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         /// </summary>
-        [Input("vpcIds")]
+        [PolicyResourceProperty("vpcIds", "_mUnknown_VpcIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcIds;
-
-        public List<string>? VpcIds => _mVpcIds.GetValue("vpcIds");
+        private List<string>? _mValue_VpcIds;
+        private bool _mUnknown_VpcIds;
+        public List<string>? VpcIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcIds) return _mValue_VpcIds;
+                throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.VpcIds' is not present");
+            }
+        }
     }
 }

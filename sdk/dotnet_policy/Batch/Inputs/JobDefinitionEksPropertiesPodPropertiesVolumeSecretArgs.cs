@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// Whether the secret or the secret's keys must be defined.
         /// </summary>
-        [Input("optional")]
+        [PolicyResourceProperty("optional", "_mUnknown_Optional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOptional;
-
-        public bool? Optional => _mOptional.GetValue("optional");
+        private bool? _mValue_Optional;
+        private bool _mUnknown_Optional;
+        public bool? Optional
+        {
+            get
+            {
+                if (!_mUnknown_Optional) return _mValue_Optional;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs.Optional' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the secret. The name must be allowed as a DNS subdomain name.
         /// </summary>
-        [Input("secretName")]
+        [PolicyResourceProperty("secretName", "_mUnknown_SecretName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretName;
-
-        public string? SecretName => _mSecretName.GetValue("secretName");
+        private string? _mValue_SecretName;
+        private bool _mUnknown_SecretName;
+        public string? SecretName
+        {
+            get
+            {
+                if (!_mUnknown_SecretName) return _mValue_SecretName;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs.SecretName' is not present");
+            }
+        }
     }
 }

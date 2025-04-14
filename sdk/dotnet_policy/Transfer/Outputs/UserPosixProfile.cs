@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// The POSIX group ID used for all EFS operations by this user.
         /// </summary>
-        [Input("gid")]
+        [PolicyResourceProperty("gid", "_mUnknown_Gid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGid;
-
-        public int? Gid => _mGid.GetValue("gid");
+        private int? _mValue_Gid;
+        private bool _mUnknown_Gid;
+        public int? Gid
+        {
+            get
+            {
+                if (!_mUnknown_Gid) return _mValue_Gid;
+                throw new UndeferrableValueException("Value 'UserPosixProfile.Gid' is not present");
+            }
+        }
 
         /// <summary>
         /// The secondary POSIX group IDs used for all EFS operations by this user.
         /// </summary>
-        [Input("secondaryGids")]
+        [PolicyResourceProperty("secondaryGids", "_mUnknown_SecondaryGids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mSecondaryGids;
-
-        public List<int>? SecondaryGids => _mSecondaryGids.GetValue("secondaryGids");
+        private List<int>? _mValue_SecondaryGids;
+        private bool _mUnknown_SecondaryGids;
+        public List<int>? SecondaryGids
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryGids) return _mValue_SecondaryGids;
+                throw new UndeferrableValueException("Value 'UserPosixProfile.SecondaryGids' is not present");
+            }
+        }
 
         /// <summary>
         /// The POSIX user ID used for all EFS operations by this user.
         /// </summary>
-        [Input("uid")]
+        [PolicyResourceProperty("uid", "_mUnknown_Uid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUid;
-
-        public int? Uid => _mUid.GetValue("uid");
+        private int? _mValue_Uid;
+        private bool _mUnknown_Uid;
+        public int? Uid
+        {
+            get
+            {
+                if (!_mUnknown_Uid) return _mValue_Uid;
+                throw new UndeferrableValueException("Value 'UserPosixProfile.Uid' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
         /// <summary>
         /// The S3 bucket that is being imported from.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'TableImportTableS3BucketSource.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The account number of the S3 bucket that is being imported from.
         /// </summary>
-        [Input("bucketOwner")]
+        [PolicyResourceProperty("bucketOwner", "_mUnknown_BucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketOwner;
-
-        public string? BucketOwner => _mBucketOwner.GetValue("bucketOwner");
+        private string? _mValue_BucketOwner;
+        private bool _mUnknown_BucketOwner;
+        public string? BucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_BucketOwner) return _mValue_BucketOwner;
+                throw new UndeferrableValueException("Value 'TableImportTableS3BucketSource.BucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// The key prefix shared by all S3 Objects that are being imported.
         /// </summary>
-        [Input("keyPrefix")]
+        [PolicyResourceProperty("keyPrefix", "_mUnknown_KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPrefix;
-
-        public string? KeyPrefix => _mKeyPrefix.GetValue("keyPrefix");
+        private string? _mValue_KeyPrefix;
+        private bool _mUnknown_KeyPrefix;
+        public string? KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_KeyPrefix) return _mValue_KeyPrefix;
+                throw new UndeferrableValueException("Value 'TableImportTableS3BucketSource.KeyPrefix' is not present");
+            }
+        }
     }
 }

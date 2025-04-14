@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
         /// </summary>
-        [Input("defaultDocumentIdFormat")]
+        [PolicyResourceProperty("defaultDocumentIdFormat", "_mUnknown_DefaultDocumentIdFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultDocumentIdFormat;
-
-        public string? DefaultDocumentIdFormat => _mDefaultDocumentIdFormat.GetValue("defaultDocumentIdFormat");
+        private string? _mValue_DefaultDocumentIdFormat;
+        private bool _mUnknown_DefaultDocumentIdFormat;
+        public string? DefaultDocumentIdFormat
+        {
+            get
+            {
+                if (!_mUnknown_DefaultDocumentIdFormat) return _mValue_DefaultDocumentIdFormat;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs.DefaultDocumentIdFormat' is not present");
+            }
+        }
     }
 }

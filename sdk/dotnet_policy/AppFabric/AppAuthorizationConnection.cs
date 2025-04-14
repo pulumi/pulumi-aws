@@ -16,53 +16,95 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("app")]
+        [PolicyResourceProperty("app", "_mUnknown_App")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
-
-        public string? App => _mApp.GetValue("app");
+        private string? _mValue_App;
+        private bool _mUnknown_App;
+        public string? App
+        {
+            get
+            {
+                if (!_mUnknown_App) return _mValue_App;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnection.App' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         /// </summary>
-        [Input("appAuthorizationArn")]
+        [PolicyResourceProperty("appAuthorizationArn", "_mUnknown_AppAuthorizationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppAuthorizationArn;
-
-        public string? AppAuthorizationArn => _mAppAuthorizationArn.GetValue("appAuthorizationArn");
+        private string? _mValue_AppAuthorizationArn;
+        private bool _mUnknown_AppAuthorizationArn;
+        public string? AppAuthorizationArn
+        {
+            get
+            {
+                if (!_mUnknown_AppAuthorizationArn) return _mValue_AppAuthorizationArn;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnection.AppAuthorizationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
-        [Input("appBundleArn")]
+        [PolicyResourceProperty("appBundleArn", "_mUnknown_AppBundleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
-
-        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+        private string? _mValue_AppBundleArn;
+        private bool _mUnknown_AppBundleArn;
+        public string? AppBundleArn
+        {
+            get
+            {
+                if (!_mUnknown_AppBundleArn) return _mValue_AppBundleArn;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnection.AppBundleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         /// </summary>
-        [Input("authRequest")]
+        [PolicyResourceProperty("authRequest", "_mUnknown_AuthRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAuthorizationConnectionAuthRequest> _mAuthRequest;
-
-        public Outputs.AppAuthorizationConnectionAuthRequest? AuthRequest => _mAuthRequest.GetValue("authRequest");
+        private Outputs.AppAuthorizationConnectionAuthRequest? _mValue_AuthRequest;
+        private bool _mUnknown_AuthRequest;
+        public Outputs.AppAuthorizationConnectionAuthRequest? AuthRequest
+        {
+            get
+            {
+                if (!_mUnknown_AuthRequest) return _mValue_AuthRequest;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnection.AuthRequest' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about an application tenant, such as the application display name and identifier.
         /// </summary>
-        [Input("tenants")]
+        [PolicyResourceProperty("tenants", "_mUnknown_Tenants")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AppAuthorizationConnectionTenant>> _mTenants;
+        private List<Outputs.AppAuthorizationConnectionTenant>? _mValue_Tenants;
+        private bool _mUnknown_Tenants;
+        public List<Outputs.AppAuthorizationConnectionTenant>? Tenants
+        {
+            get
+            {
+                if (!_mUnknown_Tenants) return _mValue_Tenants;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnection.Tenants' is not present");
+            }
+        }
 
-        public List<Outputs.AppAuthorizationConnectionTenant>? Tenants => _mTenants.GetValue("tenants");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AppAuthorizationConnectionTimeouts> _mTimeouts;
-
-        public Outputs.AppAuthorizationConnectionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AppAuthorizationConnectionTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AppAuthorizationConnectionTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnection.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection")]
@@ -71,34 +113,62 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric
         /// <summary>
         /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         /// </summary>
-        [Input("appAuthorizationArn")]
+        [PolicyResourceProperty("appAuthorizationArn", "_mUnknown_AppAuthorizationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppAuthorizationArn;
-
-        public string? AppAuthorizationArn => _mAppAuthorizationArn.GetValue("appAuthorizationArn");
+        private string? _mValue_AppAuthorizationArn;
+        private bool _mUnknown_AppAuthorizationArn;
+        public string? AppAuthorizationArn
+        {
+            get
+            {
+                if (!_mUnknown_AppAuthorizationArn) return _mValue_AppAuthorizationArn;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.AppAuthorizationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
-        [Input("appBundleArn")]
+        [PolicyResourceProperty("appBundleArn", "_mUnknown_AppBundleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
-
-        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+        private string? _mValue_AppBundleArn;
+        private bool _mUnknown_AppBundleArn;
+        public string? AppBundleArn
+        {
+            get
+            {
+                if (!_mUnknown_AppBundleArn) return _mValue_AppBundleArn;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.AppBundleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         /// </summary>
-        [Input("authRequest")]
+        [PolicyResourceProperty("authRequest", "_mUnknown_AuthRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAuthorizationConnectionAuthRequestArgs> _mAuthRequest;
+        private Inputs.AppAuthorizationConnectionAuthRequestArgs? _mValue_AuthRequest;
+        private bool _mUnknown_AuthRequest;
+        public Inputs.AppAuthorizationConnectionAuthRequestArgs? AuthRequest
+        {
+            get
+            {
+                if (!_mUnknown_AuthRequest) return _mValue_AuthRequest;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.AuthRequest' is not present");
+            }
+        }
 
-        public Inputs.AppAuthorizationConnectionAuthRequestArgs? AuthRequest => _mAuthRequest.GetValue("authRequest");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppAuthorizationConnectionTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AppAuthorizationConnectionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AppAuthorizationConnectionTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AppAuthorizationConnectionTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.Timeouts' is not present");
+            }
+        }
     }
 }

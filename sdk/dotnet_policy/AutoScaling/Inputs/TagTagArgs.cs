@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Tag name.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'TagTagArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to propagate the tags to instances launched by the ASG.
         /// </summary>
-        [Input("propagateAtLaunch")]
+        [PolicyResourceProperty("propagateAtLaunch", "_mUnknown_PropagateAtLaunch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPropagateAtLaunch;
-
-        public bool? PropagateAtLaunch => _mPropagateAtLaunch.GetValue("propagateAtLaunch");
+        private bool? _mValue_PropagateAtLaunch;
+        private bool _mUnknown_PropagateAtLaunch;
+        public bool? PropagateAtLaunch
+        {
+            get
+            {
+                if (!_mUnknown_PropagateAtLaunch) return _mValue_PropagateAtLaunch;
+                throw new UndeferrableValueException("Value 'TagTagArgs.PropagateAtLaunch' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag value.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'TagTagArgs.Value' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Outputs
         /// <summary>
         /// POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
         /// </summary>
-        [Input("creationInfo")]
+        [PolicyResourceProperty("creationInfo", "_mUnknown_CreationInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessPointRootDirectoryCreationInfo> _mCreationInfo;
-
-        public Outputs.AccessPointRootDirectoryCreationInfo? CreationInfo => _mCreationInfo.GetValue("creationInfo");
+        private Outputs.AccessPointRootDirectoryCreationInfo? _mValue_CreationInfo;
+        private bool _mUnknown_CreationInfo;
+        public Outputs.AccessPointRootDirectoryCreationInfo? CreationInfo
+        {
+            get
+            {
+                if (!_mUnknown_CreationInfo) return _mValue_CreationInfo;
+                throw new UndeferrableValueException("Value 'AccessPointRootDirectory.CreationInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'AccessPointRootDirectory.Path' is not present");
+            }
+        }
     }
 }

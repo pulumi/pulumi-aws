@@ -16,37 +16,65 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// Multiplex ID.
         /// </summary>
-        [Input("multiplexId")]
+        [PolicyResourceProperty("multiplexId", "_mUnknown_MultiplexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMultiplexId;
-
-        public string? MultiplexId => _mMultiplexId.GetValue("multiplexId");
+        private string? _mValue_MultiplexId;
+        private bool _mUnknown_MultiplexId;
+        public string? MultiplexId
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexId) return _mValue_MultiplexId;
+                throw new UndeferrableValueException("Value 'MultiplexProgram.MultiplexId' is not present");
+            }
+        }
 
         /// <summary>
         /// MultiplexProgram settings. See Multiplex Program Settings for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("multiplexProgramSettings")]
+        [PolicyResourceProperty("multiplexProgramSettings", "_mUnknown_MultiplexProgramSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexProgramMultiplexProgramSettings> _mMultiplexProgramSettings;
-
-        public Outputs.MultiplexProgramMultiplexProgramSettings? MultiplexProgramSettings => _mMultiplexProgramSettings.GetValue("multiplexProgramSettings");
+        private Outputs.MultiplexProgramMultiplexProgramSettings? _mValue_MultiplexProgramSettings;
+        private bool _mUnknown_MultiplexProgramSettings;
+        public Outputs.MultiplexProgramMultiplexProgramSettings? MultiplexProgramSettings
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexProgramSettings) return _mValue_MultiplexProgramSettings;
+                throw new UndeferrableValueException("Value 'MultiplexProgram.MultiplexProgramSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique program name.
         /// </summary>
-        [Input("programName")]
+        [PolicyResourceProperty("programName", "_mUnknown_ProgramName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProgramName;
+        private string? _mValue_ProgramName;
+        private bool _mUnknown_ProgramName;
+        public string? ProgramName
+        {
+            get
+            {
+                if (!_mUnknown_ProgramName) return _mValue_ProgramName;
+                throw new UndeferrableValueException("Value 'MultiplexProgram.ProgramName' is not present");
+            }
+        }
 
-        public string? ProgramName => _mProgramName.GetValue("programName");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexProgramTimeouts> _mTimeouts;
-
-        public Outputs.MultiplexProgramTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.MultiplexProgramTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.MultiplexProgramTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'MultiplexProgram.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:medialive/multiplexProgram:MultiplexProgram")]
@@ -55,36 +83,64 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// Multiplex ID.
         /// </summary>
-        [Input("multiplexId")]
+        [PolicyResourceProperty("multiplexId", "_mUnknown_MultiplexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMultiplexId;
-
-        public string? MultiplexId => _mMultiplexId.GetValue("multiplexId");
+        private string? _mValue_MultiplexId;
+        private bool _mUnknown_MultiplexId;
+        public string? MultiplexId
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexId) return _mValue_MultiplexId;
+                throw new UndeferrableValueException("Value 'MultiplexProgramArgs.MultiplexId' is not present");
+            }
+        }
 
         /// <summary>
         /// MultiplexProgram settings. See Multiplex Program Settings for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("multiplexProgramSettings")]
+        [PolicyResourceProperty("multiplexProgramSettings", "_mUnknown_MultiplexProgramSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiplexProgramMultiplexProgramSettingsArgs> _mMultiplexProgramSettings;
-
-        public Inputs.MultiplexProgramMultiplexProgramSettingsArgs? MultiplexProgramSettings => _mMultiplexProgramSettings.GetValue("multiplexProgramSettings");
+        private Inputs.MultiplexProgramMultiplexProgramSettingsArgs? _mValue_MultiplexProgramSettings;
+        private bool _mUnknown_MultiplexProgramSettings;
+        public Inputs.MultiplexProgramMultiplexProgramSettingsArgs? MultiplexProgramSettings
+        {
+            get
+            {
+                if (!_mUnknown_MultiplexProgramSettings) return _mValue_MultiplexProgramSettings;
+                throw new UndeferrableValueException("Value 'MultiplexProgramArgs.MultiplexProgramSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique program name.
         /// </summary>
-        [Input("programName")]
+        [PolicyResourceProperty("programName", "_mUnknown_ProgramName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProgramName;
+        private string? _mValue_ProgramName;
+        private bool _mUnknown_ProgramName;
+        public string? ProgramName
+        {
+            get
+            {
+                if (!_mUnknown_ProgramName) return _mValue_ProgramName;
+                throw new UndeferrableValueException("Value 'MultiplexProgramArgs.ProgramName' is not present");
+            }
+        }
 
-        public string? ProgramName => _mProgramName.GetValue("programName");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MultiplexProgramTimeoutsArgs> _mTimeouts;
-
-        public Inputs.MultiplexProgramTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.MultiplexProgramTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.MultiplexProgramTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'MultiplexProgramArgs.Timeouts' is not present");
+            }
+        }
     }
 }

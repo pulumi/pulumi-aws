@@ -15,88 +15,158 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
         /// </summary>
-        [Input("bufferingInterval")]
+        [PolicyResourceProperty("bufferingInterval", "_mUnknown_BufferingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingInterval;
-
-        public int? BufferingInterval => _mBufferingInterval.GetValue("bufferingInterval");
+        private int? _mValue_BufferingInterval;
+        private bool _mUnknown_BufferingInterval;
+        public int? BufferingInterval
+        {
+            get
+            {
+                if (!_mUnknown_BufferingInterval) return _mValue_BufferingInterval;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.BufferingInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
         /// </summary>
-        [Input("bufferingSize")]
+        [PolicyResourceProperty("bufferingSize", "_mUnknown_BufferingSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingSize;
-
-        public int? BufferingSize => _mBufferingSize.GetValue("bufferingSize");
+        private int? _mValue_BufferingSize;
+        private bool _mUnknown_BufferingSize;
+        public int? BufferingSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferingSize) return _mValue_BufferingSize;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.BufferingSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
         /// </summary>
-        [Input("catalogArn")]
+        [PolicyResourceProperty("catalogArn", "_mUnknown_CatalogArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogArn;
-
-        public string? CatalogArn => _mCatalogArn.GetValue("catalogArn");
+        private string? _mValue_CatalogArn;
+        private bool _mUnknown_CatalogArn;
+        public string? CatalogArn
+        {
+            get
+            {
+                if (!_mUnknown_CatalogArn) return _mValue_CatalogArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.CatalogArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
-
-        public Inputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Inputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Inputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destination_table_configuration` block below for details.
         /// </summary>
-        [Input("destinationTableConfigurations")]
+        [PolicyResourceProperty("destinationTableConfigurations", "_mUnknown_DestinationTableConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs>> _mDestinationTableConfigurations;
-
-        public List<Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs>? DestinationTableConfigurations => _mDestinationTableConfigurations.GetValue("destinationTableConfigurations");
+        private List<Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs>? _mValue_DestinationTableConfigurations;
+        private bool _mUnknown_DestinationTableConfigurations;
+        public List<Inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs>? DestinationTableConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_DestinationTableConfigurations) return _mValue_DestinationTableConfigurations;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.DestinationTableConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs> _mProcessingConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
+        private Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.ProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
         /// </summary>
-        [Input("retryDuration")]
+        [PolicyResourceProperty("retryDuration", "_mUnknown_RetryDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryDuration;
-
-        public int? RetryDuration => _mRetryDuration.GetValue("retryDuration");
+        private int? _mValue_RetryDuration;
+        private bool _mUnknown_RetryDuration;
+        public int? RetryDuration
+        {
+            get
+            {
+                if (!_mUnknown_RetryDuration) return _mValue_RetryDuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.RetryDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
-
-        [Input("s3BackupMode")]
+        [PolicyResourceProperty("s3BackupMode", "_mUnknown_S3BackupMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BackupMode;
-
-        public string? S3BackupMode => _mS3BackupMode.GetValue("s3BackupMode");
+        private string? _mValue_S3BackupMode;
+        private bool _mUnknown_S3BackupMode;
+        public string? S3BackupMode
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupMode) return _mValue_S3BackupMode;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.S3BackupMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 Configuration. See `s3_configuration` block below for details.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs> _mS3Configuration;
-
-        public Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationArgs.S3Configuration' is not present");
+            }
+        }
     }
 }

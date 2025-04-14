@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// List of locations that point to the path where a Delta table is located.
         /// </summary>
-        [Input("additionalLocations")]
+        [PolicyResourceProperty("additionalLocations", "_mUnknown_AdditionalLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalLocations;
-
-        public List<string>? AdditionalLocations => _mAdditionalLocations.GetValue("additionalLocations");
+        private List<string>? _mValue_AdditionalLocations;
+        private bool _mUnknown_AdditionalLocations;
+        public List<string>? AdditionalLocations
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalLocations) return _mValue_AdditionalLocations;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.AdditionalLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
         /// </summary>
-        [Input("bucketColumns")]
+        [PolicyResourceProperty("bucketColumns", "_mUnknown_BucketColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBucketColumns;
-
-        public List<string>? BucketColumns => _mBucketColumns.GetValue("bucketColumns");
+        private List<string>? _mValue_BucketColumns;
+        private bool _mUnknown_BucketColumns;
+        public List<string>? BucketColumns
+        {
+            get
+            {
+                if (!_mUnknown_BucketColumns) return _mValue_BucketColumns;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.BucketColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the Columns in the table.
         /// </summary>
-        [Input("columns")]
+        [PolicyResourceProperty("columns", "_mUnknown_Columns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PartitionStorageDescriptorColumnArgs>> _mColumns;
-
-        public List<Inputs.PartitionStorageDescriptorColumnArgs>? Columns => _mColumns.GetValue("columns");
+        private List<Inputs.PartitionStorageDescriptorColumnArgs>? _mValue_Columns;
+        private bool _mUnknown_Columns;
+        public List<Inputs.PartitionStorageDescriptorColumnArgs>? Columns
+        {
+            get
+            {
+                if (!_mUnknown_Columns) return _mValue_Columns;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.Columns' is not present");
+            }
+        }
 
         /// <summary>
         /// True if the data in the table is compressed, or False if not.
         /// </summary>
-        [Input("compressed")]
+        [PolicyResourceProperty("compressed", "_mUnknown_Compressed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCompressed;
-
-        public bool? Compressed => _mCompressed.GetValue("compressed");
+        private bool? _mValue_Compressed;
+        private bool _mUnknown_Compressed;
+        public bool? Compressed
+        {
+            get
+            {
+                if (!_mUnknown_Compressed) return _mValue_Compressed;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.Compressed' is not present");
+            }
+        }
 
         /// <summary>
         /// The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         /// </summary>
-        [Input("inputFormat")]
+        [PolicyResourceProperty("inputFormat", "_mUnknown_InputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputFormat;
-
-        public string? InputFormat => _mInputFormat.GetValue("inputFormat");
+        private string? _mValue_InputFormat;
+        private bool _mUnknown_InputFormat;
+        public string? InputFormat
+        {
+            get
+            {
+                if (!_mUnknown_InputFormat) return _mValue_InputFormat;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.InputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Must be specified if the table contains any dimension columns.
         /// </summary>
-        [Input("numberOfBuckets")]
+        [PolicyResourceProperty("numberOfBuckets", "_mUnknown_NumberOfBuckets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfBuckets;
-
-        public int? NumberOfBuckets => _mNumberOfBuckets.GetValue("numberOfBuckets");
+        private int? _mValue_NumberOfBuckets;
+        private bool _mUnknown_NumberOfBuckets;
+        public int? NumberOfBuckets
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfBuckets) return _mValue_NumberOfBuckets;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.NumberOfBuckets' is not present");
+            }
+        }
 
         /// <summary>
         /// The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         /// </summary>
-        [Input("outputFormat")]
+        [PolicyResourceProperty("outputFormat", "_mUnknown_OutputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputFormat;
-
-        public string? OutputFormat => _mOutputFormat.GetValue("outputFormat");
+        private string? _mValue_OutputFormat;
+        private bool _mUnknown_OutputFormat;
+        public string? OutputFormat
+        {
+            get
+            {
+                if (!_mUnknown_OutputFormat) return _mValue_OutputFormat;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.OutputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// User-supplied properties in key-value form.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Serialization/deserialization (SerDe) information.
         /// </summary>
-        [Input("serDeInfo")]
+        [PolicyResourceProperty("serDeInfo", "_mUnknown_SerDeInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PartitionStorageDescriptorSerDeInfoArgs> _mSerDeInfo;
-
-        public Inputs.PartitionStorageDescriptorSerDeInfoArgs? SerDeInfo => _mSerDeInfo.GetValue("serDeInfo");
+        private Inputs.PartitionStorageDescriptorSerDeInfoArgs? _mValue_SerDeInfo;
+        private bool _mUnknown_SerDeInfo;
+        public Inputs.PartitionStorageDescriptorSerDeInfoArgs? SerDeInfo
+        {
+            get
+            {
+                if (!_mUnknown_SerDeInfo) return _mValue_SerDeInfo;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.SerDeInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about values that appear very frequently in a column (skewed values).
         /// </summary>
-        [Input("skewedInfo")]
+        [PolicyResourceProperty("skewedInfo", "_mUnknown_SkewedInfo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PartitionStorageDescriptorSkewedInfoArgs> _mSkewedInfo;
-
-        public Inputs.PartitionStorageDescriptorSkewedInfoArgs? SkewedInfo => _mSkewedInfo.GetValue("skewedInfo");
+        private Inputs.PartitionStorageDescriptorSkewedInfoArgs? _mValue_SkewedInfo;
+        private bool _mUnknown_SkewedInfo;
+        public Inputs.PartitionStorageDescriptorSkewedInfoArgs? SkewedInfo
+        {
+            get
+            {
+                if (!_mUnknown_SkewedInfo) return _mValue_SkewedInfo;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.SkewedInfo' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Order objects specifying the sort order of each bucket in the table.
         /// </summary>
-        [Input("sortColumns")]
+        [PolicyResourceProperty("sortColumns", "_mUnknown_SortColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PartitionStorageDescriptorSortColumnArgs>> _mSortColumns;
-
-        public List<Inputs.PartitionStorageDescriptorSortColumnArgs>? SortColumns => _mSortColumns.GetValue("sortColumns");
+        private List<Inputs.PartitionStorageDescriptorSortColumnArgs>? _mValue_SortColumns;
+        private bool _mUnknown_SortColumns;
+        public List<Inputs.PartitionStorageDescriptorSortColumnArgs>? SortColumns
+        {
+            get
+            {
+                if (!_mUnknown_SortColumns) return _mValue_SortColumns;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.SortColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// True if the table data is stored in subdirectories, or False if not.
         /// </summary>
-        [Input("storedAsSubDirectories")]
+        [PolicyResourceProperty("storedAsSubDirectories", "_mUnknown_StoredAsSubDirectories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStoredAsSubDirectories;
-
-        public bool? StoredAsSubDirectories => _mStoredAsSubDirectories.GetValue("storedAsSubDirectories");
+        private bool? _mValue_StoredAsSubDirectories;
+        private bool _mUnknown_StoredAsSubDirectories;
+        public bool? StoredAsSubDirectories
+        {
+            get
+            {
+                if (!_mUnknown_StoredAsSubDirectories) return _mValue_StoredAsSubDirectories;
+                throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.StoredAsSubDirectories' is not present");
+            }
+        }
     }
 }

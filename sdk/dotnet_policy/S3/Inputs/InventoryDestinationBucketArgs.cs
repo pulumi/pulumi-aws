@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket ARN of the destination.
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
-
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketArgs.BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
         /// </summary>
-        [Input("encryption")]
+        [PolicyResourceProperty("encryption", "_mUnknown_Encryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InventoryDestinationBucketEncryptionArgs> _mEncryption;
-
-        public Inputs.InventoryDestinationBucketEncryptionArgs? Encryption => _mEncryption.GetValue("encryption");
+        private Inputs.InventoryDestinationBucketEncryptionArgs? _mValue_Encryption;
+        private bool _mUnknown_Encryption;
+        public Inputs.InventoryDestinationBucketEncryptionArgs? Encryption
+        {
+            get
+            {
+                if (!_mUnknown_Encryption) return _mValue_Encryption;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketArgs.Encryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix that is prepended to all inventory results.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'InventoryDestinationBucketArgs.Prefix' is not present");
+            }
+        }
     }
 }

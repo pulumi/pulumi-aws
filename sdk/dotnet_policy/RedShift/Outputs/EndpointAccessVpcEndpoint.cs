@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.RedShift.Outputs
         /// <summary>
         /// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
         /// </summary>
-        [Input("networkInterfaces")]
+        [PolicyResourceProperty("networkInterfaces", "_mUnknown_NetworkInterfaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EndpointAccessVpcEndpointNetworkInterface>> _mNetworkInterfaces;
-
-        public List<Outputs.EndpointAccessVpcEndpointNetworkInterface>? NetworkInterfaces => _mNetworkInterfaces.GetValue("networkInterfaces");
+        private List<Outputs.EndpointAccessVpcEndpointNetworkInterface>? _mValue_NetworkInterfaces;
+        private bool _mUnknown_NetworkInterfaces;
+        public List<Outputs.EndpointAccessVpcEndpointNetworkInterface>? NetworkInterfaces
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaces) return _mValue_NetworkInterfaces;
+                throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpoint.NetworkInterfaces' is not present");
+            }
+        }
 
         /// <summary>
         /// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpoint.VpcEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC identifier that the endpoint is associated.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpoint.VpcId' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestinationArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
         /// </summary>
-        [Input("bucketOwner")]
+        [PolicyResourceProperty("bucketOwner", "_mUnknown_BucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketOwner;
-
-        public string? BucketOwner => _mBucketOwner.GetValue("bucketOwner");
+        private string? _mValue_BucketOwner;
+        private bool _mUnknown_BucketOwner;
+        public string? BucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_BucketOwner) return _mValue_BucketOwner;
+                throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestinationArgs.BucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
         /// </summary>
-        [Input("outputFormat")]
+        [PolicyResourceProperty("outputFormat", "_mUnknown_OutputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputFormat;
-
-        public string? OutputFormat => _mOutputFormat.GetValue("outputFormat");
+        private string? _mValue_OutputFormat;
+        private bool _mUnknown_OutputFormat;
+        public string? OutputFormat
+        {
+            get
+            {
+                if (!_mUnknown_OutputFormat) return _mValue_OutputFormat;
+                throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestinationArgs.OutputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix text with which to begin Amazon S3 log object names.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestinationArgs.Prefix' is not present");
+            }
+        }
     }
 }

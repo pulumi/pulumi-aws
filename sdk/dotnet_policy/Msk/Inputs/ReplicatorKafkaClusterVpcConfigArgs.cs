@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
         /// </summary>
-        [Input("securityGroupsIds")]
+        [PolicyResourceProperty("securityGroupsIds", "_mUnknown_SecurityGroupsIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupsIds;
-
-        public List<string>? SecurityGroupsIds => _mSecurityGroupsIds.GetValue("securityGroupsIds");
+        private List<string>? _mValue_SecurityGroupsIds;
+        private bool _mUnknown_SecurityGroupsIds;
+        public List<string>? SecurityGroupsIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupsIds) return _mValue_SecurityGroupsIds;
+                throw new UndeferrableValueException("Value 'ReplicatorKafkaClusterVpcConfigArgs.SecurityGroupsIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ReplicatorKafkaClusterVpcConfigArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces.Inputs
         /// <summary>
         /// The throughput capacity specified for read operations defined in read capacity units (RCUs).
         /// </summary>
-        [Input("readCapacityUnits")]
+        [PolicyResourceProperty("readCapacityUnits", "_mUnknown_ReadCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReadCapacityUnits;
-
-        public int? ReadCapacityUnits => _mReadCapacityUnits.GetValue("readCapacityUnits");
+        private int? _mValue_ReadCapacityUnits;
+        private bool _mUnknown_ReadCapacityUnits;
+        public int? ReadCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_ReadCapacityUnits) return _mValue_ReadCapacityUnits;
+                throw new UndeferrableValueException("Value 'TableCapacitySpecificationArgs.ReadCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
         /// </summary>
-        [Input("throughputMode")]
+        [PolicyResourceProperty("throughputMode", "_mUnknown_ThroughputMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThroughputMode;
-
-        public string? ThroughputMode => _mThroughputMode.GetValue("throughputMode");
+        private string? _mValue_ThroughputMode;
+        private bool _mUnknown_ThroughputMode;
+        public string? ThroughputMode
+        {
+            get
+            {
+                if (!_mUnknown_ThroughputMode) return _mValue_ThroughputMode;
+                throw new UndeferrableValueException("Value 'TableCapacitySpecificationArgs.ThroughputMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The throughput capacity specified for write operations defined in write capacity units (WCUs).
         /// </summary>
-        [Input("writeCapacityUnits")]
+        [PolicyResourceProperty("writeCapacityUnits", "_mUnknown_WriteCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWriteCapacityUnits;
-
-        public int? WriteCapacityUnits => _mWriteCapacityUnits.GetValue("writeCapacityUnits");
+        private int? _mValue_WriteCapacityUnits;
+        private bool _mUnknown_WriteCapacityUnits;
+        public int? WriteCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_WriteCapacityUnits) return _mValue_WriteCapacityUnits;
+                throw new UndeferrableValueException("Value 'TableCapacitySpecificationArgs.WriteCapacityUnits' is not present");
+            }
+        }
     }
 }

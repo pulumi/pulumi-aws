@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// AWS account ID or `self`
         /// </summary>
-        [Input("awsAccountNumber")]
+        [PolicyResourceProperty("awsAccountNumber", "_mUnknown_AwsAccountNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountNumber;
-
-        public string? AwsAccountNumber => _mAwsAccountNumber.GetValue("awsAccountNumber");
+        private string? _mValue_AwsAccountNumber;
+        private bool _mUnknown_AwsAccountNumber;
+        public string? AwsAccountNumber
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountNumber) return _mValue_AwsAccountNumber;
+                throw new UndeferrableValueException("Value 'DistributionTrustedSignerItem.AwsAccountNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of active CloudFront key pairs associated with the signer account
         /// </summary>
-        [Input("keyPairIds")]
+        [PolicyResourceProperty("keyPairIds", "_mUnknown_KeyPairIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeyPairIds;
-
-        public List<string>? KeyPairIds => _mKeyPairIds.GetValue("keyPairIds");
+        private List<string>? _mValue_KeyPairIds;
+        private bool _mUnknown_KeyPairIds;
+        public List<string>? KeyPairIds
+        {
+            get
+            {
+                if (!_mUnknown_KeyPairIds) return _mValue_KeyPairIds;
+                throw new UndeferrableValueException("Value 'DistributionTrustedSignerItem.KeyPairIds' is not present");
+            }
+        }
     }
 }

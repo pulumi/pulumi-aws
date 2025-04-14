@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
         /// <summary>
         /// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
         /// </summary>
-        [Input("inputParameters")]
+        [PolicyResourceProperty("inputParameters", "_mUnknown_InputParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFrameworkControlInputParameterResult>> _mInputParameters;
-
-        public List<Outputs.GetFrameworkControlInputParameterResult>? InputParameters => _mInputParameters.GetValue("inputParameters");
+        private List<Outputs.GetFrameworkControlInputParameterResult>? _mValue_InputParameters;
+        private bool _mUnknown_InputParameters;
+        public List<Outputs.GetFrameworkControlInputParameterResult>? InputParameters
+        {
+            get
+            {
+                if (!_mUnknown_InputParameters) return _mValue_InputParameters;
+                throw new UndeferrableValueException("Value 'GetFrameworkControlResult.InputParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Backup framework name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetFrameworkControlResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         /// </summary>
-        [Input("scopes")]
+        [PolicyResourceProperty("scopes", "_mUnknown_Scopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFrameworkControlScopeResult>> _mScopes;
-
-        public List<Outputs.GetFrameworkControlScopeResult>? Scopes => _mScopes.GetValue("scopes");
+        private List<Outputs.GetFrameworkControlScopeResult>? _mValue_Scopes;
+        private bool _mUnknown_Scopes;
+        public List<Outputs.GetFrameworkControlScopeResult>? Scopes
+        {
+            get
+            {
+                if (!_mUnknown_Scopes) return _mValue_Scopes;
+                throw new UndeferrableValueException("Value 'GetFrameworkControlResult.Scopes' is not present");
+            }
+        }
     }
 }

@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'Webhook.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the webhook.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Webhook.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for a branch that is part of the Amplify app.
         /// </summary>
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
-
-        public string? BranchName => _mBranchName.GetValue("branchName");
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'Webhook.BranchName' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for a webhook.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Webhook.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the webhook.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Webhook.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amplify/webhook:Webhook")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'WebhookArgs.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for a branch that is part of the Amplify app.
         /// </summary>
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
-
-        public string? BranchName => _mBranchName.GetValue("branchName");
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'WebhookArgs.BranchName' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for a webhook.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WebhookArgs.Description' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Configuration for a single action condition. See Action Condition below for more details.
         /// </summary>
-        [Input("actionCondition")]
+        [PolicyResourceProperty("actionCondition", "_mUnknown_ActionCondition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition> _mActionCondition;
-
-        public Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition? ActionCondition => _mActionCondition.GetValue("actionCondition");
+        private Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition? _mValue_ActionCondition;
+        private bool _mUnknown_ActionCondition;
+        public Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition? ActionCondition
+        {
+            get
+            {
+                if (!_mUnknown_ActionCondition) return _mValue_ActionCondition;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilterCondition.ActionCondition' is not present");
+            }
+        }
 
         /// <summary>
         /// Condition for a single label name. See Label Name Condition below for more details.
         /// </summary>
-        [Input("labelNameCondition")]
+        [PolicyResourceProperty("labelNameCondition", "_mUnknown_LabelNameCondition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition> _mLabelNameCondition;
-
-        public Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition? LabelNameCondition => _mLabelNameCondition.GetValue("labelNameCondition");
+        private Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition? _mValue_LabelNameCondition;
+        private bool _mUnknown_LabelNameCondition;
+        public Outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition? LabelNameCondition
+        {
+            get
+            {
+                if (!_mUnknown_LabelNameCondition) return _mValue_LabelNameCondition;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilterCondition.LabelNameCondition' is not present");
+            }
+        }
     }
 }

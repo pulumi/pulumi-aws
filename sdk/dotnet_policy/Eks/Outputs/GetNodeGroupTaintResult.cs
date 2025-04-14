@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// The effect of the taint.
         /// </summary>
-        [Input("effect")]
+        [PolicyResourceProperty("effect", "_mUnknown_Effect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEffect;
-
-        public string? Effect => _mEffect.GetValue("effect");
+        private string? _mValue_Effect;
+        private bool _mUnknown_Effect;
+        public string? Effect
+        {
+            get
+            {
+                if (!_mUnknown_Effect) return _mValue_Effect;
+                throw new UndeferrableValueException("Value 'GetNodeGroupTaintResult.Effect' is not present");
+            }
+        }
 
         /// <summary>
         /// The key of the taint.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'GetNodeGroupTaintResult.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the taint.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetNodeGroupTaintResult.Value' is not present");
+            }
+        }
     }
 }

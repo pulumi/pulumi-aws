@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
         /// </summary>
-        [Input("s3InputFileType")]
+        [PolicyResourceProperty("s3InputFileType", "_mUnknown_S3InputFileType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3InputFileType;
-
-        public string? S3InputFileType => _mS3InputFileType.GetValue("s3InputFileType");
+        private string? _mValue_S3InputFileType;
+        private bool _mUnknown_S3InputFileType;
+        public string? S3InputFileType
+        {
+            get
+            {
+                if (!_mUnknown_S3InputFileType) return _mValue_S3InputFileType;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs.S3InputFileType' is not present");
+            }
+        }
     }
 }

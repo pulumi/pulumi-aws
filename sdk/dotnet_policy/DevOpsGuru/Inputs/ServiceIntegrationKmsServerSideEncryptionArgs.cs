@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Inputs
         /// <summary>
         /// KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ServiceIntegrationKmsServerSideEncryptionArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
         /// </summary>
-        [Input("optInStatus")]
+        [PolicyResourceProperty("optInStatus", "_mUnknown_OptInStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptInStatus;
-
-        public string? OptInStatus => _mOptInStatus.GetValue("optInStatus");
+        private string? _mValue_OptInStatus;
+        private bool _mUnknown_OptInStatus;
+        public string? OptInStatus
+        {
+            get
+            {
+                if (!_mUnknown_OptInStatus) return _mValue_OptInStatus;
+                throw new UndeferrableValueException("Value 'ServiceIntegrationKmsServerSideEncryptionArgs.OptInStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServiceIntegrationKmsServerSideEncryptionArgs.Type' is not present");
+            }
+        }
     }
 }

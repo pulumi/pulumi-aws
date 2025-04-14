@@ -16,26 +16,47 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of a custom routing accelerator.
         /// </summary>
-        [Input("acceleratorArn")]
+        [PolicyResourceProperty("acceleratorArn", "_mUnknown_AcceleratorArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
+        private string? _mValue_AcceleratorArn;
+        private bool _mUnknown_AcceleratorArn;
+        public string? AcceleratorArn
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorArn) return _mValue_AcceleratorArn;
+                throw new UndeferrableValueException("Value 'CustomRoutingListener.AcceleratorArn' is not present");
+            }
+        }
 
-        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
-
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CustomRoutingListener.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomRoutingListenerPortRange>> _mPortRanges;
-
-        public List<Outputs.CustomRoutingListenerPortRange>? PortRanges => _mPortRanges.GetValue("portRanges");
+        private List<Outputs.CustomRoutingListenerPortRange>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Outputs.CustomRoutingListenerPortRange>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'CustomRoutingListener.PortRanges' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")]
@@ -44,19 +65,33 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator
         /// <summary>
         /// The Amazon Resource Name (ARN) of a custom routing accelerator.
         /// </summary>
-        [Input("acceleratorArn")]
+        [PolicyResourceProperty("acceleratorArn", "_mUnknown_AcceleratorArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcceleratorArn;
-
-        public string? AcceleratorArn => _mAcceleratorArn.GetValue("acceleratorArn");
+        private string? _mValue_AcceleratorArn;
+        private bool _mUnknown_AcceleratorArn;
+        public string? AcceleratorArn
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorArn) return _mValue_AcceleratorArn;
+                throw new UndeferrableValueException("Value 'CustomRoutingListenerArgs.AcceleratorArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         /// </summary>
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomRoutingListenerPortRangeArgs>> _mPortRanges;
-
-        public List<Inputs.CustomRoutingListenerPortRangeArgs>? PortRanges => _mPortRanges.GetValue("portRanges");
+        private List<Inputs.CustomRoutingListenerPortRangeArgs>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Inputs.CustomRoutingListenerPortRangeArgs>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'CustomRoutingListenerArgs.PortRanges' is not present");
+            }
+        }
     }
 }

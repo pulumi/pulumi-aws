@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless.Outputs
         /// <summary>
         /// The maximum allowed CPU for an application.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpu;
-
-        public string? Cpu => _mCpu.GetValue("cpu");
+        private string? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public string? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'ApplicationMaximumCapacity.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum allowed disk for an application.
         /// </summary>
-        [Input("disk")]
+        [PolicyResourceProperty("disk", "_mUnknown_Disk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisk;
-
-        public string? Disk => _mDisk.GetValue("disk");
+        private string? _mValue_Disk;
+        private bool _mUnknown_Disk;
+        public string? Disk
+        {
+            get
+            {
+                if (!_mUnknown_Disk) return _mValue_Disk;
+                throw new UndeferrableValueException("Value 'ApplicationMaximumCapacity.Disk' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum allowed resources for an application.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemory;
-
-        public string? Memory => _mMemory.GetValue("memory");
+        private string? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public string? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'ApplicationMaximumCapacity.Memory' is not present");
+            }
+        }
     }
 }

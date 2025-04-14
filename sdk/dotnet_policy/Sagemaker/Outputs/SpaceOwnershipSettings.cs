@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The user profile who is the owner of the private space.
         /// </summary>
-        [Input("ownerUserProfileName")]
+        [PolicyResourceProperty("ownerUserProfileName", "_mUnknown_OwnerUserProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerUserProfileName;
-
-        public string? OwnerUserProfileName => _mOwnerUserProfileName.GetValue("ownerUserProfileName");
+        private string? _mValue_OwnerUserProfileName;
+        private bool _mUnknown_OwnerUserProfileName;
+        public string? OwnerUserProfileName
+        {
+            get
+            {
+                if (!_mUnknown_OwnerUserProfileName) return _mValue_OwnerUserProfileName;
+                throw new UndeferrableValueException("Value 'SpaceOwnershipSettings.OwnerUserProfileName' is not present");
+            }
+        }
     }
 }

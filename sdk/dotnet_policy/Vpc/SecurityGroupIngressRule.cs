@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.Vpc
         /// <summary>
         /// The Amazon Resource Name (ARN) of the security group rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The source IPv4 CIDR range.
         /// </summary>
-        [Input("cidrIpv4")]
+        [PolicyResourceProperty("cidrIpv4", "_mUnknown_CidrIpv4")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv4;
-
-        public string? CidrIpv4 => _mCidrIpv4.GetValue("cidrIpv4");
+        private string? _mValue_CidrIpv4;
+        private bool _mUnknown_CidrIpv4;
+        public string? CidrIpv4
+        {
+            get
+            {
+                if (!_mUnknown_CidrIpv4) return _mValue_CidrIpv4;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.CidrIpv4' is not present");
+            }
+        }
 
         /// <summary>
         /// The source IPv6 CIDR range.
         /// </summary>
-        [Input("cidrIpv6")]
+        [PolicyResourceProperty("cidrIpv6", "_mUnknown_CidrIpv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv6;
-
-        public string? CidrIpv6 => _mCidrIpv6.GetValue("cidrIpv6");
+        private string? _mValue_CidrIpv6;
+        private bool _mUnknown_CidrIpv6;
+        public string? CidrIpv6
+        {
+            get
+            {
+                if (!_mUnknown_CidrIpv6) return _mValue_CidrIpv6;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.CidrIpv6' is not present");
+            }
+        }
 
         /// <summary>
         /// The security group rule description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         /// </summary>
-        [Input("ipProtocol")]
+        [PolicyResourceProperty("ipProtocol", "_mUnknown_IpProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpProtocol;
-
-        public string? IpProtocol => _mIpProtocol.GetValue("ipProtocol");
+        private string? _mValue_IpProtocol;
+        private bool _mUnknown_IpProtocol;
+        public string? IpProtocol
+        {
+            get
+            {
+                if (!_mUnknown_IpProtocol) return _mValue_IpProtocol;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.IpProtocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source prefix list.
         /// </summary>
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
-
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.PrefixListId' is not present");
+            }
+        }
 
         /// <summary>
         /// The source security group that is referenced in the rule.
         /// </summary>
-        [Input("referencedSecurityGroupId")]
+        [PolicyResourceProperty("referencedSecurityGroupId", "_mUnknown_ReferencedSecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferencedSecurityGroupId;
-
-        public string? ReferencedSecurityGroupId => _mReferencedSecurityGroupId.GetValue("referencedSecurityGroupId");
+        private string? _mValue_ReferencedSecurityGroupId;
+        private bool _mUnknown_ReferencedSecurityGroupId;
+        public string? ReferencedSecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ReferencedSecurityGroupId) return _mValue_ReferencedSecurityGroupId;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.ReferencedSecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security group.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security group rule.
         /// </summary>
-        [Input("securityGroupRuleId")]
+        [PolicyResourceProperty("securityGroupRuleId", "_mUnknown_SecurityGroupRuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupRuleId;
-
-        public string? SecurityGroupRuleId => _mSecurityGroupRuleId.GetValue("securityGroupRuleId");
+        private string? _mValue_SecurityGroupRuleId;
+        private bool _mUnknown_SecurityGroupRuleId;
+        public string? SecurityGroupRuleId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupRuleId) return _mValue_SecurityGroupRuleId;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.SecurityGroupRuleId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRule.ToPort' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule")]
@@ -137,91 +228,161 @@ namespace Pulumi.PolicyPacks.Aws.Vpc
         /// <summary>
         /// The source IPv4 CIDR range.
         /// </summary>
-        [Input("cidrIpv4")]
+        [PolicyResourceProperty("cidrIpv4", "_mUnknown_CidrIpv4")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv4;
-
-        public string? CidrIpv4 => _mCidrIpv4.GetValue("cidrIpv4");
+        private string? _mValue_CidrIpv4;
+        private bool _mUnknown_CidrIpv4;
+        public string? CidrIpv4
+        {
+            get
+            {
+                if (!_mUnknown_CidrIpv4) return _mValue_CidrIpv4;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.CidrIpv4' is not present");
+            }
+        }
 
         /// <summary>
         /// The source IPv6 CIDR range.
         /// </summary>
-        [Input("cidrIpv6")]
+        [PolicyResourceProperty("cidrIpv6", "_mUnknown_CidrIpv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrIpv6;
-
-        public string? CidrIpv6 => _mCidrIpv6.GetValue("cidrIpv6");
+        private string? _mValue_CidrIpv6;
+        private bool _mUnknown_CidrIpv6;
+        public string? CidrIpv6
+        {
+            get
+            {
+                if (!_mUnknown_CidrIpv6) return _mValue_CidrIpv6;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.CidrIpv6' is not present");
+            }
+        }
 
         /// <summary>
         /// The security group rule description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         /// </summary>
-        [Input("ipProtocol")]
+        [PolicyResourceProperty("ipProtocol", "_mUnknown_IpProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpProtocol;
-
-        public string? IpProtocol => _mIpProtocol.GetValue("ipProtocol");
+        private string? _mValue_IpProtocol;
+        private bool _mUnknown_IpProtocol;
+        public string? IpProtocol
+        {
+            get
+            {
+                if (!_mUnknown_IpProtocol) return _mValue_IpProtocol;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.IpProtocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source prefix list.
         /// </summary>
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
-
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.PrefixListId' is not present");
+            }
+        }
 
         /// <summary>
         /// The source security group that is referenced in the rule.
         /// </summary>
-        [Input("referencedSecurityGroupId")]
+        [PolicyResourceProperty("referencedSecurityGroupId", "_mUnknown_ReferencedSecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferencedSecurityGroupId;
-
-        public string? ReferencedSecurityGroupId => _mReferencedSecurityGroupId.GetValue("referencedSecurityGroupId");
+        private string? _mValue_ReferencedSecurityGroupId;
+        private bool _mUnknown_ReferencedSecurityGroupId;
+        public string? ReferencedSecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ReferencedSecurityGroupId) return _mValue_ReferencedSecurityGroupId;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.ReferencedSecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the security group.
         /// </summary>
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.SecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.ToPort' is not present");
+            }
+        }
     }
 }

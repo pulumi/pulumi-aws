@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaPackage.Outputs
         /// <summary>
         /// A list of the ingest endpoints
         /// </summary>
-        [Input("ingestEndpoints")]
+        [PolicyResourceProperty("ingestEndpoints", "_mUnknown_IngestEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelHlsIngestIngestEndpoint>> _mIngestEndpoints;
-
-        public List<Outputs.ChannelHlsIngestIngestEndpoint>? IngestEndpoints => _mIngestEndpoints.GetValue("ingestEndpoints");
+        private List<Outputs.ChannelHlsIngestIngestEndpoint>? _mValue_IngestEndpoints;
+        private bool _mUnknown_IngestEndpoints;
+        public List<Outputs.ChannelHlsIngestIngestEndpoint>? IngestEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_IngestEndpoints) return _mValue_IngestEndpoints;
+                throw new UndeferrableValueException("Value 'ChannelHlsIngest.IngestEndpoints' is not present");
+            }
+        }
     }
 }

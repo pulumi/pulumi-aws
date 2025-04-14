@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator.Outputs
         /// <summary>
         /// Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
         /// </summary>
-        [Input("flowLogsEnabled")]
+        [PolicyResourceProperty("flowLogsEnabled", "_mUnknown_FlowLogsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFlowLogsEnabled;
-
-        public bool? FlowLogsEnabled => _mFlowLogsEnabled.GetValue("flowLogsEnabled");
+        private bool? _mValue_FlowLogsEnabled;
+        private bool _mUnknown_FlowLogsEnabled;
+        public bool? FlowLogsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_FlowLogsEnabled) return _mValue_FlowLogsEnabled;
+                throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorAttributes.FlowLogsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
         /// </summary>
-        [Input("flowLogsS3Bucket")]
+        [PolicyResourceProperty("flowLogsS3Bucket", "_mUnknown_FlowLogsS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlowLogsS3Bucket;
-
-        public string? FlowLogsS3Bucket => _mFlowLogsS3Bucket.GetValue("flowLogsS3Bucket");
+        private string? _mValue_FlowLogsS3Bucket;
+        private bool _mUnknown_FlowLogsS3Bucket;
+        public string? FlowLogsS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_FlowLogsS3Bucket) return _mValue_FlowLogsS3Bucket;
+                throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorAttributes.FlowLogsS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
         /// </summary>
-        [Input("flowLogsS3Prefix")]
+        [PolicyResourceProperty("flowLogsS3Prefix", "_mUnknown_FlowLogsS3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlowLogsS3Prefix;
-
-        public string? FlowLogsS3Prefix => _mFlowLogsS3Prefix.GetValue("flowLogsS3Prefix");
+        private string? _mValue_FlowLogsS3Prefix;
+        private bool _mUnknown_FlowLogsS3Prefix;
+        public string? FlowLogsS3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_FlowLogsS3Prefix) return _mValue_FlowLogsS3Prefix;
+                throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorAttributes.FlowLogsS3Prefix' is not present");
+            }
+        }
     }
 }

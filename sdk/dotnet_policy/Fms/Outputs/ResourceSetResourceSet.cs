@@ -15,61 +15,110 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Outputs
         /// <summary>
         /// Description of the resource set.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceSet.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceSet.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Last time that the reosurce set was changed.
         /// </summary>
-        [Input("lastUpdateTime")]
+        [PolicyResourceProperty("lastUpdateTime", "_mUnknown_LastUpdateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdateTime;
-
-        public string? LastUpdateTime => _mLastUpdateTime.GetValue("lastUpdateTime");
+        private string? _mValue_LastUpdateTime;
+        private bool _mUnknown_LastUpdateTime;
+        public string? LastUpdateTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdateTime) return _mValue_LastUpdateTime;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceSet.LastUpdateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
         /// </summary>
-        [Input("resourceSetStatus")]
+        [PolicyResourceProperty("resourceSetStatus", "_mUnknown_ResourceSetStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceSetStatus;
-
-        public string? ResourceSetStatus => _mResourceSetStatus.GetValue("resourceSetStatus");
+        private string? _mValue_ResourceSetStatus;
+        private bool _mUnknown_ResourceSetStatus;
+        public string? ResourceSetStatus
+        {
+            get
+            {
+                if (!_mUnknown_ResourceSetStatus) return _mValue_ResourceSetStatus;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceSet.ResourceSetStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         /// </summary>
-        [Input("resourceTypeLists")]
+        [PolicyResourceProperty("resourceTypeLists", "_mUnknown_ResourceTypeLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypeLists;
+        private List<string>? _mValue_ResourceTypeLists;
+        private bool _mUnknown_ResourceTypeLists;
+        public List<string>? ResourceTypeLists
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypeLists) return _mValue_ResourceTypeLists;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceSet.ResourceTypeLists' is not present");
+            }
+        }
 
-        public List<string>? ResourceTypeLists => _mResourceTypeLists.GetValue("resourceTypeLists");
-
-        [Input("updateToken")]
+        [PolicyResourceProperty("updateToken", "_mUnknown_UpdateToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdateToken;
-
-        public string? UpdateToken => _mUpdateToken.GetValue("updateToken");
+        private string? _mValue_UpdateToken;
+        private bool _mUnknown_UpdateToken;
+        public string? UpdateToken
+        {
+            get
+            {
+                if (!_mUnknown_UpdateToken) return _mValue_UpdateToken;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceSet.UpdateToken' is not present");
+            }
+        }
     }
 }

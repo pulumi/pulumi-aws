@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Grant.
         /// </summary>
-        [Input("accessGrantArn")]
+        [PolicyResourceProperty("accessGrantArn", "_mUnknown_AccessGrantArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantArn;
-
-        public string? AccessGrantArn => _mAccessGrantArn.GetValue("accessGrantArn");
+        private string? _mValue_AccessGrantArn;
+        private bool _mUnknown_AccessGrantArn;
+        public string? AccessGrantArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantArn) return _mValue_AccessGrantArn;
+                throw new UndeferrableValueException("Value 'AccessGrant.AccessGrantArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique ID of the S3 Access Grant.
         /// </summary>
-        [Input("accessGrantId")]
+        [PolicyResourceProperty("accessGrantId", "_mUnknown_AccessGrantId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantId;
-
-        public string? AccessGrantId => _mAccessGrantId.GetValue("accessGrantId");
+        private string? _mValue_AccessGrantId;
+        private bool _mUnknown_AccessGrantId;
+        public string? AccessGrantId
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantId) return _mValue_AccessGrantId;
+                throw new UndeferrableValueException("Value 'AccessGrant.AccessGrantId' is not present");
+            }
+        }
 
         /// <summary>
         /// See Location Configuration below for more details.
         /// </summary>
-        [Input("accessGrantsLocationConfiguration")]
+        [PolicyResourceProperty("accessGrantsLocationConfiguration", "_mUnknown_AccessGrantsLocationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessGrantAccessGrantsLocationConfiguration> _mAccessGrantsLocationConfiguration;
-
-        public Outputs.AccessGrantAccessGrantsLocationConfiguration? AccessGrantsLocationConfiguration => _mAccessGrantsLocationConfiguration.GetValue("accessGrantsLocationConfiguration");
+        private Outputs.AccessGrantAccessGrantsLocationConfiguration? _mValue_AccessGrantsLocationConfiguration;
+        private bool _mUnknown_AccessGrantsLocationConfiguration;
+        public Outputs.AccessGrantAccessGrantsLocationConfiguration? AccessGrantsLocationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsLocationConfiguration) return _mValue_AccessGrantsLocationConfiguration;
+                throw new UndeferrableValueException("Value 'AccessGrant.AccessGrantsLocationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the S3 Access Grants location to with the access grant is giving access.
         /// </summary>
-        [Input("accessGrantsLocationId")]
+        [PolicyResourceProperty("accessGrantsLocationId", "_mUnknown_AccessGrantsLocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationId;
+        private string? _mValue_AccessGrantsLocationId;
+        private bool _mUnknown_AccessGrantsLocationId;
+        public string? AccessGrantsLocationId
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsLocationId) return _mValue_AccessGrantsLocationId;
+                throw new UndeferrableValueException("Value 'AccessGrant.AccessGrantsLocationId' is not present");
+            }
+        }
 
-        public string? AccessGrantsLocationId => _mAccessGrantsLocationId.GetValue("accessGrantsLocationId");
-
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrant.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The access grant's scope.
         /// </summary>
-        [Input("grantScope")]
+        [PolicyResourceProperty("grantScope", "_mUnknown_GrantScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrantScope;
-
-        public string? GrantScope => _mGrantScope.GetValue("grantScope");
+        private string? _mValue_GrantScope;
+        private bool _mUnknown_GrantScope;
+        public string? GrantScope
+        {
+            get
+            {
+                if (!_mUnknown_GrantScope) return _mValue_GrantScope;
+                throw new UndeferrableValueException("Value 'AccessGrant.GrantScope' is not present");
+            }
+        }
 
         /// <summary>
         /// See Grantee below for more details.
         /// </summary>
-        [Input("grantee")]
+        [PolicyResourceProperty("grantee", "_mUnknown_Grantee")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AccessGrantGrantee> _mGrantee;
-
-        public Outputs.AccessGrantGrantee? Grantee => _mGrantee.GetValue("grantee");
+        private Outputs.AccessGrantGrantee? _mValue_Grantee;
+        private bool _mUnknown_Grantee;
+        public Outputs.AccessGrantGrantee? Grantee
+        {
+            get
+            {
+                if (!_mUnknown_Grantee) return _mValue_Grantee;
+                throw new UndeferrableValueException("Value 'AccessGrant.Grantee' is not present");
+            }
+        }
 
         /// <summary>
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         /// </summary>
-        [Input("permission")]
+        [PolicyResourceProperty("permission", "_mUnknown_Permission")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
-
-        public string? Permission => _mPermission.GetValue("permission");
+        private string? _mValue_Permission;
+        private bool _mUnknown_Permission;
+        public string? Permission
+        {
+            get
+            {
+                if (!_mUnknown_Permission) return _mValue_Permission;
+                throw new UndeferrableValueException("Value 'AccessGrant.Permission' is not present");
+            }
+        }
 
         /// <summary>
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         /// </summary>
-        [Input("s3PrefixType")]
+        [PolicyResourceProperty("s3PrefixType", "_mUnknown_S3PrefixType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3PrefixType;
-
-        public string? S3PrefixType => _mS3PrefixType.GetValue("s3PrefixType");
+        private string? _mValue_S3PrefixType;
+        private bool _mUnknown_S3PrefixType;
+        public string? S3PrefixType
+        {
+            get
+            {
+                if (!_mUnknown_S3PrefixType) return _mValue_S3PrefixType;
+                throw new UndeferrableValueException("Value 'AccessGrant.S3PrefixType' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessGrant.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AccessGrant.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/accessGrant:AccessGrant")]
@@ -116,61 +193,110 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// See Location Configuration below for more details.
         /// </summary>
-        [Input("accessGrantsLocationConfiguration")]
+        [PolicyResourceProperty("accessGrantsLocationConfiguration", "_mUnknown_AccessGrantsLocationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessGrantAccessGrantsLocationConfigurationArgs> _mAccessGrantsLocationConfiguration;
-
-        public Inputs.AccessGrantAccessGrantsLocationConfigurationArgs? AccessGrantsLocationConfiguration => _mAccessGrantsLocationConfiguration.GetValue("accessGrantsLocationConfiguration");
+        private Inputs.AccessGrantAccessGrantsLocationConfigurationArgs? _mValue_AccessGrantsLocationConfiguration;
+        private bool _mUnknown_AccessGrantsLocationConfiguration;
+        public Inputs.AccessGrantAccessGrantsLocationConfigurationArgs? AccessGrantsLocationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsLocationConfiguration) return _mValue_AccessGrantsLocationConfiguration;
+                throw new UndeferrableValueException("Value 'AccessGrantArgs.AccessGrantsLocationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the S3 Access Grants location to with the access grant is giving access.
         /// </summary>
-        [Input("accessGrantsLocationId")]
+        [PolicyResourceProperty("accessGrantsLocationId", "_mUnknown_AccessGrantsLocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsLocationId;
+        private string? _mValue_AccessGrantsLocationId;
+        private bool _mUnknown_AccessGrantsLocationId;
+        public string? AccessGrantsLocationId
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsLocationId) return _mValue_AccessGrantsLocationId;
+                throw new UndeferrableValueException("Value 'AccessGrantArgs.AccessGrantsLocationId' is not present");
+            }
+        }
 
-        public string? AccessGrantsLocationId => _mAccessGrantsLocationId.GetValue("accessGrantsLocationId");
-
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrantArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// See Grantee below for more details.
         /// </summary>
-        [Input("grantee")]
+        [PolicyResourceProperty("grantee", "_mUnknown_Grantee")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AccessGrantGranteeArgs> _mGrantee;
-
-        public Inputs.AccessGrantGranteeArgs? Grantee => _mGrantee.GetValue("grantee");
+        private Inputs.AccessGrantGranteeArgs? _mValue_Grantee;
+        private bool _mUnknown_Grantee;
+        public Inputs.AccessGrantGranteeArgs? Grantee
+        {
+            get
+            {
+                if (!_mUnknown_Grantee) return _mValue_Grantee;
+                throw new UndeferrableValueException("Value 'AccessGrantArgs.Grantee' is not present");
+            }
+        }
 
         /// <summary>
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         /// </summary>
-        [Input("permission")]
+        [PolicyResourceProperty("permission", "_mUnknown_Permission")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
-
-        public string? Permission => _mPermission.GetValue("permission");
+        private string? _mValue_Permission;
+        private bool _mUnknown_Permission;
+        public string? Permission
+        {
+            get
+            {
+                if (!_mUnknown_Permission) return _mValue_Permission;
+                throw new UndeferrableValueException("Value 'AccessGrantArgs.Permission' is not present");
+            }
+        }
 
         /// <summary>
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         /// </summary>
-        [Input("s3PrefixType")]
+        [PolicyResourceProperty("s3PrefixType", "_mUnknown_S3PrefixType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3PrefixType;
-
-        public string? S3PrefixType => _mS3PrefixType.GetValue("s3PrefixType");
+        private string? _mValue_S3PrefixType;
+        private bool _mUnknown_S3PrefixType;
+        public string? S3PrefixType
+        {
+            get
+            {
+                if (!_mUnknown_S3PrefixType) return _mValue_S3PrefixType;
+                throw new UndeferrableValueException("Value 'AccessGrantArgs.S3PrefixType' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessGrantArgs.Tags' is not present");
+            }
+        }
     }
 }

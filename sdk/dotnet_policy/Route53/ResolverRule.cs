@@ -16,95 +16,165 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// ARN (Amazon Resource Name) for the resolver rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResolverRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ResolverRule.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ResolverRule.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
-        [Input("resolverEndpointId")]
+        [PolicyResourceProperty("resolverEndpointId", "_mUnknown_ResolverEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointId;
-
-        public string? ResolverEndpointId => _mResolverEndpointId.GetValue("resolverEndpointId");
+        private string? _mValue_ResolverEndpointId;
+        private bool _mUnknown_ResolverEndpointId;
+        public string? ResolverEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ResolverEndpointId) return _mValue_ResolverEndpointId;
+                throw new UndeferrableValueException("Value 'ResolverRule.ResolverEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
-        [Input("ruleType")]
+        [PolicyResourceProperty("ruleType", "_mUnknown_RuleType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleType;
-
-        public string? RuleType => _mRuleType.GetValue("ruleType");
+        private string? _mValue_RuleType;
+        private bool _mUnknown_RuleType;
+        public string? RuleType
+        {
+            get
+            {
+                if (!_mUnknown_RuleType) return _mValue_RuleType;
+                throw new UndeferrableValueException("Value 'ResolverRule.RuleType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the rules is shared and, if so, whether the current account is sharing the rule with another account, or another account is sharing the rule with the current account.
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
         /// </summary>
-        [Input("shareStatus")]
+        [PolicyResourceProperty("shareStatus", "_mUnknown_ShareStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareStatus;
-
-        public string? ShareStatus => _mShareStatus.GetValue("shareStatus");
+        private string? _mValue_ShareStatus;
+        private bool _mUnknown_ShareStatus;
+        public string? ShareStatus
+        {
+            get
+            {
+                if (!_mUnknown_ShareStatus) return _mValue_ShareStatus;
+                throw new UndeferrableValueException("Value 'ResolverRule.ShareStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResolverRule.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
-        [Input("targetIps")]
+        [PolicyResourceProperty("targetIps", "_mUnknown_TargetIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResolverRuleTargetIp>> _mTargetIps;
-
-        public List<Outputs.ResolverRuleTargetIp>? TargetIps => _mTargetIps.GetValue("targetIps");
+        private List<Outputs.ResolverRuleTargetIp>? _mValue_TargetIps;
+        private bool _mUnknown_TargetIps;
+        public List<Outputs.ResolverRuleTargetIp>? TargetIps
+        {
+            get
+            {
+                if (!_mUnknown_TargetIps) return _mValue_TargetIps;
+                throw new UndeferrableValueException("Value 'ResolverRule.TargetIps' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverRule:ResolverRule")]
@@ -113,57 +183,99 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ResolverRuleArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
-        [Input("resolverEndpointId")]
+        [PolicyResourceProperty("resolverEndpointId", "_mUnknown_ResolverEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointId;
-
-        public string? ResolverEndpointId => _mResolverEndpointId.GetValue("resolverEndpointId");
+        private string? _mValue_ResolverEndpointId;
+        private bool _mUnknown_ResolverEndpointId;
+        public string? ResolverEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ResolverEndpointId) return _mValue_ResolverEndpointId;
+                throw new UndeferrableValueException("Value 'ResolverRuleArgs.ResolverEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         /// </summary>
-        [Input("ruleType")]
+        [PolicyResourceProperty("ruleType", "_mUnknown_RuleType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleType;
-
-        public string? RuleType => _mRuleType.GetValue("ruleType");
+        private string? _mValue_RuleType;
+        private bool _mUnknown_RuleType;
+        public string? RuleType
+        {
+            get
+            {
+                if (!_mUnknown_RuleType) return _mValue_RuleType;
+                throw new UndeferrableValueException("Value 'ResolverRuleArgs.RuleType' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverRuleArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
         /// </summary>
-        [Input("targetIps")]
+        [PolicyResourceProperty("targetIps", "_mUnknown_TargetIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResolverRuleTargetIpArgs>> _mTargetIps;
-
-        public List<Inputs.ResolverRuleTargetIpArgs>? TargetIps => _mTargetIps.GetValue("targetIps");
+        private List<Inputs.ResolverRuleTargetIpArgs>? _mValue_TargetIps;
+        private bool _mUnknown_TargetIps;
+        public List<Inputs.ResolverRuleTargetIpArgs>? TargetIps
+        {
+            get
+            {
+                if (!_mUnknown_TargetIps) return _mValue_TargetIps;
+                throw new UndeferrableValueException("Value 'ResolverRuleArgs.TargetIps' is not present");
+            }
+        }
     }
 }

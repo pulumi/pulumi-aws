@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The prefix used to generate, along with a UUID, the unique state machine execution name.
         /// </summary>
-        [Input("executionNamePrefix")]
+        [PolicyResourceProperty("executionNamePrefix", "_mUnknown_ExecutionNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionNamePrefix;
-
-        public string? ExecutionNamePrefix => _mExecutionNamePrefix.GetValue("executionNamePrefix");
+        private string? _mValue_ExecutionNamePrefix;
+        private bool _mUnknown_ExecutionNamePrefix;
+        public string? ExecutionNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionNamePrefix) return _mValue_ExecutionNamePrefix;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionStepFunctionsArgs.ExecutionNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access to start execution of the state machine.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionStepFunctionsArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Step Functions state machine whose execution will be started.
         /// </summary>
-        [Input("stateMachineName")]
+        [PolicyResourceProperty("stateMachineName", "_mUnknown_StateMachineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateMachineName;
-
-        public string? StateMachineName => _mStateMachineName.GetValue("stateMachineName");
+        private string? _mValue_StateMachineName;
+        private bool _mUnknown_StateMachineName;
+        public string? StateMachineName
+        {
+            get
+            {
+                if (!_mUnknown_StateMachineName) return _mValue_StateMachineName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionStepFunctionsArgs.StateMachineName' is not present");
+            }
+        }
     }
 }

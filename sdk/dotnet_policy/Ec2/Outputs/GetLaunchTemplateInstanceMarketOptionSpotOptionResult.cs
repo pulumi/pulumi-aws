@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplateInstanceMarketOptionSpotOptionResult
     {
-        [Input("blockDurationMinutes")]
+        [PolicyResourceProperty("blockDurationMinutes", "_mUnknown_BlockDurationMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockDurationMinutes;
+        private int? _mValue_BlockDurationMinutes;
+        private bool _mUnknown_BlockDurationMinutes;
+        public int? BlockDurationMinutes
+        {
+            get
+            {
+                if (!_mUnknown_BlockDurationMinutes) return _mValue_BlockDurationMinutes;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateInstanceMarketOptionSpotOptionResult.BlockDurationMinutes' is not present");
+            }
+        }
 
-        public int? BlockDurationMinutes => _mBlockDurationMinutes.GetValue("blockDurationMinutes");
-
-        [Input("instanceInterruptionBehavior")]
+        [PolicyResourceProperty("instanceInterruptionBehavior", "_mUnknown_InstanceInterruptionBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInterruptionBehavior;
+        private string? _mValue_InstanceInterruptionBehavior;
+        private bool _mUnknown_InstanceInterruptionBehavior;
+        public string? InstanceInterruptionBehavior
+        {
+            get
+            {
+                if (!_mUnknown_InstanceInterruptionBehavior) return _mValue_InstanceInterruptionBehavior;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateInstanceMarketOptionSpotOptionResult.InstanceInterruptionBehavior' is not present");
+            }
+        }
 
-        public string? InstanceInterruptionBehavior => _mInstanceInterruptionBehavior.GetValue("instanceInterruptionBehavior");
-
-        [Input("maxPrice")]
+        [PolicyResourceProperty("maxPrice", "_mUnknown_MaxPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxPrice;
+        private string? _mValue_MaxPrice;
+        private bool _mUnknown_MaxPrice;
+        public string? MaxPrice
+        {
+            get
+            {
+                if (!_mUnknown_MaxPrice) return _mValue_MaxPrice;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateInstanceMarketOptionSpotOptionResult.MaxPrice' is not present");
+            }
+        }
 
-        public string? MaxPrice => _mMaxPrice.GetValue("maxPrice");
-
-        [Input("spotInstanceType")]
+        [PolicyResourceProperty("spotInstanceType", "_mUnknown_SpotInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotInstanceType;
+        private string? _mValue_SpotInstanceType;
+        private bool _mUnknown_SpotInstanceType;
+        public string? SpotInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_SpotInstanceType) return _mValue_SpotInstanceType;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateInstanceMarketOptionSpotOptionResult.SpotInstanceType' is not present");
+            }
+        }
 
-        public string? SpotInstanceType => _mSpotInstanceType.GetValue("spotInstanceType");
-
-        [Input("validUntil")]
+        [PolicyResourceProperty("validUntil", "_mUnknown_ValidUntil")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidUntil;
-
-        public string? ValidUntil => _mValidUntil.GetValue("validUntil");
+        private string? _mValue_ValidUntil;
+        private bool _mUnknown_ValidUntil;
+        public string? ValidUntil
+        {
+            get
+            {
+                if (!_mUnknown_ValidUntil) return _mValue_ValidUntil;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateInstanceMarketOptionSpotOptionResult.ValidUntil' is not present");
+            }
+        }
     }
 }

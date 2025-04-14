@@ -18,56 +18,98 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// * `destination[0].file_system_id` - The fs ID of the replica.
         /// * `destination[0].status` - The status of the replication.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A destination configuration block (documented below).
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReplicationConfigurationDestination> _mDestination;
-
-        public Outputs.ReplicationConfigurationDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.ReplicationConfigurationDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.ReplicationConfigurationDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
         /// </summary>
-        [Input("originalSourceFileSystemArn")]
+        [PolicyResourceProperty("originalSourceFileSystemArn", "_mUnknown_OriginalSourceFileSystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginalSourceFileSystemArn;
-
-        public string? OriginalSourceFileSystemArn => _mOriginalSourceFileSystemArn.GetValue("originalSourceFileSystemArn");
+        private string? _mValue_OriginalSourceFileSystemArn;
+        private bool _mUnknown_OriginalSourceFileSystemArn;
+        public string? OriginalSourceFileSystemArn
+        {
+            get
+            {
+                if (!_mUnknown_OriginalSourceFileSystemArn) return _mValue_OriginalSourceFileSystemArn;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.OriginalSourceFileSystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         /// </summary>
-        [Input("sourceFileSystemArn")]
+        [PolicyResourceProperty("sourceFileSystemArn", "_mUnknown_SourceFileSystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemArn;
-
-        public string? SourceFileSystemArn => _mSourceFileSystemArn.GetValue("sourceFileSystemArn");
+        private string? _mValue_SourceFileSystemArn;
+        private bool _mUnknown_SourceFileSystemArn;
+        public string? SourceFileSystemArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceFileSystemArn) return _mValue_SourceFileSystemArn;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.SourceFileSystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the file system that is to be replicated.
         /// </summary>
-        [Input("sourceFileSystemId")]
+        [PolicyResourceProperty("sourceFileSystemId", "_mUnknown_SourceFileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemId;
-
-        public string? SourceFileSystemId => _mSourceFileSystemId.GetValue("sourceFileSystemId");
+        private string? _mValue_SourceFileSystemId;
+        private bool _mUnknown_SourceFileSystemId;
+        public string? SourceFileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_SourceFileSystemId) return _mValue_SourceFileSystemId;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.SourceFileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region in which the source Amazon EFS file system is located.
         /// </summary>
-        [Input("sourceFileSystemRegion")]
+        [PolicyResourceProperty("sourceFileSystemRegion", "_mUnknown_SourceFileSystemRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemRegion;
-
-        public string? SourceFileSystemRegion => _mSourceFileSystemRegion.GetValue("sourceFileSystemRegion");
+        private string? _mValue_SourceFileSystemRegion;
+        private bool _mUnknown_SourceFileSystemRegion;
+        public string? SourceFileSystemRegion
+        {
+            get
+            {
+                if (!_mUnknown_SourceFileSystemRegion) return _mValue_SourceFileSystemRegion;
+                throw new UndeferrableValueException("Value 'ReplicationConfiguration.SourceFileSystemRegion' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:efs/replicationConfiguration:ReplicationConfiguration")]
@@ -76,19 +118,33 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// <summary>
         /// A destination configuration block (documented below).
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReplicationConfigurationDestinationArgs> _mDestination;
-
-        public Inputs.ReplicationConfigurationDestinationArgs? Destination => _mDestination.GetValue("destination");
+        private Inputs.ReplicationConfigurationDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.ReplicationConfigurationDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the file system that is to be replicated.
         /// </summary>
-        [Input("sourceFileSystemId")]
+        [PolicyResourceProperty("sourceFileSystemId", "_mUnknown_SourceFileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileSystemId;
-
-        public string? SourceFileSystemId => _mSourceFileSystemId.GetValue("sourceFileSystemId");
+        private string? _mValue_SourceFileSystemId;
+        private bool _mUnknown_SourceFileSystemId;
+        public string? SourceFileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_SourceFileSystemId) return _mValue_SourceFileSystemId;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationArgs.SourceFileSystemId' is not present");
+            }
+        }
     }
 }

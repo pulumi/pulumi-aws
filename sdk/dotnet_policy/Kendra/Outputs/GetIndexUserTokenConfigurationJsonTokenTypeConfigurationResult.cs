@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The group attribute field.
         /// </summary>
-        [Input("groupAttributeField")]
+        [PolicyResourceProperty("groupAttributeField", "_mUnknown_GroupAttributeField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupAttributeField;
-
-        public string? GroupAttributeField => _mGroupAttributeField.GetValue("groupAttributeField");
+        private string? _mValue_GroupAttributeField;
+        private bool _mUnknown_GroupAttributeField;
+        public string? GroupAttributeField
+        {
+            get
+            {
+                if (!_mUnknown_GroupAttributeField) return _mValue_GroupAttributeField;
+                throw new UndeferrableValueException("Value 'GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult.GroupAttributeField' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name attribute field.
         /// </summary>
-        [Input("userNameAttributeField")]
+        [PolicyResourceProperty("userNameAttributeField", "_mUnknown_UserNameAttributeField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserNameAttributeField;
-
-        public string? UserNameAttributeField => _mUserNameAttributeField.GetValue("userNameAttributeField");
+        private string? _mValue_UserNameAttributeField;
+        private bool _mUnknown_UserNameAttributeField;
+        public string? UserNameAttributeField
+        {
+            get
+            {
+                if (!_mUnknown_UserNameAttributeField) return _mValue_UserNameAttributeField;
+                throw new UndeferrableValueException("Value 'GetIndexUserTokenConfigurationJsonTokenTypeConfigurationResult.UserNameAttributeField' is not present");
+            }
+        }
     }
 }

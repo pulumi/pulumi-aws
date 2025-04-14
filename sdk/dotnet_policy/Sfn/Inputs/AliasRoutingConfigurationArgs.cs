@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sfn.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the state machine version.
         /// </summary>
-        [Input("stateMachineVersionArn")]
+        [PolicyResourceProperty("stateMachineVersionArn", "_mUnknown_StateMachineVersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateMachineVersionArn;
-
-        public string? StateMachineVersionArn => _mStateMachineVersionArn.GetValue("stateMachineVersionArn");
+        private string? _mValue_StateMachineVersionArn;
+        private bool _mUnknown_StateMachineVersionArn;
+        public string? StateMachineVersionArn
+        {
+            get
+            {
+                if (!_mUnknown_StateMachineVersionArn) return _mValue_StateMachineVersionArn;
+                throw new UndeferrableValueException("Value 'AliasRoutingConfigurationArgs.StateMachineVersionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of traffic routed to the state machine version.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'AliasRoutingConfigurationArgs.Weight' is not present");
+            }
+        }
     }
 }

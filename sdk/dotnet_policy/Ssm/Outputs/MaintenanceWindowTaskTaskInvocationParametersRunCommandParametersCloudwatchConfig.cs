@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
         /// </summary>
-        [Input("cloudwatchLogGroupName")]
+        [PolicyResourceProperty("cloudwatchLogGroupName", "_mUnknown_CloudwatchLogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupName;
-
-        public string? CloudwatchLogGroupName => _mCloudwatchLogGroupName.GetValue("cloudwatchLogGroupName");
+        private string? _mValue_CloudwatchLogGroupName;
+        private bool _mUnknown_CloudwatchLogGroupName;
+        public string? CloudwatchLogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupName) return _mValue_CloudwatchLogGroupName;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.CloudwatchLogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables Systems Manager to send command output to CloudWatch Logs.
         /// </summary>
-        [Input("cloudwatchOutputEnabled")]
+        [PolicyResourceProperty("cloudwatchOutputEnabled", "_mUnknown_CloudwatchOutputEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCloudwatchOutputEnabled;
-
-        public bool? CloudwatchOutputEnabled => _mCloudwatchOutputEnabled.GetValue("cloudwatchOutputEnabled");
+        private bool? _mValue_CloudwatchOutputEnabled;
+        private bool _mUnknown_CloudwatchOutputEnabled;
+        public bool? CloudwatchOutputEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchOutputEnabled) return _mValue_CloudwatchOutputEnabled;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.CloudwatchOutputEnabled' is not present");
+            }
+        }
     }
 }

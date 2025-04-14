@@ -15,67 +15,123 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// [Easy DKIM] The key length of the DKIM key pair in use.
         /// </summary>
-        [Input("currentSigningKeyLength")]
+        [PolicyResourceProperty("currentSigningKeyLength", "_mUnknown_CurrentSigningKeyLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCurrentSigningKeyLength;
+        private string? _mValue_CurrentSigningKeyLength;
+        private bool _mUnknown_CurrentSigningKeyLength;
+        public string? CurrentSigningKeyLength
+        {
+            get
+            {
+                if (!_mUnknown_CurrentSigningKeyLength) return _mValue_CurrentSigningKeyLength;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.CurrentSigningKeyLength' is not present");
+            }
+        }
 
-        public string? CurrentSigningKeyLength => _mCurrentSigningKeyLength.GetValue("currentSigningKeyLength");
-
-        [Input("domainSigningPrivateKey")]
+        [PolicyResourceProperty("domainSigningPrivateKey", "_mUnknown_DomainSigningPrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainSigningPrivateKey;
+        private string? _mValue_DomainSigningPrivateKey;
+        private bool _mUnknown_DomainSigningPrivateKey;
+        public string? DomainSigningPrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_DomainSigningPrivateKey) return _mValue_DomainSigningPrivateKey;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.DomainSigningPrivateKey' is not present");
+            }
+        }
 
-        public string? DomainSigningPrivateKey => _mDomainSigningPrivateKey.GetValue("domainSigningPrivateKey");
-
-        [Input("domainSigningSelector")]
+        [PolicyResourceProperty("domainSigningSelector", "_mUnknown_DomainSigningSelector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainSigningSelector;
-
-        public string? DomainSigningSelector => _mDomainSigningSelector.GetValue("domainSigningSelector");
+        private string? _mValue_DomainSigningSelector;
+        private bool _mUnknown_DomainSigningSelector;
+        public string? DomainSigningSelector
+        {
+            get
+            {
+                if (!_mUnknown_DomainSigningSelector) return _mValue_DomainSigningSelector;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.DomainSigningSelector' is not present");
+            }
+        }
 
         /// <summary>
         /// [Easy DKIM] The last time a key pair was generated for this identity.
         /// </summary>
-        [Input("lastKeyGenerationTimestamp")]
+        [PolicyResourceProperty("lastKeyGenerationTimestamp", "_mUnknown_LastKeyGenerationTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastKeyGenerationTimestamp;
-
-        public string? LastKeyGenerationTimestamp => _mLastKeyGenerationTimestamp.GetValue("lastKeyGenerationTimestamp");
+        private string? _mValue_LastKeyGenerationTimestamp;
+        private bool _mUnknown_LastKeyGenerationTimestamp;
+        public string? LastKeyGenerationTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastKeyGenerationTimestamp) return _mValue_LastKeyGenerationTimestamp;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.LastKeyGenerationTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
         /// </summary>
-        [Input("nextSigningKeyLength")]
+        [PolicyResourceProperty("nextSigningKeyLength", "_mUnknown_NextSigningKeyLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNextSigningKeyLength;
-
-        public string? NextSigningKeyLength => _mNextSigningKeyLength.GetValue("nextSigningKeyLength");
+        private string? _mValue_NextSigningKeyLength;
+        private bool _mUnknown_NextSigningKeyLength;
+        public string? NextSigningKeyLength
+        {
+            get
+            {
+                if (!_mUnknown_NextSigningKeyLength) return _mValue_NextSigningKeyLength;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.NextSigningKeyLength' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
         /// </summary>
-        [Input("signingAttributesOrigin")]
+        [PolicyResourceProperty("signingAttributesOrigin", "_mUnknown_SigningAttributesOrigin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAttributesOrigin;
-
-        public string? SigningAttributesOrigin => _mSigningAttributesOrigin.GetValue("signingAttributesOrigin");
+        private string? _mValue_SigningAttributesOrigin;
+        private bool _mUnknown_SigningAttributesOrigin;
+        public string? SigningAttributesOrigin
+        {
+            get
+            {
+                if (!_mUnknown_SigningAttributesOrigin) return _mValue_SigningAttributesOrigin;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.SigningAttributesOrigin' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
         /// </summary>
-        [Input("tokens")]
+        [PolicyResourceProperty("tokens", "_mUnknown_Tokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTokens;
-
-        public List<string>? Tokens => _mTokens.GetValue("tokens");
+        private List<string>? _mValue_Tokens;
+        private bool _mUnknown_Tokens;
+        public List<string>? Tokens
+        {
+            get
+            {
+                if (!_mUnknown_Tokens) return _mValue_Tokens;
+                throw new UndeferrableValueException("Value 'GetEmailIdentityDkimSigningAttributeResult.Tokens' is not present");
+            }
+        }
     }
 }

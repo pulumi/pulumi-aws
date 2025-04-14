@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Recorder.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording group - see below.
         /// </summary>
-        [Input("recordingGroup")]
+        [PolicyResourceProperty("recordingGroup", "_mUnknown_RecordingGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecorderRecordingGroup> _mRecordingGroup;
-
-        public Outputs.RecorderRecordingGroup? RecordingGroup => _mRecordingGroup.GetValue("recordingGroup");
+        private Outputs.RecorderRecordingGroup? _mValue_RecordingGroup;
+        private bool _mUnknown_RecordingGroup;
+        public Outputs.RecorderRecordingGroup? RecordingGroup
+        {
+            get
+            {
+                if (!_mUnknown_RecordingGroup) return _mValue_RecordingGroup;
+                throw new UndeferrableValueException("Value 'Recorder.RecordingGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording mode - see below.
         /// </summary>
-        [Input("recordingMode")]
+        [PolicyResourceProperty("recordingMode", "_mUnknown_RecordingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecorderRecordingMode> _mRecordingMode;
-
-        public Outputs.RecorderRecordingMode? RecordingMode => _mRecordingMode.GetValue("recordingMode");
+        private Outputs.RecorderRecordingMode? _mValue_RecordingMode;
+        private bool _mUnknown_RecordingMode;
+        public Outputs.RecorderRecordingMode? RecordingMode
+        {
+            get
+            {
+                if (!_mUnknown_RecordingMode) return _mValue_RecordingMode;
+                throw new UndeferrableValueException("Value 'Recorder.RecordingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Recorder.RoleArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cfg/recorder:Recorder")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RecorderArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording group - see below.
         /// </summary>
-        [Input("recordingGroup")]
+        [PolicyResourceProperty("recordingGroup", "_mUnknown_RecordingGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecorderRecordingGroupArgs> _mRecordingGroup;
-
-        public Inputs.RecorderRecordingGroupArgs? RecordingGroup => _mRecordingGroup.GetValue("recordingGroup");
+        private Inputs.RecorderRecordingGroupArgs? _mValue_RecordingGroup;
+        private bool _mUnknown_RecordingGroup;
+        public Inputs.RecorderRecordingGroupArgs? RecordingGroup
+        {
+            get
+            {
+                if (!_mUnknown_RecordingGroup) return _mValue_RecordingGroup;
+                throw new UndeferrableValueException("Value 'RecorderArgs.RecordingGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording mode - see below.
         /// </summary>
-        [Input("recordingMode")]
+        [PolicyResourceProperty("recordingMode", "_mUnknown_RecordingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecorderRecordingModeArgs> _mRecordingMode;
-
-        public Inputs.RecorderRecordingModeArgs? RecordingMode => _mRecordingMode.GetValue("recordingMode");
+        private Inputs.RecorderRecordingModeArgs? _mValue_RecordingMode;
+        private bool _mUnknown_RecordingMode;
+        public Inputs.RecorderRecordingModeArgs? RecordingMode
+        {
+            get
+            {
+                if (!_mUnknown_RecordingMode) return _mValue_RecordingMode;
+                throw new UndeferrableValueException("Value 'RecorderArgs.RecordingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'RecorderArgs.RoleArn' is not present");
+            }
+        }
     }
 }

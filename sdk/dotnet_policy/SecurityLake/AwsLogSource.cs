@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake
         /// <summary>
         /// Specify the natively-supported AWS service to add as a source in Security Lake.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AwsLogSourceSource> _mSource;
-
-        public Outputs.AwsLogSourceSource? Source => _mSource.GetValue("source");
+        private Outputs.AwsLogSourceSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.AwsLogSourceSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'AwsLogSource.Source' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securitylake/awsLogSource:AwsLogSource")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake
         /// <summary>
         /// Specify the natively-supported AWS service to add as a source in Security Lake.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AwsLogSourceSourceArgs> _mSource;
-
-        public Inputs.AwsLogSourceSourceArgs? Source => _mSource.GetValue("source");
+        private Inputs.AwsLogSourceSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.AwsLogSourceSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'AwsLogSourceArgs.Source' is not present");
+            }
+        }
     }
 }

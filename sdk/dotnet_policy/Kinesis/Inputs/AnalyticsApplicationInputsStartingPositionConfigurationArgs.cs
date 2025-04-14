@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
         /// </summary>
-        [Input("startingPosition")]
+        [PolicyResourceProperty("startingPosition", "_mUnknown_StartingPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
-
-        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+        private string? _mValue_StartingPosition;
+        private bool _mUnknown_StartingPosition;
+        public string? StartingPosition
+        {
+            get
+            {
+                if (!_mUnknown_StartingPosition) return _mValue_StartingPosition;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsStartingPositionConfigurationArgs.StartingPosition' is not present");
+            }
+        }
     }
 }

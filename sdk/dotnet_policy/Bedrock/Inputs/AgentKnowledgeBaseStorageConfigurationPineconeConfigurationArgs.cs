@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Endpoint URL for your index management page.
         /// </summary>
-        [Input("connectionString")]
+        [PolicyResourceProperty("connectionString", "_mUnknown_ConnectionString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionString;
-
-        public string? ConnectionString => _mConnectionString.GetValue("connectionString");
+        private string? _mValue_ConnectionString;
+        private bool _mUnknown_ConnectionString;
+        public string? ConnectionString
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionString) return _mValue_ConnectionString;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs.ConnectionString' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
         /// </summary>
-        [Input("credentialsSecretArn")]
+        [PolicyResourceProperty("credentialsSecretArn", "_mUnknown_CredentialsSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsSecretArn;
-
-        public string? CredentialsSecretArn => _mCredentialsSecretArn.GetValue("credentialsSecretArn");
+        private string? _mValue_CredentialsSecretArn;
+        private bool _mUnknown_CredentialsSecretArn;
+        public string? CredentialsSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsSecretArn) return _mValue_CredentialsSecretArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs.CredentialsSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        [Input("fieldMapping")]
+        [PolicyResourceProperty("fieldMapping", "_mUnknown_FieldMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> _mFieldMapping;
-
-        public Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs? FieldMapping => _mFieldMapping.GetValue("fieldMapping");
+        private Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs? _mValue_FieldMapping;
+        private bool _mUnknown_FieldMapping;
+        public Inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs? FieldMapping
+        {
+            get
+            {
+                if (!_mUnknown_FieldMapping) return _mValue_FieldMapping;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs.FieldMapping' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace to be used to write new data to your database.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs.Namespace' is not present");
+            }
+        }
     }
 }

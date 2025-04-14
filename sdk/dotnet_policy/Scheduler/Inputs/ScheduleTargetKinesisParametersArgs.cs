@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Inputs
         /// <summary>
         /// Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
         /// </summary>
-        [Input("partitionKey")]
+        [PolicyResourceProperty("partitionKey", "_mUnknown_PartitionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartitionKey;
-
-        public string? PartitionKey => _mPartitionKey.GetValue("partitionKey");
+        private string? _mValue_PartitionKey;
+        private bool _mUnknown_PartitionKey;
+        public string? PartitionKey
+        {
+            get
+            {
+                if (!_mUnknown_PartitionKey) return _mValue_PartitionKey;
+                throw new UndeferrableValueException("Value 'ScheduleTargetKinesisParametersArgs.PartitionKey' is not present");
+            }
+        }
     }
 }

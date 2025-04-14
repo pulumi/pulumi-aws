@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
         /// </summary>
-        [Input("eventThreshold")]
+        [PolicyResourceProperty("eventThreshold", "_mUnknown_EventThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold> _mEventThreshold;
-
-        public Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold? EventThreshold => _mEventThreshold.GetValue("eventThreshold");
+        private Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold? _mValue_EventThreshold;
+        private bool _mUnknown_EventThreshold;
+        public Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold? EventThreshold
+        {
+            get
+            {
+                if (!_mUnknown_EventThreshold) return _mValue_EventThreshold;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationMetrics.EventThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationMetrics.Status' is not present");
+            }
+        }
     }
 }

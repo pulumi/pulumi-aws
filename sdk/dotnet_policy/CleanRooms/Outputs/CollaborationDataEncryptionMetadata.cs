@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Outputs
 {
     public sealed class CollaborationDataEncryptionMetadata
     {
-        [Input("allowClearText")]
+        [PolicyResourceProperty("allowClearText", "_mUnknown_AllowClearText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowClearText;
+        private bool? _mValue_AllowClearText;
+        private bool _mUnknown_AllowClearText;
+        public bool? AllowClearText
+        {
+            get
+            {
+                if (!_mUnknown_AllowClearText) return _mValue_AllowClearText;
+                throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadata.AllowClearText' is not present");
+            }
+        }
 
-        public bool? AllowClearText => _mAllowClearText.GetValue("allowClearText");
-
-        [Input("allowDuplicates")]
+        [PolicyResourceProperty("allowDuplicates", "_mUnknown_AllowDuplicates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowDuplicates;
+        private bool? _mValue_AllowDuplicates;
+        private bool _mUnknown_AllowDuplicates;
+        public bool? AllowDuplicates
+        {
+            get
+            {
+                if (!_mUnknown_AllowDuplicates) return _mValue_AllowDuplicates;
+                throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadata.AllowDuplicates' is not present");
+            }
+        }
 
-        public bool? AllowDuplicates => _mAllowDuplicates.GetValue("allowDuplicates");
-
-        [Input("allowJoinsOnColumnsWithDifferentNames")]
+        [PolicyResourceProperty("allowJoinsOnColumnsWithDifferentNames", "_mUnknown_AllowJoinsOnColumnsWithDifferentNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowJoinsOnColumnsWithDifferentNames;
+        private bool? _mValue_AllowJoinsOnColumnsWithDifferentNames;
+        private bool _mUnknown_AllowJoinsOnColumnsWithDifferentNames;
+        public bool? AllowJoinsOnColumnsWithDifferentNames
+        {
+            get
+            {
+                if (!_mUnknown_AllowJoinsOnColumnsWithDifferentNames) return _mValue_AllowJoinsOnColumnsWithDifferentNames;
+                throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadata.AllowJoinsOnColumnsWithDifferentNames' is not present");
+            }
+        }
 
-        public bool? AllowJoinsOnColumnsWithDifferentNames => _mAllowJoinsOnColumnsWithDifferentNames.GetValue("allowJoinsOnColumnsWithDifferentNames");
-
-        [Input("preserveNulls")]
+        [PolicyResourceProperty("preserveNulls", "_mUnknown_PreserveNulls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveNulls;
-
-        public bool? PreserveNulls => _mPreserveNulls.GetValue("preserveNulls");
+        private bool? _mValue_PreserveNulls;
+        private bool _mUnknown_PreserveNulls;
+        public bool? PreserveNulls
+        {
+            get
+            {
+                if (!_mUnknown_PreserveNulls) return _mValue_PreserveNulls;
+                throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadata.PreserveNulls' is not present");
+            }
+        }
     }
 }

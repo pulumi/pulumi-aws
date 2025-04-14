@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// A list of a list of strings. The list of edges associated with the network function group.
         /// </summary>
-        [Input("edgeSets")]
+        [PolicyResourceProperty("edgeSets", "_mUnknown_EdgeSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<List<string>>> _mEdgeSets;
-
-        public List<List<string>>? EdgeSets => _mEdgeSets.GetValue("edgeSets");
+        private List<List<string>>? _mValue_EdgeSets;
+        private bool _mUnknown_EdgeSets;
+        public List<List<string>>? EdgeSets
+        {
+            get
+            {
+                if (!_mUnknown_EdgeSets) return _mValue_EdgeSets;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs.EdgeSets' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred edge to use.
         /// </summary>
-        [Input("useEdge")]
+        [PolicyResourceProperty("useEdge", "_mUnknown_UseEdge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUseEdge;
-
-        public string? UseEdge => _mUseEdge.GetValue("useEdge");
+        private string? _mValue_UseEdge;
+        private bool _mUnknown_UseEdge;
+        public string? UseEdge
+        {
+            get
+            {
+                if (!_mUnknown_UseEdge) return _mValue_UseEdge;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs.UseEdge' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred edge to use.
         /// </summary>
-        [Input("useEdgeLocation")]
+        [PolicyResourceProperty("useEdgeLocation", "_mUnknown_UseEdgeLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUseEdgeLocation;
-
-        public string? UseEdgeLocation => _mUseEdgeLocation.GetValue("useEdgeLocation");
+        private string? _mValue_UseEdgeLocation;
+        private bool _mUnknown_UseEdgeLocation;
+        public string? UseEdgeLocation
+        {
+            get
+            {
+                if (!_mUnknown_UseEdgeLocation) return _mValue_UseEdgeLocation;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs.UseEdgeLocation' is not present");
+            }
+        }
     }
 }

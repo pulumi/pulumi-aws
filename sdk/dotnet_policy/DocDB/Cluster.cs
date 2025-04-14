@@ -16,317 +16,555 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// <summary>
         /// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
         /// </summary>
-        [Input("allowMajorVersionUpgrade")]
+        [PolicyResourceProperty("allowMajorVersionUpgrade", "_mUnknown_AllowMajorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
-
-        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+        private bool? _mValue_AllowMajorVersionUpgrade;
+        private bool _mUnknown_AllowMajorVersionUpgrade;
+        public bool? AllowMajorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AllowMajorVersionUpgrade) return _mValue_AllowMajorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'Cluster.AllowMajorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is
         /// `false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'Cluster.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of EC2 Availability Zones that
         /// instances in the DB cluster can be created in.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'Cluster.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The days to retain backups for. Default `1`
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'Cluster.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
-        [Input("clusterIdentifierPrefix")]
+        [PolicyResourceProperty("clusterIdentifierPrefix", "_mUnknown_ClusterIdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifierPrefix;
-
-        public string? ClusterIdentifierPrefix => _mClusterIdentifierPrefix.GetValue("clusterIdentifierPrefix");
+        private string? _mValue_ClusterIdentifierPrefix;
+        private bool _mUnknown_ClusterIdentifierPrefix;
+        public string? ClusterIdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifierPrefix) return _mValue_ClusterIdentifierPrefix;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterIdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// List of DocumentDB Instances that are a part of this cluster
         /// </summary>
-        [Input("clusterMembers")]
+        [PolicyResourceProperty("clusterMembers", "_mUnknown_ClusterMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClusterMembers;
-
-        public List<string>? ClusterMembers => _mClusterMembers.GetValue("clusterMembers");
+        private List<string>? _mValue_ClusterMembers;
+        private bool _mUnknown_ClusterMembers;
+        public List<string>? ClusterMembers
+        {
+            get
+            {
+                if (!_mUnknown_ClusterMembers) return _mValue_ClusterMembers;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// The DocumentDB Cluster Resource ID
         /// </summary>
-        [Input("clusterResourceId")]
+        [PolicyResourceProperty("clusterResourceId", "_mUnknown_ClusterResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterResourceId;
-
-        public string? ClusterResourceId => _mClusterResourceId.GetValue("clusterResourceId");
+        private string? _mValue_ClusterResourceId;
+        private bool _mUnknown_ClusterResourceId;
+        public string? ClusterResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterResourceId) return _mValue_ClusterResourceId;
+                throw new UndeferrableValueException("Value 'Cluster.ClusterResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
-        [Input("dbClusterParameterGroupName")]
+        [PolicyResourceProperty("dbClusterParameterGroupName", "_mUnknown_DbClusterParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterParameterGroupName;
-
-        public string? DbClusterParameterGroupName => _mDbClusterParameterGroupName.GetValue("dbClusterParameterGroupName");
+        private string? _mValue_DbClusterParameterGroupName;
+        private bool _mUnknown_DbClusterParameterGroupName;
+        public string? DbClusterParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterParameterGroupName) return _mValue_DbClusterParameterGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.DbClusterParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A DB subnet group to associate with this DB instance.
         /// </summary>
-        [Input("dbSubnetGroupName")]
+        [PolicyResourceProperty("dbSubnetGroupName", "_mUnknown_DbSubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
-
-        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
+        private string? _mValue_DbSubnetGroupName;
+        private bool _mUnknown_DbSubnetGroupName;
+        public string? DbSubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DbSubnetGroupName) return _mValue_DbSubnetGroupName;
+                throw new UndeferrableValueException("Value 'Cluster.DbSubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'Cluster.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
         /// The following log types are supported: `audit`, `profiler`.
         /// </summary>
-        [Input("enabledCloudwatchLogsExports")]
+        [PolicyResourceProperty("enabledCloudwatchLogsExports", "_mUnknown_EnabledCloudwatchLogsExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
-
-        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
+        private List<string>? _mValue_EnabledCloudwatchLogsExports;
+        private bool _mUnknown_EnabledCloudwatchLogsExports;
+        public List<string>? EnabledCloudwatchLogsExports
+        {
+            get
+            {
+                if (!_mUnknown_EnabledCloudwatchLogsExports) return _mValue_EnabledCloudwatchLogsExports;
+                throw new UndeferrableValueException("Value 'Cluster.EnabledCloudwatchLogsExports' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS address of the DocumentDB instance
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Cluster.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'Cluster.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine version. Updating this argument results in an outage.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Cluster.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your final DB snapshot
         /// when this DB cluster is deleted. If omitted, no final snapshot will be
         /// made.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The global cluster identifier specified on `aws.docdb.GlobalCluster`.
         /// </summary>
-        [Input("globalClusterIdentifier")]
+        [PolicyResourceProperty("globalClusterIdentifier", "_mUnknown_GlobalClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
-
-        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
+        private string? _mValue_GlobalClusterIdentifier;
+        private bool _mUnknown_GlobalClusterIdentifier;
+        public string? GlobalClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterIdentifier) return _mValue_GlobalClusterIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.GlobalClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Route53 Hosted Zone ID of the endpoint
         /// </summary>
-        [Input("hostedZoneId")]
+        [PolicyResourceProperty("hostedZoneId", "_mUnknown_HostedZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostedZoneId;
-
-        public string? HostedZoneId => _mHostedZoneId.GetValue("hostedZoneId");
+        private string? _mValue_HostedZoneId;
+        private bool _mUnknown_HostedZoneId;
+        public string? HostedZoneId
+        {
+            get
+            {
+                if (!_mUnknown_HostedZoneId) return _mValue_HostedZoneId;
+                throw new UndeferrableValueException("Value 'Cluster.HostedZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'Cluster.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the master DB user. Note that this may
         /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
         /// </summary>
-        [Input("masterPassword")]
+        [PolicyResourceProperty("masterPassword", "_mUnknown_MasterPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
-
-        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
+        private string? _mValue_MasterPassword;
+        private bool _mUnknown_MasterPassword;
+        public string? MasterPassword
+        {
+            get
+            {
+                if (!_mUnknown_MasterPassword) return _mValue_MasterPassword;
+                throw new UndeferrableValueException("Value 'Cluster.MasterPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Username for the master DB user.
         /// </summary>
-        [Input("masterUsername")]
+        [PolicyResourceProperty("masterUsername", "_mUnknown_MasterUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
-
-        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
+        private string? _mValue_MasterUsername;
+        private bool _mUnknown_MasterUsername;
+        public string? MasterUsername
+        {
+            get
+            {
+                if (!_mUnknown_MasterUsername) return _mValue_MasterUsername;
+                throw new UndeferrableValueException("Value 'Cluster.MasterUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the DB accepts connections
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Cluster.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
         /// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'Cluster.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Cluster.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
         /// </summary>
-        [Input("readerEndpoint")]
+        [PolicyResourceProperty("readerEndpoint", "_mUnknown_ReaderEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReaderEndpoint;
-
-        public string? ReaderEndpoint => _mReaderEndpoint.GetValue("readerEndpoint");
+        private string? _mValue_ReaderEndpoint;
+        private bool _mUnknown_ReaderEndpoint;
+        public string? ReaderEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ReaderEndpoint) return _mValue_ReaderEndpoint;
+                throw new UndeferrableValueException("Value 'Cluster.ReaderEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         /// </summary>
-        [Input("restoreToPointInTime")]
+        [PolicyResourceProperty("restoreToPointInTime", "_mUnknown_RestoreToPointInTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterRestoreToPointInTime> _mRestoreToPointInTime;
-
-        public Outputs.ClusterRestoreToPointInTime? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
+        private Outputs.ClusterRestoreToPointInTime? _mValue_RestoreToPointInTime;
+        private bool _mUnknown_RestoreToPointInTime;
+        public Outputs.ClusterRestoreToPointInTime? RestoreToPointInTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToPointInTime) return _mValue_RestoreToPointInTime;
+                throw new UndeferrableValueException("Value 'Cluster.RestoreToPointInTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'Cluster.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'Cluster.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted. The default is `false`.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'Cluster.StorageEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'Cluster.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to associate
         /// with the Cluster
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Cluster.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:docdb/cluster:Cluster")]
@@ -335,262 +573,458 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// <summary>
         /// A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster's current version.
         /// </summary>
-        [Input("allowMajorVersionUpgrade")]
+        [PolicyResourceProperty("allowMajorVersionUpgrade", "_mUnknown_AllowMajorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMajorVersionUpgrade;
-
-        public bool? AllowMajorVersionUpgrade => _mAllowMajorVersionUpgrade.GetValue("allowMajorVersionUpgrade");
+        private bool? _mValue_AllowMajorVersionUpgrade;
+        private bool _mUnknown_AllowMajorVersionUpgrade;
+        public bool? AllowMajorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AllowMajorVersionUpgrade) return _mValue_AllowMajorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AllowMajorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether any cluster modifications
         /// are applied immediately, or during the next maintenance window. Default is
         /// `false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of EC2 Availability Zones that
         /// instances in the DB cluster can be created in.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'ClusterArgs.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// The days to retain backups for. Default `1`
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'ClusterArgs.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier. If omitted, the provider will assign a random, unique identifier.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         /// </summary>
-        [Input("clusterIdentifierPrefix")]
+        [PolicyResourceProperty("clusterIdentifierPrefix", "_mUnknown_ClusterIdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifierPrefix;
-
-        public string? ClusterIdentifierPrefix => _mClusterIdentifierPrefix.GetValue("clusterIdentifierPrefix");
+        private string? _mValue_ClusterIdentifierPrefix;
+        private bool _mUnknown_ClusterIdentifierPrefix;
+        public string? ClusterIdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifierPrefix) return _mValue_ClusterIdentifierPrefix;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterIdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// List of DocumentDB Instances that are a part of this cluster
         /// </summary>
-        [Input("clusterMembers")]
+        [PolicyResourceProperty("clusterMembers", "_mUnknown_ClusterMembers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClusterMembers;
-
-        public List<string>? ClusterMembers => _mClusterMembers.GetValue("clusterMembers");
+        private List<string>? _mValue_ClusterMembers;
+        private bool _mUnknown_ClusterMembers;
+        public List<string>? ClusterMembers
+        {
+            get
+            {
+                if (!_mUnknown_ClusterMembers) return _mValue_ClusterMembers;
+                throw new UndeferrableValueException("Value 'ClusterArgs.ClusterMembers' is not present");
+            }
+        }
 
         /// <summary>
         /// A cluster parameter group to associate with the cluster.
         /// </summary>
-        [Input("dbClusterParameterGroupName")]
+        [PolicyResourceProperty("dbClusterParameterGroupName", "_mUnknown_DbClusterParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterParameterGroupName;
-
-        public string? DbClusterParameterGroupName => _mDbClusterParameterGroupName.GetValue("dbClusterParameterGroupName");
+        private string? _mValue_DbClusterParameterGroupName;
+        private bool _mUnknown_DbClusterParameterGroupName;
+        public string? DbClusterParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterParameterGroupName) return _mValue_DbClusterParameterGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.DbClusterParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A DB subnet group to associate with this DB instance.
         /// </summary>
-        [Input("dbSubnetGroupName")]
+        [PolicyResourceProperty("dbSubnetGroupName", "_mUnknown_DbSubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
-
-        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
+        private string? _mValue_DbSubnetGroupName;
+        private bool _mUnknown_DbSubnetGroupName;
+        public string? DbSubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DbSubnetGroupName) return _mValue_DbSubnetGroupName;
+                throw new UndeferrableValueException("Value 'ClusterArgs.DbSubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. Defaults to `false`.
         /// </summary>
-        [Input("deletionProtection")]
+        [PolicyResourceProperty("deletionProtection", "_mUnknown_DeletionProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtection;
-
-        public bool? DeletionProtection => _mDeletionProtection.GetValue("deletionProtection");
+        private bool? _mValue_DeletionProtection;
+        private bool _mUnknown_DeletionProtection;
+        public bool? DeletionProtection
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtection) return _mValue_DeletionProtection;
+                throw new UndeferrableValueException("Value 'ClusterArgs.DeletionProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// List of log types to export to cloudwatch. If omitted, no logs will be exported.
         /// The following log types are supported: `audit`, `profiler`.
         /// </summary>
-        [Input("enabledCloudwatchLogsExports")]
+        [PolicyResourceProperty("enabledCloudwatchLogsExports", "_mUnknown_EnabledCloudwatchLogsExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledCloudwatchLogsExports;
-
-        public List<string>? EnabledCloudwatchLogsExports => _mEnabledCloudwatchLogsExports.GetValue("enabledCloudwatchLogsExports");
+        private List<string>? _mValue_EnabledCloudwatchLogsExports;
+        private bool _mUnknown_EnabledCloudwatchLogsExports;
+        public List<string>? EnabledCloudwatchLogsExports
+        {
+            get
+            {
+                if (!_mUnknown_EnabledCloudwatchLogsExports) return _mValue_EnabledCloudwatchLogsExports;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EnabledCloudwatchLogsExports' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine version. Updating this argument results in an outage.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'ClusterArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your final DB snapshot
         /// when this DB cluster is deleted. If omitted, no final snapshot will be
         /// made.
         /// </summary>
-        [Input("finalSnapshotIdentifier")]
+        [PolicyResourceProperty("finalSnapshotIdentifier", "_mUnknown_FinalSnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotIdentifier;
-
-        public string? FinalSnapshotIdentifier => _mFinalSnapshotIdentifier.GetValue("finalSnapshotIdentifier");
+        private string? _mValue_FinalSnapshotIdentifier;
+        private bool _mUnknown_FinalSnapshotIdentifier;
+        public string? FinalSnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotIdentifier) return _mValue_FinalSnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.FinalSnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The global cluster identifier specified on `aws.docdb.GlobalCluster`.
         /// </summary>
-        [Input("globalClusterIdentifier")]
+        [PolicyResourceProperty("globalClusterIdentifier", "_mUnknown_GlobalClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalClusterIdentifier;
-
-        public string? GlobalClusterIdentifier => _mGlobalClusterIdentifier.GetValue("globalClusterIdentifier");
+        private string? _mValue_GlobalClusterIdentifier;
+        private bool _mUnknown_GlobalClusterIdentifier;
+        public string? GlobalClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_GlobalClusterIdentifier) return _mValue_GlobalClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.GlobalClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the master DB user. Note that this may
         /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
         /// </summary>
-        [Input("masterPassword")]
+        [PolicyResourceProperty("masterPassword", "_mUnknown_MasterPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
-
-        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
+        private string? _mValue_MasterPassword;
+        private bool _mUnknown_MasterPassword;
+        public string? MasterPassword
+        {
+            get
+            {
+                if (!_mUnknown_MasterPassword) return _mValue_MasterPassword;
+                throw new UndeferrableValueException("Value 'ClusterArgs.MasterPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Username for the master DB user.
         /// </summary>
-        [Input("masterUsername")]
+        [PolicyResourceProperty("masterUsername", "_mUnknown_MasterUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
-
-        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
+        private string? _mValue_MasterUsername;
+        private bool _mUnknown_MasterUsername;
+        public string? MasterUsername
+        {
+            get
+            {
+                if (!_mUnknown_MasterUsername) return _mValue_MasterUsername;
+                throw new UndeferrableValueException("Value 'ClusterArgs.MasterUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the DB accepts connections
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
         /// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'ClusterArgs.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ClusterArgs.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
         /// </summary>
-        [Input("restoreToPointInTime")]
+        [PolicyResourceProperty("restoreToPointInTime", "_mUnknown_RestoreToPointInTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterRestoreToPointInTimeArgs> _mRestoreToPointInTime;
-
-        public Inputs.ClusterRestoreToPointInTimeArgs? RestoreToPointInTime => _mRestoreToPointInTime.GetValue("restoreToPointInTime");
+        private Inputs.ClusterRestoreToPointInTimeArgs? _mValue_RestoreToPointInTime;
+        private bool _mUnknown_RestoreToPointInTime;
+        public Inputs.ClusterRestoreToPointInTimeArgs? RestoreToPointInTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToPointInTime) return _mValue_RestoreToPointInTime;
+                throw new UndeferrableValueException("Value 'ClusterArgs.RestoreToPointInTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterArgs.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted. The default is `false`.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'ClusterArgs.StorageEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'ClusterArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to associate
         /// with the Cluster
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ClusterArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 }

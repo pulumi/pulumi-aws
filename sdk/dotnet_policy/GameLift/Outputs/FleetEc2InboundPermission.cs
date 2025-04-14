@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Outputs
         /// <summary>
         /// Starting value for a range of allowed port numbers.
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'FleetEc2InboundPermission.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
         /// </summary>
-        [Input("ipRange")]
+        [PolicyResourceProperty("ipRange", "_mUnknown_IpRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpRange;
-
-        public string? IpRange => _mIpRange.GetValue("ipRange");
+        private string? _mValue_IpRange;
+        private bool _mUnknown_IpRange;
+        public string? IpRange
+        {
+            get
+            {
+                if (!_mUnknown_IpRange) return _mValue_IpRange;
+                throw new UndeferrableValueException("Value 'FleetEc2InboundPermission.IpRange' is not present");
+            }
+        }
 
         /// <summary>
         /// Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'FleetEc2InboundPermission.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'FleetEc2InboundPermission.ToPort' is not present");
+            }
+        }
     }
 }

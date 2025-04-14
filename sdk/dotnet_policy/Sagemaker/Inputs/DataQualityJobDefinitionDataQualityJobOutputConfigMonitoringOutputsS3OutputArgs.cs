@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
         /// </summary>
-        [Input("localPath")]
+        [PolicyResourceProperty("localPath", "_mUnknown_LocalPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalPath;
-
-        public string? LocalPath => _mLocalPath.GetValue("localPath");
+        private string? _mValue_LocalPath;
+        private bool _mUnknown_LocalPath;
+        public string? LocalPath
+        {
+            get
+            {
+                if (!_mUnknown_LocalPath) return _mValue_LocalPath;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.LocalPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
         /// </summary>
-        [Input("s3UploadMode")]
+        [PolicyResourceProperty("s3UploadMode", "_mUnknown_S3UploadMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3UploadMode;
-
-        public string? S3UploadMode => _mS3UploadMode.GetValue("s3UploadMode");
+        private string? _mValue_S3UploadMode;
+        private bool _mUnknown_S3UploadMode;
+        public string? S3UploadMode
+        {
+            get
+            {
+                if (!_mUnknown_S3UploadMode) return _mValue_S3UploadMode;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.S3UploadMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
-
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.S3Uri' is not present");
+            }
+        }
     }
 }

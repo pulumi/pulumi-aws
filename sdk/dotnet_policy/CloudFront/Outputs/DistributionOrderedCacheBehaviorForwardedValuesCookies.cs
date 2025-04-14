@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
         /// </summary>
-        [Input("forward")]
+        [PolicyResourceProperty("forward", "_mUnknown_Forward")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mForward;
-
-        public string? Forward => _mForward.GetValue("forward");
+        private string? _mValue_Forward;
+        private bool _mUnknown_Forward;
+        public string? Forward
+        {
+            get
+            {
+                if (!_mUnknown_Forward) return _mValue_Forward;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValuesCookies.Forward' is not present");
+            }
+        }
 
         /// <summary>
         /// If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
         /// </summary>
-        [Input("whitelistedNames")]
+        [PolicyResourceProperty("whitelistedNames", "_mUnknown_WhitelistedNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mWhitelistedNames;
-
-        public List<string>? WhitelistedNames => _mWhitelistedNames.GetValue("whitelistedNames");
+        private List<string>? _mValue_WhitelistedNames;
+        private bool _mUnknown_WhitelistedNames;
+        public List<string>? WhitelistedNames
+        {
+            get
+            {
+                if (!_mUnknown_WhitelistedNames) return _mValue_WhitelistedNames;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValuesCookies.WhitelistedNames' is not present");
+            }
+        }
     }
 }

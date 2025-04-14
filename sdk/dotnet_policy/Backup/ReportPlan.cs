@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The ARN of the backup report plan.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReportPlan.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'ReportPlan.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
         /// </summary>
-        [Input("deploymentStatus")]
+        [PolicyResourceProperty("deploymentStatus", "_mUnknown_DeploymentStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentStatus;
-
-        public string? DeploymentStatus => _mDeploymentStatus.GetValue("deploymentStatus");
+        private string? _mValue_DeploymentStatus;
+        private bool _mUnknown_DeploymentStatus;
+        public string? DeploymentStatus
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentStatus) return _mValue_DeploymentStatus;
+                throw new UndeferrableValueException("Value 'ReportPlan.DeploymentStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the report plan with a maximum of 1,024 characters
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ReportPlan.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReportPlan.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         /// </summary>
-        [Input("reportDeliveryChannel")]
+        [PolicyResourceProperty("reportDeliveryChannel", "_mUnknown_ReportDeliveryChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReportPlanReportDeliveryChannel> _mReportDeliveryChannel;
-
-        public Outputs.ReportPlanReportDeliveryChannel? ReportDeliveryChannel => _mReportDeliveryChannel.GetValue("reportDeliveryChannel");
+        private Outputs.ReportPlanReportDeliveryChannel? _mValue_ReportDeliveryChannel;
+        private bool _mUnknown_ReportDeliveryChannel;
+        public Outputs.ReportPlanReportDeliveryChannel? ReportDeliveryChannel
+        {
+            get
+            {
+                if (!_mUnknown_ReportDeliveryChannel) return _mValue_ReportDeliveryChannel;
+                throw new UndeferrableValueException("Value 'ReportPlan.ReportDeliveryChannel' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         /// </summary>
-        [Input("reportSetting")]
+        [PolicyResourceProperty("reportSetting", "_mUnknown_ReportSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReportPlanReportSetting> _mReportSetting;
-
-        public Outputs.ReportPlanReportSetting? ReportSetting => _mReportSetting.GetValue("reportSetting");
+        private Outputs.ReportPlanReportSetting? _mValue_ReportSetting;
+        private bool _mUnknown_ReportSetting;
+        public Outputs.ReportPlanReportSetting? ReportSetting
+        {
+            get
+            {
+                if (!_mUnknown_ReportSetting) return _mValue_ReportSetting;
+                throw new UndeferrableValueException("Value 'ReportPlan.ReportSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReportPlan.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReportPlan.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/reportPlan:ReportPlan")]
@@ -101,46 +164,81 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The description of the report plan with a maximum of 1,024 characters
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ReportPlanArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReportPlanArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         /// </summary>
-        [Input("reportDeliveryChannel")]
+        [PolicyResourceProperty("reportDeliveryChannel", "_mUnknown_ReportDeliveryChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReportPlanReportDeliveryChannelArgs> _mReportDeliveryChannel;
-
-        public Inputs.ReportPlanReportDeliveryChannelArgs? ReportDeliveryChannel => _mReportDeliveryChannel.GetValue("reportDeliveryChannel");
+        private Inputs.ReportPlanReportDeliveryChannelArgs? _mValue_ReportDeliveryChannel;
+        private bool _mUnknown_ReportDeliveryChannel;
+        public Inputs.ReportPlanReportDeliveryChannelArgs? ReportDeliveryChannel
+        {
+            get
+            {
+                if (!_mUnknown_ReportDeliveryChannel) return _mValue_ReportDeliveryChannel;
+                throw new UndeferrableValueException("Value 'ReportPlanArgs.ReportDeliveryChannel' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         /// </summary>
-        [Input("reportSetting")]
+        [PolicyResourceProperty("reportSetting", "_mUnknown_ReportSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReportPlanReportSettingArgs> _mReportSetting;
-
-        public Inputs.ReportPlanReportSettingArgs? ReportSetting => _mReportSetting.GetValue("reportSetting");
+        private Inputs.ReportPlanReportSettingArgs? _mValue_ReportSetting;
+        private bool _mUnknown_ReportSetting;
+        public Inputs.ReportPlanReportSettingArgs? ReportSetting
+        {
+            get
+            {
+                if (!_mUnknown_ReportSetting) return _mValue_ReportSetting;
+                throw new UndeferrableValueException("Value 'ReportPlanArgs.ReportSetting' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReportPlanArgs.Tags' is not present");
+            }
+        }
     }
 }

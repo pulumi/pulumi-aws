@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the SES Identity.
         /// </summary>
-        [Input("identity")]
+        [PolicyResourceProperty("identity", "_mUnknown_Identity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
-
-        public string? Identity => _mIdentity.GetValue("identity");
+        private string? _mValue_Identity;
+        private bool _mUnknown_Identity;
+        public string? Identity
+        {
+            get
+            {
+                if (!_mUnknown_Identity) return _mValue_Identity;
+                throw new UndeferrableValueException("Value 'IdentityPolicy.Identity' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IdentityPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string of the policy.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'IdentityPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/identityPolicy:IdentityPolicy")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the SES Identity.
         /// </summary>
-        [Input("identity")]
+        [PolicyResourceProperty("identity", "_mUnknown_Identity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
-
-        public string? Identity => _mIdentity.GetValue("identity");
+        private string? _mValue_Identity;
+        private bool _mUnknown_Identity;
+        public string? Identity
+        {
+            get
+            {
+                if (!_mUnknown_Identity) return _mValue_Identity;
+                throw new UndeferrableValueException("Value 'IdentityPolicyArgs.Identity' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IdentityPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON string of the policy.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'IdentityPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

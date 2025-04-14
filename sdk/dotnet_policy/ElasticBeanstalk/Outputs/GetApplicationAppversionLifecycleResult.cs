@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk.Outputs
         /// <summary>
         /// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
         /// </summary>
-        [Input("deleteSourceFromS3")]
+        [PolicyResourceProperty("deleteSourceFromS3", "_mUnknown_DeleteSourceFromS3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteSourceFromS3;
-
-        public bool? DeleteSourceFromS3 => _mDeleteSourceFromS3.GetValue("deleteSourceFromS3");
+        private bool? _mValue_DeleteSourceFromS3;
+        private bool _mUnknown_DeleteSourceFromS3;
+        public bool? DeleteSourceFromS3
+        {
+            get
+            {
+                if (!_mUnknown_DeleteSourceFromS3) return _mValue_DeleteSourceFromS3;
+                throw new UndeferrableValueException("Value 'GetApplicationAppversionLifecycleResult.DeleteSourceFromS3' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain an application version.
         /// </summary>
-        [Input("maxAgeInDays")]
+        [PolicyResourceProperty("maxAgeInDays", "_mUnknown_MaxAgeInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAgeInDays;
-
-        public int? MaxAgeInDays => _mMaxAgeInDays.GetValue("maxAgeInDays");
+        private int? _mValue_MaxAgeInDays;
+        private bool _mUnknown_MaxAgeInDays;
+        public int? MaxAgeInDays
+        {
+            get
+            {
+                if (!_mUnknown_MaxAgeInDays) return _mValue_MaxAgeInDays;
+                throw new UndeferrableValueException("Value 'GetApplicationAppversionLifecycleResult.MaxAgeInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of application versions to retain.
         /// </summary>
-        [Input("maxCount")]
+        [PolicyResourceProperty("maxCount", "_mUnknown_MaxCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCount;
-
-        public int? MaxCount => _mMaxCount.GetValue("maxCount");
+        private int? _mValue_MaxCount;
+        private bool _mUnknown_MaxCount;
+        public int? MaxCount
+        {
+            get
+            {
+                if (!_mUnknown_MaxCount) return _mValue_MaxCount;
+                throw new UndeferrableValueException("Value 'GetApplicationAppversionLifecycleResult.MaxCount' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
         /// </summary>
-        [Input("serviceRole")]
+        [PolicyResourceProperty("serviceRole", "_mUnknown_ServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
-
-        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+        private string? _mValue_ServiceRole;
+        private bool _mUnknown_ServiceRole;
+        public string? ServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRole) return _mValue_ServiceRole;
+                throw new UndeferrableValueException("Value 'GetApplicationAppversionLifecycleResult.ServiceRole' is not present");
+            }
+        }
     }
 }

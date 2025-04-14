@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin.Inputs
         /// <summary>
         /// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
         /// </summary>
-        [Input("oidcJwtConfiguration")]
+        [PolicyResourceProperty("oidcJwtConfiguration", "_mUnknown_OidcJwtConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> _mOidcJwtConfiguration;
-
-        public Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs? OidcJwtConfiguration => _mOidcJwtConfiguration.GetValue("oidcJwtConfiguration");
+        private Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs? _mValue_OidcJwtConfiguration;
+        private bool _mUnknown_OidcJwtConfiguration;
+        public Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs? OidcJwtConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OidcJwtConfiguration) return _mValue_OidcJwtConfiguration;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs.OidcJwtConfiguration' is not present");
+            }
+        }
     }
 }

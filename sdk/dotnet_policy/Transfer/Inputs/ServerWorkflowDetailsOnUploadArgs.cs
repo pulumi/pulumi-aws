@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// <summary>
         /// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'ServerWorkflowDetailsOnUploadArgs.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the workflow.
         /// </summary>
-        [Input("workflowId")]
+        [PolicyResourceProperty("workflowId", "_mUnknown_WorkflowId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkflowId;
-
-        public string? WorkflowId => _mWorkflowId.GetValue("workflowId");
+        private string? _mValue_WorkflowId;
+        private bool _mUnknown_WorkflowId;
+        public string? WorkflowId
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowId) return _mValue_WorkflowId;
+                throw new UndeferrableValueException("Value 'ServerWorkflowDetailsOnUploadArgs.WorkflowId' is not present");
+            }
+        }
     }
 }

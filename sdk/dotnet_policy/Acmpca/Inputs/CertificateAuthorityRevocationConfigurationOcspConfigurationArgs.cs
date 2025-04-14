@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca.Inputs
         /// <summary>
         /// Boolean value that specifies whether a custom OCSP responder is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
         /// </summary>
-        [Input("ocspCustomCname")]
+        [PolicyResourceProperty("ocspCustomCname", "_mUnknown_OcspCustomCname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOcspCustomCname;
-
-        public string? OcspCustomCname => _mOcspCustomCname.GetValue("ocspCustomCname");
+        private string? _mValue_OcspCustomCname;
+        private bool _mUnknown_OcspCustomCname;
+        public string? OcspCustomCname
+        {
+            get
+            {
+                if (!_mUnknown_OcspCustomCname) return _mValue_OcspCustomCname;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs.OcspCustomCname' is not present");
+            }
+        }
     }
 }

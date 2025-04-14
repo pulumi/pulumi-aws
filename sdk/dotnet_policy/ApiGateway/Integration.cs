@@ -16,66 +16,115 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// List of cache key parameters for the integration.
         /// </summary>
-        [Input("cacheKeyParameters")]
+        [PolicyResourceProperty("cacheKeyParameters", "_mUnknown_CacheKeyParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCacheKeyParameters;
-
-        public List<string>? CacheKeyParameters => _mCacheKeyParameters.GetValue("cacheKeyParameters");
+        private List<string>? _mValue_CacheKeyParameters;
+        private bool _mUnknown_CacheKeyParameters;
+        public List<string>? CacheKeyParameters
+        {
+            get
+            {
+                if (!_mUnknown_CacheKeyParameters) return _mValue_CacheKeyParameters;
+                throw new UndeferrableValueException("Value 'Integration.CacheKeyParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration's cache namespace.
         /// </summary>
-        [Input("cacheNamespace")]
+        [PolicyResourceProperty("cacheNamespace", "_mUnknown_CacheNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNamespace;
-
-        public string? CacheNamespace => _mCacheNamespace.GetValue("cacheNamespace");
+        private string? _mValue_CacheNamespace;
+        private bool _mUnknown_CacheNamespace;
+        public string? CacheNamespace
+        {
+            get
+            {
+                if (!_mUnknown_CacheNamespace) return _mValue_CacheNamespace;
+                throw new UndeferrableValueException("Value 'Integration.CacheNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'Integration.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
         /// </summary>
-        [Input("connectionType")]
+        [PolicyResourceProperty("connectionType", "_mUnknown_ConnectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
-
-        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+        private string? _mValue_ConnectionType;
+        private bool _mUnknown_ConnectionType;
+        public string? ConnectionType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionType) return _mValue_ConnectionType;
+                throw new UndeferrableValueException("Value 'Integration.ConnectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
         /// </summary>
-        [Input("contentHandling")]
+        [PolicyResourceProperty("contentHandling", "_mUnknown_ContentHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
-
-        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
+        private string? _mValue_ContentHandling;
+        private bool _mUnknown_ContentHandling;
+        public string? ContentHandling
+        {
+            get
+            {
+                if (!_mUnknown_ContentHandling) return _mValue_ContentHandling;
+                throw new UndeferrableValueException("Value 'Integration.ContentHandling' is not present");
+            }
+        }
 
         /// <summary>
         /// Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentials;
-
-        public string? Credentials => _mCredentials.GetValue("credentials");
+        private string? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public string? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'Integration.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
         /// when calling the associated resource.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'Integration.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration HTTP method
@@ -84,95 +133,165 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// Not all methods are compatible with all `AWS` integrations.
         /// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
         /// </summary>
-        [Input("integrationHttpMethod")]
+        [PolicyResourceProperty("integrationHttpMethod", "_mUnknown_IntegrationHttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationHttpMethod;
-
-        public string? IntegrationHttpMethod => _mIntegrationHttpMethod.GetValue("integrationHttpMethod");
+        private string? _mValue_IntegrationHttpMethod;
+        private bool _mUnknown_IntegrationHttpMethod;
+        public string? IntegrationHttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationHttpMethod) return _mValue_IntegrationHttpMethod;
+                throw new UndeferrableValueException("Value 'Integration.IntegrationHttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         /// </summary>
-        [Input("passthroughBehavior")]
+        [PolicyResourceProperty("passthroughBehavior", "_mUnknown_PassthroughBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassthroughBehavior;
-
-        public string? PassthroughBehavior => _mPassthroughBehavior.GetValue("passthroughBehavior");
+        private string? _mValue_PassthroughBehavior;
+        private bool _mUnknown_PassthroughBehavior;
+        public string? PassthroughBehavior
+        {
+            get
+            {
+                if (!_mUnknown_PassthroughBehavior) return _mValue_PassthroughBehavior;
+                throw new UndeferrableValueException("Value 'Integration.PassthroughBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.
         /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         /// </summary>
-        [Input("requestParameters")]
+        [PolicyResourceProperty("requestParameters", "_mUnknown_RequestParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestParameters;
-
-        public Dictionary<string, string>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
+        private Dictionary<string, string>? _mValue_RequestParameters;
+        private bool _mUnknown_RequestParameters;
+        public Dictionary<string, string>? RequestParameters
+        {
+            get
+            {
+                if (!_mUnknown_RequestParameters) return _mValue_RequestParameters;
+                throw new UndeferrableValueException("Value 'Integration.RequestParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of the integration's request templates.
         /// </summary>
-        [Input("requestTemplates")]
+        [PolicyResourceProperty("requestTemplates", "_mUnknown_RequestTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestTemplates;
-
-        public Dictionary<string, string>? RequestTemplates => _mRequestTemplates.GetValue("requestTemplates");
+        private Dictionary<string, string>? _mValue_RequestTemplates;
+        private bool _mUnknown_RequestTemplates;
+        public Dictionary<string, string>? RequestTemplates
+        {
+            get
+            {
+                if (!_mUnknown_RequestTemplates) return _mValue_RequestTemplates;
+                throw new UndeferrableValueException("Value 'Integration.RequestTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// API resource ID.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'Integration.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'Integration.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         /// </summary>
-        [Input("timeoutMilliseconds")]
+        [PolicyResourceProperty("timeoutMilliseconds", "_mUnknown_TimeoutMilliseconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMilliseconds;
-
-        public int? TimeoutMilliseconds => _mTimeoutMilliseconds.GetValue("timeoutMilliseconds");
+        private int? _mValue_TimeoutMilliseconds;
+        private bool _mUnknown_TimeoutMilliseconds;
+        public int? TimeoutMilliseconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutMilliseconds) return _mValue_TimeoutMilliseconds;
+                throw new UndeferrableValueException("Value 'Integration.TimeoutMilliseconds' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS configuration. See below.
         /// </summary>
-        [Input("tlsConfig")]
+        [PolicyResourceProperty("tlsConfig", "_mUnknown_TlsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IntegrationTlsConfig> _mTlsConfig;
-
-        public Outputs.IntegrationTlsConfig? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
+        private Outputs.IntegrationTlsConfig? _mValue_TlsConfig;
+        private bool _mUnknown_TlsConfig;
+        public Outputs.IntegrationTlsConfig? TlsConfig
+        {
+            get
+            {
+                if (!_mUnknown_TlsConfig) return _mValue_TlsConfig;
+                throw new UndeferrableValueException("Value 'Integration.TlsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Integration.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
         /// For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
         /// e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'Integration.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/integration:Integration")]
@@ -181,66 +300,115 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// List of cache key parameters for the integration.
         /// </summary>
-        [Input("cacheKeyParameters")]
+        [PolicyResourceProperty("cacheKeyParameters", "_mUnknown_CacheKeyParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCacheKeyParameters;
-
-        public List<string>? CacheKeyParameters => _mCacheKeyParameters.GetValue("cacheKeyParameters");
+        private List<string>? _mValue_CacheKeyParameters;
+        private bool _mUnknown_CacheKeyParameters;
+        public List<string>? CacheKeyParameters
+        {
+            get
+            {
+                if (!_mUnknown_CacheKeyParameters) return _mValue_CacheKeyParameters;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.CacheKeyParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration's cache namespace.
         /// </summary>
-        [Input("cacheNamespace")]
+        [PolicyResourceProperty("cacheNamespace", "_mUnknown_CacheNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNamespace;
-
-        public string? CacheNamespace => _mCacheNamespace.GetValue("cacheNamespace");
+        private string? _mValue_CacheNamespace;
+        private bool _mUnknown_CacheNamespace;
+        public string? CacheNamespace
+        {
+            get
+            {
+                if (!_mUnknown_CacheNamespace) return _mValue_CacheNamespace;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.CacheNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration input's [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
         /// </summary>
-        [Input("connectionType")]
+        [PolicyResourceProperty("connectionType", "_mUnknown_ConnectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
-
-        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+        private string? _mValue_ConnectionType;
+        private bool _mUnknown_ConnectionType;
+        public string? ConnectionType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionType) return _mValue_ConnectionType;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.ConnectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
         /// </summary>
-        [Input("contentHandling")]
+        [PolicyResourceProperty("contentHandling", "_mUnknown_ContentHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
-
-        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
+        private string? _mValue_ContentHandling;
+        private bool _mUnknown_ContentHandling;
+        public string? ContentHandling
+        {
+            get
+            {
+                if (!_mUnknown_ContentHandling) return _mValue_ContentHandling;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.ContentHandling' is not present");
+            }
+        }
 
         /// <summary>
         /// Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role's ARN. To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentials;
-
-        public string? Credentials => _mCredentials.GetValue("credentials");
+        private string? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public string? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTION`, `ANY`)
         /// when calling the associated resource.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration HTTP method
@@ -249,94 +417,164 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// Not all methods are compatible with all `AWS` integrations.
         /// e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
         /// </summary>
-        [Input("integrationHttpMethod")]
+        [PolicyResourceProperty("integrationHttpMethod", "_mUnknown_IntegrationHttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntegrationHttpMethod;
-
-        public string? IntegrationHttpMethod => _mIntegrationHttpMethod.GetValue("integrationHttpMethod");
+        private string? _mValue_IntegrationHttpMethod;
+        private bool _mUnknown_IntegrationHttpMethod;
+        public string? IntegrationHttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_IntegrationHttpMethod) return _mValue_IntegrationHttpMethod;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.IntegrationHttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
         /// </summary>
-        [Input("passthroughBehavior")]
+        [PolicyResourceProperty("passthroughBehavior", "_mUnknown_PassthroughBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassthroughBehavior;
-
-        public string? PassthroughBehavior => _mPassthroughBehavior.GetValue("passthroughBehavior");
+        private string? _mValue_PassthroughBehavior;
+        private bool _mUnknown_PassthroughBehavior;
+        public string? PassthroughBehavior
+        {
+            get
+            {
+                if (!_mUnknown_PassthroughBehavior) return _mValue_PassthroughBehavior;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.PassthroughBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.
         /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         /// </summary>
-        [Input("requestParameters")]
+        [PolicyResourceProperty("requestParameters", "_mUnknown_RequestParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestParameters;
-
-        public Dictionary<string, string>? RequestParameters => _mRequestParameters.GetValue("requestParameters");
+        private Dictionary<string, string>? _mValue_RequestParameters;
+        private bool _mUnknown_RequestParameters;
+        public Dictionary<string, string>? RequestParameters
+        {
+            get
+            {
+                if (!_mUnknown_RequestParameters) return _mValue_RequestParameters;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.RequestParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of the integration's request templates.
         /// </summary>
-        [Input("requestTemplates")]
+        [PolicyResourceProperty("requestTemplates", "_mUnknown_RequestTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mRequestTemplates;
-
-        public Dictionary<string, string>? RequestTemplates => _mRequestTemplates.GetValue("requestTemplates");
+        private Dictionary<string, string>? _mValue_RequestTemplates;
+        private bool _mUnknown_RequestTemplates;
+        public Dictionary<string, string>? RequestTemplates
+        {
+            get
+            {
+                if (!_mUnknown_RequestTemplates) return _mValue_RequestTemplates;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.RequestTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// API resource ID.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
         /// </summary>
-        [Input("timeoutMilliseconds")]
+        [PolicyResourceProperty("timeoutMilliseconds", "_mUnknown_TimeoutMilliseconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMilliseconds;
-
-        public int? TimeoutMilliseconds => _mTimeoutMilliseconds.GetValue("timeoutMilliseconds");
+        private int? _mValue_TimeoutMilliseconds;
+        private bool _mUnknown_TimeoutMilliseconds;
+        public int? TimeoutMilliseconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutMilliseconds) return _mValue_TimeoutMilliseconds;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.TimeoutMilliseconds' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS configuration. See below.
         /// </summary>
-        [Input("tlsConfig")]
+        [PolicyResourceProperty("tlsConfig", "_mUnknown_TlsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IntegrationTlsConfigArgs> _mTlsConfig;
-
-        public Inputs.IntegrationTlsConfigArgs? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
+        private Inputs.IntegrationTlsConfigArgs? _mValue_TlsConfig;
+        private bool _mUnknown_TlsConfig;
+        public Inputs.IntegrationTlsConfigArgs? TlsConfig
+        {
+            get
+            {
+                if (!_mUnknown_TlsConfig) return _mValue_TlsConfig;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.TlsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
         /// For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
         /// e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'IntegrationArgs.Uri' is not present");
+            }
+        }
     }
 }

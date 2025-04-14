@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
         /// </summary>
-        [Input("deliveryStream")]
+        [PolicyResourceProperty("deliveryStream", "_mUnknown_DeliveryStream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStream;
+        private string? _mValue_DeliveryStream;
+        private bool _mUnknown_DeliveryStream;
+        public string? DeliveryStream
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStream) return _mValue_DeliveryStream;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsFirehoseArgs.DeliveryStream' is not present");
+            }
+        }
 
-        public string? DeliveryStream => _mDeliveryStream.GetValue("deliveryStream");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsFirehoseArgs.Enabled' is not present");
+            }
+        }
     }
 }

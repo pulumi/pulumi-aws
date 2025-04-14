@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Outputs
         /// <summary>
         /// Group ID
         /// </summary>
-        [Input("gid")]
+        [PolicyResourceProperty("gid", "_mUnknown_Gid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGid;
-
-        public int? Gid => _mGid.GetValue("gid");
+        private int? _mValue_Gid;
+        private bool _mUnknown_Gid;
+        public int? Gid
+        {
+            get
+            {
+                if (!_mUnknown_Gid) return _mValue_Gid;
+                throw new UndeferrableValueException("Value 'GetAccessPointPosixUserResult.Gid' is not present");
+            }
+        }
 
         /// <summary>
         /// Secondary group IDs
         /// </summary>
-        [Input("secondaryGids")]
+        [PolicyResourceProperty("secondaryGids", "_mUnknown_SecondaryGids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mSecondaryGids;
-
-        public List<int>? SecondaryGids => _mSecondaryGids.GetValue("secondaryGids");
+        private List<int>? _mValue_SecondaryGids;
+        private bool _mUnknown_SecondaryGids;
+        public List<int>? SecondaryGids
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryGids) return _mValue_SecondaryGids;
+                throw new UndeferrableValueException("Value 'GetAccessPointPosixUserResult.SecondaryGids' is not present");
+            }
+        }
 
         /// <summary>
         /// User Id
         /// </summary>
-        [Input("uid")]
+        [PolicyResourceProperty("uid", "_mUnknown_Uid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUid;
-
-        public int? Uid => _mUid.GetValue("uid");
+        private int? _mValue_Uid;
+        private bool _mUnknown_Uid;
+        public int? Uid
+        {
+            get
+            {
+                if (!_mUnknown_Uid) return _mValue_Uid;
+                throw new UndeferrableValueException("Value 'GetAccessPointPosixUserResult.Uid' is not present");
+            }
+        }
     }
 }

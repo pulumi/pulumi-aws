@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Inputs
         /// <summary>
         /// The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
         /// </summary>
-        [Input("dbPaths")]
+        [PolicyResourceProperty("dbPaths", "_mUnknown_DbPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDbPaths;
-
-        public List<string>? DbPaths => _mDbPaths.GetValue("dbPaths");
+        private List<string>? _mValue_DbPaths;
+        private bool _mUnknown_DbPaths;
+        public List<string>? DbPaths
+        {
+            get
+            {
+                if (!_mUnknown_DbPaths) return _mValue_DbPaths;
+                throw new UndeferrableValueException("Value 'KxDataviewSegmentConfigurationArgs.DbPaths' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
         /// </summary>
-        [Input("onDemand")]
+        [PolicyResourceProperty("onDemand", "_mUnknown_OnDemand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOnDemand;
-
-        public bool? OnDemand => _mOnDemand.GetValue("onDemand");
+        private bool? _mValue_OnDemand;
+        private bool _mUnknown_OnDemand;
+        public bool? OnDemand
+        {
+            get
+            {
+                if (!_mUnknown_OnDemand) return _mValue_OnDemand;
+                throw new UndeferrableValueException("Value 'KxDataviewSegmentConfigurationArgs.OnDemand' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
-        [Input("volumeName")]
+        [PolicyResourceProperty("volumeName", "_mUnknown_VolumeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeName;
-
-        public string? VolumeName => _mVolumeName.GetValue("volumeName");
+        private string? _mValue_VolumeName;
+        private bool _mUnknown_VolumeName;
+        public string? VolumeName
+        {
+            get
+            {
+                if (!_mUnknown_VolumeName) return _mValue_VolumeName;
+                throw new UndeferrableValueException("Value 'KxDataviewSegmentConfigurationArgs.VolumeName' is not present");
+            }
+        }
     }
 }

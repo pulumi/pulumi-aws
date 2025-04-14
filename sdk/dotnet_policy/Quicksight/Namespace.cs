@@ -16,82 +16,145 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// ARN of the Namespace.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Namespace.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'Namespace.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace AWS Region.
         /// </summary>
-        [Input("capacityRegion")]
+        [PolicyResourceProperty("capacityRegion", "_mUnknown_CapacityRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityRegion;
-
-        public string? CapacityRegion => _mCapacityRegion.GetValue("capacityRegion");
+        private string? _mValue_CapacityRegion;
+        private bool _mUnknown_CapacityRegion;
+        public string? CapacityRegion
+        {
+            get
+            {
+                if (!_mUnknown_CapacityRegion) return _mValue_CapacityRegion;
+                throw new UndeferrableValueException("Value 'Namespace.CapacityRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Creation status of the namespace.
         /// </summary>
-        [Input("creationStatus")]
+        [PolicyResourceProperty("creationStatus", "_mUnknown_CreationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationStatus;
-
-        public string? CreationStatus => _mCreationStatus.GetValue("creationStatus");
+        private string? _mValue_CreationStatus;
+        private bool _mUnknown_CreationStatus;
+        public string? CreationStatus
+        {
+            get
+            {
+                if (!_mUnknown_CreationStatus) return _mValue_CreationStatus;
+                throw new UndeferrableValueException("Value 'Namespace.CreationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         /// </summary>
-        [Input("identityStore")]
+        [PolicyResourceProperty("identityStore", "_mUnknown_IdentityStore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStore;
-
-        public string? IdentityStore => _mIdentityStore.GetValue("identityStore");
+        private string? _mValue_IdentityStore;
+        private bool _mUnknown_IdentityStore;
+        public string? IdentityStore
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStore) return _mValue_IdentityStore;
+                throw new UndeferrableValueException("Value 'Namespace.IdentityStore' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the namespace.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_NameSpace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
-
-        public string? NameSpace => _mNameSpace.GetValue("namespace");
+        private string? _mValue_NameSpace;
+        private bool _mUnknown_NameSpace;
+        public string? NameSpace
+        {
+            get
+            {
+                if (!_mUnknown_NameSpace) return _mValue_NameSpace;
+                throw new UndeferrableValueException("Value 'Namespace.NameSpace' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Namespace.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Namespace.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NamespaceTimeouts> _mTimeouts;
-
-        public Outputs.NamespaceTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.NamespaceTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.NamespaceTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Namespace.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/namespace:Namespace")]
@@ -100,45 +163,80 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         /// </summary>
-        [Input("identityStore")]
+        [PolicyResourceProperty("identityStore", "_mUnknown_IdentityStore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStore;
-
-        public string? IdentityStore => _mIdentityStore.GetValue("identityStore");
+        private string? _mValue_IdentityStore;
+        private bool _mUnknown_IdentityStore;
+        public string? IdentityStore
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStore) return _mValue_IdentityStore;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.IdentityStore' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the namespace.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_NameSpace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
-
-        public string? NameSpace => _mNameSpace.GetValue("namespace");
+        private string? _mValue_NameSpace;
+        private bool _mUnknown_NameSpace;
+        public string? NameSpace
+        {
+            get
+            {
+                if (!_mUnknown_NameSpace) return _mValue_NameSpace;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.NameSpace' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NamespaceTimeoutsArgs> _mTimeouts;
-
-        public Inputs.NamespaceTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.NamespaceTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.NamespaceTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.Timeouts' is not present");
+            }
+        }
     }
 }

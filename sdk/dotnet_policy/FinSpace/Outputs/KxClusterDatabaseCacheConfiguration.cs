@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// <summary>
         /// Type of disk cache.
         /// </summary>
-        [Input("cacheType")]
+        [PolicyResourceProperty("cacheType", "_mUnknown_CacheType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheType;
-
-        public string? CacheType => _mCacheType.GetValue("cacheType");
+        private string? _mValue_CacheType;
+        private bool _mUnknown_CacheType;
+        public string? CacheType
+        {
+            get
+            {
+                if (!_mUnknown_CacheType) return _mValue_CacheType;
+                throw new UndeferrableValueException("Value 'KxClusterDatabaseCacheConfiguration.CacheType' is not present");
+            }
+        }
 
         /// <summary>
         /// Paths within the database to cache.
         /// </summary>
-        [Input("dbPaths")]
+        [PolicyResourceProperty("dbPaths", "_mUnknown_DbPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDbPaths;
-
-        public List<string>? DbPaths => _mDbPaths.GetValue("dbPaths");
+        private List<string>? _mValue_DbPaths;
+        private bool _mUnknown_DbPaths;
+        public List<string>? DbPaths
+        {
+            get
+            {
+                if (!_mUnknown_DbPaths) return _mValue_DbPaths;
+                throw new UndeferrableValueException("Value 'KxClusterDatabaseCacheConfiguration.DbPaths' is not present");
+            }
+        }
     }
 }

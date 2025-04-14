@@ -16,137 +16,242 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The Amazon Resource Name of this network profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NetworkProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the network profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'NetworkProfile.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         /// </summary>
-        [Input("downlinkBandwidthBits")]
+        [PolicyResourceProperty("downlinkBandwidthBits", "_mUnknown_DownlinkBandwidthBits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkBandwidthBits;
-
-        public int? DownlinkBandwidthBits => _mDownlinkBandwidthBits.GetValue("downlinkBandwidthBits");
+        private int? _mValue_DownlinkBandwidthBits;
+        private bool _mUnknown_DownlinkBandwidthBits;
+        public int? DownlinkBandwidthBits
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkBandwidthBits) return _mValue_DownlinkBandwidthBits;
+                throw new UndeferrableValueException("Value 'NetworkProfile.DownlinkBandwidthBits' is not present");
+            }
+        }
 
         /// <summary>
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("downlinkDelayMs")]
+        [PolicyResourceProperty("downlinkDelayMs", "_mUnknown_DownlinkDelayMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkDelayMs;
-
-        public int? DownlinkDelayMs => _mDownlinkDelayMs.GetValue("downlinkDelayMs");
+        private int? _mValue_DownlinkDelayMs;
+        private bool _mUnknown_DownlinkDelayMs;
+        public int? DownlinkDelayMs
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkDelayMs) return _mValue_DownlinkDelayMs;
+                throw new UndeferrableValueException("Value 'NetworkProfile.DownlinkDelayMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("downlinkJitterMs")]
+        [PolicyResourceProperty("downlinkJitterMs", "_mUnknown_DownlinkJitterMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkJitterMs;
-
-        public int? DownlinkJitterMs => _mDownlinkJitterMs.GetValue("downlinkJitterMs");
+        private int? _mValue_DownlinkJitterMs;
+        private bool _mUnknown_DownlinkJitterMs;
+        public int? DownlinkJitterMs
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkJitterMs) return _mValue_DownlinkJitterMs;
+                throw new UndeferrableValueException("Value 'NetworkProfile.DownlinkJitterMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         /// </summary>
-        [Input("downlinkLossPercent")]
+        [PolicyResourceProperty("downlinkLossPercent", "_mUnknown_DownlinkLossPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkLossPercent;
-
-        public int? DownlinkLossPercent => _mDownlinkLossPercent.GetValue("downlinkLossPercent");
+        private int? _mValue_DownlinkLossPercent;
+        private bool _mUnknown_DownlinkLossPercent;
+        public int? DownlinkLossPercent
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkLossPercent) return _mValue_DownlinkLossPercent;
+                throw new UndeferrableValueException("Value 'NetworkProfile.DownlinkLossPercent' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the network profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NetworkProfile.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the project for the network profile.
         /// </summary>
-        [Input("projectArn")]
+        [PolicyResourceProperty("projectArn", "_mUnknown_ProjectArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
-
-        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+        private string? _mValue_ProjectArn;
+        private bool _mUnknown_ProjectArn;
+        public string? ProjectArn
+        {
+            get
+            {
+                if (!_mUnknown_ProjectArn) return _mValue_ProjectArn;
+                throw new UndeferrableValueException("Value 'NetworkProfile.ProjectArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkProfile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NetworkProfile.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'NetworkProfile.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         /// </summary>
-        [Input("uplinkBandwidthBits")]
+        [PolicyResourceProperty("uplinkBandwidthBits", "_mUnknown_UplinkBandwidthBits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkBandwidthBits;
-
-        public int? UplinkBandwidthBits => _mUplinkBandwidthBits.GetValue("uplinkBandwidthBits");
+        private int? _mValue_UplinkBandwidthBits;
+        private bool _mUnknown_UplinkBandwidthBits;
+        public int? UplinkBandwidthBits
+        {
+            get
+            {
+                if (!_mUnknown_UplinkBandwidthBits) return _mValue_UplinkBandwidthBits;
+                throw new UndeferrableValueException("Value 'NetworkProfile.UplinkBandwidthBits' is not present");
+            }
+        }
 
         /// <summary>
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("uplinkDelayMs")]
+        [PolicyResourceProperty("uplinkDelayMs", "_mUnknown_UplinkDelayMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkDelayMs;
-
-        public int? UplinkDelayMs => _mUplinkDelayMs.GetValue("uplinkDelayMs");
+        private int? _mValue_UplinkDelayMs;
+        private bool _mUnknown_UplinkDelayMs;
+        public int? UplinkDelayMs
+        {
+            get
+            {
+                if (!_mUnknown_UplinkDelayMs) return _mValue_UplinkDelayMs;
+                throw new UndeferrableValueException("Value 'NetworkProfile.UplinkDelayMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("uplinkJitterMs")]
+        [PolicyResourceProperty("uplinkJitterMs", "_mUnknown_UplinkJitterMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkJitterMs;
-
-        public int? UplinkJitterMs => _mUplinkJitterMs.GetValue("uplinkJitterMs");
+        private int? _mValue_UplinkJitterMs;
+        private bool _mUnknown_UplinkJitterMs;
+        public int? UplinkJitterMs
+        {
+            get
+            {
+                if (!_mUnknown_UplinkJitterMs) return _mValue_UplinkJitterMs;
+                throw new UndeferrableValueException("Value 'NetworkProfile.UplinkJitterMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         /// </summary>
-        [Input("uplinkLossPercent")]
+        [PolicyResourceProperty("uplinkLossPercent", "_mUnknown_UplinkLossPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkLossPercent;
-
-        public int? UplinkLossPercent => _mUplinkLossPercent.GetValue("uplinkLossPercent");
+        private int? _mValue_UplinkLossPercent;
+        private bool _mUnknown_UplinkLossPercent;
+        public int? UplinkLossPercent
+        {
+            get
+            {
+                if (!_mUnknown_UplinkLossPercent) return _mValue_UplinkLossPercent;
+                throw new UndeferrableValueException("Value 'NetworkProfile.UplinkLossPercent' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:devicefarm/networkProfile:NetworkProfile")]
@@ -155,118 +260,209 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm
         /// <summary>
         /// The description of the network profile.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         /// </summary>
-        [Input("downlinkBandwidthBits")]
+        [PolicyResourceProperty("downlinkBandwidthBits", "_mUnknown_DownlinkBandwidthBits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkBandwidthBits;
-
-        public int? DownlinkBandwidthBits => _mDownlinkBandwidthBits.GetValue("downlinkBandwidthBits");
+        private int? _mValue_DownlinkBandwidthBits;
+        private bool _mUnknown_DownlinkBandwidthBits;
+        public int? DownlinkBandwidthBits
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkBandwidthBits) return _mValue_DownlinkBandwidthBits;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.DownlinkBandwidthBits' is not present");
+            }
+        }
 
         /// <summary>
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("downlinkDelayMs")]
+        [PolicyResourceProperty("downlinkDelayMs", "_mUnknown_DownlinkDelayMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkDelayMs;
-
-        public int? DownlinkDelayMs => _mDownlinkDelayMs.GetValue("downlinkDelayMs");
+        private int? _mValue_DownlinkDelayMs;
+        private bool _mUnknown_DownlinkDelayMs;
+        public int? DownlinkDelayMs
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkDelayMs) return _mValue_DownlinkDelayMs;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.DownlinkDelayMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("downlinkJitterMs")]
+        [PolicyResourceProperty("downlinkJitterMs", "_mUnknown_DownlinkJitterMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkJitterMs;
-
-        public int? DownlinkJitterMs => _mDownlinkJitterMs.GetValue("downlinkJitterMs");
+        private int? _mValue_DownlinkJitterMs;
+        private bool _mUnknown_DownlinkJitterMs;
+        public int? DownlinkJitterMs
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkJitterMs) return _mValue_DownlinkJitterMs;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.DownlinkJitterMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         /// </summary>
-        [Input("downlinkLossPercent")]
+        [PolicyResourceProperty("downlinkLossPercent", "_mUnknown_DownlinkLossPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDownlinkLossPercent;
-
-        public int? DownlinkLossPercent => _mDownlinkLossPercent.GetValue("downlinkLossPercent");
+        private int? _mValue_DownlinkLossPercent;
+        private bool _mUnknown_DownlinkLossPercent;
+        public int? DownlinkLossPercent
+        {
+            get
+            {
+                if (!_mUnknown_DownlinkLossPercent) return _mValue_DownlinkLossPercent;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.DownlinkLossPercent' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the network profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the project for the network profile.
         /// </summary>
-        [Input("projectArn")]
+        [PolicyResourceProperty("projectArn", "_mUnknown_ProjectArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectArn;
-
-        public string? ProjectArn => _mProjectArn.GetValue("projectArn");
+        private string? _mValue_ProjectArn;
+        private bool _mUnknown_ProjectArn;
+        public string? ProjectArn
+        {
+            get
+            {
+                if (!_mUnknown_ProjectArn) return _mValue_ProjectArn;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.ProjectArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
         /// </summary>
-        [Input("uplinkBandwidthBits")]
+        [PolicyResourceProperty("uplinkBandwidthBits", "_mUnknown_UplinkBandwidthBits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkBandwidthBits;
-
-        public int? UplinkBandwidthBits => _mUplinkBandwidthBits.GetValue("uplinkBandwidthBits");
+        private int? _mValue_UplinkBandwidthBits;
+        private bool _mUnknown_UplinkBandwidthBits;
+        public int? UplinkBandwidthBits
+        {
+            get
+            {
+                if (!_mUnknown_UplinkBandwidthBits) return _mValue_UplinkBandwidthBits;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.UplinkBandwidthBits' is not present");
+            }
+        }
 
         /// <summary>
         /// Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("uplinkDelayMs")]
+        [PolicyResourceProperty("uplinkDelayMs", "_mUnknown_UplinkDelayMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkDelayMs;
-
-        public int? UplinkDelayMs => _mUplinkDelayMs.GetValue("uplinkDelayMs");
+        private int? _mValue_UplinkDelayMs;
+        private bool _mUnknown_UplinkDelayMs;
+        public int? UplinkDelayMs
+        {
+            get
+            {
+                if (!_mUnknown_UplinkDelayMs) return _mValue_UplinkDelayMs;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.UplinkDelayMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         /// </summary>
-        [Input("uplinkJitterMs")]
+        [PolicyResourceProperty("uplinkJitterMs", "_mUnknown_UplinkJitterMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkJitterMs;
-
-        public int? UplinkJitterMs => _mUplinkJitterMs.GetValue("uplinkJitterMs");
+        private int? _mValue_UplinkJitterMs;
+        private bool _mUnknown_UplinkJitterMs;
+        public int? UplinkJitterMs
+        {
+            get
+            {
+                if (!_mUnknown_UplinkJitterMs) return _mValue_UplinkJitterMs;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.UplinkJitterMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Proportion of received packets that fail to arrive from `0` to `100` percent.
         /// </summary>
-        [Input("uplinkLossPercent")]
+        [PolicyResourceProperty("uplinkLossPercent", "_mUnknown_UplinkLossPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUplinkLossPercent;
-
-        public int? UplinkLossPercent => _mUplinkLossPercent.GetValue("uplinkLossPercent");
+        private int? _mValue_UplinkLossPercent;
+        private bool _mUnknown_UplinkLossPercent;
+        public int? UplinkLossPercent
+        {
+            get
+            {
+                if (!_mUnknown_UplinkLossPercent) return _mValue_UplinkLossPercent;
+                throw new UndeferrableValueException("Value 'NetworkProfileArgs.UplinkLossPercent' is not present");
+            }
+        }
     }
 }

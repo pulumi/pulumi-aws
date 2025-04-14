@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// Peering Amazon Resource Name (ARN).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the core network.
         /// </summary>
-        [Input("coreNetworkArn")]
+        [PolicyResourceProperty("coreNetworkArn", "_mUnknown_CoreNetworkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
-
-        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+        private string? _mValue_CoreNetworkArn;
+        private bool _mUnknown_CoreNetworkArn;
+        public string? CoreNetworkArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkArn) return _mValue_CoreNetworkArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.CoreNetworkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a core network.
         /// </summary>
-        [Input("coreNetworkId")]
+        [PolicyResourceProperty("coreNetworkId", "_mUnknown_CoreNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
-
-        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+        private string? _mValue_CoreNetworkId;
+        private bool _mUnknown_CoreNetworkId;
+        public string? CoreNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkId) return _mValue_CoreNetworkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.CoreNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The edge location for the peer.
         /// </summary>
-        [Input("edgeLocation")]
+        [PolicyResourceProperty("edgeLocation", "_mUnknown_EdgeLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
-
-        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
+        private string? _mValue_EdgeLocation;
+        private bool _mUnknown_EdgeLocation;
+        public string? EdgeLocation
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocation) return _mValue_EdgeLocation;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.EdgeLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the account owner.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of peering. This will be `TRANSIT_GATEWAY`.
         /// </summary>
-        [Input("peeringType")]
+        [PolicyResourceProperty("peeringType", "_mUnknown_PeeringType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeeringType;
-
-        public string? PeeringType => _mPeeringType.GetValue("peeringType");
+        private string? _mValue_PeeringType;
+        private bool _mUnknown_PeeringType;
+        public string? PeeringType
+        {
+            get
+            {
+                if (!_mUnknown_PeeringType) return _mValue_PeeringType;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.PeeringType' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource ARN of the peer.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the transit gateway for the peering request.
         /// </summary>
-        [Input("transitGatewayArn")]
+        [PolicyResourceProperty("transitGatewayArn", "_mUnknown_TransitGatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
-
-        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
+        private string? _mValue_TransitGatewayArn;
+        private bool _mUnknown_TransitGatewayArn;
+        public string? TransitGatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayArn) return _mValue_TransitGatewayArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.TransitGatewayArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the transit gateway peering attachment.
         /// </summary>
-        [Input("transitGatewayPeeringAttachmentId")]
+        [PolicyResourceProperty("transitGatewayPeeringAttachmentId", "_mUnknown_TransitGatewayPeeringAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayPeeringAttachmentId;
-
-        public string? TransitGatewayPeeringAttachmentId => _mTransitGatewayPeeringAttachmentId.GetValue("transitGatewayPeeringAttachmentId");
+        private string? _mValue_TransitGatewayPeeringAttachmentId;
+        private bool _mUnknown_TransitGatewayPeeringAttachmentId;
+        public string? TransitGatewayPeeringAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayPeeringAttachmentId) return _mValue_TransitGatewayPeeringAttachmentId;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeering.TransitGatewayPeeringAttachmentId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")]
@@ -119,28 +196,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of a core network.
         /// </summary>
-        [Input("coreNetworkId")]
+        [PolicyResourceProperty("coreNetworkId", "_mUnknown_CoreNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
-
-        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+        private string? _mValue_CoreNetworkId;
+        private bool _mUnknown_CoreNetworkId;
+        public string? CoreNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkId) return _mValue_CoreNetworkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeeringArgs.CoreNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeeringArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the transit gateway for the peering request.
         /// </summary>
-        [Input("transitGatewayArn")]
+        [PolicyResourceProperty("transitGatewayArn", "_mUnknown_TransitGatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayArn;
-
-        public string? TransitGatewayArn => _mTransitGatewayArn.GetValue("transitGatewayArn");
+        private string? _mValue_TransitGatewayArn;
+        private bool _mUnknown_TransitGatewayArn;
+        public string? TransitGatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayArn) return _mValue_TransitGatewayArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayPeeringArgs.TransitGatewayArn' is not present");
+            }
+        }
     }
 }

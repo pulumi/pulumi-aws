@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Inputs
         /// <summary>
         /// The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
         /// </summary>
-        [Input("aspectRatio")]
+        [PolicyResourceProperty("aspectRatio", "_mUnknown_AspectRatio")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAspectRatio;
-
-        public string? AspectRatio => _mAspectRatio.GetValue("aspectRatio");
+        private string? _mValue_AspectRatio;
+        private bool _mUnknown_AspectRatio;
+        public string? AspectRatio
+        {
+            get
+            {
+                if (!_mUnknown_AspectRatio) return _mValue_AspectRatio;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.AspectRatio' is not present");
+            }
+        }
 
         /// <summary>
         /// The format of thumbnails, if any. Valid formats are jpg and png.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
         /// </summary>
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInterval;
-
-        public string? Interval => _mInterval.GetValue("interval");
+        private string? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public string? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.Interval' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
         /// </summary>
-        [Input("maxHeight")]
+        [PolicyResourceProperty("maxHeight", "_mUnknown_MaxHeight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxHeight;
-
-        public string? MaxHeight => _mMaxHeight.GetValue("maxHeight");
+        private string? _mValue_MaxHeight;
+        private bool _mUnknown_MaxHeight;
+        public string? MaxHeight
+        {
+            get
+            {
+                if (!_mUnknown_MaxHeight) return _mValue_MaxHeight;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.MaxHeight' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
         /// </summary>
-        [Input("maxWidth")]
+        [PolicyResourceProperty("maxWidth", "_mUnknown_MaxWidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxWidth;
-
-        public string? MaxWidth => _mMaxWidth.GetValue("maxWidth");
+        private string? _mValue_MaxWidth;
+        private bool _mUnknown_MaxWidth;
+        public string? MaxWidth
+        {
+            get
+            {
+                if (!_mUnknown_MaxWidth) return _mValue_MaxWidth;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.MaxWidth' is not present");
+            }
+        }
 
         /// <summary>
         /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
         /// </summary>
-        [Input("paddingPolicy")]
+        [PolicyResourceProperty("paddingPolicy", "_mUnknown_PaddingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPaddingPolicy;
-
-        public string? PaddingPolicy => _mPaddingPolicy.GetValue("paddingPolicy");
+        private string? _mValue_PaddingPolicy;
+        private bool _mUnknown_PaddingPolicy;
+        public string? PaddingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_PaddingPolicy) return _mValue_PaddingPolicy;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.PaddingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
         /// </summary>
-        [Input("resolution")]
+        [PolicyResourceProperty("resolution", "_mUnknown_Resolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolution;
-
-        public string? Resolution => _mResolution.GetValue("resolution");
+        private string? _mValue_Resolution;
+        private bool _mUnknown_Resolution;
+        public string? Resolution
+        {
+            get
+            {
+                if (!_mUnknown_Resolution) return _mValue_Resolution;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.Resolution' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
         /// </summary>
-        [Input("sizingPolicy")]
+        [PolicyResourceProperty("sizingPolicy", "_mUnknown_SizingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSizingPolicy;
-
-        public string? SizingPolicy => _mSizingPolicy.GetValue("sizingPolicy");
+        private string? _mValue_SizingPolicy;
+        private bool _mUnknown_SizingPolicy;
+        public string? SizingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SizingPolicy) return _mValue_SizingPolicy;
+                throw new UndeferrableValueException("Value 'PresetThumbnailsArgs.SizingPolicy' is not present");
+            }
+        }
     }
 }

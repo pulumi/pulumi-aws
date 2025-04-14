@@ -15,138 +15,243 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// <summary>
         /// The app block ARN of the application.
         /// </summary>
-        [Input("appBlockArn")]
+        [PolicyResourceProperty("appBlockArn", "_mUnknown_AppBlockArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBlockArn;
-
-        public string? AppBlockArn => _mAppBlockArn.GetValue("appBlockArn");
+        private string? _mValue_AppBlockArn;
+        private bool _mUnknown_AppBlockArn;
+        public string? AppBlockArn
+        {
+            get
+            {
+                if (!_mUnknown_AppBlockArn) return _mValue_AppBlockArn;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.AppBlockArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Arn of the image being searched for. Cannot be used with name_regex or name.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which this image was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of image.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Image name to display.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Bool based on if the application is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list named icon_s3_location that contains the following:
         /// </summary>
-        [Input("iconS3Locations")]
+        [PolicyResourceProperty("iconS3Locations", "_mUnknown_IconS3Locations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetImageApplicationIconS3LocationResult>> _mIconS3Locations;
-
-        public List<Outputs.GetImageApplicationIconS3LocationResult>? IconS3Locations => _mIconS3Locations.GetValue("iconS3Locations");
+        private List<Outputs.GetImageApplicationIconS3LocationResult>? _mValue_IconS3Locations;
+        private bool _mUnknown_IconS3Locations;
+        public List<Outputs.GetImageApplicationIconS3LocationResult>? IconS3Locations
+        {
+            get
+            {
+                if (!_mUnknown_IconS3Locations) return _mValue_IconS3Locations;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.IconS3Locations' is not present");
+            }
+        }
 
         /// <summary>
         /// URL of the application icon. This URL may be time-limited.
         /// </summary>
-        [Input("iconUrl")]
+        [PolicyResourceProperty("iconUrl", "_mUnknown_IconUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIconUrl;
-
-        public string? IconUrl => _mIconUrl.GetValue("iconUrl");
+        private string? _mValue_IconUrl;
+        private bool _mUnknown_IconUrl;
+        public string? IconUrl
+        {
+            get
+            {
+                if (!_mUnknown_IconUrl) return _mValue_IconUrl;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.IconUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the instance families of the application.
         /// </summary>
-        [Input("instanceFamilies")]
+        [PolicyResourceProperty("instanceFamilies", "_mUnknown_InstanceFamilies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceFamilies;
-
-        public List<string>? InstanceFamilies => _mInstanceFamilies.GetValue("instanceFamilies");
+        private List<string>? _mValue_InstanceFamilies;
+        private bool _mUnknown_InstanceFamilies;
+        public List<string>? InstanceFamilies
+        {
+            get
+            {
+                if (!_mUnknown_InstanceFamilies) return _mValue_InstanceFamilies;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.InstanceFamilies' is not present");
+            }
+        }
 
         /// <summary>
         /// Arguments that are passed to the application at it's launch.
         /// </summary>
-        [Input("launchParameters")]
+        [PolicyResourceProperty("launchParameters", "_mUnknown_LaunchParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchParameters;
-
-        public string? LaunchParameters => _mLaunchParameters.GetValue("launchParameters");
+        private string? _mValue_LaunchParameters;
+        private bool _mUnknown_LaunchParameters;
+        public string? LaunchParameters
+        {
+            get
+            {
+                if (!_mUnknown_LaunchParameters) return _mValue_LaunchParameters;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.LaunchParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the application's excecutable in the instance.
         /// </summary>
-        [Input("launchPath")]
+        [PolicyResourceProperty("launchPath", "_mUnknown_LaunchPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchPath;
-
-        public string? LaunchPath => _mLaunchPath.GetValue("launchPath");
+        private string? _mValue_LaunchPath;
+        private bool _mUnknown_LaunchPath;
+        public string? LaunchPath
+        {
+            get
+            {
+                if (!_mUnknown_LaunchPath) return _mValue_LaunchPath;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.LaunchPath' is not present");
+            }
+        }
 
         /// <summary>
         /// String to string map that contains additional attributes used to describe the application.
         /// * `Name` - Name of the application.
         /// </summary>
-        [Input("metadata")]
+        [PolicyResourceProperty("metadata", "_mUnknown_Metadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mMetadata;
-
-        public Dictionary<string, string>? Metadata => _mMetadata.GetValue("metadata");
+        private Dictionary<string, string>? _mValue_Metadata;
+        private bool _mUnknown_Metadata;
+        public Dictionary<string, string>? Metadata
+        {
+            get
+            {
+                if (!_mUnknown_Metadata) return _mValue_Metadata;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.Metadata' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the image being searched for. Cannot be used with name_regex or arn.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Array of strings describing the platforms on which the application can run.
         /// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
         /// </summary>
-        [Input("platforms")]
+        [PolicyResourceProperty("platforms", "_mUnknown_Platforms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPlatforms;
-
-        public List<string>? Platforms => _mPlatforms.GetValue("platforms");
+        private List<string>? _mValue_Platforms;
+        private bool _mUnknown_Platforms;
+        public List<string>? Platforms
+        {
+            get
+            {
+                if (!_mUnknown_Platforms) return _mValue_Platforms;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.Platforms' is not present");
+            }
+        }
 
         /// <summary>
         /// Working directory for the application.
         /// </summary>
-        [Input("workingDirectory")]
+        [PolicyResourceProperty("workingDirectory", "_mUnknown_WorkingDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkingDirectory;
-
-        public string? WorkingDirectory => _mWorkingDirectory.GetValue("workingDirectory");
+        private string? _mValue_WorkingDirectory;
+        private bool _mUnknown_WorkingDirectory;
+        public string? WorkingDirectory
+        {
+            get
+            {
+                if (!_mUnknown_WorkingDirectory) return _mValue_WorkingDirectory;
+                throw new UndeferrableValueException("Value 'GetImageApplicationResult.WorkingDirectory' is not present");
+            }
+        }
     }
 }

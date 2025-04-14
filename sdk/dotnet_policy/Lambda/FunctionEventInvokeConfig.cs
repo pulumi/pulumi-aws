@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Configuration block with destination configuration. See below for details.
         /// </summary>
-        [Input("destinationConfig")]
+        [PolicyResourceProperty("destinationConfig", "_mUnknown_DestinationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionEventInvokeConfigDestinationConfig> _mDestinationConfig;
-
-        public Outputs.FunctionEventInvokeConfigDestinationConfig? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
+        private Outputs.FunctionEventInvokeConfigDestinationConfig? _mValue_DestinationConfig;
+        private bool _mUnknown_DestinationConfig;
+        public Outputs.FunctionEventInvokeConfigDestinationConfig? DestinationConfig
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfig) return _mValue_DestinationConfig;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.DestinationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         /// </summary>
-        [Input("maximumEventAgeInSeconds")]
+        [PolicyResourceProperty("maximumEventAgeInSeconds", "_mUnknown_MaximumEventAgeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumEventAgeInSeconds;
-
-        public int? MaximumEventAgeInSeconds => _mMaximumEventAgeInSeconds.GetValue("maximumEventAgeInSeconds");
+        private int? _mValue_MaximumEventAgeInSeconds;
+        private bool _mUnknown_MaximumEventAgeInSeconds;
+        public int? MaximumEventAgeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumEventAgeInSeconds) return _mValue_MaximumEventAgeInSeconds;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.MaximumEventAgeInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         /// </summary>
-        [Input("maximumRetryAttempts")]
+        [PolicyResourceProperty("maximumRetryAttempts", "_mUnknown_MaximumRetryAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
-
-        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+        private int? _mValue_MaximumRetryAttempts;
+        private bool _mUnknown_MaximumRetryAttempts;
+        public int? MaximumRetryAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetryAttempts) return _mValue_MaximumRetryAttempts;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.MaximumRetryAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.Qualifier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")]
@@ -67,48 +102,83 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Configuration block with destination configuration. See below for details.
         /// </summary>
-        [Input("destinationConfig")]
+        [PolicyResourceProperty("destinationConfig", "_mUnknown_DestinationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionEventInvokeConfigDestinationConfigArgs> _mDestinationConfig;
-
-        public Inputs.FunctionEventInvokeConfigDestinationConfigArgs? DestinationConfig => _mDestinationConfig.GetValue("destinationConfig");
+        private Inputs.FunctionEventInvokeConfigDestinationConfigArgs? _mValue_DestinationConfig;
+        private bool _mUnknown_DestinationConfig;
+        public Inputs.FunctionEventInvokeConfigDestinationConfigArgs? DestinationConfig
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfig) return _mValue_DestinationConfig;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigArgs.DestinationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigArgs.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         /// </summary>
-        [Input("maximumEventAgeInSeconds")]
+        [PolicyResourceProperty("maximumEventAgeInSeconds", "_mUnknown_MaximumEventAgeInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumEventAgeInSeconds;
-
-        public int? MaximumEventAgeInSeconds => _mMaximumEventAgeInSeconds.GetValue("maximumEventAgeInSeconds");
+        private int? _mValue_MaximumEventAgeInSeconds;
+        private bool _mUnknown_MaximumEventAgeInSeconds;
+        public int? MaximumEventAgeInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumEventAgeInSeconds) return _mValue_MaximumEventAgeInSeconds;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigArgs.MaximumEventAgeInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         /// </summary>
-        [Input("maximumRetryAttempts")]
+        [PolicyResourceProperty("maximumRetryAttempts", "_mUnknown_MaximumRetryAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumRetryAttempts;
-
-        public int? MaximumRetryAttempts => _mMaximumRetryAttempts.GetValue("maximumRetryAttempts");
+        private int? _mValue_MaximumRetryAttempts;
+        private bool _mUnknown_MaximumRetryAttempts;
+        public int? MaximumRetryAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetryAttempts) return _mValue_MaximumRetryAttempts;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigArgs.MaximumRetryAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigArgs.Qualifier' is not present");
+            }
+        }
     }
 }

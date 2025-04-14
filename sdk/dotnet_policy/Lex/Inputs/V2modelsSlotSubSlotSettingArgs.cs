@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingArgs.Expression' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifications for the constituent sub slots of a composite slot.
         /// See the `slot_specification` argument reference below.
         /// </summary>
-        [Input("slotSpecifications")]
+        [PolicyResourceProperty("slotSpecifications", "_mUnknown_SlotSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationArgs>> _mSlotSpecifications;
-
-        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationArgs>? SlotSpecifications => _mSlotSpecifications.GetValue("slotSpecifications");
+        private List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationArgs>? _mValue_SlotSpecifications;
+        private bool _mUnknown_SlotSpecifications;
+        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationArgs>? SlotSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_SlotSpecifications) return _mValue_SlotSpecifications;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingArgs.SlotSpecifications' is not present");
+            }
+        }
     }
 }

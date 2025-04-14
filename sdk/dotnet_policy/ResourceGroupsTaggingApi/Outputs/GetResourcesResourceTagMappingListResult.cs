@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroupsTaggingApi.Outputs
         /// <summary>
         /// List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
         /// </summary>
-        [Input("complianceDetails")]
+        [PolicyResourceProperty("complianceDetails", "_mUnknown_ComplianceDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetResourcesResourceTagMappingListComplianceDetailResult>> _mComplianceDetails;
-
-        public List<Outputs.GetResourcesResourceTagMappingListComplianceDetailResult>? ComplianceDetails => _mComplianceDetails.GetValue("complianceDetails");
+        private List<Outputs.GetResourcesResourceTagMappingListComplianceDetailResult>? _mValue_ComplianceDetails;
+        private bool _mUnknown_ComplianceDetails;
+        public List<Outputs.GetResourcesResourceTagMappingListComplianceDetailResult>? ComplianceDetails
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceDetails) return _mValue_ComplianceDetails;
+                throw new UndeferrableValueException("Value 'GetResourcesResourceTagMappingListResult.ComplianceDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'GetResourcesResourceTagMappingListResult.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GetResourcesResourceTagMappingListResult.Tags' is not present");
+            }
+        }
     }
 }

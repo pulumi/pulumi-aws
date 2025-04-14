@@ -16,82 +16,145 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftData
         /// <summary>
         /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'Statement.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'Statement.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The database user name.
         /// </summary>
-        [Input("dbUser")]
+        [PolicyResourceProperty("dbUser", "_mUnknown_DbUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
+        private string? _mValue_DbUser;
+        private bool _mUnknown_DbUser;
+        public string? DbUser
+        {
+            get
+            {
+                if (!_mUnknown_DbUser) return _mValue_DbUser;
+                throw new UndeferrableValueException("Value 'Statement.DbUser' is not present");
+            }
+        }
 
-        public string? DbUser => _mDbUser.GetValue("dbUser");
-
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StatementParameter>> _mParameters;
-
-        public List<Outputs.StatementParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.StatementParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.StatementParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'Statement.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the secret that enables access to the database.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'Statement.SecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The SQL statement text to run.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sql")]
+        [PolicyResourceProperty("sql", "_mUnknown_Sql")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSql;
-
-        public string? Sql => _mSql.GetValue("sql");
+        private string? _mValue_Sql;
+        private bool _mUnknown_Sql;
+        public string? Sql
+        {
+            get
+            {
+                if (!_mUnknown_Sql) return _mValue_Sql;
+                throw new UndeferrableValueException("Value 'Statement.Sql' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         /// </summary>
-        [Input("statementName")]
+        [PolicyResourceProperty("statementName", "_mUnknown_StatementName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementName;
-
-        public string? StatementName => _mStatementName.GetValue("statementName");
+        private string? _mValue_StatementName;
+        private bool _mUnknown_StatementName;
+        public string? StatementName
+        {
+            get
+            {
+                if (!_mUnknown_StatementName) return _mValue_StatementName;
+                throw new UndeferrableValueException("Value 'Statement.StatementName' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         /// </summary>
-        [Input("withEvent")]
+        [PolicyResourceProperty("withEvent", "_mUnknown_WithEvent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWithEvent;
-
-        public bool? WithEvent => _mWithEvent.GetValue("withEvent");
+        private bool? _mValue_WithEvent;
+        private bool _mUnknown_WithEvent;
+        public bool? WithEvent
+        {
+            get
+            {
+                if (!_mUnknown_WithEvent) return _mValue_WithEvent;
+                throw new UndeferrableValueException("Value 'Statement.WithEvent' is not present");
+            }
+        }
 
         /// <summary>
         /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'Statement.WorkgroupName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshiftdata/statement:Statement")]
@@ -100,81 +163,144 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftData
         /// <summary>
         /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'StatementArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'StatementArgs.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The database user name.
         /// </summary>
-        [Input("dbUser")]
+        [PolicyResourceProperty("dbUser", "_mUnknown_DbUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
+        private string? _mValue_DbUser;
+        private bool _mUnknown_DbUser;
+        public string? DbUser
+        {
+            get
+            {
+                if (!_mUnknown_DbUser) return _mValue_DbUser;
+                throw new UndeferrableValueException("Value 'StatementArgs.DbUser' is not present");
+            }
+        }
 
-        public string? DbUser => _mDbUser.GetValue("dbUser");
-
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StatementParameterArgs>> _mParameters;
-
-        public List<Inputs.StatementParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.StatementParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.StatementParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'StatementArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the secret that enables access to the database.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'StatementArgs.SecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The SQL statement text to run.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sql")]
+        [PolicyResourceProperty("sql", "_mUnknown_Sql")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSql;
-
-        public string? Sql => _mSql.GetValue("sql");
+        private string? _mValue_Sql;
+        private bool _mUnknown_Sql;
+        public string? Sql
+        {
+            get
+            {
+                if (!_mUnknown_Sql) return _mValue_Sql;
+                throw new UndeferrableValueException("Value 'StatementArgs.Sql' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         /// </summary>
-        [Input("statementName")]
+        [PolicyResourceProperty("statementName", "_mUnknown_StatementName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementName;
-
-        public string? StatementName => _mStatementName.GetValue("statementName");
+        private string? _mValue_StatementName;
+        private bool _mUnknown_StatementName;
+        public string? StatementName
+        {
+            get
+            {
+                if (!_mUnknown_StatementName) return _mValue_StatementName;
+                throw new UndeferrableValueException("Value 'StatementArgs.StatementName' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         /// </summary>
-        [Input("withEvent")]
+        [PolicyResourceProperty("withEvent", "_mUnknown_WithEvent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWithEvent;
-
-        public bool? WithEvent => _mWithEvent.GetValue("withEvent");
+        private bool? _mValue_WithEvent;
+        private bool _mUnknown_WithEvent;
+        public bool? WithEvent
+        {
+            get
+            {
+                if (!_mUnknown_WithEvent) return _mValue_WithEvent;
+                throw new UndeferrableValueException("Value 'StatementArgs.WithEvent' is not present");
+            }
+        }
 
         /// <summary>
         /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         /// </summary>
-        [Input("workgroupName")]
+        [PolicyResourceProperty("workgroupName", "_mUnknown_WorkgroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroupName;
-
-        public string? WorkgroupName => _mWorkgroupName.GetValue("workgroupName");
+        private string? _mValue_WorkgroupName;
+        private bool _mUnknown_WorkgroupName;
+        public string? WorkgroupName
+        {
+            get
+            {
+                if (!_mUnknown_WorkgroupName) return _mValue_WorkgroupName;
+                throw new UndeferrableValueException("Value 'StatementArgs.WorkgroupName' is not present");
+            }
+        }
     }
 }

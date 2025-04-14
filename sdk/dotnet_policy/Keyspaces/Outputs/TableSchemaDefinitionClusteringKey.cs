@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces.Outputs
         /// <summary>
         /// The name of the clustering key column.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TableSchemaDefinitionClusteringKey.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The order modifier. Valid values: `ASC`, `DESC`.
         /// </summary>
-        [Input("orderBy")]
+        [PolicyResourceProperty("orderBy", "_mUnknown_OrderBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrderBy;
-
-        public string? OrderBy => _mOrderBy.GetValue("orderBy");
+        private string? _mValue_OrderBy;
+        private bool _mUnknown_OrderBy;
+        public string? OrderBy
+        {
+            get
+            {
+                if (!_mUnknown_OrderBy) return _mValue_OrderBy;
+                throw new UndeferrableValueException("Value 'TableSchemaDefinitionClusteringKey.OrderBy' is not present");
+            }
+        }
     }
 }

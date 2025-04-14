@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Outputs
         /// <summary>
         /// The name of the single IAM action used for this particular request.
         /// </summary>
-        [Input("actionName")]
+        [PolicyResourceProperty("actionName", "_mUnknown_ActionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionName;
-
-        public string? ActionName => _mActionName.GetValue("actionName");
+        private string? _mValue_ActionName;
+        private bool _mUnknown_ActionName;
+        public string? ActionName
+        {
+            get
+            {
+                if (!_mUnknown_ActionName) return _mValue_ActionName;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultResult.ActionName' is not present");
+            }
+        }
 
         /// <summary>
         /// `true` if `decision` is "allowed", and `false` otherwise.
         /// </summary>
-        [Input("allowed")]
+        [PolicyResourceProperty("allowed", "_mUnknown_Allowed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowed;
-
-        public bool? Allowed => _mAllowed.GetValue("allowed");
+        private bool? _mValue_Allowed;
+        private bool _mUnknown_Allowed;
+        public bool? Allowed
+        {
+            get
+            {
+                if (!_mUnknown_Allowed) return _mValue_Allowed;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultResult.Allowed' is not present");
+            }
+        }
 
         /// <summary>
         /// The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
         /// </summary>
-        [Input("decision")]
+        [PolicyResourceProperty("decision", "_mUnknown_Decision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDecision;
-
-        public string? Decision => _mDecision.GetValue("decision");
+        private string? _mValue_Decision;
+        private bool _mUnknown_Decision;
+        public string? Decision
+        {
+            get
+            {
+                if (!_mUnknown_Decision) return _mValue_Decision;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultResult.Decision' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of arbitrary metadata entries returned by the policy simulator for this request.
         /// </summary>
-        [Input("decisionDetails")]
+        [PolicyResourceProperty("decisionDetails", "_mUnknown_DecisionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDecisionDetails;
-
-        public Dictionary<string, string>? DecisionDetails => _mDecisionDetails.GetValue("decisionDetails");
+        private Dictionary<string, string>? _mValue_DecisionDetails;
+        private bool _mUnknown_DecisionDetails;
+        public Dictionary<string, string>? DecisionDetails
+        {
+            get
+            {
+                if (!_mUnknown_DecisionDetails) return _mValue_DecisionDetails;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultResult.DecisionDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
         /// </summary>
-        [Input("matchedStatements")]
+        [PolicyResourceProperty("matchedStatements", "_mUnknown_MatchedStatements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult>> _mMatchedStatements;
-
-        public List<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult>? MatchedStatements => _mMatchedStatements.GetValue("matchedStatements");
+        private List<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult>? _mValue_MatchedStatements;
+        private bool _mUnknown_MatchedStatements;
+        public List<Outputs.GetPrincipalPolicySimulationResultMatchedStatementResult>? MatchedStatements
+        {
+            get
+            {
+                if (!_mUnknown_MatchedStatements) return _mValue_MatchedStatements;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultResult.MatchedStatements' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
         /// </summary>
-        [Input("missingContextKeys")]
+        [PolicyResourceProperty("missingContextKeys", "_mUnknown_MissingContextKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMissingContextKeys;
-
-        public List<string>? MissingContextKeys => _mMissingContextKeys.GetValue("missingContextKeys");
+        private List<string>? _mValue_MissingContextKeys;
+        private bool _mUnknown_MissingContextKeys;
+        public List<string>? MissingContextKeys
+        {
+            get
+            {
+                if (!_mUnknown_MissingContextKeys) return _mValue_MissingContextKeys;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultResult.MissingContextKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'GetPrincipalPolicySimulationResultResult.ResourceArn' is not present");
+            }
+        }
     }
 }

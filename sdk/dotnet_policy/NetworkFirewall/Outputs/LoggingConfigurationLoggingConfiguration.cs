@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
         /// </summary>
-        [Input("logDestinationConfigs")]
+        [PolicyResourceProperty("logDestinationConfigs", "_mUnknown_LogDestinationConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig>> _mLogDestinationConfigs;
-
-        public List<Outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig>? LogDestinationConfigs => _mLogDestinationConfigs.GetValue("logDestinationConfigs");
+        private List<Outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig>? _mValue_LogDestinationConfigs;
+        private bool _mUnknown_LogDestinationConfigs;
+        public List<Outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig>? LogDestinationConfigs
+        {
+            get
+            {
+                if (!_mUnknown_LogDestinationConfigs) return _mValue_LogDestinationConfigs;
+                throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfiguration.LogDestinationConfigs' is not present");
+            }
+        }
     }
 }

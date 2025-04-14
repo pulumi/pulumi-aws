@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// Amazon Resource Name (ARN) of the schema.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Schema.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         /// </summary>
-        [Input("compatibility")]
+        [PolicyResourceProperty("compatibility", "_mUnknown_Compatibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompatibility;
-
-        public string? Compatibility => _mCompatibility.GetValue("compatibility");
+        private string? _mValue_Compatibility;
+        private bool _mUnknown_Compatibility;
+        public string? Compatibility
+        {
+            get
+            {
+                if (!_mUnknown_Compatibility) return _mValue_Compatibility;
+                throw new UndeferrableValueException("Value 'Schema.Compatibility' is not present");
+            }
+        }
 
         /// <summary>
         /// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         /// </summary>
-        [Input("dataFormat")]
+        [PolicyResourceProperty("dataFormat", "_mUnknown_DataFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
-
-        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
+        private string? _mValue_DataFormat;
+        private bool _mUnknown_DataFormat;
+        public string? DataFormat
+        {
+            get
+            {
+                if (!_mUnknown_DataFormat) return _mValue_DataFormat;
+                throw new UndeferrableValueException("Value 'Schema.DataFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the schema.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Schema.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The latest version of the schema associated with the returned schema definition.
         /// </summary>
-        [Input("latestSchemaVersion")]
+        [PolicyResourceProperty("latestSchemaVersion", "_mUnknown_LatestSchemaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLatestSchemaVersion;
-
-        public int? LatestSchemaVersion => _mLatestSchemaVersion.GetValue("latestSchemaVersion");
+        private int? _mValue_LatestSchemaVersion;
+        private bool _mUnknown_LatestSchemaVersion;
+        public int? LatestSchemaVersion
+        {
+            get
+            {
+                if (!_mUnknown_LatestSchemaVersion) return _mValue_LatestSchemaVersion;
+                throw new UndeferrableValueException("Value 'Schema.LatestSchemaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The next version of the schema associated with the returned schema definition.
         /// </summary>
-        [Input("nextSchemaVersion")]
+        [PolicyResourceProperty("nextSchemaVersion", "_mUnknown_NextSchemaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNextSchemaVersion;
-
-        public int? NextSchemaVersion => _mNextSchemaVersion.GetValue("nextSchemaVersion");
+        private int? _mValue_NextSchemaVersion;
+        private bool _mUnknown_NextSchemaVersion;
+        public int? NextSchemaVersion
+        {
+            get
+            {
+                if (!_mUnknown_NextSchemaVersion) return _mValue_NextSchemaVersion;
+                throw new UndeferrableValueException("Value 'Schema.NextSchemaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Glue Registry to create the schema in.
         /// </summary>
-        [Input("registryArn")]
+        [PolicyResourceProperty("registryArn", "_mUnknown_RegistryArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryArn;
-
-        public string? RegistryArn => _mRegistryArn.GetValue("registryArn");
+        private string? _mValue_RegistryArn;
+        private bool _mUnknown_RegistryArn;
+        public string? RegistryArn
+        {
+            get
+            {
+                if (!_mUnknown_RegistryArn) return _mValue_RegistryArn;
+                throw new UndeferrableValueException("Value 'Schema.RegistryArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Glue Registry.
         /// </summary>
-        [Input("registryName")]
+        [PolicyResourceProperty("registryName", "_mUnknown_RegistryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryName;
-
-        public string? RegistryName => _mRegistryName.GetValue("registryName");
+        private string? _mValue_RegistryName;
+        private bool _mUnknown_RegistryName;
+        public string? RegistryName
+        {
+            get
+            {
+                if (!_mUnknown_RegistryName) return _mValue_RegistryName;
+                throw new UndeferrableValueException("Value 'Schema.RegistryName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number of the checkpoint (the last time the compatibility mode was changed).
         /// </summary>
-        [Input("schemaCheckpoint")]
+        [PolicyResourceProperty("schemaCheckpoint", "_mUnknown_SchemaCheckpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSchemaCheckpoint;
-
-        public int? SchemaCheckpoint => _mSchemaCheckpoint.GetValue("schemaCheckpoint");
+        private int? _mValue_SchemaCheckpoint;
+        private bool _mUnknown_SchemaCheckpoint;
+        public int? SchemaCheckpoint
+        {
+            get
+            {
+                if (!_mUnknown_SchemaCheckpoint) return _mValue_SchemaCheckpoint;
+                throw new UndeferrableValueException("Value 'Schema.SchemaCheckpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The schema definition using the `data_format` setting for `schema_name`.
         /// </summary>
-        [Input("schemaDefinition")]
+        [PolicyResourceProperty("schemaDefinition", "_mUnknown_SchemaDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaDefinition;
-
-        public string? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
+        private string? _mValue_SchemaDefinition;
+        private bool _mUnknown_SchemaDefinition;
+        public string? SchemaDefinition
+        {
+            get
+            {
+                if (!_mUnknown_SchemaDefinition) return _mValue_SchemaDefinition;
+                throw new UndeferrableValueException("Value 'Schema.SchemaDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The Name of the schema.
         /// </summary>
-        [Input("schemaName")]
+        [PolicyResourceProperty("schemaName", "_mUnknown_SchemaName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaName;
-
-        public string? SchemaName => _mSchemaName.GetValue("schemaName");
+        private string? _mValue_SchemaName;
+        private bool _mUnknown_SchemaName;
+        public string? SchemaName
+        {
+            get
+            {
+                if (!_mUnknown_SchemaName) return _mValue_SchemaName;
+                throw new UndeferrableValueException("Value 'Schema.SchemaName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Schema.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Schema.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/schema:Schema")]
@@ -137,64 +228,113 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         /// </summary>
-        [Input("compatibility")]
+        [PolicyResourceProperty("compatibility", "_mUnknown_Compatibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompatibility;
-
-        public string? Compatibility => _mCompatibility.GetValue("compatibility");
+        private string? _mValue_Compatibility;
+        private bool _mUnknown_Compatibility;
+        public string? Compatibility
+        {
+            get
+            {
+                if (!_mUnknown_Compatibility) return _mValue_Compatibility;
+                throw new UndeferrableValueException("Value 'SchemaArgs.Compatibility' is not present");
+            }
+        }
 
         /// <summary>
         /// The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         /// </summary>
-        [Input("dataFormat")]
+        [PolicyResourceProperty("dataFormat", "_mUnknown_DataFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataFormat;
-
-        public string? DataFormat => _mDataFormat.GetValue("dataFormat");
+        private string? _mValue_DataFormat;
+        private bool _mUnknown_DataFormat;
+        public string? DataFormat
+        {
+            get
+            {
+                if (!_mUnknown_DataFormat) return _mValue_DataFormat;
+                throw new UndeferrableValueException("Value 'SchemaArgs.DataFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the schema.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SchemaArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Glue Registry to create the schema in.
         /// </summary>
-        [Input("registryArn")]
+        [PolicyResourceProperty("registryArn", "_mUnknown_RegistryArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryArn;
-
-        public string? RegistryArn => _mRegistryArn.GetValue("registryArn");
+        private string? _mValue_RegistryArn;
+        private bool _mUnknown_RegistryArn;
+        public string? RegistryArn
+        {
+            get
+            {
+                if (!_mUnknown_RegistryArn) return _mValue_RegistryArn;
+                throw new UndeferrableValueException("Value 'SchemaArgs.RegistryArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The schema definition using the `data_format` setting for `schema_name`.
         /// </summary>
-        [Input("schemaDefinition")]
+        [PolicyResourceProperty("schemaDefinition", "_mUnknown_SchemaDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaDefinition;
-
-        public string? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
+        private string? _mValue_SchemaDefinition;
+        private bool _mUnknown_SchemaDefinition;
+        public string? SchemaDefinition
+        {
+            get
+            {
+                if (!_mUnknown_SchemaDefinition) return _mValue_SchemaDefinition;
+                throw new UndeferrableValueException("Value 'SchemaArgs.SchemaDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The Name of the schema.
         /// </summary>
-        [Input("schemaName")]
+        [PolicyResourceProperty("schemaName", "_mUnknown_SchemaName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaName;
-
-        public string? SchemaName => _mSchemaName.GetValue("schemaName");
+        private string? _mValue_SchemaName;
+        private bool _mUnknown_SchemaName;
+        public string? SchemaName
+        {
+            get
+            {
+                if (!_mUnknown_SchemaName) return _mValue_SchemaName;
+                throw new UndeferrableValueException("Value 'SchemaArgs.SchemaName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SchemaArgs.Tags' is not present");
+            }
+        }
     }
 }

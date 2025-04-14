@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// The statements to combine.
         /// </summary>
-        [Input("statements")]
+        [PolicyResourceProperty("statements", "_mUnknown_Statements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleStatement>> _mStatements;
-
-        public List<Outputs.RuleGroupRuleStatement>? Statements => _mStatements.GetValue("statements");
+        private List<Outputs.RuleGroupRuleStatement>? _mValue_Statements;
+        private bool _mUnknown_Statements;
+        public List<Outputs.RuleGroupRuleStatement>? Statements
+        {
+            get
+            {
+                if (!_mUnknown_Statements) return _mValue_Statements;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement.Statements' is not present");
+            }
+        }
     }
 }

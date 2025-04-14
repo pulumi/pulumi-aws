@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Outputs
         /// <summary>
         /// Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
         /// </summary>
-        [Input("stackNames")]
+        [PolicyResourceProperty("stackNames", "_mUnknown_StackNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mStackNames;
-
-        public List<string>? StackNames => _mStackNames.GetValue("stackNames");
+        private List<string>? _mValue_StackNames;
+        private bool _mUnknown_StackNames;
+        public List<string>? StackNames
+        {
+            get
+            {
+                if (!_mUnknown_StackNames) return _mValue_StackNames;
+                throw new UndeferrableValueException("Value 'ResourceCollectionCloudformation.StackNames' is not present");
+            }
+        }
     }
 }

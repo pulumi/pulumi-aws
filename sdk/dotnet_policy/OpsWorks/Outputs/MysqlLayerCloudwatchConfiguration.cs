@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
 {
     public sealed class MysqlLayerCloudwatchConfiguration
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'MysqlLayerCloudwatchConfiguration.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("logStreams")]
+        [PolicyResourceProperty("logStreams", "_mUnknown_LogStreams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MysqlLayerCloudwatchConfigurationLogStream>> _mLogStreams;
-
-        public List<Outputs.MysqlLayerCloudwatchConfigurationLogStream>? LogStreams => _mLogStreams.GetValue("logStreams");
+        private List<Outputs.MysqlLayerCloudwatchConfigurationLogStream>? _mValue_LogStreams;
+        private bool _mUnknown_LogStreams;
+        public List<Outputs.MysqlLayerCloudwatchConfigurationLogStream>? LogStreams
+        {
+            get
+            {
+                if (!_mUnknown_LogStreams) return _mValue_LogStreams;
+                throw new UndeferrableValueException("Value 'MysqlLayerCloudwatchConfiguration.LogStreams' is not present");
+            }
+        }
     }
 }

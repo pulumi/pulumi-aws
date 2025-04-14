@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
         /// </summary>
-        [Input("confirmRemoveSelfResourceAccess")]
+        [PolicyResourceProperty("confirmRemoveSelfResourceAccess", "_mUnknown_ConfirmRemoveSelfResourceAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConfirmRemoveSelfResourceAccess;
-
-        public bool? ConfirmRemoveSelfResourceAccess => _mConfirmRemoveSelfResourceAccess.GetValue("confirmRemoveSelfResourceAccess");
+        private bool? _mValue_ConfirmRemoveSelfResourceAccess;
+        private bool _mUnknown_ConfirmRemoveSelfResourceAccess;
+        public bool? ConfirmRemoveSelfResourceAccess
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmRemoveSelfResourceAccess) return _mValue_ConfirmRemoveSelfResourceAccess;
+                throw new UndeferrableValueException("Value 'ResourcePolicy.ConfirmRemoveSelfResourceAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ResourcePolicy.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ResourcePolicy.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
         /// </summary>
-        [Input("revisionId")]
+        [PolicyResourceProperty("revisionId", "_mUnknown_RevisionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevisionId;
-
-        public string? RevisionId => _mRevisionId.GetValue("revisionId");
+        private string? _mValue_RevisionId;
+        private bool _mUnknown_RevisionId;
+        public string? RevisionId
+        {
+            get
+            {
+                if (!_mUnknown_RevisionId) return _mValue_RevisionId;
+                throw new UndeferrableValueException("Value 'ResourcePolicy.RevisionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/resourcePolicy:ResourcePolicy")]
@@ -58,30 +86,51 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
         /// </summary>
-        [Input("confirmRemoveSelfResourceAccess")]
+        [PolicyResourceProperty("confirmRemoveSelfResourceAccess", "_mUnknown_ConfirmRemoveSelfResourceAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConfirmRemoveSelfResourceAccess;
-
-        public bool? ConfirmRemoveSelfResourceAccess => _mConfirmRemoveSelfResourceAccess.GetValue("confirmRemoveSelfResourceAccess");
+        private bool? _mValue_ConfirmRemoveSelfResourceAccess;
+        private bool _mUnknown_ConfirmRemoveSelfResourceAccess;
+        public bool? ConfirmRemoveSelfResourceAccess
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmRemoveSelfResourceAccess) return _mValue_ConfirmRemoveSelfResourceAccess;
+                throw new UndeferrableValueException("Value 'ResourcePolicyArgs.ConfirmRemoveSelfResourceAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// n Amazon Web Services resource-based policy document in JSON format. The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that you should keep in mind while attaching a resource-based policy, see Resource-based policy considerations.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ResourcePolicyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ResourcePolicyArgs.ResourceArn' is not present");
+            }
+        }
     }
 }

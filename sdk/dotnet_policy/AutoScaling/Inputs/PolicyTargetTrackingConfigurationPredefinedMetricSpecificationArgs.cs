@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Metric type.
         /// </summary>
-        [Input("predefinedMetricType")]
+        [PolicyResourceProperty("predefinedMetricType", "_mUnknown_PredefinedMetricType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPredefinedMetricType;
-
-        public string? PredefinedMetricType => _mPredefinedMetricType.GetValue("predefinedMetricType");
+        private string? _mValue_PredefinedMetricType;
+        private bool _mUnknown_PredefinedMetricType;
+        public string? PredefinedMetricType
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedMetricType) return _mValue_PredefinedMetricType;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.PredefinedMetricType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the resource associated with the metric type.
         /// </summary>
-        [Input("resourceLabel")]
+        [PolicyResourceProperty("resourceLabel", "_mUnknown_ResourceLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceLabel;
-
-        public string? ResourceLabel => _mResourceLabel.GetValue("resourceLabel");
+        private string? _mValue_ResourceLabel;
+        private bool _mUnknown_ResourceLabel;
+        public string? ResourceLabel
+        {
+            get
+            {
+                if (!_mUnknown_ResourceLabel) return _mValue_ResourceLabel;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs.ResourceLabel' is not present");
+            }
+        }
     }
 }

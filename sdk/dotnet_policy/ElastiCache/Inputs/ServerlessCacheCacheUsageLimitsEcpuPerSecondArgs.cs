@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache.Inputs
         /// <summary>
         /// The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
         /// </summary>
-        [Input("maximum")]
+        [PolicyResourceProperty("maximum", "_mUnknown_Maximum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximum;
-
-        public int? Maximum => _mMaximum.GetValue("maximum");
+        private int? _mValue_Maximum;
+        private bool _mUnknown_Maximum;
+        public int? Maximum
+        {
+            get
+            {
+                if (!_mUnknown_Maximum) return _mValue_Maximum;
+                throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.Maximum' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
         /// </summary>
-        [Input("minimum")]
+        [PolicyResourceProperty("minimum", "_mUnknown_Minimum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimum;
-
-        public int? Minimum => _mMinimum.GetValue("minimum");
+        private int? _mValue_Minimum;
+        private bool _mUnknown_Minimum;
+        public int? Minimum
+        {
+            get
+            {
+                if (!_mUnknown_Minimum) return _mValue_Minimum;
+                throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.Minimum' is not present");
+            }
+        }
     }
 }

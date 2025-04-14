@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Queue.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Queue.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Queue.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Queue.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the Hours of Operation.
         /// </summary>
-        [Input("hoursOfOperationId")]
+        [PolicyResourceProperty("hoursOfOperationId", "_mUnknown_HoursOfOperationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHoursOfOperationId;
-
-        public string? HoursOfOperationId => _mHoursOfOperationId.GetValue("hoursOfOperationId");
+        private string? _mValue_HoursOfOperationId;
+        private bool _mUnknown_HoursOfOperationId;
+        public string? HoursOfOperationId
+        {
+            get
+            {
+                if (!_mUnknown_HoursOfOperationId) return _mValue_HoursOfOperationId;
+                throw new UndeferrableValueException("Value 'Queue.HoursOfOperationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'Queue.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         /// </summary>
-        [Input("maxContacts")]
+        [PolicyResourceProperty("maxContacts", "_mUnknown_MaxContacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxContacts;
-
-        public int? MaxContacts => _mMaxContacts.GetValue("maxContacts");
+        private int? _mValue_MaxContacts;
+        private bool _mUnknown_MaxContacts;
+        public int? MaxContacts
+        {
+            get
+            {
+                if (!_mUnknown_MaxContacts) return _mValue_MaxContacts;
+                throw new UndeferrableValueException("Value 'Queue.MaxContacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Queue.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Queue.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         /// </summary>
-        [Input("outboundCallerConfig")]
+        [PolicyResourceProperty("outboundCallerConfig", "_mUnknown_OutboundCallerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.QueueOutboundCallerConfig> _mOutboundCallerConfig;
-
-        public Outputs.QueueOutboundCallerConfig? OutboundCallerConfig => _mOutboundCallerConfig.GetValue("outboundCallerConfig");
+        private Outputs.QueueOutboundCallerConfig? _mValue_OutboundCallerConfig;
+        private bool _mUnknown_OutboundCallerConfig;
+        public Outputs.QueueOutboundCallerConfig? OutboundCallerConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutboundCallerConfig) return _mValue_OutboundCallerConfig;
+                throw new UndeferrableValueException("Value 'Queue.OutboundCallerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the Queue.
         /// </summary>
-        [Input("queueId")]
+        [PolicyResourceProperty("queueId", "_mUnknown_QueueId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueId;
-
-        public string? QueueId => _mQueueId.GetValue("queueId");
+        private string? _mValue_QueueId;
+        private bool _mUnknown_QueueId;
+        public string? QueueId
+        {
+            get
+            {
+                if (!_mUnknown_QueueId) return _mValue_QueueId;
+                throw new UndeferrableValueException("Value 'Queue.QueueId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         /// </summary>
-        [Input("quickConnectIds")]
+        [PolicyResourceProperty("quickConnectIds", "_mUnknown_QuickConnectIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQuickConnectIds;
-
-        public List<string>? QuickConnectIds => _mQuickConnectIds.GetValue("quickConnectIds");
+        private List<string>? _mValue_QuickConnectIds;
+        private bool _mUnknown_QuickConnectIds;
+        public List<string>? QuickConnectIds
+        {
+            get
+            {
+                if (!_mUnknown_QuickConnectIds) return _mValue_QuickConnectIds;
+                throw new UndeferrableValueException("Value 'Queue.QuickConnectIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Queue.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Queue.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Queue.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/queue:Queue")]
@@ -128,82 +212,145 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// Specifies the description of the Queue.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'QueueArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the Hours of Operation.
         /// </summary>
-        [Input("hoursOfOperationId")]
+        [PolicyResourceProperty("hoursOfOperationId", "_mUnknown_HoursOfOperationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHoursOfOperationId;
-
-        public string? HoursOfOperationId => _mHoursOfOperationId.GetValue("hoursOfOperationId");
+        private string? _mValue_HoursOfOperationId;
+        private bool _mUnknown_HoursOfOperationId;
+        public string? HoursOfOperationId
+        {
+            get
+            {
+                if (!_mUnknown_HoursOfOperationId) return _mValue_HoursOfOperationId;
+                throw new UndeferrableValueException("Value 'QueueArgs.HoursOfOperationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'QueueArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         /// </summary>
-        [Input("maxContacts")]
+        [PolicyResourceProperty("maxContacts", "_mUnknown_MaxContacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxContacts;
-
-        public int? MaxContacts => _mMaxContacts.GetValue("maxContacts");
+        private int? _mValue_MaxContacts;
+        private bool _mUnknown_MaxContacts;
+        public int? MaxContacts
+        {
+            get
+            {
+                if (!_mUnknown_MaxContacts) return _mValue_MaxContacts;
+                throw new UndeferrableValueException("Value 'QueueArgs.MaxContacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Queue.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QueueArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         /// </summary>
-        [Input("outboundCallerConfig")]
+        [PolicyResourceProperty("outboundCallerConfig", "_mUnknown_OutboundCallerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.QueueOutboundCallerConfigArgs> _mOutboundCallerConfig;
-
-        public Inputs.QueueOutboundCallerConfigArgs? OutboundCallerConfig => _mOutboundCallerConfig.GetValue("outboundCallerConfig");
+        private Inputs.QueueOutboundCallerConfigArgs? _mValue_OutboundCallerConfig;
+        private bool _mUnknown_OutboundCallerConfig;
+        public Inputs.QueueOutboundCallerConfigArgs? OutboundCallerConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutboundCallerConfig) return _mValue_OutboundCallerConfig;
+                throw new UndeferrableValueException("Value 'QueueArgs.OutboundCallerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         /// </summary>
-        [Input("quickConnectIds")]
+        [PolicyResourceProperty("quickConnectIds", "_mUnknown_QuickConnectIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQuickConnectIds;
-
-        public List<string>? QuickConnectIds => _mQuickConnectIds.GetValue("quickConnectIds");
+        private List<string>? _mValue_QuickConnectIds;
+        private bool _mUnknown_QuickConnectIds;
+        public List<string>? QuickConnectIds
+        {
+            get
+            {
+                if (!_mUnknown_QuickConnectIds) return _mValue_QuickConnectIds;
+                throw new UndeferrableValueException("Value 'QueueArgs.QuickConnectIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'QueueArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'QueueArgs.Tags' is not present");
+            }
+        }
     }
 }

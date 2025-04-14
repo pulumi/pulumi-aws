@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// The S3 bucket name.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3Config.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 bucket prefix.
         /// </summary>
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3Config.BucketPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption configuration. Documented below.
         /// </summary>
-        [Input("encryptionConfig")]
+        [PolicyResourceProperty("encryptionConfig", "_mUnknown_EncryptionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig> _mEncryptionConfig;
-
-        public Outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig? EncryptionConfig => _mEncryptionConfig.GetValue("encryptionConfig");
+        private Outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig? _mValue_EncryptionConfig;
+        private bool _mUnknown_EncryptionConfig;
+        public Outputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig? EncryptionConfig
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfig) return _mValue_EncryptionConfig;
+                throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3Config.EncryptionConfig' is not present");
+            }
+        }
     }
 }

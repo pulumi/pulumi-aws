@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The ARN of the endpoint that was created.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EventEndpoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the global endpoint.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventEndpoint.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the endpoint that was created.
         /// </summary>
-        [Input("endpointUrl")]
+        [PolicyResourceProperty("endpointUrl", "_mUnknown_EndpointUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointUrl;
-
-        public string? EndpointUrl => _mEndpointUrl.GetValue("endpointUrl");
+        private string? _mValue_EndpointUrl;
+        private bool _mUnknown_EndpointUrl;
+        public string? EndpointUrl
+        {
+            get
+            {
+                if (!_mUnknown_EndpointUrl) return _mValue_EndpointUrl;
+                throw new UndeferrableValueException("Value 'EventEndpoint.EndpointUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         /// </summary>
-        [Input("eventBuses")]
+        [PolicyResourceProperty("eventBuses", "_mUnknown_EventBuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventEndpointEventBus>> _mEventBuses;
-
-        public List<Outputs.EventEndpointEventBus>? EventBuses => _mEventBuses.GetValue("eventBuses");
+        private List<Outputs.EventEndpointEventBus>? _mValue_EventBuses;
+        private bool _mUnknown_EventBuses;
+        public List<Outputs.EventEndpointEventBus>? EventBuses
+        {
+            get
+            {
+                if (!_mUnknown_EventBuses) return _mValue_EventBuses;
+                throw new UndeferrableValueException("Value 'EventEndpoint.EventBuses' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the global endpoint.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventEndpoint.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for replication. Documented below.
         /// </summary>
-        [Input("replicationConfig")]
+        [PolicyResourceProperty("replicationConfig", "_mUnknown_ReplicationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventEndpointReplicationConfig> _mReplicationConfig;
-
-        public Outputs.EventEndpointReplicationConfig? ReplicationConfig => _mReplicationConfig.GetValue("replicationConfig");
+        private Outputs.EventEndpointReplicationConfig? _mValue_ReplicationConfig;
+        private bool _mUnknown_ReplicationConfig;
+        public Outputs.EventEndpointReplicationConfig? ReplicationConfig
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfig) return _mValue_ReplicationConfig;
+                throw new UndeferrableValueException("Value 'EventEndpoint.ReplicationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role used for replication between event buses.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EventEndpoint.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for routing, including the health check and secondary Region. Documented below.
         /// </summary>
-        [Input("routingConfig")]
+        [PolicyResourceProperty("routingConfig", "_mUnknown_RoutingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EventEndpointRoutingConfig> _mRoutingConfig;
-
-        public Outputs.EventEndpointRoutingConfig? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
+        private Outputs.EventEndpointRoutingConfig? _mValue_RoutingConfig;
+        private bool _mUnknown_RoutingConfig;
+        public Outputs.EventEndpointRoutingConfig? RoutingConfig
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfig) return _mValue_RoutingConfig;
+                throw new UndeferrableValueException("Value 'EventEndpoint.RoutingConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/eventEndpoint:EventEndpoint")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// A description of the global endpoint.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EventEndpointArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         /// </summary>
-        [Input("eventBuses")]
+        [PolicyResourceProperty("eventBuses", "_mUnknown_EventBuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventEndpointEventBusArgs>> _mEventBuses;
-
-        public List<Inputs.EventEndpointEventBusArgs>? EventBuses => _mEventBuses.GetValue("eventBuses");
+        private List<Inputs.EventEndpointEventBusArgs>? _mValue_EventBuses;
+        private bool _mUnknown_EventBuses;
+        public List<Inputs.EventEndpointEventBusArgs>? EventBuses
+        {
+            get
+            {
+                if (!_mUnknown_EventBuses) return _mValue_EventBuses;
+                throw new UndeferrableValueException("Value 'EventEndpointArgs.EventBuses' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the global endpoint.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EventEndpointArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for replication. Documented below.
         /// </summary>
-        [Input("replicationConfig")]
+        [PolicyResourceProperty("replicationConfig", "_mUnknown_ReplicationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventEndpointReplicationConfigArgs> _mReplicationConfig;
-
-        public Inputs.EventEndpointReplicationConfigArgs? ReplicationConfig => _mReplicationConfig.GetValue("replicationConfig");
+        private Inputs.EventEndpointReplicationConfigArgs? _mValue_ReplicationConfig;
+        private bool _mUnknown_ReplicationConfig;
+        public Inputs.EventEndpointReplicationConfigArgs? ReplicationConfig
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfig) return _mValue_ReplicationConfig;
+                throw new UndeferrableValueException("Value 'EventEndpointArgs.ReplicationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role used for replication between event buses.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EventEndpointArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for routing, including the health check and secondary Region. Documented below.
         /// </summary>
-        [Input("routingConfig")]
+        [PolicyResourceProperty("routingConfig", "_mUnknown_RoutingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventEndpointRoutingConfigArgs> _mRoutingConfig;
-
-        public Inputs.EventEndpointRoutingConfigArgs? RoutingConfig => _mRoutingConfig.GetValue("routingConfig");
+        private Inputs.EventEndpointRoutingConfigArgs? _mValue_RoutingConfig;
+        private bool _mUnknown_RoutingConfig;
+        public Inputs.EventEndpointRoutingConfigArgs? RoutingConfig
+        {
+            get
+            {
+                if (!_mUnknown_RoutingConfig) return _mValue_RoutingConfig;
+                throw new UndeferrableValueException("Value 'EventEndpointArgs.RoutingConfig' is not present");
+            }
+        }
     }
 }

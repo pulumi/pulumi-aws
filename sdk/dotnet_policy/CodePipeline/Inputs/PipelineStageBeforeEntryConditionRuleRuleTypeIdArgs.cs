@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
         /// </summary>
-        [Input("category")]
+        [PolicyResourceProperty("category", "_mUnknown_Category")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCategory;
-
-        public string? Category => _mCategory.GetValue("category");
+        private string? _mValue_Category;
+        private bool _mUnknown_Category;
+        public string? Category
+        {
+            get
+            {
+                if (!_mUnknown_Category) return _mValue_Category;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs.Category' is not present");
+            }
+        }
 
         /// <summary>
         /// The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
         /// </summary>
-        [Input("provider")]
+        [PolicyResourceProperty("provider", "_mUnknown_Provider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvider;
-
-        public string? Provider => _mProvider.GetValue("provider");
+        private string? _mValue_Provider;
+        private bool _mUnknown_Provider;
+        public string? Provider
+        {
+            get
+            {
+                if (!_mUnknown_Provider) return _mValue_Provider;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs.Provider' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that describes the rule version.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs.Version' is not present");
+            }
+        }
     }
 }

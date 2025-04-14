@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         /// </summary>
-        [Input("cookie")]
+        [PolicyResourceProperty("cookie", "_mUnknown_Cookie")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs> _mCookie;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs? Cookie => _mCookie.GetValue("cookie");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs? _mValue_Cookie;
+        private bool _mUnknown_Cookie;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs? Cookie
+        {
+            get
+            {
+                if (!_mUnknown_Cookie) return _mValue_Cookie;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.Cookie' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
         /// </summary>
-        [Input("forwardedIp")]
+        [PolicyResourceProperty("forwardedIp", "_mUnknown_ForwardedIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs> _mForwardedIp;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs? ForwardedIp => _mForwardedIp.GetValue("forwardedIp");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs? _mValue_ForwardedIp;
+        private bool _mUnknown_ForwardedIp;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs? ForwardedIp
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedIp) return _mValue_ForwardedIp;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.ForwardedIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
         /// </summary>
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs> _mHeader;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs? Header => _mHeader.GetValue("header");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs? _mValue_Header;
+        private bool _mUnknown_Header;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.Header' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs> _mHttpMethod;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
         /// </summary>
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyIpArgs> _mIp;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyIpArgs? Ip => _mIp.GetValue("ip");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyIpArgs? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyIpArgs? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.Ip' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
         /// </summary>
-        [Input("ja3Fingerprint")]
+        [PolicyResourceProperty("ja3Fingerprint", "_mUnknown_Ja3Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs> _mJa3Fingerprint;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs? Ja3Fingerprint => _mJa3Fingerprint.GetValue("ja3Fingerprint");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs? _mValue_Ja3Fingerprint;
+        private bool _mUnknown_Ja3Fingerprint;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs? Ja3Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja3Fingerprint) return _mValue_Ja3Fingerprint;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.Ja3Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
         /// </summary>
-        [Input("ja4Fingerprint")]
+        [PolicyResourceProperty("ja4Fingerprint", "_mUnknown_Ja4Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs> _mJa4Fingerprint;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs? Ja4Fingerprint => _mJa4Fingerprint.GetValue("ja4Fingerprint");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs? _mValue_Ja4Fingerprint;
+        private bool _mUnknown_Ja4Fingerprint;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs? Ja4Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja4Fingerprint) return _mValue_Ja4Fingerprint;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.Ja4Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         /// </summary>
-        [Input("labelNamespace")]
+        [PolicyResourceProperty("labelNamespace", "_mUnknown_LabelNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs> _mLabelNamespace;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs? LabelNamespace => _mLabelNamespace.GetValue("labelNamespace");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs? _mValue_LabelNamespace;
+        private bool _mUnknown_LabelNamespace;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs? LabelNamespace
+        {
+            get
+            {
+                if (!_mUnknown_LabelNamespace) return _mValue_LabelNamespace;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.LabelNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
         /// </summary>
-        [Input("queryArgument")]
+        [PolicyResourceProperty("queryArgument", "_mUnknown_QueryArgument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs> _mQueryArgument;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs? QueryArgument => _mQueryArgument.GetValue("queryArgument");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs? _mValue_QueryArgument;
+        private bool _mUnknown_QueryArgument;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs? QueryArgument
+        {
+            get
+            {
+                if (!_mUnknown_QueryArgument) return _mValue_QueryArgument;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.QueryArgument' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs> _mQueryString;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs? QueryString => _mQueryString.GetValue("queryString");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         /// </summary>
-        [Input("uriPath")]
+        [PolicyResourceProperty("uriPath", "_mUnknown_UriPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs> _mUriPath;
-
-        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs? UriPath => _mUriPath.GetValue("uriPath");
+        private Inputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs? _mValue_UriPath;
+        private bool _mUnknown_UriPath;
+        public Inputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs? UriPath
+        {
+            get
+            {
+                if (!_mUnknown_UriPath) return _mValue_UriPath;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.UriPath' is not present");
+            }
+        }
     }
 }

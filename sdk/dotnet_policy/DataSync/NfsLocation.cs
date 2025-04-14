@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NfsLocation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the NFS Server.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NfsLocationMountOptions> _mMountOptions;
-
-        public Outputs.NfsLocationMountOptions? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private Outputs.NfsLocationMountOptions? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public Outputs.NfsLocationMountOptions? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'NfsLocation.MountOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing information for connecting to the NFS File System.
         /// </summary>
-        [Input("onPremConfig")]
+        [PolicyResourceProperty("onPremConfig", "_mUnknown_OnPremConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NfsLocationOnPremConfig> _mOnPremConfig;
-
-        public Outputs.NfsLocationOnPremConfig? OnPremConfig => _mOnPremConfig.GetValue("onPremConfig");
+        private Outputs.NfsLocationOnPremConfig? _mValue_OnPremConfig;
+        private bool _mUnknown_OnPremConfig;
+        public Outputs.NfsLocationOnPremConfig? OnPremConfig
+        {
+            get
+            {
+                if (!_mUnknown_OnPremConfig) return _mValue_OnPremConfig;
+                throw new UndeferrableValueException("Value 'NfsLocation.OnPremConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         /// </summary>
-        [Input("serverHostname")]
+        [PolicyResourceProperty("serverHostname", "_mUnknown_ServerHostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
-
-        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
+        private string? _mValue_ServerHostname;
+        private bool _mUnknown_ServerHostname;
+        public string? ServerHostname
+        {
+            get
+            {
+                if (!_mUnknown_ServerHostname) return _mValue_ServerHostname;
+                throw new UndeferrableValueException("Value 'NfsLocation.ServerHostname' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'NfsLocation.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NfsLocation.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NfsLocation.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'NfsLocation.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/nfsLocation:NfsLocation")]
@@ -89,46 +145,81 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the NFS Server.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NfsLocationMountOptionsArgs> _mMountOptions;
-
-        public Inputs.NfsLocationMountOptionsArgs? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private Inputs.NfsLocationMountOptionsArgs? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public Inputs.NfsLocationMountOptionsArgs? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'NfsLocationArgs.MountOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing information for connecting to the NFS File System.
         /// </summary>
-        [Input("onPremConfig")]
+        [PolicyResourceProperty("onPremConfig", "_mUnknown_OnPremConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NfsLocationOnPremConfigArgs> _mOnPremConfig;
-
-        public Inputs.NfsLocationOnPremConfigArgs? OnPremConfig => _mOnPremConfig.GetValue("onPremConfig");
+        private Inputs.NfsLocationOnPremConfigArgs? _mValue_OnPremConfig;
+        private bool _mUnknown_OnPremConfig;
+        public Inputs.NfsLocationOnPremConfigArgs? OnPremConfig
+        {
+            get
+            {
+                if (!_mUnknown_OnPremConfig) return _mValue_OnPremConfig;
+                throw new UndeferrableValueException("Value 'NfsLocationArgs.OnPremConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         /// </summary>
-        [Input("serverHostname")]
+        [PolicyResourceProperty("serverHostname", "_mUnknown_ServerHostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
-
-        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
+        private string? _mValue_ServerHostname;
+        private bool _mUnknown_ServerHostname;
+        public string? ServerHostname
+        {
+            get
+            {
+                if (!_mUnknown_ServerHostname) return _mValue_ServerHostname;
+                throw new UndeferrableValueException("Value 'NfsLocationArgs.ServerHostname' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'NfsLocationArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NfsLocationArgs.Tags' is not present");
+            }
+        }
     }
 }

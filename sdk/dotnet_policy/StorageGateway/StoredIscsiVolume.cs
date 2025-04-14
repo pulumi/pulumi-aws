@@ -16,182 +16,322 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether mutual CHAP is enabled for the iSCSI target.
         /// </summary>
-        [Input("chapEnabled")]
+        [PolicyResourceProperty("chapEnabled", "_mUnknown_ChapEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mChapEnabled;
-
-        public bool? ChapEnabled => _mChapEnabled.GetValue("chapEnabled");
+        private bool? _mValue_ChapEnabled;
+        private bool _mUnknown_ChapEnabled;
+        public bool? ChapEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ChapEnabled) return _mValue_ChapEnabled;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.ChapEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the gateway local disk that is configured as a stored volume.
         /// </summary>
-        [Input("diskId")]
+        [PolicyResourceProperty("diskId", "_mUnknown_DiskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
-
-        public string? DiskId => _mDiskId.GetValue("diskId");
+        private string? _mValue_DiskId;
+        private bool _mUnknown_DiskId;
+        public string? DiskId
+        {
+            get
+            {
+                if (!_mUnknown_DiskId) return _mValue_DiskId;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.DiskId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
-        [Input("gatewayArn")]
+        [PolicyResourceProperty("gatewayArn", "_mUnknown_GatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
-
-        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+        private string? _mValue_GatewayArn;
+        private bool _mUnknown_GatewayArn;
+        public string? GatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_GatewayArn) return _mValue_GatewayArn;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.GatewayArn' is not present");
+            }
+        }
 
         /// <summary>
         /// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
         /// </summary>
-        [Input("kmsEncrypted")]
+        [PolicyResourceProperty("kmsEncrypted", "_mUnknown_KmsEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mKmsEncrypted;
-
-        public bool? KmsEncrypted => _mKmsEncrypted.GetValue("kmsEncrypted");
+        private bool? _mValue_KmsEncrypted;
+        private bool _mUnknown_KmsEncrypted;
+        public bool? KmsEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_KmsEncrypted) return _mValue_KmsEncrypted;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.KmsEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.KmsKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical disk number.
         /// </summary>
-        [Input("lunNumber")]
+        [PolicyResourceProperty("lunNumber", "_mUnknown_LunNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLunNumber;
-
-        public int? LunNumber => _mLunNumber.GetValue("lunNumber");
+        private int? _mValue_LunNumber;
+        private bool _mUnknown_LunNumber;
+        public int? LunNumber
+        {
+            get
+            {
+                if (!_mUnknown_LunNumber) return _mValue_LunNumber;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.LunNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The port used to communicate with iSCSI targets.
         /// </summary>
-        [Input("networkInterfacePort")]
+        [PolicyResourceProperty("networkInterfacePort", "_mUnknown_NetworkInterfacePort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetworkInterfacePort;
-
-        public int? NetworkInterfacePort => _mNetworkInterfacePort.GetValue("networkInterfacePort");
+        private int? _mValue_NetworkInterfacePort;
+        private bool _mUnknown_NetworkInterfacePort;
+        public int? NetworkInterfacePort
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfacePort) return _mValue_NetworkInterfacePort;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.NetworkInterfacePort' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
         /// </summary>
-        [Input("preserveExistingData")]
+        [PolicyResourceProperty("preserveExistingData", "_mUnknown_PreserveExistingData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveExistingData;
-
-        public bool? PreserveExistingData => _mPreserveExistingData.GetValue("preserveExistingData");
+        private bool? _mValue_PreserveExistingData;
+        private bool _mUnknown_PreserveExistingData;
+        public bool? PreserveExistingData
+        {
+            get
+            {
+                if (!_mUnknown_PreserveExistingData) return _mValue_PreserveExistingData;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.PreserveExistingData' is not present");
+            }
+        }
 
         /// <summary>
         /// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         /// </summary>
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
-
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.SnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
-
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.TargetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         /// </summary>
-        [Input("targetName")]
+        [PolicyResourceProperty("targetName", "_mUnknown_TargetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetName;
-
-        public string? TargetName => _mTargetName.GetValue("targetName");
+        private string? _mValue_TargetName;
+        private bool _mUnknown_TargetName;
+        public string? TargetName
+        {
+            get
+            {
+                if (!_mUnknown_TargetName) return _mValue_TargetName;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.TargetName' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
         /// </summary>
-        [Input("volumeAttachmentStatus")]
+        [PolicyResourceProperty("volumeAttachmentStatus", "_mUnknown_VolumeAttachmentStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeAttachmentStatus;
-
-        public string? VolumeAttachmentStatus => _mVolumeAttachmentStatus.GetValue("volumeAttachmentStatus");
+        private string? _mValue_VolumeAttachmentStatus;
+        private bool _mUnknown_VolumeAttachmentStatus;
+        public string? VolumeAttachmentStatus
+        {
+            get
+            {
+                if (!_mUnknown_VolumeAttachmentStatus) return _mValue_VolumeAttachmentStatus;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.VolumeAttachmentStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Volume ID, e.g., `vol-12345678`.
         /// </summary>
-        [Input("volumeId")]
+        [PolicyResourceProperty("volumeId", "_mUnknown_VolumeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
-
-        public string? VolumeId => _mVolumeId.GetValue("volumeId");
+        private string? _mValue_VolumeId;
+        private bool _mUnknown_VolumeId;
+        public string? VolumeId
+        {
+            get
+            {
+                if (!_mUnknown_VolumeId) return _mValue_VolumeId;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.VolumeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the data stored on the volume in bytes.
         /// </summary>
-        [Input("volumeSizeInBytes")]
+        [PolicyResourceProperty("volumeSizeInBytes", "_mUnknown_VolumeSizeInBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSizeInBytes;
-
-        public int? VolumeSizeInBytes => _mVolumeSizeInBytes.GetValue("volumeSizeInBytes");
+        private int? _mValue_VolumeSizeInBytes;
+        private bool _mUnknown_VolumeSizeInBytes;
+        public int? VolumeSizeInBytes
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSizeInBytes) return _mValue_VolumeSizeInBytes;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.VolumeSizeInBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// indicates the state of the storage volume.
         /// </summary>
-        [Input("volumeStatus")]
+        [PolicyResourceProperty("volumeStatus", "_mUnknown_VolumeStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeStatus;
-
-        public string? VolumeStatus => _mVolumeStatus.GetValue("volumeStatus");
+        private string? _mValue_VolumeStatus;
+        private bool _mUnknown_VolumeStatus;
+        public string? VolumeStatus
+        {
+            get
+            {
+                if (!_mUnknown_VolumeStatus) return _mValue_VolumeStatus;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.VolumeStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// indicates the type of the volume.
         /// </summary>
-        [Input("volumeType")]
+        [PolicyResourceProperty("volumeType", "_mUnknown_VolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
-
-        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+        private string? _mValue_VolumeType;
+        private bool _mUnknown_VolumeType;
+        public string? VolumeType
+        {
+            get
+            {
+                if (!_mUnknown_VolumeType) return _mValue_VolumeType;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolume.VolumeType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume")]
@@ -200,82 +340,145 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway
         /// <summary>
         /// The unique identifier for the gateway local disk that is configured as a stored volume.
         /// </summary>
-        [Input("diskId")]
+        [PolicyResourceProperty("diskId", "_mUnknown_DiskId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskId;
-
-        public string? DiskId => _mDiskId.GetValue("diskId");
+        private string? _mValue_DiskId;
+        private bool _mUnknown_DiskId;
+        public string? DiskId
+        {
+            get
+            {
+                if (!_mUnknown_DiskId) return _mValue_DiskId;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.DiskId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the gateway.
         /// </summary>
-        [Input("gatewayArn")]
+        [PolicyResourceProperty("gatewayArn", "_mUnknown_GatewayArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGatewayArn;
-
-        public string? GatewayArn => _mGatewayArn.GetValue("gatewayArn");
+        private string? _mValue_GatewayArn;
+        private bool _mUnknown_GatewayArn;
+        public string? GatewayArn
+        {
+            get
+            {
+                if (!_mUnknown_GatewayArn) return _mValue_GatewayArn;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.GatewayArn' is not present");
+            }
+        }
 
         /// <summary>
         /// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
         /// </summary>
-        [Input("kmsEncrypted")]
+        [PolicyResourceProperty("kmsEncrypted", "_mUnknown_KmsEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mKmsEncrypted;
-
-        public bool? KmsEncrypted => _mKmsEncrypted.GetValue("kmsEncrypted");
+        private bool? _mValue_KmsEncrypted;
+        private bool _mUnknown_KmsEncrypted;
+        public bool? KmsEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_KmsEncrypted) return _mValue_KmsEncrypted;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.KmsEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
         /// </summary>
-        [Input("kmsKey")]
+        [PolicyResourceProperty("kmsKey", "_mUnknown_KmsKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKey;
-
-        public string? KmsKey => _mKmsKey.GetValue("kmsKey");
+        private string? _mValue_KmsKey;
+        private bool _mUnknown_KmsKey;
+        public string? KmsKey
+        {
+            get
+            {
+                if (!_mUnknown_KmsKey) return _mValue_KmsKey;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.KmsKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
         /// </summary>
-        [Input("preserveExistingData")]
+        [PolicyResourceProperty("preserveExistingData", "_mUnknown_PreserveExistingData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreserveExistingData;
-
-        public bool? PreserveExistingData => _mPreserveExistingData.GetValue("preserveExistingData");
+        private bool? _mValue_PreserveExistingData;
+        private bool _mUnknown_PreserveExistingData;
+        public bool? PreserveExistingData
+        {
+            get
+            {
+                if (!_mUnknown_PreserveExistingData) return _mValue_PreserveExistingData;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.PreserveExistingData' is not present");
+            }
+        }
 
         /// <summary>
         /// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         /// </summary>
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
-
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.SnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         /// </summary>
-        [Input("targetName")]
+        [PolicyResourceProperty("targetName", "_mUnknown_TargetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetName;
-
-        public string? TargetName => _mTargetName.GetValue("targetName");
+        private string? _mValue_TargetName;
+        private bool _mUnknown_TargetName;
+        public string? TargetName
+        {
+            get
+            {
+                if (!_mUnknown_TargetName) return _mValue_TargetName;
+                throw new UndeferrableValueException("Value 'StoredIscsiVolumeArgs.TargetName' is not present");
+            }
+        }
     }
 }

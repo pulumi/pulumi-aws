@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
         /// </summary>
-        [Input("base")]
+        [PolicyResourceProperty("base", "_mUnknown_Base")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBase;
-
-        public int? Base => _mBase.GetValue("base");
+        private int? _mValue_Base;
+        private bool _mUnknown_Base;
+        public int? Base
+        {
+            get
+            {
+                if (!_mUnknown_Base) return _mValue_Base;
+                throw new UndeferrableValueException("Value 'ServiceCapacityProviderStrategy.Base' is not present");
+            }
+        }
 
         /// <summary>
         /// Short name of the capacity provider.
         /// </summary>
-        [Input("capacityProvider")]
+        [PolicyResourceProperty("capacityProvider", "_mUnknown_CapacityProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityProvider;
-
-        public string? CapacityProvider => _mCapacityProvider.GetValue("capacityProvider");
+        private string? _mValue_CapacityProvider;
+        private bool _mUnknown_CapacityProvider;
+        public string? CapacityProvider
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProvider) return _mValue_CapacityProvider;
+                throw new UndeferrableValueException("Value 'ServiceCapacityProviderStrategy.CapacityProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// Relative percentage of the total number of launched tasks that should use the specified capacity provider.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'ServiceCapacityProviderStrategy.Weight' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
         /// </summary>
-        [Input("seedUrlConfiguration")]
+        [PolicyResourceProperty("seedUrlConfiguration", "_mUnknown_SeedUrlConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs> _mSeedUrlConfiguration;
-
-        public Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs? SeedUrlConfiguration => _mSeedUrlConfiguration.GetValue("seedUrlConfiguration");
+        private Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs? _mValue_SeedUrlConfiguration;
+        private bool _mUnknown_SeedUrlConfiguration;
+        public Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs? SeedUrlConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SeedUrlConfiguration) return _mValue_SeedUrlConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.SeedUrlConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
         /// </summary>
-        [Input("siteMapsConfiguration")]
+        [PolicyResourceProperty("siteMapsConfiguration", "_mUnknown_SiteMapsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs> _mSiteMapsConfiguration;
-
-        public Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs? SiteMapsConfiguration => _mSiteMapsConfiguration.GetValue("siteMapsConfiguration");
+        private Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs? _mValue_SiteMapsConfiguration;
+        private bool _mUnknown_SiteMapsConfiguration;
+        public Inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs? SiteMapsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SiteMapsConfiguration) return _mValue_SiteMapsConfiguration;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.SiteMapsConfiguration' is not present");
+            }
+        }
     }
 }

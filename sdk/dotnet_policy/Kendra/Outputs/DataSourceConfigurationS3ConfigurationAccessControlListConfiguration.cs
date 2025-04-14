@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// Path to the AWS S3 bucket that contains the ACL files.
         /// </summary>
-        [Input("keyPath")]
+        [PolicyResourceProperty("keyPath", "_mUnknown_KeyPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPath;
-
-        public string? KeyPath => _mKeyPath.GetValue("keyPath");
+        private string? _mValue_KeyPath;
+        private bool _mUnknown_KeyPath;
+        public string? KeyPath
+        {
+            get
+            {
+                if (!_mUnknown_KeyPath) return _mValue_KeyPath;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationAccessControlListConfiguration.KeyPath' is not present");
+            }
+        }
     }
 }

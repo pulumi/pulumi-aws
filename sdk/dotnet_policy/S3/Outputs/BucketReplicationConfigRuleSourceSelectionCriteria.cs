@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
         /// </summary>
-        [Input("replicaModifications")]
+        [PolicyResourceProperty("replicaModifications", "_mUnknown_ReplicaModifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications> _mReplicaModifications;
-
-        public Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications? ReplicaModifications => _mReplicaModifications.GetValue("replicaModifications");
+        private Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications? _mValue_ReplicaModifications;
+        private bool _mUnknown_ReplicaModifications;
+        public Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications? ReplicaModifications
+        {
+            get
+            {
+                if (!_mUnknown_ReplicaModifications) return _mValue_ReplicaModifications;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleSourceSelectionCriteria.ReplicaModifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
         /// </summary>
-        [Input("sseKmsEncryptedObjects")]
+        [PolicyResourceProperty("sseKmsEncryptedObjects", "_mUnknown_SseKmsEncryptedObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects> _mSseKmsEncryptedObjects;
-
-        public Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects? SseKmsEncryptedObjects => _mSseKmsEncryptedObjects.GetValue("sseKmsEncryptedObjects");
+        private Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects? _mValue_SseKmsEncryptedObjects;
+        private bool _mUnknown_SseKmsEncryptedObjects;
+        public Outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects? SseKmsEncryptedObjects
+        {
+            get
+            {
+                if (!_mUnknown_SseKmsEncryptedObjects) return _mValue_SseKmsEncryptedObjects;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleSourceSelectionCriteria.SseKmsEncryptedObjects' is not present");
+            }
+        }
     }
 }

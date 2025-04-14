@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
 {
     public sealed class GetTableOnDemandThroughputResult
     {
-        [Input("maxReadRequestUnits")]
+        [PolicyResourceProperty("maxReadRequestUnits", "_mUnknown_MaxReadRequestUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxReadRequestUnits;
+        private int? _mValue_MaxReadRequestUnits;
+        private bool _mUnknown_MaxReadRequestUnits;
+        public int? MaxReadRequestUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaxReadRequestUnits) return _mValue_MaxReadRequestUnits;
+                throw new UndeferrableValueException("Value 'GetTableOnDemandThroughputResult.MaxReadRequestUnits' is not present");
+            }
+        }
 
-        public int? MaxReadRequestUnits => _mMaxReadRequestUnits.GetValue("maxReadRequestUnits");
-
-        [Input("maxWriteRequestUnits")]
+        [PolicyResourceProperty("maxWriteRequestUnits", "_mUnknown_MaxWriteRequestUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxWriteRequestUnits;
-
-        public int? MaxWriteRequestUnits => _mMaxWriteRequestUnits.GetValue("maxWriteRequestUnits");
+        private int? _mValue_MaxWriteRequestUnits;
+        private bool _mUnknown_MaxWriteRequestUnits;
+        public int? MaxWriteRequestUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaxWriteRequestUnits) return _mValue_MaxWriteRequestUnits;
+                throw new UndeferrableValueException("Value 'GetTableOnDemandThroughputResult.MaxWriteRequestUnits' is not present");
+            }
+        }
     }
 }

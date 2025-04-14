@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Defines a custom response for the web request. See `custom_response` below for details.
         /// </summary>
-        [Input("customResponse")]
+        [PolicyResourceProperty("customResponse", "_mUnknown_CustomResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs> _mCustomResponse;
-
-        public Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs? CustomResponse => _mCustomResponse.GetValue("customResponse");
+        private Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs? _mValue_CustomResponse;
+        private bool _mUnknown_CustomResponse;
+        public Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs? CustomResponse
+        {
+            get
+            {
+                if (!_mUnknown_CustomResponse) return _mValue_CustomResponse;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs.CustomResponse' is not present");
+            }
+        }
     }
 }

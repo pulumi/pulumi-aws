@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDuration;
-
-        public string? Duration => _mDuration.GetValue("duration");
+        private string? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public string? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'GetIndexDocumentMetadataConfigurationUpdateRelevanceResult.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         /// </summary>
-        [Input("freshness")]
+        [PolicyResourceProperty("freshness", "_mUnknown_Freshness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFreshness;
-
-        public bool? Freshness => _mFreshness.GetValue("freshness");
+        private bool? _mValue_Freshness;
+        private bool _mUnknown_Freshness;
+        public bool? Freshness
+        {
+            get
+            {
+                if (!_mUnknown_Freshness) return _mValue_Freshness;
+                throw new UndeferrableValueException("Value 'GetIndexDocumentMetadataConfigurationUpdateRelevanceResult.Freshness' is not present");
+            }
+        }
 
         /// <summary>
         /// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
         /// </summary>
-        [Input("importance")]
+        [PolicyResourceProperty("importance", "_mUnknown_Importance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImportance;
-
-        public int? Importance => _mImportance.GetValue("importance");
+        private int? _mValue_Importance;
+        private bool _mUnknown_Importance;
+        public int? Importance
+        {
+            get
+            {
+                if (!_mUnknown_Importance) return _mValue_Importance;
+                throw new UndeferrableValueException("Value 'GetIndexDocumentMetadataConfigurationUpdateRelevanceResult.Importance' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
         /// </summary>
-        [Input("rankOrder")]
+        [PolicyResourceProperty("rankOrder", "_mUnknown_RankOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRankOrder;
-
-        public string? RankOrder => _mRankOrder.GetValue("rankOrder");
+        private string? _mValue_RankOrder;
+        private bool _mUnknown_RankOrder;
+        public string? RankOrder
+        {
+            get
+            {
+                if (!_mUnknown_RankOrder) return _mValue_RankOrder;
+                throw new UndeferrableValueException("Value 'GetIndexDocumentMetadataConfigurationUpdateRelevanceResult.RankOrder' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         /// </summary>
-        [Input("valuesImportanceMap")]
+        [PolicyResourceProperty("valuesImportanceMap", "_mUnknown_ValuesImportanceMap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, int>> _mValuesImportanceMap;
-
-        public Dictionary<string, int>? ValuesImportanceMap => _mValuesImportanceMap.GetValue("valuesImportanceMap");
+        private Dictionary<string, int>? _mValue_ValuesImportanceMap;
+        private bool _mUnknown_ValuesImportanceMap;
+        public Dictionary<string, int>? ValuesImportanceMap
+        {
+            get
+            {
+                if (!_mUnknown_ValuesImportanceMap) return _mValue_ValuesImportanceMap;
+                throw new UndeferrableValueException("Value 'GetIndexDocumentMetadataConfigurationUpdateRelevanceResult.ValuesImportanceMap' is not present");
+            }
+        }
     }
 }

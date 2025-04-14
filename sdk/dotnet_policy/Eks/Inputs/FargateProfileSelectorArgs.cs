@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// Key-value map of Kubernetes labels for selection.
         /// </summary>
-        [Input("labels")]
+        [PolicyResourceProperty("labels", "_mUnknown_Labels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLabels;
-
-        public Dictionary<string, string>? Labels => _mLabels.GetValue("labels");
+        private Dictionary<string, string>? _mValue_Labels;
+        private bool _mUnknown_Labels;
+        public Dictionary<string, string>? Labels
+        {
+            get
+            {
+                if (!_mUnknown_Labels) return _mValue_Labels;
+                throw new UndeferrableValueException("Value 'FargateProfileSelectorArgs.Labels' is not present");
+            }
+        }
 
         /// <summary>
         /// Kubernetes namespace for selection.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'FargateProfileSelectorArgs.Namespace' is not present");
+            }
+        }
     }
 }

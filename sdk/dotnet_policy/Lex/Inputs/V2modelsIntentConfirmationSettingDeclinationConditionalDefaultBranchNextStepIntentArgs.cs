@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Name of the intent.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
         /// </summary>
-        [Input("slots")]
+        [PolicyResourceProperty("slots", "_mUnknown_Slots")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs>> _mSlots;
-
-        public List<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs>? Slots => _mSlots.GetValue("slots");
+        private List<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs>? _mValue_Slots;
+        private bool _mUnknown_Slots;
+        public List<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs>? Slots
+        {
+            get
+            {
+                if (!_mUnknown_Slots) return _mValue_Slots;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentArgs.Slots' is not present");
+            }
+        }
     }
 }

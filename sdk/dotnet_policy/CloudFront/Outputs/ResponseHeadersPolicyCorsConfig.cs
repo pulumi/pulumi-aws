@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
         /// </summary>
-        [Input("accessControlAllowCredentials")]
+        [PolicyResourceProperty("accessControlAllowCredentials", "_mUnknown_AccessControlAllowCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAccessControlAllowCredentials;
-
-        public bool? AccessControlAllowCredentials => _mAccessControlAllowCredentials.GetValue("accessControlAllowCredentials");
+        private bool? _mValue_AccessControlAllowCredentials;
+        private bool _mUnknown_AccessControlAllowCredentials;
+        public bool? AccessControlAllowCredentials
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlAllowCredentials) return _mValue_AccessControlAllowCredentials;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.AccessControlAllowCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
         /// </summary>
-        [Input("accessControlAllowHeaders")]
+        [PolicyResourceProperty("accessControlAllowHeaders", "_mUnknown_AccessControlAllowHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders> _mAccessControlAllowHeaders;
-
-        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders? AccessControlAllowHeaders => _mAccessControlAllowHeaders.GetValue("accessControlAllowHeaders");
+        private Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders? _mValue_AccessControlAllowHeaders;
+        private bool _mUnknown_AccessControlAllowHeaders;
+        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders? AccessControlAllowHeaders
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlAllowHeaders) return _mValue_AccessControlAllowHeaders;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.AccessControlAllowHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
         /// </summary>
-        [Input("accessControlAllowMethods")]
+        [PolicyResourceProperty("accessControlAllowMethods", "_mUnknown_AccessControlAllowMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods> _mAccessControlAllowMethods;
-
-        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods? AccessControlAllowMethods => _mAccessControlAllowMethods.GetValue("accessControlAllowMethods");
+        private Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods? _mValue_AccessControlAllowMethods;
+        private bool _mUnknown_AccessControlAllowMethods;
+        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods? AccessControlAllowMethods
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlAllowMethods) return _mValue_AccessControlAllowMethods;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.AccessControlAllowMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
         /// </summary>
-        [Input("accessControlAllowOrigins")]
+        [PolicyResourceProperty("accessControlAllowOrigins", "_mUnknown_AccessControlAllowOrigins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins> _mAccessControlAllowOrigins;
-
-        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins? AccessControlAllowOrigins => _mAccessControlAllowOrigins.GetValue("accessControlAllowOrigins");
+        private Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins? _mValue_AccessControlAllowOrigins;
+        private bool _mUnknown_AccessControlAllowOrigins;
+        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins? AccessControlAllowOrigins
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlAllowOrigins) return _mValue_AccessControlAllowOrigins;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.AccessControlAllowOrigins' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
         /// </summary>
-        [Input("accessControlExposeHeaders")]
+        [PolicyResourceProperty("accessControlExposeHeaders", "_mUnknown_AccessControlExposeHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders> _mAccessControlExposeHeaders;
-
-        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders? AccessControlExposeHeaders => _mAccessControlExposeHeaders.GetValue("accessControlExposeHeaders");
+        private Outputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders? _mValue_AccessControlExposeHeaders;
+        private bool _mUnknown_AccessControlExposeHeaders;
+        public Outputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders? AccessControlExposeHeaders
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlExposeHeaders) return _mValue_AccessControlExposeHeaders;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.AccessControlExposeHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
         /// </summary>
-        [Input("accessControlMaxAgeSec")]
+        [PolicyResourceProperty("accessControlMaxAgeSec", "_mUnknown_AccessControlMaxAgeSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAccessControlMaxAgeSec;
-
-        public int? AccessControlMaxAgeSec => _mAccessControlMaxAgeSec.GetValue("accessControlMaxAgeSec");
+        private int? _mValue_AccessControlMaxAgeSec;
+        private bool _mUnknown_AccessControlMaxAgeSec;
+        public int? AccessControlMaxAgeSec
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlMaxAgeSec) return _mValue_AccessControlMaxAgeSec;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.AccessControlMaxAgeSec' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value that determines how CloudFront behaves for the HTTP response header.
         /// </summary>
-        [Input("originOverride")]
+        [PolicyResourceProperty("originOverride", "_mUnknown_OriginOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOriginOverride;
-
-        public bool? OriginOverride => _mOriginOverride.GetValue("originOverride");
+        private bool? _mValue_OriginOverride;
+        private bool _mUnknown_OriginOverride;
+        public bool? OriginOverride
+        {
+            get
+            {
+                if (!_mUnknown_OriginOverride) return _mValue_OriginOverride;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.OriginOverride' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rbin.Outputs
         /// <summary>
         /// The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
         /// </summary>
-        [Input("unlockDelayUnit")]
+        [PolicyResourceProperty("unlockDelayUnit", "_mUnknown_UnlockDelayUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnlockDelayUnit;
-
-        public string? UnlockDelayUnit => _mUnlockDelayUnit.GetValue("unlockDelayUnit");
+        private string? _mValue_UnlockDelayUnit;
+        private bool _mUnknown_UnlockDelayUnit;
+        public string? UnlockDelayUnit
+        {
+            get
+            {
+                if (!_mUnknown_UnlockDelayUnit) return _mValue_UnlockDelayUnit;
+                throw new UndeferrableValueException("Value 'RuleLockConfigurationUnlockDelay.UnlockDelayUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// The unlock delay period, measured in the unit specified for UnlockDelayUnit.
         /// </summary>
-        [Input("unlockDelayValue")]
+        [PolicyResourceProperty("unlockDelayValue", "_mUnknown_UnlockDelayValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnlockDelayValue;
-
-        public int? UnlockDelayValue => _mUnlockDelayValue.GetValue("unlockDelayValue");
+        private int? _mValue_UnlockDelayValue;
+        private bool _mUnknown_UnlockDelayValue;
+        public int? UnlockDelayValue
+        {
+            get
+            {
+                if (!_mUnknown_UnlockDelayValue) return _mValue_UnlockDelayValue;
+                throw new UndeferrableValueException("Value 'RuleLockConfigurationUnlockDelay.UnlockDelayValue' is not present");
+            }
+        }
     }
 }

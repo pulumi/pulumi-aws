@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Inputs
         /// <summary>
         /// Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
         /// </summary>
-        [Input("entityIdKey")]
+        [PolicyResourceProperty("entityIdKey", "_mUnknown_EntityIdKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityIdKey;
-
-        public string? EntityIdKey => _mEntityIdKey.GetValue("entityIdKey");
+        private string? _mValue_EntityIdKey;
+        private bool _mUnknown_EntityIdKey;
+        public string? EntityIdKey
+        {
+            get
+            {
+                if (!_mUnknown_EntityIdKey) return _mValue_EntityIdKey;
+                throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.EntityIdKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies The EventBridge event pattern that defines how the metric is recorded.
         /// </summary>
-        [Input("eventPattern")]
+        [PolicyResourceProperty("eventPattern", "_mUnknown_EventPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventPattern;
-
-        public string? EventPattern => _mEventPattern.GetValue("eventPattern");
+        private string? _mValue_EventPattern;
+        private bool _mUnknown_EventPattern;
+        public string? EventPattern
+        {
+            get
+            {
+                if (!_mUnknown_EventPattern) return _mValue_EventPattern;
+                throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.EventPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name for the metric.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a label for the units that the metric is measuring.
         /// </summary>
-        [Input("unitLabel")]
+        [PolicyResourceProperty("unitLabel", "_mUnknown_UnitLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnitLabel;
-
-        public string? UnitLabel => _mUnitLabel.GetValue("unitLabel");
+        private string? _mValue_UnitLabel;
+        private bool _mUnknown_UnitLabel;
+        public string? UnitLabel
+        {
+            get
+            {
+                if (!_mUnknown_UnitLabel) return _mValue_UnitLabel;
+                throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.UnitLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the value that is tracked to produce the metric.
         /// </summary>
-        [Input("valueKey")]
+        [PolicyResourceProperty("valueKey", "_mUnknown_ValueKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValueKey;
-
-        public string? ValueKey => _mValueKey.GetValue("valueKey");
+        private string? _mValue_ValueKey;
+        private bool _mUnknown_ValueKey;
+        public string? ValueKey
+        {
+            get
+            {
+                if (!_mUnknown_ValueKey) return _mValue_ValueKey;
+                throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.ValueKey' is not present");
+            }
+        }
     }
 }

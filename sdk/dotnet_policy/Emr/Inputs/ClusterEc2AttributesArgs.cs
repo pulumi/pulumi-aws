@@ -15,84 +15,147 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
         /// </summary>
-        [Input("additionalMasterSecurityGroups")]
+        [PolicyResourceProperty("additionalMasterSecurityGroups", "_mUnknown_AdditionalMasterSecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalMasterSecurityGroups;
-
-        public string? AdditionalMasterSecurityGroups => _mAdditionalMasterSecurityGroups.GetValue("additionalMasterSecurityGroups");
+        private string? _mValue_AdditionalMasterSecurityGroups;
+        private bool _mUnknown_AdditionalMasterSecurityGroups;
+        public string? AdditionalMasterSecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalMasterSecurityGroups) return _mValue_AdditionalMasterSecurityGroups;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.AdditionalMasterSecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
         /// </summary>
-        [Input("additionalSlaveSecurityGroups")]
+        [PolicyResourceProperty("additionalSlaveSecurityGroups", "_mUnknown_AdditionalSlaveSecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalSlaveSecurityGroups;
-
-        public string? AdditionalSlaveSecurityGroups => _mAdditionalSlaveSecurityGroups.GetValue("additionalSlaveSecurityGroups");
+        private string? _mValue_AdditionalSlaveSecurityGroups;
+        private bool _mUnknown_AdditionalSlaveSecurityGroups;
+        public string? AdditionalSlaveSecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalSlaveSecurityGroups) return _mValue_AdditionalSlaveSecurityGroups;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.AdditionalSlaveSecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Amazon EC2 EMR-Managed security group for the master node.
         /// </summary>
-        [Input("emrManagedMasterSecurityGroup")]
+        [PolicyResourceProperty("emrManagedMasterSecurityGroup", "_mUnknown_EmrManagedMasterSecurityGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmrManagedMasterSecurityGroup;
-
-        public string? EmrManagedMasterSecurityGroup => _mEmrManagedMasterSecurityGroup.GetValue("emrManagedMasterSecurityGroup");
+        private string? _mValue_EmrManagedMasterSecurityGroup;
+        private bool _mUnknown_EmrManagedMasterSecurityGroup;
+        public string? EmrManagedMasterSecurityGroup
+        {
+            get
+            {
+                if (!_mUnknown_EmrManagedMasterSecurityGroup) return _mValue_EmrManagedMasterSecurityGroup;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.EmrManagedMasterSecurityGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
         /// </summary>
-        [Input("emrManagedSlaveSecurityGroup")]
+        [PolicyResourceProperty("emrManagedSlaveSecurityGroup", "_mUnknown_EmrManagedSlaveSecurityGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmrManagedSlaveSecurityGroup;
-
-        public string? EmrManagedSlaveSecurityGroup => _mEmrManagedSlaveSecurityGroup.GetValue("emrManagedSlaveSecurityGroup");
+        private string? _mValue_EmrManagedSlaveSecurityGroup;
+        private bool _mUnknown_EmrManagedSlaveSecurityGroup;
+        public string? EmrManagedSlaveSecurityGroup
+        {
+            get
+            {
+                if (!_mUnknown_EmrManagedSlaveSecurityGroup) return _mValue_EmrManagedSlaveSecurityGroup;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.EmrManagedSlaveSecurityGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance Profile for EC2 instances of the cluster assume this role.
         /// </summary>
-        [Input("instanceProfile")]
+        [PolicyResourceProperty("instanceProfile", "_mUnknown_InstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceProfile;
-
-        public string? InstanceProfile => _mInstanceProfile.GetValue("instanceProfile");
+        private string? _mValue_InstanceProfile;
+        private bool _mUnknown_InstanceProfile;
+        public string? InstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_InstanceProfile) return _mValue_InstanceProfile;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.InstanceProfile' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
         /// </summary>
-        [Input("serviceAccessSecurityGroup")]
+        [PolicyResourceProperty("serviceAccessSecurityGroup", "_mUnknown_ServiceAccessSecurityGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessSecurityGroup;
-
-        public string? ServiceAccessSecurityGroup => _mServiceAccessSecurityGroup.GetValue("serviceAccessSecurityGroup");
+        private string? _mValue_ServiceAccessSecurityGroup;
+        private bool _mUnknown_ServiceAccessSecurityGroup;
+        public string? ServiceAccessSecurityGroup
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessSecurityGroup) return _mValue_ServiceAccessSecurityGroup;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.ServiceAccessSecurityGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
         /// 
         /// &gt; **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emr_managed_master_security_group` and `emr_managed_slave_security_group`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for any Security Group used in `emr_managed_master_security_group` and `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.SubnetIds' is not present");
+            }
+        }
     }
 }

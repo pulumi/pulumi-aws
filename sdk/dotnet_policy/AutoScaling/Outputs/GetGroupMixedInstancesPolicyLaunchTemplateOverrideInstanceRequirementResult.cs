@@ -12,217 +12,385 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
 {
     public sealed class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult
     {
-        [Input("acceleratorCounts")]
+        [PolicyResourceProperty("acceleratorCounts", "_mUnknown_AcceleratorCounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult>> _mAcceleratorCounts;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult>? AcceleratorCounts => _mAcceleratorCounts.GetValue("acceleratorCounts");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult>? _mValue_AcceleratorCounts;
+        private bool _mUnknown_AcceleratorCounts;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult>? AcceleratorCounts
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorCounts) return _mValue_AcceleratorCounts;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.AcceleratorCounts' is not present");
+            }
+        }
 
         /// <summary>
         /// List of accelerator manufacturer names.
         /// </summary>
-        [Input("acceleratorManufacturers")]
+        [PolicyResourceProperty("acceleratorManufacturers", "_mUnknown_AcceleratorManufacturers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorManufacturers;
-
-        public List<string>? AcceleratorManufacturers => _mAcceleratorManufacturers.GetValue("acceleratorManufacturers");
+        private List<string>? _mValue_AcceleratorManufacturers;
+        private bool _mUnknown_AcceleratorManufacturers;
+        public List<string>? AcceleratorManufacturers
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorManufacturers) return _mValue_AcceleratorManufacturers;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.AcceleratorManufacturers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of accelerator names.
         /// </summary>
-        [Input("acceleratorNames")]
+        [PolicyResourceProperty("acceleratorNames", "_mUnknown_AcceleratorNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorNames;
-
-        public List<string>? AcceleratorNames => _mAcceleratorNames.GetValue("acceleratorNames");
+        private List<string>? _mValue_AcceleratorNames;
+        private bool _mUnknown_AcceleratorNames;
+        public List<string>? AcceleratorNames
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorNames) return _mValue_AcceleratorNames;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.AcceleratorNames' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum total memory of the accelerators.
         /// </summary>
-        [Input("acceleratorTotalMemoryMibs")]
+        [PolicyResourceProperty("acceleratorTotalMemoryMibs", "_mUnknown_AcceleratorTotalMemoryMibs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult>> _mAcceleratorTotalMemoryMibs;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult>? AcceleratorTotalMemoryMibs => _mAcceleratorTotalMemoryMibs.GetValue("acceleratorTotalMemoryMibs");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult>? _mValue_AcceleratorTotalMemoryMibs;
+        private bool _mUnknown_AcceleratorTotalMemoryMibs;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult>? AcceleratorTotalMemoryMibs
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorTotalMemoryMibs) return _mValue_AcceleratorTotalMemoryMibs;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.AcceleratorTotalMemoryMibs' is not present");
+            }
+        }
 
         /// <summary>
         /// List of accelerator types.
         /// </summary>
-        [Input("acceleratorTypes")]
+        [PolicyResourceProperty("acceleratorTypes", "_mUnknown_AcceleratorTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorTypes;
-
-        public List<string>? AcceleratorTypes => _mAcceleratorTypes.GetValue("acceleratorTypes");
+        private List<string>? _mValue_AcceleratorTypes;
+        private bool _mUnknown_AcceleratorTypes;
+        public List<string>? AcceleratorTypes
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorTypes) return _mValue_AcceleratorTypes;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.AcceleratorTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// List of instance types to apply the specified attributes against.
         /// </summary>
-        [Input("allowedInstanceTypes")]
+        [PolicyResourceProperty("allowedInstanceTypes", "_mUnknown_AllowedInstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedInstanceTypes;
-
-        public List<string>? AllowedInstanceTypes => _mAllowedInstanceTypes.GetValue("allowedInstanceTypes");
+        private List<string>? _mValue_AllowedInstanceTypes;
+        private bool _mUnknown_AllowedInstanceTypes;
+        public List<string>? AllowedInstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_AllowedInstanceTypes) return _mValue_AllowedInstanceTypes;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.AllowedInstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether bare metal instances are included, excluded, or required.
         /// </summary>
-        [Input("bareMetal")]
+        [PolicyResourceProperty("bareMetal", "_mUnknown_BareMetal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBareMetal;
-
-        public string? BareMetal => _mBareMetal.GetValue("bareMetal");
+        private string? _mValue_BareMetal;
+        private bool _mUnknown_BareMetal;
+        public string? BareMetal
+        {
+            get
+            {
+                if (!_mUnknown_BareMetal) return _mValue_BareMetal;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.BareMetal' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
         /// </summary>
-        [Input("baselineEbsBandwidthMbps")]
+        [PolicyResourceProperty("baselineEbsBandwidthMbps", "_mUnknown_BaselineEbsBandwidthMbps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult>> _mBaselineEbsBandwidthMbps;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult>? BaselineEbsBandwidthMbps => _mBaselineEbsBandwidthMbps.GetValue("baselineEbsBandwidthMbps");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult>? _mValue_BaselineEbsBandwidthMbps;
+        private bool _mUnknown_BaselineEbsBandwidthMbps;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult>? BaselineEbsBandwidthMbps
+        {
+            get
+            {
+                if (!_mUnknown_BaselineEbsBandwidthMbps) return _mValue_BaselineEbsBandwidthMbps;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.BaselineEbsBandwidthMbps' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether burstable performance instance types are included, excluded, or required.
         /// </summary>
-        [Input("burstablePerformance")]
+        [PolicyResourceProperty("burstablePerformance", "_mUnknown_BurstablePerformance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBurstablePerformance;
-
-        public string? BurstablePerformance => _mBurstablePerformance.GetValue("burstablePerformance");
+        private string? _mValue_BurstablePerformance;
+        private bool _mUnknown_BurstablePerformance;
+        public string? BurstablePerformance
+        {
+            get
+            {
+                if (!_mUnknown_BurstablePerformance) return _mValue_BurstablePerformance;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.BurstablePerformance' is not present");
+            }
+        }
 
         /// <summary>
         /// List of CPU manufacturer names.
         /// </summary>
-        [Input("cpuManufacturers")]
+        [PolicyResourceProperty("cpuManufacturers", "_mUnknown_CpuManufacturers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCpuManufacturers;
-
-        public List<string>? CpuManufacturers => _mCpuManufacturers.GetValue("cpuManufacturers");
+        private List<string>? _mValue_CpuManufacturers;
+        private bool _mUnknown_CpuManufacturers;
+        public List<string>? CpuManufacturers
+        {
+            get
+            {
+                if (!_mUnknown_CpuManufacturers) return _mValue_CpuManufacturers;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.CpuManufacturers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of excluded instance types.
         /// </summary>
-        [Input("excludedInstanceTypes")]
+        [PolicyResourceProperty("excludedInstanceTypes", "_mUnknown_ExcludedInstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedInstanceTypes;
-
-        public List<string>? ExcludedInstanceTypes => _mExcludedInstanceTypes.GetValue("excludedInstanceTypes");
+        private List<string>? _mValue_ExcludedInstanceTypes;
+        private bool _mUnknown_ExcludedInstanceTypes;
+        public List<string>? ExcludedInstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedInstanceTypes) return _mValue_ExcludedInstanceTypes;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.ExcludedInstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// List of instance generation names.
         /// </summary>
-        [Input("instanceGenerations")]
+        [PolicyResourceProperty("instanceGenerations", "_mUnknown_InstanceGenerations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceGenerations;
-
-        public List<string>? InstanceGenerations => _mInstanceGenerations.GetValue("instanceGenerations");
+        private List<string>? _mValue_InstanceGenerations;
+        private bool _mUnknown_InstanceGenerations;
+        public List<string>? InstanceGenerations
+        {
+            get
+            {
+                if (!_mUnknown_InstanceGenerations) return _mValue_InstanceGenerations;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.InstanceGenerations' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether instance types with instance store volumes are included, excluded, or required.
         /// </summary>
-        [Input("localStorage")]
+        [PolicyResourceProperty("localStorage", "_mUnknown_LocalStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalStorage;
-
-        public string? LocalStorage => _mLocalStorage.GetValue("localStorage");
+        private string? _mValue_LocalStorage;
+        private bool _mUnknown_LocalStorage;
+        public string? LocalStorage
+        {
+            get
+            {
+                if (!_mUnknown_LocalStorage) return _mValue_LocalStorage;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.LocalStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// List of local storage type names.
         /// </summary>
-        [Input("localStorageTypes")]
+        [PolicyResourceProperty("localStorageTypes", "_mUnknown_LocalStorageTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLocalStorageTypes;
-
-        public List<string>? LocalStorageTypes => _mLocalStorageTypes.GetValue("localStorageTypes");
+        private List<string>? _mValue_LocalStorageTypes;
+        private bool _mUnknown_LocalStorageTypes;
+        public List<string>? LocalStorageTypes
+        {
+            get
+            {
+                if (!_mUnknown_LocalStorageTypes) return _mValue_LocalStorageTypes;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.LocalStorageTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Price protection threshold for Spot Instances.
         /// </summary>
-        [Input("maxSpotPriceAsPercentageOfOptimalOnDemandPrice")]
+        [PolicyResourceProperty("maxSpotPriceAsPercentageOfOptimalOnDemandPrice", "_mUnknown_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
-
-        public int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice => _mMaxSpotPriceAsPercentageOfOptimalOnDemandPrice.GetValue("maxSpotPriceAsPercentageOfOptimalOnDemandPrice");
+        private int? _mValue_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+        private bool _mUnknown_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+        public int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+        {
+            get
+            {
+                if (!_mUnknown_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice) return _mValue_MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
         /// </summary>
-        [Input("memoryGibPerVcpus")]
+        [PolicyResourceProperty("memoryGibPerVcpus", "_mUnknown_MemoryGibPerVcpus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult>> _mMemoryGibPerVcpus;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult>? MemoryGibPerVcpus => _mMemoryGibPerVcpus.GetValue("memoryGibPerVcpus");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult>? _mValue_MemoryGibPerVcpus;
+        private bool _mUnknown_MemoryGibPerVcpus;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult>? MemoryGibPerVcpus
+        {
+            get
+            {
+                if (!_mUnknown_MemoryGibPerVcpus) return _mValue_MemoryGibPerVcpus;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.MemoryGibPerVcpus' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum amount of memory (MiB).
         /// </summary>
-        [Input("memoryMibs")]
+        [PolicyResourceProperty("memoryMibs", "_mUnknown_MemoryMibs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult>> _mMemoryMibs;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult>? MemoryMibs => _mMemoryMibs.GetValue("memoryMibs");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult>? _mValue_MemoryMibs;
+        private bool _mUnknown_MemoryMibs;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult>? MemoryMibs
+        {
+            get
+            {
+                if (!_mUnknown_MemoryMibs) return _mValue_MemoryMibs;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.MemoryMibs' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
         /// </summary>
-        [Input("networkBandwidthGbps")]
+        [PolicyResourceProperty("networkBandwidthGbps", "_mUnknown_NetworkBandwidthGbps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult>> _mNetworkBandwidthGbps;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult>? NetworkBandwidthGbps => _mNetworkBandwidthGbps.GetValue("networkBandwidthGbps");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult>? _mValue_NetworkBandwidthGbps;
+        private bool _mUnknown_NetworkBandwidthGbps;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult>? NetworkBandwidthGbps
+        {
+            get
+            {
+                if (!_mUnknown_NetworkBandwidthGbps) return _mValue_NetworkBandwidthGbps;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.NetworkBandwidthGbps' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum amount of network interfaces.
         /// </summary>
-        [Input("networkInterfaceCounts")]
+        [PolicyResourceProperty("networkInterfaceCounts", "_mUnknown_NetworkInterfaceCounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult>> _mNetworkInterfaceCounts;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult>? NetworkInterfaceCounts => _mNetworkInterfaceCounts.GetValue("networkInterfaceCounts");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult>? _mValue_NetworkInterfaceCounts;
+        private bool _mUnknown_NetworkInterfaceCounts;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult>? NetworkInterfaceCounts
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceCounts) return _mValue_NetworkInterfaceCounts;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.NetworkInterfaceCounts' is not present");
+            }
+        }
 
         /// <summary>
         /// Price protection threshold for On-Demand Instances.
         /// </summary>
-        [Input("onDemandMaxPricePercentageOverLowestPrice")]
+        [PolicyResourceProperty("onDemandMaxPricePercentageOverLowestPrice", "_mUnknown_OnDemandMaxPricePercentageOverLowestPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOnDemandMaxPricePercentageOverLowestPrice;
-
-        public int? OnDemandMaxPricePercentageOverLowestPrice => _mOnDemandMaxPricePercentageOverLowestPrice.GetValue("onDemandMaxPricePercentageOverLowestPrice");
+        private int? _mValue_OnDemandMaxPricePercentageOverLowestPrice;
+        private bool _mUnknown_OnDemandMaxPricePercentageOverLowestPrice;
+        public int? OnDemandMaxPricePercentageOverLowestPrice
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandMaxPricePercentageOverLowestPrice) return _mValue_OnDemandMaxPricePercentageOverLowestPrice;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.OnDemandMaxPricePercentageOverLowestPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether instance types must support On-Demand Instance Hibernation.
         /// </summary>
-        [Input("requireHibernateSupport")]
+        [PolicyResourceProperty("requireHibernateSupport", "_mUnknown_RequireHibernateSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireHibernateSupport;
-
-        public bool? RequireHibernateSupport => _mRequireHibernateSupport.GetValue("requireHibernateSupport");
+        private bool? _mValue_RequireHibernateSupport;
+        private bool _mUnknown_RequireHibernateSupport;
+        public bool? RequireHibernateSupport
+        {
+            get
+            {
+                if (!_mUnknown_RequireHibernateSupport) return _mValue_RequireHibernateSupport;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.RequireHibernateSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Price protection threshold for Spot Instances.
         /// </summary>
-        [Input("spotMaxPricePercentageOverLowestPrice")]
+        [PolicyResourceProperty("spotMaxPricePercentageOverLowestPrice", "_mUnknown_SpotMaxPricePercentageOverLowestPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSpotMaxPricePercentageOverLowestPrice;
-
-        public int? SpotMaxPricePercentageOverLowestPrice => _mSpotMaxPricePercentageOverLowestPrice.GetValue("spotMaxPricePercentageOverLowestPrice");
+        private int? _mValue_SpotMaxPricePercentageOverLowestPrice;
+        private bool _mUnknown_SpotMaxPricePercentageOverLowestPrice;
+        public int? SpotMaxPricePercentageOverLowestPrice
+        {
+            get
+            {
+                if (!_mUnknown_SpotMaxPricePercentageOverLowestPrice) return _mValue_SpotMaxPricePercentageOverLowestPrice;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.SpotMaxPricePercentageOverLowestPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum total storage (GB).
         /// </summary>
-        [Input("totalLocalStorageGbs")]
+        [PolicyResourceProperty("totalLocalStorageGbs", "_mUnknown_TotalLocalStorageGbs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult>> _mTotalLocalStorageGbs;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult>? TotalLocalStorageGbs => _mTotalLocalStorageGbs.GetValue("totalLocalStorageGbs");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult>? _mValue_TotalLocalStorageGbs;
+        private bool _mUnknown_TotalLocalStorageGbs;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult>? TotalLocalStorageGbs
+        {
+            get
+            {
+                if (!_mUnknown_TotalLocalStorageGbs) return _mValue_TotalLocalStorageGbs;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.TotalLocalStorageGbs' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects describing the minimum and maximum number of vCPUs.
         /// </summary>
-        [Input("vcpuCounts")]
+        [PolicyResourceProperty("vcpuCounts", "_mUnknown_VcpuCounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult>> _mVcpuCounts;
-
-        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult>? VcpuCounts => _mVcpuCounts.GetValue("vcpuCounts");
+        private List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult>? _mValue_VcpuCounts;
+        private bool _mUnknown_VcpuCounts;
+        public List<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult>? VcpuCounts
+        {
+            get
+            {
+                if (!_mUnknown_VcpuCounts) return _mValue_VcpuCounts;
+                throw new UndeferrableValueException("Value 'GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult.VcpuCounts' is not present");
+            }
+        }
     }
 }

@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// <summary>
         /// Group name of the logs in CloudWatch Logs.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigCloudwatchLogsArgs.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Current status of logs in CloudWatch Logs for a build project. Valid values: `ENABLED`,
         /// `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigCloudwatchLogsArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix of the log stream name of the logs in CloudWatch Logs.
         /// </summary>
-        [Input("streamName")]
+        [PolicyResourceProperty("streamName", "_mUnknown_StreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
-
-        public string? StreamName => _mStreamName.GetValue("streamName");
+        private string? _mValue_StreamName;
+        private bool _mUnknown_StreamName;
+        public string? StreamName
+        {
+            get
+            {
+                if (!_mUnknown_StreamName) return _mValue_StreamName;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigCloudwatchLogsArgs.StreamName' is not present");
+            }
+        }
     }
 }

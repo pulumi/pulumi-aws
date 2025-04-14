@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager.Outputs
 {
     public sealed class GetSecretRotationRotationRuleResult
     {
-        [Input("automaticallyAfterDays")]
+        [PolicyResourceProperty("automaticallyAfterDays", "_mUnknown_AutomaticallyAfterDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticallyAfterDays;
+        private int? _mValue_AutomaticallyAfterDays;
+        private bool _mUnknown_AutomaticallyAfterDays;
+        public int? AutomaticallyAfterDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticallyAfterDays) return _mValue_AutomaticallyAfterDays;
+                throw new UndeferrableValueException("Value 'GetSecretRotationRotationRuleResult.AutomaticallyAfterDays' is not present");
+            }
+        }
 
-        public int? AutomaticallyAfterDays => _mAutomaticallyAfterDays.GetValue("automaticallyAfterDays");
-
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDuration;
+        private string? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public string? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'GetSecretRotationRotationRuleResult.Duration' is not present");
+            }
+        }
 
-        public string? Duration => _mDuration.GetValue("duration");
-
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'GetSecretRotationRotationRuleResult.ScheduleExpression' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// Email configuration set name from SES.
         /// </summary>
-        [Input("configurationSet")]
+        [PolicyResourceProperty("configurationSet", "_mUnknown_ConfigurationSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSet;
-
-        public string? ConfigurationSet => _mConfigurationSet.GetValue("configurationSet");
+        private string? _mValue_ConfigurationSet;
+        private bool _mUnknown_ConfigurationSet;
+        public string? ConfigurationSet
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSet) return _mValue_ConfigurationSet;
+                throw new UndeferrableValueException("Value 'UserPoolEmailConfiguration.ConfigurationSet' is not present");
+            }
+        }
 
         /// <summary>
         /// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
         /// </summary>
-        [Input("emailSendingAccount")]
+        [PolicyResourceProperty("emailSendingAccount", "_mUnknown_EmailSendingAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailSendingAccount;
-
-        public string? EmailSendingAccount => _mEmailSendingAccount.GetValue("emailSendingAccount");
+        private string? _mValue_EmailSendingAccount;
+        private bool _mUnknown_EmailSendingAccount;
+        public string? EmailSendingAccount
+        {
+            get
+            {
+                if (!_mUnknown_EmailSendingAccount) return _mValue_EmailSendingAccount;
+                throw new UndeferrableValueException("Value 'UserPoolEmailConfiguration.EmailSendingAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith &lt;john@example.com&gt;` or `\"John Smith Ph.D.\" &lt;john@example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
         /// </summary>
-        [Input("fromEmailAddress")]
+        [PolicyResourceProperty("fromEmailAddress", "_mUnknown_FromEmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFromEmailAddress;
-
-        public string? FromEmailAddress => _mFromEmailAddress.GetValue("fromEmailAddress");
+        private string? _mValue_FromEmailAddress;
+        private bool _mUnknown_FromEmailAddress;
+        public string? FromEmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_FromEmailAddress) return _mValue_FromEmailAddress;
+                throw new UndeferrableValueException("Value 'UserPoolEmailConfiguration.FromEmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// REPLY-TO email address.
         /// </summary>
-        [Input("replyToEmailAddress")]
+        [PolicyResourceProperty("replyToEmailAddress", "_mUnknown_ReplyToEmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplyToEmailAddress;
-
-        public string? ReplyToEmailAddress => _mReplyToEmailAddress.GetValue("replyToEmailAddress");
+        private string? _mValue_ReplyToEmailAddress;
+        private bool _mUnknown_ReplyToEmailAddress;
+        public string? ReplyToEmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_ReplyToEmailAddress) return _mValue_ReplyToEmailAddress;
+                throw new UndeferrableValueException("Value 'UserPoolEmailConfiguration.ReplyToEmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'UserPoolEmailConfiguration.SourceArn' is not present");
+            }
+        }
     }
 }

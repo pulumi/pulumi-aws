@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// Desired max number of unavailable worker nodes during node group update.
         /// </summary>
-        [Input("maxUnavailable")]
+        [PolicyResourceProperty("maxUnavailable", "_mUnknown_MaxUnavailable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUnavailable;
-
-        public int? MaxUnavailable => _mMaxUnavailable.GetValue("maxUnavailable");
+        private int? _mValue_MaxUnavailable;
+        private bool _mUnknown_MaxUnavailable;
+        public int? MaxUnavailable
+        {
+            get
+            {
+                if (!_mUnknown_MaxUnavailable) return _mValue_MaxUnavailable;
+                throw new UndeferrableValueException("Value 'NodeGroupUpdateConfigArgs.MaxUnavailable' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired max percentage of unavailable worker nodes during node group update.
         /// </summary>
-        [Input("maxUnavailablePercentage")]
+        [PolicyResourceProperty("maxUnavailablePercentage", "_mUnknown_MaxUnavailablePercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxUnavailablePercentage;
-
-        public int? MaxUnavailablePercentage => _mMaxUnavailablePercentage.GetValue("maxUnavailablePercentage");
+        private int? _mValue_MaxUnavailablePercentage;
+        private bool _mUnknown_MaxUnavailablePercentage;
+        public int? MaxUnavailablePercentage
+        {
+            get
+            {
+                if (!_mUnknown_MaxUnavailablePercentage) return _mValue_MaxUnavailablePercentage;
+                throw new UndeferrableValueException("Value 'NodeGroupUpdateConfigArgs.MaxUnavailablePercentage' is not present");
+            }
+        }
     }
 }

@@ -15,61 +15,110 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
         /// </summary>
-        [Input("cloudWatchDestination")]
+        [PolicyResourceProperty("cloudWatchDestination", "_mUnknown_CloudWatchDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination> _mCloudWatchDestination;
-
-        public Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination? CloudWatchDestination => _mCloudWatchDestination.GetValue("cloudWatchDestination");
+        private Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination? _mValue_CloudWatchDestination;
+        private bool _mUnknown_CloudWatchDestination;
+        public Outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination? CloudWatchDestination
+        {
+            get
+            {
+                if (!_mUnknown_CloudWatchDestination) return _mValue_CloudWatchDestination;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestination.CloudWatchDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestination.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("eventBridgeDestination")]
+        [PolicyResourceProperty("eventBridgeDestination", "_mUnknown_EventBridgeDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination> _mEventBridgeDestination;
-
-        public Outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination? EventBridgeDestination => _mEventBridgeDestination.GetValue("eventBridgeDestination");
+        private Outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination? _mValue_EventBridgeDestination;
+        private bool _mUnknown_EventBridgeDestination;
+        public Outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination? EventBridgeDestination
+        {
+            get
+            {
+                if (!_mUnknown_EventBridgeDestination) return _mValue_EventBridgeDestination;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestination.EventBridgeDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
         /// </summary>
-        [Input("kinesisFirehoseDestination")]
+        [PolicyResourceProperty("kinesisFirehoseDestination", "_mUnknown_KinesisFirehoseDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination> _mKinesisFirehoseDestination;
-
-        public Outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination? KinesisFirehoseDestination => _mKinesisFirehoseDestination.GetValue("kinesisFirehoseDestination");
+        private Outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination? _mValue_KinesisFirehoseDestination;
+        private bool _mUnknown_KinesisFirehoseDestination;
+        public Outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination? KinesisFirehoseDestination
+        {
+            get
+            {
+                if (!_mUnknown_KinesisFirehoseDestination) return _mValue_KinesisFirehoseDestination;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestination.KinesisFirehoseDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
         /// </summary>
-        [Input("matchingEventTypes")]
+        [PolicyResourceProperty("matchingEventTypes", "_mUnknown_MatchingEventTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchingEventTypes;
-
-        public List<string>? MatchingEventTypes => _mMatchingEventTypes.GetValue("matchingEventTypes");
+        private List<string>? _mValue_MatchingEventTypes;
+        private bool _mUnknown_MatchingEventTypes;
+        public List<string>? MatchingEventTypes
+        {
+            get
+            {
+                if (!_mUnknown_MatchingEventTypes) return _mValue_MatchingEventTypes;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestination.MatchingEventTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
         /// </summary>
-        [Input("pinpointDestination")]
+        [PolicyResourceProperty("pinpointDestination", "_mUnknown_PinpointDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination> _mPinpointDestination;
-
-        public Outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination? PinpointDestination => _mPinpointDestination.GetValue("pinpointDestination");
+        private Outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination? _mValue_PinpointDestination;
+        private bool _mUnknown_PinpointDestination;
+        public Outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination? PinpointDestination
+        {
+            get
+            {
+                if (!_mUnknown_PinpointDestination) return _mValue_PinpointDestination;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestination.PinpointDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         /// </summary>
-        [Input("snsDestination")]
+        [PolicyResourceProperty("snsDestination", "_mUnknown_SnsDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination> _mSnsDestination;
-
-        public Outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination? SnsDestination => _mSnsDestination.GetValue("snsDestination");
+        private Outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination? _mValue_SnsDestination;
+        private bool _mUnknown_SnsDestination;
+        public Outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination? SnsDestination
+        {
+            get
+            {
+                if (!_mUnknown_SnsDestination) return _mValue_SnsDestination;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestination.SnsDestination' is not present");
+            }
+        }
     }
 }

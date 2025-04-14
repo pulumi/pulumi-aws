@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationReplicationTimeArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
         /// </summary>
-        [Input("time")]
+        [PolicyResourceProperty("time", "_mUnknown_Time")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs> _mTime;
-
-        public Inputs.BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs? Time => _mTime.GetValue("time");
+        private Inputs.BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs? _mValue_Time;
+        private bool _mUnknown_Time;
+        public Inputs.BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs? Time
+        {
+            get
+            {
+                if (!_mUnknown_Time) return _mValue_Time;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationReplicationTimeArgs.Time' is not present");
+            }
+        }
     }
 }

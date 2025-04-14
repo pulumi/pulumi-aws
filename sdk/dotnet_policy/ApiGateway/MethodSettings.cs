@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         /// </summary>
-        [Input("methodPath")]
+        [PolicyResourceProperty("methodPath", "_mUnknown_MethodPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethodPath;
-
-        public string? MethodPath => _mMethodPath.GetValue("methodPath");
+        private string? _mValue_MethodPath;
+        private bool _mUnknown_MethodPath;
+        public string? MethodPath
+        {
+            get
+            {
+                if (!_mUnknown_MethodPath) return _mValue_MethodPath;
+                throw new UndeferrableValueException("Value 'MethodSettings.MethodPath' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'MethodSettings.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings block, see below.
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MethodSettingsSettings> _mSettings;
-
-        public Outputs.MethodSettingsSettings? Settings => _mSettings.GetValue("settings");
+        private Outputs.MethodSettingsSettings? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public Outputs.MethodSettingsSettings? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'MethodSettings.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the stage
         /// </summary>
-        [Input("stageName")]
+        [PolicyResourceProperty("stageName", "_mUnknown_StageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
-
-        public string? StageName => _mStageName.GetValue("stageName");
+        private string? _mValue_StageName;
+        private bool _mUnknown_StageName;
+        public string? StageName
+        {
+            get
+            {
+                if (!_mUnknown_StageName) return _mValue_StageName;
+                throw new UndeferrableValueException("Value 'MethodSettings.StageName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/methodSettings:MethodSettings")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         /// </summary>
-        [Input("methodPath")]
+        [PolicyResourceProperty("methodPath", "_mUnknown_MethodPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethodPath;
-
-        public string? MethodPath => _mMethodPath.GetValue("methodPath");
+        private string? _mValue_MethodPath;
+        private bool _mUnknown_MethodPath;
+        public string? MethodPath
+        {
+            get
+            {
+                if (!_mUnknown_MethodPath) return _mValue_MethodPath;
+                throw new UndeferrableValueException("Value 'MethodSettingsArgs.MethodPath' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'MethodSettingsArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings block, see below.
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MethodSettingsSettingsArgs> _mSettings;
-
-        public Inputs.MethodSettingsSettingsArgs? Settings => _mSettings.GetValue("settings");
+        private Inputs.MethodSettingsSettingsArgs? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public Inputs.MethodSettingsSettingsArgs? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'MethodSettingsArgs.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the stage
         /// </summary>
-        [Input("stageName")]
+        [PolicyResourceProperty("stageName", "_mUnknown_StageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStageName;
-
-        public string? StageName => _mStageName.GetValue("stageName");
+        private string? _mValue_StageName;
+        private bool _mUnknown_StageName;
+        public string? StageName
+        {
+            get
+            {
+                if (!_mUnknown_StageName) return _mValue_StageName;
+                throw new UndeferrableValueException("Value 'MethodSettingsArgs.StageName' is not present");
+            }
+        }
     }
 }

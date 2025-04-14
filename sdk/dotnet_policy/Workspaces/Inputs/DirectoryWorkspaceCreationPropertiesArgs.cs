@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces.Inputs
         /// <summary>
         /// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
         /// </summary>
-        [Input("customSecurityGroupId")]
+        [PolicyResourceProperty("customSecurityGroupId", "_mUnknown_CustomSecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomSecurityGroupId;
-
-        public string? CustomSecurityGroupId => _mCustomSecurityGroupId.GetValue("customSecurityGroupId");
+        private string? _mValue_CustomSecurityGroupId;
+        private bool _mUnknown_CustomSecurityGroupId;
+        public string? CustomSecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_CustomSecurityGroupId) return _mValue_CustomSecurityGroupId;
+                throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.CustomSecurityGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;"` pattern.
         /// </summary>
-        [Input("defaultOu")]
+        [PolicyResourceProperty("defaultOu", "_mUnknown_DefaultOu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultOu;
-
-        public string? DefaultOu => _mDefaultOu.GetValue("defaultOu");
+        private string? _mValue_DefaultOu;
+        private bool _mUnknown_DefaultOu;
+        public string? DefaultOu
+        {
+            get
+            {
+                if (!_mUnknown_DefaultOu) return _mValue_DefaultOu;
+                throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.DefaultOu' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether internet access is enabled for your WorkSpaces.
         /// </summary>
-        [Input("enableInternetAccess")]
+        [PolicyResourceProperty("enableInternetAccess", "_mUnknown_EnableInternetAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableInternetAccess;
-
-        public bool? EnableInternetAccess => _mEnableInternetAccess.GetValue("enableInternetAccess");
+        private bool? _mValue_EnableInternetAccess;
+        private bool _mUnknown_EnableInternetAccess;
+        public bool? EnableInternetAccess
+        {
+            get
+            {
+                if (!_mUnknown_EnableInternetAccess) return _mValue_EnableInternetAccess;
+                throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.EnableInternetAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
         /// </summary>
-        [Input("enableMaintenanceMode")]
+        [PolicyResourceProperty("enableMaintenanceMode", "_mUnknown_EnableMaintenanceMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMaintenanceMode;
-
-        public bool? EnableMaintenanceMode => _mEnableMaintenanceMode.GetValue("enableMaintenanceMode");
+        private bool? _mValue_EnableMaintenanceMode;
+        private bool _mUnknown_EnableMaintenanceMode;
+        public bool? EnableMaintenanceMode
+        {
+            get
+            {
+                if (!_mUnknown_EnableMaintenanceMode) return _mValue_EnableMaintenanceMode;
+                throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.EnableMaintenanceMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether users are local administrators of their WorkSpaces.
         /// </summary>
-        [Input("userEnabledAsLocalAdministrator")]
+        [PolicyResourceProperty("userEnabledAsLocalAdministrator", "_mUnknown_UserEnabledAsLocalAdministrator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUserEnabledAsLocalAdministrator;
-
-        public bool? UserEnabledAsLocalAdministrator => _mUserEnabledAsLocalAdministrator.GetValue("userEnabledAsLocalAdministrator");
+        private bool? _mValue_UserEnabledAsLocalAdministrator;
+        private bool _mUnknown_UserEnabledAsLocalAdministrator;
+        public bool? UserEnabledAsLocalAdministrator
+        {
+            get
+            {
+                if (!_mUnknown_UserEnabledAsLocalAdministrator) return _mValue_UserEnabledAsLocalAdministrator;
+                throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.UserEnabledAsLocalAdministrator' is not present");
+            }
+        }
     }
 }

@@ -15,102 +15,179 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// <summary>
         /// Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
         /// </summary>
-        [Input("authenticationRequestExtraParams")]
+        [PolicyResourceProperty("authenticationRequestExtraParams", "_mUnknown_AuthenticationRequestExtraParams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAuthenticationRequestExtraParams;
-
-        public Dictionary<string, string>? AuthenticationRequestExtraParams => _mAuthenticationRequestExtraParams.GetValue("authenticationRequestExtraParams");
+        private Dictionary<string, string>? _mValue_AuthenticationRequestExtraParams;
+        private bool _mUnknown_AuthenticationRequestExtraParams;
+        public Dictionary<string, string>? AuthenticationRequestExtraParams
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationRequestExtraParams) return _mValue_AuthenticationRequestExtraParams;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.AuthenticationRequestExtraParams' is not present");
+            }
+        }
 
         /// <summary>
         /// Authorization endpoint of the IdP.
         /// </summary>
-        [Input("authorizationEndpoint")]
+        [PolicyResourceProperty("authorizationEndpoint", "_mUnknown_AuthorizationEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationEndpoint;
-
-        public string? AuthorizationEndpoint => _mAuthorizationEndpoint.GetValue("authorizationEndpoint");
+        private string? _mValue_AuthorizationEndpoint;
+        private bool _mUnknown_AuthorizationEndpoint;
+        public string? AuthorizationEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationEndpoint) return _mValue_AuthorizationEndpoint;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.AuthorizationEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// OAuth 2.0 client identifier.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// OAuth 2.0 client secret.
         /// </summary>
-        [Input("clientSecret")]
+        [PolicyResourceProperty("clientSecret", "_mUnknown_ClientSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
-
-        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
+        private string? _mValue_ClientSecret;
+        private bool _mUnknown_ClientSecret;
+        public string? ClientSecret
+        {
+            get
+            {
+                if (!_mUnknown_ClientSecret) return _mValue_ClientSecret;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.ClientSecret' is not present");
+            }
+        }
 
         /// <summary>
         /// OIDC issuer identifier of the IdP.
         /// </summary>
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
-
-        public string? Issuer => _mIssuer.GetValue("issuer");
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.Issuer' is not present");
+            }
+        }
 
         /// <summary>
         /// Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
         /// </summary>
-        [Input("onUnauthenticatedRequest")]
+        [PolicyResourceProperty("onUnauthenticatedRequest", "_mUnknown_OnUnauthenticatedRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnUnauthenticatedRequest;
-
-        public string? OnUnauthenticatedRequest => _mOnUnauthenticatedRequest.GetValue("onUnauthenticatedRequest");
+        private string? _mValue_OnUnauthenticatedRequest;
+        private bool _mUnknown_OnUnauthenticatedRequest;
+        public string? OnUnauthenticatedRequest
+        {
+            get
+            {
+                if (!_mUnknown_OnUnauthenticatedRequest) return _mValue_OnUnauthenticatedRequest;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.OnUnauthenticatedRequest' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of user claims to be requested from the IdP.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cookie used to maintain session information.
         /// </summary>
-        [Input("sessionCookieName")]
+        [PolicyResourceProperty("sessionCookieName", "_mUnknown_SessionCookieName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionCookieName;
-
-        public string? SessionCookieName => _mSessionCookieName.GetValue("sessionCookieName");
+        private string? _mValue_SessionCookieName;
+        private bool _mUnknown_SessionCookieName;
+        public string? SessionCookieName
+        {
+            get
+            {
+                if (!_mUnknown_SessionCookieName) return _mValue_SessionCookieName;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.SessionCookieName' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum duration of the authentication session, in seconds.
         /// </summary>
-        [Input("sessionTimeout")]
+        [PolicyResourceProperty("sessionTimeout", "_mUnknown_SessionTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSessionTimeout;
-
-        public int? SessionTimeout => _mSessionTimeout.GetValue("sessionTimeout");
+        private int? _mValue_SessionTimeout;
+        private bool _mUnknown_SessionTimeout;
+        public int? SessionTimeout
+        {
+            get
+            {
+                if (!_mUnknown_SessionTimeout) return _mValue_SessionTimeout;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.SessionTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Token endpoint of the IdP.
         /// </summary>
-        [Input("tokenEndpoint")]
+        [PolicyResourceProperty("tokenEndpoint", "_mUnknown_TokenEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenEndpoint;
-
-        public string? TokenEndpoint => _mTokenEndpoint.GetValue("tokenEndpoint");
+        private string? _mValue_TokenEndpoint;
+        private bool _mUnknown_TokenEndpoint;
+        public string? TokenEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_TokenEndpoint) return _mValue_TokenEndpoint;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.TokenEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// User info endpoint of the IdP.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userInfoEndpoint")]
+        [PolicyResourceProperty("userInfoEndpoint", "_mUnknown_UserInfoEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserInfoEndpoint;
-
-        public string? UserInfoEndpoint => _mUserInfoEndpoint.GetValue("userInfoEndpoint");
+        private string? _mValue_UserInfoEndpoint;
+        private bool _mUnknown_UserInfoEndpoint;
+        public string? UserInfoEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_UserInfoEndpoint) return _mValue_UserInfoEndpoint;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidcArgs.UserInfoEndpoint' is not present");
+            }
+        }
     }
 }

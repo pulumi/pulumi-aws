@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Amazon Resource Name (ARN) of the snapshot.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The cluster identifier for which you want a snapshot.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         /// </summary>
-        [Input("manualSnapshotRetentionPeriod")]
+        [PolicyResourceProperty("manualSnapshotRetentionPeriod", "_mUnknown_ManualSnapshotRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mManualSnapshotRetentionPeriod;
-
-        public int? ManualSnapshotRetentionPeriod => _mManualSnapshotRetentionPeriod.GetValue("manualSnapshotRetentionPeriod");
+        private int? _mValue_ManualSnapshotRetentionPeriod;
+        private bool _mUnknown_ManualSnapshotRetentionPeriod;
+        public int? ManualSnapshotRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_ManualSnapshotRetentionPeriod) return _mValue_ManualSnapshotRetentionPeriod;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.ManualSnapshotRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
         /// </summary>
-        [Input("ownerAccount")]
+        [PolicyResourceProperty("ownerAccount", "_mUnknown_OwnerAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccount;
-
-        public string? OwnerAccount => _mOwnerAccount.GetValue("ownerAccount");
+        private string? _mValue_OwnerAccount;
+        private bool _mUnknown_OwnerAccount;
+        public string? OwnerAccount
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccount) return _mValue_OwnerAccount;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.OwnerAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ClusterSnapshot.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/clusterSnapshot:ClusterSnapshot")]
@@ -92,37 +148,65 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The cluster identifier for which you want a snapshot.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         /// </summary>
-        [Input("manualSnapshotRetentionPeriod")]
+        [PolicyResourceProperty("manualSnapshotRetentionPeriod", "_mUnknown_ManualSnapshotRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mManualSnapshotRetentionPeriod;
-
-        public int? ManualSnapshotRetentionPeriod => _mManualSnapshotRetentionPeriod.GetValue("manualSnapshotRetentionPeriod");
+        private int? _mValue_ManualSnapshotRetentionPeriod;
+        private bool _mUnknown_ManualSnapshotRetentionPeriod;
+        public int? ManualSnapshotRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_ManualSnapshotRetentionPeriod) return _mValue_ManualSnapshotRetentionPeriod;
+                throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.ManualSnapshotRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
         /// </summary>
-        [Input("snapshotIdentifier")]
+        [PolicyResourceProperty("snapshotIdentifier", "_mUnknown_SnapshotIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotIdentifier;
-
-        public string? SnapshotIdentifier => _mSnapshotIdentifier.GetValue("snapshotIdentifier");
+        private string? _mValue_SnapshotIdentifier;
+        private bool _mUnknown_SnapshotIdentifier;
+        public string? SnapshotIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotIdentifier) return _mValue_SnapshotIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.SnapshotIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.Tags' is not present");
+            }
+        }
     }
 }

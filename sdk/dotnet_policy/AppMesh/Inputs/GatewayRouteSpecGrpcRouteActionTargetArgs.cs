@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecGrpcRouteActionTargetArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual service gateway route target.
         /// </summary>
-        [Input("virtualService")]
+        [PolicyResourceProperty("virtualService", "_mUnknown_VirtualService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs> _mVirtualService;
-
-        public Inputs.GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs? VirtualService => _mVirtualService.GetValue("virtualService");
+        private Inputs.GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs? _mValue_VirtualService;
+        private bool _mUnknown_VirtualService;
+        public Inputs.GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs? VirtualService
+        {
+            get
+            {
+                if (!_mUnknown_VirtualService) return _mValue_VirtualService;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecGrpcRouteActionTargetArgs.VirtualService' is not present");
+            }
+        }
     }
 }

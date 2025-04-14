@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.RedshiftServerless.Outputs
         /// <summary>
         /// The DNS address of the VPC endpoint.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'WorkgroupEndpoint.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number on which the cluster accepts incoming connections.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'WorkgroupEndpoint.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         /// </summary>
-        [Input("vpcEndpoints")]
+        [PolicyResourceProperty("vpcEndpoints", "_mUnknown_VpcEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WorkgroupEndpointVpcEndpoint>> _mVpcEndpoints;
-
-        public List<Outputs.WorkgroupEndpointVpcEndpoint>? VpcEndpoints => _mVpcEndpoints.GetValue("vpcEndpoints");
+        private List<Outputs.WorkgroupEndpointVpcEndpoint>? _mValue_VpcEndpoints;
+        private bool _mUnknown_VpcEndpoints;
+        public List<Outputs.WorkgroupEndpointVpcEndpoint>? VpcEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpoints) return _mValue_VpcEndpoints;
+                throw new UndeferrableValueException("Value 'WorkgroupEndpoint.VpcEndpoints' is not present");
+            }
+        }
     }
 }

@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the anomaly subscription.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         /// </summary>
-        [Input("frequency")]
+        [PolicyResourceProperty("frequency", "_mUnknown_Frequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrequency;
-
-        public string? Frequency => _mFrequency.GetValue("frequency");
+        private string? _mValue_Frequency;
+        private bool _mUnknown_Frequency;
+        public string? Frequency
+        {
+            get
+            {
+                if (!_mUnknown_Frequency) return _mValue_Frequency;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.Frequency' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of cost anomaly monitors.
         /// </summary>
-        [Input("monitorArnLists")]
+        [PolicyResourceProperty("monitorArnLists", "_mUnknown_MonitorArnLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMonitorArnLists;
-
-        public List<string>? MonitorArnLists => _mMonitorArnLists.GetValue("monitorArnLists");
+        private List<string>? _mValue_MonitorArnLists;
+        private bool _mUnknown_MonitorArnLists;
+        public List<string>? MonitorArnLists
+        {
+            get
+            {
+                if (!_mUnknown_MonitorArnLists) return _mValue_MonitorArnLists;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.MonitorArnLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the subscription.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A subscriber configuration. Multiple subscribers can be defined.
         /// </summary>
-        [Input("subscribers")]
+        [PolicyResourceProperty("subscribers", "_mUnknown_Subscribers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnomalySubscriptionSubscriber>> _mSubscribers;
-
-        public List<Outputs.AnomalySubscriptionSubscriber>? Subscribers => _mSubscribers.GetValue("subscribers");
+        private List<Outputs.AnomalySubscriptionSubscriber>? _mValue_Subscribers;
+        private bool _mUnknown_Subscribers;
+        public List<Outputs.AnomalySubscriptionSubscriber>? Subscribers
+        {
+            get
+            {
+                if (!_mUnknown_Subscribers) return _mValue_Subscribers;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.Subscribers' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         /// </summary>
-        [Input("thresholdExpression")]
+        [PolicyResourceProperty("thresholdExpression", "_mUnknown_ThresholdExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnomalySubscriptionThresholdExpression> _mThresholdExpression;
-
-        public Outputs.AnomalySubscriptionThresholdExpression? ThresholdExpression => _mThresholdExpression.GetValue("thresholdExpression");
+        private Outputs.AnomalySubscriptionThresholdExpression? _mValue_ThresholdExpression;
+        private bool _mUnknown_ThresholdExpression;
+        public Outputs.AnomalySubscriptionThresholdExpression? ThresholdExpression
+        {
+            get
+            {
+                if (!_mUnknown_ThresholdExpression) return _mValue_ThresholdExpression;
+                throw new UndeferrableValueException("Value 'AnomalySubscription.ThresholdExpression' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:costexplorer/anomalySubscription:AnomalySubscription")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         /// </summary>
-        [Input("frequency")]
+        [PolicyResourceProperty("frequency", "_mUnknown_Frequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrequency;
-
-        public string? Frequency => _mFrequency.GetValue("frequency");
+        private string? _mValue_Frequency;
+        private bool _mUnknown_Frequency;
+        public string? Frequency
+        {
+            get
+            {
+                if (!_mUnknown_Frequency) return _mValue_Frequency;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.Frequency' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of cost anomaly monitors.
         /// </summary>
-        [Input("monitorArnLists")]
+        [PolicyResourceProperty("monitorArnLists", "_mUnknown_MonitorArnLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMonitorArnLists;
-
-        public List<string>? MonitorArnLists => _mMonitorArnLists.GetValue("monitorArnLists");
+        private List<string>? _mValue_MonitorArnLists;
+        private bool _mUnknown_MonitorArnLists;
+        public List<string>? MonitorArnLists
+        {
+            get
+            {
+                if (!_mUnknown_MonitorArnLists) return _mValue_MonitorArnLists;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.MonitorArnLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the subscription.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A subscriber configuration. Multiple subscribers can be defined.
         /// </summary>
-        [Input("subscribers")]
+        [PolicyResourceProperty("subscribers", "_mUnknown_Subscribers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnomalySubscriptionSubscriberArgs>> _mSubscribers;
-
-        public List<Inputs.AnomalySubscriptionSubscriberArgs>? Subscribers => _mSubscribers.GetValue("subscribers");
+        private List<Inputs.AnomalySubscriptionSubscriberArgs>? _mValue_Subscribers;
+        private bool _mUnknown_Subscribers;
+        public List<Inputs.AnomalySubscriptionSubscriberArgs>? Subscribers
+        {
+            get
+            {
+                if (!_mUnknown_Subscribers) return _mValue_Subscribers;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.Subscribers' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         /// </summary>
-        [Input("thresholdExpression")]
+        [PolicyResourceProperty("thresholdExpression", "_mUnknown_ThresholdExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnomalySubscriptionThresholdExpressionArgs> _mThresholdExpression;
-
-        public Inputs.AnomalySubscriptionThresholdExpressionArgs? ThresholdExpression => _mThresholdExpression.GetValue("thresholdExpression");
+        private Inputs.AnomalySubscriptionThresholdExpressionArgs? _mValue_ThresholdExpression;
+        private bool _mUnknown_ThresholdExpression;
+        public Inputs.AnomalySubscriptionThresholdExpressionArgs? ThresholdExpression
+        {
+            get
+            {
+                if (!_mUnknown_ThresholdExpression) return _mValue_ThresholdExpression;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.ThresholdExpression' is not present");
+            }
+        }
     }
 }

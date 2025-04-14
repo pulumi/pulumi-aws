@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Specifies that AWS WAF should allow requests by default. See `allow` below for details.
         /// </summary>
-        [Input("allow")]
+        [PolicyResourceProperty("allow", "_mUnknown_Allow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclDefaultActionAllowArgs> _mAllow;
-
-        public Inputs.WebAclDefaultActionAllowArgs? Allow => _mAllow.GetValue("allow");
+        private Inputs.WebAclDefaultActionAllowArgs? _mValue_Allow;
+        private bool _mUnknown_Allow;
+        public Inputs.WebAclDefaultActionAllowArgs? Allow
+        {
+            get
+            {
+                if (!_mUnknown_Allow) return _mValue_Allow;
+                throw new UndeferrableValueException("Value 'WebAclDefaultActionArgs.Allow' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies that AWS WAF should block requests by default. See `block` below for details.
         /// </summary>
-        [Input("block")]
+        [PolicyResourceProperty("block", "_mUnknown_Block")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclDefaultActionBlockArgs> _mBlock;
-
-        public Inputs.WebAclDefaultActionBlockArgs? Block => _mBlock.GetValue("block");
+        private Inputs.WebAclDefaultActionBlockArgs? _mValue_Block;
+        private bool _mUnknown_Block;
+        public Inputs.WebAclDefaultActionBlockArgs? Block
+        {
+            get
+            {
+                if (!_mUnknown_Block) return _mValue_Block;
+                throw new UndeferrableValueException("Value 'WebAclDefaultActionArgs.Block' is not present");
+            }
+        }
     }
 }

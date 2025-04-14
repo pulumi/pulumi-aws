@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// ID of the associated AppSync API.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'Function.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Function object.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Function.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'Function.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Function data source name.
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'Function.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Function description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Function.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique ID representing the Function object.
         /// </summary>
-        [Input("functionId")]
+        [PolicyResourceProperty("functionId", "_mUnknown_FunctionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionId;
-
-        public string? FunctionId => _mFunctionId.GetValue("functionId");
+        private string? _mValue_FunctionId;
+        private bool _mUnknown_FunctionId;
+        public string? FunctionId
+        {
+            get
+            {
+                if (!_mUnknown_FunctionId) return _mValue_FunctionId;
+                throw new UndeferrableValueException("Value 'Function.FunctionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         /// </summary>
-        [Input("functionVersion")]
+        [PolicyResourceProperty("functionVersion", "_mUnknown_FunctionVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
-
-        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
+        private string? _mValue_FunctionVersion;
+        private bool _mUnknown_FunctionVersion;
+        public string? FunctionVersion
+        {
+            get
+            {
+                if (!_mUnknown_FunctionVersion) return _mValue_FunctionVersion;
+                throw new UndeferrableValueException("Value 'Function.FunctionVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
-        [Input("maxBatchSize")]
+        [PolicyResourceProperty("maxBatchSize", "_mUnknown_MaxBatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
-
-        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
+        private int? _mValue_MaxBatchSize;
+        private bool _mUnknown_MaxBatchSize;
+        public int? MaxBatchSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxBatchSize) return _mValue_MaxBatchSize;
+                throw new UndeferrableValueException("Value 'Function.MaxBatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Function name. The function name does not have to be unique.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Function.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         /// </summary>
-        [Input("requestMappingTemplate")]
+        [PolicyResourceProperty("requestMappingTemplate", "_mUnknown_RequestMappingTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestMappingTemplate;
-
-        public string? RequestMappingTemplate => _mRequestMappingTemplate.GetValue("requestMappingTemplate");
+        private string? _mValue_RequestMappingTemplate;
+        private bool _mUnknown_RequestMappingTemplate;
+        public string? RequestMappingTemplate
+        {
+            get
+            {
+                if (!_mUnknown_RequestMappingTemplate) return _mValue_RequestMappingTemplate;
+                throw new UndeferrableValueException("Value 'Function.RequestMappingTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Function response mapping template.
         /// </summary>
-        [Input("responseMappingTemplate")]
+        [PolicyResourceProperty("responseMappingTemplate", "_mUnknown_ResponseMappingTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseMappingTemplate;
-
-        public string? ResponseMappingTemplate => _mResponseMappingTemplate.GetValue("responseMappingTemplate");
+        private string? _mValue_ResponseMappingTemplate;
+        private bool _mUnknown_ResponseMappingTemplate;
+        public string? ResponseMappingTemplate
+        {
+            get
+            {
+                if (!_mUnknown_ResponseMappingTemplate) return _mValue_ResponseMappingTemplate;
+                throw new UndeferrableValueException("Value 'Function.ResponseMappingTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionRuntime> _mRuntime;
-
-        public Outputs.FunctionRuntime? Runtime => _mRuntime.GetValue("runtime");
+        private Outputs.FunctionRuntime? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public Outputs.FunctionRuntime? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'Function.Runtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         /// </summary>
-        [Input("syncConfig")]
+        [PolicyResourceProperty("syncConfig", "_mUnknown_SyncConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FunctionSyncConfig> _mSyncConfig;
-
-        public Outputs.FunctionSyncConfig? SyncConfig => _mSyncConfig.GetValue("syncConfig");
+        private Outputs.FunctionSyncConfig? _mValue_SyncConfig;
+        private bool _mUnknown_SyncConfig;
+        public Outputs.FunctionSyncConfig? SyncConfig
+        {
+            get
+            {
+                if (!_mUnknown_SyncConfig) return _mValue_SyncConfig;
+                throw new UndeferrableValueException("Value 'Function.SyncConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/function:Function")]
@@ -137,100 +228,177 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// ID of the associated AppSync API.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'FunctionArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Function data source name.
         /// </summary>
-        [Input("dataSource")]
+        [PolicyResourceProperty("dataSource", "_mUnknown_DataSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSource;
-
-        public string? DataSource => _mDataSource.GetValue("dataSource");
+        private string? _mValue_DataSource;
+        private bool _mUnknown_DataSource;
+        public string? DataSource
+        {
+            get
+            {
+                if (!_mUnknown_DataSource) return _mValue_DataSource;
+                throw new UndeferrableValueException("Value 'FunctionArgs.DataSource' is not present");
+            }
+        }
 
         /// <summary>
         /// Function description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         /// </summary>
-        [Input("functionVersion")]
+        [PolicyResourceProperty("functionVersion", "_mUnknown_FunctionVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionVersion;
-
-        public string? FunctionVersion => _mFunctionVersion.GetValue("functionVersion");
+        private string? _mValue_FunctionVersion;
+        private bool _mUnknown_FunctionVersion;
+        public string? FunctionVersion
+        {
+            get
+            {
+                if (!_mUnknown_FunctionVersion) return _mValue_FunctionVersion;
+                throw new UndeferrableValueException("Value 'FunctionArgs.FunctionVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         /// </summary>
-        [Input("maxBatchSize")]
+        [PolicyResourceProperty("maxBatchSize", "_mUnknown_MaxBatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBatchSize;
-
-        public int? MaxBatchSize => _mMaxBatchSize.GetValue("maxBatchSize");
+        private int? _mValue_MaxBatchSize;
+        private bool _mUnknown_MaxBatchSize;
+        public int? MaxBatchSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxBatchSize) return _mValue_MaxBatchSize;
+                throw new UndeferrableValueException("Value 'FunctionArgs.MaxBatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Function name. The function name does not have to be unique.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         /// </summary>
-        [Input("requestMappingTemplate")]
+        [PolicyResourceProperty("requestMappingTemplate", "_mUnknown_RequestMappingTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRequestMappingTemplate;
-
-        public string? RequestMappingTemplate => _mRequestMappingTemplate.GetValue("requestMappingTemplate");
+        private string? _mValue_RequestMappingTemplate;
+        private bool _mUnknown_RequestMappingTemplate;
+        public string? RequestMappingTemplate
+        {
+            get
+            {
+                if (!_mUnknown_RequestMappingTemplate) return _mValue_RequestMappingTemplate;
+                throw new UndeferrableValueException("Value 'FunctionArgs.RequestMappingTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Function response mapping template.
         /// </summary>
-        [Input("responseMappingTemplate")]
+        [PolicyResourceProperty("responseMappingTemplate", "_mUnknown_ResponseMappingTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseMappingTemplate;
-
-        public string? ResponseMappingTemplate => _mResponseMappingTemplate.GetValue("responseMappingTemplate");
+        private string? _mValue_ResponseMappingTemplate;
+        private bool _mUnknown_ResponseMappingTemplate;
+        public string? ResponseMappingTemplate
+        {
+            get
+            {
+                if (!_mUnknown_ResponseMappingTemplate) return _mValue_ResponseMappingTemplate;
+                throw new UndeferrableValueException("Value 'FunctionArgs.ResponseMappingTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         /// </summary>
-        [Input("runtime")]
+        [PolicyResourceProperty("runtime", "_mUnknown_Runtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionRuntimeArgs> _mRuntime;
-
-        public Inputs.FunctionRuntimeArgs? Runtime => _mRuntime.GetValue("runtime");
+        private Inputs.FunctionRuntimeArgs? _mValue_Runtime;
+        private bool _mUnknown_Runtime;
+        public Inputs.FunctionRuntimeArgs? Runtime
+        {
+            get
+            {
+                if (!_mUnknown_Runtime) return _mValue_Runtime;
+                throw new UndeferrableValueException("Value 'FunctionArgs.Runtime' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         /// </summary>
-        [Input("syncConfig")]
+        [PolicyResourceProperty("syncConfig", "_mUnknown_SyncConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionSyncConfigArgs> _mSyncConfig;
-
-        public Inputs.FunctionSyncConfigArgs? SyncConfig => _mSyncConfig.GetValue("syncConfig");
+        private Inputs.FunctionSyncConfigArgs? _mValue_SyncConfig;
+        private bool _mUnknown_SyncConfig;
+        public Inputs.FunctionSyncConfigArgs? SyncConfig
+        {
+            get
+            {
+                if (!_mUnknown_SyncConfig) return _mValue_SyncConfig;
+                throw new UndeferrableValueException("Value 'FunctionArgs.SyncConfig' is not present");
+            }
+        }
     }
 }

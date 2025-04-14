@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
         /// </summary>
-        [Input("deliveryStreamArn")]
+        [PolicyResourceProperty("deliveryStreamArn", "_mUnknown_DeliveryStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStreamArn;
-
-        public string? DeliveryStreamArn => _mDeliveryStreamArn.GetValue("deliveryStreamArn");
+        private string? _mValue_DeliveryStreamArn;
+        private bool _mUnknown_DeliveryStreamArn;
+        public string? DeliveryStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStreamArn) return _mValue_DeliveryStreamArn;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.DeliveryStreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.IamRoleArn' is not present");
+            }
+        }
     }
 }

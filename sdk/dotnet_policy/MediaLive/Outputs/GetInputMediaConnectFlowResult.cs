@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class GetInputMediaConnectFlowResult
     {
-        [Input("flowArn")]
+        [PolicyResourceProperty("flowArn", "_mUnknown_FlowArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlowArn;
-
-        public string? FlowArn => _mFlowArn.GetValue("flowArn");
+        private string? _mValue_FlowArn;
+        private bool _mUnknown_FlowArn;
+        public string? FlowArn
+        {
+            get
+            {
+                if (!_mUnknown_FlowArn) return _mValue_FlowArn;
+                throw new UndeferrableValueException("Value 'GetInputMediaConnectFlowResult.FlowArn' is not present");
+            }
+        }
     }
 }

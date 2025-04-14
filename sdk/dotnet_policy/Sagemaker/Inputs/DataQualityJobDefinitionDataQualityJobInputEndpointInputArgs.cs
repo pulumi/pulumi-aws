@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// An endpoint in customer's account which has `data_capture_config` enabled.
         /// </summary>
-        [Input("endpointName")]
+        [PolicyResourceProperty("endpointName", "_mUnknown_EndpointName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointName;
-
-        public string? EndpointName => _mEndpointName.GetValue("endpointName");
+        private string? _mValue_EndpointName;
+        private bool _mUnknown_EndpointName;
+        public string? EndpointName
+        {
+            get
+            {
+                if (!_mUnknown_EndpointName) return _mValue_EndpointName;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.EndpointName' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
         /// </summary>
-        [Input("localPath")]
+        [PolicyResourceProperty("localPath", "_mUnknown_LocalPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalPath;
-
-        public string? LocalPath => _mLocalPath.GetValue("localPath");
+        private string? _mValue_LocalPath;
+        private bool _mUnknown_LocalPath;
+        public string? LocalPath
+        {
+            get
+            {
+                if (!_mUnknown_LocalPath) return _mValue_LocalPath;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.LocalPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
         /// </summary>
-        [Input("s3DataDistributionType")]
+        [PolicyResourceProperty("s3DataDistributionType", "_mUnknown_S3DataDistributionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3DataDistributionType;
-
-        public string? S3DataDistributionType => _mS3DataDistributionType.GetValue("s3DataDistributionType");
+        private string? _mValue_S3DataDistributionType;
+        private bool _mUnknown_S3DataDistributionType;
+        public string? S3DataDistributionType
+        {
+            get
+            {
+                if (!_mUnknown_S3DataDistributionType) return _mValue_S3DataDistributionType;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.S3DataDistributionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
         /// </summary>
-        [Input("s3InputMode")]
+        [PolicyResourceProperty("s3InputMode", "_mUnknown_S3InputMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3InputMode;
-
-        public string? S3InputMode => _mS3InputMode.GetValue("s3InputMode");
+        private string? _mValue_S3InputMode;
+        private bool _mUnknown_S3InputMode;
+        public string? S3InputMode
+        {
+            get
+            {
+                if (!_mUnknown_S3InputMode) return _mValue_S3InputMode;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.S3InputMode' is not present");
+            }
+        }
     }
 }

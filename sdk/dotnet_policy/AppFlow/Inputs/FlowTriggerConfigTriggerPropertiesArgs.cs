@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class FlowTriggerConfigTriggerPropertiesArgs
     {
-        [Input("scheduled")]
+        [PolicyResourceProperty("scheduled", "_mUnknown_Scheduled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowTriggerConfigTriggerPropertiesScheduledArgs> _mScheduled;
-
-        public Inputs.FlowTriggerConfigTriggerPropertiesScheduledArgs? Scheduled => _mScheduled.GetValue("scheduled");
+        private Inputs.FlowTriggerConfigTriggerPropertiesScheduledArgs? _mValue_Scheduled;
+        private bool _mUnknown_Scheduled;
+        public Inputs.FlowTriggerConfigTriggerPropertiesScheduledArgs? Scheduled
+        {
+            get
+            {
+                if (!_mUnknown_Scheduled) return _mValue_Scheduled;
+                throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesArgs.Scheduled' is not present");
+            }
+        }
     }
 }

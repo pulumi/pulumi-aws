@@ -16,100 +16,177 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Timestamp of when the project was made.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Project.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Creator of the project.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'Project.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of project.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Project.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'Project.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// List of error messages if operation cannot be completed.
         /// </summary>
-        [Input("failureReasons")]
+        [PolicyResourceProperty("failureReasons", "_mUnknown_FailureReasons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectFailureReason>> _mFailureReasons;
-
-        public List<Outputs.ProjectFailureReason>? FailureReasons => _mFailureReasons.GetValue("failureReasons");
+        private List<Outputs.ProjectFailureReason>? _mValue_FailureReasons;
+        private bool _mUnknown_FailureReasons;
+        public List<Outputs.ProjectFailureReason>? FailureReasons
+        {
+            get
+            {
+                if (!_mUnknown_FailureReasons) return _mValue_FailureReasons;
+                throw new UndeferrableValueException("Value 'Project.FailureReasons' is not present");
+            }
+        }
 
         /// <summary>
         /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
-        [Input("glossaryTerms")]
+        [PolicyResourceProperty("glossaryTerms", "_mUnknown_GlossaryTerms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
-
-        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
+        private List<string>? _mValue_GlossaryTerms;
+        private bool _mUnknown_GlossaryTerms;
+        public List<string>? GlossaryTerms
+        {
+            get
+            {
+                if (!_mUnknown_GlossaryTerms) return _mValue_GlossaryTerms;
+                throw new UndeferrableValueException("Value 'Project.GlossaryTerms' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp of when the project was last updated.
         /// </summary>
-        [Input("lastUpdatedAt")]
+        [PolicyResourceProperty("lastUpdatedAt", "_mUnknown_LastUpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedAt;
-
-        public string? LastUpdatedAt => _mLastUpdatedAt.GetValue("lastUpdatedAt");
+        private string? _mValue_LastUpdatedAt;
+        private bool _mUnknown_LastUpdatedAt;
+        public string? LastUpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedAt) return _mValue_LastUpdatedAt;
+                throw new UndeferrableValueException("Value 'Project.LastUpdatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Project.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         /// </summary>
-        [Input("projectStatus")]
+        [PolicyResourceProperty("projectStatus", "_mUnknown_ProjectStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProjectStatus;
-
-        public string? ProjectStatus => _mProjectStatus.GetValue("projectStatus");
+        private string? _mValue_ProjectStatus;
+        private bool _mUnknown_ProjectStatus;
+        public string? ProjectStatus
+        {
+            get
+            {
+                if (!_mUnknown_ProjectStatus) return _mValue_ProjectStatus;
+                throw new UndeferrableValueException("Value 'Project.ProjectStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional flag to delete all child entities within the project.
         /// </summary>
-        [Input("skipDeletionCheck")]
+        [PolicyResourceProperty("skipDeletionCheck", "_mUnknown_SkipDeletionCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDeletionCheck;
+        private bool? _mValue_SkipDeletionCheck;
+        private bool _mUnknown_SkipDeletionCheck;
+        public bool? SkipDeletionCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipDeletionCheck) return _mValue_SkipDeletionCheck;
+                throw new UndeferrableValueException("Value 'Project.SkipDeletionCheck' is not present");
+            }
+        }
 
-        public bool? SkipDeletionCheck => _mSkipDeletionCheck.GetValue("skipDeletionCheck");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectTimeouts> _mTimeouts;
-
-        public Outputs.ProjectTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ProjectTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ProjectTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Project.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datazone/project:Project")]
@@ -118,54 +195,96 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Description of project.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'ProjectArgs.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         /// </summary>
-        [Input("glossaryTerms")]
+        [PolicyResourceProperty("glossaryTerms", "_mUnknown_GlossaryTerms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlossaryTerms;
-
-        public List<string>? GlossaryTerms => _mGlossaryTerms.GetValue("glossaryTerms");
+        private List<string>? _mValue_GlossaryTerms;
+        private bool _mUnknown_GlossaryTerms;
+        public List<string>? GlossaryTerms
+        {
+            get
+            {
+                if (!_mUnknown_GlossaryTerms) return _mValue_GlossaryTerms;
+                throw new UndeferrableValueException("Value 'ProjectArgs.GlossaryTerms' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional flag to delete all child entities within the project.
         /// </summary>
-        [Input("skipDeletionCheck")]
+        [PolicyResourceProperty("skipDeletionCheck", "_mUnknown_SkipDeletionCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDeletionCheck;
+        private bool? _mValue_SkipDeletionCheck;
+        private bool _mUnknown_SkipDeletionCheck;
+        public bool? SkipDeletionCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipDeletionCheck) return _mValue_SkipDeletionCheck;
+                throw new UndeferrableValueException("Value 'ProjectArgs.SkipDeletionCheck' is not present");
+            }
+        }
 
-        public bool? SkipDeletionCheck => _mSkipDeletionCheck.GetValue("skipDeletionCheck");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ProjectTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ProjectTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ProjectTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Timeouts' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         /// </summary>
-        [Input("corsRules")]
+        [PolicyResourceProperty("corsRules", "_mUnknown_CorsRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketCorsConfigurationV2CorsRule>> _mCorsRules;
-
-        public List<Outputs.BucketCorsConfigurationV2CorsRule>? CorsRules => _mCorsRules.GetValue("corsRules");
+        private List<Outputs.BucketCorsConfigurationV2CorsRule>? _mValue_CorsRules;
+        private bool _mUnknown_CorsRules;
+        public List<Outputs.BucketCorsConfigurationV2CorsRule>? CorsRules
+        {
+            get
+            {
+                if (!_mUnknown_CorsRules) return _mValue_CorsRules;
+                throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2.CorsRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2.ExpectedBucketOwner' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         /// </summary>
-        [Input("corsRules")]
+        [PolicyResourceProperty("corsRules", "_mUnknown_CorsRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketCorsConfigurationV2CorsRuleArgs>> _mCorsRules;
-
-        public List<Inputs.BucketCorsConfigurationV2CorsRuleArgs>? CorsRules => _mCorsRules.GetValue("corsRules");
+        private List<Inputs.BucketCorsConfigurationV2CorsRuleArgs>? _mValue_CorsRules;
+        private bool _mUnknown_CorsRules;
+        public List<Inputs.BucketCorsConfigurationV2CorsRuleArgs>? CorsRules
+        {
+            get
+            {
+                if (!_mUnknown_CorsRules) return _mValue_CorsRules;
+                throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2Args.CorsRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2Args.ExpectedBucketOwner' is not present");
+            }
+        }
     }
 }

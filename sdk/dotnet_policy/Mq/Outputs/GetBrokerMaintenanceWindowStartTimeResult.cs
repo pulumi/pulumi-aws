@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
 {
     public sealed class GetBrokerMaintenanceWindowStartTimeResult
     {
-        [Input("dayOfWeek")]
+        [PolicyResourceProperty("dayOfWeek", "_mUnknown_DayOfWeek")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfWeek;
+        private string? _mValue_DayOfWeek;
+        private bool _mUnknown_DayOfWeek;
+        public string? DayOfWeek
+        {
+            get
+            {
+                if (!_mUnknown_DayOfWeek) return _mValue_DayOfWeek;
+                throw new UndeferrableValueException("Value 'GetBrokerMaintenanceWindowStartTimeResult.DayOfWeek' is not present");
+            }
+        }
 
-        public string? DayOfWeek => _mDayOfWeek.GetValue("dayOfWeek");
-
-        [Input("timeOfDay")]
+        [PolicyResourceProperty("timeOfDay", "_mUnknown_TimeOfDay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeOfDay;
+        private string? _mValue_TimeOfDay;
+        private bool _mUnknown_TimeOfDay;
+        public string? TimeOfDay
+        {
+            get
+            {
+                if (!_mUnknown_TimeOfDay) return _mValue_TimeOfDay;
+                throw new UndeferrableValueException("Value 'GetBrokerMaintenanceWindowStartTimeResult.TimeOfDay' is not present");
+            }
+        }
 
-        public string? TimeOfDay => _mTimeOfDay.GetValue("timeOfDay");
-
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'GetBrokerMaintenanceWindowStartTimeResult.TimeZone' is not present");
+            }
+        }
     }
 }

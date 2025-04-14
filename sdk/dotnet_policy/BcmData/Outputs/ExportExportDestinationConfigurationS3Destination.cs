@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.BcmData.Outputs
         /// <summary>
         /// Name of the Amazon S3 bucket used as the destination of a data export file.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Output configuration for the data export. See the `s3_output_configurations` argument reference below.
         /// </summary>
-        [Input("s3OutputConfigurations")]
+        [PolicyResourceProperty("s3OutputConfigurations", "_mUnknown_S3OutputConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration>> _mS3OutputConfigurations;
-
-        public List<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration>? S3OutputConfigurations => _mS3OutputConfigurations.GetValue("s3OutputConfigurations");
+        private List<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration>? _mValue_S3OutputConfigurations;
+        private bool _mUnknown_S3OutputConfigurations;
+        public List<Outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration>? S3OutputConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_S3OutputConfigurations) return _mValue_S3OutputConfigurations;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.S3OutputConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 path prefix you want prepended to the name of your data export.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.S3Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 bucket region.
         /// </summary>
-        [Input("s3Region")]
+        [PolicyResourceProperty("s3Region", "_mUnknown_S3Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Region;
-
-        public string? S3Region => _mS3Region.GetValue("s3Region");
+        private string? _mValue_S3Region;
+        private bool _mUnknown_S3Region;
+        public string? S3Region
+        {
+            get
+            {
+                if (!_mUnknown_S3Region) return _mValue_S3Region;
+                throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.S3Region' is not present");
+            }
+        }
     }
 }

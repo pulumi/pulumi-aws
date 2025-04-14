@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// Default recording frequency. `CONTINUOUS` or `DAILY`.
         /// </summary>
-        [Input("recordingFrequency")]
+        [PolicyResourceProperty("recordingFrequency", "_mUnknown_RecordingFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordingFrequency;
-
-        public string? RecordingFrequency => _mRecordingFrequency.GetValue("recordingFrequency");
+        private string? _mValue_RecordingFrequency;
+        private bool _mUnknown_RecordingFrequency;
+        public string? RecordingFrequency
+        {
+            get
+            {
+                if (!_mUnknown_RecordingFrequency) return _mValue_RecordingFrequency;
+                throw new UndeferrableValueException("Value 'RecorderRecordingMode.RecordingFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording mode overrides. Detailed below.
         /// </summary>
-        [Input("recordingModeOverride")]
+        [PolicyResourceProperty("recordingModeOverride", "_mUnknown_RecordingModeOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecorderRecordingModeRecordingModeOverride> _mRecordingModeOverride;
-
-        public Outputs.RecorderRecordingModeRecordingModeOverride? RecordingModeOverride => _mRecordingModeOverride.GetValue("recordingModeOverride");
+        private Outputs.RecorderRecordingModeRecordingModeOverride? _mValue_RecordingModeOverride;
+        private bool _mUnknown_RecordingModeOverride;
+        public Outputs.RecorderRecordingModeRecordingModeOverride? RecordingModeOverride
+        {
+            get
+            {
+                if (!_mUnknown_RecordingModeOverride) return _mValue_RecordingModeOverride;
+                throw new UndeferrableValueException("Value 'RecorderRecordingMode.RecordingModeOverride' is not present");
+            }
+        }
     }
 }

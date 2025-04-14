@@ -16,103 +16,180 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         /// </summary>
-        [Input("admins")]
+        [PolicyResourceProperty("admins", "_mUnknown_Admins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdmins;
-
-        public List<string>? Admins => _mAdmins.GetValue("admins");
+        private List<string>? _mValue_Admins;
+        private bool _mUnknown_Admins;
+        public List<string>? Admins
+        {
+            get
+            {
+                if (!_mUnknown_Admins) return _mValue_Admins;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.Admins' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         /// </summary>
-        [Input("allowExternalDataFiltering")]
+        [PolicyResourceProperty("allowExternalDataFiltering", "_mUnknown_AllowExternalDataFiltering")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowExternalDataFiltering;
-
-        public bool? AllowExternalDataFiltering => _mAllowExternalDataFiltering.GetValue("allowExternalDataFiltering");
+        private bool? _mValue_AllowExternalDataFiltering;
+        private bool _mUnknown_AllowExternalDataFiltering;
+        public bool? AllowExternalDataFiltering
+        {
+            get
+            {
+                if (!_mUnknown_AllowExternalDataFiltering) return _mValue_AllowExternalDataFiltering;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.AllowExternalDataFiltering' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         /// </summary>
-        [Input("allowFullTableExternalDataAccess")]
+        [PolicyResourceProperty("allowFullTableExternalDataAccess", "_mUnknown_AllowFullTableExternalDataAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowFullTableExternalDataAccess;
-
-        public bool? AllowFullTableExternalDataAccess => _mAllowFullTableExternalDataAccess.GetValue("allowFullTableExternalDataAccess");
+        private bool? _mValue_AllowFullTableExternalDataAccess;
+        private bool _mUnknown_AllowFullTableExternalDataAccess;
+        public bool? AllowFullTableExternalDataAccess
+        {
+            get
+            {
+                if (!_mUnknown_AllowFullTableExternalDataAccess) return _mValue_AllowFullTableExternalDataAccess;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.AllowFullTableExternalDataAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         /// </summary>
-        [Input("authorizedSessionTagValueLists")]
+        [PolicyResourceProperty("authorizedSessionTagValueLists", "_mUnknown_AuthorizedSessionTagValueLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizedSessionTagValueLists;
-
-        public List<string>? AuthorizedSessionTagValueLists => _mAuthorizedSessionTagValueLists.GetValue("authorizedSessionTagValueLists");
+        private List<string>? _mValue_AuthorizedSessionTagValueLists;
+        private bool _mUnknown_AuthorizedSessionTagValueLists;
+        public List<string>? AuthorizedSessionTagValueLists
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizedSessionTagValueLists) return _mValue_AuthorizedSessionTagValueLists;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.AuthorizedSessionTagValueLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         /// </summary>
-        [Input("createDatabaseDefaultPermissions")]
+        [PolicyResourceProperty("createDatabaseDefaultPermissions", "_mUnknown_CreateDatabaseDefaultPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataLakeSettingsCreateDatabaseDefaultPermission>> _mCreateDatabaseDefaultPermissions;
-
-        public List<Outputs.DataLakeSettingsCreateDatabaseDefaultPermission>? CreateDatabaseDefaultPermissions => _mCreateDatabaseDefaultPermissions.GetValue("createDatabaseDefaultPermissions");
+        private List<Outputs.DataLakeSettingsCreateDatabaseDefaultPermission>? _mValue_CreateDatabaseDefaultPermissions;
+        private bool _mUnknown_CreateDatabaseDefaultPermissions;
+        public List<Outputs.DataLakeSettingsCreateDatabaseDefaultPermission>? CreateDatabaseDefaultPermissions
+        {
+            get
+            {
+                if (!_mUnknown_CreateDatabaseDefaultPermissions) return _mValue_CreateDatabaseDefaultPermissions;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.CreateDatabaseDefaultPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         /// </summary>
-        [Input("createTableDefaultPermissions")]
+        [PolicyResourceProperty("createTableDefaultPermissions", "_mUnknown_CreateTableDefaultPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataLakeSettingsCreateTableDefaultPermission>> _mCreateTableDefaultPermissions;
-
-        public List<Outputs.DataLakeSettingsCreateTableDefaultPermission>? CreateTableDefaultPermissions => _mCreateTableDefaultPermissions.GetValue("createTableDefaultPermissions");
+        private List<Outputs.DataLakeSettingsCreateTableDefaultPermission>? _mValue_CreateTableDefaultPermissions;
+        private bool _mUnknown_CreateTableDefaultPermissions;
+        public List<Outputs.DataLakeSettingsCreateTableDefaultPermission>? CreateTableDefaultPermissions
+        {
+            get
+            {
+                if (!_mUnknown_CreateTableDefaultPermissions) return _mValue_CreateTableDefaultPermissions;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.CreateTableDefaultPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         /// </summary>
-        [Input("externalDataFilteringAllowLists")]
+        [PolicyResourceProperty("externalDataFilteringAllowLists", "_mUnknown_ExternalDataFilteringAllowLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExternalDataFilteringAllowLists;
-
-        public List<string>? ExternalDataFilteringAllowLists => _mExternalDataFilteringAllowLists.GetValue("externalDataFilteringAllowLists");
+        private List<string>? _mValue_ExternalDataFilteringAllowLists;
+        private bool _mUnknown_ExternalDataFilteringAllowLists;
+        public List<string>? ExternalDataFilteringAllowLists
+        {
+            get
+            {
+                if (!_mUnknown_ExternalDataFilteringAllowLists) return _mValue_ExternalDataFilteringAllowLists;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.ExternalDataFilteringAllowLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         /// </summary>
-        [Input("readOnlyAdmins")]
+        [PolicyResourceProperty("readOnlyAdmins", "_mUnknown_ReadOnlyAdmins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReadOnlyAdmins;
-
-        public List<string>? ReadOnlyAdmins => _mReadOnlyAdmins.GetValue("readOnlyAdmins");
+        private List<string>? _mValue_ReadOnlyAdmins;
+        private bool _mUnknown_ReadOnlyAdmins;
+        public List<string>? ReadOnlyAdmins
+        {
+            get
+            {
+                if (!_mUnknown_ReadOnlyAdmins) return _mValue_ReadOnlyAdmins;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.ReadOnlyAdmins' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// 
         /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
-        [Input("trustedResourceOwners")]
+        [PolicyResourceProperty("trustedResourceOwners", "_mUnknown_TrustedResourceOwners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTrustedResourceOwners;
-
-        public List<string>? TrustedResourceOwners => _mTrustedResourceOwners.GetValue("trustedResourceOwners");
+        private List<string>? _mValue_TrustedResourceOwners;
+        private bool _mUnknown_TrustedResourceOwners;
+        public List<string>? TrustedResourceOwners
+        {
+            get
+            {
+                if (!_mUnknown_TrustedResourceOwners) return _mValue_TrustedResourceOwners;
+                throw new UndeferrableValueException("Value 'DataLakeSettings.TrustedResourceOwners' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lakeformation/dataLakeSettings:DataLakeSettings")]
@@ -121,102 +198,179 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         /// </summary>
-        [Input("admins")]
+        [PolicyResourceProperty("admins", "_mUnknown_Admins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdmins;
-
-        public List<string>? Admins => _mAdmins.GetValue("admins");
+        private List<string>? _mValue_Admins;
+        private bool _mUnknown_Admins;
+        public List<string>? Admins
+        {
+            get
+            {
+                if (!_mUnknown_Admins) return _mValue_Admins;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.Admins' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         /// </summary>
-        [Input("allowExternalDataFiltering")]
+        [PolicyResourceProperty("allowExternalDataFiltering", "_mUnknown_AllowExternalDataFiltering")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowExternalDataFiltering;
-
-        public bool? AllowExternalDataFiltering => _mAllowExternalDataFiltering.GetValue("allowExternalDataFiltering");
+        private bool? _mValue_AllowExternalDataFiltering;
+        private bool _mUnknown_AllowExternalDataFiltering;
+        public bool? AllowExternalDataFiltering
+        {
+            get
+            {
+                if (!_mUnknown_AllowExternalDataFiltering) return _mValue_AllowExternalDataFiltering;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.AllowExternalDataFiltering' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         /// </summary>
-        [Input("allowFullTableExternalDataAccess")]
+        [PolicyResourceProperty("allowFullTableExternalDataAccess", "_mUnknown_AllowFullTableExternalDataAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowFullTableExternalDataAccess;
-
-        public bool? AllowFullTableExternalDataAccess => _mAllowFullTableExternalDataAccess.GetValue("allowFullTableExternalDataAccess");
+        private bool? _mValue_AllowFullTableExternalDataAccess;
+        private bool _mUnknown_AllowFullTableExternalDataAccess;
+        public bool? AllowFullTableExternalDataAccess
+        {
+            get
+            {
+                if (!_mUnknown_AllowFullTableExternalDataAccess) return _mValue_AllowFullTableExternalDataAccess;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.AllowFullTableExternalDataAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         /// </summary>
-        [Input("authorizedSessionTagValueLists")]
+        [PolicyResourceProperty("authorizedSessionTagValueLists", "_mUnknown_AuthorizedSessionTagValueLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizedSessionTagValueLists;
-
-        public List<string>? AuthorizedSessionTagValueLists => _mAuthorizedSessionTagValueLists.GetValue("authorizedSessionTagValueLists");
+        private List<string>? _mValue_AuthorizedSessionTagValueLists;
+        private bool _mUnknown_AuthorizedSessionTagValueLists;
+        public List<string>? AuthorizedSessionTagValueLists
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizedSessionTagValueLists) return _mValue_AuthorizedSessionTagValueLists;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.AuthorizedSessionTagValueLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the Data Catalog. By default, the account ID.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         /// </summary>
-        [Input("createDatabaseDefaultPermissions")]
+        [PolicyResourceProperty("createDatabaseDefaultPermissions", "_mUnknown_CreateDatabaseDefaultPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs>> _mCreateDatabaseDefaultPermissions;
-
-        public List<Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs>? CreateDatabaseDefaultPermissions => _mCreateDatabaseDefaultPermissions.GetValue("createDatabaseDefaultPermissions");
+        private List<Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs>? _mValue_CreateDatabaseDefaultPermissions;
+        private bool _mUnknown_CreateDatabaseDefaultPermissions;
+        public List<Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs>? CreateDatabaseDefaultPermissions
+        {
+            get
+            {
+                if (!_mUnknown_CreateDatabaseDefaultPermissions) return _mValue_CreateDatabaseDefaultPermissions;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.CreateDatabaseDefaultPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         /// </summary>
-        [Input("createTableDefaultPermissions")]
+        [PolicyResourceProperty("createTableDefaultPermissions", "_mUnknown_CreateTableDefaultPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs>> _mCreateTableDefaultPermissions;
-
-        public List<Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs>? CreateTableDefaultPermissions => _mCreateTableDefaultPermissions.GetValue("createTableDefaultPermissions");
+        private List<Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs>? _mValue_CreateTableDefaultPermissions;
+        private bool _mUnknown_CreateTableDefaultPermissions;
+        public List<Inputs.DataLakeSettingsCreateTableDefaultPermissionArgs>? CreateTableDefaultPermissions
+        {
+            get
+            {
+                if (!_mUnknown_CreateTableDefaultPermissions) return _mValue_CreateTableDefaultPermissions;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.CreateTableDefaultPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         /// </summary>
-        [Input("externalDataFilteringAllowLists")]
+        [PolicyResourceProperty("externalDataFilteringAllowLists", "_mUnknown_ExternalDataFilteringAllowLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExternalDataFilteringAllowLists;
-
-        public List<string>? ExternalDataFilteringAllowLists => _mExternalDataFilteringAllowLists.GetValue("externalDataFilteringAllowLists");
+        private List<string>? _mValue_ExternalDataFilteringAllowLists;
+        private bool _mUnknown_ExternalDataFilteringAllowLists;
+        public List<string>? ExternalDataFilteringAllowLists
+        {
+            get
+            {
+                if (!_mUnknown_ExternalDataFilteringAllowLists) return _mValue_ExternalDataFilteringAllowLists;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.ExternalDataFilteringAllowLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         /// </summary>
-        [Input("readOnlyAdmins")]
+        [PolicyResourceProperty("readOnlyAdmins", "_mUnknown_ReadOnlyAdmins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mReadOnlyAdmins;
-
-        public List<string>? ReadOnlyAdmins => _mReadOnlyAdmins.GetValue("readOnlyAdmins");
+        private List<string>? _mValue_ReadOnlyAdmins;
+        private bool _mUnknown_ReadOnlyAdmins;
+        public List<string>? ReadOnlyAdmins
+        {
+            get
+            {
+                if (!_mUnknown_ReadOnlyAdmins) return _mValue_ReadOnlyAdmins;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.ReadOnlyAdmins' is not present");
+            }
+        }
 
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// 
         /// &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
         /// </summary>
-        [Input("trustedResourceOwners")]
+        [PolicyResourceProperty("trustedResourceOwners", "_mUnknown_TrustedResourceOwners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTrustedResourceOwners;
-
-        public List<string>? TrustedResourceOwners => _mTrustedResourceOwners.GetValue("trustedResourceOwners");
+        private List<string>? _mValue_TrustedResourceOwners;
+        private bool _mUnknown_TrustedResourceOwners;
+        public List<string>? TrustedResourceOwners
+        {
+            get
+            {
+                if (!_mUnknown_TrustedResourceOwners) return _mValue_TrustedResourceOwners;
+                throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.TrustedResourceOwners' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Custom output group name defined by the user.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Settings associated with the output group. See Output Group Settings for more details.
         /// </summary>
-        [Input("outputGroupSettings")]
+        [PolicyResourceProperty("outputGroupSettings", "_mUnknown_OutputGroupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings> _mOutputGroupSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings? OutputGroupSettings => _mOutputGroupSettings.GetValue("outputGroupSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings? _mValue_OutputGroupSettings;
+        private bool _mUnknown_OutputGroupSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings? OutputGroupSettings
+        {
+            get
+            {
+                if (!_mUnknown_OutputGroupSettings) return _mValue_OutputGroupSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroup.OutputGroupSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// List of outputs. See Outputs for more details.
         /// </summary>
-        [Input("outputs")]
+        [PolicyResourceProperty("outputs", "_mUnknown_Outputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsOutputGroupOutput>> _mOutputs;
-
-        public List<Outputs.ChannelEncoderSettingsOutputGroupOutput>? Outputs => _mOutputs.GetValue("outputs");
+        private List<Outputs.ChannelEncoderSettingsOutputGroupOutput>? _mValue_Outputs;
+        private bool _mUnknown_Outputs;
+        public List<Outputs.ChannelEncoderSettingsOutputGroupOutput>? Outputs
+        {
+            get
+            {
+                if (!_mUnknown_Outputs) return _mValue_Outputs;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroup.Outputs' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Inputs
         /// <summary>
         /// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
         /// </summary>
-        [Input("bucketAccessRoleArn")]
+        [PolicyResourceProperty("bucketAccessRoleArn", "_mUnknown_BucketAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketAccessRoleArn;
-
-        public string? BucketAccessRoleArn => _mBucketAccessRoleArn.GetValue("bucketAccessRoleArn");
+        private string? _mValue_BucketAccessRoleArn;
+        private bool _mUnknown_BucketAccessRoleArn;
+        public string? BucketAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketAccessRoleArn) return _mValue_BucketAccessRoleArn;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfigS3DestinationArgs.BucketAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the ARN of the S3 bucket where DataSync uploads your report.
         /// </summary>
-        [Input("s3BucketArn")]
+        [PolicyResourceProperty("s3BucketArn", "_mUnknown_S3BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
-
-        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
+        private string? _mValue_S3BucketArn;
+        private bool _mUnknown_S3BucketArn;
+        public string? S3BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketArn) return _mValue_S3BucketArn;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfigS3DestinationArgs.S3BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a bucket prefix for your report.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfigS3DestinationArgs.Subdirectory' is not present");
+            }
+        }
     }
 }

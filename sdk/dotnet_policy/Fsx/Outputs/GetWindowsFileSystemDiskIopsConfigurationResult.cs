@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
 {
     public sealed class GetWindowsFileSystemDiskIopsConfigurationResult
     {
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'GetWindowsFileSystemDiskIopsConfigurationResult.Iops' is not present");
+            }
+        }
 
-        public int? Iops => _mIops.GetValue("iops");
-
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'GetWindowsFileSystemDiskIopsConfigurationResult.Mode' is not present");
+            }
+        }
     }
 }

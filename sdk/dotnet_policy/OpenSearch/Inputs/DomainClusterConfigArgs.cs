@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Inputs
         /// <summary>
         /// Configuration block containing cold storage configuration. Detailed below.
         /// </summary>
-        [Input("coldStorageOptions")]
+        [PolicyResourceProperty("coldStorageOptions", "_mUnknown_ColdStorageOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainClusterConfigColdStorageOptionsArgs> _mColdStorageOptions;
-
-        public Inputs.DomainClusterConfigColdStorageOptionsArgs? ColdStorageOptions => _mColdStorageOptions.GetValue("coldStorageOptions");
+        private Inputs.DomainClusterConfigColdStorageOptionsArgs? _mValue_ColdStorageOptions;
+        private bool _mUnknown_ColdStorageOptions;
+        public Inputs.DomainClusterConfigColdStorageOptionsArgs? ColdStorageOptions
+        {
+            get
+            {
+                if (!_mUnknown_ColdStorageOptions) return _mValue_ColdStorageOptions;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.ColdStorageOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of dedicated main nodes in the cluster.
         /// </summary>
-        [Input("dedicatedMasterCount")]
+        [PolicyResourceProperty("dedicatedMasterCount", "_mUnknown_DedicatedMasterCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDedicatedMasterCount;
-
-        public int? DedicatedMasterCount => _mDedicatedMasterCount.GetValue("dedicatedMasterCount");
+        private int? _mValue_DedicatedMasterCount;
+        private bool _mUnknown_DedicatedMasterCount;
+        public int? DedicatedMasterCount
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedMasterCount) return _mValue_DedicatedMasterCount;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.DedicatedMasterCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether dedicated main nodes are enabled for the cluster.
         /// </summary>
-        [Input("dedicatedMasterEnabled")]
+        [PolicyResourceProperty("dedicatedMasterEnabled", "_mUnknown_DedicatedMasterEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDedicatedMasterEnabled;
-
-        public bool? DedicatedMasterEnabled => _mDedicatedMasterEnabled.GetValue("dedicatedMasterEnabled");
+        private bool? _mValue_DedicatedMasterEnabled;
+        private bool _mUnknown_DedicatedMasterEnabled;
+        public bool? DedicatedMasterEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedMasterEnabled) return _mValue_DedicatedMasterEnabled;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.DedicatedMasterEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type of the dedicated main nodes in the cluster.
         /// </summary>
-        [Input("dedicatedMasterType")]
+        [PolicyResourceProperty("dedicatedMasterType", "_mUnknown_DedicatedMasterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDedicatedMasterType;
-
-        public string? DedicatedMasterType => _mDedicatedMasterType.GetValue("dedicatedMasterType");
+        private string? _mValue_DedicatedMasterType;
+        private bool _mUnknown_DedicatedMasterType;
+        public string? DedicatedMasterType
+        {
+            get
+            {
+                if (!_mUnknown_DedicatedMasterType) return _mValue_DedicatedMasterType;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.DedicatedMasterType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of instances in the cluster.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type of data nodes in the cluster.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
         /// </summary>
-        [Input("multiAzWithStandbyEnabled")]
+        [PolicyResourceProperty("multiAzWithStandbyEnabled", "_mUnknown_MultiAzWithStandbyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiAzWithStandbyEnabled;
-
-        public bool? MultiAzWithStandbyEnabled => _mMultiAzWithStandbyEnabled.GetValue("multiAzWithStandbyEnabled");
+        private bool? _mValue_MultiAzWithStandbyEnabled;
+        private bool _mUnknown_MultiAzWithStandbyEnabled;
+        public bool? MultiAzWithStandbyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_MultiAzWithStandbyEnabled) return _mValue_MultiAzWithStandbyEnabled;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.MultiAzWithStandbyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// List of node options for the domain.
         /// </summary>
-        [Input("nodeOptions")]
+        [PolicyResourceProperty("nodeOptions", "_mUnknown_NodeOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainClusterConfigNodeOptionArgs>> _mNodeOptions;
-
-        public List<Inputs.DomainClusterConfigNodeOptionArgs>? NodeOptions => _mNodeOptions.GetValue("nodeOptions");
+        private List<Inputs.DomainClusterConfigNodeOptionArgs>? _mValue_NodeOptions;
+        private bool _mUnknown_NodeOptions;
+        public List<Inputs.DomainClusterConfigNodeOptionArgs>? NodeOptions
+        {
+            get
+            {
+                if (!_mUnknown_NodeOptions) return _mValue_NodeOptions;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.NodeOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         /// </summary>
-        [Input("warmCount")]
+        [PolicyResourceProperty("warmCount", "_mUnknown_WarmCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWarmCount;
-
-        public int? WarmCount => _mWarmCount.GetValue("warmCount");
+        private int? _mValue_WarmCount;
+        private bool _mUnknown_WarmCount;
+        public int? WarmCount
+        {
+            get
+            {
+                if (!_mUnknown_WarmCount) return _mValue_WarmCount;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.WarmCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable warm storage.
         /// </summary>
-        [Input("warmEnabled")]
+        [PolicyResourceProperty("warmEnabled", "_mUnknown_WarmEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWarmEnabled;
-
-        public bool? WarmEnabled => _mWarmEnabled.GetValue("warmEnabled");
+        private bool? _mValue_WarmEnabled;
+        private bool _mUnknown_WarmEnabled;
+        public bool? WarmEnabled
+        {
+            get
+            {
+                if (!_mUnknown_WarmEnabled) return _mValue_WarmEnabled;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.WarmEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
         /// </summary>
-        [Input("warmType")]
+        [PolicyResourceProperty("warmType", "_mUnknown_WarmType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarmType;
-
-        public string? WarmType => _mWarmType.GetValue("warmType");
+        private string? _mValue_WarmType;
+        private bool _mUnknown_WarmType;
+        public string? WarmType
+        {
+            get
+            {
+                if (!_mUnknown_WarmType) return _mValue_WarmType;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.WarmType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing zone awareness settings. Detailed below.
         /// </summary>
-        [Input("zoneAwarenessConfig")]
+        [PolicyResourceProperty("zoneAwarenessConfig", "_mUnknown_ZoneAwarenessConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainClusterConfigZoneAwarenessConfigArgs> _mZoneAwarenessConfig;
-
-        public Inputs.DomainClusterConfigZoneAwarenessConfigArgs? ZoneAwarenessConfig => _mZoneAwarenessConfig.GetValue("zoneAwarenessConfig");
+        private Inputs.DomainClusterConfigZoneAwarenessConfigArgs? _mValue_ZoneAwarenessConfig;
+        private bool _mUnknown_ZoneAwarenessConfig;
+        public Inputs.DomainClusterConfigZoneAwarenessConfigArgs? ZoneAwarenessConfig
+        {
+            get
+            {
+                if (!_mUnknown_ZoneAwarenessConfig) return _mValue_ZoneAwarenessConfig;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.ZoneAwarenessConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         /// </summary>
-        [Input("zoneAwarenessEnabled")]
+        [PolicyResourceProperty("zoneAwarenessEnabled", "_mUnknown_ZoneAwarenessEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mZoneAwarenessEnabled;
-
-        public bool? ZoneAwarenessEnabled => _mZoneAwarenessEnabled.GetValue("zoneAwarenessEnabled");
+        private bool? _mValue_ZoneAwarenessEnabled;
+        private bool _mUnknown_ZoneAwarenessEnabled;
+        public bool? ZoneAwarenessEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ZoneAwarenessEnabled) return _mValue_ZoneAwarenessEnabled;
+                throw new UndeferrableValueException("Value 'DomainClusterConfigArgs.ZoneAwarenessEnabled' is not present");
+            }
+        }
     }
 }

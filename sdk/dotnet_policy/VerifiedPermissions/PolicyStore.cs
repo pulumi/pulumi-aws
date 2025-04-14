@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// The ARN of the Policy Store.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'PolicyStore.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the Policy Store.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PolicyStore.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Policy Store.
         /// </summary>
-        [Input("policyStoreId")]
+        [PolicyResourceProperty("policyStoreId", "_mUnknown_PolicyStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyStoreId;
-
-        public string? PolicyStoreId => _mPolicyStoreId.GetValue("policyStoreId");
+        private string? _mValue_PolicyStoreId;
+        private bool _mUnknown_PolicyStoreId;
+        public string? PolicyStoreId
+        {
+            get
+            {
+                if (!_mUnknown_PolicyStoreId) return _mValue_PolicyStoreId;
+                throw new UndeferrableValueException("Value 'PolicyStore.PolicyStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
-        [Input("validationSettings")]
+        [PolicyResourceProperty("validationSettings", "_mUnknown_ValidationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyStoreValidationSettings> _mValidationSettings;
-
-        public Outputs.PolicyStoreValidationSettings? ValidationSettings => _mValidationSettings.GetValue("validationSettings");
+        private Outputs.PolicyStoreValidationSettings? _mValue_ValidationSettings;
+        private bool _mUnknown_ValidationSettings;
+        public Outputs.PolicyStoreValidationSettings? ValidationSettings
+        {
+            get
+            {
+                if (!_mUnknown_ValidationSettings) return _mValue_ValidationSettings;
+                throw new UndeferrableValueException("Value 'PolicyStore.ValidationSettings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedpermissions/policyStore:PolicyStore")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions
         /// <summary>
         /// A description of the Policy Store.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PolicyStoreArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Validation settings for the policy store.
         /// </summary>
-        [Input("validationSettings")]
+        [PolicyResourceProperty("validationSettings", "_mUnknown_ValidationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyStoreValidationSettingsArgs> _mValidationSettings;
-
-        public Inputs.PolicyStoreValidationSettingsArgs? ValidationSettings => _mValidationSettings.GetValue("validationSettings");
+        private Inputs.PolicyStoreValidationSettingsArgs? _mValue_ValidationSettings;
+        private bool _mUnknown_ValidationSettings;
+        public Inputs.PolicyStoreValidationSettingsArgs? ValidationSettings
+        {
+            get
+            {
+                if (!_mUnknown_ValidationSettings) return _mValue_ValidationSettings;
+                throw new UndeferrableValueException("Value 'PolicyStoreArgs.ValidationSettings' is not present");
+            }
+        }
     }
 }

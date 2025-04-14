@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Mwaa.Outputs
 {
     public sealed class EnvironmentLastUpdatedError
     {
-        [Input("errorCode")]
+        [PolicyResourceProperty("errorCode", "_mUnknown_ErrorCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorCode;
+        private string? _mValue_ErrorCode;
+        private bool _mUnknown_ErrorCode;
+        public string? ErrorCode
+        {
+            get
+            {
+                if (!_mUnknown_ErrorCode) return _mValue_ErrorCode;
+                throw new UndeferrableValueException("Value 'EnvironmentLastUpdatedError.ErrorCode' is not present");
+            }
+        }
 
-        public string? ErrorCode => _mErrorCode.GetValue("errorCode");
-
-        [Input("errorMessage")]
+        [PolicyResourceProperty("errorMessage", "_mUnknown_ErrorMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorMessage;
-
-        public string? ErrorMessage => _mErrorMessage.GetValue("errorMessage");
+        private string? _mValue_ErrorMessage;
+        private bool _mUnknown_ErrorMessage;
+        public string? ErrorMessage
+        {
+            get
+            {
+                if (!_mUnknown_ErrorMessage) return _mValue_ErrorMessage;
+                throw new UndeferrableValueException("Value 'EnvironmentLastUpdatedError.ErrorMessage' is not present");
+            }
+        }
     }
 }

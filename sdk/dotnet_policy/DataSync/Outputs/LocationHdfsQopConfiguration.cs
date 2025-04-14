@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
         /// </summary>
-        [Input("dataTransferProtection")]
+        [PolicyResourceProperty("dataTransferProtection", "_mUnknown_DataTransferProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataTransferProtection;
-
-        public string? DataTransferProtection => _mDataTransferProtection.GetValue("dataTransferProtection");
+        private string? _mValue_DataTransferProtection;
+        private bool _mUnknown_DataTransferProtection;
+        public string? DataTransferProtection
+        {
+            get
+            {
+                if (!_mUnknown_DataTransferProtection) return _mValue_DataTransferProtection;
+                throw new UndeferrableValueException("Value 'LocationHdfsQopConfiguration.DataTransferProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
         /// </summary>
-        [Input("rpcProtection")]
+        [PolicyResourceProperty("rpcProtection", "_mUnknown_RpcProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRpcProtection;
-
-        public string? RpcProtection => _mRpcProtection.GetValue("rpcProtection");
+        private string? _mValue_RpcProtection;
+        private bool _mUnknown_RpcProtection;
+        public string? RpcProtection
+        {
+            get
+            {
+                if (!_mUnknown_RpcProtection) return _mValue_RpcProtection;
+                throw new UndeferrableValueException("Value 'LocationHdfsQopConfiguration.RpcProtection' is not present");
+            }
+        }
     }
 }

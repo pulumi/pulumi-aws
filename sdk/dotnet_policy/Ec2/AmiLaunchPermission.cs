@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// AWS account ID for the launch permission.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermission.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the group for the launch permission. Valid values: `"all"`.
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermission.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AMI.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermission.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an organization for the launch permission.
         /// </summary>
-        [Input("organizationArn")]
+        [PolicyResourceProperty("organizationArn", "_mUnknown_OrganizationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationArn;
-
-        public string? OrganizationArn => _mOrganizationArn.GetValue("organizationArn");
+        private string? _mValue_OrganizationArn;
+        private bool _mUnknown_OrganizationArn;
+        public string? OrganizationArn
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationArn) return _mValue_OrganizationArn;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermission.OrganizationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an organizational unit for the launch permission.
         /// </summary>
-        [Input("organizationalUnitArn")]
+        [PolicyResourceProperty("organizationalUnitArn", "_mUnknown_OrganizationalUnitArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitArn;
-
-        public string? OrganizationalUnitArn => _mOrganizationalUnitArn.GetValue("organizationalUnitArn");
+        private string? _mValue_OrganizationalUnitArn;
+        private bool _mUnknown_OrganizationalUnitArn;
+        public string? OrganizationalUnitArn
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitArn) return _mValue_OrganizationalUnitArn;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermission.OrganizationalUnitArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/amiLaunchPermission:AmiLaunchPermission")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// AWS account ID for the launch permission.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermissionArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the group for the launch permission. Valid values: `"all"`.
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermissionArgs.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AMI.
         /// </summary>
-        [Input("imageId")]
+        [PolicyResourceProperty("imageId", "_mUnknown_ImageId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageId;
-
-        public string? ImageId => _mImageId.GetValue("imageId");
+        private string? _mValue_ImageId;
+        private bool _mUnknown_ImageId;
+        public string? ImageId
+        {
+            get
+            {
+                if (!_mUnknown_ImageId) return _mValue_ImageId;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermissionArgs.ImageId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an organization for the launch permission.
         /// </summary>
-        [Input("organizationArn")]
+        [PolicyResourceProperty("organizationArn", "_mUnknown_OrganizationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationArn;
-
-        public string? OrganizationArn => _mOrganizationArn.GetValue("organizationArn");
+        private string? _mValue_OrganizationArn;
+        private bool _mUnknown_OrganizationArn;
+        public string? OrganizationArn
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationArn) return _mValue_OrganizationArn;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermissionArgs.OrganizationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an organizational unit for the launch permission.
         /// </summary>
-        [Input("organizationalUnitArn")]
+        [PolicyResourceProperty("organizationalUnitArn", "_mUnknown_OrganizationalUnitArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitArn;
-
-        public string? OrganizationalUnitArn => _mOrganizationalUnitArn.GetValue("organizationalUnitArn");
+        private string? _mValue_OrganizationalUnitArn;
+        private bool _mUnknown_OrganizationalUnitArn;
+        public string? OrganizationalUnitArn
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitArn) return _mValue_OrganizationalUnitArn;
+                throw new UndeferrableValueException("Value 'AmiLaunchPermissionArgs.OrganizationalUnitArn' is not present");
+            }
+        }
     }
 }

@@ -16,89 +16,159 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
         /// </summary>
-        [Input("appliedFors")]
+        [PolicyResourceProperty("appliedFors", "_mUnknown_AppliedFors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAppliedFors;
-
-        public List<string>? AppliedFors => _mAppliedFors.GetValue("appliedFors");
+        private List<string>? _mValue_AppliedFors;
+        private bool _mUnknown_AppliedFors;
+        public List<string>? AppliedFors
+        {
+            get
+            {
+                if (!_mUnknown_AppliedFors) return _mValue_AppliedFors;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.AppliedFors' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         /// </summary>
-        [Input("customRoleArn")]
+        [PolicyResourceProperty("customRoleArn", "_mUnknown_CustomRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
-
-        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
+        private string? _mValue_CustomRoleArn;
+        private bool _mUnknown_CustomRoleArn;
+        public string? CustomRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomRoleArn) return _mValue_CustomRoleArn;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.CustomRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for this template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption configuration for any created repositories. See below for schema.
         /// </summary>
-        [Input("encryptionConfigurations")]
+        [PolicyResourceProperty("encryptionConfigurations", "_mUnknown_EncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RepositoryCreationTemplateEncryptionConfiguration>> _mEncryptionConfigurations;
-
-        public List<Outputs.RepositoryCreationTemplateEncryptionConfiguration>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+        private List<Outputs.RepositoryCreationTemplateEncryptionConfiguration>? _mValue_EncryptionConfigurations;
+        private bool _mUnknown_EncryptionConfigurations;
+        public List<Outputs.RepositoryCreationTemplateEncryptionConfiguration>? EncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigurations) return _mValue_EncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.EncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         /// </summary>
-        [Input("imageTagMutability")]
+        [PolicyResourceProperty("imageTagMutability", "_mUnknown_ImageTagMutability")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageTagMutability;
-
-        public string? ImageTagMutability => _mImageTagMutability.GetValue("imageTagMutability");
+        private string? _mValue_ImageTagMutability;
+        private bool _mUnknown_ImageTagMutability;
+        public string? ImageTagMutability
+        {
+            get
+            {
+                if (!_mUnknown_ImageTagMutability) return _mValue_ImageTagMutability;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.ImageTagMutability' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         /// </summary>
-        [Input("lifecyclePolicy")]
+        [PolicyResourceProperty("lifecyclePolicy", "_mUnknown_LifecyclePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecyclePolicy;
-
-        public string? LifecyclePolicy => _mLifecyclePolicy.GetValue("lifecyclePolicy");
+        private string? _mValue_LifecyclePolicy;
+        private bool _mUnknown_LifecyclePolicy;
+        public string? LifecyclePolicy
+        {
+            get
+            {
+                if (!_mUnknown_LifecyclePolicy) return _mValue_LifecyclePolicy;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.LifecyclePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry ID the repository creation template applies to.
         /// </summary>
-        [Input("registryId")]
+        [PolicyResourceProperty("registryId", "_mUnknown_RegistryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
+        private string? _mValue_RegistryId;
+        private bool _mUnknown_RegistryId;
+        public string? RegistryId
+        {
+            get
+            {
+                if (!_mUnknown_RegistryId) return _mValue_RegistryId;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.RegistryId' is not present");
+            }
+        }
 
-        public string? RegistryId => _mRegistryId.GetValue("registryId");
-
-        [Input("repositoryPolicy")]
+        [PolicyResourceProperty("repositoryPolicy", "_mUnknown_RepositoryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryPolicy;
-
-        public string? RepositoryPolicy => _mRepositoryPolicy.GetValue("repositoryPolicy");
+        private string? _mValue_RepositoryPolicy;
+        private bool _mUnknown_RepositoryPolicy;
+        public string? RepositoryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryPolicy) return _mValue_RepositoryPolicy;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.RepositoryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to any created repositories.
         /// </summary>
-        [Input("resourceTags")]
+        [PolicyResourceProperty("resourceTags", "_mUnknown_ResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
-
-        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+        private Dictionary<string, string>? _mValue_ResourceTags;
+        private bool _mUnknown_ResourceTags;
+        public Dictionary<string, string>? ResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTags) return _mValue_ResourceTags;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.ResourceTags' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate")]
@@ -107,79 +177,142 @@ namespace Pulumi.PolicyPacks.Aws.Ecr
         /// <summary>
         /// Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
         /// </summary>
-        [Input("appliedFors")]
+        [PolicyResourceProperty("appliedFors", "_mUnknown_AppliedFors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAppliedFors;
-
-        public List<string>? AppliedFors => _mAppliedFors.GetValue("appliedFors");
+        private List<string>? _mValue_AppliedFors;
+        private bool _mUnknown_AppliedFors;
+        public List<string>? AppliedFors
+        {
+            get
+            {
+                if (!_mUnknown_AppliedFors) return _mValue_AppliedFors;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.AppliedFors' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         /// </summary>
-        [Input("customRoleArn")]
+        [PolicyResourceProperty("customRoleArn", "_mUnknown_CustomRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomRoleArn;
-
-        public string? CustomRoleArn => _mCustomRoleArn.GetValue("customRoleArn");
+        private string? _mValue_CustomRoleArn;
+        private bool _mUnknown_CustomRoleArn;
+        public string? CustomRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomRoleArn) return _mValue_CustomRoleArn;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.CustomRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for this template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption configuration for any created repositories. See below for schema.
         /// </summary>
-        [Input("encryptionConfigurations")]
+        [PolicyResourceProperty("encryptionConfigurations", "_mUnknown_EncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>> _mEncryptionConfigurations;
-
-        public List<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+        private List<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>? _mValue_EncryptionConfigurations;
+        private bool _mUnknown_EncryptionConfigurations;
+        public List<Inputs.RepositoryCreationTemplateEncryptionConfigurationArgs>? EncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigurations) return _mValue_EncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.EncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         /// </summary>
-        [Input("imageTagMutability")]
+        [PolicyResourceProperty("imageTagMutability", "_mUnknown_ImageTagMutability")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageTagMutability;
-
-        public string? ImageTagMutability => _mImageTagMutability.GetValue("imageTagMutability");
+        private string? _mValue_ImageTagMutability;
+        private bool _mUnknown_ImageTagMutability;
+        public string? ImageTagMutability
+        {
+            get
+            {
+                if (!_mUnknown_ImageTagMutability) return _mValue_ImageTagMutability;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.ImageTagMutability' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         /// </summary>
-        [Input("lifecyclePolicy")]
+        [PolicyResourceProperty("lifecyclePolicy", "_mUnknown_LifecyclePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecyclePolicy;
-
-        public string? LifecyclePolicy => _mLifecyclePolicy.GetValue("lifecyclePolicy");
+        private string? _mValue_LifecyclePolicy;
+        private bool _mUnknown_LifecyclePolicy;
+        public string? LifecyclePolicy
+        {
+            get
+            {
+                if (!_mUnknown_LifecyclePolicy) return _mValue_LifecyclePolicy;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.LifecyclePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.Prefix' is not present");
+            }
+        }
 
-        public string? Prefix => _mPrefix.GetValue("prefix");
-
-        [Input("repositoryPolicy")]
+        [PolicyResourceProperty("repositoryPolicy", "_mUnknown_RepositoryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryPolicy;
-
-        public string? RepositoryPolicy => _mRepositoryPolicy.GetValue("repositoryPolicy");
+        private string? _mValue_RepositoryPolicy;
+        private bool _mUnknown_RepositoryPolicy;
+        public string? RepositoryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryPolicy) return _mValue_RepositoryPolicy;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.RepositoryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to any created repositories.
         /// </summary>
-        [Input("resourceTags")]
+        [PolicyResourceProperty("resourceTags", "_mUnknown_ResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResourceTags;
-
-        public Dictionary<string, string>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+        private Dictionary<string, string>? _mValue_ResourceTags;
+        private bool _mUnknown_ResourceTags;
+        public Dictionary<string, string>? ResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTags) return _mValue_ResourceTags;
+                throw new UndeferrableValueException("Value 'RepositoryCreationTemplateArgs.ResourceTags' is not present");
+            }
+        }
     }
 }

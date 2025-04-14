@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// <summary>
         /// Amazon Resource Name (ARN) of the stream consumer.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StreamConsumer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         /// </summary>
-        [Input("creationTimestamp")]
+        [PolicyResourceProperty("creationTimestamp", "_mUnknown_CreationTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTimestamp;
-
-        public string? CreationTimestamp => _mCreationTimestamp.GetValue("creationTimestamp");
+        private string? _mValue_CreationTimestamp;
+        private bool _mUnknown_CreationTimestamp;
+        public string? CreationTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreationTimestamp) return _mValue_CreationTimestamp;
+                throw new UndeferrableValueException("Value 'StreamConsumer.CreationTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the stream consumer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StreamConsumer.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'StreamConsumer.StreamArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kinesis/streamConsumer:StreamConsumer")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// <summary>
         /// Name of the stream consumer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StreamConsumerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'StreamConsumerArgs.StreamArn' is not present");
+            }
+        }
     }
 }

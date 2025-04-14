@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the virtual mfa device.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         /// </summary>
-        [Input("base32StringSeed")]
+        [PolicyResourceProperty("base32StringSeed", "_mUnknown_Base32StringSeed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBase32StringSeed;
-
-        public string? Base32StringSeed => _mBase32StringSeed.GetValue("base32StringSeed");
+        private string? _mValue_Base32StringSeed;
+        private bool _mUnknown_Base32StringSeed;
+        public string? Base32StringSeed
+        {
+            get
+            {
+                if (!_mUnknown_Base32StringSeed) return _mValue_Base32StringSeed;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.Base32StringSeed' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time when the virtual MFA device was enabled.
         /// </summary>
-        [Input("enableDate")]
+        [PolicyResourceProperty("enableDate", "_mUnknown_EnableDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnableDate;
-
-        public string? EnableDate => _mEnableDate.GetValue("enableDate");
+        private string? _mValue_EnableDate;
+        private bool _mUnknown_EnableDate;
+        public string? EnableDate
+        {
+            get
+            {
+                if (!_mUnknown_EnableDate) return _mValue_EnableDate;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.EnableDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The path for the virtual MFA device.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
         /// </summary>
-        [Input("qrCodePng")]
+        [PolicyResourceProperty("qrCodePng", "_mUnknown_QrCodePng")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQrCodePng;
-
-        public string? QrCodePng => _mQrCodePng.GetValue("qrCodePng");
+        private string? _mValue_QrCodePng;
+        private bool _mUnknown_QrCodePng;
+        public string? QrCodePng
+        {
+            get
+            {
+                if (!_mUnknown_QrCodePng) return _mValue_QrCodePng;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.QrCodePng' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The associated IAM User name if the virtual MFA device is enabled.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.UserName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         /// </summary>
-        [Input("virtualMfaDeviceName")]
+        [PolicyResourceProperty("virtualMfaDeviceName", "_mUnknown_VirtualMfaDeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualMfaDeviceName;
-
-        public string? VirtualMfaDeviceName => _mVirtualMfaDeviceName.GetValue("virtualMfaDeviceName");
+        private string? _mValue_VirtualMfaDeviceName;
+        private bool _mUnknown_VirtualMfaDeviceName;
+        public string? VirtualMfaDeviceName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualMfaDeviceName) return _mValue_VirtualMfaDeviceName;
+                throw new UndeferrableValueException("Value 'VirtualMfaDevice.VirtualMfaDeviceName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/virtualMfaDevice:VirtualMfaDevice")]
@@ -101,28 +164,49 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The path for the virtual MFA device.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'VirtualMfaDeviceArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VirtualMfaDeviceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
         /// </summary>
-        [Input("virtualMfaDeviceName")]
+        [PolicyResourceProperty("virtualMfaDeviceName", "_mUnknown_VirtualMfaDeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualMfaDeviceName;
-
-        public string? VirtualMfaDeviceName => _mVirtualMfaDeviceName.GetValue("virtualMfaDeviceName");
+        private string? _mValue_VirtualMfaDeviceName;
+        private bool _mUnknown_VirtualMfaDeviceName;
+        public string? VirtualMfaDeviceName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualMfaDeviceName) return _mValue_VirtualMfaDeviceName;
+                throw new UndeferrableValueException("Value 'VirtualMfaDeviceArgs.VirtualMfaDeviceName' is not present");
+            }
+        }
     }
 }

@@ -16,151 +16,270 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// <summary>
         /// Name of the Elastic DocumentDB cluster administrator
         /// </summary>
-        [Input("adminUserName")]
+        [PolicyResourceProperty("adminUserName", "_mUnknown_AdminUserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserName;
-
-        public string? AdminUserName => _mAdminUserName.GetValue("adminUserName");
+        private string? _mValue_AdminUserName;
+        private bool _mUnknown_AdminUserName;
+        public string? AdminUserName
+        {
+            get
+            {
+                if (!_mUnknown_AdminUserName) return _mValue_AdminUserName;
+                throw new UndeferrableValueException("Value 'ElasticCluster.AdminUserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         /// </summary>
-        [Input("adminUserPassword")]
+        [PolicyResourceProperty("adminUserPassword", "_mUnknown_AdminUserPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserPassword;
-
-        public string? AdminUserPassword => _mAdminUserPassword.GetValue("adminUserPassword");
+        private string? _mValue_AdminUserPassword;
+        private bool _mUnknown_AdminUserPassword;
+        public string? AdminUserPassword
+        {
+            get
+            {
+                if (!_mUnknown_AdminUserPassword) return _mValue_AdminUserPassword;
+                throw new UndeferrableValueException("Value 'ElasticCluster.AdminUserPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the DocumentDB Elastic Cluster
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ElasticCluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'ElasticCluster.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'ElasticCluster.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS address of the DocDB instance
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'ElasticCluster.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ElasticCluster.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Elastic DocumentDB cluster
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ElasticCluster.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'ElasticCluster.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ElasticCluster.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         /// </summary>
-        [Input("shardCapacity")]
+        [PolicyResourceProperty("shardCapacity", "_mUnknown_ShardCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShardCapacity;
-
-        public int? ShardCapacity => _mShardCapacity.GetValue("shardCapacity");
+        private int? _mValue_ShardCapacity;
+        private bool _mUnknown_ShardCapacity;
+        public int? ShardCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ShardCapacity) return _mValue_ShardCapacity;
+                throw new UndeferrableValueException("Value 'ElasticCluster.ShardCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of shards assigned to the elastic cluster. Maximum is 32
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("shardCount")]
+        [PolicyResourceProperty("shardCount", "_mUnknown_ShardCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
-
-        public int? ShardCount => _mShardCount.GetValue("shardCount");
+        private int? _mValue_ShardCount;
+        private bool _mUnknown_ShardCount;
+        public int? ShardCount
+        {
+            get
+            {
+                if (!_mUnknown_ShardCount) return _mValue_ShardCount;
+                throw new UndeferrableValueException("Value 'ElasticCluster.ShardCount' is not present");
+            }
+        }
 
         /// <summary>
         /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ElasticCluster.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ElasticCluster.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ElasticCluster.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ElasticClusterTimeouts> _mTimeouts;
-
-        public Outputs.ElasticClusterTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ElasticClusterTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ElasticClusterTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ElasticCluster.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ElasticCluster.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:docdb/elasticCluster:ElasticCluster")]
@@ -169,126 +288,224 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// <summary>
         /// Name of the Elastic DocumentDB cluster administrator
         /// </summary>
-        [Input("adminUserName")]
+        [PolicyResourceProperty("adminUserName", "_mUnknown_AdminUserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserName;
-
-        public string? AdminUserName => _mAdminUserName.GetValue("adminUserName");
+        private string? _mValue_AdminUserName;
+        private bool _mUnknown_AdminUserName;
+        public string? AdminUserName
+        {
+            get
+            {
+                if (!_mUnknown_AdminUserName) return _mValue_AdminUserName;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.AdminUserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         /// </summary>
-        [Input("adminUserPassword")]
+        [PolicyResourceProperty("adminUserPassword", "_mUnknown_AdminUserPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminUserPassword;
-
-        public string? AdminUserPassword => _mAdminUserPassword.GetValue("adminUserPassword");
+        private string? _mValue_AdminUserPassword;
+        private bool _mUnknown_AdminUserPassword;
+        public string? AdminUserPassword
+        {
+            get
+            {
+                if (!_mUnknown_AdminUserPassword) return _mValue_AdminUserPassword;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.AdminUserPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
         /// </summary>
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
-
-        public string? AuthType => _mAuthType.GetValue("authType");
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.AuthType' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         /// </summary>
-        [Input("backupRetentionPeriod")]
+        [PolicyResourceProperty("backupRetentionPeriod", "_mUnknown_BackupRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBackupRetentionPeriod;
-
-        public int? BackupRetentionPeriod => _mBackupRetentionPeriod.GetValue("backupRetentionPeriod");
+        private int? _mValue_BackupRetentionPeriod;
+        private bool _mUnknown_BackupRetentionPeriod;
+        public int? BackupRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionPeriod) return _mValue_BackupRetentionPeriod;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.BackupRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Elastic DocumentDB cluster
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         /// </summary>
-        [Input("shardCapacity")]
+        [PolicyResourceProperty("shardCapacity", "_mUnknown_ShardCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShardCapacity;
-
-        public int? ShardCapacity => _mShardCapacity.GetValue("shardCapacity");
+        private int? _mValue_ShardCapacity;
+        private bool _mUnknown_ShardCapacity;
+        public int? ShardCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ShardCapacity) return _mValue_ShardCapacity;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.ShardCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of shards assigned to the elastic cluster. Maximum is 32
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("shardCount")]
+        [PolicyResourceProperty("shardCount", "_mUnknown_ShardCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mShardCount;
-
-        public int? ShardCount => _mShardCount.GetValue("shardCount");
+        private int? _mValue_ShardCount;
+        private bool _mUnknown_ShardCount;
+        public int? ShardCount
+        {
+            get
+            {
+                if (!_mUnknown_ShardCount) return _mValue_ShardCount;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.ShardCount' is not present");
+            }
+        }
 
         /// <summary>
         /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ElasticClusterTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ElasticClusterTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ElasticClusterTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ElasticClusterTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ElasticClusterArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
     }
 }

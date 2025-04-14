@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Timeouts for gRPC listeners.
         /// </summary>
-        [Input("grpc")]
+        [PolicyResourceProperty("grpc", "_mUnknown_Grpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecListenerTimeoutGrpc> _mGrpc;
-
-        public Outputs.VirtualNodeSpecListenerTimeoutGrpc? Grpc => _mGrpc.GetValue("grpc");
+        private Outputs.VirtualNodeSpecListenerTimeoutGrpc? _mValue_Grpc;
+        private bool _mUnknown_Grpc;
+        public Outputs.VirtualNodeSpecListenerTimeoutGrpc? Grpc
+        {
+            get
+            {
+                if (!_mUnknown_Grpc) return _mValue_Grpc;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeout.Grpc' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeouts for HTTP listeners.
         /// </summary>
-        [Input("http")]
+        [PolicyResourceProperty("http", "_mUnknown_Http")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecListenerTimeoutHttp> _mHttp;
-
-        public Outputs.VirtualNodeSpecListenerTimeoutHttp? Http => _mHttp.GetValue("http");
+        private Outputs.VirtualNodeSpecListenerTimeoutHttp? _mValue_Http;
+        private bool _mUnknown_Http;
+        public Outputs.VirtualNodeSpecListenerTimeoutHttp? Http
+        {
+            get
+            {
+                if (!_mUnknown_Http) return _mValue_Http;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeout.Http' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeouts for HTTP2 listeners.
         /// </summary>
-        [Input("http2")]
+        [PolicyResourceProperty("http2", "_mUnknown_Http2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecListenerTimeoutHttp2> _mHttp2;
-
-        public Outputs.VirtualNodeSpecListenerTimeoutHttp2? Http2 => _mHttp2.GetValue("http2");
+        private Outputs.VirtualNodeSpecListenerTimeoutHttp2? _mValue_Http2;
+        private bool _mUnknown_Http2;
+        public Outputs.VirtualNodeSpecListenerTimeoutHttp2? Http2
+        {
+            get
+            {
+                if (!_mUnknown_Http2) return _mValue_Http2;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeout.Http2' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeouts for TCP listeners.
         /// </summary>
-        [Input("tcp")]
+        [PolicyResourceProperty("tcp", "_mUnknown_Tcp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecListenerTimeoutTcp> _mTcp;
-
-        public Outputs.VirtualNodeSpecListenerTimeoutTcp? Tcp => _mTcp.GetValue("tcp");
+        private Outputs.VirtualNodeSpecListenerTimeoutTcp? _mValue_Tcp;
+        private bool _mUnknown_Tcp;
+        public Outputs.VirtualNodeSpecListenerTimeoutTcp? Tcp
+        {
+            get
+            {
+                if (!_mUnknown_Tcp) return _mValue_Tcp;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeout.Tcp' is not present");
+            }
+        }
     }
 }

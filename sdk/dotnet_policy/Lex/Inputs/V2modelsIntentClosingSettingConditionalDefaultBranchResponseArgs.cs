@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Whether the user can interrupt a speech response from Amazon Lex.
         /// </summary>
-        [Input("allowInterrupt")]
+        [PolicyResourceProperty("allowInterrupt", "_mUnknown_AllowInterrupt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowInterrupt;
-
-        public bool? AllowInterrupt => _mAllowInterrupt.GetValue("allowInterrupt");
+        private bool? _mValue_AllowInterrupt;
+        private bool _mUnknown_AllowInterrupt;
+        public bool? AllowInterrupt
+        {
+            get
+            {
+                if (!_mUnknown_AllowInterrupt) return _mValue_AllowInterrupt;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchResponseArgs.AllowInterrupt' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
         /// </summary>
-        [Input("messageGroups")]
+        [PolicyResourceProperty("messageGroups", "_mUnknown_MessageGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupArgs>> _mMessageGroups;
-
-        public List<Inputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupArgs>? MessageGroups => _mMessageGroups.GetValue("messageGroups");
+        private List<Inputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupArgs>? _mValue_MessageGroups;
+        private bool _mUnknown_MessageGroups;
+        public List<Inputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupArgs>? MessageGroups
+        {
+            get
+            {
+                if (!_mUnknown_MessageGroups) return _mValue_MessageGroups;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchResponseArgs.MessageGroups' is not present");
+            }
+        }
     }
 }

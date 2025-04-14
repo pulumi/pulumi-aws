@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The height of the FEC protection matrix.
         /// </summary>
-        [Input("columnDepth")]
+        [PolicyResourceProperty("columnDepth", "_mUnknown_ColumnDepth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mColumnDepth;
-
-        public int? ColumnDepth => _mColumnDepth.GetValue("columnDepth");
+        private int? _mValue_ColumnDepth;
+        private bool _mUnknown_ColumnDepth;
+        public int? ColumnDepth
+        {
+            get
+            {
+                if (!_mUnknown_ColumnDepth) return _mValue_ColumnDepth;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.ColumnDepth' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables column only or column and row based FEC.
         /// </summary>
-        [Input("includeFec")]
+        [PolicyResourceProperty("includeFec", "_mUnknown_IncludeFec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIncludeFec;
-
-        public string? IncludeFec => _mIncludeFec.GetValue("includeFec");
+        private string? _mValue_IncludeFec;
+        private bool _mUnknown_IncludeFec;
+        public string? IncludeFec
+        {
+            get
+            {
+                if (!_mUnknown_IncludeFec) return _mValue_IncludeFec;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.IncludeFec' is not present");
+            }
+        }
 
         /// <summary>
         /// The width of the FEC protection matrix.
         /// </summary>
-        [Input("rowLength")]
+        [PolicyResourceProperty("rowLength", "_mUnknown_RowLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRowLength;
-
-        public int? RowLength => _mRowLength.GetValue("rowLength");
+        private int? _mValue_RowLength;
+        private bool _mUnknown_RowLength;
+        public int? RowLength
+        {
+            get
+            {
+                if (!_mUnknown_RowLength) return _mValue_RowLength;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.RowLength' is not present");
+            }
+        }
     }
 }

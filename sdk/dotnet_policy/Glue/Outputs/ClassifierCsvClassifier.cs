@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Enables the processing of files that contain only one column.
         /// </summary>
-        [Input("allowSingleColumn")]
+        [PolicyResourceProperty("allowSingleColumn", "_mUnknown_AllowSingleColumn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSingleColumn;
-
-        public bool? AllowSingleColumn => _mAllowSingleColumn.GetValue("allowSingleColumn");
+        private bool? _mValue_AllowSingleColumn;
+        private bool _mUnknown_AllowSingleColumn;
+        public bool? AllowSingleColumn
+        {
+            get
+            {
+                if (!_mUnknown_AllowSingleColumn) return _mValue_AllowSingleColumn;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.AllowSingleColumn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
         /// </summary>
-        [Input("containsHeader")]
+        [PolicyResourceProperty("containsHeader", "_mUnknown_ContainsHeader")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainsHeader;
-
-        public string? ContainsHeader => _mContainsHeader.GetValue("containsHeader");
+        private string? _mValue_ContainsHeader;
+        private bool _mUnknown_ContainsHeader;
+        public string? ContainsHeader
+        {
+            get
+            {
+                if (!_mUnknown_ContainsHeader) return _mValue_ContainsHeader;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.ContainsHeader' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables the custom datatype to be configured.
         /// </summary>
-        [Input("customDatatypeConfigured")]
+        [PolicyResourceProperty("customDatatypeConfigured", "_mUnknown_CustomDatatypeConfigured")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCustomDatatypeConfigured;
-
-        public bool? CustomDatatypeConfigured => _mCustomDatatypeConfigured.GetValue("customDatatypeConfigured");
+        private bool? _mValue_CustomDatatypeConfigured;
+        private bool _mUnknown_CustomDatatypeConfigured;
+        public bool? CustomDatatypeConfigured
+        {
+            get
+            {
+                if (!_mUnknown_CustomDatatypeConfigured) return _mValue_CustomDatatypeConfigured;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.CustomDatatypeConfigured' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
         /// </summary>
-        [Input("customDatatypes")]
+        [PolicyResourceProperty("customDatatypes", "_mUnknown_CustomDatatypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDatatypes;
-
-        public List<string>? CustomDatatypes => _mCustomDatatypes.GetValue("customDatatypes");
+        private List<string>? _mValue_CustomDatatypes;
+        private bool _mUnknown_CustomDatatypes;
+        public List<string>? CustomDatatypes
+        {
+            get
+            {
+                if (!_mUnknown_CustomDatatypes) return _mValue_CustomDatatypes;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.CustomDatatypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The delimiter used in the CSV to separate columns.
         /// </summary>
-        [Input("delimiter")]
+        [PolicyResourceProperty("delimiter", "_mUnknown_Delimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelimiter;
-
-        public string? Delimiter => _mDelimiter.GetValue("delimiter");
+        private string? _mValue_Delimiter;
+        private bool _mUnknown_Delimiter;
+        public string? Delimiter
+        {
+            get
+            {
+                if (!_mUnknown_Delimiter) return _mValue_Delimiter;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.Delimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to trim column values.
         /// </summary>
-        [Input("disableValueTrimming")]
+        [PolicyResourceProperty("disableValueTrimming", "_mUnknown_DisableValueTrimming")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableValueTrimming;
-
-        public bool? DisableValueTrimming => _mDisableValueTrimming.GetValue("disableValueTrimming");
+        private bool? _mValue_DisableValueTrimming;
+        private bool _mUnknown_DisableValueTrimming;
+        public bool? DisableValueTrimming
+        {
+            get
+            {
+                if (!_mUnknown_DisableValueTrimming) return _mValue_DisableValueTrimming;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.DisableValueTrimming' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of strings representing column names.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHeaders;
-
-        public List<string>? Headers => _mHeaders.GetValue("headers");
+        private List<string>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<string>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
         /// </summary>
-        [Input("quoteSymbol")]
+        [PolicyResourceProperty("quoteSymbol", "_mUnknown_QuoteSymbol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuoteSymbol;
-
-        public string? QuoteSymbol => _mQuoteSymbol.GetValue("quoteSymbol");
+        private string? _mValue_QuoteSymbol;
+        private bool _mUnknown_QuoteSymbol;
+        public string? QuoteSymbol
+        {
+            get
+            {
+                if (!_mUnknown_QuoteSymbol) return _mValue_QuoteSymbol;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.QuoteSymbol' is not present");
+            }
+        }
 
         /// <summary>
         /// The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
         /// </summary>
-        [Input("serde")]
+        [PolicyResourceProperty("serde", "_mUnknown_Serde")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSerde;
-
-        public string? Serde => _mSerde.GetValue("serde");
+        private string? _mValue_Serde;
+        private bool _mUnknown_Serde;
+        public string? Serde
+        {
+            get
+            {
+                if (!_mUnknown_Serde) return _mValue_Serde;
+                throw new UndeferrableValueException("Value 'ClassifierCsvClassifier.Serde' is not present");
+            }
+        }
     }
 }

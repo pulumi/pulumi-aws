@@ -12,58 +12,121 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
 {
     public sealed class GetEndpointKinesisSettingResult
     {
-        [Input("includeControlDetails")]
+        [PolicyResourceProperty("includeControlDetails", "_mUnknown_IncludeControlDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeControlDetails;
+        private bool? _mValue_IncludeControlDetails;
+        private bool _mUnknown_IncludeControlDetails;
+        public bool? IncludeControlDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeControlDetails) return _mValue_IncludeControlDetails;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.IncludeControlDetails' is not present");
+            }
+        }
 
-        public bool? IncludeControlDetails => _mIncludeControlDetails.GetValue("includeControlDetails");
-
-        [Input("includeNullAndEmpty")]
+        [PolicyResourceProperty("includeNullAndEmpty", "_mUnknown_IncludeNullAndEmpty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeNullAndEmpty;
+        private bool? _mValue_IncludeNullAndEmpty;
+        private bool _mUnknown_IncludeNullAndEmpty;
+        public bool? IncludeNullAndEmpty
+        {
+            get
+            {
+                if (!_mUnknown_IncludeNullAndEmpty) return _mValue_IncludeNullAndEmpty;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.IncludeNullAndEmpty' is not present");
+            }
+        }
 
-        public bool? IncludeNullAndEmpty => _mIncludeNullAndEmpty.GetValue("includeNullAndEmpty");
-
-        [Input("includePartitionValue")]
+        [PolicyResourceProperty("includePartitionValue", "_mUnknown_IncludePartitionValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludePartitionValue;
+        private bool? _mValue_IncludePartitionValue;
+        private bool _mUnknown_IncludePartitionValue;
+        public bool? IncludePartitionValue
+        {
+            get
+            {
+                if (!_mUnknown_IncludePartitionValue) return _mValue_IncludePartitionValue;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.IncludePartitionValue' is not present");
+            }
+        }
 
-        public bool? IncludePartitionValue => _mIncludePartitionValue.GetValue("includePartitionValue");
-
-        [Input("includeTableAlterOperations")]
+        [PolicyResourceProperty("includeTableAlterOperations", "_mUnknown_IncludeTableAlterOperations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTableAlterOperations;
+        private bool? _mValue_IncludeTableAlterOperations;
+        private bool _mUnknown_IncludeTableAlterOperations;
+        public bool? IncludeTableAlterOperations
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTableAlterOperations) return _mValue_IncludeTableAlterOperations;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.IncludeTableAlterOperations' is not present");
+            }
+        }
 
-        public bool? IncludeTableAlterOperations => _mIncludeTableAlterOperations.GetValue("includeTableAlterOperations");
-
-        [Input("includeTransactionDetails")]
+        [PolicyResourceProperty("includeTransactionDetails", "_mUnknown_IncludeTransactionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTransactionDetails;
+        private bool? _mValue_IncludeTransactionDetails;
+        private bool _mUnknown_IncludeTransactionDetails;
+        public bool? IncludeTransactionDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTransactionDetails) return _mValue_IncludeTransactionDetails;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.IncludeTransactionDetails' is not present");
+            }
+        }
 
-        public bool? IncludeTransactionDetails => _mIncludeTransactionDetails.GetValue("includeTransactionDetails");
-
-        [Input("messageFormat")]
+        [PolicyResourceProperty("messageFormat", "_mUnknown_MessageFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageFormat;
+        private string? _mValue_MessageFormat;
+        private bool _mUnknown_MessageFormat;
+        public string? MessageFormat
+        {
+            get
+            {
+                if (!_mUnknown_MessageFormat) return _mValue_MessageFormat;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.MessageFormat' is not present");
+            }
+        }
 
-        public string? MessageFormat => _mMessageFormat.GetValue("messageFormat");
-
-        [Input("partitionIncludeSchemaTable")]
+        [PolicyResourceProperty("partitionIncludeSchemaTable", "_mUnknown_PartitionIncludeSchemaTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPartitionIncludeSchemaTable;
+        private bool? _mValue_PartitionIncludeSchemaTable;
+        private bool _mUnknown_PartitionIncludeSchemaTable;
+        public bool? PartitionIncludeSchemaTable
+        {
+            get
+            {
+                if (!_mUnknown_PartitionIncludeSchemaTable) return _mValue_PartitionIncludeSchemaTable;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.PartitionIncludeSchemaTable' is not present");
+            }
+        }
 
-        public bool? PartitionIncludeSchemaTable => _mPartitionIncludeSchemaTable.GetValue("partitionIncludeSchemaTable");
-
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.ServiceAccessRoleArn' is not present");
+            }
+        }
 
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
-
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'GetEndpointKinesisSettingResult.StreamArn' is not present");
+            }
+        }
     }
 }

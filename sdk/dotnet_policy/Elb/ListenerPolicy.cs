@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// <summary>
         /// The load balancer to attach the policy to.
         /// </summary>
-        [Input("loadBalancerName")]
+        [PolicyResourceProperty("loadBalancerName", "_mUnknown_LoadBalancerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
-
-        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
+        private string? _mValue_LoadBalancerName;
+        private bool _mUnknown_LoadBalancerName;
+        public string? LoadBalancerName
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerName) return _mValue_LoadBalancerName;
+                throw new UndeferrableValueException("Value 'ListenerPolicy.LoadBalancerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer listener port to apply the policy to.
         /// </summary>
-        [Input("loadBalancerPort")]
+        [PolicyResourceProperty("loadBalancerPort", "_mUnknown_LoadBalancerPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLoadBalancerPort;
-
-        public int? LoadBalancerPort => _mLoadBalancerPort.GetValue("loadBalancerPort");
+        private int? _mValue_LoadBalancerPort;
+        private bool _mUnknown_LoadBalancerPort;
+        public int? LoadBalancerPort
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerPort) return _mValue_LoadBalancerPort;
+                throw new UndeferrableValueException("Value 'ListenerPolicy.LoadBalancerPort' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Policy Names to apply to the backend server.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'ListenerPolicy.PolicyNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an update.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'ListenerPolicy.Triggers' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elb/listenerPolicy:ListenerPolicy")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Elb
         /// <summary>
         /// The load balancer to attach the policy to.
         /// </summary>
-        [Input("loadBalancerName")]
+        [PolicyResourceProperty("loadBalancerName", "_mUnknown_LoadBalancerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoadBalancerName;
-
-        public string? LoadBalancerName => _mLoadBalancerName.GetValue("loadBalancerName");
+        private string? _mValue_LoadBalancerName;
+        private bool _mUnknown_LoadBalancerName;
+        public string? LoadBalancerName
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerName) return _mValue_LoadBalancerName;
+                throw new UndeferrableValueException("Value 'ListenerPolicyArgs.LoadBalancerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The load balancer listener port to apply the policy to.
         /// </summary>
-        [Input("loadBalancerPort")]
+        [PolicyResourceProperty("loadBalancerPort", "_mUnknown_LoadBalancerPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLoadBalancerPort;
-
-        public int? LoadBalancerPort => _mLoadBalancerPort.GetValue("loadBalancerPort");
+        private int? _mValue_LoadBalancerPort;
+        private bool _mUnknown_LoadBalancerPort;
+        public int? LoadBalancerPort
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancerPort) return _mValue_LoadBalancerPort;
+                throw new UndeferrableValueException("Value 'ListenerPolicyArgs.LoadBalancerPort' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Policy Names to apply to the backend server.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'ListenerPolicyArgs.PolicyNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an update.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'ListenerPolicyArgs.Triggers' is not present");
+            }
+        }
     }
 }

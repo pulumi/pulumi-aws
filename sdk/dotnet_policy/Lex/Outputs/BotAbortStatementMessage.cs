@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// The text of the message.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'BotAbortStatementMessage.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// The content type of the message string.
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'BotAbortStatementMessage.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the message group that the message belongs to. When a group
         /// is assigned to a message, Amazon Lex returns one message from each group in the response.
         /// </summary>
-        [Input("groupNumber")]
+        [PolicyResourceProperty("groupNumber", "_mUnknown_GroupNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGroupNumber;
-
-        public int? GroupNumber => _mGroupNumber.GetValue("groupNumber");
+        private int? _mValue_GroupNumber;
+        private bool _mUnknown_GroupNumber;
+        public int? GroupNumber
+        {
+            get
+            {
+                if (!_mUnknown_GroupNumber) return _mValue_GroupNumber;
+                throw new UndeferrableValueException("Value 'BotAbortStatementMessage.GroupNumber' is not present");
+            }
+        }
     }
 }

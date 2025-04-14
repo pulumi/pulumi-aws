@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
         /// </summary>
-        [Input("jsonPath")]
+        [PolicyResourceProperty("jsonPath", "_mUnknown_JsonPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJsonPath;
-
-        public string? JsonPath => _mJsonPath.GetValue("jsonPath");
+        private string? _mValue_JsonPath;
+        private bool _mUnknown_JsonPath;
+        public string? JsonPath
+        {
+            get
+            {
+                if (!_mUnknown_JsonPath) return _mValue_JsonPath;
+                throw new UndeferrableValueException("Value 'ClassifierJsonClassifier.JsonPath' is not present");
+            }
+        }
     }
 }

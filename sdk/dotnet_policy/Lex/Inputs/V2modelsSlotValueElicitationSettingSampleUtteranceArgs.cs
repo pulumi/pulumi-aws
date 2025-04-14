@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// The sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
         /// </summary>
-        [Input("utterance")]
+        [PolicyResourceProperty("utterance", "_mUnknown_Utterance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUtterance;
-
-        public string? Utterance => _mUtterance.GetValue("utterance");
+        private string? _mValue_Utterance;
+        private bool _mUnknown_Utterance;
+        public string? Utterance
+        {
+            get
+            {
+                if (!_mUnknown_Utterance) return _mValue_Utterance;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingSampleUtteranceArgs.Utterance' is not present");
+            }
+        }
     }
 }

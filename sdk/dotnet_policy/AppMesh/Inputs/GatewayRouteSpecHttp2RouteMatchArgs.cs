@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Client request headers to match on.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GatewayRouteSpecHttp2RouteMatchHeaderArgs>> _mHeaders;
-
-        public List<Inputs.GatewayRouteSpecHttp2RouteMatchHeaderArgs>? Headers => _mHeaders.GetValue("headers");
+        private List<Inputs.GatewayRouteSpecHttp2RouteMatchHeaderArgs>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Inputs.GatewayRouteSpecHttp2RouteMatchHeaderArgs>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchArgs.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Host name to match on.
         /// </summary>
-        [Input("hostname")]
+        [PolicyResourceProperty("hostname", "_mUnknown_Hostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs> _mHostname;
-
-        public Inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs? Hostname => _mHostname.GetValue("hostname");
+        private Inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs? _mValue_Hostname;
+        private bool _mUnknown_Hostname;
+        public Inputs.GatewayRouteSpecHttp2RouteMatchHostnameArgs? Hostname
+        {
+            get
+            {
+                if (!_mUnknown_Hostname) return _mValue_Hostname;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchArgs.Hostname' is not present");
+            }
+        }
 
         /// <summary>
         /// Client request path to match on.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecHttp2RouteMatchPathArgs> _mPath;
-
-        public Inputs.GatewayRouteSpecHttp2RouteMatchPathArgs? Path => _mPath.GetValue("path");
+        private Inputs.GatewayRouteSpecHttp2RouteMatchPathArgs? _mValue_Path;
+        private bool _mUnknown_Path;
+        public Inputs.GatewayRouteSpecHttp2RouteMatchPathArgs? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number to match from the request.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchArgs.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Client request query parameters to match on.
         /// </summary>
-        [Input("queryParameters")]
+        [PolicyResourceProperty("queryParameters", "_mUnknown_QueryParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>> _mQueryParameters;
-
-        public List<Inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>? QueryParameters => _mQueryParameters.GetValue("queryParameters");
+        private List<Inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>? _mValue_QueryParameters;
+        private bool _mUnknown_QueryParameters;
+        public List<Inputs.GatewayRouteSpecHttp2RouteMatchQueryParameterArgs>? QueryParameters
+        {
+            get
+            {
+                if (!_mUnknown_QueryParameters) return _mValue_QueryParameters;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchArgs.QueryParameters' is not present");
+            }
+        }
     }
 }

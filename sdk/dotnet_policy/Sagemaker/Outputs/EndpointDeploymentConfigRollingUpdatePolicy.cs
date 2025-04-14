@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
         /// </summary>
-        [Input("maximumBatchSize")]
+        [PolicyResourceProperty("maximumBatchSize", "_mUnknown_MaximumBatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize> _mMaximumBatchSize;
-
-        public Outputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize? MaximumBatchSize => _mMaximumBatchSize.GetValue("maximumBatchSize");
+        private Outputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize? _mValue_MaximumBatchSize;
+        private bool _mUnknown_MaximumBatchSize;
+        public Outputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize? MaximumBatchSize
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchSize) return _mValue_MaximumBatchSize;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicy.MaximumBatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
         /// </summary>
-        [Input("maximumExecutionTimeoutInSeconds")]
+        [PolicyResourceProperty("maximumExecutionTimeoutInSeconds", "_mUnknown_MaximumExecutionTimeoutInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumExecutionTimeoutInSeconds;
-
-        public int? MaximumExecutionTimeoutInSeconds => _mMaximumExecutionTimeoutInSeconds.GetValue("maximumExecutionTimeoutInSeconds");
+        private int? _mValue_MaximumExecutionTimeoutInSeconds;
+        private bool _mUnknown_MaximumExecutionTimeoutInSeconds;
+        public int? MaximumExecutionTimeoutInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumExecutionTimeoutInSeconds) return _mValue_MaximumExecutionTimeoutInSeconds;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicy.MaximumExecutionTimeoutInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
         /// </summary>
-        [Input("rollbackMaximumBatchSize")]
+        [PolicyResourceProperty("rollbackMaximumBatchSize", "_mUnknown_RollbackMaximumBatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize> _mRollbackMaximumBatchSize;
-
-        public Outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize? RollbackMaximumBatchSize => _mRollbackMaximumBatchSize.GetValue("rollbackMaximumBatchSize");
+        private Outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize? _mValue_RollbackMaximumBatchSize;
+        private bool _mUnknown_RollbackMaximumBatchSize;
+        public Outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize? RollbackMaximumBatchSize
+        {
+            get
+            {
+                if (!_mUnknown_RollbackMaximumBatchSize) return _mValue_RollbackMaximumBatchSize;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicy.RollbackMaximumBatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
         /// </summary>
-        [Input("waitIntervalInSeconds")]
+        [PolicyResourceProperty("waitIntervalInSeconds", "_mUnknown_WaitIntervalInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitIntervalInSeconds;
-
-        public int? WaitIntervalInSeconds => _mWaitIntervalInSeconds.GetValue("waitIntervalInSeconds");
+        private int? _mValue_WaitIntervalInSeconds;
+        private bool _mUnknown_WaitIntervalInSeconds;
+        public int? WaitIntervalInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_WaitIntervalInSeconds) return _mValue_WaitIntervalInSeconds;
+                throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicy.WaitIntervalInSeconds' is not present");
+            }
+        }
     }
 }

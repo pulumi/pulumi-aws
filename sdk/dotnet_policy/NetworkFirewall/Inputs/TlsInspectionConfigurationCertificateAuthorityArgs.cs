@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// ARN of the certificate.
         /// </summary>
-        [Input("certificateArn")]
+        [PolicyResourceProperty("certificateArn", "_mUnknown_CertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateArn;
-
-        public string? CertificateArn => _mCertificateArn.GetValue("certificateArn");
+        private string? _mValue_CertificateArn;
+        private bool _mUnknown_CertificateArn;
+        public string? CertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateArn) return _mValue_CertificateArn;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthorityArgs.CertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Serial number of the certificate.
         /// </summary>
-        [Input("certificateSerial")]
+        [PolicyResourceProperty("certificateSerial", "_mUnknown_CertificateSerial")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateSerial;
-
-        public string? CertificateSerial => _mCertificateSerial.GetValue("certificateSerial");
+        private string? _mValue_CertificateSerial;
+        private bool _mUnknown_CertificateSerial;
+        public string? CertificateSerial
+        {
+            get
+            {
+                if (!_mUnknown_CertificateSerial) return _mValue_CertificateSerial;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthorityArgs.CertificateSerial' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the certificate.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthorityArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the certificate status, including information about certificate errors.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
-
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthorityArgs.StatusMessage' is not present");
+            }
+        }
     }
 }

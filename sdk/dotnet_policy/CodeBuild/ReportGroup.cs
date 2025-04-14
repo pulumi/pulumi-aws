@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// The ARN of Report Group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReportGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time this Report Group was created.
         /// </summary>
-        [Input("created")]
+        [PolicyResourceProperty("created", "_mUnknown_Created")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreated;
-
-        public string? Created => _mCreated.GetValue("created");
+        private string? _mValue_Created;
+        private bool _mUnknown_Created;
+        public string? Created
+        {
+            get
+            {
+                if (!_mUnknown_Created) return _mValue_Created;
+                throw new UndeferrableValueException("Value 'ReportGroup.Created' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
         /// </summary>
-        [Input("deleteReports")]
+        [PolicyResourceProperty("deleteReports", "_mUnknown_DeleteReports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteReports;
-
-        public bool? DeleteReports => _mDeleteReports.GetValue("deleteReports");
+        private bool? _mValue_DeleteReports;
+        private bool _mUnknown_DeleteReports;
+        public bool? DeleteReports
+        {
+            get
+            {
+                if (!_mUnknown_DeleteReports) return _mValue_DeleteReports;
+                throw new UndeferrableValueException("Value 'ReportGroup.DeleteReports' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         /// </summary>
-        [Input("exportConfig")]
+        [PolicyResourceProperty("exportConfig", "_mUnknown_ExportConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ReportGroupExportConfig> _mExportConfig;
-
-        public Outputs.ReportGroupExportConfig? ExportConfig => _mExportConfig.GetValue("exportConfig");
+        private Outputs.ReportGroupExportConfig? _mValue_ExportConfig;
+        private bool _mUnknown_ExportConfig;
+        public Outputs.ReportGroupExportConfig? ExportConfig
+        {
+            get
+            {
+                if (!_mUnknown_ExportConfig) return _mValue_ExportConfig;
+                throw new UndeferrableValueException("Value 'ReportGroup.ExportConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a Report Group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReportGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReportGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReportGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ReportGroup.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codebuild/reportGroup:ReportGroup")]
@@ -92,46 +148,81 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild
         /// <summary>
         /// If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
         /// </summary>
-        [Input("deleteReports")]
+        [PolicyResourceProperty("deleteReports", "_mUnknown_DeleteReports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteReports;
-
-        public bool? DeleteReports => _mDeleteReports.GetValue("deleteReports");
+        private bool? _mValue_DeleteReports;
+        private bool _mUnknown_DeleteReports;
+        public bool? DeleteReports
+        {
+            get
+            {
+                if (!_mUnknown_DeleteReports) return _mValue_DeleteReports;
+                throw new UndeferrableValueException("Value 'ReportGroupArgs.DeleteReports' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         /// </summary>
-        [Input("exportConfig")]
+        [PolicyResourceProperty("exportConfig", "_mUnknown_ExportConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ReportGroupExportConfigArgs> _mExportConfig;
-
-        public Inputs.ReportGroupExportConfigArgs? ExportConfig => _mExportConfig.GetValue("exportConfig");
+        private Inputs.ReportGroupExportConfigArgs? _mValue_ExportConfig;
+        private bool _mUnknown_ExportConfig;
+        public Inputs.ReportGroupExportConfigArgs? ExportConfig
+        {
+            get
+            {
+                if (!_mUnknown_ExportConfig) return _mValue_ExportConfig;
+                throw new UndeferrableValueException("Value 'ReportGroupArgs.ExportConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a Report Group.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReportGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReportGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ReportGroupArgs.Type' is not present");
+            }
+        }
     }
 }

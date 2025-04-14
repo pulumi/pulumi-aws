@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// ARN of the IAM role associated with the EKS add-on.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'GetAddonPodIdentityAssociationResult.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Service account associated with the EKS add-on.
         /// </summary>
-        [Input("serviceAccount")]
+        [PolicyResourceProperty("serviceAccount", "_mUnknown_ServiceAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccount;
-
-        public string? ServiceAccount => _mServiceAccount.GetValue("serviceAccount");
+        private string? _mValue_ServiceAccount;
+        private bool _mUnknown_ServiceAccount;
+        public string? ServiceAccount
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccount) return _mValue_ServiceAccount;
+                throw new UndeferrableValueException("Value 'GetAddonPodIdentityAssociationResult.ServiceAccount' is not present");
+            }
+        }
     }
 }

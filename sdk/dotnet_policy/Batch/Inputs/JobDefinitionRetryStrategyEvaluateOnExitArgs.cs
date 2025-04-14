@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Glob pattern to match against the decimal representation of the exit code returned for a job.
         /// </summary>
-        [Input("onExitCode")]
+        [PolicyResourceProperty("onExitCode", "_mUnknown_OnExitCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnExitCode;
-
-        public string? OnExitCode => _mOnExitCode.GetValue("onExitCode");
+        private string? _mValue_OnExitCode;
+        private bool _mUnknown_OnExitCode;
+        public string? OnExitCode
+        {
+            get
+            {
+                if (!_mUnknown_OnExitCode) return _mValue_OnExitCode;
+                throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.OnExitCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Glob pattern to match against the reason returned for a job.
         /// </summary>
-        [Input("onReason")]
+        [PolicyResourceProperty("onReason", "_mUnknown_OnReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnReason;
-
-        public string? OnReason => _mOnReason.GetValue("onReason");
+        private string? _mValue_OnReason;
+        private bool _mUnknown_OnReason;
+        public string? OnReason
+        {
+            get
+            {
+                if (!_mUnknown_OnReason) return _mValue_OnReason;
+                throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.OnReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Glob pattern to match against the status reason returned for a job.
         /// </summary>
-        [Input("onStatusReason")]
+        [PolicyResourceProperty("onStatusReason", "_mUnknown_OnStatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnStatusReason;
-
-        public string? OnStatusReason => _mOnStatusReason.GetValue("onStatusReason");
+        private string? _mValue_OnStatusReason;
+        private bool _mUnknown_OnStatusReason;
+        public string? OnStatusReason
+        {
+            get
+            {
+                if (!_mUnknown_OnStatusReason) return _mValue_OnStatusReason;
+                throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.OnStatusReason' is not present");
+            }
+        }
     }
 }

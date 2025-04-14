@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs
     {
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs.BucketPrefix' is not present");
+            }
+        }
 
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
-
-        [Input("errorHandlingConfig")]
+        [PolicyResourceProperty("errorHandlingConfig", "_mUnknown_ErrorHandlingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs> _mErrorHandlingConfig;
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs? _mValue_ErrorHandlingConfig;
+        private bool _mUnknown_ErrorHandlingConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs? ErrorHandlingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ErrorHandlingConfig) return _mValue_ErrorHandlingConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs.ErrorHandlingConfig' is not present");
+            }
+        }
 
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs? ErrorHandlingConfig => _mErrorHandlingConfig.GetValue("errorHandlingConfig");
-
-        [Input("intermediateBucketName")]
+        [PolicyResourceProperty("intermediateBucketName", "_mUnknown_IntermediateBucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntermediateBucketName;
+        private string? _mValue_IntermediateBucketName;
+        private bool _mUnknown_IntermediateBucketName;
+        public string? IntermediateBucketName
+        {
+            get
+            {
+                if (!_mUnknown_IntermediateBucketName) return _mValue_IntermediateBucketName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs.IntermediateBucketName' is not present");
+            }
+        }
 
-        public string? IntermediateBucketName => _mIntermediateBucketName.GetValue("intermediateBucketName");
-
-        [Input("object")]
+        [PolicyResourceProperty("object", "_mUnknown_Object")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObject;
-
-        public string? Object => _mObject.GetValue("object");
+        private string? _mValue_Object;
+        private bool _mUnknown_Object;
+        public string? Object
+        {
+            get
+            {
+                if (!_mUnknown_Object) return _mValue_Object;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs.Object' is not present");
+            }
+        }
     }
 }

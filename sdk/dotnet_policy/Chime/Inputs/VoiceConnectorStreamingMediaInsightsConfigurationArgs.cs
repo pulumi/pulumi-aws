@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Chime.Inputs
         /// <summary>
         /// The media insights configuration that will be invoked by the Voice Connector.
         /// </summary>
-        [Input("configurationArn")]
+        [PolicyResourceProperty("configurationArn", "_mUnknown_ConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationArn;
-
-        public string? ConfigurationArn => _mConfigurationArn.GetValue("configurationArn");
+        private string? _mValue_ConfigurationArn;
+        private bool _mUnknown_ConfigurationArn;
+        public string? ConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationArn) return _mValue_ConfigurationArn;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreamingMediaInsightsConfigurationArgs.ConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// When `true`, the media insights configuration is not enabled. Defaults to `false`.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'VoiceConnectorStreamingMediaInsightsConfigurationArgs.Disabled' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Enter the Distributor ID assigned to your organization by Nielsen.
         /// </summary>
-        [Input("distributorId")]
+        [PolicyResourceProperty("distributorId", "_mUnknown_DistributorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistributorId;
-
-        public string? DistributorId => _mDistributorId.GetValue("distributorId");
+        private string? _mValue_DistributorId;
+        private bool _mUnknown_DistributorId;
+        public string? DistributorId
+        {
+            get
+            {
+                if (!_mUnknown_DistributorId) return _mValue_DistributorId;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsNielsenConfigurationArgs.DistributorId' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables Nielsen PCM to ID3 tagging.
         /// </summary>
-        [Input("nielsenPcmToId3Tagging")]
+        [PolicyResourceProperty("nielsenPcmToId3Tagging", "_mUnknown_NielsenPcmToId3Tagging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNielsenPcmToId3Tagging;
-
-        public string? NielsenPcmToId3Tagging => _mNielsenPcmToId3Tagging.GetValue("nielsenPcmToId3Tagging");
+        private string? _mValue_NielsenPcmToId3Tagging;
+        private bool _mUnknown_NielsenPcmToId3Tagging;
+        public string? NielsenPcmToId3Tagging
+        {
+            get
+            {
+                if (!_mUnknown_NielsenPcmToId3Tagging) return _mValue_NielsenPcmToId3Tagging;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsNielsenConfigurationArgs.NielsenPcmToId3Tagging' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace.Outputs
         /// <summary>
         /// The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mCpu;
-
-        public double? Cpu => _mCpu.GetValue("cpu");
+        private double? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public double? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional hard limit on the amount of memory a kdb cluster can use.
         /// </summary>
-        [Input("memoryLimit")]
+        [PolicyResourceProperty("memoryLimit", "_mUnknown_MemoryLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemoryLimit;
-
-        public int? MemoryLimit => _mMemoryLimit.GetValue("memoryLimit");
+        private int? _mValue_MemoryLimit;
+        private bool _mUnknown_MemoryLimit;
+        public int? MemoryLimit
+        {
+            get
+            {
+                if (!_mUnknown_MemoryLimit) return _mValue_MemoryLimit;
+                throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.MemoryLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
         /// </summary>
-        [Input("memoryReservation")]
+        [PolicyResourceProperty("memoryReservation", "_mUnknown_MemoryReservation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemoryReservation;
-
-        public int? MemoryReservation => _mMemoryReservation.GetValue("memoryReservation");
+        private int? _mValue_MemoryReservation;
+        private bool _mUnknown_MemoryReservation;
+        public int? MemoryReservation
+        {
+            get
+            {
+                if (!_mUnknown_MemoryReservation) return _mValue_MemoryReservation;
+                throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.MemoryReservation' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of kdb cluster nodes.
         /// </summary>
-        [Input("nodeCount")]
+        [PolicyResourceProperty("nodeCount", "_mUnknown_NodeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNodeCount;
-
-        public int? NodeCount => _mNodeCount.GetValue("nodeCount");
+        private int? _mValue_NodeCount;
+        private bool _mUnknown_NodeCount;
+        public int? NodeCount
+        {
+            get
+            {
+                if (!_mUnknown_NodeCount) return _mValue_NodeCount;
+                throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.NodeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the kdb scaling group.
         /// </summary>
-        [Input("scalingGroupName")]
+        [PolicyResourceProperty("scalingGroupName", "_mUnknown_ScalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalingGroupName;
-
-        public string? ScalingGroupName => _mScalingGroupName.GetValue("scalingGroupName");
+        private string? _mValue_ScalingGroupName;
+        private bool _mUnknown_ScalingGroupName;
+        public string? ScalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ScalingGroupName) return _mValue_ScalingGroupName;
+                throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.ScalingGroupName' is not present");
+            }
+        }
     }
 }

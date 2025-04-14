@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
         /// <summary>
         /// ASN of a core network edge.
         /// </summary>
-        [Input("asn")]
+        [PolicyResourceProperty("asn", "_mUnknown_Asn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAsn;
-
-        public int? Asn => _mAsn.GetValue("asn");
+        private int? _mValue_Asn;
+        private bool _mUnknown_Asn;
+        public int? Asn
+        {
+            get
+            {
+                if (!_mUnknown_Asn) return _mValue_Asn;
+                throw new UndeferrableValueException("Value 'CoreNetworkEdgeArgs.Asn' is not present");
+            }
+        }
 
         /// <summary>
         /// Region where a core network edge is located.
         /// </summary>
-        [Input("edgeLocation")]
+        [PolicyResourceProperty("edgeLocation", "_mUnknown_EdgeLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
-
-        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
+        private string? _mValue_EdgeLocation;
+        private bool _mUnknown_EdgeLocation;
+        public string? EdgeLocation
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocation) return _mValue_EdgeLocation;
+                throw new UndeferrableValueException("Value 'CoreNetworkEdgeArgs.EdgeLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Inside IP addresses used for core network edges.
         /// </summary>
-        [Input("insideCidrBlocks")]
+        [PolicyResourceProperty("insideCidrBlocks", "_mUnknown_InsideCidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
-
-        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
+        private List<string>? _mValue_InsideCidrBlocks;
+        private bool _mUnknown_InsideCidrBlocks;
+        public List<string>? InsideCidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_InsideCidrBlocks) return _mValue_InsideCidrBlocks;
+                throw new UndeferrableValueException("Value 'CoreNetworkEdgeArgs.InsideCidrBlocks' is not present");
+            }
+        }
     }
 }

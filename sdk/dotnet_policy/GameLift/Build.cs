@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// <summary>
         /// GameLift Build ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Build.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the build
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Build.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         /// </summary>
-        [Input("operatingSystem")]
+        [PolicyResourceProperty("operatingSystem", "_mUnknown_OperatingSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
-
-        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+        private string? _mValue_OperatingSystem;
+        private bool _mUnknown_OperatingSystem;
+        public string? OperatingSystem
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystem) return _mValue_OperatingSystem;
+                throw new UndeferrableValueException("Value 'Build.OperatingSystem' is not present");
+            }
+        }
 
         /// <summary>
         /// Information indicating where your game build files are stored. See below.
         /// </summary>
-        [Input("storageLocation")]
+        [PolicyResourceProperty("storageLocation", "_mUnknown_StorageLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BuildStorageLocation> _mStorageLocation;
-
-        public Outputs.BuildStorageLocation? StorageLocation => _mStorageLocation.GetValue("storageLocation");
+        private Outputs.BuildStorageLocation? _mValue_StorageLocation;
+        private bool _mUnknown_StorageLocation;
+        public Outputs.BuildStorageLocation? StorageLocation
+        {
+            get
+            {
+                if (!_mUnknown_StorageLocation) return _mValue_StorageLocation;
+                throw new UndeferrableValueException("Value 'Build.StorageLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Build.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Build.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Version that is associated with this build.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Build.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:gamelift/build:Build")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.GameLift
         /// <summary>
         /// Name of the build
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BuildArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
         /// </summary>
-        [Input("operatingSystem")]
+        [PolicyResourceProperty("operatingSystem", "_mUnknown_OperatingSystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystem;
-
-        public string? OperatingSystem => _mOperatingSystem.GetValue("operatingSystem");
+        private string? _mValue_OperatingSystem;
+        private bool _mUnknown_OperatingSystem;
+        public string? OperatingSystem
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystem) return _mValue_OperatingSystem;
+                throw new UndeferrableValueException("Value 'BuildArgs.OperatingSystem' is not present");
+            }
+        }
 
         /// <summary>
         /// Information indicating where your game build files are stored. See below.
         /// </summary>
-        [Input("storageLocation")]
+        [PolicyResourceProperty("storageLocation", "_mUnknown_StorageLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BuildStorageLocationArgs> _mStorageLocation;
-
-        public Inputs.BuildStorageLocationArgs? StorageLocation => _mStorageLocation.GetValue("storageLocation");
+        private Inputs.BuildStorageLocationArgs? _mValue_StorageLocation;
+        private bool _mUnknown_StorageLocation;
+        public Inputs.BuildStorageLocationArgs? StorageLocation
+        {
+            get
+            {
+                if (!_mUnknown_StorageLocation) return _mValue_StorageLocation;
+                throw new UndeferrableValueException("Value 'BuildArgs.StorageLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BuildArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Version that is associated with this build.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'BuildArgs.Version' is not present");
+            }
+        }
     }
 }

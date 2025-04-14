@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'Logging.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the source cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'Logging.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Log destination type. Valid values are `s3` and `cloudwatch`.
         /// </summary>
-        [Input("logDestinationType")]
+        [PolicyResourceProperty("logDestinationType", "_mUnknown_LogDestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestinationType;
-
-        public string? LogDestinationType => _mLogDestinationType.GetValue("logDestinationType");
+        private string? _mValue_LogDestinationType;
+        private bool _mUnknown_LogDestinationType;
+        public string? LogDestinationType
+        {
+            get
+            {
+                if (!_mUnknown_LogDestinationType) return _mValue_LogDestinationType;
+                throw new UndeferrableValueException("Value 'Logging.LogDestinationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         /// </summary>
-        [Input("logExports")]
+        [PolicyResourceProperty("logExports", "_mUnknown_LogExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogExports;
-
-        public List<string>? LogExports => _mLogExports.GetValue("logExports");
+        private List<string>? _mValue_LogExports;
+        private bool _mUnknown_LogExports;
+        public List<string>? LogExports
+        {
+            get
+            {
+                if (!_mUnknown_LogExports) return _mValue_LogExports;
+                throw new UndeferrableValueException("Value 'Logging.LogExports' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix applied to the log file names.
         /// </summary>
-        [Input("s3KeyPrefix")]
+        [PolicyResourceProperty("s3KeyPrefix", "_mUnknown_S3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
-
-        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
+        private string? _mValue_S3KeyPrefix;
+        private bool _mUnknown_S3KeyPrefix;
+        public string? S3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_S3KeyPrefix) return _mValue_S3KeyPrefix;
+                throw new UndeferrableValueException("Value 'Logging.S3KeyPrefix' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/logging:Logging")]
@@ -67,48 +102,83 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'LoggingArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the source cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'LoggingArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Log destination type. Valid values are `s3` and `cloudwatch`.
         /// </summary>
-        [Input("logDestinationType")]
+        [PolicyResourceProperty("logDestinationType", "_mUnknown_LogDestinationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogDestinationType;
-
-        public string? LogDestinationType => _mLogDestinationType.GetValue("logDestinationType");
+        private string? _mValue_LogDestinationType;
+        private bool _mUnknown_LogDestinationType;
+        public string? LogDestinationType
+        {
+            get
+            {
+                if (!_mUnknown_LogDestinationType) return _mValue_LogDestinationType;
+                throw new UndeferrableValueException("Value 'LoggingArgs.LogDestinationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         /// </summary>
-        [Input("logExports")]
+        [PolicyResourceProperty("logExports", "_mUnknown_LogExports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogExports;
-
-        public List<string>? LogExports => _mLogExports.GetValue("logExports");
+        private List<string>? _mValue_LogExports;
+        private bool _mUnknown_LogExports;
+        public List<string>? LogExports
+        {
+            get
+            {
+                if (!_mUnknown_LogExports) return _mValue_LogExports;
+                throw new UndeferrableValueException("Value 'LoggingArgs.LogExports' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix applied to the log file names.
         /// </summary>
-        [Input("s3KeyPrefix")]
+        [PolicyResourceProperty("s3KeyPrefix", "_mUnknown_S3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
-
-        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
+        private string? _mValue_S3KeyPrefix;
+        private bool _mUnknown_S3KeyPrefix;
+        public string? S3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_S3KeyPrefix) return _mValue_S3KeyPrefix;
+                throw new UndeferrableValueException("Value 'LoggingArgs.S3KeyPrefix' is not present");
+            }
+        }
     }
 }

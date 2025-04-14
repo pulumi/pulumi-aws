@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         /// </summary>
-        [Input("countryCodes")]
+        [PolicyResourceProperty("countryCodes", "_mUnknown_CountryCodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCountryCodes;
-
-        public List<string>? CountryCodes => _mCountryCodes.GetValue("countryCodes");
+        private List<string>? _mValue_CountryCodes;
+        private bool _mUnknown_CountryCodes;
+        public List<string>? CountryCodes
+        {
+            get
+            {
+                if (!_mUnknown_CountryCodes) return _mValue_CountryCodes;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementGeoMatchStatement.CountryCodes' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         /// </summary>
-        [Input("forwardedIpConfig")]
+        [PolicyResourceProperty("forwardedIpConfig", "_mUnknown_ForwardedIpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig> _mForwardedIpConfig;
-
-        public Outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig? ForwardedIpConfig => _mForwardedIpConfig.GetValue("forwardedIpConfig");
+        private Outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig? _mValue_ForwardedIpConfig;
+        private bool _mUnknown_ForwardedIpConfig;
+        public Outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig? ForwardedIpConfig
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedIpConfig) return _mValue_ForwardedIpConfig;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementGeoMatchStatement.ForwardedIpConfig' is not present");
+            }
+        }
     }
 }

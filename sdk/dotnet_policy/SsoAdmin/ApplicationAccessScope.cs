@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// Specifies the ARN of the application with the access scope with the targets to add or update.
         /// </summary>
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'ApplicationAccessScope.ApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
         /// </summary>
-        [Input("authorizedTargets")]
+        [PolicyResourceProperty("authorizedTargets", "_mUnknown_AuthorizedTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizedTargets;
-
-        public List<string>? AuthorizedTargets => _mAuthorizedTargets.GetValue("authorizedTargets");
+        private List<string>? _mValue_AuthorizedTargets;
+        private bool _mUnknown_AuthorizedTargets;
+        public List<string>? AuthorizedTargets
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizedTargets) return _mValue_AuthorizedTargets;
+                throw new UndeferrableValueException("Value 'ApplicationAccessScope.AuthorizedTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'ApplicationAccessScope.Scope' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")]
@@ -49,30 +70,51 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// Specifies the ARN of the application with the access scope with the targets to add or update.
         /// </summary>
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'ApplicationAccessScopeArgs.ApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies an array list of ARNs that represent the authorized targets for this access scope.
         /// </summary>
-        [Input("authorizedTargets")]
+        [PolicyResourceProperty("authorizedTargets", "_mUnknown_AuthorizedTargets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthorizedTargets;
-
-        public List<string>? AuthorizedTargets => _mAuthorizedTargets.GetValue("authorizedTargets");
+        private List<string>? _mValue_AuthorizedTargets;
+        private bool _mUnknown_AuthorizedTargets;
+        public List<string>? AuthorizedTargets
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizedTargets) return _mValue_AuthorizedTargets;
+                throw new UndeferrableValueException("Value 'ApplicationAccessScopeArgs.AuthorizedTargets' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'ApplicationAccessScopeArgs.Scope' is not present");
+            }
+        }
     }
 }

@@ -15,355 +15,635 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Enables or disables adaptive quantization.
         /// </summary>
-        [Input("adaptiveQuantization")]
+        [PolicyResourceProperty("adaptiveQuantization", "_mUnknown_AdaptiveQuantization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdaptiveQuantization;
-
-        public string? AdaptiveQuantization => _mAdaptiveQuantization.GetValue("adaptiveQuantization");
+        private string? _mValue_AdaptiveQuantization;
+        private bool _mUnknown_AdaptiveQuantization;
+        public string? AdaptiveQuantization
+        {
+            get
+            {
+                if (!_mUnknown_AdaptiveQuantization) return _mValue_AdaptiveQuantization;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.AdaptiveQuantization' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that AFD values will be written into the output stream.
         /// </summary>
-        [Input("afdSignaling")]
+        [PolicyResourceProperty("afdSignaling", "_mUnknown_AfdSignaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAfdSignaling;
-
-        public string? AfdSignaling => _mAfdSignaling.GetValue("afdSignaling");
+        private string? _mValue_AfdSignaling;
+        private bool _mUnknown_AfdSignaling;
+        public string? AfdSignaling
+        {
+            get
+            {
+                if (!_mUnknown_AfdSignaling) return _mValue_AfdSignaling;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.AfdSignaling' is not present");
+            }
+        }
 
         /// <summary>
         /// Average bitrate in bits/second.
         /// </summary>
-        [Input("bitrate")]
+        [PolicyResourceProperty("bitrate", "_mUnknown_Bitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBitrate;
+        private int? _mValue_Bitrate;
+        private bool _mUnknown_Bitrate;
+        public int? Bitrate
+        {
+            get
+            {
+                if (!_mUnknown_Bitrate) return _mValue_Bitrate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.Bitrate' is not present");
+            }
+        }
 
-        public int? Bitrate => _mBitrate.GetValue("bitrate");
-
-        [Input("bufFillPct")]
+        [PolicyResourceProperty("bufFillPct", "_mUnknown_BufFillPct")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufFillPct;
-
-        public int? BufFillPct => _mBufFillPct.GetValue("bufFillPct");
+        private int? _mValue_BufFillPct;
+        private bool _mUnknown_BufFillPct;
+        public int? BufFillPct
+        {
+            get
+            {
+                if (!_mUnknown_BufFillPct) return _mValue_BufFillPct;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.BufFillPct' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of buffer in bits.
         /// </summary>
-        [Input("bufSize")]
+        [PolicyResourceProperty("bufSize", "_mUnknown_BufSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufSize;
-
-        public int? BufSize => _mBufSize.GetValue("bufSize");
+        private int? _mValue_BufSize;
+        private bool _mUnknown_BufSize;
+        public int? BufSize
+        {
+            get
+            {
+                if (!_mUnknown_BufSize) return _mValue_BufSize;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.BufSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Includes color space metadata in the output.
         /// </summary>
-        [Input("colorMetadata")]
+        [PolicyResourceProperty("colorMetadata", "_mUnknown_ColorMetadata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColorMetadata;
-
-        public string? ColorMetadata => _mColorMetadata.GetValue("colorMetadata");
+        private string? _mValue_ColorMetadata;
+        private bool _mUnknown_ColorMetadata;
+        public string? ColorMetadata
+        {
+            get
+            {
+                if (!_mUnknown_ColorMetadata) return _mValue_ColorMetadata;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.ColorMetadata' is not present");
+            }
+        }
 
         /// <summary>
         /// Entropy encoding mode.
         /// </summary>
-        [Input("entropyEncoding")]
+        [PolicyResourceProperty("entropyEncoding", "_mUnknown_EntropyEncoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntropyEncoding;
-
-        public string? EntropyEncoding => _mEntropyEncoding.GetValue("entropyEncoding");
+        private string? _mValue_EntropyEncoding;
+        private bool _mUnknown_EntropyEncoding;
+        public string? EntropyEncoding
+        {
+            get
+            {
+                if (!_mUnknown_EntropyEncoding) return _mValue_EntropyEncoding;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.EntropyEncoding' is not present");
+            }
+        }
 
         /// <summary>
         /// Filters to apply to an encode. See H264 Filter Settings for more details.
         /// </summary>
-        [Input("filterSettings")]
+        [PolicyResourceProperty("filterSettings", "_mUnknown_FilterSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings> _mFilterSettings;
-
-        public Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings? FilterSettings => _mFilterSettings.GetValue("filterSettings");
+        private Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings? _mValue_FilterSettings;
+        private bool _mUnknown_FilterSettings;
+        public Outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings? FilterSettings
+        {
+            get
+            {
+                if (!_mUnknown_FilterSettings) return _mValue_FilterSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.FilterSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Four bit AFD value to write on all frames of video in the output stream.
         /// </summary>
-        [Input("fixedAfd")]
+        [PolicyResourceProperty("fixedAfd", "_mUnknown_FixedAfd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFixedAfd;
+        private string? _mValue_FixedAfd;
+        private bool _mUnknown_FixedAfd;
+        public string? FixedAfd
+        {
+            get
+            {
+                if (!_mUnknown_FixedAfd) return _mValue_FixedAfd;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.FixedAfd' is not present");
+            }
+        }
 
-        public string? FixedAfd => _mFixedAfd.GetValue("fixedAfd");
-
-        [Input("flickerAq")]
+        [PolicyResourceProperty("flickerAq", "_mUnknown_FlickerAq")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlickerAq;
-
-        public string? FlickerAq => _mFlickerAq.GetValue("flickerAq");
+        private string? _mValue_FlickerAq;
+        private bool _mUnknown_FlickerAq;
+        public string? FlickerAq
+        {
+            get
+            {
+                if (!_mUnknown_FlickerAq) return _mValue_FlickerAq;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.FlickerAq' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls whether coding is performed on a field basis or on a frame basis.
         /// </summary>
-        [Input("forceFieldPictures")]
+        [PolicyResourceProperty("forceFieldPictures", "_mUnknown_ForceFieldPictures")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mForceFieldPictures;
-
-        public string? ForceFieldPictures => _mForceFieldPictures.GetValue("forceFieldPictures");
+        private string? _mValue_ForceFieldPictures;
+        private bool _mUnknown_ForceFieldPictures;
+        public string? ForceFieldPictures
+        {
+            get
+            {
+                if (!_mUnknown_ForceFieldPictures) return _mValue_ForceFieldPictures;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.ForceFieldPictures' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how the output video frame rate is specified.
         /// </summary>
-        [Input("framerateControl")]
+        [PolicyResourceProperty("framerateControl", "_mUnknown_FramerateControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFramerateControl;
-
-        public string? FramerateControl => _mFramerateControl.GetValue("framerateControl");
+        private string? _mValue_FramerateControl;
+        private bool _mUnknown_FramerateControl;
+        public string? FramerateControl
+        {
+            get
+            {
+                if (!_mUnknown_FramerateControl) return _mValue_FramerateControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.FramerateControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Framerate denominator.
         /// </summary>
-        [Input("framerateDenominator")]
+        [PolicyResourceProperty("framerateDenominator", "_mUnknown_FramerateDenominator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFramerateDenominator;
-
-        public int? FramerateDenominator => _mFramerateDenominator.GetValue("framerateDenominator");
+        private int? _mValue_FramerateDenominator;
+        private bool _mUnknown_FramerateDenominator;
+        public int? FramerateDenominator
+        {
+            get
+            {
+                if (!_mUnknown_FramerateDenominator) return _mValue_FramerateDenominator;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.FramerateDenominator' is not present");
+            }
+        }
 
         /// <summary>
         /// Framerate numerator.
         /// </summary>
-        [Input("framerateNumerator")]
+        [PolicyResourceProperty("framerateNumerator", "_mUnknown_FramerateNumerator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFramerateNumerator;
-
-        public int? FramerateNumerator => _mFramerateNumerator.GetValue("framerateNumerator");
+        private int? _mValue_FramerateNumerator;
+        private bool _mUnknown_FramerateNumerator;
+        public int? FramerateNumerator
+        {
+            get
+            {
+                if (!_mUnknown_FramerateNumerator) return _mValue_FramerateNumerator;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.FramerateNumerator' is not present");
+            }
+        }
 
         /// <summary>
         /// GOP-B reference.
         /// </summary>
-        [Input("gopBReference")]
+        [PolicyResourceProperty("gopBReference", "_mUnknown_GopBReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGopBReference;
-
-        public string? GopBReference => _mGopBReference.GetValue("gopBReference");
+        private string? _mValue_GopBReference;
+        private bool _mUnknown_GopBReference;
+        public string? GopBReference
+        {
+            get
+            {
+                if (!_mUnknown_GopBReference) return _mValue_GopBReference;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.GopBReference' is not present");
+            }
+        }
 
         /// <summary>
         /// Frequency of closed GOPs.
         /// </summary>
-        [Input("gopClosedCadence")]
+        [PolicyResourceProperty("gopClosedCadence", "_mUnknown_GopClosedCadence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGopClosedCadence;
-
-        public int? GopClosedCadence => _mGopClosedCadence.GetValue("gopClosedCadence");
+        private int? _mValue_GopClosedCadence;
+        private bool _mUnknown_GopClosedCadence;
+        public int? GopClosedCadence
+        {
+            get
+            {
+                if (!_mUnknown_GopClosedCadence) return _mValue_GopClosedCadence;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.GopClosedCadence' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of B-frames between reference frames.
         /// </summary>
-        [Input("gopNumBFrames")]
+        [PolicyResourceProperty("gopNumBFrames", "_mUnknown_GopNumBFrames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGopNumBFrames;
-
-        public int? GopNumBFrames => _mGopNumBFrames.GetValue("gopNumBFrames");
+        private int? _mValue_GopNumBFrames;
+        private bool _mUnknown_GopNumBFrames;
+        public int? GopNumBFrames
+        {
+            get
+            {
+                if (!_mUnknown_GopNumBFrames) return _mValue_GopNumBFrames;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.GopNumBFrames' is not present");
+            }
+        }
 
         /// <summary>
         /// GOP size in units of either frames of seconds per `gop_size_units`.
         /// </summary>
-        [Input("gopSize")]
+        [PolicyResourceProperty("gopSize", "_mUnknown_GopSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mGopSize;
-
-        public double? GopSize => _mGopSize.GetValue("gopSize");
+        private double? _mValue_GopSize;
+        private bool _mUnknown_GopSize;
+        public double? GopSize
+        {
+            get
+            {
+                if (!_mUnknown_GopSize) return _mValue_GopSize;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.GopSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates if the `gop_size` is specified in frames or seconds.
         /// </summary>
-        [Input("gopSizeUnits")]
+        [PolicyResourceProperty("gopSizeUnits", "_mUnknown_GopSizeUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGopSizeUnits;
-
-        public string? GopSizeUnits => _mGopSizeUnits.GetValue("gopSizeUnits");
+        private string? _mValue_GopSizeUnits;
+        private bool _mUnknown_GopSizeUnits;
+        public string? GopSizeUnits
+        {
+            get
+            {
+                if (!_mUnknown_GopSizeUnits) return _mValue_GopSizeUnits;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.GopSizeUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// H264 level.
         /// </summary>
-        [Input("level")]
+        [PolicyResourceProperty("level", "_mUnknown_Level")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
-
-        public string? Level => _mLevel.GetValue("level");
+        private string? _mValue_Level;
+        private bool _mUnknown_Level;
+        public string? Level
+        {
+            get
+            {
+                if (!_mUnknown_Level) return _mValue_Level;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.Level' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of lookahead.
         /// </summary>
-        [Input("lookAheadRateControl")]
+        [PolicyResourceProperty("lookAheadRateControl", "_mUnknown_LookAheadRateControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLookAheadRateControl;
-
-        public string? LookAheadRateControl => _mLookAheadRateControl.GetValue("lookAheadRateControl");
+        private string? _mValue_LookAheadRateControl;
+        private bool _mUnknown_LookAheadRateControl;
+        public string? LookAheadRateControl
+        {
+            get
+            {
+                if (!_mUnknown_LookAheadRateControl) return _mValue_LookAheadRateControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.LookAheadRateControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
         /// </summary>
-        [Input("maxBitrate")]
+        [PolicyResourceProperty("maxBitrate", "_mUnknown_MaxBitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxBitrate;
-
-        public int? MaxBitrate => _mMaxBitrate.GetValue("maxBitrate");
+        private int? _mValue_MaxBitrate;
+        private bool _mUnknown_MaxBitrate;
+        public int? MaxBitrate
+        {
+            get
+            {
+                if (!_mUnknown_MaxBitrate) return _mValue_MaxBitrate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.MaxBitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Min interval.
         /// </summary>
-        [Input("minIInterval")]
+        [PolicyResourceProperty("minIInterval", "_mUnknown_MinIInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinIInterval;
-
-        public int? MinIInterval => _mMinIInterval.GetValue("minIInterval");
+        private int? _mValue_MinIInterval;
+        private bool _mUnknown_MinIInterval;
+        public int? MinIInterval
+        {
+            get
+            {
+                if (!_mUnknown_MinIInterval) return _mValue_MinIInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.MinIInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of reference frames to use.
         /// </summary>
-        [Input("numRefFrames")]
+        [PolicyResourceProperty("numRefFrames", "_mUnknown_NumRefFrames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumRefFrames;
-
-        public int? NumRefFrames => _mNumRefFrames.GetValue("numRefFrames");
+        private int? _mValue_NumRefFrames;
+        private bool _mUnknown_NumRefFrames;
+        public int? NumRefFrames
+        {
+            get
+            {
+                if (!_mUnknown_NumRefFrames) return _mValue_NumRefFrames;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.NumRefFrames' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how the output pixel aspect ratio is specified.
         /// </summary>
-        [Input("parControl")]
+        [PolicyResourceProperty("parControl", "_mUnknown_ParControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParControl;
-
-        public string? ParControl => _mParControl.GetValue("parControl");
+        private string? _mValue_ParControl;
+        private bool _mUnknown_ParControl;
+        public string? ParControl
+        {
+            get
+            {
+                if (!_mUnknown_ParControl) return _mValue_ParControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.ParControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Pixel Aspect Ratio denominator.
         /// </summary>
-        [Input("parDenominator")]
+        [PolicyResourceProperty("parDenominator", "_mUnknown_ParDenominator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mParDenominator;
-
-        public int? ParDenominator => _mParDenominator.GetValue("parDenominator");
+        private int? _mValue_ParDenominator;
+        private bool _mUnknown_ParDenominator;
+        public int? ParDenominator
+        {
+            get
+            {
+                if (!_mUnknown_ParDenominator) return _mValue_ParDenominator;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.ParDenominator' is not present");
+            }
+        }
 
         /// <summary>
         /// Pixel Aspect Ratio numerator.
         /// </summary>
-        [Input("parNumerator")]
+        [PolicyResourceProperty("parNumerator", "_mUnknown_ParNumerator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mParNumerator;
-
-        public int? ParNumerator => _mParNumerator.GetValue("parNumerator");
+        private int? _mValue_ParNumerator;
+        private bool _mUnknown_ParNumerator;
+        public int? ParNumerator
+        {
+            get
+            {
+                if (!_mUnknown_ParNumerator) return _mValue_ParNumerator;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.ParNumerator' is not present");
+            }
+        }
 
         /// <summary>
         /// H264 profile.
         /// </summary>
-        [Input("profile")]
+        [PolicyResourceProperty("profile", "_mUnknown_Profile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfile;
-
-        public string? Profile => _mProfile.GetValue("profile");
+        private string? _mValue_Profile;
+        private bool _mUnknown_Profile;
+        public string? Profile
+        {
+            get
+            {
+                if (!_mUnknown_Profile) return _mValue_Profile;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.Profile' is not present");
+            }
+        }
 
         /// <summary>
         /// Quality level.
         /// </summary>
-        [Input("qualityLevel")]
+        [PolicyResourceProperty("qualityLevel", "_mUnknown_QualityLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualityLevel;
-
-        public string? QualityLevel => _mQualityLevel.GetValue("qualityLevel");
+        private string? _mValue_QualityLevel;
+        private bool _mUnknown_QualityLevel;
+        public string? QualityLevel
+        {
+            get
+            {
+                if (!_mUnknown_QualityLevel) return _mValue_QualityLevel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.QualityLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls the target quality for the video encode.
         /// </summary>
-        [Input("qvbrQualityLevel")]
+        [PolicyResourceProperty("qvbrQualityLevel", "_mUnknown_QvbrQualityLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQvbrQualityLevel;
-
-        public int? QvbrQualityLevel => _mQvbrQualityLevel.GetValue("qvbrQualityLevel");
+        private int? _mValue_QvbrQualityLevel;
+        private bool _mUnknown_QvbrQualityLevel;
+        public int? QvbrQualityLevel
+        {
+            get
+            {
+                if (!_mUnknown_QvbrQualityLevel) return _mValue_QvbrQualityLevel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.QvbrQualityLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Rate control mode.
         /// </summary>
-        [Input("rateControlMode")]
+        [PolicyResourceProperty("rateControlMode", "_mUnknown_RateControlMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRateControlMode;
-
-        public string? RateControlMode => _mRateControlMode.GetValue("rateControlMode");
+        private string? _mValue_RateControlMode;
+        private bool _mUnknown_RateControlMode;
+        public string? RateControlMode
+        {
+            get
+            {
+                if (!_mUnknown_RateControlMode) return _mValue_RateControlMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.RateControlMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the scan type of the output.
         /// </summary>
-        [Input("scanType")]
+        [PolicyResourceProperty("scanType", "_mUnknown_ScanType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScanType;
-
-        public string? ScanType => _mScanType.GetValue("scanType");
+        private string? _mValue_ScanType;
+        private bool _mUnknown_ScanType;
+        public string? ScanType
+        {
+            get
+            {
+                if (!_mUnknown_ScanType) return _mValue_ScanType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.ScanType' is not present");
+            }
+        }
 
         /// <summary>
         /// Scene change detection.
         /// </summary>
-        [Input("sceneChangeDetect")]
+        [PolicyResourceProperty("sceneChangeDetect", "_mUnknown_SceneChangeDetect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSceneChangeDetect;
-
-        public string? SceneChangeDetect => _mSceneChangeDetect.GetValue("sceneChangeDetect");
+        private string? _mValue_SceneChangeDetect;
+        private bool _mUnknown_SceneChangeDetect;
+        public string? SceneChangeDetect
+        {
+            get
+            {
+                if (!_mUnknown_SceneChangeDetect) return _mValue_SceneChangeDetect;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.SceneChangeDetect' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of slices per picture.
         /// </summary>
-        [Input("slices")]
+        [PolicyResourceProperty("slices", "_mUnknown_Slices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSlices;
-
-        public int? Slices => _mSlices.GetValue("slices");
+        private int? _mValue_Slices;
+        private bool _mUnknown_Slices;
+        public int? Slices
+        {
+            get
+            {
+                if (!_mUnknown_Slices) return _mValue_Slices;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.Slices' is not present");
+            }
+        }
 
         /// <summary>
         /// Softness.
         /// </summary>
-        [Input("softness")]
+        [PolicyResourceProperty("softness", "_mUnknown_Softness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSoftness;
-
-        public int? Softness => _mSoftness.GetValue("softness");
+        private int? _mValue_Softness;
+        private bool _mUnknown_Softness;
+        public int? Softness
+        {
+            get
+            {
+                if (!_mUnknown_Softness) return _mValue_Softness;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.Softness' is not present");
+            }
+        }
 
         /// <summary>
         /// Makes adjustments within each frame based on spatial variation of content complexity.
         /// </summary>
-        [Input("spatialAq")]
+        [PolicyResourceProperty("spatialAq", "_mUnknown_SpatialAq")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpatialAq;
-
-        public string? SpatialAq => _mSpatialAq.GetValue("spatialAq");
+        private string? _mValue_SpatialAq;
+        private bool _mUnknown_SpatialAq;
+        public string? SpatialAq
+        {
+            get
+            {
+                if (!_mUnknown_SpatialAq) return _mValue_SpatialAq;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.SpatialAq' is not present");
+            }
+        }
 
         /// <summary>
         /// Subgop length.
         /// </summary>
-        [Input("subgopLength")]
+        [PolicyResourceProperty("subgopLength", "_mUnknown_SubgopLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubgopLength;
-
-        public string? SubgopLength => _mSubgopLength.GetValue("subgopLength");
+        private string? _mValue_SubgopLength;
+        private bool _mUnknown_SubgopLength;
+        public string? SubgopLength
+        {
+            get
+            {
+                if (!_mUnknown_SubgopLength) return _mValue_SubgopLength;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.SubgopLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Produces a bitstream compliant with SMPTE RP-2027.
         /// </summary>
-        [Input("syntax")]
+        [PolicyResourceProperty("syntax", "_mUnknown_Syntax")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSyntax;
-
-        public string? Syntax => _mSyntax.GetValue("syntax");
+        private string? _mValue_Syntax;
+        private bool _mUnknown_Syntax;
+        public string? Syntax
+        {
+            get
+            {
+                if (!_mUnknown_Syntax) return _mValue_Syntax;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.Syntax' is not present");
+            }
+        }
 
         /// <summary>
         /// Makes adjustments within each frame based on temporal variation of content complexity.
         /// </summary>
-        [Input("temporalAq")]
+        [PolicyResourceProperty("temporalAq", "_mUnknown_TemporalAq")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemporalAq;
-
-        public string? TemporalAq => _mTemporalAq.GetValue("temporalAq");
+        private string? _mValue_TemporalAq;
+        private bool _mUnknown_TemporalAq;
+        public string? TemporalAq
+        {
+            get
+            {
+                if (!_mUnknown_TemporalAq) return _mValue_TemporalAq;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.TemporalAq' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how timecodes should be inserted into the video elementary stream.
         /// </summary>
-        [Input("timecodeInsertion")]
+        [PolicyResourceProperty("timecodeInsertion", "_mUnknown_TimecodeInsertion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimecodeInsertion;
-
-        public string? TimecodeInsertion => _mTimecodeInsertion.GetValue("timecodeInsertion");
+        private string? _mValue_TimecodeInsertion;
+        private bool _mUnknown_TimecodeInsertion;
+        public string? TimecodeInsertion
+        {
+            get
+            {
+                if (!_mUnknown_TimecodeInsertion) return _mValue_TimecodeInsertion;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.TimecodeInsertion' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Idientifier of the bot to create the version for.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersion.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number assigned to the version.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersion.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the version. Use the description to help identify the version in lists.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersion.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
@@ -46,17 +67,31 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
         /// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         /// </summary>
-        [Input("localeSpecification")]
+        [PolicyResourceProperty("localeSpecification", "_mUnknown_LocaleSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>> _mLocaleSpecification;
+        private Dictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>? _mValue_LocaleSpecification;
+        private bool _mUnknown_LocaleSpecification;
+        public Dictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>? LocaleSpecification
+        {
+            get
+            {
+                if (!_mUnknown_LocaleSpecification) return _mValue_LocaleSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersion.LocaleSpecification' is not present");
+            }
+        }
 
-        public Dictionary<string, Outputs.V2modelsBotVersionLocaleSpecification>? LocaleSpecification => _mLocaleSpecification.GetValue("localeSpecification");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsBotVersionTimeouts> _mTimeouts;
-
-        public Outputs.V2modelsBotVersionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.V2modelsBotVersionTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.V2modelsBotVersionTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersion.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/v2modelsBotVersion:V2modelsBotVersion")]
@@ -65,29 +100,50 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// Idientifier of the bot to create the version for.
         /// </summary>
-        [Input("botId")]
+        [PolicyResourceProperty("botId", "_mUnknown_BotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotId;
-
-        public string? BotId => _mBotId.GetValue("botId");
+        private string? _mValue_BotId;
+        private bool _mUnknown_BotId;
+        public string? BotId
+        {
+            get
+            {
+                if (!_mUnknown_BotId) return _mValue_BotId;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.BotId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number assigned to the version.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the version. Use the description to help identify the version in lists.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
@@ -95,16 +151,30 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
         /// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
         /// </summary>
-        [Input("localeSpecification")]
+        [PolicyResourceProperty("localeSpecification", "_mUnknown_LocaleSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Inputs.V2modelsBotVersionLocaleSpecificationArgs>> _mLocaleSpecification;
+        private Dictionary<string, Inputs.V2modelsBotVersionLocaleSpecificationArgs>? _mValue_LocaleSpecification;
+        private bool _mUnknown_LocaleSpecification;
+        public Dictionary<string, Inputs.V2modelsBotVersionLocaleSpecificationArgs>? LocaleSpecification
+        {
+            get
+            {
+                if (!_mUnknown_LocaleSpecification) return _mValue_LocaleSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.LocaleSpecification' is not present");
+            }
+        }
 
-        public Dictionary<string, Inputs.V2modelsBotVersionLocaleSpecificationArgs>? LocaleSpecification => _mLocaleSpecification.GetValue("localeSpecification");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsBotVersionTimeoutsArgs> _mTimeouts;
-
-        public Inputs.V2modelsBotVersionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.V2modelsBotVersionTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.V2modelsBotVersionTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.Timeouts' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Drs.Inputs
         /// <summary>
         /// Whether this rule is enabled or not.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// How often, in the chosen units, a snapshot should be taken.
         /// </summary>
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInterval;
-
-        public int? Interval => _mInterval.GetValue("interval");
+        private int? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public int? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.Interval' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration to retain a snapshot for, in the chosen `units`.
         /// </summary>
-        [Input("retentionDuration")]
+        [PolicyResourceProperty("retentionDuration", "_mUnknown_RetentionDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionDuration;
-
-        public int? RetentionDuration => _mRetentionDuration.GetValue("retentionDuration");
+        private int? _mValue_RetentionDuration;
+        private bool _mUnknown_RetentionDuration;
+        public int? RetentionDuration
+        {
+            get
+            {
+                if (!_mUnknown_RetentionDuration) return _mValue_RetentionDuration;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.RetentionDuration' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the rule. Valid values are integers.
         /// </summary>
-        [Input("ruleId")]
+        [PolicyResourceProperty("ruleId", "_mUnknown_RuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleId;
-
-        public int? RuleId => _mRuleId.GetValue("ruleId");
+        private int? _mValue_RuleId;
+        private bool _mUnknown_RuleId;
+        public int? RuleId
+        {
+            get
+            {
+                if (!_mUnknown_RuleId) return _mValue_RuleId;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.RuleId' is not present");
+            }
+        }
 
         /// <summary>
         /// Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
         /// </summary>
-        [Input("units")]
+        [PolicyResourceProperty("units", "_mUnknown_Units")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnits;
-
-        public string? Units => _mUnits.GetValue("units");
+        private string? _mValue_Units;
+        private bool _mUnknown_Units;
+        public string? Units
+        {
+            get
+            {
+                if (!_mUnknown_Units) return _mValue_Units;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.Units' is not present");
+            }
+        }
     }
 }

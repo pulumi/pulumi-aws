@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Inputs
         /// <summary>
         /// Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
         /// </summary>
-        [Input("pipelineParameters")]
+        [PolicyResourceProperty("pipelineParameters", "_mUnknown_PipelineParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>> _mPipelineParameters;
-
-        public List<Inputs.ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>? PipelineParameters => _mPipelineParameters.GetValue("pipelineParameters");
+        private List<Inputs.ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>? _mValue_PipelineParameters;
+        private bool _mUnknown_PipelineParameters;
+        public List<Inputs.ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>? PipelineParameters
+        {
+            get
+            {
+                if (!_mUnknown_PipelineParameters) return _mValue_PipelineParameters;
+                throw new UndeferrableValueException("Value 'ScheduleTargetSagemakerPipelineParametersArgs.PipelineParameters' is not present");
+            }
+        }
     }
 }

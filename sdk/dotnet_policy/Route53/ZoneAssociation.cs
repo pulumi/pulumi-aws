@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The account ID of the account that created the hosted zone.
         /// </summary>
-        [Input("owningAccount")]
+        [PolicyResourceProperty("owningAccount", "_mUnknown_OwningAccount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwningAccount;
-
-        public string? OwningAccount => _mOwningAccount.GetValue("owningAccount");
+        private string? _mValue_OwningAccount;
+        private bool _mUnknown_OwningAccount;
+        public string? OwningAccount
+        {
+            get
+            {
+                if (!_mUnknown_OwningAccount) return _mValue_OwningAccount;
+                throw new UndeferrableValueException("Value 'ZoneAssociation.OwningAccount' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC to associate with the private hosted zone.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ZoneAssociation.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC's region. Defaults to the region of the AWS provider.
         /// </summary>
-        [Input("vpcRegion")]
+        [PolicyResourceProperty("vpcRegion", "_mUnknown_VpcRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcRegion;
-
-        public string? VpcRegion => _mVpcRegion.GetValue("vpcRegion");
+        private string? _mValue_VpcRegion;
+        private bool _mUnknown_VpcRegion;
+        public string? VpcRegion
+        {
+            get
+            {
+                if (!_mUnknown_VpcRegion) return _mValue_VpcRegion;
+                throw new UndeferrableValueException("Value 'ZoneAssociation.VpcRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The private hosted zone to associate.
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'ZoneAssociation.ZoneId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/zoneAssociation:ZoneAssociation")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The VPC to associate with the private hosted zone.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ZoneAssociationArgs.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC's region. Defaults to the region of the AWS provider.
         /// </summary>
-        [Input("vpcRegion")]
+        [PolicyResourceProperty("vpcRegion", "_mUnknown_VpcRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcRegion;
-
-        public string? VpcRegion => _mVpcRegion.GetValue("vpcRegion");
+        private string? _mValue_VpcRegion;
+        private bool _mUnknown_VpcRegion;
+        public string? VpcRegion
+        {
+            get
+            {
+                if (!_mUnknown_VpcRegion) return _mValue_VpcRegion;
+                throw new UndeferrableValueException("Value 'ZoneAssociationArgs.VpcRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The private hosted zone to associate.
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'ZoneAssociationArgs.ZoneId' is not present");
+            }
+        }
     }
 }

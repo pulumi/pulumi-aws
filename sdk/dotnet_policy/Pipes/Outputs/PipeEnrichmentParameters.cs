@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
         /// </summary>
-        [Input("httpParameters")]
+        [PolicyResourceProperty("httpParameters", "_mUnknown_HttpParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeEnrichmentParametersHttpParameters> _mHttpParameters;
-
-        public Outputs.PipeEnrichmentParametersHttpParameters? HttpParameters => _mHttpParameters.GetValue("httpParameters");
+        private Outputs.PipeEnrichmentParametersHttpParameters? _mValue_HttpParameters;
+        private bool _mUnknown_HttpParameters;
+        public Outputs.PipeEnrichmentParametersHttpParameters? HttpParameters
+        {
+            get
+            {
+                if (!_mUnknown_HttpParameters) return _mValue_HttpParameters;
+                throw new UndeferrableValueException("Value 'PipeEnrichmentParameters.HttpParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
         /// </summary>
-        [Input("inputTemplate")]
+        [PolicyResourceProperty("inputTemplate", "_mUnknown_InputTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputTemplate;
-
-        public string? InputTemplate => _mInputTemplate.GetValue("inputTemplate");
+        private string? _mValue_InputTemplate;
+        private bool _mUnknown_InputTemplate;
+        public string? InputTemplate
+        {
+            get
+            {
+                if (!_mUnknown_InputTemplate) return _mValue_InputTemplate;
+                throw new UndeferrableValueException("Value 'PipeEnrichmentParameters.InputTemplate' is not present");
+            }
+        }
     }
 }

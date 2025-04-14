@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AppStream.Outputs
         /// <summary>
         /// Number of currently available instances that can be used to stream sessions.
         /// </summary>
-        [Input("available")]
+        [PolicyResourceProperty("available", "_mUnknown_Available")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAvailable;
-
-        public int? Available => _mAvailable.GetValue("available");
+        private int? _mValue_Available;
+        private bool _mUnknown_Available;
+        public int? Available
+        {
+            get
+            {
+                if (!_mUnknown_Available) return _mValue_Available;
+                throw new UndeferrableValueException("Value 'FleetComputeCapacity.Available' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired number of streaming instances.
         /// </summary>
-        [Input("desiredInstances")]
+        [PolicyResourceProperty("desiredInstances", "_mUnknown_DesiredInstances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredInstances;
-
-        public int? DesiredInstances => _mDesiredInstances.GetValue("desiredInstances");
+        private int? _mValue_DesiredInstances;
+        private bool _mUnknown_DesiredInstances;
+        public int? DesiredInstances
+        {
+            get
+            {
+                if (!_mUnknown_DesiredInstances) return _mValue_DesiredInstances;
+                throw new UndeferrableValueException("Value 'FleetComputeCapacity.DesiredInstances' is not present");
+            }
+        }
 
         /// <summary>
         /// Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
         /// </summary>
-        [Input("desiredSessions")]
+        [PolicyResourceProperty("desiredSessions", "_mUnknown_DesiredSessions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredSessions;
-
-        public int? DesiredSessions => _mDesiredSessions.GetValue("desiredSessions");
+        private int? _mValue_DesiredSessions;
+        private bool _mUnknown_DesiredSessions;
+        public int? DesiredSessions
+        {
+            get
+            {
+                if (!_mUnknown_DesiredSessions) return _mValue_DesiredSessions;
+                throw new UndeferrableValueException("Value 'FleetComputeCapacity.DesiredSessions' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of instances in use for streaming.
         /// </summary>
-        [Input("inUse")]
+        [PolicyResourceProperty("inUse", "_mUnknown_InUse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInUse;
-
-        public int? InUse => _mInUse.GetValue("inUse");
+        private int? _mValue_InUse;
+        private bool _mUnknown_InUse;
+        public int? InUse
+        {
+            get
+            {
+                if (!_mUnknown_InUse) return _mValue_InUse;
+                throw new UndeferrableValueException("Value 'FleetComputeCapacity.InUse' is not present");
+            }
+        }
 
         /// <summary>
         /// Total number of simultaneous streaming instances that are running.
         /// </summary>
-        [Input("running")]
+        [PolicyResourceProperty("running", "_mUnknown_Running")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunning;
-
-        public int? Running => _mRunning.GetValue("running");
+        private int? _mValue_Running;
+        private bool _mUnknown_Running;
+        public int? Running
+        {
+            get
+            {
+                if (!_mUnknown_Running) return _mValue_Running;
+                throw new UndeferrableValueException("Value 'FleetComputeCapacity.Running' is not present");
+            }
+        }
     }
 }

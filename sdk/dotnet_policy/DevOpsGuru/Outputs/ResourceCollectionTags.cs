@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Outputs
         /// <summary>
         /// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
         /// </summary>
-        [Input("appBoundaryKey")]
+        [PolicyResourceProperty("appBoundaryKey", "_mUnknown_AppBoundaryKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBoundaryKey;
-
-        public string? AppBoundaryKey => _mAppBoundaryKey.GetValue("appBoundaryKey");
+        private string? _mValue_AppBoundaryKey;
+        private bool _mUnknown_AppBoundaryKey;
+        public string? AppBoundaryKey
+        {
+            get
+            {
+                if (!_mUnknown_AppBoundaryKey) return _mValue_AppBoundaryKey;
+                throw new UndeferrableValueException("Value 'ResourceCollectionTags.AppBoundaryKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
         /// </summary>
-        [Input("tagValues")]
+        [PolicyResourceProperty("tagValues", "_mUnknown_TagValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTagValues;
-
-        public List<string>? TagValues => _mTagValues.GetValue("tagValues");
+        private List<string>? _mValue_TagValues;
+        private bool _mUnknown_TagValues;
+        public List<string>? TagValues
+        {
+            get
+            {
+                if (!_mUnknown_TagValues) return _mValue_TagValues;
+                throw new UndeferrableValueException("Value 'ResourceCollectionTags.TagValues' is not present");
+            }
+        }
     }
 }

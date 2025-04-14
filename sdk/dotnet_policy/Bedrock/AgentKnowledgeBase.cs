@@ -16,106 +16,190 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// ARN of the knowledge base.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the knowledge base was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the knowledge base.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("failureReasons")]
+        [PolicyResourceProperty("failureReasons", "_mUnknown_FailureReasons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFailureReasons;
-
-        public List<string>? FailureReasons => _mFailureReasons.GetValue("failureReasons");
+        private List<string>? _mValue_FailureReasons;
+        private bool _mUnknown_FailureReasons;
+        public List<string>? FailureReasons
+        {
+            get
+            {
+                if (!_mUnknown_FailureReasons) return _mValue_FailureReasons;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.FailureReasons' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         /// </summary>
-        [Input("knowledgeBaseConfiguration")]
+        [PolicyResourceProperty("knowledgeBaseConfiguration", "_mUnknown_KnowledgeBaseConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration> _mKnowledgeBaseConfiguration;
-
-        public Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration? KnowledgeBaseConfiguration => _mKnowledgeBaseConfiguration.GetValue("knowledgeBaseConfiguration");
+        private Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration? _mValue_KnowledgeBaseConfiguration;
+        private bool _mUnknown_KnowledgeBaseConfiguration;
+        public Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration? KnowledgeBaseConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseConfiguration) return _mValue_KnowledgeBaseConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.KnowledgeBaseConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the knowledge base.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("storageConfiguration")]
+        [PolicyResourceProperty("storageConfiguration", "_mUnknown_StorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseStorageConfiguration> _mStorageConfiguration;
-
-        public Outputs.AgentKnowledgeBaseStorageConfiguration? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
+        private Outputs.AgentKnowledgeBaseStorageConfiguration? _mValue_StorageConfiguration;
+        private bool _mUnknown_StorageConfiguration;
+        public Outputs.AgentKnowledgeBaseStorageConfiguration? StorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfiguration) return _mValue_StorageConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.StorageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseTimeouts> _mTimeouts;
-
-        public Outputs.AgentKnowledgeBaseTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AgentKnowledgeBaseTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AgentKnowledgeBaseTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the knowledge base was last updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBase.UpdatedAt' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/agentKnowledgeBase:AgentKnowledgeBase")]
@@ -124,63 +208,112 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Description of the knowledge base.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
         /// </summary>
-        [Input("knowledgeBaseConfiguration")]
+        [PolicyResourceProperty("knowledgeBaseConfiguration", "_mUnknown_KnowledgeBaseConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> _mKnowledgeBaseConfiguration;
-
-        public Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs? KnowledgeBaseConfiguration => _mKnowledgeBaseConfiguration.GetValue("knowledgeBaseConfiguration");
+        private Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs? _mValue_KnowledgeBaseConfiguration;
+        private bool _mUnknown_KnowledgeBaseConfiguration;
+        public Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs? KnowledgeBaseConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseConfiguration) return _mValue_KnowledgeBaseConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.KnowledgeBaseConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the knowledge base.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the storage configuration of the knowledge base. See `storage_configuration` block for details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("storageConfiguration")]
+        [PolicyResourceProperty("storageConfiguration", "_mUnknown_StorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseStorageConfigurationArgs> _mStorageConfiguration;
-
-        public Inputs.AgentKnowledgeBaseStorageConfigurationArgs? StorageConfiguration => _mStorageConfiguration.GetValue("storageConfiguration");
+        private Inputs.AgentKnowledgeBaseStorageConfigurationArgs? _mValue_StorageConfiguration;
+        private bool _mUnknown_StorageConfiguration;
+        public Inputs.AgentKnowledgeBaseStorageConfigurationArgs? StorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_StorageConfiguration) return _mValue_StorageConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.StorageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentKnowledgeBaseTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AgentKnowledgeBaseTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AgentKnowledgeBaseTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AgentKnowledgeBaseTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.Timeouts' is not present");
+            }
+        }
     }
 }

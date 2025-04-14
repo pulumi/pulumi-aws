@@ -15,70 +15,126 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Inputs
         /// <summary>
         /// A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
         /// </summary>
-        [Input("attributeTypesSelector")]
+        [PolicyResourceProperty("attributeTypesSelector", "_mUnknown_AttributeTypesSelector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainRuleBasedMatchingAttributeTypesSelectorArgs> _mAttributeTypesSelector;
-
-        public Inputs.DomainRuleBasedMatchingAttributeTypesSelectorArgs? AttributeTypesSelector => _mAttributeTypesSelector.GetValue("attributeTypesSelector");
+        private Inputs.DomainRuleBasedMatchingAttributeTypesSelectorArgs? _mValue_AttributeTypesSelector;
+        private bool _mUnknown_AttributeTypesSelector;
+        public Inputs.DomainRuleBasedMatchingAttributeTypesSelectorArgs? AttributeTypesSelector
+        {
+            get
+            {
+                if (!_mUnknown_AttributeTypesSelector) return _mValue_AttributeTypesSelector;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.AttributeTypesSelector' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
         /// </summary>
-        [Input("conflictResolution")]
+        [PolicyResourceProperty("conflictResolution", "_mUnknown_ConflictResolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainRuleBasedMatchingConflictResolutionArgs> _mConflictResolution;
-
-        public Inputs.DomainRuleBasedMatchingConflictResolutionArgs? ConflictResolution => _mConflictResolution.GetValue("conflictResolution");
+        private Inputs.DomainRuleBasedMatchingConflictResolutionArgs? _mValue_ConflictResolution;
+        private bool _mUnknown_ConflictResolution;
+        public Inputs.DomainRuleBasedMatchingConflictResolutionArgs? ConflictResolution
+        {
+            get
+            {
+                if (!_mUnknown_ConflictResolution) return _mValue_ConflictResolution;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.ConflictResolution' is not present");
+            }
+        }
 
         /// <summary>
         /// The flag that enables the rule-based matching process of duplicate profiles.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
         /// </summary>
-        [Input("exportingConfig")]
+        [PolicyResourceProperty("exportingConfig", "_mUnknown_ExportingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainRuleBasedMatchingExportingConfigArgs> _mExportingConfig;
-
-        public Inputs.DomainRuleBasedMatchingExportingConfigArgs? ExportingConfig => _mExportingConfig.GetValue("exportingConfig");
+        private Inputs.DomainRuleBasedMatchingExportingConfigArgs? _mValue_ExportingConfig;
+        private bool _mUnknown_ExportingConfig;
+        public Inputs.DomainRuleBasedMatchingExportingConfigArgs? ExportingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ExportingConfig) return _mValue_ExportingConfig;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.ExportingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
         /// </summary>
-        [Input("matchingRules")]
+        [PolicyResourceProperty("matchingRules", "_mUnknown_MatchingRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainRuleBasedMatchingMatchingRuleArgs>> _mMatchingRules;
-
-        public List<Inputs.DomainRuleBasedMatchingMatchingRuleArgs>? MatchingRules => _mMatchingRules.GetValue("matchingRules");
+        private List<Inputs.DomainRuleBasedMatchingMatchingRuleArgs>? _mValue_MatchingRules;
+        private bool _mUnknown_MatchingRules;
+        public List<Inputs.DomainRuleBasedMatchingMatchingRuleArgs>? MatchingRules
+        {
+            get
+            {
+                if (!_mUnknown_MatchingRules) return _mValue_MatchingRules;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.MatchingRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the maximum allowed rule level for matching.
         /// </summary>
-        [Input("maxAllowedRuleLevelForMatching")]
+        [PolicyResourceProperty("maxAllowedRuleLevelForMatching", "_mUnknown_MaxAllowedRuleLevelForMatching")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAllowedRuleLevelForMatching;
-
-        public int? MaxAllowedRuleLevelForMatching => _mMaxAllowedRuleLevelForMatching.GetValue("maxAllowedRuleLevelForMatching");
+        private int? _mValue_MaxAllowedRuleLevelForMatching;
+        private bool _mUnknown_MaxAllowedRuleLevelForMatching;
+        public int? MaxAllowedRuleLevelForMatching
+        {
+            get
+            {
+                if (!_mUnknown_MaxAllowedRuleLevelForMatching) return _mValue_MaxAllowedRuleLevelForMatching;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.MaxAllowedRuleLevelForMatching' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the maximum allowed rule level for merging.
         /// </summary>
-        [Input("maxAllowedRuleLevelForMerging")]
+        [PolicyResourceProperty("maxAllowedRuleLevelForMerging", "_mUnknown_MaxAllowedRuleLevelForMerging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAllowedRuleLevelForMerging;
+        private int? _mValue_MaxAllowedRuleLevelForMerging;
+        private bool _mUnknown_MaxAllowedRuleLevelForMerging;
+        public int? MaxAllowedRuleLevelForMerging
+        {
+            get
+            {
+                if (!_mUnknown_MaxAllowedRuleLevelForMerging) return _mValue_MaxAllowedRuleLevelForMerging;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.MaxAllowedRuleLevelForMerging' is not present");
+            }
+        }
 
-        public int? MaxAllowedRuleLevelForMerging => _mMaxAllowedRuleLevelForMerging.GetValue("maxAllowedRuleLevelForMerging");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.Status' is not present");
+            }
+        }
     }
 }

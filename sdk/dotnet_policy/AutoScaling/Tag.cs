@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Name of the Autoscaling Group to apply the tag to.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'Tag.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag to create. The `tag` block is documented below.
         /// </summary>
-        [Input("tag")]
+        [PolicyResourceProperty("tag", "_mUnknown_TagDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TagTag> _mTagDetails;
-
-        public Outputs.TagTag? TagDetails => _mTagDetails.GetValue("tag");
+        private Outputs.TagTag? _mValue_TagDetails;
+        private bool _mUnknown_TagDetails;
+        public Outputs.TagTag? TagDetails
+        {
+            get
+            {
+                if (!_mUnknown_TagDetails) return _mValue_TagDetails;
+                throw new UndeferrableValueException("Value 'Tag.TagDetails' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/tag:Tag")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Name of the Autoscaling Group to apply the tag to.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'TagArgs.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Tag to create. The `tag` block is documented below.
         /// </summary>
-        [Input("tag")]
+        [PolicyResourceProperty("tag", "_mUnknown_TagDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TagTagArgs> _mTagDetails;
-
-        public Inputs.TagTagArgs? TagDetails => _mTagDetails.GetValue("tag");
+        private Inputs.TagTagArgs? _mValue_TagDetails;
+        private bool _mUnknown_TagDetails;
+        public Inputs.TagTagArgs? TagDetails
+        {
+            get
+            {
+                if (!_mUnknown_TagDetails) return _mValue_TagDetails;
+                throw new UndeferrableValueException("Value 'TagArgs.TagDetails' is not present");
+            }
+        }
     }
 }

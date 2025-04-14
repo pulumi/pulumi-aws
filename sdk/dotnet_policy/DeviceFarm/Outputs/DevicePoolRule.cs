@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.DeviceFarm.Outputs
         /// <summary>
         /// The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
         /// </summary>
-        [Input("attribute")]
+        [PolicyResourceProperty("attribute", "_mUnknown_Attribute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttribute;
-
-        public string? Attribute => _mAttribute.GetValue("attribute");
+        private string? _mValue_Attribute;
+        private bool _mUnknown_Attribute;
+        public string? Attribute
+        {
+            get
+            {
+                if (!_mUnknown_Attribute) return _mValue_Attribute;
+                throw new UndeferrableValueException("Value 'DevicePoolRule.Attribute' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
         /// </summary>
-        [Input("operator")]
+        [PolicyResourceProperty("operator", "_mUnknown_Operator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperator;
-
-        public string? Operator => _mOperator.GetValue("operator");
+        private string? _mValue_Operator;
+        private bool _mUnknown_Operator;
+        public string? Operator
+        {
+            get
+            {
+                if (!_mUnknown_Operator) return _mValue_Operator;
+                throw new UndeferrableValueException("Value 'DevicePoolRule.Operator' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule's value.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'DevicePoolRule.Value' is not present");
+            }
+        }
     }
 }

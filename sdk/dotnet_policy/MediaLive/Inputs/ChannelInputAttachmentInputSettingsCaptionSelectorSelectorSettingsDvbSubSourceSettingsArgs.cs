@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
         /// </summary>
-        [Input("ocrLanguage")]
+        [PolicyResourceProperty("ocrLanguage", "_mUnknown_OcrLanguage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOcrLanguage;
-
-        public string? OcrLanguage => _mOcrLanguage.GetValue("ocrLanguage");
+        private string? _mValue_OcrLanguage;
+        private bool _mUnknown_OcrLanguage;
+        public string? OcrLanguage
+        {
+            get
+            {
+                if (!_mUnknown_OcrLanguage) return _mValue_OcrLanguage;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs.OcrLanguage' is not present");
+            }
+        }
 
         /// <summary>
         /// When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
         /// </summary>
-        [Input("pid")]
+        [PolicyResourceProperty("pid", "_mUnknown_Pid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPid;
-
-        public int? Pid => _mPid.GetValue("pid");
+        private int? _mValue_Pid;
+        private bool _mUnknown_Pid;
+        public int? Pid
+        {
+            get
+            {
+                if (!_mUnknown_Pid) return _mValue_Pid;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs.Pid' is not present");
+            }
+        }
     }
 }

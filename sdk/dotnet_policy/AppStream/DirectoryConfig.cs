@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'DirectoryConfig.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully qualified name of the directory.
         /// </summary>
-        [Input("directoryName")]
+        [PolicyResourceProperty("directoryName", "_mUnknown_DirectoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryName;
-
-        public string? DirectoryName => _mDirectoryName.GetValue("directoryName");
+        private string? _mValue_DirectoryName;
+        private bool _mUnknown_DirectoryName;
+        public string? DirectoryName
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryName) return _mValue_DirectoryName;
+                throw new UndeferrableValueException("Value 'DirectoryConfig.DirectoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Distinguished names of the organizational units for computer accounts.
         /// </summary>
-        [Input("organizationalUnitDistinguishedNames")]
+        [PolicyResourceProperty("organizationalUnitDistinguishedNames", "_mUnknown_OrganizationalUnitDistinguishedNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnitDistinguishedNames;
-
-        public List<string>? OrganizationalUnitDistinguishedNames => _mOrganizationalUnitDistinguishedNames.GetValue("organizationalUnitDistinguishedNames");
+        private List<string>? _mValue_OrganizationalUnitDistinguishedNames;
+        private bool _mUnknown_OrganizationalUnitDistinguishedNames;
+        public List<string>? OrganizationalUnitDistinguishedNames
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitDistinguishedNames) return _mValue_OrganizationalUnitDistinguishedNames;
+                throw new UndeferrableValueException("Value 'DirectoryConfig.OrganizationalUnitDistinguishedNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         /// </summary>
-        [Input("serviceAccountCredentials")]
+        [PolicyResourceProperty("serviceAccountCredentials", "_mUnknown_ServiceAccountCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DirectoryConfigServiceAccountCredentials> _mServiceAccountCredentials;
-
-        public Outputs.DirectoryConfigServiceAccountCredentials? ServiceAccountCredentials => _mServiceAccountCredentials.GetValue("serviceAccountCredentials");
+        private Outputs.DirectoryConfigServiceAccountCredentials? _mValue_ServiceAccountCredentials;
+        private bool _mUnknown_ServiceAccountCredentials;
+        public Outputs.DirectoryConfigServiceAccountCredentials? ServiceAccountCredentials
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountCredentials) return _mValue_ServiceAccountCredentials;
+                throw new UndeferrableValueException("Value 'DirectoryConfig.ServiceAccountCredentials' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appstream/directoryConfig:DirectoryConfig")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Fully qualified name of the directory.
         /// </summary>
-        [Input("directoryName")]
+        [PolicyResourceProperty("directoryName", "_mUnknown_DirectoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryName;
-
-        public string? DirectoryName => _mDirectoryName.GetValue("directoryName");
+        private string? _mValue_DirectoryName;
+        private bool _mUnknown_DirectoryName;
+        public string? DirectoryName
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryName) return _mValue_DirectoryName;
+                throw new UndeferrableValueException("Value 'DirectoryConfigArgs.DirectoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Distinguished names of the organizational units for computer accounts.
         /// </summary>
-        [Input("organizationalUnitDistinguishedNames")]
+        [PolicyResourceProperty("organizationalUnitDistinguishedNames", "_mUnknown_OrganizationalUnitDistinguishedNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnitDistinguishedNames;
-
-        public List<string>? OrganizationalUnitDistinguishedNames => _mOrganizationalUnitDistinguishedNames.GetValue("organizationalUnitDistinguishedNames");
+        private List<string>? _mValue_OrganizationalUnitDistinguishedNames;
+        private bool _mUnknown_OrganizationalUnitDistinguishedNames;
+        public List<string>? OrganizationalUnitDistinguishedNames
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitDistinguishedNames) return _mValue_OrganizationalUnitDistinguishedNames;
+                throw new UndeferrableValueException("Value 'DirectoryConfigArgs.OrganizationalUnitDistinguishedNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         /// </summary>
-        [Input("serviceAccountCredentials")]
+        [PolicyResourceProperty("serviceAccountCredentials", "_mUnknown_ServiceAccountCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DirectoryConfigServiceAccountCredentialsArgs> _mServiceAccountCredentials;
-
-        public Inputs.DirectoryConfigServiceAccountCredentialsArgs? ServiceAccountCredentials => _mServiceAccountCredentials.GetValue("serviceAccountCredentials");
+        private Inputs.DirectoryConfigServiceAccountCredentialsArgs? _mValue_ServiceAccountCredentials;
+        private bool _mUnknown_ServiceAccountCredentials;
+        public Inputs.DirectoryConfigServiceAccountCredentialsArgs? ServiceAccountCredentials
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountCredentials) return _mValue_ServiceAccountCredentials;
+                throw new UndeferrableValueException("Value 'DirectoryConfigArgs.ServiceAccountCredentials' is not present");
+            }
+        }
     }
 }

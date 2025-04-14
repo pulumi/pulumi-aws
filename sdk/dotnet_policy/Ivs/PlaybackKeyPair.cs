@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.Ivs
         /// <summary>
         /// ARN of the Playback Key Pair.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPair.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-pair identifier.
         /// </summary>
-        [Input("fingerprint")]
+        [PolicyResourceProperty("fingerprint", "_mUnknown_Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFingerprint;
-
-        public string? Fingerprint => _mFingerprint.GetValue("fingerprint");
+        private string? _mValue_Fingerprint;
+        private bool _mUnknown_Fingerprint;
+        public string? Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Fingerprint) return _mValue_Fingerprint;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPair.Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Playback Key Pair name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPair.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPair.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPair.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPair.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ivs/playbackKeyPair:PlaybackKeyPair")]
@@ -76,30 +118,51 @@ namespace Pulumi.PolicyPacks.Aws.Ivs
         /// <summary>
         /// Playback Key Pair name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPairArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Public portion of a customer-generated key pair. Must be an ECDSA public key in PEM format.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPairArgs.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PlaybackKeyPairArgs.Tags' is not present");
+            }
+        }
     }
 }

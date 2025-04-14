@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Signer.Outputs
 {
     public sealed class GetSigningJobRevocationRecordResult
     {
-        [Input("reason")]
+        [PolicyResourceProperty("reason", "_mUnknown_Reason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReason;
+        private string? _mValue_Reason;
+        private bool _mUnknown_Reason;
+        public string? Reason
+        {
+            get
+            {
+                if (!_mUnknown_Reason) return _mValue_Reason;
+                throw new UndeferrableValueException("Value 'GetSigningJobRevocationRecordResult.Reason' is not present");
+            }
+        }
 
-        public string? Reason => _mReason.GetValue("reason");
-
-        [Input("revokedAt")]
+        [PolicyResourceProperty("revokedAt", "_mUnknown_RevokedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevokedAt;
+        private string? _mValue_RevokedAt;
+        private bool _mUnknown_RevokedAt;
+        public string? RevokedAt
+        {
+            get
+            {
+                if (!_mUnknown_RevokedAt) return _mValue_RevokedAt;
+                throw new UndeferrableValueException("Value 'GetSigningJobRevocationRecordResult.RevokedAt' is not present");
+            }
+        }
 
-        public string? RevokedAt => _mRevokedAt.GetValue("revokedAt");
-
-        [Input("revokedBy")]
+        [PolicyResourceProperty("revokedBy", "_mUnknown_RevokedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevokedBy;
-
-        public string? RevokedBy => _mRevokedBy.GetValue("revokedBy");
+        private string? _mValue_RevokedBy;
+        private bool _mUnknown_RevokedBy;
+        public string? RevokedBy
+        {
+            get
+            {
+                if (!_mUnknown_RevokedBy) return _mValue_RevokedBy;
+                throw new UndeferrableValueException("Value 'GetSigningJobRevocationRecordResult.RevokedBy' is not present");
+            }
+        }
     }
 }

@@ -16,30 +16,51 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Used internally, see **Notes** below
         /// </summary>
-        [Input("originalRouteTableId")]
+        [PolicyResourceProperty("originalRouteTableId", "_mUnknown_OriginalRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginalRouteTableId;
-
-        public string? OriginalRouteTableId => _mOriginalRouteTableId.GetValue("originalRouteTableId");
+        private string? _mValue_OriginalRouteTableId;
+        private bool _mUnknown_OriginalRouteTableId;
+        public string? OriginalRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_OriginalRouteTableId) return _mValue_OriginalRouteTableId;
+                throw new UndeferrableValueException("Value 'MainRouteTableAssociation.OriginalRouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Route Table to set as the new
         /// main route table for the target VPC
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'MainRouteTableAssociation.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC whose main route table should be set
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'MainRouteTableAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
@@ -49,19 +70,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// The ID of the Route Table to set as the new
         /// main route table for the target VPC
         /// </summary>
-        [Input("routeTableId")]
+        [PolicyResourceProperty("routeTableId", "_mUnknown_RouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteTableId;
-
-        public string? RouteTableId => _mRouteTableId.GetValue("routeTableId");
+        private string? _mValue_RouteTableId;
+        private bool _mUnknown_RouteTableId;
+        public string? RouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableId) return _mValue_RouteTableId;
+                throw new UndeferrableValueException("Value 'MainRouteTableAssociationArgs.RouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC whose main route table should be set
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'MainRouteTableAssociationArgs.VpcId' is not present");
+            }
+        }
     }
 }

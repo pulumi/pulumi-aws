@@ -17,20 +17,34 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// To skip using a Lambda function and instead return the predicted action group, in addition to the parameters and information required for it, in the `InvokeAgent` response, specify `RETURN_CONTROL`.
         /// Only one of `custom_control` or `lambda` can be specified.
         /// </summary>
-        [Input("customControl")]
+        [PolicyResourceProperty("customControl", "_mUnknown_CustomControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomControl;
-
-        public string? CustomControl => _mCustomControl.GetValue("customControl");
+        private string? _mValue_CustomControl;
+        private bool _mUnknown_CustomControl;
+        public string? CustomControl
+        {
+            get
+            {
+                if (!_mUnknown_CustomControl) return _mValue_CustomControl;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupActionGroupExecutor.CustomControl' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
         /// Only one of `lambda` or `custom_control` can be specified.
         /// </summary>
-        [Input("lambda")]
+        [PolicyResourceProperty("lambda", "_mUnknown_Lambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambda;
-
-        public string? Lambda => _mLambda.GetValue("lambda");
+        private string? _mValue_Lambda;
+        private bool _mUnknown_Lambda;
+        public string? Lambda
+        {
+            get
+            {
+                if (!_mUnknown_Lambda) return _mValue_Lambda;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupActionGroupExecutor.Lambda' is not present");
+            }
+        }
     }
 }

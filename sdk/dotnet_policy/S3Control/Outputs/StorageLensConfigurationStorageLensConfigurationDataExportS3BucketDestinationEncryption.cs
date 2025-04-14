@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// SSE-KMS encryption. See SSE KMS below for more details.
         /// </summary>
-        [Input("sseKms")]
+        [PolicyResourceProperty("sseKms", "_mUnknown_SseKms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms> _mSseKms;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms? SseKms => _mSseKms.GetValue("sseKms");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms? _mValue_SseKms;
+        private bool _mUnknown_SseKms;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms? SseKms
+        {
+            get
+            {
+                if (!_mUnknown_SseKms) return _mValue_SseKms;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption.SseKms' is not present");
+            }
+        }
 
         /// <summary>
         /// SSE-S3 encryption. An empty configuration block `{}` should be used.
         /// </summary>
-        [Input("sseS3s")]
+        [PolicyResourceProperty("sseS3s", "_mUnknown_SseS3s")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3>> _mSseS3s;
-
-        public List<Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3>? SseS3s => _mSseS3s.GetValue("sseS3s");
+        private List<Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3>? _mValue_SseS3s;
+        private bool _mUnknown_SseS3s;
+        public List<Outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3>? SseS3s
+        {
+            get
+            {
+                if (!_mUnknown_SseS3s) return _mValue_SseS3s;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption.SseS3s' is not present");
+            }
+        }
     }
 }

@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecGrpcRouteMatchResult
     {
-        [Input("metadatas")]
+        [PolicyResourceProperty("metadatas", "_mUnknown_Metadatas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecGrpcRouteMatchMetadataResult>> _mMetadatas;
+        private List<Outputs.GetRouteSpecGrpcRouteMatchMetadataResult>? _mValue_Metadatas;
+        private bool _mUnknown_Metadatas;
+        public List<Outputs.GetRouteSpecGrpcRouteMatchMetadataResult>? Metadatas
+        {
+            get
+            {
+                if (!_mUnknown_Metadatas) return _mValue_Metadatas;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteMatchResult.Metadatas' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecGrpcRouteMatchMetadataResult>? Metadatas => _mMetadatas.GetValue("metadatas");
-
-        [Input("methodName")]
+        [PolicyResourceProperty("methodName", "_mUnknown_MethodName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethodName;
+        private string? _mValue_MethodName;
+        private bool _mUnknown_MethodName;
+        public string? MethodName
+        {
+            get
+            {
+                if (!_mUnknown_MethodName) return _mValue_MethodName;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteMatchResult.MethodName' is not present");
+            }
+        }
 
-        public string? MethodName => _mMethodName.GetValue("methodName");
-
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteMatchResult.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteMatchResult.Prefix' is not present");
+            }
+        }
 
-        public string? Prefix => _mPrefix.GetValue("prefix");
-
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
-
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'GetRouteSpecGrpcRouteMatchResult.ServiceName' is not present");
+            }
+        }
     }
 }

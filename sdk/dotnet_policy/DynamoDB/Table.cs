@@ -16,258 +16,454 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// ARN of the table
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Table.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableAttribute>> _mAttributes;
-
-        public List<Outputs.TableAttribute>? Attributes => _mAttributes.GetValue("attributes");
+        private List<Outputs.TableAttribute>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public List<Outputs.TableAttribute>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'Table.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         /// </summary>
-        [Input("billingMode")]
+        [PolicyResourceProperty("billingMode", "_mUnknown_BillingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
-
-        public string? BillingMode => _mBillingMode.GetValue("billingMode");
+        private string? _mValue_BillingMode;
+        private bool _mUnknown_BillingMode;
+        public string? BillingMode
+        {
+            get
+            {
+                if (!_mUnknown_BillingMode) return _mValue_BillingMode;
+                throw new UndeferrableValueException("Value 'Table.BillingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables deletion protection for table. Defaults to `false`.
         /// </summary>
-        [Input("deletionProtectionEnabled")]
+        [PolicyResourceProperty("deletionProtectionEnabled", "_mUnknown_DeletionProtectionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
-
-        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
+        private bool? _mValue_DeletionProtectionEnabled;
+        private bool _mUnknown_DeletionProtectionEnabled;
+        public bool? DeletionProtectionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtectionEnabled) return _mValue_DeletionProtectionEnabled;
+                throw new UndeferrableValueException("Value 'Table.DeletionProtectionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         /// </summary>
-        [Input("globalSecondaryIndexes")]
+        [PolicyResourceProperty("globalSecondaryIndexes", "_mUnknown_GlobalSecondaryIndexes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableGlobalSecondaryIndex>> _mGlobalSecondaryIndexes;
-
-        public List<Outputs.TableGlobalSecondaryIndex>? GlobalSecondaryIndexes => _mGlobalSecondaryIndexes.GetValue("globalSecondaryIndexes");
+        private List<Outputs.TableGlobalSecondaryIndex>? _mValue_GlobalSecondaryIndexes;
+        private bool _mUnknown_GlobalSecondaryIndexes;
+        public List<Outputs.TableGlobalSecondaryIndex>? GlobalSecondaryIndexes
+        {
+            get
+            {
+                if (!_mUnknown_GlobalSecondaryIndexes) return _mValue_GlobalSecondaryIndexes;
+                throw new UndeferrableValueException("Value 'Table.GlobalSecondaryIndexes' is not present");
+            }
+        }
 
         /// <summary>
         /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         /// </summary>
-        [Input("hashKey")]
+        [PolicyResourceProperty("hashKey", "_mUnknown_HashKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
-
-        public string? HashKey => _mHashKey.GetValue("hashKey");
+        private string? _mValue_HashKey;
+        private bool _mUnknown_HashKey;
+        public string? HashKey
+        {
+            get
+            {
+                if (!_mUnknown_HashKey) return _mValue_HashKey;
+                throw new UndeferrableValueException("Value 'Table.HashKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Import Amazon S3 data into a new table. See below.
         /// </summary>
-        [Input("importTable")]
+        [PolicyResourceProperty("importTable", "_mUnknown_ImportTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableImportTable> _mImportTable;
-
-        public Outputs.TableImportTable? ImportTable => _mImportTable.GetValue("importTable");
+        private Outputs.TableImportTable? _mValue_ImportTable;
+        private bool _mUnknown_ImportTable;
+        public Outputs.TableImportTable? ImportTable
+        {
+            get
+            {
+                if (!_mUnknown_ImportTable) return _mValue_ImportTable;
+                throw new UndeferrableValueException("Value 'Table.ImportTable' is not present");
+            }
+        }
 
         /// <summary>
         /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         /// </summary>
-        [Input("localSecondaryIndexes")]
+        [PolicyResourceProperty("localSecondaryIndexes", "_mUnknown_LocalSecondaryIndexes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableLocalSecondaryIndex>> _mLocalSecondaryIndexes;
-
-        public List<Outputs.TableLocalSecondaryIndex>? LocalSecondaryIndexes => _mLocalSecondaryIndexes.GetValue("localSecondaryIndexes");
+        private List<Outputs.TableLocalSecondaryIndex>? _mValue_LocalSecondaryIndexes;
+        private bool _mUnknown_LocalSecondaryIndexes;
+        public List<Outputs.TableLocalSecondaryIndex>? LocalSecondaryIndexes
+        {
+            get
+            {
+                if (!_mUnknown_LocalSecondaryIndexes) return _mValue_LocalSecondaryIndexes;
+                throw new UndeferrableValueException("Value 'Table.LocalSecondaryIndexes' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique within a region name of the table.
         /// 
         /// Optional arguments:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Table.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the maximum number of read and write units for the specified on-demand table. See below.
         /// </summary>
-        [Input("onDemandThroughput")]
+        [PolicyResourceProperty("onDemandThroughput", "_mUnknown_OnDemandThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableOnDemandThroughput> _mOnDemandThroughput;
-
-        public Outputs.TableOnDemandThroughput? OnDemandThroughput => _mOnDemandThroughput.GetValue("onDemandThroughput");
+        private Outputs.TableOnDemandThroughput? _mValue_OnDemandThroughput;
+        private bool _mUnknown_OnDemandThroughput;
+        public Outputs.TableOnDemandThroughput? OnDemandThroughput
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandThroughput) return _mValue_OnDemandThroughput;
+                throw new UndeferrableValueException("Value 'Table.OnDemandThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable point-in-time recovery options. See below.
         /// </summary>
-        [Input("pointInTimeRecovery")]
+        [PolicyResourceProperty("pointInTimeRecovery", "_mUnknown_PointInTimeRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TablePointInTimeRecovery> _mPointInTimeRecovery;
-
-        public Outputs.TablePointInTimeRecovery? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+        private Outputs.TablePointInTimeRecovery? _mValue_PointInTimeRecovery;
+        private bool _mUnknown_PointInTimeRecovery;
+        public Outputs.TablePointInTimeRecovery? PointInTimeRecovery
+        {
+            get
+            {
+                if (!_mUnknown_PointInTimeRecovery) return _mValue_PointInTimeRecovery;
+                throw new UndeferrableValueException("Value 'Table.PointInTimeRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         /// </summary>
-        [Input("rangeKey")]
+        [PolicyResourceProperty("rangeKey", "_mUnknown_RangeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
-
-        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+        private string? _mValue_RangeKey;
+        private bool _mUnknown_RangeKey;
+        public string? RangeKey
+        {
+            get
+            {
+                if (!_mUnknown_RangeKey) return _mValue_RangeKey;
+                throw new UndeferrableValueException("Value 'Table.RangeKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
-        [Input("readCapacity")]
+        [PolicyResourceProperty("readCapacity", "_mUnknown_ReadCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReadCapacity;
-
-        public int? ReadCapacity => _mReadCapacity.GetValue("readCapacity");
+        private int? _mValue_ReadCapacity;
+        private bool _mUnknown_ReadCapacity;
+        public int? ReadCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ReadCapacity) return _mValue_ReadCapacity;
+                throw new UndeferrableValueException("Value 'Table.ReadCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         /// </summary>
-        [Input("replicas")]
+        [PolicyResourceProperty("replicas", "_mUnknown_Replicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TableReplica>> _mReplicas;
-
-        public List<Outputs.TableReplica>? Replicas => _mReplicas.GetValue("replicas");
+        private List<Outputs.TableReplica>? _mValue_Replicas;
+        private bool _mUnknown_Replicas;
+        public List<Outputs.TableReplica>? Replicas
+        {
+            get
+            {
+                if (!_mUnknown_Replicas) return _mValue_Replicas;
+                throw new UndeferrableValueException("Value 'Table.Replicas' is not present");
+            }
+        }
 
         /// <summary>
         /// Time of the point-in-time recovery point to restore.
         /// </summary>
-        [Input("restoreDateTime")]
+        [PolicyResourceProperty("restoreDateTime", "_mUnknown_RestoreDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreDateTime;
-
-        public string? RestoreDateTime => _mRestoreDateTime.GetValue("restoreDateTime");
+        private string? _mValue_RestoreDateTime;
+        private bool _mUnknown_RestoreDateTime;
+        public string? RestoreDateTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreDateTime) return _mValue_RestoreDateTime;
+                throw new UndeferrableValueException("Value 'Table.RestoreDateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table to restore. Must match the name of an existing table.
         /// </summary>
-        [Input("restoreSourceName")]
+        [PolicyResourceProperty("restoreSourceName", "_mUnknown_RestoreSourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceName;
-
-        public string? RestoreSourceName => _mRestoreSourceName.GetValue("restoreSourceName");
+        private string? _mValue_RestoreSourceName;
+        private bool _mUnknown_RestoreSourceName;
+        public string? RestoreSourceName
+        {
+            get
+            {
+                if (!_mUnknown_RestoreSourceName) return _mValue_RestoreSourceName;
+                throw new UndeferrableValueException("Value 'Table.RestoreSourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the source table to restore. Must be supplied for cross-region restores.
         /// </summary>
-        [Input("restoreSourceTableArn")]
+        [PolicyResourceProperty("restoreSourceTableArn", "_mUnknown_RestoreSourceTableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceTableArn;
-
-        public string? RestoreSourceTableArn => _mRestoreSourceTableArn.GetValue("restoreSourceTableArn");
+        private string? _mValue_RestoreSourceTableArn;
+        private bool _mUnknown_RestoreSourceTableArn;
+        public string? RestoreSourceTableArn
+        {
+            get
+            {
+                if (!_mUnknown_RestoreSourceTableArn) return _mValue_RestoreSourceTableArn;
+                throw new UndeferrableValueException("Value 'Table.RestoreSourceTableArn' is not present");
+            }
+        }
 
         /// <summary>
         /// If set, restores table to the most recent point-in-time recovery point.
         /// </summary>
-        [Input("restoreToLatestTime")]
+        [PolicyResourceProperty("restoreToLatestTime", "_mUnknown_RestoreToLatestTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRestoreToLatestTime;
-
-        public bool? RestoreToLatestTime => _mRestoreToLatestTime.GetValue("restoreToLatestTime");
+        private bool? _mValue_RestoreToLatestTime;
+        private bool _mUnknown_RestoreToLatestTime;
+        public bool? RestoreToLatestTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToLatestTime) return _mValue_RestoreToLatestTime;
+                throw new UndeferrableValueException("Value 'Table.RestoreToLatestTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableServerSideEncryption> _mServerSideEncryption;
-
-        public Outputs.TableServerSideEncryption? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private Outputs.TableServerSideEncryption? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public Outputs.TableServerSideEncryption? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'Table.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Table Stream. Only available when `stream_enabled = true`
         /// </summary>
-        [Input("streamArn")]
+        [PolicyResourceProperty("streamArn", "_mUnknown_StreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamArn;
-
-        public string? StreamArn => _mStreamArn.GetValue("streamArn");
+        private string? _mValue_StreamArn;
+        private bool _mUnknown_StreamArn;
+        public string? StreamArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamArn) return _mValue_StreamArn;
+                throw new UndeferrableValueException("Value 'Table.StreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Streams are enabled.
         /// </summary>
-        [Input("streamEnabled")]
+        [PolicyResourceProperty("streamEnabled", "_mUnknown_StreamEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStreamEnabled;
-
-        public bool? StreamEnabled => _mStreamEnabled.GetValue("streamEnabled");
+        private bool? _mValue_StreamEnabled;
+        private bool _mUnknown_StreamEnabled;
+        public bool? StreamEnabled
+        {
+            get
+            {
+                if (!_mUnknown_StreamEnabled) return _mValue_StreamEnabled;
+                throw new UndeferrableValueException("Value 'Table.StreamEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
         /// </summary>
-        [Input("streamLabel")]
+        [PolicyResourceProperty("streamLabel", "_mUnknown_StreamLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamLabel;
-
-        public string? StreamLabel => _mStreamLabel.GetValue("streamLabel");
+        private string? _mValue_StreamLabel;
+        private bool _mUnknown_StreamLabel;
+        public string? StreamLabel
+        {
+            get
+            {
+                if (!_mUnknown_StreamLabel) return _mValue_StreamLabel;
+                throw new UndeferrableValueException("Value 'Table.StreamLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         /// </summary>
-        [Input("streamViewType")]
+        [PolicyResourceProperty("streamViewType", "_mUnknown_StreamViewType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamViewType;
-
-        public string? StreamViewType => _mStreamViewType.GetValue("streamViewType");
+        private string? _mValue_StreamViewType;
+        private bool _mUnknown_StreamViewType;
+        public string? StreamViewType
+        {
+            get
+            {
+                if (!_mUnknown_StreamViewType) return _mValue_StreamViewType;
+                throw new UndeferrableValueException("Value 'Table.StreamViewType' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage class of the table.
         /// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         /// Default value is `STANDARD`.
         /// </summary>
-        [Input("tableClass")]
+        [PolicyResourceProperty("tableClass", "_mUnknown_TableClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableClass;
-
-        public string? TableClass => _mTableClass.GetValue("tableClass");
+        private string? _mValue_TableClass;
+        private bool _mUnknown_TableClass;
+        public string? TableClass
+        {
+            get
+            {
+                if (!_mUnknown_TableClass) return _mValue_TableClass;
+                throw new UndeferrableValueException("Value 'Table.TableClass' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Table.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Table.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for TTL. See below.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableTtl> _mTtl;
-
-        public Outputs.TableTtl? Ttl => _mTtl.GetValue("ttl");
+        private Outputs.TableTtl? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public Outputs.TableTtl? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'Table.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
-        [Input("writeCapacity")]
+        [PolicyResourceProperty("writeCapacity", "_mUnknown_WriteCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWriteCapacity;
-
-        public int? WriteCapacity => _mWriteCapacity.GetValue("writeCapacity");
+        private int? _mValue_WriteCapacity;
+        private bool _mUnknown_WriteCapacity;
+        public int? WriteCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WriteCapacity) return _mValue_WriteCapacity;
+                throw new UndeferrableValueException("Value 'Table.WriteCapacity' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/table:Table")]
@@ -276,221 +472,389 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableAttributeArgs>> _mAttributes;
-
-        public List<Inputs.TableAttributeArgs>? Attributes => _mAttributes.GetValue("attributes");
+        private List<Inputs.TableAttributeArgs>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public List<Inputs.TableAttributeArgs>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'TableArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
         /// </summary>
-        [Input("billingMode")]
+        [PolicyResourceProperty("billingMode", "_mUnknown_BillingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBillingMode;
-
-        public string? BillingMode => _mBillingMode.GetValue("billingMode");
+        private string? _mValue_BillingMode;
+        private bool _mUnknown_BillingMode;
+        public string? BillingMode
+        {
+            get
+            {
+                if (!_mUnknown_BillingMode) return _mValue_BillingMode;
+                throw new UndeferrableValueException("Value 'TableArgs.BillingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables deletion protection for table. Defaults to `false`.
         /// </summary>
-        [Input("deletionProtectionEnabled")]
+        [PolicyResourceProperty("deletionProtectionEnabled", "_mUnknown_DeletionProtectionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
-
-        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
+        private bool? _mValue_DeletionProtectionEnabled;
+        private bool _mUnknown_DeletionProtectionEnabled;
+        public bool? DeletionProtectionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtectionEnabled) return _mValue_DeletionProtectionEnabled;
+                throw new UndeferrableValueException("Value 'TableArgs.DeletionProtectionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         /// </summary>
-        [Input("globalSecondaryIndexes")]
+        [PolicyResourceProperty("globalSecondaryIndexes", "_mUnknown_GlobalSecondaryIndexes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableGlobalSecondaryIndexArgs>> _mGlobalSecondaryIndexes;
-
-        public List<Inputs.TableGlobalSecondaryIndexArgs>? GlobalSecondaryIndexes => _mGlobalSecondaryIndexes.GetValue("globalSecondaryIndexes");
+        private List<Inputs.TableGlobalSecondaryIndexArgs>? _mValue_GlobalSecondaryIndexes;
+        private bool _mUnknown_GlobalSecondaryIndexes;
+        public List<Inputs.TableGlobalSecondaryIndexArgs>? GlobalSecondaryIndexes
+        {
+            get
+            {
+                if (!_mUnknown_GlobalSecondaryIndexes) return _mValue_GlobalSecondaryIndexes;
+                throw new UndeferrableValueException("Value 'TableArgs.GlobalSecondaryIndexes' is not present");
+            }
+        }
 
         /// <summary>
         /// Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
         /// </summary>
-        [Input("hashKey")]
+        [PolicyResourceProperty("hashKey", "_mUnknown_HashKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
-
-        public string? HashKey => _mHashKey.GetValue("hashKey");
+        private string? _mValue_HashKey;
+        private bool _mUnknown_HashKey;
+        public string? HashKey
+        {
+            get
+            {
+                if (!_mUnknown_HashKey) return _mValue_HashKey;
+                throw new UndeferrableValueException("Value 'TableArgs.HashKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Import Amazon S3 data into a new table. See below.
         /// </summary>
-        [Input("importTable")]
+        [PolicyResourceProperty("importTable", "_mUnknown_ImportTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableImportTableArgs> _mImportTable;
-
-        public Inputs.TableImportTableArgs? ImportTable => _mImportTable.GetValue("importTable");
+        private Inputs.TableImportTableArgs? _mValue_ImportTable;
+        private bool _mUnknown_ImportTable;
+        public Inputs.TableImportTableArgs? ImportTable
+        {
+            get
+            {
+                if (!_mUnknown_ImportTable) return _mValue_ImportTable;
+                throw new UndeferrableValueException("Value 'TableArgs.ImportTable' is not present");
+            }
+        }
 
         /// <summary>
         /// Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
         /// </summary>
-        [Input("localSecondaryIndexes")]
+        [PolicyResourceProperty("localSecondaryIndexes", "_mUnknown_LocalSecondaryIndexes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableLocalSecondaryIndexArgs>> _mLocalSecondaryIndexes;
-
-        public List<Inputs.TableLocalSecondaryIndexArgs>? LocalSecondaryIndexes => _mLocalSecondaryIndexes.GetValue("localSecondaryIndexes");
+        private List<Inputs.TableLocalSecondaryIndexArgs>? _mValue_LocalSecondaryIndexes;
+        private bool _mUnknown_LocalSecondaryIndexes;
+        public List<Inputs.TableLocalSecondaryIndexArgs>? LocalSecondaryIndexes
+        {
+            get
+            {
+                if (!_mUnknown_LocalSecondaryIndexes) return _mValue_LocalSecondaryIndexes;
+                throw new UndeferrableValueException("Value 'TableArgs.LocalSecondaryIndexes' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique within a region name of the table.
         /// 
         /// Optional arguments:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TableArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the maximum number of read and write units for the specified on-demand table. See below.
         /// </summary>
-        [Input("onDemandThroughput")]
+        [PolicyResourceProperty("onDemandThroughput", "_mUnknown_OnDemandThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableOnDemandThroughputArgs> _mOnDemandThroughput;
-
-        public Inputs.TableOnDemandThroughputArgs? OnDemandThroughput => _mOnDemandThroughput.GetValue("onDemandThroughput");
+        private Inputs.TableOnDemandThroughputArgs? _mValue_OnDemandThroughput;
+        private bool _mUnknown_OnDemandThroughput;
+        public Inputs.TableOnDemandThroughputArgs? OnDemandThroughput
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandThroughput) return _mValue_OnDemandThroughput;
+                throw new UndeferrableValueException("Value 'TableArgs.OnDemandThroughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Enable point-in-time recovery options. See below.
         /// </summary>
-        [Input("pointInTimeRecovery")]
+        [PolicyResourceProperty("pointInTimeRecovery", "_mUnknown_PointInTimeRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TablePointInTimeRecoveryArgs> _mPointInTimeRecovery;
-
-        public Inputs.TablePointInTimeRecoveryArgs? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+        private Inputs.TablePointInTimeRecoveryArgs? _mValue_PointInTimeRecovery;
+        private bool _mUnknown_PointInTimeRecovery;
+        public Inputs.TablePointInTimeRecoveryArgs? PointInTimeRecovery
+        {
+            get
+            {
+                if (!_mUnknown_PointInTimeRecovery) return _mValue_PointInTimeRecovery;
+                throw new UndeferrableValueException("Value 'TableArgs.PointInTimeRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         /// </summary>
-        [Input("rangeKey")]
+        [PolicyResourceProperty("rangeKey", "_mUnknown_RangeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
-
-        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+        private string? _mValue_RangeKey;
+        private bool _mUnknown_RangeKey;
+        public string? RangeKey
+        {
+            get
+            {
+                if (!_mUnknown_RangeKey) return _mValue_RangeKey;
+                throw new UndeferrableValueException("Value 'TableArgs.RangeKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
-        [Input("readCapacity")]
+        [PolicyResourceProperty("readCapacity", "_mUnknown_ReadCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mReadCapacity;
-
-        public int? ReadCapacity => _mReadCapacity.GetValue("readCapacity");
+        private int? _mValue_ReadCapacity;
+        private bool _mUnknown_ReadCapacity;
+        public int? ReadCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ReadCapacity) return _mValue_ReadCapacity;
+                throw new UndeferrableValueException("Value 'TableArgs.ReadCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         /// </summary>
-        [Input("replicas")]
+        [PolicyResourceProperty("replicas", "_mUnknown_Replicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TableReplicaArgs>> _mReplicas;
-
-        public List<Inputs.TableReplicaArgs>? Replicas => _mReplicas.GetValue("replicas");
+        private List<Inputs.TableReplicaArgs>? _mValue_Replicas;
+        private bool _mUnknown_Replicas;
+        public List<Inputs.TableReplicaArgs>? Replicas
+        {
+            get
+            {
+                if (!_mUnknown_Replicas) return _mValue_Replicas;
+                throw new UndeferrableValueException("Value 'TableArgs.Replicas' is not present");
+            }
+        }
 
         /// <summary>
         /// Time of the point-in-time recovery point to restore.
         /// </summary>
-        [Input("restoreDateTime")]
+        [PolicyResourceProperty("restoreDateTime", "_mUnknown_RestoreDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreDateTime;
-
-        public string? RestoreDateTime => _mRestoreDateTime.GetValue("restoreDateTime");
+        private string? _mValue_RestoreDateTime;
+        private bool _mUnknown_RestoreDateTime;
+        public string? RestoreDateTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreDateTime) return _mValue_RestoreDateTime;
+                throw new UndeferrableValueException("Value 'TableArgs.RestoreDateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table to restore. Must match the name of an existing table.
         /// </summary>
-        [Input("restoreSourceName")]
+        [PolicyResourceProperty("restoreSourceName", "_mUnknown_RestoreSourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceName;
-
-        public string? RestoreSourceName => _mRestoreSourceName.GetValue("restoreSourceName");
+        private string? _mValue_RestoreSourceName;
+        private bool _mUnknown_RestoreSourceName;
+        public string? RestoreSourceName
+        {
+            get
+            {
+                if (!_mUnknown_RestoreSourceName) return _mValue_RestoreSourceName;
+                throw new UndeferrableValueException("Value 'TableArgs.RestoreSourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the source table to restore. Must be supplied for cross-region restores.
         /// </summary>
-        [Input("restoreSourceTableArn")]
+        [PolicyResourceProperty("restoreSourceTableArn", "_mUnknown_RestoreSourceTableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreSourceTableArn;
-
-        public string? RestoreSourceTableArn => _mRestoreSourceTableArn.GetValue("restoreSourceTableArn");
+        private string? _mValue_RestoreSourceTableArn;
+        private bool _mUnknown_RestoreSourceTableArn;
+        public string? RestoreSourceTableArn
+        {
+            get
+            {
+                if (!_mUnknown_RestoreSourceTableArn) return _mValue_RestoreSourceTableArn;
+                throw new UndeferrableValueException("Value 'TableArgs.RestoreSourceTableArn' is not present");
+            }
+        }
 
         /// <summary>
         /// If set, restores table to the most recent point-in-time recovery point.
         /// </summary>
-        [Input("restoreToLatestTime")]
+        [PolicyResourceProperty("restoreToLatestTime", "_mUnknown_RestoreToLatestTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRestoreToLatestTime;
-
-        public bool? RestoreToLatestTime => _mRestoreToLatestTime.GetValue("restoreToLatestTime");
+        private bool? _mValue_RestoreToLatestTime;
+        private bool _mUnknown_RestoreToLatestTime;
+        public bool? RestoreToLatestTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToLatestTime) return _mValue_RestoreToLatestTime;
+                throw new UndeferrableValueException("Value 'TableArgs.RestoreToLatestTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableServerSideEncryptionArgs> _mServerSideEncryption;
-
-        public Inputs.TableServerSideEncryptionArgs? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private Inputs.TableServerSideEncryptionArgs? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public Inputs.TableServerSideEncryptionArgs? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'TableArgs.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Streams are enabled.
         /// </summary>
-        [Input("streamEnabled")]
+        [PolicyResourceProperty("streamEnabled", "_mUnknown_StreamEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStreamEnabled;
-
-        public bool? StreamEnabled => _mStreamEnabled.GetValue("streamEnabled");
+        private bool? _mValue_StreamEnabled;
+        private bool _mUnknown_StreamEnabled;
+        public bool? StreamEnabled
+        {
+            get
+            {
+                if (!_mUnknown_StreamEnabled) return _mValue_StreamEnabled;
+                throw new UndeferrableValueException("Value 'TableArgs.StreamEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         /// </summary>
-        [Input("streamViewType")]
+        [PolicyResourceProperty("streamViewType", "_mUnknown_StreamViewType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamViewType;
-
-        public string? StreamViewType => _mStreamViewType.GetValue("streamViewType");
+        private string? _mValue_StreamViewType;
+        private bool _mUnknown_StreamViewType;
+        public string? StreamViewType
+        {
+            get
+            {
+                if (!_mUnknown_StreamViewType) return _mValue_StreamViewType;
+                throw new UndeferrableValueException("Value 'TableArgs.StreamViewType' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage class of the table.
         /// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         /// Default value is `STANDARD`.
         /// </summary>
-        [Input("tableClass")]
+        [PolicyResourceProperty("tableClass", "_mUnknown_TableClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableClass;
-
-        public string? TableClass => _mTableClass.GetValue("tableClass");
+        private string? _mValue_TableClass;
+        private bool _mUnknown_TableClass;
+        public string? TableClass
+        {
+            get
+            {
+                if (!_mUnknown_TableClass) return _mValue_TableClass;
+                throw new UndeferrableValueException("Value 'TableArgs.TableClass' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TableArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for TTL. See below.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableTtlArgs> _mTtl;
-
-        public Inputs.TableTtlArgs? Ttl => _mTtl.GetValue("ttl");
+        private Inputs.TableTtlArgs? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public Inputs.TableTtlArgs? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'TableArgs.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
         /// </summary>
-        [Input("writeCapacity")]
+        [PolicyResourceProperty("writeCapacity", "_mUnknown_WriteCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWriteCapacity;
-
-        public int? WriteCapacity => _mWriteCapacity.GetValue("writeCapacity");
+        private int? _mValue_WriteCapacity;
+        private bool _mUnknown_WriteCapacity;
+        public int? WriteCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WriteCapacity) return _mValue_WriteCapacity;
+                throw new UndeferrableValueException("Value 'TableArgs.WriteCapacity' is not present");
+            }
+        }
     }
 }

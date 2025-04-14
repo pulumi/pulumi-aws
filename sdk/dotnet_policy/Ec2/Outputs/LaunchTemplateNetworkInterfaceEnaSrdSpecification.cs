@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
         /// </summary>
-        [Input("enaSrdEnabled")]
+        [PolicyResourceProperty("enaSrdEnabled", "_mUnknown_EnaSrdEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnaSrdEnabled;
-
-        public bool? EnaSrdEnabled => _mEnaSrdEnabled.GetValue("enaSrdEnabled");
+        private bool? _mValue_EnaSrdEnabled;
+        private bool _mUnknown_EnaSrdEnabled;
+        public bool? EnaSrdEnabled
+        {
+            get
+            {
+                if (!_mUnknown_EnaSrdEnabled) return _mValue_EnaSrdEnabled;
+                throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceEnaSrdSpecification.EnaSrdEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for ENA Express UDP optimization. See details below.
         /// </summary>
-        [Input("enaSrdUdpSpecification")]
+        [PolicyResourceProperty("enaSrdUdpSpecification", "_mUnknown_EnaSrdUdpSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification> _mEnaSrdUdpSpecification;
-
-        public Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification? EnaSrdUdpSpecification => _mEnaSrdUdpSpecification.GetValue("enaSrdUdpSpecification");
+        private Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification? _mValue_EnaSrdUdpSpecification;
+        private bool _mUnknown_EnaSrdUdpSpecification;
+        public Outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification? EnaSrdUdpSpecification
+        {
+            get
+            {
+                if (!_mUnknown_EnaSrdUdpSpecification) return _mValue_EnaSrdUdpSpecification;
+                throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceEnaSrdSpecification.EnaSrdUdpSpecification' is not present");
+            }
+        }
     }
 }

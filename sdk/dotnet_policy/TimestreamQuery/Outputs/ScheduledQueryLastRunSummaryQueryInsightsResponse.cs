@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
         /// </summary>
-        [Input("outputBytes")]
+        [PolicyResourceProperty("outputBytes", "_mUnknown_OutputBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOutputBytes;
-
-        public int? OutputBytes => _mOutputBytes.GetValue("outputBytes");
+        private int? _mValue_OutputBytes;
+        private bool _mUnknown_OutputBytes;
+        public int? OutputBytes
+        {
+            get
+            {
+                if (!_mUnknown_OutputBytes) return _mValue_OutputBytes;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.OutputBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
         /// </summary>
-        [Input("outputRows")]
+        [PolicyResourceProperty("outputRows", "_mUnknown_OutputRows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOutputRows;
-
-        public int? OutputRows => _mOutputRows.GetValue("outputRows");
+        private int? _mValue_OutputRows;
+        private bool _mUnknown_OutputRows;
+        public int? OutputRows
+        {
+            get
+            {
+                if (!_mUnknown_OutputRows) return _mValue_OutputRows;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.OutputRows' is not present");
+            }
+        }
 
         /// <summary>
         /// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
         /// </summary>
-        [Input("querySpatialCoverages")]
+        [PolicyResourceProperty("querySpatialCoverages", "_mUnknown_QuerySpatialCoverages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage>> _mQuerySpatialCoverages;
-
-        public List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage>? QuerySpatialCoverages => _mQuerySpatialCoverages.GetValue("querySpatialCoverages");
+        private List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage>? _mValue_QuerySpatialCoverages;
+        private bool _mUnknown_QuerySpatialCoverages;
+        public List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage>? QuerySpatialCoverages
+        {
+            get
+            {
+                if (!_mUnknown_QuerySpatialCoverages) return _mValue_QuerySpatialCoverages;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.QuerySpatialCoverages' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of tables in the query.
         /// </summary>
-        [Input("queryTableCount")]
+        [PolicyResourceProperty("queryTableCount", "_mUnknown_QueryTableCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQueryTableCount;
-
-        public int? QueryTableCount => _mQueryTableCount.GetValue("queryTableCount");
+        private int? _mValue_QueryTableCount;
+        private bool _mUnknown_QueryTableCount;
+        public int? QueryTableCount
+        {
+            get
+            {
+                if (!_mUnknown_QueryTableCount) return _mValue_QueryTableCount;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.QueryTableCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
         /// </summary>
-        [Input("queryTemporalRanges")]
+        [PolicyResourceProperty("queryTemporalRanges", "_mUnknown_QueryTemporalRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange>> _mQueryTemporalRanges;
-
-        public List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange>? QueryTemporalRanges => _mQueryTemporalRanges.GetValue("queryTemporalRanges");
+        private List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange>? _mValue_QueryTemporalRanges;
+        private bool _mUnknown_QueryTemporalRanges;
+        public List<Outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange>? QueryTemporalRanges
+        {
+            get
+            {
+                if (!_mUnknown_QueryTemporalRanges) return _mValue_QueryTemporalRanges;
+                throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.QueryTemporalRanges' is not present");
+            }
+        }
     }
 }

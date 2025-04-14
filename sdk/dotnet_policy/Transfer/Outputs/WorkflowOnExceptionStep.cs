@@ -15,52 +15,94 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// Details for a step that performs a file copy. See Copy Step Details below.
         /// </summary>
-        [Input("copyStepDetails")]
+        [PolicyResourceProperty("copyStepDetails", "_mUnknown_CopyStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowOnExceptionStepCopyStepDetails> _mCopyStepDetails;
-
-        public Outputs.WorkflowOnExceptionStepCopyStepDetails? CopyStepDetails => _mCopyStepDetails.GetValue("copyStepDetails");
+        private Outputs.WorkflowOnExceptionStepCopyStepDetails? _mValue_CopyStepDetails;
+        private bool _mUnknown_CopyStepDetails;
+        public Outputs.WorkflowOnExceptionStepCopyStepDetails? CopyStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_CopyStepDetails) return _mValue_CopyStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.CopyStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that invokes a lambda function.
         /// </summary>
-        [Input("customStepDetails")]
+        [PolicyResourceProperty("customStepDetails", "_mUnknown_CustomStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowOnExceptionStepCustomStepDetails> _mCustomStepDetails;
-
-        public Outputs.WorkflowOnExceptionStepCustomStepDetails? CustomStepDetails => _mCustomStepDetails.GetValue("customStepDetails");
+        private Outputs.WorkflowOnExceptionStepCustomStepDetails? _mValue_CustomStepDetails;
+        private bool _mUnknown_CustomStepDetails;
+        public Outputs.WorkflowOnExceptionStepCustomStepDetails? CustomStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_CustomStepDetails) return _mValue_CustomStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.CustomStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that decrypts the file.
         /// </summary>
-        [Input("decryptStepDetails")]
+        [PolicyResourceProperty("decryptStepDetails", "_mUnknown_DecryptStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowOnExceptionStepDecryptStepDetails> _mDecryptStepDetails;
-
-        public Outputs.WorkflowOnExceptionStepDecryptStepDetails? DecryptStepDetails => _mDecryptStepDetails.GetValue("decryptStepDetails");
+        private Outputs.WorkflowOnExceptionStepDecryptStepDetails? _mValue_DecryptStepDetails;
+        private bool _mUnknown_DecryptStepDetails;
+        public Outputs.WorkflowOnExceptionStepDecryptStepDetails? DecryptStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_DecryptStepDetails) return _mValue_DecryptStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.DecryptStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that deletes the file.
         /// </summary>
-        [Input("deleteStepDetails")]
+        [PolicyResourceProperty("deleteStepDetails", "_mUnknown_DeleteStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowOnExceptionStepDeleteStepDetails> _mDeleteStepDetails;
-
-        public Outputs.WorkflowOnExceptionStepDeleteStepDetails? DeleteStepDetails => _mDeleteStepDetails.GetValue("deleteStepDetails");
+        private Outputs.WorkflowOnExceptionStepDeleteStepDetails? _mValue_DeleteStepDetails;
+        private bool _mUnknown_DeleteStepDetails;
+        public Outputs.WorkflowOnExceptionStepDeleteStepDetails? DeleteStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_DeleteStepDetails) return _mValue_DeleteStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.DeleteStepDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for a step that creates one or more tags.
         /// </summary>
-        [Input("tagStepDetails")]
+        [PolicyResourceProperty("tagStepDetails", "_mUnknown_TagStepDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkflowOnExceptionStepTagStepDetails> _mTagStepDetails;
+        private Outputs.WorkflowOnExceptionStepTagStepDetails? _mValue_TagStepDetails;
+        private bool _mUnknown_TagStepDetails;
+        public Outputs.WorkflowOnExceptionStepTagStepDetails? TagStepDetails
+        {
+            get
+            {
+                if (!_mUnknown_TagStepDetails) return _mValue_TagStepDetails;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.TagStepDetails' is not present");
+            }
+        }
 
-        public Outputs.WorkflowOnExceptionStepTagStepDetails? TagStepDetails => _mTagStepDetails.GetValue("tagStepDetails");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.Type' is not present");
+            }
+        }
     }
 }

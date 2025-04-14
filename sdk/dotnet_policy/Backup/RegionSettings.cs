@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
-        [Input("resourceTypeManagementPreference")]
+        [PolicyResourceProperty("resourceTypeManagementPreference", "_mUnknown_ResourceTypeManagementPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeManagementPreference;
-
-        public Dictionary<string, bool>? ResourceTypeManagementPreference => _mResourceTypeManagementPreference.GetValue("resourceTypeManagementPreference");
+        private Dictionary<string, bool>? _mValue_ResourceTypeManagementPreference;
+        private bool _mUnknown_ResourceTypeManagementPreference;
+        public Dictionary<string, bool>? ResourceTypeManagementPreference
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypeManagementPreference) return _mValue_ResourceTypeManagementPreference;
+                throw new UndeferrableValueException("Value 'RegionSettings.ResourceTypeManagementPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of services along with the opt-in preferences for the Region.
         /// </summary>
-        [Input("resourceTypeOptInPreference")]
+        [PolicyResourceProperty("resourceTypeOptInPreference", "_mUnknown_ResourceTypeOptInPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeOptInPreference;
-
-        public Dictionary<string, bool>? ResourceTypeOptInPreference => _mResourceTypeOptInPreference.GetValue("resourceTypeOptInPreference");
+        private Dictionary<string, bool>? _mValue_ResourceTypeOptInPreference;
+        private bool _mUnknown_ResourceTypeOptInPreference;
+        public Dictionary<string, bool>? ResourceTypeOptInPreference
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypeOptInPreference) return _mValue_ResourceTypeOptInPreference;
+                throw new UndeferrableValueException("Value 'RegionSettings.ResourceTypeOptInPreference' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/regionSettings:RegionSettings")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         /// </summary>
-        [Input("resourceTypeManagementPreference")]
+        [PolicyResourceProperty("resourceTypeManagementPreference", "_mUnknown_ResourceTypeManagementPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeManagementPreference;
-
-        public Dictionary<string, bool>? ResourceTypeManagementPreference => _mResourceTypeManagementPreference.GetValue("resourceTypeManagementPreference");
+        private Dictionary<string, bool>? _mValue_ResourceTypeManagementPreference;
+        private bool _mUnknown_ResourceTypeManagementPreference;
+        public Dictionary<string, bool>? ResourceTypeManagementPreference
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypeManagementPreference) return _mValue_ResourceTypeManagementPreference;
+                throw new UndeferrableValueException("Value 'RegionSettingsArgs.ResourceTypeManagementPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of services along with the opt-in preferences for the Region.
         /// </summary>
-        [Input("resourceTypeOptInPreference")]
+        [PolicyResourceProperty("resourceTypeOptInPreference", "_mUnknown_ResourceTypeOptInPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, bool>> _mResourceTypeOptInPreference;
-
-        public Dictionary<string, bool>? ResourceTypeOptInPreference => _mResourceTypeOptInPreference.GetValue("resourceTypeOptInPreference");
+        private Dictionary<string, bool>? _mValue_ResourceTypeOptInPreference;
+        private bool _mUnknown_ResourceTypeOptInPreference;
+        public Dictionary<string, bool>? ResourceTypeOptInPreference
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypeOptInPreference) return _mValue_ResourceTypeOptInPreference;
+                throw new UndeferrableValueException("Value 'RegionSettingsArgs.ResourceTypeOptInPreference' is not present");
+            }
+        }
     }
 }

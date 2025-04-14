@@ -16,104 +16,188 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// ARN of this auto scaling configuration version.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the auto scaling configuration.
         /// </summary>
-        [Input("autoScalingConfigurationName")]
+        [PolicyResourceProperty("autoScalingConfigurationName", "_mUnknown_AutoScalingConfigurationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationName;
-
-        public string? AutoScalingConfigurationName => _mAutoScalingConfigurationName.GetValue("autoScalingConfigurationName");
+        private string? _mValue_AutoScalingConfigurationName;
+        private bool _mUnknown_AutoScalingConfigurationName;
+        public string? AutoScalingConfigurationName
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfigurationName) return _mValue_AutoScalingConfigurationName;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.AutoScalingConfigurationName' is not present");
+            }
+        }
 
         /// <summary>
         /// The revision of this auto scaling configuration.
         /// </summary>
-        [Input("autoScalingConfigurationRevision")]
+        [PolicyResourceProperty("autoScalingConfigurationRevision", "_mUnknown_AutoScalingConfigurationRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutoScalingConfigurationRevision;
+        private int? _mValue_AutoScalingConfigurationRevision;
+        private bool _mUnknown_AutoScalingConfigurationRevision;
+        public int? AutoScalingConfigurationRevision
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfigurationRevision) return _mValue_AutoScalingConfigurationRevision;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.AutoScalingConfigurationRevision' is not present");
+            }
+        }
 
-        public int? AutoScalingConfigurationRevision => _mAutoScalingConfigurationRevision.GetValue("autoScalingConfigurationRevision");
-
-        [Input("hasAssociatedService")]
+        [PolicyResourceProperty("hasAssociatedService", "_mUnknown_HasAssociatedService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHasAssociatedService;
+        private bool? _mValue_HasAssociatedService;
+        private bool _mUnknown_HasAssociatedService;
+        public bool? HasAssociatedService
+        {
+            get
+            {
+                if (!_mUnknown_HasAssociatedService) return _mValue_HasAssociatedService;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.HasAssociatedService' is not present");
+            }
+        }
 
-        public bool? HasAssociatedService => _mHasAssociatedService.GetValue("hasAssociatedService");
-
-        [Input("isDefault")]
+        [PolicyResourceProperty("isDefault", "_mUnknown_IsDefault")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
-
-        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
+        private bool? _mValue_IsDefault;
+        private bool _mUnknown_IsDefault;
+        public bool? IsDefault
+        {
+            get
+            {
+                if (!_mUnknown_IsDefault) return _mValue_IsDefault;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.IsDefault' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
         /// </summary>
-        [Input("latest")]
+        [PolicyResourceProperty("latest", "_mUnknown_Latest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLatest;
-
-        public bool? Latest => _mLatest.GetValue("latest");
+        private bool? _mValue_Latest;
+        private bool _mUnknown_Latest;
+        public bool? Latest
+        {
+            get
+            {
+                if (!_mUnknown_Latest) return _mValue_Latest;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.Latest' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         /// </summary>
-        [Input("maxConcurrency")]
+        [PolicyResourceProperty("maxConcurrency", "_mUnknown_MaxConcurrency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrency;
-
-        public int? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+        private int? _mValue_MaxConcurrency;
+        private bool _mUnknown_MaxConcurrency;
+        public int? MaxConcurrency
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrency) return _mValue_MaxConcurrency;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.MaxConcurrency' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximal number of instances that App Runner provisions for your service.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimal number of instances that App Runner provisions for your service.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")]
@@ -122,46 +206,81 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// Name of the auto scaling configuration.
         /// </summary>
-        [Input("autoScalingConfigurationName")]
+        [PolicyResourceProperty("autoScalingConfigurationName", "_mUnknown_AutoScalingConfigurationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoScalingConfigurationName;
-
-        public string? AutoScalingConfigurationName => _mAutoScalingConfigurationName.GetValue("autoScalingConfigurationName");
+        private string? _mValue_AutoScalingConfigurationName;
+        private bool _mUnknown_AutoScalingConfigurationName;
+        public string? AutoScalingConfigurationName
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfigurationName) return _mValue_AutoScalingConfigurationName;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.AutoScalingConfigurationName' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         /// </summary>
-        [Input("maxConcurrency")]
+        [PolicyResourceProperty("maxConcurrency", "_mUnknown_MaxConcurrency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrency;
-
-        public int? MaxConcurrency => _mMaxConcurrency.GetValue("maxConcurrency");
+        private int? _mValue_MaxConcurrency;
+        private bool _mUnknown_MaxConcurrency;
+        public int? MaxConcurrency
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrency) return _mValue_MaxConcurrency;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.MaxConcurrency' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximal number of instances that App Runner provisions for your service.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimal number of instances that App Runner provisions for your service.
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.Tags' is not present");
+            }
+        }
     }
 }

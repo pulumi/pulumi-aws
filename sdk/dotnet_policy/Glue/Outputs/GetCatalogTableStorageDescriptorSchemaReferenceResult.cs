@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Configuration block that contains schema identity fields. See `schema_id` below.
         /// </summary>
-        [Input("schemaIds")]
+        [PolicyResourceProperty("schemaIds", "_mUnknown_SchemaIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult>> _mSchemaIds;
-
-        public List<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult>? SchemaIds => _mSchemaIds.GetValue("schemaIds");
+        private List<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult>? _mValue_SchemaIds;
+        private bool _mUnknown_SchemaIds;
+        public List<Outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult>? SchemaIds
+        {
+            get
+            {
+                if (!_mUnknown_SchemaIds) return _mValue_SchemaIds;
+                throw new UndeferrableValueException("Value 'GetCatalogTableStorageDescriptorSchemaReferenceResult.SchemaIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique ID assigned to a version of the schema.
         /// </summary>
-        [Input("schemaVersionId")]
+        [PolicyResourceProperty("schemaVersionId", "_mUnknown_SchemaVersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemaVersionId;
-
-        public string? SchemaVersionId => _mSchemaVersionId.GetValue("schemaVersionId");
+        private string? _mValue_SchemaVersionId;
+        private bool _mUnknown_SchemaVersionId;
+        public string? SchemaVersionId
+        {
+            get
+            {
+                if (!_mUnknown_SchemaVersionId) return _mValue_SchemaVersionId;
+                throw new UndeferrableValueException("Value 'GetCatalogTableStorageDescriptorSchemaReferenceResult.SchemaVersionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the schema.
         /// </summary>
-        [Input("schemaVersionNumber")]
+        [PolicyResourceProperty("schemaVersionNumber", "_mUnknown_SchemaVersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSchemaVersionNumber;
-
-        public int? SchemaVersionNumber => _mSchemaVersionNumber.GetValue("schemaVersionNumber");
+        private int? _mValue_SchemaVersionNumber;
+        private bool _mUnknown_SchemaVersionNumber;
+        public int? SchemaVersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_SchemaVersionNumber) return _mValue_SchemaVersionNumber;
+                throw new UndeferrableValueException("Value 'GetCatalogTableStorageDescriptorSchemaReferenceResult.SchemaVersionNumber' is not present");
+            }
+        }
     }
 }

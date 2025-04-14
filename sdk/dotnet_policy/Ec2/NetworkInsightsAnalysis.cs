@@ -16,139 +16,244 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Potential intermediate components of a feasible path. Described below.
         /// </summary>
-        [Input("alternatePathHints")]
+        [PolicyResourceProperty("alternatePathHints", "_mUnknown_AlternatePathHints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisAlternatePathHint>> _mAlternatePathHints;
-
-        public List<Outputs.NetworkInsightsAnalysisAlternatePathHint>? AlternatePathHints => _mAlternatePathHints.GetValue("alternatePathHints");
+        private List<Outputs.NetworkInsightsAnalysisAlternatePathHint>? _mValue_AlternatePathHints;
+        private bool _mUnknown_AlternatePathHints;
+        public List<Outputs.NetworkInsightsAnalysisAlternatePathHint>? AlternatePathHints
+        {
+            get
+            {
+                if (!_mUnknown_AlternatePathHints) return _mValue_AlternatePathHints;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.AlternatePathHints' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Network Insights Analysis.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
         /// </summary>
-        [Input("explanations")]
+        [PolicyResourceProperty("explanations", "_mUnknown_Explanations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisExplanation>> _mExplanations;
-
-        public List<Outputs.NetworkInsightsAnalysisExplanation>? Explanations => _mExplanations.GetValue("explanations");
+        private List<Outputs.NetworkInsightsAnalysisExplanation>? _mValue_Explanations;
+        private bool _mUnknown_Explanations;
+        public List<Outputs.NetworkInsightsAnalysisExplanation>? Explanations
+        {
+            get
+            {
+                if (!_mUnknown_Explanations) return _mValue_Explanations;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.Explanations' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of ARNs for resources the path must traverse.
         /// </summary>
-        [Input("filterInArns")]
+        [PolicyResourceProperty("filterInArns", "_mUnknown_FilterInArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFilterInArns;
-
-        public List<string>? FilterInArns => _mFilterInArns.GetValue("filterInArns");
+        private List<string>? _mValue_FilterInArns;
+        private bool _mUnknown_FilterInArns;
+        public List<string>? FilterInArns
+        {
+            get
+            {
+                if (!_mUnknown_FilterInArns) return _mValue_FilterInArns;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.FilterInArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         /// </summary>
-        [Input("forwardPathComponents")]
+        [PolicyResourceProperty("forwardPathComponents", "_mUnknown_ForwardPathComponents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisForwardPathComponent>> _mForwardPathComponents;
-
-        public List<Outputs.NetworkInsightsAnalysisForwardPathComponent>? ForwardPathComponents => _mForwardPathComponents.GetValue("forwardPathComponents");
+        private List<Outputs.NetworkInsightsAnalysisForwardPathComponent>? _mValue_ForwardPathComponents;
+        private bool _mUnknown_ForwardPathComponents;
+        public List<Outputs.NetworkInsightsAnalysisForwardPathComponent>? ForwardPathComponents
+        {
+            get
+            {
+                if (!_mUnknown_ForwardPathComponents) return _mValue_ForwardPathComponents;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.ForwardPathComponents' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Network Insights Path to run an analysis on.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("networkInsightsPathId")]
+        [PolicyResourceProperty("networkInsightsPathId", "_mUnknown_NetworkInsightsPathId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInsightsPathId;
-
-        public string? NetworkInsightsPathId => _mNetworkInsightsPathId.GetValue("networkInsightsPathId");
+        private string? _mValue_NetworkInsightsPathId;
+        private bool _mUnknown_NetworkInsightsPathId;
+        public string? NetworkInsightsPathId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInsightsPathId) return _mValue_NetworkInsightsPathId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.NetworkInsightsPathId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` if the destination was reachable.
         /// </summary>
-        [Input("pathFound")]
+        [PolicyResourceProperty("pathFound", "_mUnknown_PathFound")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPathFound;
-
-        public bool? PathFound => _mPathFound.GetValue("pathFound");
+        private bool? _mValue_PathFound;
+        private bool _mUnknown_PathFound;
+        public bool? PathFound
+        {
+            get
+            {
+                if (!_mUnknown_PathFound) return _mValue_PathFound;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.PathFound' is not present");
+            }
+        }
 
         /// <summary>
         /// The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         /// </summary>
-        [Input("returnPathComponents")]
+        [PolicyResourceProperty("returnPathComponents", "_mUnknown_ReturnPathComponents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisReturnPathComponent>> _mReturnPathComponents;
-
-        public List<Outputs.NetworkInsightsAnalysisReturnPathComponent>? ReturnPathComponents => _mReturnPathComponents.GetValue("returnPathComponents");
+        private List<Outputs.NetworkInsightsAnalysisReturnPathComponent>? _mValue_ReturnPathComponents;
+        private bool _mUnknown_ReturnPathComponents;
+        public List<Outputs.NetworkInsightsAnalysisReturnPathComponent>? ReturnPathComponents
+        {
+            get
+            {
+                if (!_mUnknown_ReturnPathComponents) return _mValue_ReturnPathComponents;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.ReturnPathComponents' is not present");
+            }
+        }
 
         /// <summary>
         /// The date/time the analysis was started.
         /// </summary>
-        [Input("startDate")]
+        [PolicyResourceProperty("startDate", "_mUnknown_StartDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartDate;
-
-        public string? StartDate => _mStartDate.GetValue("startDate");
+        private string? _mValue_StartDate;
+        private bool _mUnknown_StartDate;
+        public string? StartDate
+        {
+            get
+            {
+                if (!_mUnknown_StartDate) return _mValue_StartDate;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.StartDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A message to provide more context when the `status` is `failed`.
         /// </summary>
-        [Input("statusMessage")]
+        [PolicyResourceProperty("statusMessage", "_mUnknown_StatusMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusMessage;
-
-        public string? StatusMessage => _mStatusMessage.GetValue("statusMessage");
+        private string? _mValue_StatusMessage;
+        private bool _mUnknown_StatusMessage;
+        public string? StatusMessage
+        {
+            get
+            {
+                if (!_mUnknown_StatusMessage) return _mValue_StatusMessage;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.StatusMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         /// </summary>
-        [Input("waitForCompletion")]
+        [PolicyResourceProperty("waitForCompletion", "_mUnknown_WaitForCompletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForCompletion;
-
-        public bool? WaitForCompletion => _mWaitForCompletion.GetValue("waitForCompletion");
+        private bool? _mValue_WaitForCompletion;
+        private bool _mUnknown_WaitForCompletion;
+        public bool? WaitForCompletion
+        {
+            get
+            {
+                if (!_mUnknown_WaitForCompletion) return _mValue_WaitForCompletion;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.WaitForCompletion' is not present");
+            }
+        }
 
         /// <summary>
         /// The warning message.
         /// </summary>
-        [Input("warningMessage")]
+        [PolicyResourceProperty("warningMessage", "_mUnknown_WarningMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarningMessage;
-
-        public string? WarningMessage => _mWarningMessage.GetValue("warningMessage");
+        private string? _mValue_WarningMessage;
+        private bool _mUnknown_WarningMessage;
+        public string? WarningMessage
+        {
+            get
+            {
+                if (!_mUnknown_WarningMessage) return _mValue_WarningMessage;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.WarningMessage' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis")]
@@ -157,39 +262,67 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A list of ARNs for resources the path must traverse.
         /// </summary>
-        [Input("filterInArns")]
+        [PolicyResourceProperty("filterInArns", "_mUnknown_FilterInArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFilterInArns;
-
-        public List<string>? FilterInArns => _mFilterInArns.GetValue("filterInArns");
+        private List<string>? _mValue_FilterInArns;
+        private bool _mUnknown_FilterInArns;
+        public List<string>? FilterInArns
+        {
+            get
+            {
+                if (!_mUnknown_FilterInArns) return _mValue_FilterInArns;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.FilterInArns' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Network Insights Path to run an analysis on.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("networkInsightsPathId")]
+        [PolicyResourceProperty("networkInsightsPathId", "_mUnknown_NetworkInsightsPathId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInsightsPathId;
-
-        public string? NetworkInsightsPathId => _mNetworkInsightsPathId.GetValue("networkInsightsPathId");
+        private string? _mValue_NetworkInsightsPathId;
+        private bool _mUnknown_NetworkInsightsPathId;
+        public string? NetworkInsightsPathId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInsightsPathId) return _mValue_NetworkInsightsPathId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.NetworkInsightsPathId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         /// </summary>
-        [Input("waitForCompletion")]
+        [PolicyResourceProperty("waitForCompletion", "_mUnknown_WaitForCompletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWaitForCompletion;
-
-        public bool? WaitForCompletion => _mWaitForCompletion.GetValue("waitForCompletion");
+        private bool? _mValue_WaitForCompletion;
+        private bool _mUnknown_WaitForCompletion;
+        public bool? WaitForCompletion
+        {
+            get
+            {
+                if (!_mUnknown_WaitForCompletion) return _mValue_WaitForCompletion;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.WaitForCompletion' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         /// </summary>
-        [Input("enableMediaMetricLogs")]
+        [PolicyResourceProperty("enableMediaMetricLogs", "_mUnknown_EnableMediaMetricLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMediaMetricLogs;
-
-        public bool? EnableMediaMetricLogs => _mEnableMediaMetricLogs.GetValue("enableMediaMetricLogs");
+        private bool? _mValue_EnableMediaMetricLogs;
+        private bool _mUnknown_EnableMediaMetricLogs;
+        public bool? EnableMediaMetricLogs
+        {
+            get
+            {
+                if (!_mUnknown_EnableMediaMetricLogs) return _mValue_EnableMediaMetricLogs;
+                throw new UndeferrableValueException("Value 'VoiceConnectorLogging.EnableMediaMetricLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         /// </summary>
-        [Input("enableSipLogs")]
+        [PolicyResourceProperty("enableSipLogs", "_mUnknown_EnableSipLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSipLogs;
-
-        public bool? EnableSipLogs => _mEnableSipLogs.GetValue("enableSipLogs");
+        private bool? _mValue_EnableSipLogs;
+        private bool _mUnknown_EnableSipLogs;
+        public bool? EnableSipLogs
+        {
+            get
+            {
+                if (!_mUnknown_EnableSipLogs) return _mValue_EnableSipLogs;
+                throw new UndeferrableValueException("Value 'VoiceConnectorLogging.EnableSipLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorLogging.VoiceConnectorId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/voiceConnectorLogging:VoiceConnectorLogging")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         /// </summary>
-        [Input("enableMediaMetricLogs")]
+        [PolicyResourceProperty("enableMediaMetricLogs", "_mUnknown_EnableMediaMetricLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMediaMetricLogs;
-
-        public bool? EnableMediaMetricLogs => _mEnableMediaMetricLogs.GetValue("enableMediaMetricLogs");
+        private bool? _mValue_EnableMediaMetricLogs;
+        private bool _mUnknown_EnableMediaMetricLogs;
+        public bool? EnableMediaMetricLogs
+        {
+            get
+            {
+                if (!_mUnknown_EnableMediaMetricLogs) return _mValue_EnableMediaMetricLogs;
+                throw new UndeferrableValueException("Value 'VoiceConnectorLoggingArgs.EnableMediaMetricLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         /// </summary>
-        [Input("enableSipLogs")]
+        [PolicyResourceProperty("enableSipLogs", "_mUnknown_EnableSipLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSipLogs;
-
-        public bool? EnableSipLogs => _mEnableSipLogs.GetValue("enableSipLogs");
+        private bool? _mValue_EnableSipLogs;
+        private bool _mUnknown_EnableSipLogs;
+        public bool? EnableSipLogs
+        {
+            get
+            {
+                if (!_mUnknown_EnableSipLogs) return _mValue_EnableSipLogs;
+                throw new UndeferrableValueException("Value 'VoiceConnectorLoggingArgs.EnableSipLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorLoggingArgs.VoiceConnectorId' is not present");
+            }
+        }
     }
 }

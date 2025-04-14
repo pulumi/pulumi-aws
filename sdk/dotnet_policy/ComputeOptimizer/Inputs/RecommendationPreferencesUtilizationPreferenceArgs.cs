@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer.Inputs
         /// <summary>
         /// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreferenceArgs.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters to set when customizing the resource utilization thresholds.
         /// </summary>
-        [Input("metricParameters")]
+        [PolicyResourceProperty("metricParameters", "_mUnknown_MetricParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecommendationPreferencesUtilizationPreferenceMetricParametersArgs> _mMetricParameters;
-
-        public Inputs.RecommendationPreferencesUtilizationPreferenceMetricParametersArgs? MetricParameters => _mMetricParameters.GetValue("metricParameters");
+        private Inputs.RecommendationPreferencesUtilizationPreferenceMetricParametersArgs? _mValue_MetricParameters;
+        private bool _mUnknown_MetricParameters;
+        public Inputs.RecommendationPreferencesUtilizationPreferenceMetricParametersArgs? MetricParameters
+        {
+            get
+            {
+                if (!_mUnknown_MetricParameters) return _mValue_MetricParameters;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreferenceArgs.MetricParameters' is not present");
+            }
+        }
     }
 }

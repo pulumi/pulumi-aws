@@ -16,169 +16,302 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.Destination' is not present");
+            }
+        }
 
-        public string? Destination => _mDestination.GetValue("destination");
-
-        [Input("destinationId")]
+        [PolicyResourceProperty("destinationId", "_mUnknown_DestinationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationId;
-
-        public string? DestinationId => _mDestinationId.GetValue("destinationId");
+        private string? _mValue_DestinationId;
+        private bool _mUnknown_DestinationId;
+        public string? DestinationId
+        {
+            get
+            {
+                if (!_mUnknown_DestinationId) return _mValue_DestinationId;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.DestinationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         /// </summary>
-        [Input("elasticsearchConfiguration")]
+        [PolicyResourceProperty("elasticsearchConfiguration", "_mUnknown_ElasticsearchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamElasticsearchConfiguration> _mElasticsearchConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamElasticsearchConfiguration? ElasticsearchConfiguration => _mElasticsearchConfiguration.GetValue("elasticsearchConfiguration");
+        private Outputs.FirehoseDeliveryStreamElasticsearchConfiguration? _mValue_ElasticsearchConfiguration;
+        private bool _mUnknown_ElasticsearchConfiguration;
+        public Outputs.FirehoseDeliveryStreamElasticsearchConfiguration? ElasticsearchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ElasticsearchConfiguration) return _mValue_ElasticsearchConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.ElasticsearchConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         /// </summary>
-        [Input("extendedS3Configuration")]
+        [PolicyResourceProperty("extendedS3Configuration", "_mUnknown_ExtendedS3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamExtendedS3Configuration> _mExtendedS3Configuration;
-
-        public Outputs.FirehoseDeliveryStreamExtendedS3Configuration? ExtendedS3Configuration => _mExtendedS3Configuration.GetValue("extendedS3Configuration");
+        private Outputs.FirehoseDeliveryStreamExtendedS3Configuration? _mValue_ExtendedS3Configuration;
+        private bool _mUnknown_ExtendedS3Configuration;
+        public Outputs.FirehoseDeliveryStreamExtendedS3Configuration? ExtendedS3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_ExtendedS3Configuration) return _mValue_ExtendedS3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.ExtendedS3Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         /// </summary>
-        [Input("httpEndpointConfiguration")]
+        [PolicyResourceProperty("httpEndpointConfiguration", "_mUnknown_HttpEndpointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration> _mHttpEndpointConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration? HttpEndpointConfiguration => _mHttpEndpointConfiguration.GetValue("httpEndpointConfiguration");
+        private Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration? _mValue_HttpEndpointConfiguration;
+        private bool _mUnknown_HttpEndpointConfiguration;
+        public Outputs.FirehoseDeliveryStreamHttpEndpointConfiguration? HttpEndpointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpointConfiguration) return _mValue_HttpEndpointConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.HttpEndpointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         /// </summary>
-        [Input("icebergConfiguration")]
+        [PolicyResourceProperty("icebergConfiguration", "_mUnknown_IcebergConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamIcebergConfiguration> _mIcebergConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamIcebergConfiguration? IcebergConfiguration => _mIcebergConfiguration.GetValue("icebergConfiguration");
+        private Outputs.FirehoseDeliveryStreamIcebergConfiguration? _mValue_IcebergConfiguration;
+        private bool _mUnknown_IcebergConfiguration;
+        public Outputs.FirehoseDeliveryStreamIcebergConfiguration? IcebergConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IcebergConfiguration) return _mValue_IcebergConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.IcebergConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         /// </summary>
-        [Input("kinesisSourceConfiguration")]
+        [PolicyResourceProperty("kinesisSourceConfiguration", "_mUnknown_KinesisSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration> _mKinesisSourceConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration? KinesisSourceConfiguration => _mKinesisSourceConfiguration.GetValue("kinesisSourceConfiguration");
+        private Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration? _mValue_KinesisSourceConfiguration;
+        private bool _mUnknown_KinesisSourceConfiguration;
+        public Outputs.FirehoseDeliveryStreamKinesisSourceConfiguration? KinesisSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KinesisSourceConfiguration) return _mValue_KinesisSourceConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.KinesisSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         /// </summary>
-        [Input("mskSourceConfiguration")]
+        [PolicyResourceProperty("mskSourceConfiguration", "_mUnknown_MskSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamMskSourceConfiguration> _mMskSourceConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamMskSourceConfiguration? MskSourceConfiguration => _mMskSourceConfiguration.GetValue("mskSourceConfiguration");
+        private Outputs.FirehoseDeliveryStreamMskSourceConfiguration? _mValue_MskSourceConfiguration;
+        private bool _mUnknown_MskSourceConfiguration;
+        public Outputs.FirehoseDeliveryStreamMskSourceConfiguration? MskSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MskSourceConfiguration) return _mValue_MskSourceConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.MskSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         /// </summary>
-        [Input("opensearchConfiguration")]
+        [PolicyResourceProperty("opensearchConfiguration", "_mUnknown_OpensearchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchConfiguration> _mOpensearchConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamOpensearchConfiguration? OpensearchConfiguration => _mOpensearchConfiguration.GetValue("opensearchConfiguration");
+        private Outputs.FirehoseDeliveryStreamOpensearchConfiguration? _mValue_OpensearchConfiguration;
+        private bool _mUnknown_OpensearchConfiguration;
+        public Outputs.FirehoseDeliveryStreamOpensearchConfiguration? OpensearchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OpensearchConfiguration) return _mValue_OpensearchConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.OpensearchConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         /// </summary>
-        [Input("opensearchserverlessConfiguration")]
+        [PolicyResourceProperty("opensearchserverlessConfiguration", "_mUnknown_OpensearchserverlessConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration> _mOpensearchserverlessConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration? OpensearchserverlessConfiguration => _mOpensearchserverlessConfiguration.GetValue("opensearchserverlessConfiguration");
+        private Outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration? _mValue_OpensearchserverlessConfiguration;
+        private bool _mUnknown_OpensearchserverlessConfiguration;
+        public Outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration? OpensearchserverlessConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OpensearchserverlessConfiguration) return _mValue_OpensearchserverlessConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.OpensearchserverlessConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
         /// </summary>
-        [Input("redshiftConfiguration")]
+        [PolicyResourceProperty("redshiftConfiguration", "_mUnknown_RedshiftConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamRedshiftConfiguration> _mRedshiftConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamRedshiftConfiguration? RedshiftConfiguration => _mRedshiftConfiguration.GetValue("redshiftConfiguration");
+        private Outputs.FirehoseDeliveryStreamRedshiftConfiguration? _mValue_RedshiftConfiguration;
+        private bool _mUnknown_RedshiftConfiguration;
+        public Outputs.FirehoseDeliveryStreamRedshiftConfiguration? RedshiftConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RedshiftConfiguration) return _mValue_RedshiftConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.RedshiftConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Encrypt at rest options. See `server_side_encryption` block below for details.
         /// 
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamServerSideEncryption> _mServerSideEncryption;
-
-        public Outputs.FirehoseDeliveryStreamServerSideEncryption? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private Outputs.FirehoseDeliveryStreamServerSideEncryption? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public Outputs.FirehoseDeliveryStreamServerSideEncryption? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         /// </summary>
-        [Input("snowflakeConfiguration")]
+        [PolicyResourceProperty("snowflakeConfiguration", "_mUnknown_SnowflakeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSnowflakeConfiguration> _mSnowflakeConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamSnowflakeConfiguration? SnowflakeConfiguration => _mSnowflakeConfiguration.GetValue("snowflakeConfiguration");
+        private Outputs.FirehoseDeliveryStreamSnowflakeConfiguration? _mValue_SnowflakeConfiguration;
+        private bool _mUnknown_SnowflakeConfiguration;
+        public Outputs.FirehoseDeliveryStreamSnowflakeConfiguration? SnowflakeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnowflakeConfiguration) return _mValue_SnowflakeConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.SnowflakeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         /// </summary>
-        [Input("splunkConfiguration")]
+        [PolicyResourceProperty("splunkConfiguration", "_mUnknown_SplunkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamSplunkConfiguration> _mSplunkConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamSplunkConfiguration? SplunkConfiguration => _mSplunkConfiguration.GetValue("splunkConfiguration");
+        private Outputs.FirehoseDeliveryStreamSplunkConfiguration? _mValue_SplunkConfiguration;
+        private bool _mUnknown_SplunkConfiguration;
+        public Outputs.FirehoseDeliveryStreamSplunkConfiguration? SplunkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SplunkConfiguration) return _mValue_SplunkConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.SplunkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStream.VersionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")]
@@ -187,159 +320,285 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// <summary>
         /// The Amazon Resource Name (ARN) specifying the Stream
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.Destination' is not present");
+            }
+        }
 
-        public string? Destination => _mDestination.GetValue("destination");
-
-        [Input("destinationId")]
+        [PolicyResourceProperty("destinationId", "_mUnknown_DestinationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationId;
-
-        public string? DestinationId => _mDestinationId.GetValue("destinationId");
+        private string? _mValue_DestinationId;
+        private bool _mUnknown_DestinationId;
+        public string? DestinationId
+        {
+            get
+            {
+                if (!_mUnknown_DestinationId) return _mValue_DestinationId;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.DestinationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         /// </summary>
-        [Input("elasticsearchConfiguration")]
+        [PolicyResourceProperty("elasticsearchConfiguration", "_mUnknown_ElasticsearchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs> _mElasticsearchConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs? ElasticsearchConfiguration => _mElasticsearchConfiguration.GetValue("elasticsearchConfiguration");
+        private Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs? _mValue_ElasticsearchConfiguration;
+        private bool _mUnknown_ElasticsearchConfiguration;
+        public Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs? ElasticsearchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ElasticsearchConfiguration) return _mValue_ElasticsearchConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.ElasticsearchConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         /// </summary>
-        [Input("extendedS3Configuration")]
+        [PolicyResourceProperty("extendedS3Configuration", "_mUnknown_ExtendedS3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs> _mExtendedS3Configuration;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs? ExtendedS3Configuration => _mExtendedS3Configuration.GetValue("extendedS3Configuration");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs? _mValue_ExtendedS3Configuration;
+        private bool _mUnknown_ExtendedS3Configuration;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs? ExtendedS3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_ExtendedS3Configuration) return _mValue_ExtendedS3Configuration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.ExtendedS3Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         /// </summary>
-        [Input("httpEndpointConfiguration")]
+        [PolicyResourceProperty("httpEndpointConfiguration", "_mUnknown_HttpEndpointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs> _mHttpEndpointConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs? HttpEndpointConfiguration => _mHttpEndpointConfiguration.GetValue("httpEndpointConfiguration");
+        private Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs? _mValue_HttpEndpointConfiguration;
+        private bool _mUnknown_HttpEndpointConfiguration;
+        public Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs? HttpEndpointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_HttpEndpointConfiguration) return _mValue_HttpEndpointConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.HttpEndpointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         /// </summary>
-        [Input("icebergConfiguration")]
+        [PolicyResourceProperty("icebergConfiguration", "_mUnknown_IcebergConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs> _mIcebergConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs? IcebergConfiguration => _mIcebergConfiguration.GetValue("icebergConfiguration");
+        private Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs? _mValue_IcebergConfiguration;
+        private bool _mUnknown_IcebergConfiguration;
+        public Inputs.FirehoseDeliveryStreamIcebergConfigurationArgs? IcebergConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IcebergConfiguration) return _mValue_IcebergConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.IcebergConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
         /// </summary>
-        [Input("kinesisSourceConfiguration")]
+        [PolicyResourceProperty("kinesisSourceConfiguration", "_mUnknown_KinesisSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs> _mKinesisSourceConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs? KinesisSourceConfiguration => _mKinesisSourceConfiguration.GetValue("kinesisSourceConfiguration");
+        private Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs? _mValue_KinesisSourceConfiguration;
+        private bool _mUnknown_KinesisSourceConfiguration;
+        public Inputs.FirehoseDeliveryStreamKinesisSourceConfigurationArgs? KinesisSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KinesisSourceConfiguration) return _mValue_KinesisSourceConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.KinesisSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         /// </summary>
-        [Input("mskSourceConfiguration")]
+        [PolicyResourceProperty("mskSourceConfiguration", "_mUnknown_MskSourceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs> _mMskSourceConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs? MskSourceConfiguration => _mMskSourceConfiguration.GetValue("mskSourceConfiguration");
+        private Inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs? _mValue_MskSourceConfiguration;
+        private bool _mUnknown_MskSourceConfiguration;
+        public Inputs.FirehoseDeliveryStreamMskSourceConfigurationArgs? MskSourceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MskSourceConfiguration) return _mValue_MskSourceConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.MskSourceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         /// </summary>
-        [Input("opensearchConfiguration")]
+        [PolicyResourceProperty("opensearchConfiguration", "_mUnknown_OpensearchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs> _mOpensearchConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs? OpensearchConfiguration => _mOpensearchConfiguration.GetValue("opensearchConfiguration");
+        private Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs? _mValue_OpensearchConfiguration;
+        private bool _mUnknown_OpensearchConfiguration;
+        public Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs? OpensearchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OpensearchConfiguration) return _mValue_OpensearchConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.OpensearchConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         /// </summary>
-        [Input("opensearchserverlessConfiguration")]
+        [PolicyResourceProperty("opensearchserverlessConfiguration", "_mUnknown_OpensearchserverlessConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs> _mOpensearchserverlessConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs? OpensearchserverlessConfiguration => _mOpensearchserverlessConfiguration.GetValue("opensearchserverlessConfiguration");
+        private Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs? _mValue_OpensearchserverlessConfiguration;
+        private bool _mUnknown_OpensearchserverlessConfiguration;
+        public Inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs? OpensearchserverlessConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OpensearchserverlessConfiguration) return _mValue_OpensearchserverlessConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.OpensearchserverlessConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
         /// </summary>
-        [Input("redshiftConfiguration")]
+        [PolicyResourceProperty("redshiftConfiguration", "_mUnknown_RedshiftConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs> _mRedshiftConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs? RedshiftConfiguration => _mRedshiftConfiguration.GetValue("redshiftConfiguration");
+        private Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs? _mValue_RedshiftConfiguration;
+        private bool _mUnknown_RedshiftConfiguration;
+        public Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs? RedshiftConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RedshiftConfiguration) return _mValue_RedshiftConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.RedshiftConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Encrypt at rest options. See `server_side_encryption` block below for details.
         /// 
         /// **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
-        [Input("serverSideEncryption")]
+        [PolicyResourceProperty("serverSideEncryption", "_mUnknown_ServerSideEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs> _mServerSideEncryption;
-
-        public Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs? ServerSideEncryption => _mServerSideEncryption.GetValue("serverSideEncryption");
+        private Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs? _mValue_ServerSideEncryption;
+        private bool _mUnknown_ServerSideEncryption;
+        public Inputs.FirehoseDeliveryStreamServerSideEncryptionArgs? ServerSideEncryption
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryption) return _mValue_ServerSideEncryption;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.ServerSideEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         /// </summary>
-        [Input("snowflakeConfiguration")]
+        [PolicyResourceProperty("snowflakeConfiguration", "_mUnknown_SnowflakeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs> _mSnowflakeConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs? SnowflakeConfiguration => _mSnowflakeConfiguration.GetValue("snowflakeConfiguration");
+        private Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs? _mValue_SnowflakeConfiguration;
+        private bool _mUnknown_SnowflakeConfiguration;
+        public Inputs.FirehoseDeliveryStreamSnowflakeConfigurationArgs? SnowflakeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnowflakeConfiguration) return _mValue_SnowflakeConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.SnowflakeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
         /// </summary>
-        [Input("splunkConfiguration")]
+        [PolicyResourceProperty("splunkConfiguration", "_mUnknown_SplunkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs> _mSplunkConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs? SplunkConfiguration => _mSplunkConfiguration.GetValue("splunkConfiguration");
+        private Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs? _mValue_SplunkConfiguration;
+        private bool _mUnknown_SplunkConfiguration;
+        public Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs? SplunkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SplunkConfiguration) return _mValue_SplunkConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.SplunkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.VersionId' is not present");
+            }
+        }
     }
 }

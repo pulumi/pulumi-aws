@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// Configuration block for information needed to write data into the Timestream database and table. See below.
         /// </summary>
-        [Input("timestreamConfiguration")]
+        [PolicyResourceProperty("timestreamConfiguration", "_mUnknown_TimestreamConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> _mTimestreamConfiguration;
-
-        public Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs? TimestreamConfiguration => _mTimestreamConfiguration.GetValue("timestreamConfiguration");
+        private Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs? _mValue_TimestreamConfiguration;
+        private bool _mUnknown_TimestreamConfiguration;
+        public Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs? TimestreamConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TimestreamConfiguration) return _mValue_TimestreamConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationArgs.TimestreamConfiguration' is not present");
+            }
+        }
     }
 }

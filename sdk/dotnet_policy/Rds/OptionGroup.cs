@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// ARN of the DB option group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OptionGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the engine that this option group should be associated with.
         /// </summary>
-        [Input("engineName")]
+        [PolicyResourceProperty("engineName", "_mUnknown_EngineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
-
-        public string? EngineName => _mEngineName.GetValue("engineName");
+        private string? _mValue_EngineName;
+        private bool _mUnknown_EngineName;
+        public string? EngineName
+        {
+            get
+            {
+                if (!_mUnknown_EngineName) return _mValue_EngineName;
+                throw new UndeferrableValueException("Value 'OptionGroup.EngineName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the major version of the engine that this option group should be associated with.
         /// </summary>
-        [Input("majorEngineVersion")]
+        [PolicyResourceProperty("majorEngineVersion", "_mUnknown_MajorEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
-
-        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
+        private string? _mValue_MajorEngineVersion;
+        private bool _mUnknown_MajorEngineVersion;
+        public string? MajorEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_MajorEngineVersion) return _mValue_MajorEngineVersion;
+                throw new UndeferrableValueException("Value 'OptionGroup.MajorEngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OptionGroup.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'OptionGroup.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
-        [Input("optionGroupDescription")]
+        [PolicyResourceProperty("optionGroupDescription", "_mUnknown_OptionGroupDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupDescription;
-
-        public string? OptionGroupDescription => _mOptionGroupDescription.GetValue("optionGroupDescription");
+        private string? _mValue_OptionGroupDescription;
+        private bool _mUnknown_OptionGroupDescription;
+        public string? OptionGroupDescription
+        {
+            get
+            {
+                if (!_mUnknown_OptionGroupDescription) return _mValue_OptionGroupDescription;
+                throw new UndeferrableValueException("Value 'OptionGroup.OptionGroupDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The options to apply. See `option` Block below for more details.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptionGroupOption>> _mOptions;
-
-        public List<Outputs.OptionGroupOption>? Options => _mOptions.GetValue("options");
+        private List<Outputs.OptionGroupOption>? _mValue_Options;
+        private bool _mUnknown_Options;
+        public List<Outputs.OptionGroupOption>? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'OptionGroup.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'OptionGroup.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OptionGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'OptionGroup.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/optionGroup:OptionGroup")]
@@ -110,73 +180,129 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Specifies the name of the engine that this option group should be associated with.
         /// </summary>
-        [Input("engineName")]
+        [PolicyResourceProperty("engineName", "_mUnknown_EngineName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineName;
-
-        public string? EngineName => _mEngineName.GetValue("engineName");
+        private string? _mValue_EngineName;
+        private bool _mUnknown_EngineName;
+        public string? EngineName
+        {
+            get
+            {
+                if (!_mUnknown_EngineName) return _mValue_EngineName;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.EngineName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the major version of the engine that this option group should be associated with.
         /// </summary>
-        [Input("majorEngineVersion")]
+        [PolicyResourceProperty("majorEngineVersion", "_mUnknown_MajorEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
-
-        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
+        private string? _mValue_MajorEngineVersion;
+        private bool _mUnknown_MajorEngineVersion;
+        public string? MajorEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_MajorEngineVersion) return _mValue_MajorEngineVersion;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.MajorEngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the option group. Defaults to "Managed by Pulumi".
         /// </summary>
-        [Input("optionGroupDescription")]
+        [PolicyResourceProperty("optionGroupDescription", "_mUnknown_OptionGroupDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptionGroupDescription;
-
-        public string? OptionGroupDescription => _mOptionGroupDescription.GetValue("optionGroupDescription");
+        private string? _mValue_OptionGroupDescription;
+        private bool _mUnknown_OptionGroupDescription;
+        public string? OptionGroupDescription
+        {
+            get
+            {
+                if (!_mUnknown_OptionGroupDescription) return _mValue_OptionGroupDescription;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.OptionGroupDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The options to apply. See `option` Block below for more details.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptionGroupOptionArgs>> _mOptions;
-
-        public List<Inputs.OptionGroupOptionArgs>? Options => _mOptions.GetValue("options");
+        private List<Inputs.OptionGroupOptionArgs>? _mValue_Options;
+        private bool _mUnknown_Options;
+        public List<Inputs.OptionGroupOptionArgs>? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         /// </summary>
-        [Input("skipDestroy")]
+        [PolicyResourceProperty("skipDestroy", "_mUnknown_SkipDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipDestroy;
-
-        public bool? SkipDestroy => _mSkipDestroy.GetValue("skipDestroy");
+        private bool? _mValue_SkipDestroy;
+        private bool _mUnknown_SkipDestroy;
+        public bool? SkipDestroy
+        {
+            get
+            {
+                if (!_mUnknown_SkipDestroy) return _mValue_SkipDestroy;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.SkipDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OptionGroupArgs.Tags' is not present");
+            }
+        }
     }
 }

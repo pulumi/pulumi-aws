@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
-        [Input("studioLifecycleConfigAppType")]
+        [PolicyResourceProperty("studioLifecycleConfigAppType", "_mUnknown_StudioLifecycleConfigAppType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigAppType;
-
-        public string? StudioLifecycleConfigAppType => _mStudioLifecycleConfigAppType.GetValue("studioLifecycleConfigAppType");
+        private string? _mValue_StudioLifecycleConfigAppType;
+        private bool _mUnknown_StudioLifecycleConfigAppType;
+        public string? StudioLifecycleConfigAppType
+        {
+            get
+            {
+                if (!_mUnknown_StudioLifecycleConfigAppType) return _mValue_StudioLifecycleConfigAppType;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfig.StudioLifecycleConfigAppType' is not present");
+            }
+        }
 
         /// <summary>
         /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         /// </summary>
-        [Input("studioLifecycleConfigContent")]
+        [PolicyResourceProperty("studioLifecycleConfigContent", "_mUnknown_StudioLifecycleConfigContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigContent;
-
-        public string? StudioLifecycleConfigContent => _mStudioLifecycleConfigContent.GetValue("studioLifecycleConfigContent");
+        private string? _mValue_StudioLifecycleConfigContent;
+        private bool _mUnknown_StudioLifecycleConfigContent;
+        public string? StudioLifecycleConfigContent
+        {
+            get
+            {
+                if (!_mUnknown_StudioLifecycleConfigContent) return _mValue_StudioLifecycleConfigContent;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfig.StudioLifecycleConfigContent' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Studio Lifecycle Configuration to create.
         /// </summary>
-        [Input("studioLifecycleConfigName")]
+        [PolicyResourceProperty("studioLifecycleConfigName", "_mUnknown_StudioLifecycleConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigName;
-
-        public string? StudioLifecycleConfigName => _mStudioLifecycleConfigName.GetValue("studioLifecycleConfigName");
+        private string? _mValue_StudioLifecycleConfigName;
+        private bool _mUnknown_StudioLifecycleConfigName;
+        public string? StudioLifecycleConfigName
+        {
+            get
+            {
+                if (!_mUnknown_StudioLifecycleConfigName) return _mValue_StudioLifecycleConfigName;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfig.StudioLifecycleConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfig.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfig.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         /// </summary>
-        [Input("studioLifecycleConfigAppType")]
+        [PolicyResourceProperty("studioLifecycleConfigAppType", "_mUnknown_StudioLifecycleConfigAppType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigAppType;
-
-        public string? StudioLifecycleConfigAppType => _mStudioLifecycleConfigAppType.GetValue("studioLifecycleConfigAppType");
+        private string? _mValue_StudioLifecycleConfigAppType;
+        private bool _mUnknown_StudioLifecycleConfigAppType;
+        public string? StudioLifecycleConfigAppType
+        {
+            get
+            {
+                if (!_mUnknown_StudioLifecycleConfigAppType) return _mValue_StudioLifecycleConfigAppType;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.StudioLifecycleConfigAppType' is not present");
+            }
+        }
 
         /// <summary>
         /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         /// </summary>
-        [Input("studioLifecycleConfigContent")]
+        [PolicyResourceProperty("studioLifecycleConfigContent", "_mUnknown_StudioLifecycleConfigContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigContent;
-
-        public string? StudioLifecycleConfigContent => _mStudioLifecycleConfigContent.GetValue("studioLifecycleConfigContent");
+        private string? _mValue_StudioLifecycleConfigContent;
+        private bool _mUnknown_StudioLifecycleConfigContent;
+        public string? StudioLifecycleConfigContent
+        {
+            get
+            {
+                if (!_mUnknown_StudioLifecycleConfigContent) return _mValue_StudioLifecycleConfigContent;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.StudioLifecycleConfigContent' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Studio Lifecycle Configuration to create.
         /// </summary>
-        [Input("studioLifecycleConfigName")]
+        [PolicyResourceProperty("studioLifecycleConfigName", "_mUnknown_StudioLifecycleConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStudioLifecycleConfigName;
-
-        public string? StudioLifecycleConfigName => _mStudioLifecycleConfigName.GetValue("studioLifecycleConfigName");
+        private string? _mValue_StudioLifecycleConfigName;
+        private bool _mUnknown_StudioLifecycleConfigName;
+        public string? StudioLifecycleConfigName
+        {
+            get
+            {
+                if (!_mUnknown_StudioLifecycleConfigName) return _mValue_StudioLifecycleConfigName;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.StudioLifecycleConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.Tags' is not present");
+            }
+        }
     }
 }

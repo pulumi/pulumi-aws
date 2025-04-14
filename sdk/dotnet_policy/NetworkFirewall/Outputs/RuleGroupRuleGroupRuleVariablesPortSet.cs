@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// An unique alphanumeric string to identify the `port_set`.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesPortSet.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block that defines a set of port ranges. See Port Set below for details.
         /// </summary>
-        [Input("portSet")]
+        [PolicyResourceProperty("portSet", "_mUnknown_PortSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet> _mPortSet;
-
-        public Outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet? PortSet => _mPortSet.GetValue("portSet");
+        private Outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet? _mValue_PortSet;
+        private bool _mUnknown_PortSet;
+        public Outputs.RuleGroupRuleGroupRuleVariablesPortSetPortSet? PortSet
+        {
+            get
+            {
+                if (!_mUnknown_PortSet) return _mValue_PortSet;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesPortSet.PortSet' is not present");
+            }
+        }
     }
 }

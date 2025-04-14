@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'SharedDirectory.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
-
-        public string? Method => _mMethod.GetValue("method");
+        private string? _mValue_Method;
+        private bool _mUnknown_Method;
+        public string? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'SharedDirectory.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         /// </summary>
-        [Input("notes")]
+        [PolicyResourceProperty("notes", "_mUnknown_Notes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotes;
-
-        public string? Notes => _mNotes.GetValue("notes");
+        private string? _mValue_Notes;
+        private bool _mUnknown_Notes;
+        public string? Notes
+        {
+            get
+            {
+                if (!_mUnknown_Notes) return _mValue_Notes;
+                throw new UndeferrableValueException("Value 'SharedDirectory.Notes' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         /// </summary>
-        [Input("sharedDirectoryId")]
+        [PolicyResourceProperty("sharedDirectoryId", "_mUnknown_SharedDirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSharedDirectoryId;
-
-        public string? SharedDirectoryId => _mSharedDirectoryId.GetValue("sharedDirectoryId");
+        private string? _mValue_SharedDirectoryId;
+        private bool _mUnknown_SharedDirectoryId;
+        public string? SharedDirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_SharedDirectoryId) return _mValue_SharedDirectoryId;
+                throw new UndeferrableValueException("Value 'SharedDirectory.SharedDirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SharedDirectoryTarget> _mTarget;
-
-        public Outputs.SharedDirectoryTarget? Target => _mTarget.GetValue("target");
+        private Outputs.SharedDirectoryTarget? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Outputs.SharedDirectoryTarget? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'SharedDirectory.Target' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]
@@ -67,39 +102,67 @@ namespace Pulumi.PolicyPacks.Aws.DirectoryService
         /// <summary>
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         /// </summary>
-        [Input("directoryId")]
+        [PolicyResourceProperty("directoryId", "_mUnknown_DirectoryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryId;
-
-        public string? DirectoryId => _mDirectoryId.GetValue("directoryId");
+        private string? _mValue_DirectoryId;
+        private bool _mUnknown_DirectoryId;
+        public string? DirectoryId
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryId) return _mValue_DirectoryId;
+                throw new UndeferrableValueException("Value 'SharedDirectoryArgs.DirectoryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
-
-        public string? Method => _mMethod.GetValue("method");
+        private string? _mValue_Method;
+        private bool _mUnknown_Method;
+        public string? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'SharedDirectoryArgs.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         /// </summary>
-        [Input("notes")]
+        [PolicyResourceProperty("notes", "_mUnknown_Notes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotes;
-
-        public string? Notes => _mNotes.GetValue("notes");
+        private string? _mValue_Notes;
+        private bool _mUnknown_Notes;
+        public string? Notes
+        {
+            get
+            {
+                if (!_mUnknown_Notes) return _mValue_Notes;
+                throw new UndeferrableValueException("Value 'SharedDirectoryArgs.Notes' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SharedDirectoryTargetArgs> _mTarget;
-
-        public Inputs.SharedDirectoryTargetArgs? Target => _mTarget.GetValue("target");
+        private Inputs.SharedDirectoryTargetArgs? _mValue_Target;
+        private bool _mUnknown_Target;
+        public Inputs.SharedDirectoryTargetArgs? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'SharedDirectoryArgs.Target' is not present");
+            }
+        }
     }
 }

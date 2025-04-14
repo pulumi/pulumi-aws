@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         /// </summary>
-        [Input("oversizeHandling")]
+        [PolicyResourceProperty("oversizeHandling", "_mUnknown_OversizeHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOversizeHandling;
-
-        public string? OversizeHandling => _mOversizeHandling.GetValue("oversizeHandling");
+        private string? _mValue_OversizeHandling;
+        private bool _mUnknown_OversizeHandling;
+        public string? OversizeHandling
+        {
+            get
+            {
+                if (!_mUnknown_OversizeHandling) return _mValue_OversizeHandling;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrder.OversizeHandling' is not present");
+            }
+        }
     }
 }

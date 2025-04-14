@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
         /// </summary>
-        [Input("accessTier")]
+        [PolicyResourceProperty("accessTier", "_mUnknown_AccessTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessTier;
-
-        public string? AccessTier => _mAccessTier.GetValue("accessTier");
+        private string? _mValue_AccessTier;
+        private bool _mUnknown_AccessTier;
+        public string? AccessTier
+        {
+            get
+            {
+                if (!_mUnknown_AccessTier) return _mValue_AccessTier;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationTiering.AccessTier' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
         /// </summary>
-        [Input("days")]
+        [PolicyResourceProperty("days", "_mUnknown_Days")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDays;
-
-        public int? Days => _mDays.GetValue("days");
+        private int? _mValue_Days;
+        private bool _mUnknown_Days;
+        public int? Days
+        {
+            get
+            {
+                if (!_mUnknown_Days) return _mValue_Days;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationTiering.Days' is not present");
+            }
+        }
     }
 }

@@ -15,65 +15,114 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
-        [Input("accessControlTranslation")]
+        [PolicyResourceProperty("accessControlTranslation", "_mUnknown_AccessControlTranslation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation> _mAccessControlTranslation;
-
-        public Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation? AccessControlTranslation => _mAccessControlTranslation.GetValue("accessControlTranslation");
+        private Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation? _mValue_AccessControlTranslation;
+        private bool _mUnknown_AccessControlTranslation;
+        public Outputs.BucketReplicationConfigurationRuleDestinationAccessControlTranslation? AccessControlTranslation
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlTranslation) return _mValue_AccessControlTranslation;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestination.AccessControlTranslation' is not present");
+            }
+        }
 
         /// <summary>
         /// The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestination.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestination.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables replication metrics (required for S3 RTC) (documented below).
         /// </summary>
-        [Input("metrics")]
+        [PolicyResourceProperty("metrics", "_mUnknown_Metrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigurationRuleDestinationMetrics> _mMetrics;
-
-        public Outputs.BucketReplicationConfigurationRuleDestinationMetrics? Metrics => _mMetrics.GetValue("metrics");
+        private Outputs.BucketReplicationConfigurationRuleDestinationMetrics? _mValue_Metrics;
+        private bool _mUnknown_Metrics;
+        public Outputs.BucketReplicationConfigurationRuleDestinationMetrics? Metrics
+        {
+            get
+            {
+                if (!_mUnknown_Metrics) return _mValue_Metrics;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestination.Metrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
         /// `sse_kms_encrypted_objects` source selection criteria.
         /// </summary>
-        [Input("replicaKmsKeyId")]
+        [PolicyResourceProperty("replicaKmsKeyId", "_mUnknown_ReplicaKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicaKmsKeyId;
-
-        public string? ReplicaKmsKeyId => _mReplicaKmsKeyId.GetValue("replicaKmsKeyId");
+        private string? _mValue_ReplicaKmsKeyId;
+        private bool _mUnknown_ReplicaKmsKeyId;
+        public string? ReplicaKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ReplicaKmsKeyId) return _mValue_ReplicaKmsKeyId;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestination.ReplicaKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables S3 Replication Time Control (S3 RTC) (documented below).
         /// </summary>
-        [Input("replicationTime")]
+        [PolicyResourceProperty("replicationTime", "_mUnknown_ReplicationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime> _mReplicationTime;
-
-        public Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? ReplicationTime => _mReplicationTime.GetValue("replicationTime");
+        private Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? _mValue_ReplicationTime;
+        private bool _mUnknown_ReplicationTime;
+        public Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? ReplicationTime
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationTime) return _mValue_ReplicationTime;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestination.ReplicationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         /// </summary>
-        [Input("storageClass")]
+        [PolicyResourceProperty("storageClass", "_mUnknown_StorageClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageClass;
-
-        public string? StorageClass => _mStorageClass.GetValue("storageClass");
+        private string? _mValue_StorageClass;
+        private bool _mUnknown_StorageClass;
+        public string? StorageClass
+        {
+            get
+            {
+                if (!_mUnknown_StorageClass) return _mValue_StorageClass;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestination.StorageClass' is not present");
+            }
+        }
     }
 }

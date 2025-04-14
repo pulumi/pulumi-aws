@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// After a job run starts, the number of minutes to wait before sending a job run delay notification.
         /// </summary>
-        [Input("notifyDelayAfter")]
+        [PolicyResourceProperty("notifyDelayAfter", "_mUnknown_NotifyDelayAfter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNotifyDelayAfter;
-
-        public int? NotifyDelayAfter => _mNotifyDelayAfter.GetValue("notifyDelayAfter");
+        private int? _mValue_NotifyDelayAfter;
+        private bool _mUnknown_NotifyDelayAfter;
+        public int? NotifyDelayAfter
+        {
+            get
+            {
+                if (!_mUnknown_NotifyDelayAfter) return _mValue_NotifyDelayAfter;
+                throw new UndeferrableValueException("Value 'TriggerActionNotificationPropertyArgs.NotifyDelayAfter' is not present");
+            }
+        }
     }
 }

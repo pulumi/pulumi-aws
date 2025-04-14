@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Time in minutes. Valid values: `15`.
         /// </summary>
-        [Input("minutes")]
+        [PolicyResourceProperty("minutes", "_mUnknown_Minutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinutes;
-
-        public int? Minutes => _mMinutes.GetValue("minutes");
+        private int? _mValue_Minutes;
+        private bool _mUnknown_Minutes;
+        public int? Minutes
+        {
+            get
+            {
+                if (!_mUnknown_Minutes) return _mValue_Minutes;
+                throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs.Minutes' is not present");
+            }
+        }
     }
 }

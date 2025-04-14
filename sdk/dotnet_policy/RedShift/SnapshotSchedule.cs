@@ -16,75 +16,131 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         /// </summary>
-        [Input("definitions")]
+        [PolicyResourceProperty("definitions", "_mUnknown_Definitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefinitions;
-
-        public List<string>? Definitions => _mDefinitions.GetValue("definitions");
+        private List<string>? _mValue_Definitions;
+        private bool _mUnknown_Definitions;
+        public List<string>? Definitions
+        {
+            get
+            {
+                if (!_mUnknown_Definitions) return _mValue_Definitions;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.Definitions' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the snapshot schedule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique
         /// identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
-        [Input("identifierPrefix")]
+        [PolicyResourceProperty("identifierPrefix", "_mUnknown_IdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
-
-        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+        private string? _mValue_IdentifierPrefix;
+        private bool _mUnknown_IdentifierPrefix;
+        public string? IdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_IdentifierPrefix) return _mValue_IdentifierPrefix;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.IdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SnapshotSchedule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/snapshotSchedule:SnapshotSchedule")]
@@ -93,56 +149,98 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
         /// </summary>
-        [Input("definitions")]
+        [PolicyResourceProperty("definitions", "_mUnknown_Definitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDefinitions;
-
-        public List<string>? Definitions => _mDefinitions.GetValue("definitions");
+        private List<string>? _mValue_Definitions;
+        private bool _mUnknown_Definitions;
+        public List<string>? Definitions
+        {
+            get
+            {
+                if (!_mUnknown_Definitions) return _mValue_Definitions;
+                throw new UndeferrableValueException("Value 'SnapshotScheduleArgs.Definitions' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the snapshot schedule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SnapshotScheduleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'SnapshotScheduleArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'SnapshotScheduleArgs.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique
         /// identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
-        [Input("identifierPrefix")]
+        [PolicyResourceProperty("identifierPrefix", "_mUnknown_IdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
-
-        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+        private string? _mValue_IdentifierPrefix;
+        private bool _mUnknown_IdentifierPrefix;
+        public string? IdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_IdentifierPrefix) return _mValue_IdentifierPrefix;
+                throw new UndeferrableValueException("Value 'SnapshotScheduleArgs.IdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SnapshotScheduleArgs.Tags' is not present");
+            }
+        }
     }
 }

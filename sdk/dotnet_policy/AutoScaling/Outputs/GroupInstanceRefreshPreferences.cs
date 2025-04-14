@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// Alarm Specification for Instance Refresh.
         /// </summary>
-        [Input("alarmSpecification")]
+        [PolicyResourceProperty("alarmSpecification", "_mUnknown_AlarmSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupInstanceRefreshPreferencesAlarmSpecification> _mAlarmSpecification;
-
-        public Outputs.GroupInstanceRefreshPreferencesAlarmSpecification? AlarmSpecification => _mAlarmSpecification.GetValue("alarmSpecification");
+        private Outputs.GroupInstanceRefreshPreferencesAlarmSpecification? _mValue_AlarmSpecification;
+        private bool _mUnknown_AlarmSpecification;
+        public Outputs.GroupInstanceRefreshPreferencesAlarmSpecification? AlarmSpecification
+        {
+            get
+            {
+                if (!_mUnknown_AlarmSpecification) return _mValue_AlarmSpecification;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.AlarmSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         /// </summary>
-        [Input("autoRollback")]
+        [PolicyResourceProperty("autoRollback", "_mUnknown_AutoRollback")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoRollback;
-
-        public bool? AutoRollback => _mAutoRollback.GetValue("autoRollback");
+        private bool? _mValue_AutoRollback;
+        private bool _mUnknown_AutoRollback;
+        public bool? AutoRollback
+        {
+            get
+            {
+                if (!_mUnknown_AutoRollback) return _mValue_AutoRollback;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.AutoRollback' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds to wait after a checkpoint. Defaults to `3600`.
         /// </summary>
-        [Input("checkpointDelay")]
+        [PolicyResourceProperty("checkpointDelay", "_mUnknown_CheckpointDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCheckpointDelay;
-
-        public string? CheckpointDelay => _mCheckpointDelay.GetValue("checkpointDelay");
+        private string? _mValue_CheckpointDelay;
+        private bool _mUnknown_CheckpointDelay;
+        public string? CheckpointDelay
+        {
+            get
+            {
+                if (!_mUnknown_CheckpointDelay) return _mValue_CheckpointDelay;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.CheckpointDelay' is not present");
+            }
+        }
 
         /// <summary>
         /// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         /// </summary>
-        [Input("checkpointPercentages")]
+        [PolicyResourceProperty("checkpointPercentages", "_mUnknown_CheckpointPercentages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mCheckpointPercentages;
-
-        public List<int>? CheckpointPercentages => _mCheckpointPercentages.GetValue("checkpointPercentages");
+        private List<int>? _mValue_CheckpointPercentages;
+        private bool _mUnknown_CheckpointPercentages;
+        public List<int>? CheckpointPercentages
+        {
+            get
+            {
+                if (!_mUnknown_CheckpointPercentages) return _mValue_CheckpointPercentages;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.CheckpointPercentages' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         /// </summary>
-        [Input("instanceWarmup")]
+        [PolicyResourceProperty("instanceWarmup", "_mUnknown_InstanceWarmup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceWarmup;
-
-        public string? InstanceWarmup => _mInstanceWarmup.GetValue("instanceWarmup");
+        private string? _mValue_InstanceWarmup;
+        private bool _mUnknown_InstanceWarmup;
+        public string? InstanceWarmup
+        {
+            get
+            {
+                if (!_mUnknown_InstanceWarmup) return _mValue_InstanceWarmup;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.InstanceWarmup' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
         /// </summary>
-        [Input("maxHealthyPercentage")]
+        [PolicyResourceProperty("maxHealthyPercentage", "_mUnknown_MaxHealthyPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxHealthyPercentage;
-
-        public int? MaxHealthyPercentage => _mMaxHealthyPercentage.GetValue("maxHealthyPercentage");
+        private int? _mValue_MaxHealthyPercentage;
+        private bool _mUnknown_MaxHealthyPercentage;
+        public int? MaxHealthyPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MaxHealthyPercentage) return _mValue_MaxHealthyPercentage;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.MaxHealthyPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         /// </summary>
-        [Input("minHealthyPercentage")]
+        [PolicyResourceProperty("minHealthyPercentage", "_mUnknown_MinHealthyPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinHealthyPercentage;
-
-        public int? MinHealthyPercentage => _mMinHealthyPercentage.GetValue("minHealthyPercentage");
+        private int? _mValue_MinHealthyPercentage;
+        private bool _mUnknown_MinHealthyPercentage;
+        public int? MinHealthyPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MinHealthyPercentage) return _mValue_MinHealthyPercentage;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.MinHealthyPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
         /// </summary>
-        [Input("scaleInProtectedInstances")]
+        [PolicyResourceProperty("scaleInProtectedInstances", "_mUnknown_ScaleInProtectedInstances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScaleInProtectedInstances;
-
-        public string? ScaleInProtectedInstances => _mScaleInProtectedInstances.GetValue("scaleInProtectedInstances");
+        private string? _mValue_ScaleInProtectedInstances;
+        private bool _mUnknown_ScaleInProtectedInstances;
+        public string? ScaleInProtectedInstances
+        {
+            get
+            {
+                if (!_mUnknown_ScaleInProtectedInstances) return _mValue_ScaleInProtectedInstances;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.ScaleInProtectedInstances' is not present");
+            }
+        }
 
         /// <summary>
         /// Replace instances that already have your desired configuration. Defaults to `false`.
         /// </summary>
-        [Input("skipMatching")]
+        [PolicyResourceProperty("skipMatching", "_mUnknown_SkipMatching")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipMatching;
-
-        public bool? SkipMatching => _mSkipMatching.GetValue("skipMatching");
+        private bool? _mValue_SkipMatching;
+        private bool _mUnknown_SkipMatching;
+        public bool? SkipMatching
+        {
+            get
+            {
+                if (!_mUnknown_SkipMatching) return _mValue_SkipMatching;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.SkipMatching' is not present");
+            }
+        }
 
         /// <summary>
         /// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
         /// </summary>
-        [Input("standbyInstances")]
+        [PolicyResourceProperty("standbyInstances", "_mUnknown_StandbyInstances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandbyInstances;
-
-        public string? StandbyInstances => _mStandbyInstances.GetValue("standbyInstances");
+        private string? _mValue_StandbyInstances;
+        private bool _mUnknown_StandbyInstances;
+        public string? StandbyInstances
+        {
+            get
+            {
+                if (!_mUnknown_StandbyInstances) return _mValue_StandbyInstances;
+                throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.StandbyInstances' is not present");
+            }
+        }
     }
 }

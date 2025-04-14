@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
         /// <summary>
         /// Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Preset.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Audio parameters object (documented below).
         /// </summary>
-        [Input("audio")]
+        [PolicyResourceProperty("audio", "_mUnknown_Audio")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetAudio> _mAudio;
-
-        public Outputs.PresetAudio? Audio => _mAudio.GetValue("audio");
+        private Outputs.PresetAudio? _mValue_Audio;
+        private bool _mUnknown_Audio;
+        public Outputs.PresetAudio? Audio
+        {
+            get
+            {
+                if (!_mUnknown_Audio) return _mValue_Audio;
+                throw new UndeferrableValueException("Value 'Preset.Audio' is not present");
+            }
+        }
 
         /// <summary>
         /// Codec options for the audio parameters (documented below)
         /// </summary>
-        [Input("audioCodecOptions")]
+        [PolicyResourceProperty("audioCodecOptions", "_mUnknown_AudioCodecOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetAudioCodecOptions> _mAudioCodecOptions;
-
-        public Outputs.PresetAudioCodecOptions? AudioCodecOptions => _mAudioCodecOptions.GetValue("audioCodecOptions");
+        private Outputs.PresetAudioCodecOptions? _mValue_AudioCodecOptions;
+        private bool _mUnknown_AudioCodecOptions;
+        public Outputs.PresetAudioCodecOptions? AudioCodecOptions
+        {
+            get
+            {
+                if (!_mUnknown_AudioCodecOptions) return _mValue_AudioCodecOptions;
+                throw new UndeferrableValueException("Value 'Preset.AudioCodecOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         /// </summary>
-        [Input("container")]
+        [PolicyResourceProperty("container", "_mUnknown_Container")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainer;
-
-        public string? Container => _mContainer.GetValue("container");
+        private string? _mValue_Container;
+        private bool _mUnknown_Container;
+        public string? Container
+        {
+            get
+            {
+                if (!_mUnknown_Container) return _mValue_Container;
+                throw new UndeferrableValueException("Value 'Preset.Container' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the preset (maximum 255 characters)
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Preset.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the preset. (maximum 40 characters)
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Preset.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Thumbnail parameters object (documented below)
         /// </summary>
-        [Input("thumbnails")]
+        [PolicyResourceProperty("thumbnails", "_mUnknown_Thumbnails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetThumbnails> _mThumbnails;
+        private Outputs.PresetThumbnails? _mValue_Thumbnails;
+        private bool _mUnknown_Thumbnails;
+        public Outputs.PresetThumbnails? Thumbnails
+        {
+            get
+            {
+                if (!_mUnknown_Thumbnails) return _mValue_Thumbnails;
+                throw new UndeferrableValueException("Value 'Preset.Thumbnails' is not present");
+            }
+        }
 
-        public Outputs.PresetThumbnails? Thumbnails => _mThumbnails.GetValue("thumbnails");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Preset.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Video parameters object (documented below)
         /// </summary>
-        [Input("video")]
+        [PolicyResourceProperty("video", "_mUnknown_Video")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PresetVideo> _mVideo;
-
-        public Outputs.PresetVideo? Video => _mVideo.GetValue("video");
+        private Outputs.PresetVideo? _mValue_Video;
+        private bool _mUnknown_Video;
+        public Outputs.PresetVideo? Video
+        {
+            get
+            {
+                if (!_mUnknown_Video) return _mValue_Video;
+                throw new UndeferrableValueException("Value 'Preset.Video' is not present");
+            }
+        }
 
         /// <summary>
         /// Codec options for the video parameters
         /// </summary>
-        [Input("videoCodecOptions")]
+        [PolicyResourceProperty("videoCodecOptions", "_mUnknown_VideoCodecOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVideoCodecOptions;
-
-        public Dictionary<string, string>? VideoCodecOptions => _mVideoCodecOptions.GetValue("videoCodecOptions");
+        private Dictionary<string, string>? _mValue_VideoCodecOptions;
+        private bool _mUnknown_VideoCodecOptions;
+        public Dictionary<string, string>? VideoCodecOptions
+        {
+            get
+            {
+                if (!_mUnknown_VideoCodecOptions) return _mValue_VideoCodecOptions;
+                throw new UndeferrableValueException("Value 'Preset.VideoCodecOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Watermark parameters for the video parameters (documented below)
         /// </summary>
-        [Input("videoWatermarks")]
+        [PolicyResourceProperty("videoWatermarks", "_mUnknown_VideoWatermarks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PresetVideoWatermark>> _mVideoWatermarks;
-
-        public List<Outputs.PresetVideoWatermark>? VideoWatermarks => _mVideoWatermarks.GetValue("videoWatermarks");
+        private List<Outputs.PresetVideoWatermark>? _mValue_VideoWatermarks;
+        private bool _mUnknown_VideoWatermarks;
+        public List<Outputs.PresetVideoWatermark>? VideoWatermarks
+        {
+            get
+            {
+                if (!_mUnknown_VideoWatermarks) return _mValue_VideoWatermarks;
+                throw new UndeferrableValueException("Value 'Preset.VideoWatermarks' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elastictranscoder/preset:Preset")]
@@ -116,88 +193,158 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder
         /// <summary>
         /// Audio parameters object (documented below).
         /// </summary>
-        [Input("audio")]
+        [PolicyResourceProperty("audio", "_mUnknown_Audio")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetAudioArgs> _mAudio;
-
-        public Inputs.PresetAudioArgs? Audio => _mAudio.GetValue("audio");
+        private Inputs.PresetAudioArgs? _mValue_Audio;
+        private bool _mUnknown_Audio;
+        public Inputs.PresetAudioArgs? Audio
+        {
+            get
+            {
+                if (!_mUnknown_Audio) return _mValue_Audio;
+                throw new UndeferrableValueException("Value 'PresetArgs.Audio' is not present");
+            }
+        }
 
         /// <summary>
         /// Codec options for the audio parameters (documented below)
         /// </summary>
-        [Input("audioCodecOptions")]
+        [PolicyResourceProperty("audioCodecOptions", "_mUnknown_AudioCodecOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetAudioCodecOptionsArgs> _mAudioCodecOptions;
-
-        public Inputs.PresetAudioCodecOptionsArgs? AudioCodecOptions => _mAudioCodecOptions.GetValue("audioCodecOptions");
+        private Inputs.PresetAudioCodecOptionsArgs? _mValue_AudioCodecOptions;
+        private bool _mUnknown_AudioCodecOptions;
+        public Inputs.PresetAudioCodecOptionsArgs? AudioCodecOptions
+        {
+            get
+            {
+                if (!_mUnknown_AudioCodecOptions) return _mValue_AudioCodecOptions;
+                throw new UndeferrableValueException("Value 'PresetArgs.AudioCodecOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         /// </summary>
-        [Input("container")]
+        [PolicyResourceProperty("container", "_mUnknown_Container")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainer;
-
-        public string? Container => _mContainer.GetValue("container");
+        private string? _mValue_Container;
+        private bool _mUnknown_Container;
+        public string? Container
+        {
+            get
+            {
+                if (!_mUnknown_Container) return _mValue_Container;
+                throw new UndeferrableValueException("Value 'PresetArgs.Container' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the preset (maximum 255 characters)
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'PresetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the preset. (maximum 40 characters)
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PresetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Thumbnail parameters object (documented below)
         /// </summary>
-        [Input("thumbnails")]
+        [PolicyResourceProperty("thumbnails", "_mUnknown_Thumbnails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetThumbnailsArgs> _mThumbnails;
+        private Inputs.PresetThumbnailsArgs? _mValue_Thumbnails;
+        private bool _mUnknown_Thumbnails;
+        public Inputs.PresetThumbnailsArgs? Thumbnails
+        {
+            get
+            {
+                if (!_mUnknown_Thumbnails) return _mValue_Thumbnails;
+                throw new UndeferrableValueException("Value 'PresetArgs.Thumbnails' is not present");
+            }
+        }
 
-        public Inputs.PresetThumbnailsArgs? Thumbnails => _mThumbnails.GetValue("thumbnails");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'PresetArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Video parameters object (documented below)
         /// </summary>
-        [Input("video")]
+        [PolicyResourceProperty("video", "_mUnknown_Video")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PresetVideoArgs> _mVideo;
-
-        public Inputs.PresetVideoArgs? Video => _mVideo.GetValue("video");
+        private Inputs.PresetVideoArgs? _mValue_Video;
+        private bool _mUnknown_Video;
+        public Inputs.PresetVideoArgs? Video
+        {
+            get
+            {
+                if (!_mUnknown_Video) return _mValue_Video;
+                throw new UndeferrableValueException("Value 'PresetArgs.Video' is not present");
+            }
+        }
 
         /// <summary>
         /// Codec options for the video parameters
         /// </summary>
-        [Input("videoCodecOptions")]
+        [PolicyResourceProperty("videoCodecOptions", "_mUnknown_VideoCodecOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVideoCodecOptions;
-
-        public Dictionary<string, string>? VideoCodecOptions => _mVideoCodecOptions.GetValue("videoCodecOptions");
+        private Dictionary<string, string>? _mValue_VideoCodecOptions;
+        private bool _mUnknown_VideoCodecOptions;
+        public Dictionary<string, string>? VideoCodecOptions
+        {
+            get
+            {
+                if (!_mUnknown_VideoCodecOptions) return _mValue_VideoCodecOptions;
+                throw new UndeferrableValueException("Value 'PresetArgs.VideoCodecOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Watermark parameters for the video parameters (documented below)
         /// </summary>
-        [Input("videoWatermarks")]
+        [PolicyResourceProperty("videoWatermarks", "_mUnknown_VideoWatermarks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PresetVideoWatermarkArgs>> _mVideoWatermarks;
-
-        public List<Inputs.PresetVideoWatermarkArgs>? VideoWatermarks => _mVideoWatermarks.GetValue("videoWatermarks");
+        private List<Inputs.PresetVideoWatermarkArgs>? _mValue_VideoWatermarks;
+        private bool _mUnknown_VideoWatermarks;
+        public List<Inputs.PresetVideoWatermarkArgs>? VideoWatermarks
+        {
+            get
+            {
+                if (!_mUnknown_VideoWatermarks) return _mValue_VideoWatermarks;
+                throw new UndeferrableValueException("Value 'PresetArgs.VideoWatermarks' is not present");
+            }
+        }
     }
 }

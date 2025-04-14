@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition
         /// <summary>
         /// ARN of the Stream Processor.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StreamProcessor.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// See `data_sharing_preference`.
         /// </summary>
-        [Input("dataSharingPreference")]
+        [PolicyResourceProperty("dataSharingPreference", "_mUnknown_DataSharingPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorDataSharingPreference> _mDataSharingPreference;
-
-        public Outputs.StreamProcessorDataSharingPreference? DataSharingPreference => _mDataSharingPreference.GetValue("dataSharingPreference");
+        private Outputs.StreamProcessorDataSharingPreference? _mValue_DataSharingPreference;
+        private bool _mUnknown_DataSharingPreference;
+        public Outputs.StreamProcessorDataSharingPreference? DataSharingPreference
+        {
+            get
+            {
+                if (!_mUnknown_DataSharingPreference) return _mValue_DataSharingPreference;
+                throw new UndeferrableValueException("Value 'StreamProcessor.DataSharingPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// Input video stream. See `input`.
         /// </summary>
-        [Input("input")]
+        [PolicyResourceProperty("input", "_mUnknown_Input")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorInput> _mInput;
-
-        public Outputs.StreamProcessorInput? Input => _mInput.GetValue("input");
+        private Outputs.StreamProcessorInput? _mValue_Input;
+        private bool _mUnknown_Input;
+        public Outputs.StreamProcessorInput? Input
+        {
+            get
+            {
+                if (!_mUnknown_Input) return _mValue_Input;
+                throw new UndeferrableValueException("Value 'StreamProcessor.Input' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional parameter for label detection stream processors.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'StreamProcessor.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Stream Processor.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StreamProcessor.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         /// </summary>
-        [Input("notificationChannel")]
+        [PolicyResourceProperty("notificationChannel", "_mUnknown_NotificationChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorNotificationChannel> _mNotificationChannel;
-
-        public Outputs.StreamProcessorNotificationChannel? NotificationChannel => _mNotificationChannel.GetValue("notificationChannel");
+        private Outputs.StreamProcessorNotificationChannel? _mValue_NotificationChannel;
+        private bool _mUnknown_NotificationChannel;
+        public Outputs.StreamProcessorNotificationChannel? NotificationChannel
+        {
+            get
+            {
+                if (!_mUnknown_NotificationChannel) return _mValue_NotificationChannel;
+                throw new UndeferrableValueException("Value 'StreamProcessor.NotificationChannel' is not present");
+            }
+        }
 
         /// <summary>
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         /// </summary>
-        [Input("output")]
+        [PolicyResourceProperty("output", "_mUnknown_Output")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorOutput> _mOutput;
-
-        public Outputs.StreamProcessorOutput? Output => _mOutput.GetValue("output");
+        private Outputs.StreamProcessorOutput? _mValue_Output;
+        private bool _mUnknown_Output;
+        public Outputs.StreamProcessorOutput? Output
+        {
+            get
+            {
+                if (!_mUnknown_Output) return _mValue_Output;
+                throw new UndeferrableValueException("Value 'StreamProcessor.Output' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         /// </summary>
-        [Input("regionsOfInterests")]
+        [PolicyResourceProperty("regionsOfInterests", "_mUnknown_RegionsOfInterests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StreamProcessorRegionsOfInterest>> _mRegionsOfInterests;
-
-        public List<Outputs.StreamProcessorRegionsOfInterest>? RegionsOfInterests => _mRegionsOfInterests.GetValue("regionsOfInterests");
+        private List<Outputs.StreamProcessorRegionsOfInterest>? _mValue_RegionsOfInterests;
+        private bool _mUnknown_RegionsOfInterests;
+        public List<Outputs.StreamProcessorRegionsOfInterest>? RegionsOfInterests
+        {
+            get
+            {
+                if (!_mUnknown_RegionsOfInterests) return _mValue_RegionsOfInterests;
+                throw new UndeferrableValueException("Value 'StreamProcessor.RegionsOfInterests' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'StreamProcessor.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorSettings> _mSettings;
-
-        public Outputs.StreamProcessorSettings? Settings => _mSettings.GetValue("settings");
+        private Outputs.StreamProcessorSettings? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public Outputs.StreamProcessorSettings? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'StreamProcessor.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// (**Deprecated**) ARN of the Stream Processor.
         /// Use `arn` instead.
         /// </summary>
-        [Input("streamProcessorArn")]
+        [PolicyResourceProperty("streamProcessorArn", "_mUnknown_StreamProcessorArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamProcessorArn;
-
-        public string? StreamProcessorArn => _mStreamProcessorArn.GetValue("streamProcessorArn");
+        private string? _mValue_StreamProcessorArn;
+        private bool _mUnknown_StreamProcessorArn;
+        public string? StreamProcessorArn
+        {
+            get
+            {
+                if (!_mUnknown_StreamProcessorArn) return _mValue_StreamProcessorArn;
+                throw new UndeferrableValueException("Value 'StreamProcessor.StreamProcessorArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StreamProcessor.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'StreamProcessor.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamProcessorTimeouts> _mTimeouts;
-
-        public Outputs.StreamProcessorTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.StreamProcessorTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.StreamProcessorTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'StreamProcessor.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rekognition/streamProcessor:StreamProcessor")]
@@ -146,99 +244,176 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition
         /// <summary>
         /// See `data_sharing_preference`.
         /// </summary>
-        [Input("dataSharingPreference")]
+        [PolicyResourceProperty("dataSharingPreference", "_mUnknown_DataSharingPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorDataSharingPreferenceArgs> _mDataSharingPreference;
-
-        public Inputs.StreamProcessorDataSharingPreferenceArgs? DataSharingPreference => _mDataSharingPreference.GetValue("dataSharingPreference");
+        private Inputs.StreamProcessorDataSharingPreferenceArgs? _mValue_DataSharingPreference;
+        private bool _mUnknown_DataSharingPreference;
+        public Inputs.StreamProcessorDataSharingPreferenceArgs? DataSharingPreference
+        {
+            get
+            {
+                if (!_mUnknown_DataSharingPreference) return _mValue_DataSharingPreference;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.DataSharingPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// Input video stream. See `input`.
         /// </summary>
-        [Input("input")]
+        [PolicyResourceProperty("input", "_mUnknown_Input")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorInputArgs> _mInput;
-
-        public Inputs.StreamProcessorInputArgs? Input => _mInput.GetValue("input");
+        private Inputs.StreamProcessorInputArgs? _mValue_Input;
+        private bool _mUnknown_Input;
+        public Inputs.StreamProcessorInputArgs? Input
+        {
+            get
+            {
+                if (!_mUnknown_Input) return _mValue_Input;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.Input' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional parameter for label detection stream processors.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Stream Processor.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         /// </summary>
-        [Input("notificationChannel")]
+        [PolicyResourceProperty("notificationChannel", "_mUnknown_NotificationChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorNotificationChannelArgs> _mNotificationChannel;
-
-        public Inputs.StreamProcessorNotificationChannelArgs? NotificationChannel => _mNotificationChannel.GetValue("notificationChannel");
+        private Inputs.StreamProcessorNotificationChannelArgs? _mValue_NotificationChannel;
+        private bool _mUnknown_NotificationChannel;
+        public Inputs.StreamProcessorNotificationChannelArgs? NotificationChannel
+        {
+            get
+            {
+                if (!_mUnknown_NotificationChannel) return _mValue_NotificationChannel;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.NotificationChannel' is not present");
+            }
+        }
 
         /// <summary>
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         /// </summary>
-        [Input("output")]
+        [PolicyResourceProperty("output", "_mUnknown_Output")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorOutputArgs> _mOutput;
-
-        public Inputs.StreamProcessorOutputArgs? Output => _mOutput.GetValue("output");
+        private Inputs.StreamProcessorOutputArgs? _mValue_Output;
+        private bool _mUnknown_Output;
+        public Inputs.StreamProcessorOutputArgs? Output
+        {
+            get
+            {
+                if (!_mUnknown_Output) return _mValue_Output;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.Output' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         /// </summary>
-        [Input("regionsOfInterests")]
+        [PolicyResourceProperty("regionsOfInterests", "_mUnknown_RegionsOfInterests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StreamProcessorRegionsOfInterestArgs>> _mRegionsOfInterests;
-
-        public List<Inputs.StreamProcessorRegionsOfInterestArgs>? RegionsOfInterests => _mRegionsOfInterests.GetValue("regionsOfInterests");
+        private List<Inputs.StreamProcessorRegionsOfInterestArgs>? _mValue_RegionsOfInterests;
+        private bool _mUnknown_RegionsOfInterests;
+        public List<Inputs.StreamProcessorRegionsOfInterestArgs>? RegionsOfInterests
+        {
+            get
+            {
+                if (!_mUnknown_RegionsOfInterests) return _mValue_RegionsOfInterests;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.RegionsOfInterests' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorSettingsArgs> _mSettings;
-
-        public Inputs.StreamProcessorSettingsArgs? Settings => _mSettings.GetValue("settings");
+        private Inputs.StreamProcessorSettingsArgs? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public Inputs.StreamProcessorSettingsArgs? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorTimeoutsArgs> _mTimeouts;
-
-        public Inputs.StreamProcessorTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.StreamProcessorTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.StreamProcessorTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'StreamProcessorArgs.Timeouts' is not present");
+            }
+        }
     }
 }

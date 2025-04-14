@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// One or more container overrides that are sent to a task. Detailed below.
         /// </summary>
-        [Input("containerOverrides")]
+        [PolicyResourceProperty("containerOverrides", "_mUnknown_ContainerOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride>> _mContainerOverrides;
-
-        public List<Outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride>? ContainerOverrides => _mContainerOverrides.GetValue("containerOverrides");
+        private List<Outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride>? _mValue_ContainerOverrides;
+        private bool _mUnknown_ContainerOverrides;
+        public List<Outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride>? ContainerOverrides
+        {
+            get
+            {
+                if (!_mUnknown_ContainerOverrides) return _mValue_ContainerOverrides;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.ContainerOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpu;
-
-        public string? Cpu => _mCpu.GetValue("cpu");
+        private string? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public string? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// The ephemeral storage setting override for the task.  Detailed below.
         /// </summary>
-        [Input("ephemeralStorage")]
+        [PolicyResourceProperty("ephemeralStorage", "_mUnknown_EphemeralStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage> _mEphemeralStorage;
-
-        public Outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage? EphemeralStorage => _mEphemeralStorage.GetValue("ephemeralStorage");
+        private Outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage? _mValue_EphemeralStorage;
+        private bool _mUnknown_EphemeralStorage;
+        public Outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage? EphemeralStorage
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralStorage) return _mValue_EphemeralStorage;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.EphemeralStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Elastic Inference accelerator overrides for the task. Detailed below.
         /// </summary>
-        [Input("inferenceAcceleratorOverrides")]
+        [PolicyResourceProperty("inferenceAcceleratorOverrides", "_mUnknown_InferenceAcceleratorOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride>> _mInferenceAcceleratorOverrides;
-
-        public List<Outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride>? InferenceAcceleratorOverrides => _mInferenceAcceleratorOverrides.GetValue("inferenceAcceleratorOverrides");
+        private List<Outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride>? _mValue_InferenceAcceleratorOverrides;
+        private bool _mUnknown_InferenceAcceleratorOverrides;
+        public List<Outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride>? InferenceAcceleratorOverrides
+        {
+            get
+            {
+                if (!_mUnknown_InferenceAcceleratorOverrides) return _mValue_InferenceAcceleratorOverrides;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.InferenceAcceleratorOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemory;
-
-        public string? Memory => _mMemory.GetValue("memory");
+        private string? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public string? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.Memory' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
         /// </summary>
-        [Input("taskRoleArn")]
+        [PolicyResourceProperty("taskRoleArn", "_mUnknown_TaskRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskRoleArn;
-
-        public string? TaskRoleArn => _mTaskRoleArn.GetValue("taskRoleArn");
+        private string? _mValue_TaskRoleArn;
+        private bool _mUnknown_TaskRoleArn;
+        public string? TaskRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_TaskRoleArn) return _mValue_TaskRoleArn;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.TaskRoleArn' is not present");
+            }
+        }
     }
 }

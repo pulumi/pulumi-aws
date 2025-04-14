@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         /// </summary>
-        [Input("insertHeaders")]
+        [PolicyResourceProperty("insertHeaders", "_mUnknown_InsertHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>> _mInsertHeaders;
-
-        public List<Inputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>? InsertHeaders => _mInsertHeaders.GetValue("insertHeaders");
+        private List<Inputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>? _mValue_InsertHeaders;
+        private bool _mUnknown_InsertHeaders;
+        public List<Inputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs>? InsertHeaders
+        {
+            get
+            {
+                if (!_mUnknown_InsertHeaders) return _mValue_InsertHeaders;
+                throw new UndeferrableValueException("Value 'WebAclRuleActionAllowCustomRequestHandlingArgs.InsertHeaders' is not present");
+            }
+        }
     }
 }

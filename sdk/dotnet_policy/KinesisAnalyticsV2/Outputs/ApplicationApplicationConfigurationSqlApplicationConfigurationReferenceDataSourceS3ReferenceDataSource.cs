@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The ARN of the S3 bucket.
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
-
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource.BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The object key name containing the reference data.
         /// </summary>
-        [Input("fileKey")]
+        [PolicyResourceProperty("fileKey", "_mUnknown_FileKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileKey;
-
-        public string? FileKey => _mFileKey.GetValue("fileKey");
+        private string? _mValue_FileKey;
+        private bool _mUnknown_FileKey;
+        public string? FileKey
+        {
+            get
+            {
+                if (!_mUnknown_FileKey) return _mValue_FileKey;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource.FileKey' is not present");
+            }
+        }
     }
 }

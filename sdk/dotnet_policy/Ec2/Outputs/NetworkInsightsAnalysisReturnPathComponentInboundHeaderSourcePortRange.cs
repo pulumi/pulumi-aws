@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange
     {
-        [Input("from")]
+        [PolicyResourceProperty("from", "_mUnknown_From")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFrom;
+        private int? _mValue_From;
+        private bool _mUnknown_From;
+        public int? From
+        {
+            get
+            {
+                if (!_mUnknown_From) return _mValue_From;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange.From' is not present");
+            }
+        }
 
-        public int? From => _mFrom.GetValue("from");
-
-        [Input("to")]
+        [PolicyResourceProperty("to", "_mUnknown_To")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTo;
-
-        public int? To => _mTo.GetValue("to");
+        private int? _mValue_To;
+        private bool _mUnknown_To;
+        public int? To
+        {
+            get
+            {
+                if (!_mUnknown_To) return _mValue_To;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRange.To' is not present");
+            }
+        }
     }
 }

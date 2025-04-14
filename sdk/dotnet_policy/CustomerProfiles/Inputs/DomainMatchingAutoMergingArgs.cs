@@ -15,35 +15,63 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Inputs
         /// <summary>
         /// A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
         /// </summary>
-        [Input("conflictResolution")]
+        [PolicyResourceProperty("conflictResolution", "_mUnknown_ConflictResolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainMatchingAutoMergingConflictResolutionArgs> _mConflictResolution;
-
-        public Inputs.DomainMatchingAutoMergingConflictResolutionArgs? ConflictResolution => _mConflictResolution.GetValue("conflictResolution");
+        private Inputs.DomainMatchingAutoMergingConflictResolutionArgs? _mValue_ConflictResolution;
+        private bool _mUnknown_ConflictResolution;
+        public Inputs.DomainMatchingAutoMergingConflictResolutionArgs? ConflictResolution
+        {
+            get
+            {
+                if (!_mUnknown_ConflictResolution) return _mValue_ConflictResolution;
+                throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingArgs.ConflictResolution' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
         /// * `min_allowed_confidence_score_for_merging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
         /// </summary>
-        [Input("consolidation")]
+        [PolicyResourceProperty("consolidation", "_mUnknown_Consolidation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainMatchingAutoMergingConsolidationArgs> _mConsolidation;
-
-        public Inputs.DomainMatchingAutoMergingConsolidationArgs? Consolidation => _mConsolidation.GetValue("consolidation");
+        private Inputs.DomainMatchingAutoMergingConsolidationArgs? _mValue_Consolidation;
+        private bool _mUnknown_Consolidation;
+        public Inputs.DomainMatchingAutoMergingConsolidationArgs? Consolidation
+        {
+            get
+            {
+                if (!_mUnknown_Consolidation) return _mValue_Consolidation;
+                throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingArgs.Consolidation' is not present");
+            }
+        }
 
         /// <summary>
         /// The flag that enables the auto-merging of duplicate profiles.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingArgs.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("minAllowedConfidenceScoreForMerging")]
+        [PolicyResourceProperty("minAllowedConfidenceScoreForMerging", "_mUnknown_MinAllowedConfidenceScoreForMerging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMinAllowedConfidenceScoreForMerging;
-
-        public double? MinAllowedConfidenceScoreForMerging => _mMinAllowedConfidenceScoreForMerging.GetValue("minAllowedConfidenceScoreForMerging");
+        private double? _mValue_MinAllowedConfidenceScoreForMerging;
+        private bool _mUnknown_MinAllowedConfidenceScoreForMerging;
+        public double? MinAllowedConfidenceScoreForMerging
+        {
+            get
+            {
+                if (!_mUnknown_MinAllowedConfidenceScoreForMerging) return _mValue_MinAllowedConfidenceScoreForMerging;
+                throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingArgs.MinAllowedConfidenceScoreForMerging' is not present");
+            }
+        }
     }
 }

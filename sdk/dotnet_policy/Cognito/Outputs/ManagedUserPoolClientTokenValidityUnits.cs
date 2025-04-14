@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// Time unit for the value in `access_token_validity` and defaults to `hours`.
         /// </summary>
-        [Input("accessToken")]
+        [PolicyResourceProperty("accessToken", "_mUnknown_AccessToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessToken;
-
-        public string? AccessToken => _mAccessToken.GetValue("accessToken");
+        private string? _mValue_AccessToken;
+        private bool _mUnknown_AccessToken;
+        public string? AccessToken
+        {
+            get
+            {
+                if (!_mUnknown_AccessToken) return _mValue_AccessToken;
+                throw new UndeferrableValueException("Value 'ManagedUserPoolClientTokenValidityUnits.AccessToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Time unit for the value in `id_token_validity`, and it defaults to `hours`.
         /// </summary>
-        [Input("idToken")]
+        [PolicyResourceProperty("idToken", "_mUnknown_IdToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdToken;
-
-        public string? IdToken => _mIdToken.GetValue("idToken");
+        private string? _mValue_IdToken;
+        private bool _mUnknown_IdToken;
+        public string? IdToken
+        {
+            get
+            {
+                if (!_mUnknown_IdToken) return _mValue_IdToken;
+                throw new UndeferrableValueException("Value 'ManagedUserPoolClientTokenValidityUnits.IdToken' is not present");
+            }
+        }
 
         /// <summary>
         /// Time unit for the value in `refresh_token_validity` and defaults to `days`.
         /// </summary>
-        [Input("refreshToken")]
+        [PolicyResourceProperty("refreshToken", "_mUnknown_RefreshToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRefreshToken;
-
-        public string? RefreshToken => _mRefreshToken.GetValue("refreshToken");
+        private string? _mValue_RefreshToken;
+        private bool _mUnknown_RefreshToken;
+        public string? RefreshToken
+        {
+            get
+            {
+                if (!_mUnknown_RefreshToken) return _mValue_RefreshToken;
+                throw new UndeferrableValueException("Value 'ManagedUserPoolClientTokenValidityUnits.RefreshToken' is not present");
+            }
+        }
     }
 }

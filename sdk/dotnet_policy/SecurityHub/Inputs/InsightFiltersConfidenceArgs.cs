@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// The equal-to condition to be applied to a single field when querying for findings, provided as a String.
         /// </summary>
-        [Input("eq")]
+        [PolicyResourceProperty("eq", "_mUnknown_Eq")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEq;
-
-        public string? Eq => _mEq.GetValue("eq");
+        private string? _mValue_Eq;
+        private bool _mUnknown_Eq;
+        public string? Eq
+        {
+            get
+            {
+                if (!_mUnknown_Eq) return _mValue_Eq;
+                throw new UndeferrableValueException("Value 'InsightFiltersConfidenceArgs.Eq' is not present");
+            }
+        }
 
         /// <summary>
         /// The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         /// </summary>
-        [Input("gte")]
+        [PolicyResourceProperty("gte", "_mUnknown_Gte")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGte;
-
-        public string? Gte => _mGte.GetValue("gte");
+        private string? _mValue_Gte;
+        private bool _mUnknown_Gte;
+        public string? Gte
+        {
+            get
+            {
+                if (!_mUnknown_Gte) return _mValue_Gte;
+                throw new UndeferrableValueException("Value 'InsightFiltersConfidenceArgs.Gte' is not present");
+            }
+        }
 
         /// <summary>
         /// The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
         /// </summary>
-        [Input("lte")]
+        [PolicyResourceProperty("lte", "_mUnknown_Lte")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLte;
-
-        public string? Lte => _mLte.GetValue("lte");
+        private string? _mValue_Lte;
+        private bool _mUnknown_Lte;
+        public string? Lte
+        {
+            get
+            {
+                if (!_mUnknown_Lte) return _mValue_Lte;
+                throw new UndeferrableValueException("Value 'InsightFiltersConfidenceArgs.Lte' is not present");
+            }
+        }
     }
 }

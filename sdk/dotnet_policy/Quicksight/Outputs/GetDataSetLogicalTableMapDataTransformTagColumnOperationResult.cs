@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformTagColumnOperationResult
     {
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformTagColumnOperationResult.ColumnName' is not present");
+            }
+        }
 
-        public string? ColumnName => _mColumnName.GetValue("columnName");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult>> _mTags;
-
-        public List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult>? Tags => _mTags.GetValue("tags");
+        private List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public List<Outputs.GetDataSetLogicalTableMapDataTransformTagColumnOperationTagResult>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformTagColumnOperationResult.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// A block that specifies that the automation rule action is an update to a finding field.  Documented below.
         /// </summary>
-        [Input("findingFieldsUpdate")]
+        [PolicyResourceProperty("findingFieldsUpdate", "_mUnknown_FindingFieldsUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AutomationRuleActionFindingFieldsUpdate> _mFindingFieldsUpdate;
-
-        public Outputs.AutomationRuleActionFindingFieldsUpdate? FindingFieldsUpdate => _mFindingFieldsUpdate.GetValue("findingFieldsUpdate");
+        private Outputs.AutomationRuleActionFindingFieldsUpdate? _mValue_FindingFieldsUpdate;
+        private bool _mUnknown_FindingFieldsUpdate;
+        public Outputs.AutomationRuleActionFindingFieldsUpdate? FindingFieldsUpdate
+        {
+            get
+            {
+                if (!_mUnknown_FindingFieldsUpdate) return _mValue_FindingFieldsUpdate;
+                throw new UndeferrableValueException("Value 'AutomationRuleAction.FindingFieldsUpdate' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AutomationRuleAction.Type' is not present");
+            }
+        }
     }
 }

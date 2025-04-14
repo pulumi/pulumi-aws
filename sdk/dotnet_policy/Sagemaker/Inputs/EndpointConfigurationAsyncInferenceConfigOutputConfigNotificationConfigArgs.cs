@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
         /// </summary>
-        [Input("errorTopic")]
+        [PolicyResourceProperty("errorTopic", "_mUnknown_ErrorTopic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorTopic;
-
-        public string? ErrorTopic => _mErrorTopic.GetValue("errorTopic");
+        private string? _mValue_ErrorTopic;
+        private bool _mUnknown_ErrorTopic;
+        public string? ErrorTopic
+        {
+            get
+            {
+                if (!_mUnknown_ErrorTopic) return _mValue_ErrorTopic;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.ErrorTopic' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
         /// </summary>
-        [Input("includeInferenceResponseIns")]
+        [PolicyResourceProperty("includeInferenceResponseIns", "_mUnknown_IncludeInferenceResponseIns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludeInferenceResponseIns;
-
-        public List<string>? IncludeInferenceResponseIns => _mIncludeInferenceResponseIns.GetValue("includeInferenceResponseIns");
+        private List<string>? _mValue_IncludeInferenceResponseIns;
+        private bool _mUnknown_IncludeInferenceResponseIns;
+        public List<string>? IncludeInferenceResponseIns
+        {
+            get
+            {
+                if (!_mUnknown_IncludeInferenceResponseIns) return _mValue_IncludeInferenceResponseIns;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.IncludeInferenceResponseIns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
         /// </summary>
-        [Input("successTopic")]
+        [PolicyResourceProperty("successTopic", "_mUnknown_SuccessTopic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessTopic;
-
-        public string? SuccessTopic => _mSuccessTopic.GetValue("successTopic");
+        private string? _mValue_SuccessTopic;
+        private bool _mUnknown_SuccessTopic;
+        public string? SuccessTopic
+        {
+            get
+            {
+                if (!_mUnknown_SuccessTopic) return _mValue_SuccessTopic;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.SuccessTopic' is not present");
+            }
+        }
     }
 }

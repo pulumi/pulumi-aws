@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'Application.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the CodeDeploy application.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Application.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
         /// </summary>
-        [Input("computePlatform")]
+        [PolicyResourceProperty("computePlatform", "_mUnknown_ComputePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
-
-        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
+        private string? _mValue_ComputePlatform;
+        private bool _mUnknown_ComputePlatform;
+        public string? ComputePlatform
+        {
+            get
+            {
+                if (!_mUnknown_ComputePlatform) return _mValue_ComputePlatform;
+                throw new UndeferrableValueException("Value 'Application.ComputePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for a connection to a GitHub account.
         /// </summary>
-        [Input("githubAccountName")]
+        [PolicyResourceProperty("githubAccountName", "_mUnknown_GithubAccountName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGithubAccountName;
-
-        public string? GithubAccountName => _mGithubAccountName.GetValue("githubAccountName");
+        private string? _mValue_GithubAccountName;
+        private bool _mUnknown_GithubAccountName;
+        public string? GithubAccountName
+        {
+            get
+            {
+                if (!_mUnknown_GithubAccountName) return _mValue_GithubAccountName;
+                throw new UndeferrableValueException("Value 'Application.GithubAccountName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user has authenticated with GitHub for the specified application.
         /// </summary>
-        [Input("linkedToGithub")]
+        [PolicyResourceProperty("linkedToGithub", "_mUnknown_LinkedToGithub")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLinkedToGithub;
-
-        public bool? LinkedToGithub => _mLinkedToGithub.GetValue("linkedToGithub");
+        private bool? _mValue_LinkedToGithub;
+        private bool _mUnknown_LinkedToGithub;
+        public bool? LinkedToGithub
+        {
+            get
+            {
+                if (!_mUnknown_LinkedToGithub) return _mValue_LinkedToGithub;
+                throw new UndeferrableValueException("Value 'Application.LinkedToGithub' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Application.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Application.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Application.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codedeploy/application:Application")]
@@ -92,28 +148,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy
         /// <summary>
         /// The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
         /// </summary>
-        [Input("computePlatform")]
+        [PolicyResourceProperty("computePlatform", "_mUnknown_ComputePlatform")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputePlatform;
-
-        public string? ComputePlatform => _mComputePlatform.GetValue("computePlatform");
+        private string? _mValue_ComputePlatform;
+        private bool _mUnknown_ComputePlatform;
+        public string? ComputePlatform
+        {
+            get
+            {
+                if (!_mUnknown_ComputePlatform) return _mValue_ComputePlatform;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ComputePlatform' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
         /// </summary>
-        [Input("allowNonRestoredState")]
+        [PolicyResourceProperty("allowNonRestoredState", "_mUnknown_AllowNonRestoredState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowNonRestoredState;
-
-        public bool? AllowNonRestoredState => _mAllowNonRestoredState.GetValue("allowNonRestoredState");
+        private bool? _mValue_AllowNonRestoredState;
+        private bool _mUnknown_AllowNonRestoredState;
+        public bool? AllowNonRestoredState
+        {
+            get
+            {
+                if (!_mUnknown_AllowNonRestoredState) return _mValue_AllowNonRestoredState;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs.AllowNonRestoredState' is not present");
+            }
+        }
     }
 }

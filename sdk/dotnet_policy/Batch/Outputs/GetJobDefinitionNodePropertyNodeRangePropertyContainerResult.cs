@@ -15,181 +15,321 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The command that's passed to the container.
         /// </summary>
-        [Input("commands")]
+        [PolicyResourceProperty("commands", "_mUnknown_Commands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCommands;
-
-        public List<string>? Commands => _mCommands.GetValue("commands");
+        private List<string>? _mValue_Commands;
+        private bool _mUnknown_Commands;
+        public List<string>? Commands
+        {
+            get
+            {
+                if (!_mUnknown_Commands) return _mValue_Commands;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.Commands' is not present");
+            }
+        }
 
         /// <summary>
         /// The environment variables to pass to a container.
         /// </summary>
-        [Input("environments")]
+        [PolicyResourceProperty("environments", "_mUnknown_Environments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentResult>> _mEnvironments;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentResult>? Environments => _mEnvironments.GetValue("environments");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentResult>? _mValue_Environments;
+        private bool _mUnknown_Environments;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentResult>? Environments
+        {
+            get
+            {
+                if (!_mUnknown_Environments) return _mValue_Environments;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.Environments' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
         /// </summary>
-        [Input("ephemeralStorages")]
+        [PolicyResourceProperty("ephemeralStorages", "_mUnknown_EphemeralStorages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult>> _mEphemeralStorages;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult>? EphemeralStorages => _mEphemeralStorages.GetValue("ephemeralStorages");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult>? _mValue_EphemeralStorages;
+        private bool _mUnknown_EphemeralStorages;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult>? EphemeralStorages
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralStorages) return _mValue_EphemeralStorages;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.EphemeralStorages' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
         /// </summary>
-        [Input("fargatePlatformConfigurations")]
+        [PolicyResourceProperty("fargatePlatformConfigurations", "_mUnknown_FargatePlatformConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationResult>> _mFargatePlatformConfigurations;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationResult>? FargatePlatformConfigurations => _mFargatePlatformConfigurations.GetValue("fargatePlatformConfigurations");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationResult>? _mValue_FargatePlatformConfigurations;
+        private bool _mUnknown_FargatePlatformConfigurations;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationResult>? FargatePlatformConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_FargatePlatformConfigurations) return _mValue_FargatePlatformConfigurations;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.FargatePlatformConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The image used to start a container.
         /// </summary>
-        [Input("image")]
+        [PolicyResourceProperty("image", "_mUnknown_Image")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImage;
-
-        public string? Image => _mImage.GetValue("image");
+        private string? _mValue_Image;
+        private bool _mUnknown_Image;
+        public string? Image
+        {
+            get
+            {
+                if (!_mUnknown_Image) return _mValue_Image;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.Image' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance type to use for a multi-node parallel job.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
         /// </summary>
-        [Input("jobRoleArn")]
+        [PolicyResourceProperty("jobRoleArn", "_mUnknown_JobRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobRoleArn;
-
-        public string? JobRoleArn => _mJobRoleArn.GetValue("jobRoleArn");
+        private string? _mValue_JobRoleArn;
+        private bool _mUnknown_JobRoleArn;
+        public string? JobRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_JobRoleArn) return _mValue_JobRoleArn;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.JobRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Linux-specific modifications that are applied to the container.
         /// </summary>
-        [Input("linuxParameters")]
+        [PolicyResourceProperty("linuxParameters", "_mUnknown_LinuxParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult>> _mLinuxParameters;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult>? LinuxParameters => _mLinuxParameters.GetValue("linuxParameters");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult>? _mValue_LinuxParameters;
+        private bool _mUnknown_LinuxParameters;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult>? LinuxParameters
+        {
+            get
+            {
+                if (!_mUnknown_LinuxParameters) return _mValue_LinuxParameters;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.LinuxParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The log configuration specification for the container.
         /// </summary>
-        [Input("logConfigurations")]
+        [PolicyResourceProperty("logConfigurations", "_mUnknown_LogConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult>> _mLogConfigurations;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult>? LogConfigurations => _mLogConfigurations.GetValue("logConfigurations");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult>? _mValue_LogConfigurations;
+        private bool _mUnknown_LogConfigurations;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult>? LogConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_LogConfigurations) return _mValue_LogConfigurations;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.LogConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The mount points for data volumes in your container.
         /// </summary>
-        [Input("mountPoints")]
+        [PolicyResourceProperty("mountPoints", "_mUnknown_MountPoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult>> _mMountPoints;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult>? MountPoints => _mMountPoints.GetValue("mountPoints");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult>? _mValue_MountPoints;
+        private bool _mUnknown_MountPoints;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult>? MountPoints
+        {
+            get
+            {
+                if (!_mUnknown_MountPoints) return _mValue_MountPoints;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.MountPoints' is not present");
+            }
+        }
 
         /// <summary>
         /// The network configuration for jobs that are running on Fargate resources.
         /// </summary>
-        [Input("networkConfigurations")]
+        [PolicyResourceProperty("networkConfigurations", "_mUnknown_NetworkConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationResult>> _mNetworkConfigurations;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationResult>? NetworkConfigurations => _mNetworkConfigurations.GetValue("networkConfigurations");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationResult>? _mValue_NetworkConfigurations;
+        private bool _mUnknown_NetworkConfigurations;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationResult>? NetworkConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfigurations) return _mValue_NetworkConfigurations;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.NetworkConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
         /// </summary>
-        [Input("privileged")]
+        [PolicyResourceProperty("privileged", "_mUnknown_Privileged")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivileged;
-
-        public bool? Privileged => _mPrivileged.GetValue("privileged");
+        private bool? _mValue_Privileged;
+        private bool _mUnknown_Privileged;
+        public bool? Privileged
+        {
+            get
+            {
+                if (!_mUnknown_Privileged) return _mValue_Privileged;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.Privileged' is not present");
+            }
+        }
 
         /// <summary>
         /// When this parameter is true, the container is given read-only access to its root file system.
         /// </summary>
-        [Input("readonlyRootFilesystem")]
+        [PolicyResourceProperty("readonlyRootFilesystem", "_mUnknown_ReadonlyRootFilesystem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadonlyRootFilesystem;
-
-        public bool? ReadonlyRootFilesystem => _mReadonlyRootFilesystem.GetValue("readonlyRootFilesystem");
+        private bool? _mValue_ReadonlyRootFilesystem;
+        private bool _mUnknown_ReadonlyRootFilesystem;
+        public bool? ReadonlyRootFilesystem
+        {
+            get
+            {
+                if (!_mUnknown_ReadonlyRootFilesystem) return _mValue_ReadonlyRootFilesystem;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.ReadonlyRootFilesystem' is not present");
+            }
+        }
 
         /// <summary>
         /// The type and amount of resources to assign to a container.
         /// </summary>
-        [Input("resourceRequirements")]
+        [PolicyResourceProperty("resourceRequirements", "_mUnknown_ResourceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementResult>> _mResourceRequirements;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementResult>? ResourceRequirements => _mResourceRequirements.GetValue("resourceRequirements");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementResult>? _mValue_ResourceRequirements;
+        private bool _mUnknown_ResourceRequirements;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementResult>? ResourceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRequirements) return _mValue_ResourceRequirements;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.ResourceRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
         /// </summary>
-        [Input("runtimePlatforms")]
+        [PolicyResourceProperty("runtimePlatforms", "_mUnknown_RuntimePlatforms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult>> _mRuntimePlatforms;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult>? RuntimePlatforms => _mRuntimePlatforms.GetValue("runtimePlatforms");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult>? _mValue_RuntimePlatforms;
+        private bool _mUnknown_RuntimePlatforms;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult>? RuntimePlatforms
+        {
+            get
+            {
+                if (!_mUnknown_RuntimePlatforms) return _mValue_RuntimePlatforms;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.RuntimePlatforms' is not present");
+            }
+        }
 
         /// <summary>
         /// The secrets for the container.
         /// </summary>
-        [Input("secrets")]
+        [PolicyResourceProperty("secrets", "_mUnknown_Secrets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretResult>> _mSecrets;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretResult>? Secrets => _mSecrets.GetValue("secrets");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretResult>? _mValue_Secrets;
+        private bool _mUnknown_Secrets;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretResult>? Secrets
+        {
+            get
+            {
+                if (!_mUnknown_Secrets) return _mValue_Secrets;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.Secrets' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of ulimits to set in the container.
         /// </summary>
-        [Input("ulimits")]
+        [PolicyResourceProperty("ulimits", "_mUnknown_Ulimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult>> _mUlimits;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult>? Ulimits => _mUlimits.GetValue("ulimits");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult>? _mValue_Ulimits;
+        private bool _mUnknown_Ulimits;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult>? Ulimits
+        {
+            get
+            {
+                if (!_mUnknown_Ulimits) return _mValue_Ulimits;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.Ulimits' is not present");
+            }
+        }
 
         /// <summary>
         /// The user name to use inside the container.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.User' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of data volumes used in a job.
         /// </summary>
-        [Input("volumes")]
+        [PolicyResourceProperty("volumes", "_mUnknown_Volumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult>> _mVolumes;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult>? Volumes => _mVolumes.GetValue("volumes");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult>? _mValue_Volumes;
+        private bool _mUnknown_Volumes;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult>? Volumes
+        {
+            get
+            {
+                if (!_mUnknown_Volumes) return _mValue_Volumes;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerResult.Volumes' is not present");
+            }
+        }
     }
 }

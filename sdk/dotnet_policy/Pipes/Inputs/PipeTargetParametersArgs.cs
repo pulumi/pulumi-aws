@@ -15,109 +15,193 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// The parameters for using an AWS Batch job as a target. Detailed below.
         /// </summary>
-        [Input("batchJobParameters")]
+        [PolicyResourceProperty("batchJobParameters", "_mUnknown_BatchJobParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersBatchJobParametersArgs> _mBatchJobParameters;
-
-        public Inputs.PipeTargetParametersBatchJobParametersArgs? BatchJobParameters => _mBatchJobParameters.GetValue("batchJobParameters");
+        private Inputs.PipeTargetParametersBatchJobParametersArgs? _mValue_BatchJobParameters;
+        private bool _mUnknown_BatchJobParameters;
+        public Inputs.PipeTargetParametersBatchJobParametersArgs? BatchJobParameters
+        {
+            get
+            {
+                if (!_mUnknown_BatchJobParameters) return _mValue_BatchJobParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.BatchJobParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
         /// </summary>
-        [Input("cloudwatchLogsParameters")]
+        [PolicyResourceProperty("cloudwatchLogsParameters", "_mUnknown_CloudwatchLogsParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersCloudwatchLogsParametersArgs> _mCloudwatchLogsParameters;
-
-        public Inputs.PipeTargetParametersCloudwatchLogsParametersArgs? CloudwatchLogsParameters => _mCloudwatchLogsParameters.GetValue("cloudwatchLogsParameters");
+        private Inputs.PipeTargetParametersCloudwatchLogsParametersArgs? _mValue_CloudwatchLogsParameters;
+        private bool _mUnknown_CloudwatchLogsParameters;
+        public Inputs.PipeTargetParametersCloudwatchLogsParametersArgs? CloudwatchLogsParameters
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogsParameters) return _mValue_CloudwatchLogsParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.CloudwatchLogsParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using an Amazon ECS task as a target. Detailed below.
         /// </summary>
-        [Input("ecsTaskParameters")]
+        [PolicyResourceProperty("ecsTaskParameters", "_mUnknown_EcsTaskParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersEcsTaskParametersArgs> _mEcsTaskParameters;
-
-        public Inputs.PipeTargetParametersEcsTaskParametersArgs? EcsTaskParameters => _mEcsTaskParameters.GetValue("ecsTaskParameters");
+        private Inputs.PipeTargetParametersEcsTaskParametersArgs? _mValue_EcsTaskParameters;
+        private bool _mUnknown_EcsTaskParameters;
+        public Inputs.PipeTargetParametersEcsTaskParametersArgs? EcsTaskParameters
+        {
+            get
+            {
+                if (!_mUnknown_EcsTaskParameters) return _mValue_EcsTaskParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.EcsTaskParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using an EventBridge event bus as a target. Detailed below.
         /// </summary>
-        [Input("eventbridgeEventBusParameters")]
+        [PolicyResourceProperty("eventbridgeEventBusParameters", "_mUnknown_EventbridgeEventBusParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersEventbridgeEventBusParametersArgs> _mEventbridgeEventBusParameters;
-
-        public Inputs.PipeTargetParametersEventbridgeEventBusParametersArgs? EventbridgeEventBusParameters => _mEventbridgeEventBusParameters.GetValue("eventbridgeEventBusParameters");
+        private Inputs.PipeTargetParametersEventbridgeEventBusParametersArgs? _mValue_EventbridgeEventBusParameters;
+        private bool _mUnknown_EventbridgeEventBusParameters;
+        public Inputs.PipeTargetParametersEventbridgeEventBusParametersArgs? EventbridgeEventBusParameters
+        {
+            get
+            {
+                if (!_mUnknown_EventbridgeEventBusParameters) return _mValue_EventbridgeEventBusParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.EventbridgeEventBusParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
         /// </summary>
-        [Input("httpParameters")]
+        [PolicyResourceProperty("httpParameters", "_mUnknown_HttpParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersHttpParametersArgs> _mHttpParameters;
-
-        public Inputs.PipeTargetParametersHttpParametersArgs? HttpParameters => _mHttpParameters.GetValue("httpParameters");
+        private Inputs.PipeTargetParametersHttpParametersArgs? _mValue_HttpParameters;
+        private bool _mUnknown_HttpParameters;
+        public Inputs.PipeTargetParametersHttpParametersArgs? HttpParameters
+        {
+            get
+            {
+                if (!_mUnknown_HttpParameters) return _mValue_HttpParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.HttpParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
         /// </summary>
-        [Input("inputTemplate")]
+        [PolicyResourceProperty("inputTemplate", "_mUnknown_InputTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputTemplate;
-
-        public string? InputTemplate => _mInputTemplate.GetValue("inputTemplate");
+        private string? _mValue_InputTemplate;
+        private bool _mUnknown_InputTemplate;
+        public string? InputTemplate
+        {
+            get
+            {
+                if (!_mUnknown_InputTemplate) return _mValue_InputTemplate;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.InputTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a Kinesis stream as a source. Detailed below.
         /// </summary>
-        [Input("kinesisStreamParameters")]
+        [PolicyResourceProperty("kinesisStreamParameters", "_mUnknown_KinesisStreamParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersKinesisStreamParametersArgs> _mKinesisStreamParameters;
-
-        public Inputs.PipeTargetParametersKinesisStreamParametersArgs? KinesisStreamParameters => _mKinesisStreamParameters.GetValue("kinesisStreamParameters");
+        private Inputs.PipeTargetParametersKinesisStreamParametersArgs? _mValue_KinesisStreamParameters;
+        private bool _mUnknown_KinesisStreamParameters;
+        public Inputs.PipeTargetParametersKinesisStreamParametersArgs? KinesisStreamParameters
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamParameters) return _mValue_KinesisStreamParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.KinesisStreamParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a Lambda function as a target. Detailed below.
         /// </summary>
-        [Input("lambdaFunctionParameters")]
+        [PolicyResourceProperty("lambdaFunctionParameters", "_mUnknown_LambdaFunctionParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersLambdaFunctionParametersArgs> _mLambdaFunctionParameters;
-
-        public Inputs.PipeTargetParametersLambdaFunctionParametersArgs? LambdaFunctionParameters => _mLambdaFunctionParameters.GetValue("lambdaFunctionParameters");
+        private Inputs.PipeTargetParametersLambdaFunctionParametersArgs? _mValue_LambdaFunctionParameters;
+        private bool _mUnknown_LambdaFunctionParameters;
+        public Inputs.PipeTargetParametersLambdaFunctionParametersArgs? LambdaFunctionParameters
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionParameters) return _mValue_LambdaFunctionParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.LambdaFunctionParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
         /// </summary>
-        [Input("redshiftDataParameters")]
+        [PolicyResourceProperty("redshiftDataParameters", "_mUnknown_RedshiftDataParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersRedshiftDataParametersArgs> _mRedshiftDataParameters;
-
-        public Inputs.PipeTargetParametersRedshiftDataParametersArgs? RedshiftDataParameters => _mRedshiftDataParameters.GetValue("redshiftDataParameters");
+        private Inputs.PipeTargetParametersRedshiftDataParametersArgs? _mValue_RedshiftDataParameters;
+        private bool _mUnknown_RedshiftDataParameters;
+        public Inputs.PipeTargetParametersRedshiftDataParametersArgs? RedshiftDataParameters
+        {
+            get
+            {
+                if (!_mUnknown_RedshiftDataParameters) return _mValue_RedshiftDataParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.RedshiftDataParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a SageMaker AI pipeline as a target. Detailed below.
         /// </summary>
-        [Input("sagemakerPipelineParameters")]
+        [PolicyResourceProperty("sagemakerPipelineParameters", "_mUnknown_SagemakerPipelineParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersSagemakerPipelineParametersArgs> _mSagemakerPipelineParameters;
-
-        public Inputs.PipeTargetParametersSagemakerPipelineParametersArgs? SagemakerPipelineParameters => _mSagemakerPipelineParameters.GetValue("sagemakerPipelineParameters");
+        private Inputs.PipeTargetParametersSagemakerPipelineParametersArgs? _mValue_SagemakerPipelineParameters;
+        private bool _mUnknown_SagemakerPipelineParameters;
+        public Inputs.PipeTargetParametersSagemakerPipelineParametersArgs? SagemakerPipelineParameters
+        {
+            get
+            {
+                if (!_mUnknown_SagemakerPipelineParameters) return _mValue_SagemakerPipelineParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.SagemakerPipelineParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a Amazon SQS stream as a target. Detailed below.
         /// </summary>
-        [Input("sqsQueueParameters")]
+        [PolicyResourceProperty("sqsQueueParameters", "_mUnknown_SqsQueueParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersSqsQueueParametersArgs> _mSqsQueueParameters;
-
-        public Inputs.PipeTargetParametersSqsQueueParametersArgs? SqsQueueParameters => _mSqsQueueParameters.GetValue("sqsQueueParameters");
+        private Inputs.PipeTargetParametersSqsQueueParametersArgs? _mValue_SqsQueueParameters;
+        private bool _mUnknown_SqsQueueParameters;
+        public Inputs.PipeTargetParametersSqsQueueParametersArgs? SqsQueueParameters
+        {
+            get
+            {
+                if (!_mUnknown_SqsQueueParameters) return _mValue_SqsQueueParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.SqsQueueParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameters for using a Step Functions state machine as a target. Detailed below.
         /// </summary>
-        [Input("stepFunctionStateMachineParameters")]
+        [PolicyResourceProperty("stepFunctionStateMachineParameters", "_mUnknown_StepFunctionStateMachineParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeTargetParametersStepFunctionStateMachineParametersArgs> _mStepFunctionStateMachineParameters;
-
-        public Inputs.PipeTargetParametersStepFunctionStateMachineParametersArgs? StepFunctionStateMachineParameters => _mStepFunctionStateMachineParameters.GetValue("stepFunctionStateMachineParameters");
+        private Inputs.PipeTargetParametersStepFunctionStateMachineParametersArgs? _mValue_StepFunctionStateMachineParameters;
+        private bool _mUnknown_StepFunctionStateMachineParameters;
+        public Inputs.PipeTargetParametersStepFunctionStateMachineParametersArgs? StepFunctionStateMachineParameters
+        {
+            get
+            {
+                if (!_mUnknown_StepFunctionStateMachineParameters) return _mValue_StepFunctionStateMachineParameters;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.StepFunctionStateMachineParameters' is not present");
+            }
+        }
     }
 }

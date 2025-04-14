@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// The account(s) to aggregate config data from as documented below.
         /// </summary>
-        [Input("accountAggregationSource")]
+        [PolicyResourceProperty("accountAggregationSource", "_mUnknown_AccountAggregationSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationAggregatorAccountAggregationSource> _mAccountAggregationSource;
-
-        public Outputs.ConfigurationAggregatorAccountAggregationSource? AccountAggregationSource => _mAccountAggregationSource.GetValue("accountAggregationSource");
+        private Outputs.ConfigurationAggregatorAccountAggregationSource? _mValue_AccountAggregationSource;
+        private bool _mUnknown_AccountAggregationSource;
+        public Outputs.ConfigurationAggregatorAccountAggregationSource? AccountAggregationSource
+        {
+            get
+            {
+                if (!_mUnknown_AccountAggregationSource) return _mValue_AccountAggregationSource;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregator.AccountAggregationSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the aggregator
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregator.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration aggregator.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregator.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The organization to aggregate config data from as documented below.
         /// </summary>
-        [Input("organizationAggregationSource")]
+        [PolicyResourceProperty("organizationAggregationSource", "_mUnknown_OrganizationAggregationSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationAggregatorOrganizationAggregationSource> _mOrganizationAggregationSource;
-
-        public Outputs.ConfigurationAggregatorOrganizationAggregationSource? OrganizationAggregationSource => _mOrganizationAggregationSource.GetValue("organizationAggregationSource");
+        private Outputs.ConfigurationAggregatorOrganizationAggregationSource? _mValue_OrganizationAggregationSource;
+        private bool _mUnknown_OrganizationAggregationSource;
+        public Outputs.ConfigurationAggregatorOrganizationAggregationSource? OrganizationAggregationSource
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationAggregationSource) return _mValue_OrganizationAggregationSource;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregator.OrganizationAggregationSource' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregator.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregator.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]
@@ -76,39 +118,67 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// The account(s) to aggregate config data from as documented below.
         /// </summary>
-        [Input("accountAggregationSource")]
+        [PolicyResourceProperty("accountAggregationSource", "_mUnknown_AccountAggregationSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs> _mAccountAggregationSource;
-
-        public Inputs.ConfigurationAggregatorAccountAggregationSourceArgs? AccountAggregationSource => _mAccountAggregationSource.GetValue("accountAggregationSource");
+        private Inputs.ConfigurationAggregatorAccountAggregationSourceArgs? _mValue_AccountAggregationSource;
+        private bool _mUnknown_AccountAggregationSource;
+        public Inputs.ConfigurationAggregatorAccountAggregationSourceArgs? AccountAggregationSource
+        {
+            get
+            {
+                if (!_mUnknown_AccountAggregationSource) return _mValue_AccountAggregationSource;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.AccountAggregationSource' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration aggregator.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The organization to aggregate config data from as documented below.
         /// </summary>
-        [Input("organizationAggregationSource")]
+        [PolicyResourceProperty("organizationAggregationSource", "_mUnknown_OrganizationAggregationSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs> _mOrganizationAggregationSource;
-
-        public Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs? OrganizationAggregationSource => _mOrganizationAggregationSource.GetValue("organizationAggregationSource");
+        private Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs? _mValue_OrganizationAggregationSource;
+        private bool _mUnknown_OrganizationAggregationSource;
+        public Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs? OrganizationAggregationSource
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationAggregationSource) return _mValue_OrganizationAggregationSource;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.OrganizationAggregationSource' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.Tags' is not present");
+            }
+        }
     }
 }

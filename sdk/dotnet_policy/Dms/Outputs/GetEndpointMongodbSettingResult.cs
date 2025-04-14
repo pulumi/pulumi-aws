@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
 {
     public sealed class GetEndpointMongodbSettingResult
     {
-        [Input("authMechanism")]
+        [PolicyResourceProperty("authMechanism", "_mUnknown_AuthMechanism")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthMechanism;
+        private string? _mValue_AuthMechanism;
+        private bool _mUnknown_AuthMechanism;
+        public string? AuthMechanism
+        {
+            get
+            {
+                if (!_mUnknown_AuthMechanism) return _mValue_AuthMechanism;
+                throw new UndeferrableValueException("Value 'GetEndpointMongodbSettingResult.AuthMechanism' is not present");
+            }
+        }
 
-        public string? AuthMechanism => _mAuthMechanism.GetValue("authMechanism");
-
-        [Input("authSource")]
+        [PolicyResourceProperty("authSource", "_mUnknown_AuthSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthSource;
+        private string? _mValue_AuthSource;
+        private bool _mUnknown_AuthSource;
+        public string? AuthSource
+        {
+            get
+            {
+                if (!_mUnknown_AuthSource) return _mValue_AuthSource;
+                throw new UndeferrableValueException("Value 'GetEndpointMongodbSettingResult.AuthSource' is not present");
+            }
+        }
 
-        public string? AuthSource => _mAuthSource.GetValue("authSource");
-
-        [Input("authType")]
+        [PolicyResourceProperty("authType", "_mUnknown_AuthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthType;
+        private string? _mValue_AuthType;
+        private bool _mUnknown_AuthType;
+        public string? AuthType
+        {
+            get
+            {
+                if (!_mUnknown_AuthType) return _mValue_AuthType;
+                throw new UndeferrableValueException("Value 'GetEndpointMongodbSettingResult.AuthType' is not present");
+            }
+        }
 
-        public string? AuthType => _mAuthType.GetValue("authType");
-
-        [Input("docsToInvestigate")]
+        [PolicyResourceProperty("docsToInvestigate", "_mUnknown_DocsToInvestigate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocsToInvestigate;
+        private string? _mValue_DocsToInvestigate;
+        private bool _mUnknown_DocsToInvestigate;
+        public string? DocsToInvestigate
+        {
+            get
+            {
+                if (!_mUnknown_DocsToInvestigate) return _mValue_DocsToInvestigate;
+                throw new UndeferrableValueException("Value 'GetEndpointMongodbSettingResult.DocsToInvestigate' is not present");
+            }
+        }
 
-        public string? DocsToInvestigate => _mDocsToInvestigate.GetValue("docsToInvestigate");
-
-        [Input("extractDocId")]
+        [PolicyResourceProperty("extractDocId", "_mUnknown_ExtractDocId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtractDocId;
+        private string? _mValue_ExtractDocId;
+        private bool _mUnknown_ExtractDocId;
+        public string? ExtractDocId
+        {
+            get
+            {
+                if (!_mUnknown_ExtractDocId) return _mValue_ExtractDocId;
+                throw new UndeferrableValueException("Value 'GetEndpointMongodbSettingResult.ExtractDocId' is not present");
+            }
+        }
 
-        public string? ExtractDocId => _mExtractDocId.GetValue("extractDocId");
-
-        [Input("nestingLevel")]
+        [PolicyResourceProperty("nestingLevel", "_mUnknown_NestingLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNestingLevel;
-
-        public string? NestingLevel => _mNestingLevel.GetValue("nestingLevel");
+        private string? _mValue_NestingLevel;
+        private bool _mUnknown_NestingLevel;
+        public string? NestingLevel
+        {
+            get
+            {
+                if (!_mUnknown_NestingLevel) return _mValue_NestingLevel;
+                throw new UndeferrableValueException("Value 'GetEndpointMongodbSettingResult.NestingLevel' is not present");
+            }
+        }
     }
 }

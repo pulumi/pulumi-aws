@@ -15,49 +15,91 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// HTTP port the custom origin listens on.
         /// </summary>
-        [Input("httpPort")]
+        [PolicyResourceProperty("httpPort", "_mUnknown_HttpPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpPort;
-
-        public int? HttpPort => _mHttpPort.GetValue("httpPort");
+        private int? _mValue_HttpPort;
+        private bool _mUnknown_HttpPort;
+        public int? HttpPort
+        {
+            get
+            {
+                if (!_mUnknown_HttpPort) return _mValue_HttpPort;
+                throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfig.HttpPort' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTPS port the custom origin listens on.
         /// </summary>
-        [Input("httpsPort")]
+        [PolicyResourceProperty("httpsPort", "_mUnknown_HttpsPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHttpsPort;
+        private int? _mValue_HttpsPort;
+        private bool _mUnknown_HttpsPort;
+        public int? HttpsPort
+        {
+            get
+            {
+                if (!_mUnknown_HttpsPort) return _mValue_HttpsPort;
+                throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfig.HttpsPort' is not present");
+            }
+        }
 
-        public int? HttpsPort => _mHttpsPort.GetValue("httpsPort");
-
-        [Input("originKeepaliveTimeout")]
+        [PolicyResourceProperty("originKeepaliveTimeout", "_mUnknown_OriginKeepaliveTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOriginKeepaliveTimeout;
-
-        public int? OriginKeepaliveTimeout => _mOriginKeepaliveTimeout.GetValue("originKeepaliveTimeout");
+        private int? _mValue_OriginKeepaliveTimeout;
+        private bool _mUnknown_OriginKeepaliveTimeout;
+        public int? OriginKeepaliveTimeout
+        {
+            get
+            {
+                if (!_mUnknown_OriginKeepaliveTimeout) return _mValue_OriginKeepaliveTimeout;
+                throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfig.OriginKeepaliveTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         /// </summary>
-        [Input("originProtocolPolicy")]
+        [PolicyResourceProperty("originProtocolPolicy", "_mUnknown_OriginProtocolPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginProtocolPolicy;
+        private string? _mValue_OriginProtocolPolicy;
+        private bool _mUnknown_OriginProtocolPolicy;
+        public string? OriginProtocolPolicy
+        {
+            get
+            {
+                if (!_mUnknown_OriginProtocolPolicy) return _mValue_OriginProtocolPolicy;
+                throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfig.OriginProtocolPolicy' is not present");
+            }
+        }
 
-        public string? OriginProtocolPolicy => _mOriginProtocolPolicy.GetValue("originProtocolPolicy");
-
-        [Input("originReadTimeout")]
+        [PolicyResourceProperty("originReadTimeout", "_mUnknown_OriginReadTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOriginReadTimeout;
-
-        public int? OriginReadTimeout => _mOriginReadTimeout.GetValue("originReadTimeout");
+        private int? _mValue_OriginReadTimeout;
+        private bool _mUnknown_OriginReadTimeout;
+        public int? OriginReadTimeout
+        {
+            get
+            {
+                if (!_mUnknown_OriginReadTimeout) return _mValue_OriginReadTimeout;
+                throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfig.OriginReadTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
         /// </summary>
-        [Input("originSslProtocols")]
+        [PolicyResourceProperty("originSslProtocols", "_mUnknown_OriginSslProtocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOriginSslProtocols;
-
-        public List<string>? OriginSslProtocols => _mOriginSslProtocols.GetValue("originSslProtocols");
+        private List<string>? _mValue_OriginSslProtocols;
+        private bool _mUnknown_OriginSslProtocols;
+        public List<string>? OriginSslProtocols
+        {
+            get
+            {
+                if (!_mUnknown_OriginSslProtocols) return _mValue_OriginSslProtocols;
+                throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfig.OriginSslProtocols' is not present");
+            }
+        }
     }
 }

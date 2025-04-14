@@ -16,225 +16,400 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'Stack.AgentVersion' is not present");
+            }
+        }
 
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
-
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Stack.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
         /// </summary>
-        [Input("berkshelfVersion")]
+        [PolicyResourceProperty("berkshelfVersion", "_mUnknown_BerkshelfVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBerkshelfVersion;
-
-        public string? BerkshelfVersion => _mBerkshelfVersion.GetValue("berkshelfVersion");
+        private string? _mValue_BerkshelfVersion;
+        private bool _mUnknown_BerkshelfVersion;
+        public string? BerkshelfVersion
+        {
+            get
+            {
+                if (!_mUnknown_BerkshelfVersion) return _mValue_BerkshelfVersion;
+                throw new UndeferrableValueException("Value 'Stack.BerkshelfVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Color to paint next to the stack's resources in the OpsWorks console.
         /// </summary>
-        [Input("color")]
+        [PolicyResourceProperty("color", "_mUnknown_Color")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColor;
-
-        public string? Color => _mColor.GetValue("color");
+        private string? _mValue_Color;
+        private bool _mUnknown_Color;
+        public string? Color
+        {
+            get
+            {
+                if (!_mUnknown_Color) return _mValue_Color;
+                throw new UndeferrableValueException("Value 'Stack.Color' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration manager to use. Defaults to "Chef".
         /// </summary>
-        [Input("configurationManagerName")]
+        [PolicyResourceProperty("configurationManagerName", "_mUnknown_ConfigurationManagerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerName;
-
-        public string? ConfigurationManagerName => _mConfigurationManagerName.GetValue("configurationManagerName");
+        private string? _mValue_ConfigurationManagerName;
+        private bool _mUnknown_ConfigurationManagerName;
+        public string? ConfigurationManagerName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationManagerName) return _mValue_ConfigurationManagerName;
+                throw new UndeferrableValueException("Value 'Stack.ConfigurationManagerName' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the configuration manager to use. Defaults to "11.4".
         /// </summary>
-        [Input("configurationManagerVersion")]
+        [PolicyResourceProperty("configurationManagerVersion", "_mUnknown_ConfigurationManagerVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerVersion;
-
-        public string? ConfigurationManagerVersion => _mConfigurationManagerVersion.GetValue("configurationManagerVersion");
+        private string? _mValue_ConfigurationManagerVersion;
+        private bool _mUnknown_ConfigurationManagerVersion;
+        public string? ConfigurationManagerVersion
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationManagerVersion) return _mValue_ConfigurationManagerVersion;
+                throw new UndeferrableValueException("Value 'Stack.ConfigurationManagerVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
-        [Input("customCookbooksSources")]
+        [PolicyResourceProperty("customCookbooksSources", "_mUnknown_CustomCookbooksSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.StackCustomCookbooksSource>> _mCustomCookbooksSources;
-
-        public List<Outputs.StackCustomCookbooksSource>? CustomCookbooksSources => _mCustomCookbooksSources.GetValue("customCookbooksSources");
+        private List<Outputs.StackCustomCookbooksSource>? _mValue_CustomCookbooksSources;
+        private bool _mUnknown_CustomCookbooksSources;
+        public List<Outputs.StackCustomCookbooksSource>? CustomCookbooksSources
+        {
+            get
+            {
+                if (!_mUnknown_CustomCookbooksSources) return _mValue_CustomCookbooksSources;
+                throw new UndeferrableValueException("Value 'Stack.CustomCookbooksSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom JSON attributes to apply to the entire stack.
         /// </summary>
-        [Input("customJson")]
+        [PolicyResourceProperty("customJson", "_mUnknown_CustomJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
-
-        public string? CustomJson => _mCustomJson.GetValue("customJson");
+        private string? _mValue_CustomJson;
+        private bool _mUnknown_CustomJson;
+        public string? CustomJson
+        {
+            get
+            {
+                if (!_mUnknown_CustomJson) return _mValue_CustomJson;
+                throw new UndeferrableValueException("Value 'Stack.CustomJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the availability zone where instances will be created by default.
         /// Cannot be set when `vpc_id` is set.
         /// </summary>
-        [Input("defaultAvailabilityZone")]
+        [PolicyResourceProperty("defaultAvailabilityZone", "_mUnknown_DefaultAvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAvailabilityZone;
-
-        public string? DefaultAvailabilityZone => _mDefaultAvailabilityZone.GetValue("defaultAvailabilityZone");
+        private string? _mValue_DefaultAvailabilityZone;
+        private bool _mUnknown_DefaultAvailabilityZone;
+        public string? DefaultAvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAvailabilityZone) return _mValue_DefaultAvailabilityZone;
+                throw new UndeferrableValueException("Value 'Stack.DefaultAvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM Instance Profile that created instances will have by default.
         /// </summary>
-        [Input("defaultInstanceProfileArn")]
+        [PolicyResourceProperty("defaultInstanceProfileArn", "_mUnknown_DefaultInstanceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultInstanceProfileArn;
-
-        public string? DefaultInstanceProfileArn => _mDefaultInstanceProfileArn.GetValue("defaultInstanceProfileArn");
+        private string? _mValue_DefaultInstanceProfileArn;
+        private bool _mUnknown_DefaultInstanceProfileArn;
+        public string? DefaultInstanceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_DefaultInstanceProfileArn) return _mValue_DefaultInstanceProfileArn;
+                throw new UndeferrableValueException("Value 'Stack.DefaultInstanceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of OS that will be installed on instances by default.
         /// </summary>
-        [Input("defaultOs")]
+        [PolicyResourceProperty("defaultOs", "_mUnknown_DefaultOs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultOs;
-
-        public string? DefaultOs => _mDefaultOs.GetValue("defaultOs");
+        private string? _mValue_DefaultOs;
+        private bool _mUnknown_DefaultOs;
+        public string? DefaultOs
+        {
+            get
+            {
+                if (!_mUnknown_DefaultOs) return _mValue_DefaultOs;
+                throw new UndeferrableValueException("Value 'Stack.DefaultOs' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the type of root device instances will have by default.
         /// </summary>
-        [Input("defaultRootDeviceType")]
+        [PolicyResourceProperty("defaultRootDeviceType", "_mUnknown_DefaultRootDeviceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRootDeviceType;
-
-        public string? DefaultRootDeviceType => _mDefaultRootDeviceType.GetValue("defaultRootDeviceType");
+        private string? _mValue_DefaultRootDeviceType;
+        private bool _mUnknown_DefaultRootDeviceType;
+        public string? DefaultRootDeviceType
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRootDeviceType) return _mValue_DefaultRootDeviceType;
+                throw new UndeferrableValueException("Value 'Stack.DefaultRootDeviceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the SSH keypair that instances will have by default.
         /// </summary>
-        [Input("defaultSshKeyName")]
+        [PolicyResourceProperty("defaultSshKeyName", "_mUnknown_DefaultSshKeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSshKeyName;
-
-        public string? DefaultSshKeyName => _mDefaultSshKeyName.GetValue("defaultSshKeyName");
+        private string? _mValue_DefaultSshKeyName;
+        private bool _mUnknown_DefaultSshKeyName;
+        public string? DefaultSshKeyName
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSshKeyName) return _mValue_DefaultSshKeyName;
+                throw new UndeferrableValueException("Value 'Stack.DefaultSshKeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the subnet in which instances will be created by default.
         /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         /// </summary>
-        [Input("defaultSubnetId")]
+        [PolicyResourceProperty("defaultSubnetId", "_mUnknown_DefaultSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSubnetId;
-
-        public string? DefaultSubnetId => _mDefaultSubnetId.GetValue("defaultSubnetId");
+        private string? _mValue_DefaultSubnetId;
+        private bool _mUnknown_DefaultSubnetId;
+        public string? DefaultSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSubnetId) return _mValue_DefaultSubnetId;
+                throw new UndeferrableValueException("Value 'Stack.DefaultSubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         /// </summary>
-        [Input("hostnameTheme")]
+        [PolicyResourceProperty("hostnameTheme", "_mUnknown_HostnameTheme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostnameTheme;
-
-        public string? HostnameTheme => _mHostnameTheme.GetValue("hostnameTheme");
+        private string? _mValue_HostnameTheme;
+        private bool _mUnknown_HostnameTheme;
+        public string? HostnameTheme
+        {
+            get
+            {
+                if (!_mUnknown_HostnameTheme) return _mValue_HostnameTheme;
+                throw new UndeferrableValueException("Value 'Stack.HostnameTheme' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         /// </summary>
-        [Input("manageBerkshelf")]
+        [PolicyResourceProperty("manageBerkshelf", "_mUnknown_ManageBerkshelf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageBerkshelf;
-
-        public bool? ManageBerkshelf => _mManageBerkshelf.GetValue("manageBerkshelf");
+        private bool? _mValue_ManageBerkshelf;
+        private bool _mUnknown_ManageBerkshelf;
+        public bool? ManageBerkshelf
+        {
+            get
+            {
+                if (!_mUnknown_ManageBerkshelf) return _mValue_ManageBerkshelf;
+                throw new UndeferrableValueException("Value 'Stack.ManageBerkshelf' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the stack.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Stack.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the region where the stack will exist.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'Stack.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role that the OpsWorks service will act as.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'Stack.ServiceRoleArn' is not present");
+            }
+        }
 
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
-
-        [Input("stackEndpoint")]
+        [PolicyResourceProperty("stackEndpoint", "_mUnknown_StackEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackEndpoint;
-
-        public string? StackEndpoint => _mStackEndpoint.GetValue("stackEndpoint");
+        private string? _mValue_StackEndpoint;
+        private bool _mUnknown_StackEndpoint;
+        public string? StackEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_StackEndpoint) return _mValue_StackEndpoint;
+                throw new UndeferrableValueException("Value 'Stack.StackEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Stack.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Stack.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value controlling whether the custom cookbook settings are enabled.
         /// </summary>
-        [Input("useCustomCookbooks")]
+        [PolicyResourceProperty("useCustomCookbooks", "_mUnknown_UseCustomCookbooks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCustomCookbooks;
-
-        public bool? UseCustomCookbooks => _mUseCustomCookbooks.GetValue("useCustomCookbooks");
+        private bool? _mValue_UseCustomCookbooks;
+        private bool _mUnknown_UseCustomCookbooks;
+        public bool? UseCustomCookbooks
+        {
+            get
+            {
+                if (!_mUnknown_UseCustomCookbooks) return _mValue_UseCustomCookbooks;
+                throw new UndeferrableValueException("Value 'Stack.UseCustomCookbooks' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         /// </summary>
-        [Input("useOpsworksSecurityGroups")]
+        [PolicyResourceProperty("useOpsworksSecurityGroups", "_mUnknown_UseOpsworksSecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseOpsworksSecurityGroups;
-
-        public bool? UseOpsworksSecurityGroups => _mUseOpsworksSecurityGroups.GetValue("useOpsworksSecurityGroups");
+        private bool? _mValue_UseOpsworksSecurityGroups;
+        private bool _mUnknown_UseOpsworksSecurityGroups;
+        public bool? UseOpsworksSecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_UseOpsworksSecurityGroups) return _mValue_UseOpsworksSecurityGroups;
+                throw new UndeferrableValueException("Value 'Stack.UseOpsworksSecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC that this stack belongs to.
         /// Defaults to the region's default VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'Stack.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opsworks/stack:Stack")]
@@ -243,203 +418,357 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// If set to `"LATEST"`, OpsWorks will automatically install the latest version.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'StackArgs.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// If `manage_berkshelf` is enabled, the version of Berkshelf to use.
         /// </summary>
-        [Input("berkshelfVersion")]
+        [PolicyResourceProperty("berkshelfVersion", "_mUnknown_BerkshelfVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBerkshelfVersion;
-
-        public string? BerkshelfVersion => _mBerkshelfVersion.GetValue("berkshelfVersion");
+        private string? _mValue_BerkshelfVersion;
+        private bool _mUnknown_BerkshelfVersion;
+        public string? BerkshelfVersion
+        {
+            get
+            {
+                if (!_mUnknown_BerkshelfVersion) return _mValue_BerkshelfVersion;
+                throw new UndeferrableValueException("Value 'StackArgs.BerkshelfVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Color to paint next to the stack's resources in the OpsWorks console.
         /// </summary>
-        [Input("color")]
+        [PolicyResourceProperty("color", "_mUnknown_Color")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColor;
-
-        public string? Color => _mColor.GetValue("color");
+        private string? _mValue_Color;
+        private bool _mUnknown_Color;
+        public string? Color
+        {
+            get
+            {
+                if (!_mUnknown_Color) return _mValue_Color;
+                throw new UndeferrableValueException("Value 'StackArgs.Color' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration manager to use. Defaults to "Chef".
         /// </summary>
-        [Input("configurationManagerName")]
+        [PolicyResourceProperty("configurationManagerName", "_mUnknown_ConfigurationManagerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerName;
-
-        public string? ConfigurationManagerName => _mConfigurationManagerName.GetValue("configurationManagerName");
+        private string? _mValue_ConfigurationManagerName;
+        private bool _mUnknown_ConfigurationManagerName;
+        public string? ConfigurationManagerName
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationManagerName) return _mValue_ConfigurationManagerName;
+                throw new UndeferrableValueException("Value 'StackArgs.ConfigurationManagerName' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the configuration manager to use. Defaults to "11.4".
         /// </summary>
-        [Input("configurationManagerVersion")]
+        [PolicyResourceProperty("configurationManagerVersion", "_mUnknown_ConfigurationManagerVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationManagerVersion;
-
-        public string? ConfigurationManagerVersion => _mConfigurationManagerVersion.GetValue("configurationManagerVersion");
+        private string? _mValue_ConfigurationManagerVersion;
+        private bool _mUnknown_ConfigurationManagerVersion;
+        public string? ConfigurationManagerVersion
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationManagerVersion) return _mValue_ConfigurationManagerVersion;
+                throw new UndeferrableValueException("Value 'StackArgs.ConfigurationManagerVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
-        [Input("customCookbooksSources")]
+        [PolicyResourceProperty("customCookbooksSources", "_mUnknown_CustomCookbooksSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.StackCustomCookbooksSourceArgs>> _mCustomCookbooksSources;
-
-        public List<Inputs.StackCustomCookbooksSourceArgs>? CustomCookbooksSources => _mCustomCookbooksSources.GetValue("customCookbooksSources");
+        private List<Inputs.StackCustomCookbooksSourceArgs>? _mValue_CustomCookbooksSources;
+        private bool _mUnknown_CustomCookbooksSources;
+        public List<Inputs.StackCustomCookbooksSourceArgs>? CustomCookbooksSources
+        {
+            get
+            {
+                if (!_mUnknown_CustomCookbooksSources) return _mValue_CustomCookbooksSources;
+                throw new UndeferrableValueException("Value 'StackArgs.CustomCookbooksSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom JSON attributes to apply to the entire stack.
         /// </summary>
-        [Input("customJson")]
+        [PolicyResourceProperty("customJson", "_mUnknown_CustomJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
-
-        public string? CustomJson => _mCustomJson.GetValue("customJson");
+        private string? _mValue_CustomJson;
+        private bool _mUnknown_CustomJson;
+        public string? CustomJson
+        {
+            get
+            {
+                if (!_mUnknown_CustomJson) return _mValue_CustomJson;
+                throw new UndeferrableValueException("Value 'StackArgs.CustomJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the availability zone where instances will be created by default.
         /// Cannot be set when `vpc_id` is set.
         /// </summary>
-        [Input("defaultAvailabilityZone")]
+        [PolicyResourceProperty("defaultAvailabilityZone", "_mUnknown_DefaultAvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAvailabilityZone;
-
-        public string? DefaultAvailabilityZone => _mDefaultAvailabilityZone.GetValue("defaultAvailabilityZone");
+        private string? _mValue_DefaultAvailabilityZone;
+        private bool _mUnknown_DefaultAvailabilityZone;
+        public string? DefaultAvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAvailabilityZone) return _mValue_DefaultAvailabilityZone;
+                throw new UndeferrableValueException("Value 'StackArgs.DefaultAvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM Instance Profile that created instances will have by default.
         /// </summary>
-        [Input("defaultInstanceProfileArn")]
+        [PolicyResourceProperty("defaultInstanceProfileArn", "_mUnknown_DefaultInstanceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultInstanceProfileArn;
-
-        public string? DefaultInstanceProfileArn => _mDefaultInstanceProfileArn.GetValue("defaultInstanceProfileArn");
+        private string? _mValue_DefaultInstanceProfileArn;
+        private bool _mUnknown_DefaultInstanceProfileArn;
+        public string? DefaultInstanceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_DefaultInstanceProfileArn) return _mValue_DefaultInstanceProfileArn;
+                throw new UndeferrableValueException("Value 'StackArgs.DefaultInstanceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of OS that will be installed on instances by default.
         /// </summary>
-        [Input("defaultOs")]
+        [PolicyResourceProperty("defaultOs", "_mUnknown_DefaultOs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultOs;
-
-        public string? DefaultOs => _mDefaultOs.GetValue("defaultOs");
+        private string? _mValue_DefaultOs;
+        private bool _mUnknown_DefaultOs;
+        public string? DefaultOs
+        {
+            get
+            {
+                if (!_mUnknown_DefaultOs) return _mValue_DefaultOs;
+                throw new UndeferrableValueException("Value 'StackArgs.DefaultOs' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the type of root device instances will have by default.
         /// </summary>
-        [Input("defaultRootDeviceType")]
+        [PolicyResourceProperty("defaultRootDeviceType", "_mUnknown_DefaultRootDeviceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRootDeviceType;
-
-        public string? DefaultRootDeviceType => _mDefaultRootDeviceType.GetValue("defaultRootDeviceType");
+        private string? _mValue_DefaultRootDeviceType;
+        private bool _mUnknown_DefaultRootDeviceType;
+        public string? DefaultRootDeviceType
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRootDeviceType) return _mValue_DefaultRootDeviceType;
+                throw new UndeferrableValueException("Value 'StackArgs.DefaultRootDeviceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the SSH keypair that instances will have by default.
         /// </summary>
-        [Input("defaultSshKeyName")]
+        [PolicyResourceProperty("defaultSshKeyName", "_mUnknown_DefaultSshKeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSshKeyName;
-
-        public string? DefaultSshKeyName => _mDefaultSshKeyName.GetValue("defaultSshKeyName");
+        private string? _mValue_DefaultSshKeyName;
+        private bool _mUnknown_DefaultSshKeyName;
+        public string? DefaultSshKeyName
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSshKeyName) return _mValue_DefaultSshKeyName;
+                throw new UndeferrableValueException("Value 'StackArgs.DefaultSshKeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the subnet in which instances will be created by default.
         /// Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn't.
         /// </summary>
-        [Input("defaultSubnetId")]
+        [PolicyResourceProperty("defaultSubnetId", "_mUnknown_DefaultSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSubnetId;
-
-        public string? DefaultSubnetId => _mDefaultSubnetId.GetValue("defaultSubnetId");
+        private string? _mValue_DefaultSubnetId;
+        private bool _mUnknown_DefaultSubnetId;
+        public string? DefaultSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSubnetId) return _mValue_DefaultSubnetId;
+                throw new UndeferrableValueException("Value 'StackArgs.DefaultSubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Keyword representing the naming scheme that will be used for instance hostnames within this stack.
         /// </summary>
-        [Input("hostnameTheme")]
+        [PolicyResourceProperty("hostnameTheme", "_mUnknown_HostnameTheme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostnameTheme;
-
-        public string? HostnameTheme => _mHostnameTheme.GetValue("hostnameTheme");
+        private string? _mValue_HostnameTheme;
+        private bool _mUnknown_HostnameTheme;
+        public string? HostnameTheme
+        {
+            get
+            {
+                if (!_mUnknown_HostnameTheme) return _mValue_HostnameTheme;
+                throw new UndeferrableValueException("Value 'StackArgs.HostnameTheme' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value controlling whether Opsworks will run Berkshelf for this stack.
         /// </summary>
-        [Input("manageBerkshelf")]
+        [PolicyResourceProperty("manageBerkshelf", "_mUnknown_ManageBerkshelf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageBerkshelf;
-
-        public bool? ManageBerkshelf => _mManageBerkshelf.GetValue("manageBerkshelf");
+        private bool? _mValue_ManageBerkshelf;
+        private bool _mUnknown_ManageBerkshelf;
+        public bool? ManageBerkshelf
+        {
+            get
+            {
+                if (!_mUnknown_ManageBerkshelf) return _mValue_ManageBerkshelf;
+                throw new UndeferrableValueException("Value 'StackArgs.ManageBerkshelf' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the stack.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StackArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the region where the stack will exist.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'StackArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role that the OpsWorks service will act as.
         /// </summary>
-        [Input("serviceRoleArn")]
+        [PolicyResourceProperty("serviceRoleArn", "_mUnknown_ServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRoleArn;
-
-        public string? ServiceRoleArn => _mServiceRoleArn.GetValue("serviceRoleArn");
+        private string? _mValue_ServiceRoleArn;
+        private bool _mUnknown_ServiceRoleArn;
+        public string? ServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRoleArn) return _mValue_ServiceRoleArn;
+                throw new UndeferrableValueException("Value 'StackArgs.ServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StackArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value controlling whether the custom cookbook settings are enabled.
         /// </summary>
-        [Input("useCustomCookbooks")]
+        [PolicyResourceProperty("useCustomCookbooks", "_mUnknown_UseCustomCookbooks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCustomCookbooks;
-
-        public bool? UseCustomCookbooks => _mUseCustomCookbooks.GetValue("useCustomCookbooks");
+        private bool? _mValue_UseCustomCookbooks;
+        private bool _mUnknown_UseCustomCookbooks;
+        public bool? UseCustomCookbooks
+        {
+            get
+            {
+                if (!_mUnknown_UseCustomCookbooks) return _mValue_UseCustomCookbooks;
+                throw new UndeferrableValueException("Value 'StackArgs.UseCustomCookbooks' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
         /// </summary>
-        [Input("useOpsworksSecurityGroups")]
+        [PolicyResourceProperty("useOpsworksSecurityGroups", "_mUnknown_UseOpsworksSecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseOpsworksSecurityGroups;
-
-        public bool? UseOpsworksSecurityGroups => _mUseOpsworksSecurityGroups.GetValue("useOpsworksSecurityGroups");
+        private bool? _mValue_UseOpsworksSecurityGroups;
+        private bool _mUnknown_UseOpsworksSecurityGroups;
+        public bool? UseOpsworksSecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_UseOpsworksSecurityGroups) return _mValue_UseOpsworksSecurityGroups;
+                throw new UndeferrableValueException("Value 'StackArgs.UseOpsworksSecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC that this stack belongs to.
         /// Defaults to the region's default VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'StackArgs.VpcId' is not present");
+            }
+        }
     }
 }

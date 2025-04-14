@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// ARN of the table replica.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TableReplica.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         /// </summary>
-        [Input("deletionProtectionEnabled")]
+        [PolicyResourceProperty("deletionProtectionEnabled", "_mUnknown_DeletionProtectionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
-
-        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
+        private bool? _mValue_DeletionProtectionEnabled;
+        private bool _mUnknown_DeletionProtectionEnabled;
+        public bool? DeletionProtectionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtectionEnabled) return _mValue_DeletionProtectionEnabled;
+                throw new UndeferrableValueException("Value 'TableReplica.DeletionProtectionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
         /// Optional arguments:
         /// </summary>
-        [Input("globalTableArn")]
+        [PolicyResourceProperty("globalTableArn", "_mUnknown_GlobalTableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalTableArn;
-
-        public string? GlobalTableArn => _mGlobalTableArn.GetValue("globalTableArn");
+        private string? _mValue_GlobalTableArn;
+        private bool _mUnknown_GlobalTableArn;
+        public string? GlobalTableArn
+        {
+            get
+            {
+                if (!_mUnknown_GlobalTableArn) return _mValue_GlobalTableArn;
+                throw new UndeferrableValueException("Value 'TableReplica.GlobalTableArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'TableReplica.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         /// </summary>
-        [Input("pointInTimeRecovery")]
+        [PolicyResourceProperty("pointInTimeRecovery", "_mUnknown_PointInTimeRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPointInTimeRecovery;
-
-        public bool? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+        private bool? _mValue_PointInTimeRecovery;
+        private bool _mUnknown_PointInTimeRecovery;
+        public bool? PointInTimeRecovery
+        {
+            get
+            {
+                if (!_mUnknown_PointInTimeRecovery) return _mValue_PointInTimeRecovery;
+                throw new UndeferrableValueException("Value 'TableReplica.PointInTimeRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         /// </summary>
-        [Input("tableClassOverride")]
+        [PolicyResourceProperty("tableClassOverride", "_mUnknown_TableClassOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableClassOverride;
-
-        public string? TableClassOverride => _mTableClassOverride.GetValue("tableClassOverride");
+        private string? _mValue_TableClassOverride;
+        private bool _mUnknown_TableClassOverride;
+        public string? TableClassOverride
+        {
+            get
+            {
+                if (!_mUnknown_TableClassOverride) return _mValue_TableClassOverride;
+                throw new UndeferrableValueException("Value 'TableReplica.TableClassOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TableReplica.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TableReplica.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/tableReplica:TableReplica")]
@@ -94,57 +150,99 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         /// </summary>
-        [Input("deletionProtectionEnabled")]
+        [PolicyResourceProperty("deletionProtectionEnabled", "_mUnknown_DeletionProtectionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtectionEnabled;
-
-        public bool? DeletionProtectionEnabled => _mDeletionProtectionEnabled.GetValue("deletionProtectionEnabled");
+        private bool? _mValue_DeletionProtectionEnabled;
+        private bool _mUnknown_DeletionProtectionEnabled;
+        public bool? DeletionProtectionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtectionEnabled) return _mValue_DeletionProtectionEnabled;
+                throw new UndeferrableValueException("Value 'TableReplicaArgs.DeletionProtectionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the _main_ or global table which this resource will replicate.
         /// 
         /// Optional arguments:
         /// </summary>
-        [Input("globalTableArn")]
+        [PolicyResourceProperty("globalTableArn", "_mUnknown_GlobalTableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalTableArn;
-
-        public string? GlobalTableArn => _mGlobalTableArn.GetValue("globalTableArn");
+        private string? _mValue_GlobalTableArn;
+        private bool _mUnknown_GlobalTableArn;
+        public string? GlobalTableArn
+        {
+            get
+            {
+                if (!_mUnknown_GlobalTableArn) return _mValue_GlobalTableArn;
+                throw new UndeferrableValueException("Value 'TableReplicaArgs.GlobalTableArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'TableReplicaArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         /// </summary>
-        [Input("pointInTimeRecovery")]
+        [PolicyResourceProperty("pointInTimeRecovery", "_mUnknown_PointInTimeRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPointInTimeRecovery;
-
-        public bool? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+        private bool? _mValue_PointInTimeRecovery;
+        private bool _mUnknown_PointInTimeRecovery;
+        public bool? PointInTimeRecovery
+        {
+            get
+            {
+                if (!_mUnknown_PointInTimeRecovery) return _mValue_PointInTimeRecovery;
+                throw new UndeferrableValueException("Value 'TableReplicaArgs.PointInTimeRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         /// </summary>
-        [Input("tableClassOverride")]
+        [PolicyResourceProperty("tableClassOverride", "_mUnknown_TableClassOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableClassOverride;
-
-        public string? TableClassOverride => _mTableClassOverride.GetValue("tableClassOverride");
+        private string? _mValue_TableClassOverride;
+        private bool _mUnknown_TableClassOverride;
+        public string? TableClassOverride
+        {
+            get
+            {
+                if (!_mUnknown_TableClassOverride) return _mValue_TableClassOverride;
+                throw new UndeferrableValueException("Value 'TableReplicaArgs.TableClassOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TableReplicaArgs.Tags' is not present");
+            }
+        }
     }
 }

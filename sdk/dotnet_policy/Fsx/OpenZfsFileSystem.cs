@@ -16,274 +16,484 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
-        [Input("automaticBackupRetentionDays")]
+        [PolicyResourceProperty("automaticBackupRetentionDays", "_mUnknown_AutomaticBackupRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
-
-        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
+        private int? _mValue_AutomaticBackupRetentionDays;
+        private bool _mUnknown_AutomaticBackupRetentionDays;
+        public int? AutomaticBackupRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticBackupRetentionDays) return _mValue_AutomaticBackupRetentionDays;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.AutomaticBackupRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source backup to create the filesystem from.
         /// </summary>
-        [Input("backupId")]
+        [PolicyResourceProperty("backupId", "_mUnknown_BackupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
-
-        public string? BackupId => _mBackupId.GetValue("backupId");
+        private string? _mValue_BackupId;
+        private bool _mUnknown_BackupId;
+        public string? BackupId
+        {
+            get
+            {
+                if (!_mUnknown_BackupId) return _mValue_BackupId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.BackupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         /// </summary>
-        [Input("copyTagsToVolumes")]
+        [PolicyResourceProperty("copyTagsToVolumes", "_mUnknown_CopyTagsToVolumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToVolumes;
-
-        public bool? CopyTagsToVolumes => _mCopyTagsToVolumes.GetValue("copyTagsToVolumes");
+        private bool? _mValue_CopyTagsToVolumes;
+        private bool _mUnknown_CopyTagsToVolumes;
+        public bool? CopyTagsToVolumes
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToVolumes) return _mValue_CopyTagsToVolumes;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.CopyTagsToVolumes' is not present");
+            }
+        }
 
         /// <summary>
         /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         /// </summary>
-        [Input("dailyAutomaticBackupStartTime")]
+        [PolicyResourceProperty("dailyAutomaticBackupStartTime", "_mUnknown_DailyAutomaticBackupStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
-
-        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
+        private string? _mValue_DailyAutomaticBackupStartTime;
+        private bool _mUnknown_DailyAutomaticBackupStartTime;
+        public string? DailyAutomaticBackupStartTime
+        {
+            get
+            {
+                if (!_mUnknown_DailyAutomaticBackupStartTime) return _mValue_DailyAutomaticBackupStartTime;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.DailyAutomaticBackupStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
         /// </summary>
-        [Input("deleteOptions")]
+        [PolicyResourceProperty("deleteOptions", "_mUnknown_DeleteOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDeleteOptions;
-
-        public List<string>? DeleteOptions => _mDeleteOptions.GetValue("deleteOptions");
+        private List<string>? _mValue_DeleteOptions;
+        private bool _mUnknown_DeleteOptions;
+        public List<string>? DeleteOptions
+        {
+            get
+            {
+                if (!_mUnknown_DeleteOptions) return _mValue_DeleteOptions;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.DeleteOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         /// </summary>
-        [Input("diskIopsConfiguration")]
+        [PolicyResourceProperty("diskIopsConfiguration", "_mUnknown_DiskIopsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OpenZfsFileSystemDiskIopsConfiguration> _mDiskIopsConfiguration;
-
-        public Outputs.OpenZfsFileSystemDiskIopsConfiguration? DiskIopsConfiguration => _mDiskIopsConfiguration.GetValue("diskIopsConfiguration");
+        private Outputs.OpenZfsFileSystemDiskIopsConfiguration? _mValue_DiskIopsConfiguration;
+        private bool _mUnknown_DiskIopsConfiguration;
+        public Outputs.OpenZfsFileSystemDiskIopsConfiguration? DiskIopsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DiskIopsConfiguration) return _mValue_DiskIopsConfiguration;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.DiskIopsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// IP address of the endpoint that is used to access data or to manage the file system.
         /// </summary>
-        [Input("endpointIpAddress")]
+        [PolicyResourceProperty("endpointIpAddress", "_mUnknown_EndpointIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointIpAddress;
-
-        public string? EndpointIpAddress => _mEndpointIpAddress.GetValue("endpointIpAddress");
+        private string? _mValue_EndpointIpAddress;
+        private bool _mUnknown_EndpointIpAddress;
+        public string? EndpointIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_EndpointIpAddress) return _mValue_EndpointIpAddress;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.EndpointIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         /// </summary>
-        [Input("endpointIpAddressRange")]
+        [PolicyResourceProperty("endpointIpAddressRange", "_mUnknown_EndpointIpAddressRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointIpAddressRange;
-
-        public string? EndpointIpAddressRange => _mEndpointIpAddressRange.GetValue("endpointIpAddressRange");
+        private string? _mValue_EndpointIpAddressRange;
+        private bool _mUnknown_EndpointIpAddressRange;
+        public string? EndpointIpAddressRange
+        {
+            get
+            {
+                if (!_mUnknown_EndpointIpAddressRange) return _mValue_EndpointIpAddressRange;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.EndpointIpAddressRange' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the file system's final backup.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         /// </summary>
-        [Input("networkInterfaceIds")]
+        [PolicyResourceProperty("networkInterfaceIds", "_mUnknown_NetworkInterfaceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkInterfaceIds;
-
-        public List<string>? NetworkInterfaceIds => _mNetworkInterfaceIds.GetValue("networkInterfaceIds");
+        private List<string>? _mValue_NetworkInterfaceIds;
+        private bool _mUnknown_NetworkInterfaceIds;
+        public List<string>? NetworkInterfaceIds
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceIds) return _mValue_NetworkInterfaceIds;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.NetworkInterfaceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account identifier that created the file system.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
-        [Input("preferredSubnetId")]
+        [PolicyResourceProperty("preferredSubnetId", "_mUnknown_PreferredSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredSubnetId;
-
-        public string? PreferredSubnetId => _mPreferredSubnetId.GetValue("preferredSubnetId");
+        private string? _mValue_PreferredSubnetId;
+        private bool _mUnknown_PreferredSubnetId;
+        public string? PreferredSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_PreferredSubnetId) return _mValue_PreferredSubnetId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.PreferredSubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         /// </summary>
-        [Input("rootVolumeConfiguration")]
+        [PolicyResourceProperty("rootVolumeConfiguration", "_mUnknown_RootVolumeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OpenZfsFileSystemRootVolumeConfiguration> _mRootVolumeConfiguration;
-
-        public Outputs.OpenZfsFileSystemRootVolumeConfiguration? RootVolumeConfiguration => _mRootVolumeConfiguration.GetValue("rootVolumeConfiguration");
+        private Outputs.OpenZfsFileSystemRootVolumeConfiguration? _mValue_RootVolumeConfiguration;
+        private bool _mUnknown_RootVolumeConfiguration;
+        public Outputs.OpenZfsFileSystemRootVolumeConfiguration? RootVolumeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RootVolumeConfiguration) return _mValue_RootVolumeConfiguration;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.RootVolumeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the root volume, e.g., `fsvol-12345678`
         /// </summary>
-        [Input("rootVolumeId")]
+        [PolicyResourceProperty("rootVolumeId", "_mUnknown_RootVolumeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootVolumeId;
-
-        public string? RootVolumeId => _mRootVolumeId.GetValue("rootVolumeId");
+        private string? _mValue_RootVolumeId;
+        private bool _mUnknown_RootVolumeId;
+        public string? RootVolumeId
+        {
+            get
+            {
+                if (!_mUnknown_RootVolumeId) return _mValue_RootVolumeId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.RootVolumeId' is not present");
+            }
+        }
 
         /// <summary>
         /// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         /// </summary>
-        [Input("routeTableIds")]
+        [PolicyResourceProperty("routeTableIds", "_mUnknown_RouteTableIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteTableIds;
-
-        public List<string>? RouteTableIds => _mRouteTableIds.GetValue("routeTableIds");
+        private List<string>? _mValue_RouteTableIds;
+        private bool _mUnknown_RouteTableIds;
+        public List<string>? RouteTableIds
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableIds) return _mValue_RouteTableIds;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.RouteTableIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         /// </summary>
-        [Input("storageCapacity")]
+        [PolicyResourceProperty("storageCapacity", "_mUnknown_StorageCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
-
-        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+        private int? _mValue_StorageCapacity;
+        private bool _mUnknown_StorageCapacity;
+        public int? StorageCapacity
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacity) return _mValue_StorageCapacity;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.StorageCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The filesystem storage type. Only `SSD` is supported.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("throughputCapacity")]
+        [PolicyResourceProperty("throughputCapacity", "_mUnknown_ThroughputCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughputCapacity;
-
-        public int? ThroughputCapacity => _mThroughputCapacity.GetValue("throughputCapacity");
+        private int? _mValue_ThroughputCapacity;
+        private bool _mUnknown_ThroughputCapacity;
+        public int? ThroughputCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ThroughputCapacity) return _mValue_ThroughputCapacity;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.ThroughputCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Virtual Private Cloud for the file system.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        [Input("weeklyMaintenanceStartTime")]
+        [PolicyResourceProperty("weeklyMaintenanceStartTime", "_mUnknown_WeeklyMaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
-
-        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+        private string? _mValue_WeeklyMaintenanceStartTime;
+        private bool _mUnknown_WeeklyMaintenanceStartTime;
+        public string? WeeklyMaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceStartTime) return _mValue_WeeklyMaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystem.WeeklyMaintenanceStartTime' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:fsx/openZfsFileSystem:OpenZfsFileSystem")]
@@ -292,201 +502,355 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         /// </summary>
-        [Input("automaticBackupRetentionDays")]
+        [PolicyResourceProperty("automaticBackupRetentionDays", "_mUnknown_AutomaticBackupRetentionDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticBackupRetentionDays;
-
-        public int? AutomaticBackupRetentionDays => _mAutomaticBackupRetentionDays.GetValue("automaticBackupRetentionDays");
+        private int? _mValue_AutomaticBackupRetentionDays;
+        private bool _mUnknown_AutomaticBackupRetentionDays;
+        public int? AutomaticBackupRetentionDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticBackupRetentionDays) return _mValue_AutomaticBackupRetentionDays;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.AutomaticBackupRetentionDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the source backup to create the filesystem from.
         /// </summary>
-        [Input("backupId")]
+        [PolicyResourceProperty("backupId", "_mUnknown_BackupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackupId;
-
-        public string? BackupId => _mBackupId.GetValue("backupId");
+        private string? _mValue_BackupId;
+        private bool _mUnknown_BackupId;
+        public string? BackupId
+        {
+            get
+            {
+                if (!_mUnknown_BackupId) return _mValue_BackupId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.BackupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         /// </summary>
-        [Input("copyTagsToVolumes")]
+        [PolicyResourceProperty("copyTagsToVolumes", "_mUnknown_CopyTagsToVolumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToVolumes;
-
-        public bool? CopyTagsToVolumes => _mCopyTagsToVolumes.GetValue("copyTagsToVolumes");
+        private bool? _mValue_CopyTagsToVolumes;
+        private bool _mUnknown_CopyTagsToVolumes;
+        public bool? CopyTagsToVolumes
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToVolumes) return _mValue_CopyTagsToVolumes;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.CopyTagsToVolumes' is not present");
+            }
+        }
 
         /// <summary>
         /// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         /// </summary>
-        [Input("dailyAutomaticBackupStartTime")]
+        [PolicyResourceProperty("dailyAutomaticBackupStartTime", "_mUnknown_DailyAutomaticBackupStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailyAutomaticBackupStartTime;
-
-        public string? DailyAutomaticBackupStartTime => _mDailyAutomaticBackupStartTime.GetValue("dailyAutomaticBackupStartTime");
+        private string? _mValue_DailyAutomaticBackupStartTime;
+        private bool _mUnknown_DailyAutomaticBackupStartTime;
+        public string? DailyAutomaticBackupStartTime
+        {
+            get
+            {
+                if (!_mUnknown_DailyAutomaticBackupStartTime) return _mValue_DailyAutomaticBackupStartTime;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.DailyAutomaticBackupStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
         /// </summary>
-        [Input("deleteOptions")]
+        [PolicyResourceProperty("deleteOptions", "_mUnknown_DeleteOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDeleteOptions;
-
-        public List<string>? DeleteOptions => _mDeleteOptions.GetValue("deleteOptions");
+        private List<string>? _mValue_DeleteOptions;
+        private bool _mUnknown_DeleteOptions;
+        public List<string>? DeleteOptions
+        {
+            get
+            {
+                if (!_mUnknown_DeleteOptions) return _mValue_DeleteOptions;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.DeleteOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
         /// </summary>
-        [Input("diskIopsConfiguration")]
+        [PolicyResourceProperty("diskIopsConfiguration", "_mUnknown_DiskIopsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs> _mDiskIopsConfiguration;
-
-        public Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs? DiskIopsConfiguration => _mDiskIopsConfiguration.GetValue("diskIopsConfiguration");
+        private Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs? _mValue_DiskIopsConfiguration;
+        private bool _mUnknown_DiskIopsConfiguration;
+        public Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs? DiskIopsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DiskIopsConfiguration) return _mValue_DiskIopsConfiguration;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.DiskIopsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         /// </summary>
-        [Input("endpointIpAddressRange")]
+        [PolicyResourceProperty("endpointIpAddressRange", "_mUnknown_EndpointIpAddressRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointIpAddressRange;
-
-        public string? EndpointIpAddressRange => _mEndpointIpAddressRange.GetValue("endpointIpAddressRange");
+        private string? _mValue_EndpointIpAddressRange;
+        private bool _mUnknown_EndpointIpAddressRange;
+        public string? EndpointIpAddressRange
+        {
+            get
+            {
+                if (!_mUnknown_EndpointIpAddressRange) return _mValue_EndpointIpAddressRange;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.EndpointIpAddressRange' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the file system's final backup.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
-        [Input("preferredSubnetId")]
+        [PolicyResourceProperty("preferredSubnetId", "_mUnknown_PreferredSubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredSubnetId;
-
-        public string? PreferredSubnetId => _mPreferredSubnetId.GetValue("preferredSubnetId");
+        private string? _mValue_PreferredSubnetId;
+        private bool _mUnknown_PreferredSubnetId;
+        public string? PreferredSubnetId
+        {
+            get
+            {
+                if (!_mUnknown_PreferredSubnetId) return _mValue_PreferredSubnetId;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.PreferredSubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         /// </summary>
-        [Input("rootVolumeConfiguration")]
+        [PolicyResourceProperty("rootVolumeConfiguration", "_mUnknown_RootVolumeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs> _mRootVolumeConfiguration;
-
-        public Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs? RootVolumeConfiguration => _mRootVolumeConfiguration.GetValue("rootVolumeConfiguration");
+        private Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs? _mValue_RootVolumeConfiguration;
+        private bool _mUnknown_RootVolumeConfiguration;
+        public Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs? RootVolumeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RootVolumeConfiguration) return _mValue_RootVolumeConfiguration;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.RootVolumeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         /// </summary>
-        [Input("routeTableIds")]
+        [PolicyResourceProperty("routeTableIds", "_mUnknown_RouteTableIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRouteTableIds;
-
-        public List<string>? RouteTableIds => _mRouteTableIds.GetValue("routeTableIds");
+        private List<string>? _mValue_RouteTableIds;
+        private bool _mUnknown_RouteTableIds;
+        public List<string>? RouteTableIds
+        {
+            get
+            {
+                if (!_mUnknown_RouteTableIds) return _mValue_RouteTableIds;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.RouteTableIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         /// </summary>
-        [Input("storageCapacity")]
+        [PolicyResourceProperty("storageCapacity", "_mUnknown_StorageCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacity;
-
-        public int? StorageCapacity => _mStorageCapacity.GetValue("storageCapacity");
+        private int? _mValue_StorageCapacity;
+        private bool _mUnknown_StorageCapacity;
+        public int? StorageCapacity
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacity) return _mValue_StorageCapacity;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.StorageCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The filesystem storage type. Only `SSD` is supported.
         /// </summary>
-        [Input("storageType")]
+        [PolicyResourceProperty("storageType", "_mUnknown_StorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageType;
-
-        public string? StorageType => _mStorageType.GetValue("storageType");
+        private string? _mValue_StorageType;
+        private bool _mUnknown_StorageType;
+        public string? StorageType
+        {
+            get
+            {
+                if (!_mUnknown_StorageType) return _mValue_StorageType;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.StorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("throughputCapacity")]
+        [PolicyResourceProperty("throughputCapacity", "_mUnknown_ThroughputCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughputCapacity;
-
-        public int? ThroughputCapacity => _mThroughputCapacity.GetValue("throughputCapacity");
+        private int? _mValue_ThroughputCapacity;
+        private bool _mUnknown_ThroughputCapacity;
+        public int? ThroughputCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ThroughputCapacity) return _mValue_ThroughputCapacity;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.ThroughputCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         /// </summary>
-        [Input("weeklyMaintenanceStartTime")]
+        [PolicyResourceProperty("weeklyMaintenanceStartTime", "_mUnknown_WeeklyMaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceStartTime;
-
-        public string? WeeklyMaintenanceStartTime => _mWeeklyMaintenanceStartTime.GetValue("weeklyMaintenanceStartTime");
+        private string? _mValue_WeeklyMaintenanceStartTime;
+        private bool _mUnknown_WeeklyMaintenanceStartTime;
+        public string? WeeklyMaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceStartTime) return _mValue_WeeklyMaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemArgs.WeeklyMaintenanceStartTime' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
         /// </summary>
-        [Input("predefinedMetricType")]
+        [PolicyResourceProperty("predefinedMetricType", "_mUnknown_PredefinedMetricType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPredefinedMetricType;
-
-        public string? PredefinedMetricType => _mPredefinedMetricType.GetValue("predefinedMetricType");
+        private string? _mValue_PredefinedMetricType;
+        private bool _mUnknown_PredefinedMetricType;
+        public string? PredefinedMetricType
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedMetricType) return _mValue_PredefinedMetricType;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification.PredefinedMetricType' is not present");
+            }
+        }
 
         /// <summary>
         /// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
         /// </summary>
-        [Input("resourceLabel")]
+        [PolicyResourceProperty("resourceLabel", "_mUnknown_ResourceLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceLabel;
-
-        public string? ResourceLabel => _mResourceLabel.GetValue("resourceLabel");
+        private string? _mValue_ResourceLabel;
+        private bool _mUnknown_ResourceLabel;
+        public string? ResourceLabel
+        {
+            get
+            {
+                if (!_mUnknown_ResourceLabel) return _mValue_ResourceLabel;
+                throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification.ResourceLabel' is not present");
+            }
+        }
     }
 }

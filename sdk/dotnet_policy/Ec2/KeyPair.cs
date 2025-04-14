@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The key pair ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'KeyPair.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         /// </summary>
-        [Input("fingerprint")]
+        [PolicyResourceProperty("fingerprint", "_mUnknown_Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFingerprint;
-
-        public string? Fingerprint => _mFingerprint.GetValue("fingerprint");
+        private string? _mValue_Fingerprint;
+        private bool _mUnknown_Fingerprint;
+        public string? Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Fingerprint) return _mValue_Fingerprint;
+                throw new UndeferrableValueException("Value 'KeyPair.Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'KeyPair.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         /// </summary>
-        [Input("keyNamePrefix")]
+        [PolicyResourceProperty("keyNamePrefix", "_mUnknown_KeyNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyNamePrefix;
-
-        public string? KeyNamePrefix => _mKeyNamePrefix.GetValue("keyNamePrefix");
+        private string? _mValue_KeyNamePrefix;
+        private bool _mUnknown_KeyNamePrefix;
+        public string? KeyNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_KeyNamePrefix) return _mValue_KeyNamePrefix;
+                throw new UndeferrableValueException("Value 'KeyPair.KeyNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The key pair ID.
         /// </summary>
-        [Input("keyPairId")]
+        [PolicyResourceProperty("keyPairId", "_mUnknown_KeyPairId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPairId;
-
-        public string? KeyPairId => _mKeyPairId.GetValue("keyPairId");
+        private string? _mValue_KeyPairId;
+        private bool _mUnknown_KeyPairId;
+        public string? KeyPairId
+        {
+            get
+            {
+                if (!_mUnknown_KeyPairId) return _mValue_KeyPairId;
+                throw new UndeferrableValueException("Value 'KeyPair.KeyPairId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of key pair.
         /// </summary>
-        [Input("keyType")]
+        [PolicyResourceProperty("keyType", "_mUnknown_KeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyType;
-
-        public string? KeyType => _mKeyType.GetValue("keyType");
+        private string? _mValue_KeyType;
+        private bool _mUnknown_KeyType;
+        public string? KeyType
+        {
+            get
+            {
+                if (!_mUnknown_KeyType) return _mValue_KeyType;
+                throw new UndeferrableValueException("Value 'KeyPair.KeyType' is not present");
+            }
+        }
 
         /// <summary>
         /// The public key material.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'KeyPair.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KeyPair.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'KeyPair.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/keyPair:KeyPair")]
@@ -101,37 +164,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         /// </summary>
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
-
-        public string? KeyName => _mKeyName.GetValue("keyName");
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'KeyPairArgs.KeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
         /// </summary>
-        [Input("keyNamePrefix")]
+        [PolicyResourceProperty("keyNamePrefix", "_mUnknown_KeyNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyNamePrefix;
-
-        public string? KeyNamePrefix => _mKeyNamePrefix.GetValue("keyNamePrefix");
+        private string? _mValue_KeyNamePrefix;
+        private bool _mUnknown_KeyNamePrefix;
+        public string? KeyNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_KeyNamePrefix) return _mValue_KeyNamePrefix;
+                throw new UndeferrableValueException("Value 'KeyPairArgs.KeyNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The public key material.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'KeyPairArgs.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KeyPairArgs.Tags' is not present");
+            }
+        }
     }
 }

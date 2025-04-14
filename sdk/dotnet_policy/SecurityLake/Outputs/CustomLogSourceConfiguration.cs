@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Outputs
         /// <summary>
         /// The configuration for the Glue Crawler for the third-party custom source.
         /// </summary>
-        [Input("crawlerConfiguration")]
+        [PolicyResourceProperty("crawlerConfiguration", "_mUnknown_CrawlerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomLogSourceConfigurationCrawlerConfiguration> _mCrawlerConfiguration;
-
-        public Outputs.CustomLogSourceConfigurationCrawlerConfiguration? CrawlerConfiguration => _mCrawlerConfiguration.GetValue("crawlerConfiguration");
+        private Outputs.CustomLogSourceConfigurationCrawlerConfiguration? _mValue_CrawlerConfiguration;
+        private bool _mUnknown_CrawlerConfiguration;
+        public Outputs.CustomLogSourceConfigurationCrawlerConfiguration? CrawlerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CrawlerConfiguration) return _mValue_CrawlerConfiguration;
+                throw new UndeferrableValueException("Value 'CustomLogSourceConfiguration.CrawlerConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The identity of the log provider for the third-party custom source.
         /// </summary>
-        [Input("providerIdentity")]
+        [PolicyResourceProperty("providerIdentity", "_mUnknown_ProviderIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomLogSourceConfigurationProviderIdentity> _mProviderIdentity;
-
-        public Outputs.CustomLogSourceConfigurationProviderIdentity? ProviderIdentity => _mProviderIdentity.GetValue("providerIdentity");
+        private Outputs.CustomLogSourceConfigurationProviderIdentity? _mValue_ProviderIdentity;
+        private bool _mUnknown_ProviderIdentity;
+        public Outputs.CustomLogSourceConfigurationProviderIdentity? ProviderIdentity
+        {
+            get
+            {
+                if (!_mUnknown_ProviderIdentity) return _mValue_ProviderIdentity;
+                throw new UndeferrableValueException("Value 'CustomLogSourceConfiguration.ProviderIdentity' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Fis.Outputs
         /// <summary>
         /// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
         /// </summary>
-        [Input("cloudwatchLogsConfiguration")]
+        [PolicyResourceProperty("cloudwatchLogsConfiguration", "_mUnknown_CloudwatchLogsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration> _mCloudwatchLogsConfiguration;
-
-        public Outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration? CloudwatchLogsConfiguration => _mCloudwatchLogsConfiguration.GetValue("cloudwatchLogsConfiguration");
+        private Outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration? _mValue_CloudwatchLogsConfiguration;
+        private bool _mUnknown_CloudwatchLogsConfiguration;
+        public Outputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration? CloudwatchLogsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogsConfiguration) return _mValue_CloudwatchLogsConfiguration;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfiguration.CloudwatchLogsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
         /// </summary>
-        [Input("logSchemaVersion")]
+        [PolicyResourceProperty("logSchemaVersion", "_mUnknown_LogSchemaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLogSchemaVersion;
-
-        public int? LogSchemaVersion => _mLogSchemaVersion.GetValue("logSchemaVersion");
+        private int? _mValue_LogSchemaVersion;
+        private bool _mUnknown_LogSchemaVersion;
+        public int? LogSchemaVersion
+        {
+            get
+            {
+                if (!_mUnknown_LogSchemaVersion) return _mValue_LogSchemaVersion;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfiguration.LogSchemaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for experiment logging to Amazon S3. See below.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperimentTemplateLogConfigurationS3Configuration> _mS3Configuration;
-
-        public Outputs.ExperimentTemplateLogConfigurationS3Configuration? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Outputs.ExperimentTemplateLogConfigurationS3Configuration? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Outputs.ExperimentTemplateLogConfigurationS3Configuration? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfiguration.S3Configuration' is not present");
+            }
+        }
     }
 }

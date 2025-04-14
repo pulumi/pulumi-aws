@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The restore behavior of a restarting application.
         /// </summary>
-        [Input("applicationRestoreConfiguration")]
+        [PolicyResourceProperty("applicationRestoreConfiguration", "_mUnknown_ApplicationRestoreConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration> _mApplicationRestoreConfiguration;
-
-        public Outputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration? ApplicationRestoreConfiguration => _mApplicationRestoreConfiguration.GetValue("applicationRestoreConfiguration");
+        private Outputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration? _mValue_ApplicationRestoreConfiguration;
+        private bool _mUnknown_ApplicationRestoreConfiguration;
+        public Outputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration? ApplicationRestoreConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationRestoreConfiguration) return _mValue_ApplicationRestoreConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfiguration.ApplicationRestoreConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The starting parameters for a Flink-based Kinesis Data Analytics application.
         /// </summary>
-        [Input("flinkRunConfiguration")]
+        [PolicyResourceProperty("flinkRunConfiguration", "_mUnknown_FlinkRunConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration> _mFlinkRunConfiguration;
-
-        public Outputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration? FlinkRunConfiguration => _mFlinkRunConfiguration.GetValue("flinkRunConfiguration");
+        private Outputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration? _mValue_FlinkRunConfiguration;
+        private bool _mUnknown_FlinkRunConfiguration;
+        public Outputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration? FlinkRunConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_FlinkRunConfiguration) return _mValue_FlinkRunConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfiguration.FlinkRunConfiguration' is not present");
+            }
+        }
     }
 }

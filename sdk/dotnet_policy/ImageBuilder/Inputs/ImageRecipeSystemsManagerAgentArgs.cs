@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Whether to remove the Systems Manager Agent after the image has been built.
         /// </summary>
-        [Input("uninstallAfterBuild")]
+        [PolicyResourceProperty("uninstallAfterBuild", "_mUnknown_UninstallAfterBuild")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUninstallAfterBuild;
-
-        public bool? UninstallAfterBuild => _mUninstallAfterBuild.GetValue("uninstallAfterBuild");
+        private bool? _mValue_UninstallAfterBuild;
+        private bool _mUnknown_UninstallAfterBuild;
+        public bool? UninstallAfterBuild
+        {
+            get
+            {
+                if (!_mUnknown_UninstallAfterBuild) return _mValue_UninstallAfterBuild;
+                throw new UndeferrableValueException("Value 'ImageRecipeSystemsManagerAgentArgs.UninstallAfterBuild' is not present");
+            }
+        }
     }
 }

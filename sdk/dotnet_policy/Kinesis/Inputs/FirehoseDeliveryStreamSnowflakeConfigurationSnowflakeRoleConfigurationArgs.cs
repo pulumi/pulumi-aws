@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Whether the Snowflake role is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Snowflake role.
         /// </summary>
-        [Input("snowflakeRole")]
+        [PolicyResourceProperty("snowflakeRole", "_mUnknown_SnowflakeRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnowflakeRole;
-
-        public string? SnowflakeRole => _mSnowflakeRole.GetValue("snowflakeRole");
+        private string? _mValue_SnowflakeRole;
+        private bool _mUnknown_SnowflakeRole;
+        public string? SnowflakeRole
+        {
+            get
+            {
+                if (!_mUnknown_SnowflakeRole) return _mValue_SnowflakeRole;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs.SnowflakeRole' is not present");
+            }
+        }
     }
 }

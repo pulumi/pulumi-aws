@@ -16,188 +16,335 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// The Amazon Resource Name (ARN) of the serverless cache.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         /// </summary>
-        [Input("cacheUsageLimits")]
+        [PolicyResourceProperty("cacheUsageLimits", "_mUnknown_CacheUsageLimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessCacheCacheUsageLimits> _mCacheUsageLimits;
-
-        public Outputs.ServerlessCacheCacheUsageLimits? CacheUsageLimits => _mCacheUsageLimits.GetValue("cacheUsageLimits");
+        private Outputs.ServerlessCacheCacheUsageLimits? _mValue_CacheUsageLimits;
+        private bool _mUnknown_CacheUsageLimits;
+        public Outputs.ServerlessCacheCacheUsageLimits? CacheUsageLimits
+        {
+            get
+            {
+                if (!_mUnknown_CacheUsageLimits) return _mValue_CacheUsageLimits;
+                throw new UndeferrableValueException("Value 'ServerlessCache.CacheUsageLimits' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp of when the serverless cache was created.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'ServerlessCache.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         /// </summary>
-        [Input("dailySnapshotTime")]
+        [PolicyResourceProperty("dailySnapshotTime", "_mUnknown_DailySnapshotTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailySnapshotTime;
-
-        public string? DailySnapshotTime => _mDailySnapshotTime.GetValue("dailySnapshotTime");
+        private string? _mValue_DailySnapshotTime;
+        private bool _mUnknown_DailySnapshotTime;
+        public string? DailySnapshotTime
+        {
+            get
+            {
+                if (!_mUnknown_DailySnapshotTime) return _mValue_DailySnapshotTime;
+                throw new UndeferrableValueException("Value 'ServerlessCache.DailySnapshotTime' is not present");
+            }
+        }
 
         /// <summary>
         /// User-provided description for the serverless cache. The default is NULL.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. See `endpoint` Block for details.
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServerlessCacheEndpoint>> _mEndpoints;
-
-        public List<Outputs.ServerlessCacheEndpoint>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private List<Outputs.ServerlessCacheEndpoint>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public List<Outputs.ServerlessCacheEndpoint>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Endpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The name and version number of the engine the serverless cache is compatible with.
         /// </summary>
-        [Input("fullEngineVersion")]
+        [PolicyResourceProperty("fullEngineVersion", "_mUnknown_FullEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFullEngineVersion;
-
-        public string? FullEngineVersion => _mFullEngineVersion.GetValue("fullEngineVersion");
+        private string? _mValue_FullEngineVersion;
+        private bool _mUnknown_FullEngineVersion;
+        public string? FullEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_FullEngineVersion) return _mValue_FullEngineVersion;
+                throw new UndeferrableValueException("Value 'ServerlessCache.FullEngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ServerlessCache.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the cache engine that will be used to create the serverless cache.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
         /// </summary>
-        [Input("majorEngineVersion")]
+        [PolicyResourceProperty("majorEngineVersion", "_mUnknown_MajorEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
-
-        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
+        private string? _mValue_MajorEngineVersion;
+        private bool _mUnknown_MajorEngineVersion;
+        public string? MajorEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_MajorEngineVersion) return _mValue_MajorEngineVersion;
+                throw new UndeferrableValueException("Value 'ServerlessCache.MajorEngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Cluster name which serves as a unique identifier to the serverless cache
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         /// </summary>
-        [Input("readerEndpoints")]
+        [PolicyResourceProperty("readerEndpoints", "_mUnknown_ReaderEndpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ServerlessCacheReaderEndpoint>> _mReaderEndpoints;
-
-        public List<Outputs.ServerlessCacheReaderEndpoint>? ReaderEndpoints => _mReaderEndpoints.GetValue("readerEndpoints");
+        private List<Outputs.ServerlessCacheReaderEndpoint>? _mValue_ReaderEndpoints;
+        private bool _mUnknown_ReaderEndpoints;
+        public List<Outputs.ServerlessCacheReaderEndpoint>? ReaderEndpoints
+        {
+            get
+            {
+                if (!_mUnknown_ReaderEndpoints) return _mValue_ReaderEndpoints;
+                throw new UndeferrableValueException("Value 'ServerlessCache.ReaderEndpoints' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ServerlessCache.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         /// </summary>
-        [Input("snapshotArnsToRestores")]
+        [PolicyResourceProperty("snapshotArnsToRestores", "_mUnknown_SnapshotArnsToRestores")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnapshotArnsToRestores;
-
-        public List<string>? SnapshotArnsToRestores => _mSnapshotArnsToRestores.GetValue("snapshotArnsToRestores");
+        private List<string>? _mValue_SnapshotArnsToRestores;
+        private bool _mUnknown_SnapshotArnsToRestores;
+        public List<string>? SnapshotArnsToRestores
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotArnsToRestores) return _mValue_SnapshotArnsToRestores;
+                throw new UndeferrableValueException("Value 'ServerlessCache.SnapshotArnsToRestores' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
         /// </summary>
-        [Input("snapshotRetentionLimit")]
+        [PolicyResourceProperty("snapshotRetentionLimit", "_mUnknown_SnapshotRetentionLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
-
-        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
+        private int? _mValue_SnapshotRetentionLimit;
+        private bool _mUnknown_SnapshotRetentionLimit;
+        public int? SnapshotRetentionLimit
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotRetentionLimit) return _mValue_SnapshotRetentionLimit;
+                throw new UndeferrableValueException("Value 'ServerlessCache.SnapshotRetentionLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ServerlessCache.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServerlessCache.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessCacheTimeouts> _mTimeouts;
-
-        public Outputs.ServerlessCacheTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ServerlessCacheTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ServerlessCacheTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ServerlessCache.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
         /// </summary>
-        [Input("userGroupId")]
+        [PolicyResourceProperty("userGroupId", "_mUnknown_UserGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
-
-        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+        private string? _mValue_UserGroupId;
+        private bool _mUnknown_UserGroupId;
+        public string? UserGroupId
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupId) return _mValue_UserGroupId;
+                throw new UndeferrableValueException("Value 'ServerlessCache.UserGroupId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/serverlessCache:ServerlessCache")]
@@ -206,127 +353,225 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         /// </summary>
-        [Input("cacheUsageLimits")]
+        [PolicyResourceProperty("cacheUsageLimits", "_mUnknown_CacheUsageLimits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessCacheCacheUsageLimitsArgs> _mCacheUsageLimits;
-
-        public Inputs.ServerlessCacheCacheUsageLimitsArgs? CacheUsageLimits => _mCacheUsageLimits.GetValue("cacheUsageLimits");
+        private Inputs.ServerlessCacheCacheUsageLimitsArgs? _mValue_CacheUsageLimits;
+        private bool _mUnknown_CacheUsageLimits;
+        public Inputs.ServerlessCacheCacheUsageLimitsArgs? CacheUsageLimits
+        {
+            get
+            {
+                if (!_mUnknown_CacheUsageLimits) return _mValue_CacheUsageLimits;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.CacheUsageLimits' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
         /// </summary>
-        [Input("dailySnapshotTime")]
+        [PolicyResourceProperty("dailySnapshotTime", "_mUnknown_DailySnapshotTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDailySnapshotTime;
-
-        public string? DailySnapshotTime => _mDailySnapshotTime.GetValue("dailySnapshotTime");
+        private string? _mValue_DailySnapshotTime;
+        private bool _mUnknown_DailySnapshotTime;
+        public string? DailySnapshotTime
+        {
+            get
+            {
+                if (!_mUnknown_DailySnapshotTime) return _mValue_DailySnapshotTime;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.DailySnapshotTime' is not present");
+            }
+        }
 
         /// <summary>
         /// User-provided description for the serverless cache. The default is NULL.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the cache engine that will be used to create the serverless cache.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
         /// </summary>
-        [Input("majorEngineVersion")]
+        [PolicyResourceProperty("majorEngineVersion", "_mUnknown_MajorEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMajorEngineVersion;
-
-        public string? MajorEngineVersion => _mMajorEngineVersion.GetValue("majorEngineVersion");
+        private string? _mValue_MajorEngineVersion;
+        private bool _mUnknown_MajorEngineVersion;
+        public string? MajorEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_MajorEngineVersion) return _mValue_MajorEngineVersion;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.MajorEngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Cluster name which serves as a unique identifier to the serverless cache
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         /// </summary>
-        [Input("snapshotArnsToRestores")]
+        [PolicyResourceProperty("snapshotArnsToRestores", "_mUnknown_SnapshotArnsToRestores")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSnapshotArnsToRestores;
-
-        public List<string>? SnapshotArnsToRestores => _mSnapshotArnsToRestores.GetValue("snapshotArnsToRestores");
+        private List<string>? _mValue_SnapshotArnsToRestores;
+        private bool _mUnknown_SnapshotArnsToRestores;
+        public List<string>? SnapshotArnsToRestores
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotArnsToRestores) return _mValue_SnapshotArnsToRestores;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.SnapshotArnsToRestores' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
         /// </summary>
-        [Input("snapshotRetentionLimit")]
+        [PolicyResourceProperty("snapshotRetentionLimit", "_mUnknown_SnapshotRetentionLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionLimit;
-
-        public int? SnapshotRetentionLimit => _mSnapshotRetentionLimit.GetValue("snapshotRetentionLimit");
+        private int? _mValue_SnapshotRetentionLimit;
+        private bool _mUnknown_SnapshotRetentionLimit;
+        public int? SnapshotRetentionLimit
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotRetentionLimit) return _mValue_SnapshotRetentionLimit;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.SnapshotRetentionLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessCacheTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ServerlessCacheTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ServerlessCacheTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ServerlessCacheTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
         /// </summary>
-        [Input("userGroupId")]
+        [PolicyResourceProperty("userGroupId", "_mUnknown_UserGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
-
-        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+        private string? _mValue_UserGroupId;
+        private bool _mUnknown_UserGroupId;
+        public string? UserGroupId
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupId) return _mValue_UserGroupId;
+                throw new UndeferrableValueException("Value 'ServerlessCacheArgs.UserGroupId' is not present");
+            }
+        }
     }
 }

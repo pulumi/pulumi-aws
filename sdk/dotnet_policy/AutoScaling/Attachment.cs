@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Name of ASG to associate with the ELB.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'Attachment.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the ELB.
         /// </summary>
-        [Input("elb")]
+        [PolicyResourceProperty("elb", "_mUnknown_Elb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
-
-        public string? Elb => _mElb.GetValue("elb");
+        private string? _mValue_Elb;
+        private bool _mUnknown_Elb;
+        public string? Elb
+        {
+            get
+            {
+                if (!_mUnknown_Elb) return _mValue_Elb;
+                throw new UndeferrableValueException("Value 'Attachment.Elb' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of a load balancer target group.
         /// </summary>
-        [Input("lbTargetGroupArn")]
+        [PolicyResourceProperty("lbTargetGroupArn", "_mUnknown_LbTargetGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbTargetGroupArn;
-
-        public string? LbTargetGroupArn => _mLbTargetGroupArn.GetValue("lbTargetGroupArn");
+        private string? _mValue_LbTargetGroupArn;
+        private bool _mUnknown_LbTargetGroupArn;
+        public string? LbTargetGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_LbTargetGroupArn) return _mValue_LbTargetGroupArn;
+                throw new UndeferrableValueException("Value 'Attachment.LbTargetGroupArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/attachment:Attachment")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// Name of ASG to associate with the ELB.
         /// </summary>
-        [Input("autoscalingGroupName")]
+        [PolicyResourceProperty("autoscalingGroupName", "_mUnknown_AutoscalingGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingGroupName;
-
-        public string? AutoscalingGroupName => _mAutoscalingGroupName.GetValue("autoscalingGroupName");
+        private string? _mValue_AutoscalingGroupName;
+        private bool _mUnknown_AutoscalingGroupName;
+        public string? AutoscalingGroupName
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroupName) return _mValue_AutoscalingGroupName;
+                throw new UndeferrableValueException("Value 'AttachmentArgs.AutoscalingGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the ELB.
         /// </summary>
-        [Input("elb")]
+        [PolicyResourceProperty("elb", "_mUnknown_Elb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
-
-        public string? Elb => _mElb.GetValue("elb");
+        private string? _mValue_Elb;
+        private bool _mUnknown_Elb;
+        public string? Elb
+        {
+            get
+            {
+                if (!_mUnknown_Elb) return _mValue_Elb;
+                throw new UndeferrableValueException("Value 'AttachmentArgs.Elb' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of a load balancer target group.
         /// </summary>
-        [Input("lbTargetGroupArn")]
+        [PolicyResourceProperty("lbTargetGroupArn", "_mUnknown_LbTargetGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbTargetGroupArn;
-
-        public string? LbTargetGroupArn => _mLbTargetGroupArn.GetValue("lbTargetGroupArn");
+        private string? _mValue_LbTargetGroupArn;
+        private bool _mUnknown_LbTargetGroupArn;
+        public string? LbTargetGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_LbTargetGroupArn) return _mValue_LbTargetGroupArn;
+                throw new UndeferrableValueException("Value 'AttachmentArgs.LbTargetGroupArn' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
         /// </summary>
-        [Input("encryptionKey")]
+        [PolicyResourceProperty("encryptionKey", "_mUnknown_EncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipelineArtifactStoreEncryptionKeyArgs> _mEncryptionKey;
-
-        public Inputs.PipelineArtifactStoreEncryptionKeyArgs? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
+        private Inputs.PipelineArtifactStoreEncryptionKeyArgs? _mValue_EncryptionKey;
+        private bool _mUnknown_EncryptionKey;
+        public Inputs.PipelineArtifactStoreEncryptionKeyArgs? EncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionKey) return _mValue_EncryptionKey;
+                throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.EncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the artifact store, such as Amazon S3
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.Type' is not present");
+            }
+        }
     }
 }

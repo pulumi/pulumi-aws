@@ -18,40 +18,68 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TablePolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the namespace for this table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'TablePolicy.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
-        [Input("resourcePolicy")]
+        [PolicyResourceProperty("resourcePolicy", "_mUnknown_ResourcePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
-
-        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+        private string? _mValue_ResourcePolicy;
+        private bool _mUnknown_ResourcePolicy;
+        public string? ResourcePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePolicy) return _mValue_ResourcePolicy;
+                throw new UndeferrableValueException("Value 'TablePolicy.ResourcePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'TablePolicy.TableBucketArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3tables/tablePolicy:TablePolicy")]
@@ -62,39 +90,67 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TablePolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the namespace for this table.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'TablePolicyArgs.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
-        [Input("resourcePolicy")]
+        [PolicyResourceProperty("resourcePolicy", "_mUnknown_ResourcePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
-
-        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+        private string? _mValue_ResourcePolicy;
+        private bool _mUnknown_ResourcePolicy;
+        public string? ResourcePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePolicy) return _mValue_ResourcePolicy;
+                throw new UndeferrableValueException("Value 'TablePolicyArgs.ResourcePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'TablePolicyArgs.TableBucketArn' is not present");
+            }
+        }
     }
 }

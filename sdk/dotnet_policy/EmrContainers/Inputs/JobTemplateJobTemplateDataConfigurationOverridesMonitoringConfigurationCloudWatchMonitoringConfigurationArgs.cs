@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Inputs
         /// <summary>
         /// The name of the log group for log publishing.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The specified name prefix for log streams.
         /// </summary>
-        [Input("logStreamNamePrefix")]
+        [PolicyResourceProperty("logStreamNamePrefix", "_mUnknown_LogStreamNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogStreamNamePrefix;
-
-        public string? LogStreamNamePrefix => _mLogStreamNamePrefix.GetValue("logStreamNamePrefix");
+        private string? _mValue_LogStreamNamePrefix;
+        private bool _mUnknown_LogStreamNamePrefix;
+        public string? LogStreamNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_LogStreamNamePrefix) return _mValue_LogStreamNamePrefix;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs.LogStreamNamePrefix' is not present");
+            }
+        }
     }
 }

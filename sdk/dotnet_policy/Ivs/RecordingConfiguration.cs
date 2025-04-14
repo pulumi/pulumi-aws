@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Ivs
         /// <summary>
         /// ARN of the Recording Configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing destination configuration for where recorded video will be stored.
         /// </summary>
-        [Input("destinationConfiguration")]
+        [PolicyResourceProperty("destinationConfiguration", "_mUnknown_DestinationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecordingConfigurationDestinationConfiguration> _mDestinationConfiguration;
-
-        public Outputs.RecordingConfigurationDestinationConfiguration? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
+        private Outputs.RecordingConfigurationDestinationConfiguration? _mValue_DestinationConfiguration;
+        private bool _mUnknown_DestinationConfiguration;
+        public Outputs.RecordingConfigurationDestinationConfiguration? DestinationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfiguration) return _mValue_DestinationConfiguration;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.DestinationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording Configuration name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         /// </summary>
-        [Input("recordingReconnectWindowSeconds")]
+        [PolicyResourceProperty("recordingReconnectWindowSeconds", "_mUnknown_RecordingReconnectWindowSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecordingReconnectWindowSeconds;
-
-        public int? RecordingReconnectWindowSeconds => _mRecordingReconnectWindowSeconds.GetValue("recordingReconnectWindowSeconds");
+        private int? _mValue_RecordingReconnectWindowSeconds;
+        private bool _mUnknown_RecordingReconnectWindowSeconds;
+        public int? RecordingReconnectWindowSeconds
+        {
+            get
+            {
+                if (!_mUnknown_RecordingReconnectWindowSeconds) return _mValue_RecordingReconnectWindowSeconds;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.RecordingReconnectWindowSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the Recording Configuration.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.State' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         /// </summary>
-        [Input("thumbnailConfiguration")]
+        [PolicyResourceProperty("thumbnailConfiguration", "_mUnknown_ThumbnailConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RecordingConfigurationThumbnailConfiguration> _mThumbnailConfiguration;
-
-        public Outputs.RecordingConfigurationThumbnailConfiguration? ThumbnailConfiguration => _mThumbnailConfiguration.GetValue("thumbnailConfiguration");
+        private Outputs.RecordingConfigurationThumbnailConfiguration? _mValue_ThumbnailConfiguration;
+        private bool _mUnknown_ThumbnailConfiguration;
+        public Outputs.RecordingConfigurationThumbnailConfiguration? ThumbnailConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ThumbnailConfiguration) return _mValue_ThumbnailConfiguration;
+                throw new UndeferrableValueException("Value 'RecordingConfiguration.ThumbnailConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ivs/recordingConfiguration:RecordingConfiguration")]
@@ -92,46 +148,81 @@ namespace Pulumi.PolicyPacks.Aws.Ivs
         /// <summary>
         /// Object containing destination configuration for where recorded video will be stored.
         /// </summary>
-        [Input("destinationConfiguration")]
+        [PolicyResourceProperty("destinationConfiguration", "_mUnknown_DestinationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordingConfigurationDestinationConfigurationArgs> _mDestinationConfiguration;
-
-        public Inputs.RecordingConfigurationDestinationConfigurationArgs? DestinationConfiguration => _mDestinationConfiguration.GetValue("destinationConfiguration");
+        private Inputs.RecordingConfigurationDestinationConfigurationArgs? _mValue_DestinationConfiguration;
+        private bool _mUnknown_DestinationConfiguration;
+        public Inputs.RecordingConfigurationDestinationConfigurationArgs? DestinationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConfiguration) return _mValue_DestinationConfiguration;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.DestinationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording Configuration name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         /// </summary>
-        [Input("recordingReconnectWindowSeconds")]
+        [PolicyResourceProperty("recordingReconnectWindowSeconds", "_mUnknown_RecordingReconnectWindowSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRecordingReconnectWindowSeconds;
-
-        public int? RecordingReconnectWindowSeconds => _mRecordingReconnectWindowSeconds.GetValue("recordingReconnectWindowSeconds");
+        private int? _mValue_RecordingReconnectWindowSeconds;
+        private bool _mUnknown_RecordingReconnectWindowSeconds;
+        public int? RecordingReconnectWindowSeconds
+        {
+            get
+            {
+                if (!_mUnknown_RecordingReconnectWindowSeconds) return _mValue_RecordingReconnectWindowSeconds;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.RecordingReconnectWindowSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         /// </summary>
-        [Input("thumbnailConfiguration")]
+        [PolicyResourceProperty("thumbnailConfiguration", "_mUnknown_ThumbnailConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RecordingConfigurationThumbnailConfigurationArgs> _mThumbnailConfiguration;
-
-        public Inputs.RecordingConfigurationThumbnailConfigurationArgs? ThumbnailConfiguration => _mThumbnailConfiguration.GetValue("thumbnailConfiguration");
+        private Inputs.RecordingConfigurationThumbnailConfigurationArgs? _mValue_ThumbnailConfiguration;
+        private bool _mUnknown_ThumbnailConfiguration;
+        public Inputs.RecordingConfigurationThumbnailConfigurationArgs? ThumbnailConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ThumbnailConfiguration) return _mValue_ThumbnailConfiguration;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.ThumbnailConfiguration' is not present");
+            }
+        }
     }
 }

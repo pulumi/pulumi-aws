@@ -17,28 +17,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// 
         /// For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html).
         /// </summary>
-        [Input("assignPublicIp")]
+        [PolicyResourceProperty("assignPublicIp", "_mUnknown_AssignPublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignPublicIp;
-
-        public bool? AssignPublicIp => _mAssignPublicIp.GetValue("assignPublicIp");
+        private bool? _mValue_AssignPublicIp;
+        private bool _mUnknown_AssignPublicIp;
+        public bool? AssignPublicIp
+        {
+            get
+            {
+                if (!_mUnknown_AssignPublicIp) return _mValue_AssignPublicIp;
+                throw new UndeferrableValueException("Value 'TaskSetNetworkConfiguration.AssignPublicIp' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'TaskSetNetworkConfiguration.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnets associated with the task or service. Maximum of 16.
         /// </summary>
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'TaskSetNetworkConfiguration.Subnets' is not present");
+            }
+        }
     }
 }

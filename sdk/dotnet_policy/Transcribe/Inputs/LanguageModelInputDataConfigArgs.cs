@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe.Inputs
         /// <summary>
         /// IAM role with access to S3 bucket.
         /// </summary>
-        [Input("dataAccessRoleArn")]
+        [PolicyResourceProperty("dataAccessRoleArn", "_mUnknown_DataAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
-
-        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
+        private string? _mValue_DataAccessRoleArn;
+        private bool _mUnknown_DataAccessRoleArn;
+        public string? DataAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DataAccessRoleArn) return _mValue_DataAccessRoleArn;
+                throw new UndeferrableValueException("Value 'LanguageModelInputDataConfigArgs.DataAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI where training data is located.
         /// </summary>
-        [Input("s3Uri")]
+        [PolicyResourceProperty("s3Uri", "_mUnknown_S3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Uri;
-
-        public string? S3Uri => _mS3Uri.GetValue("s3Uri");
+        private string? _mValue_S3Uri;
+        private bool _mUnknown_S3Uri;
+        public string? S3Uri
+        {
+            get
+            {
+                if (!_mUnknown_S3Uri) return _mValue_S3Uri;
+                throw new UndeferrableValueException("Value 'LanguageModelInputDataConfigArgs.S3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 URI where tuning data is located.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tuningDataS3Uri")]
+        [PolicyResourceProperty("tuningDataS3Uri", "_mUnknown_TuningDataS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTuningDataS3Uri;
-
-        public string? TuningDataS3Uri => _mTuningDataS3Uri.GetValue("tuningDataS3Uri");
+        private string? _mValue_TuningDataS3Uri;
+        private bool _mUnknown_TuningDataS3Uri;
+        public string? TuningDataS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_TuningDataS3Uri) return _mValue_TuningDataS3Uri;
+                throw new UndeferrableValueException("Value 'LanguageModelInputDataConfigArgs.TuningDataS3Uri' is not present");
+            }
+        }
     }
 }

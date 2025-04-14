@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics.Inputs
         /// <summary>
         /// Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
         /// </summary>
-        [Input("s3Encryption")]
+        [PolicyResourceProperty("s3Encryption", "_mUnknown_S3Encryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryArtifactConfigS3EncryptionArgs> _mS3Encryption;
-
-        public Inputs.CanaryArtifactConfigS3EncryptionArgs? S3Encryption => _mS3Encryption.GetValue("s3Encryption");
+        private Inputs.CanaryArtifactConfigS3EncryptionArgs? _mValue_S3Encryption;
+        private bool _mUnknown_S3Encryption;
+        public Inputs.CanaryArtifactConfigS3EncryptionArgs? S3Encryption
+        {
+            get
+            {
+                if (!_mUnknown_S3Encryption) return _mValue_S3Encryption;
+                throw new UndeferrableValueException("Value 'CanaryArtifactConfigArgs.S3Encryption' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         /// </summary>
-        [Input("lifecycleConfigArn")]
+        [PolicyResourceProperty("lifecycleConfigArn", "_mUnknown_LifecycleConfigArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleConfigArn;
-
-        public string? LifecycleConfigArn => _mLifecycleConfigArn.GetValue("lifecycleConfigArn");
+        private string? _mValue_LifecycleConfigArn;
+        private bool _mUnknown_LifecycleConfigArn;
+        public string? LifecycleConfigArn
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigArn) return _mValue_LifecycleConfigArn;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec.LifecycleConfigArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the SageMaker AI image that the image version belongs to.
         /// </summary>
-        [Input("sagemakerImageArn")]
+        [PolicyResourceProperty("sagemakerImageArn", "_mUnknown_SagemakerImageArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSagemakerImageArn;
-
-        public string? SagemakerImageArn => _mSagemakerImageArn.GetValue("sagemakerImageArn");
+        private string? _mValue_SagemakerImageArn;
+        private bool _mUnknown_SagemakerImageArn;
+        public string? SagemakerImageArn
+        {
+            get
+            {
+                if (!_mUnknown_SagemakerImageArn) return _mValue_SagemakerImageArn;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec.SagemakerImageArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The SageMaker AI Image Version Alias.
         /// </summary>
-        [Input("sagemakerImageVersionAlias")]
+        [PolicyResourceProperty("sagemakerImageVersionAlias", "_mUnknown_SagemakerImageVersionAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSagemakerImageVersionAlias;
-
-        public string? SagemakerImageVersionAlias => _mSagemakerImageVersionAlias.GetValue("sagemakerImageVersionAlias");
+        private string? _mValue_SagemakerImageVersionAlias;
+        private bool _mUnknown_SagemakerImageVersionAlias;
+        public string? SagemakerImageVersionAlias
+        {
+            get
+            {
+                if (!_mUnknown_SagemakerImageVersionAlias) return _mValue_SagemakerImageVersionAlias;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec.SagemakerImageVersionAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the image version created on the instance.
         /// </summary>
-        [Input("sagemakerImageVersionArn")]
+        [PolicyResourceProperty("sagemakerImageVersionArn", "_mUnknown_SagemakerImageVersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSagemakerImageVersionArn;
-
-        public string? SagemakerImageVersionArn => _mSagemakerImageVersionArn.GetValue("sagemakerImageVersionArn");
+        private string? _mValue_SagemakerImageVersionArn;
+        private bool _mUnknown_SagemakerImageVersionArn;
+        public string? SagemakerImageVersionArn
+        {
+            get
+            {
+                if (!_mUnknown_SagemakerImageVersionArn) return _mValue_SagemakerImageVersionArn;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec.SagemakerImageVersionArn' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
         /// <summary>
         /// Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
         /// </summary>
-        [Input("enableUnhealthyConnectionTermination")]
+        [PolicyResourceProperty("enableUnhealthyConnectionTermination", "_mUnknown_EnableUnhealthyConnectionTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableUnhealthyConnectionTermination;
-
-        public bool? EnableUnhealthyConnectionTermination => _mEnableUnhealthyConnectionTermination.GetValue("enableUnhealthyConnectionTermination");
+        private bool? _mValue_EnableUnhealthyConnectionTermination;
+        private bool _mUnknown_EnableUnhealthyConnectionTermination;
+        public bool? EnableUnhealthyConnectionTermination
+        {
+            get
+            {
+                if (!_mUnknown_EnableUnhealthyConnectionTermination) return _mValue_EnableUnhealthyConnectionTermination;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetHealthState.EnableUnhealthyConnectionTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
         /// </summary>
-        [Input("unhealthyDrainingInterval")]
+        [PolicyResourceProperty("unhealthyDrainingInterval", "_mUnknown_UnhealthyDrainingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyDrainingInterval;
-
-        public int? UnhealthyDrainingInterval => _mUnhealthyDrainingInterval.GetValue("unhealthyDrainingInterval");
+        private int? _mValue_UnhealthyDrainingInterval;
+        private bool _mUnknown_UnhealthyDrainingInterval;
+        public int? UnhealthyDrainingInterval
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyDrainingInterval) return _mValue_UnhealthyDrainingInterval;
+                throw new UndeferrableValueException("Value 'TargetGroupTargetHealthState.UnhealthyDrainingInterval' is not present");
+            }
+        }
     }
 }

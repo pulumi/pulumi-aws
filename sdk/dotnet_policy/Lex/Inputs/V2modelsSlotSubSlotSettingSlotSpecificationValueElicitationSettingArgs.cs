@@ -16,36 +16,64 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// List of default values for a slot.
         /// See the `default_value_specification` argument reference below.
         /// </summary>
-        [Input("defaultValueSpecifications")]
+        [PolicyResourceProperty("defaultValueSpecifications", "_mUnknown_DefaultValueSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs>> _mDefaultValueSpecifications;
-
-        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs>? DefaultValueSpecifications => _mDefaultValueSpecifications.GetValue("defaultValueSpecifications");
+        private List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs>? _mValue_DefaultValueSpecifications;
+        private bool _mUnknown_DefaultValueSpecifications;
+        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs>? DefaultValueSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_DefaultValueSpecifications) return _mValue_DefaultValueSpecifications;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs.DefaultValueSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Prompt that Amazon Lex uses to elicit the slot value from the user.
         /// See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
         /// </summary>
-        [Input("promptSpecification")]
+        [PolicyResourceProperty("promptSpecification", "_mUnknown_PromptSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> _mPromptSpecification;
+        private Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs? _mValue_PromptSpecification;
+        private bool _mUnknown_PromptSpecification;
+        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs? PromptSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PromptSpecification) return _mValue_PromptSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs.PromptSpecification' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs? PromptSpecification => _mPromptSpecification.GetValue("promptSpecification");
-
-        [Input("sampleUtterances")]
+        [PolicyResourceProperty("sampleUtterances", "_mUnknown_SampleUtterances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs>> _mSampleUtterances;
-
-        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs>? SampleUtterances => _mSampleUtterances.GetValue("sampleUtterances");
+        private List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs>? _mValue_SampleUtterances;
+        private bool _mUnknown_SampleUtterances;
+        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs>? SampleUtterances
+        {
+            get
+            {
+                if (!_mUnknown_SampleUtterances) return _mValue_SampleUtterances;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs.SampleUtterances' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
         /// See the `wait_and_continue_specification` argument reference below.
         /// </summary>
-        [Input("waitAndContinueSpecifications")]
+        [PolicyResourceProperty("waitAndContinueSpecifications", "_mUnknown_WaitAndContinueSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs>> _mWaitAndContinueSpecifications;
-
-        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs>? WaitAndContinueSpecifications => _mWaitAndContinueSpecifications.GetValue("waitAndContinueSpecifications");
+        private List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs>? _mValue_WaitAndContinueSpecifications;
+        private bool _mUnknown_WaitAndContinueSpecifications;
+        public List<Inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs>? WaitAndContinueSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_WaitAndContinueSpecifications) return _mValue_WaitAndContinueSpecifications;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs.WaitAndContinueSpecifications' is not present");
+            }
+        }
     }
 }

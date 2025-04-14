@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact channel.
         /// </summary>
-        [Input("contactChannelId")]
+        [PolicyResourceProperty("contactChannelId", "_mUnknown_ContactChannelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactChannelId;
-
-        public string? ContactChannelId => _mContactChannelId.GetValue("contactChannelId");
+        private string? _mValue_ContactChannelId;
+        private bool _mUnknown_ContactChannelId;
+        public string? ContactChannelId
+        {
+            get
+            {
+                if (!_mUnknown_ContactChannelId) return _mValue_ContactChannelId;
+                throw new UndeferrableValueException("Value 'PlanStageTargetChannelTargetInfo.ContactChannelId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
         /// </summary>
-        [Input("retryIntervalInMinutes")]
+        [PolicyResourceProperty("retryIntervalInMinutes", "_mUnknown_RetryIntervalInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryIntervalInMinutes;
-
-        public int? RetryIntervalInMinutes => _mRetryIntervalInMinutes.GetValue("retryIntervalInMinutes");
+        private int? _mValue_RetryIntervalInMinutes;
+        private bool _mUnknown_RetryIntervalInMinutes;
+        public int? RetryIntervalInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_RetryIntervalInMinutes) return _mValue_RetryIntervalInMinutes;
+                throw new UndeferrableValueException("Value 'PlanStageTargetChannelTargetInfo.RetryIntervalInMinutes' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("defaultTargetHostname")]
+        [PolicyResourceProperty("defaultTargetHostname", "_mUnknown_DefaultTargetHostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultTargetHostname;
-
-        public string? DefaultTargetHostname => _mDefaultTargetHostname.GetValue("defaultTargetHostname");
+        private string? _mValue_DefaultTargetHostname;
+        private bool _mUnknown_DefaultTargetHostname;
+        public string? DefaultTargetHostname
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTargetHostname) return _mValue_DefaultTargetHostname;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteActionRewriteHostname.DefaultTargetHostname' is not present");
+            }
+        }
     }
 }

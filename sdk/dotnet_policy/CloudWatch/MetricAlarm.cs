@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         /// </summary>
-        [Input("actionsEnabled")]
+        [PolicyResourceProperty("actionsEnabled", "_mUnknown_ActionsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActionsEnabled;
-
-        public bool? ActionsEnabled => _mActionsEnabled.GetValue("actionsEnabled");
+        private bool? _mValue_ActionsEnabled;
+        private bool _mUnknown_ActionsEnabled;
+        public bool? ActionsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ActionsEnabled) return _mValue_ActionsEnabled;
+                throw new UndeferrableValueException("Value 'MetricAlarm.ActionsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        [Input("alarmActions")]
+        [PolicyResourceProperty("alarmActions", "_mUnknown_AlarmActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarmActions;
-
-        public List<string>? AlarmActions => _mAlarmActions.GetValue("alarmActions");
+        private List<string>? _mValue_AlarmActions;
+        private bool _mUnknown_AlarmActions;
+        public List<string>? AlarmActions
+        {
+            get
+            {
+                if (!_mUnknown_AlarmActions) return _mValue_AlarmActions;
+                throw new UndeferrableValueException("Value 'MetricAlarm.AlarmActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the alarm.
         /// </summary>
-        [Input("alarmDescription")]
+        [PolicyResourceProperty("alarmDescription", "_mUnknown_AlarmDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmDescription;
-
-        public string? AlarmDescription => _mAlarmDescription.GetValue("alarmDescription");
+        private string? _mValue_AlarmDescription;
+        private bool _mUnknown_AlarmDescription;
+        public string? AlarmDescription
+        {
+            get
+            {
+                if (!_mUnknown_AlarmDescription) return _mValue_AlarmDescription;
+                throw new UndeferrableValueException("Value 'MetricAlarm.AlarmDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the CloudWatch Metric Alarm.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         /// </summary>
-        [Input("comparisonOperator")]
+        [PolicyResourceProperty("comparisonOperator", "_mUnknown_ComparisonOperator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparisonOperator;
-
-        public string? ComparisonOperator => _mComparisonOperator.GetValue("comparisonOperator");
+        private string? _mValue_ComparisonOperator;
+        private bool _mUnknown_ComparisonOperator;
+        public string? ComparisonOperator
+        {
+            get
+            {
+                if (!_mUnknown_ComparisonOperator) return _mValue_ComparisonOperator;
+                throw new UndeferrableValueException("Value 'MetricAlarm.ComparisonOperator' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of datapoints that must be breaching to trigger the alarm.
         /// </summary>
-        [Input("datapointsToAlarm")]
+        [PolicyResourceProperty("datapointsToAlarm", "_mUnknown_DatapointsToAlarm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDatapointsToAlarm;
-
-        public int? DatapointsToAlarm => _mDatapointsToAlarm.GetValue("datapointsToAlarm");
+        private int? _mValue_DatapointsToAlarm;
+        private bool _mUnknown_DatapointsToAlarm;
+        public int? DatapointsToAlarm
+        {
+            get
+            {
+                if (!_mUnknown_DatapointsToAlarm) return _mValue_DatapointsToAlarm;
+                throw new UndeferrableValueException("Value 'MetricAlarm.DatapointsToAlarm' is not present");
+            }
+        }
 
         /// <summary>
         /// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDimensions;
-
-        public Dictionary<string, string>? Dimensions => _mDimensions.GetValue("dimensions");
+        private Dictionary<string, string>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public Dictionary<string, string>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// Used only for alarms based on percentiles.
@@ -82,161 +131,280 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         /// The following values are supported: `ignore`, and `evaluate`.
         /// </summary>
-        [Input("evaluateLowSampleCountPercentiles")]
+        [PolicyResourceProperty("evaluateLowSampleCountPercentiles", "_mUnknown_EvaluateLowSampleCountPercentiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluateLowSampleCountPercentiles;
-
-        public string? EvaluateLowSampleCountPercentiles => _mEvaluateLowSampleCountPercentiles.GetValue("evaluateLowSampleCountPercentiles");
+        private string? _mValue_EvaluateLowSampleCountPercentiles;
+        private bool _mUnknown_EvaluateLowSampleCountPercentiles;
+        public string? EvaluateLowSampleCountPercentiles
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateLowSampleCountPercentiles) return _mValue_EvaluateLowSampleCountPercentiles;
+                throw new UndeferrableValueException("Value 'MetricAlarm.EvaluateLowSampleCountPercentiles' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of periods over which data is compared to the specified threshold.
         /// </summary>
-        [Input("evaluationPeriods")]
+        [PolicyResourceProperty("evaluationPeriods", "_mUnknown_EvaluationPeriods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEvaluationPeriods;
-
-        public int? EvaluationPeriods => _mEvaluationPeriods.GetValue("evaluationPeriods");
+        private int? _mValue_EvaluationPeriods;
+        private bool _mUnknown_EvaluationPeriods;
+        public int? EvaluationPeriods
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationPeriods) return _mValue_EvaluationPeriods;
+                throw new UndeferrableValueException("Value 'MetricAlarm.EvaluationPeriods' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         /// </summary>
-        [Input("extendedStatistic")]
+        [PolicyResourceProperty("extendedStatistic", "_mUnknown_ExtendedStatistic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtendedStatistic;
-
-        public string? ExtendedStatistic => _mExtendedStatistic.GetValue("extendedStatistic");
+        private string? _mValue_ExtendedStatistic;
+        private bool _mUnknown_ExtendedStatistic;
+        public string? ExtendedStatistic
+        {
+            get
+            {
+                if (!_mUnknown_ExtendedStatistic) return _mValue_ExtendedStatistic;
+                throw new UndeferrableValueException("Value 'MetricAlarm.ExtendedStatistic' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        [Input("insufficientDataActions")]
+        [PolicyResourceProperty("insufficientDataActions", "_mUnknown_InsufficientDataActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsufficientDataActions;
-
-        public List<string>? InsufficientDataActions => _mInsufficientDataActions.GetValue("insufficientDataActions");
+        private List<string>? _mValue_InsufficientDataActions;
+        private bool _mUnknown_InsufficientDataActions;
+        public List<string>? InsufficientDataActions
+        {
+            get
+            {
+                if (!_mUnknown_InsufficientDataActions) return _mValue_InsufficientDataActions;
+                throw new UndeferrableValueException("Value 'MetricAlarm.InsufficientDataActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the alarm's associated metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'MetricAlarm.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         /// </summary>
-        [Input("metricQueries")]
+        [PolicyResourceProperty("metricQueries", "_mUnknown_MetricQueries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MetricAlarmMetricQuery>> _mMetricQueries;
-
-        public List<Outputs.MetricAlarmMetricQuery>? MetricQueries => _mMetricQueries.GetValue("metricQueries");
+        private List<Outputs.MetricAlarmMetricQuery>? _mValue_MetricQueries;
+        private bool _mUnknown_MetricQueries;
+        public List<Outputs.MetricAlarmMetricQuery>? MetricQueries
+        {
+            get
+            {
+                if (!_mUnknown_MetricQueries) return _mValue_MetricQueries;
+                throw new UndeferrableValueException("Value 'MetricAlarm.MetricQueries' is not present");
+            }
+        }
 
         /// <summary>
         /// The descriptive name for the alarm. This name must be unique within the user's AWS account
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        [Input("okActions")]
+        [PolicyResourceProperty("okActions", "_mUnknown_OkActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOkActions;
-
-        public List<string>? OkActions => _mOkActions.GetValue("okActions");
+        private List<string>? _mValue_OkActions;
+        private bool _mUnknown_OkActions;
+        public List<string>? OkActions
+        {
+            get
+            {
+                if (!_mUnknown_OkActions) return _mValue_OkActions;
+                throw new UndeferrableValueException("Value 'MetricAlarm.OkActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
         /// Valid values are `10`, `30`, or any multiple of `60`.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPeriod;
-
-        public int? Period => _mPeriod.GetValue("period");
+        private int? _mValue_Period;
+        private bool _mUnknown_Period;
+        public int? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// The statistic to apply to the alarm's associated metric.
         /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         /// </summary>
-        [Input("statistic")]
+        [PolicyResourceProperty("statistic", "_mUnknown_Statistic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatistic;
-
-        public string? Statistic => _mStatistic.GetValue("statistic");
+        private string? _mValue_Statistic;
+        private bool _mUnknown_Statistic;
+        public string? Statistic
+        {
+            get
+            {
+                if (!_mUnknown_Statistic) return _mValue_Statistic;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Statistic' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'MetricAlarm.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
         /// </summary>
-        [Input("threshold")]
+        [PolicyResourceProperty("threshold", "_mUnknown_Threshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mThreshold;
-
-        public double? Threshold => _mThreshold.GetValue("threshold");
+        private double? _mValue_Threshold;
+        private bool _mUnknown_Threshold;
+        public double? Threshold
+        {
+            get
+            {
+                if (!_mUnknown_Threshold) return _mValue_Threshold;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Threshold' is not present");
+            }
+        }
 
         /// <summary>
         /// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         /// </summary>
-        [Input("thresholdMetricId")]
+        [PolicyResourceProperty("thresholdMetricId", "_mUnknown_ThresholdMetricId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThresholdMetricId;
-
-        public string? ThresholdMetricId => _mThresholdMetricId.GetValue("thresholdMetricId");
+        private string? _mValue_ThresholdMetricId;
+        private bool _mUnknown_ThresholdMetricId;
+        public string? ThresholdMetricId
+        {
+            get
+            {
+                if (!_mUnknown_ThresholdMetricId) return _mValue_ThresholdMetricId;
+                throw new UndeferrableValueException("Value 'MetricAlarm.ThresholdMetricId' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         /// </summary>
-        [Input("treatMissingData")]
+        [PolicyResourceProperty("treatMissingData", "_mUnknown_TreatMissingData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTreatMissingData;
-
-        public string? TreatMissingData => _mTreatMissingData.GetValue("treatMissingData");
+        private string? _mValue_TreatMissingData;
+        private bool _mUnknown_TreatMissingData;
+        public string? TreatMissingData
+        {
+            get
+            {
+                if (!_mUnknown_TreatMissingData) return _mValue_TreatMissingData;
+                throw new UndeferrableValueException("Value 'MetricAlarm.TreatMissingData' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit for the alarm's associated metric.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'MetricAlarm.Unit' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/metricAlarm:MetricAlarm")]
@@ -245,56 +413,98 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         /// </summary>
-        [Input("actionsEnabled")]
+        [PolicyResourceProperty("actionsEnabled", "_mUnknown_ActionsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActionsEnabled;
-
-        public bool? ActionsEnabled => _mActionsEnabled.GetValue("actionsEnabled");
+        private bool? _mValue_ActionsEnabled;
+        private bool _mUnknown_ActionsEnabled;
+        public bool? ActionsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ActionsEnabled) return _mValue_ActionsEnabled;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.ActionsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        [Input("alarmActions")]
+        [PolicyResourceProperty("alarmActions", "_mUnknown_AlarmActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarmActions;
-
-        public List<string>? AlarmActions => _mAlarmActions.GetValue("alarmActions");
+        private List<string>? _mValue_AlarmActions;
+        private bool _mUnknown_AlarmActions;
+        public List<string>? AlarmActions
+        {
+            get
+            {
+                if (!_mUnknown_AlarmActions) return _mValue_AlarmActions;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.AlarmActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for the alarm.
         /// </summary>
-        [Input("alarmDescription")]
+        [PolicyResourceProperty("alarmDescription", "_mUnknown_AlarmDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmDescription;
-
-        public string? AlarmDescription => _mAlarmDescription.GetValue("alarmDescription");
+        private string? _mValue_AlarmDescription;
+        private bool _mUnknown_AlarmDescription;
+        public string? AlarmDescription
+        {
+            get
+            {
+                if (!_mUnknown_AlarmDescription) return _mValue_AlarmDescription;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.AlarmDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         /// </summary>
-        [Input("comparisonOperator")]
+        [PolicyResourceProperty("comparisonOperator", "_mUnknown_ComparisonOperator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparisonOperator;
-
-        public string? ComparisonOperator => _mComparisonOperator.GetValue("comparisonOperator");
+        private string? _mValue_ComparisonOperator;
+        private bool _mUnknown_ComparisonOperator;
+        public string? ComparisonOperator
+        {
+            get
+            {
+                if (!_mUnknown_ComparisonOperator) return _mValue_ComparisonOperator;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.ComparisonOperator' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of datapoints that must be breaching to trigger the alarm.
         /// </summary>
-        [Input("datapointsToAlarm")]
+        [PolicyResourceProperty("datapointsToAlarm", "_mUnknown_DatapointsToAlarm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDatapointsToAlarm;
-
-        public int? DatapointsToAlarm => _mDatapointsToAlarm.GetValue("datapointsToAlarm");
+        private int? _mValue_DatapointsToAlarm;
+        private bool _mUnknown_DatapointsToAlarm;
+        public int? DatapointsToAlarm
+        {
+            get
+            {
+                if (!_mUnknown_DatapointsToAlarm) return _mValue_DatapointsToAlarm;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.DatapointsToAlarm' is not present");
+            }
+        }
 
         /// <summary>
         /// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("dimensions")]
+        [PolicyResourceProperty("dimensions", "_mUnknown_Dimensions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mDimensions;
-
-        public Dictionary<string, string>? Dimensions => _mDimensions.GetValue("dimensions");
+        private Dictionary<string, string>? _mValue_Dimensions;
+        private bool _mUnknown_Dimensions;
+        public Dictionary<string, string>? Dimensions
+        {
+            get
+            {
+                if (!_mUnknown_Dimensions) return _mValue_Dimensions;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Dimensions' is not present");
+            }
+        }
 
         /// <summary>
         /// Used only for alarms based on percentiles.
@@ -302,151 +512,263 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         /// The following values are supported: `ignore`, and `evaluate`.
         /// </summary>
-        [Input("evaluateLowSampleCountPercentiles")]
+        [PolicyResourceProperty("evaluateLowSampleCountPercentiles", "_mUnknown_EvaluateLowSampleCountPercentiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvaluateLowSampleCountPercentiles;
-
-        public string? EvaluateLowSampleCountPercentiles => _mEvaluateLowSampleCountPercentiles.GetValue("evaluateLowSampleCountPercentiles");
+        private string? _mValue_EvaluateLowSampleCountPercentiles;
+        private bool _mUnknown_EvaluateLowSampleCountPercentiles;
+        public string? EvaluateLowSampleCountPercentiles
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateLowSampleCountPercentiles) return _mValue_EvaluateLowSampleCountPercentiles;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.EvaluateLowSampleCountPercentiles' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of periods over which data is compared to the specified threshold.
         /// </summary>
-        [Input("evaluationPeriods")]
+        [PolicyResourceProperty("evaluationPeriods", "_mUnknown_EvaluationPeriods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEvaluationPeriods;
-
-        public int? EvaluationPeriods => _mEvaluationPeriods.GetValue("evaluationPeriods");
+        private int? _mValue_EvaluationPeriods;
+        private bool _mUnknown_EvaluationPeriods;
+        public int? EvaluationPeriods
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationPeriods) return _mValue_EvaluationPeriods;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.EvaluationPeriods' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         /// </summary>
-        [Input("extendedStatistic")]
+        [PolicyResourceProperty("extendedStatistic", "_mUnknown_ExtendedStatistic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtendedStatistic;
-
-        public string? ExtendedStatistic => _mExtendedStatistic.GetValue("extendedStatistic");
+        private string? _mValue_ExtendedStatistic;
+        private bool _mUnknown_ExtendedStatistic;
+        public string? ExtendedStatistic
+        {
+            get
+            {
+                if (!_mUnknown_ExtendedStatistic) return _mValue_ExtendedStatistic;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.ExtendedStatistic' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        [Input("insufficientDataActions")]
+        [PolicyResourceProperty("insufficientDataActions", "_mUnknown_InsufficientDataActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsufficientDataActions;
-
-        public List<string>? InsufficientDataActions => _mInsufficientDataActions.GetValue("insufficientDataActions");
+        private List<string>? _mValue_InsufficientDataActions;
+        private bool _mUnknown_InsufficientDataActions;
+        public List<string>? InsufficientDataActions
+        {
+            get
+            {
+                if (!_mUnknown_InsufficientDataActions) return _mValue_InsufficientDataActions;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.InsufficientDataActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the alarm's associated metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("metricName")]
+        [PolicyResourceProperty("metricName", "_mUnknown_MetricName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricName;
-
-        public string? MetricName => _mMetricName.GetValue("metricName");
+        private string? _mValue_MetricName;
+        private bool _mUnknown_MetricName;
+        public string? MetricName
+        {
+            get
+            {
+                if (!_mUnknown_MetricName) return _mValue_MetricName;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.MetricName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         /// </summary>
-        [Input("metricQueries")]
+        [PolicyResourceProperty("metricQueries", "_mUnknown_MetricQueries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MetricAlarmMetricQueryArgs>> _mMetricQueries;
-
-        public List<Inputs.MetricAlarmMetricQueryArgs>? MetricQueries => _mMetricQueries.GetValue("metricQueries");
+        private List<Inputs.MetricAlarmMetricQueryArgs>? _mValue_MetricQueries;
+        private bool _mUnknown_MetricQueries;
+        public List<Inputs.MetricAlarmMetricQueryArgs>? MetricQueries
+        {
+            get
+            {
+                if (!_mUnknown_MetricQueries) return _mValue_MetricQueries;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.MetricQueries' is not present");
+            }
+        }
 
         /// <summary>
         /// The descriptive name for the alarm. This name must be unique within the user's AWS account
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
-        [Input("okActions")]
+        [PolicyResourceProperty("okActions", "_mUnknown_OkActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOkActions;
-
-        public List<string>? OkActions => _mOkActions.GetValue("okActions");
+        private List<string>? _mValue_OkActions;
+        private bool _mUnknown_OkActions;
+        public List<string>? OkActions
+        {
+            get
+            {
+                if (!_mUnknown_OkActions) return _mValue_OkActions;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.OkActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The period in seconds over which the specified `statistic` is applied.
         /// Valid values are `10`, `30`, or any multiple of `60`.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPeriod;
-
-        public int? Period => _mPeriod.GetValue("period");
+        private int? _mValue_Period;
+        private bool _mUnknown_Period;
+        public int? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// The statistic to apply to the alarm's associated metric.
         /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         /// </summary>
-        [Input("statistic")]
+        [PolicyResourceProperty("statistic", "_mUnknown_Statistic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatistic;
-
-        public string? Statistic => _mStatistic.GetValue("statistic");
+        private string? _mValue_Statistic;
+        private bool _mUnknown_Statistic;
+        public string? Statistic
+        {
+            get
+            {
+                if (!_mUnknown_Statistic) return _mValue_Statistic;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Statistic' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
         /// </summary>
-        [Input("threshold")]
+        [PolicyResourceProperty("threshold", "_mUnknown_Threshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mThreshold;
-
-        public double? Threshold => _mThreshold.GetValue("threshold");
+        private double? _mValue_Threshold;
+        private bool _mUnknown_Threshold;
+        public double? Threshold
+        {
+            get
+            {
+                if (!_mUnknown_Threshold) return _mValue_Threshold;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Threshold' is not present");
+            }
+        }
 
         /// <summary>
         /// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         /// </summary>
-        [Input("thresholdMetricId")]
+        [PolicyResourceProperty("thresholdMetricId", "_mUnknown_ThresholdMetricId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThresholdMetricId;
-
-        public string? ThresholdMetricId => _mThresholdMetricId.GetValue("thresholdMetricId");
+        private string? _mValue_ThresholdMetricId;
+        private bool _mUnknown_ThresholdMetricId;
+        public string? ThresholdMetricId
+        {
+            get
+            {
+                if (!_mUnknown_ThresholdMetricId) return _mValue_ThresholdMetricId;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.ThresholdMetricId' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         /// </summary>
-        [Input("treatMissingData")]
+        [PolicyResourceProperty("treatMissingData", "_mUnknown_TreatMissingData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTreatMissingData;
-
-        public string? TreatMissingData => _mTreatMissingData.GetValue("treatMissingData");
+        private string? _mValue_TreatMissingData;
+        private bool _mUnknown_TreatMissingData;
+        public string? TreatMissingData
+        {
+            get
+            {
+                if (!_mUnknown_TreatMissingData) return _mValue_TreatMissingData;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.TreatMissingData' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit for the alarm's associated metric.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'MetricAlarmArgs.Unit' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
         /// </summary>
-        [Input("lastFreshStart")]
+        [PolicyResourceProperty("lastFreshStart", "_mUnknown_LastFreshStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastFreshStart;
-
-        public string? LastFreshStart => _mLastFreshStart.GetValue("lastFreshStart");
+        private string? _mValue_LastFreshStart;
+        private bool _mUnknown_LastFreshStart;
+        public string? LastFreshStart
+        {
+            get
+            {
+                if (!_mUnknown_LastFreshStart) return _mValue_LastFreshStart;
+                throw new UndeferrableValueException("Value 'ConfigurationSetReputationOptions.LastFreshStart' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
         /// </summary>
-        [Input("reputationMetricsEnabled")]
+        [PolicyResourceProperty("reputationMetricsEnabled", "_mUnknown_ReputationMetricsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReputationMetricsEnabled;
-
-        public bool? ReputationMetricsEnabled => _mReputationMetricsEnabled.GetValue("reputationMetricsEnabled");
+        private bool? _mValue_ReputationMetricsEnabled;
+        private bool _mUnknown_ReputationMetricsEnabled;
+        public bool? ReputationMetricsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ReputationMetricsEnabled) return _mValue_ReputationMetricsEnabled;
+                throw new UndeferrableValueException("Value 'ConfigurationSetReputationOptions.ReputationMetricsEnabled' is not present");
+            }
+        }
     }
 }

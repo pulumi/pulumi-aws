@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// ID of the Domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfiguration.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// Regions in which the blueprint is enabled
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("enabledRegions")]
+        [PolicyResourceProperty("enabledRegions", "_mUnknown_EnabledRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledRegions;
-
-        public List<string>? EnabledRegions => _mEnabledRegions.GetValue("enabledRegions");
+        private List<string>? _mValue_EnabledRegions;
+        private bool _mUnknown_EnabledRegions;
+        public List<string>? EnabledRegions
+        {
+            get
+            {
+                if (!_mUnknown_EnabledRegions) return _mValue_EnabledRegions;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfiguration.EnabledRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Environment Blueprint
         /// </summary>
-        [Input("environmentBlueprintId")]
+        [PolicyResourceProperty("environmentBlueprintId", "_mUnknown_EnvironmentBlueprintId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentBlueprintId;
-
-        public string? EnvironmentBlueprintId => _mEnvironmentBlueprintId.GetValue("environmentBlueprintId");
+        private string? _mValue_EnvironmentBlueprintId;
+        private bool _mUnknown_EnvironmentBlueprintId;
+        public string? EnvironmentBlueprintId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentBlueprintId) return _mValue_EnvironmentBlueprintId;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfiguration.EnvironmentBlueprintId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the manage access role with which this blueprint is created.
         /// </summary>
-        [Input("manageAccessRoleArn")]
+        [PolicyResourceProperty("manageAccessRoleArn", "_mUnknown_ManageAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManageAccessRoleArn;
-
-        public string? ManageAccessRoleArn => _mManageAccessRoleArn.GetValue("manageAccessRoleArn");
+        private string? _mValue_ManageAccessRoleArn;
+        private bool _mUnknown_ManageAccessRoleArn;
+        public string? ManageAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ManageAccessRoleArn) return _mValue_ManageAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfiguration.ManageAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the provisioning role with which this blueprint is created.
         /// </summary>
-        [Input("provisioningRoleArn")]
+        [PolicyResourceProperty("provisioningRoleArn", "_mUnknown_ProvisioningRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningRoleArn;
-
-        public string? ProvisioningRoleArn => _mProvisioningRoleArn.GetValue("provisioningRoleArn");
+        private string? _mValue_ProvisioningRoleArn;
+        private bool _mUnknown_ProvisioningRoleArn;
+        public string? ProvisioningRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningRoleArn) return _mValue_ProvisioningRoleArn;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfiguration.ProvisioningRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for each region in which the blueprint is enabled
         /// </summary>
-        [Input("regionalParameters")]
+        [PolicyResourceProperty("regionalParameters", "_mUnknown_RegionalParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Dictionary<string, string>>> _mRegionalParameters;
-
-        public Dictionary<string, Dictionary<string, string>>? RegionalParameters => _mRegionalParameters.GetValue("regionalParameters");
+        private Dictionary<string, Dictionary<string, string>>? _mValue_RegionalParameters;
+        private bool _mUnknown_RegionalParameters;
+        public Dictionary<string, Dictionary<string, string>>? RegionalParameters
+        {
+            get
+            {
+                if (!_mUnknown_RegionalParameters) return _mValue_RegionalParameters;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfiguration.RegionalParameters' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration")]
@@ -76,57 +118,99 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// ID of the Domain.
         /// </summary>
-        [Input("domainId")]
+        [PolicyResourceProperty("domainId", "_mUnknown_DomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainId;
-
-        public string? DomainId => _mDomainId.GetValue("domainId");
+        private string? _mValue_DomainId;
+        private bool _mUnknown_DomainId;
+        public string? DomainId
+        {
+            get
+            {
+                if (!_mUnknown_DomainId) return _mValue_DomainId;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.DomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// Regions in which the blueprint is enabled
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("enabledRegions")]
+        [PolicyResourceProperty("enabledRegions", "_mUnknown_EnabledRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledRegions;
-
-        public List<string>? EnabledRegions => _mEnabledRegions.GetValue("enabledRegions");
+        private List<string>? _mValue_EnabledRegions;
+        private bool _mUnknown_EnabledRegions;
+        public List<string>? EnabledRegions
+        {
+            get
+            {
+                if (!_mUnknown_EnabledRegions) return _mValue_EnabledRegions;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.EnabledRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Environment Blueprint
         /// </summary>
-        [Input("environmentBlueprintId")]
+        [PolicyResourceProperty("environmentBlueprintId", "_mUnknown_EnvironmentBlueprintId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentBlueprintId;
-
-        public string? EnvironmentBlueprintId => _mEnvironmentBlueprintId.GetValue("environmentBlueprintId");
+        private string? _mValue_EnvironmentBlueprintId;
+        private bool _mUnknown_EnvironmentBlueprintId;
+        public string? EnvironmentBlueprintId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentBlueprintId) return _mValue_EnvironmentBlueprintId;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.EnvironmentBlueprintId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the manage access role with which this blueprint is created.
         /// </summary>
-        [Input("manageAccessRoleArn")]
+        [PolicyResourceProperty("manageAccessRoleArn", "_mUnknown_ManageAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManageAccessRoleArn;
-
-        public string? ManageAccessRoleArn => _mManageAccessRoleArn.GetValue("manageAccessRoleArn");
+        private string? _mValue_ManageAccessRoleArn;
+        private bool _mUnknown_ManageAccessRoleArn;
+        public string? ManageAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ManageAccessRoleArn) return _mValue_ManageAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.ManageAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the provisioning role with which this blueprint is created.
         /// </summary>
-        [Input("provisioningRoleArn")]
+        [PolicyResourceProperty("provisioningRoleArn", "_mUnknown_ProvisioningRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningRoleArn;
-
-        public string? ProvisioningRoleArn => _mProvisioningRoleArn.GetValue("provisioningRoleArn");
+        private string? _mValue_ProvisioningRoleArn;
+        private bool _mUnknown_ProvisioningRoleArn;
+        public string? ProvisioningRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningRoleArn) return _mValue_ProvisioningRoleArn;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.ProvisioningRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters for each region in which the blueprint is enabled
         /// </summary>
-        [Input("regionalParameters")]
+        [PolicyResourceProperty("regionalParameters", "_mUnknown_RegionalParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, Dictionary<string, string>>> _mRegionalParameters;
-
-        public Dictionary<string, Dictionary<string, string>>? RegionalParameters => _mRegionalParameters.GetValue("regionalParameters");
+        private Dictionary<string, Dictionary<string, string>>? _mValue_RegionalParameters;
+        private bool _mUnknown_RegionalParameters;
+        public Dictionary<string, Dictionary<string, string>>? RegionalParameters
+        {
+            get
+            {
+                if (!_mUnknown_RegionalParameters) return _mValue_RegionalParameters;
+                throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.RegionalParameters' is not present");
+            }
+        }
     }
 }

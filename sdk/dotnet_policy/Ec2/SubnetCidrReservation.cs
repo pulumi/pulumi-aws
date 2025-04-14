@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The CIDR block for the reservation.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservation.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// A brief description of the reservation.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservation.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS account that owns this CIDR reservation.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservation.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of reservation to create. Valid values: `explicit`, `prefix`
         /// </summary>
-        [Input("reservationType")]
+        [PolicyResourceProperty("reservationType", "_mUnknown_ReservationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReservationType;
-
-        public string? ReservationType => _mReservationType.GetValue("reservationType");
+        private string? _mValue_ReservationType;
+        private bool _mUnknown_ReservationType;
+        public string? ReservationType
+        {
+            get
+            {
+                if (!_mUnknown_ReservationType) return _mValue_ReservationType;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservation.ReservationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet to create the reservation for.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservation.SubnetId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/subnetCidrReservation:SubnetCidrReservation")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The CIDR block for the reservation.
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
-
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// A brief description of the reservation.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of reservation to create. Valid values: `explicit`, `prefix`
         /// </summary>
-        [Input("reservationType")]
+        [PolicyResourceProperty("reservationType", "_mUnknown_ReservationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReservationType;
-
-        public string? ReservationType => _mReservationType.GetValue("reservationType");
+        private string? _mValue_ReservationType;
+        private bool _mUnknown_ReservationType;
+        public string? ReservationType
+        {
+            get
+            {
+                if (!_mUnknown_ReservationType) return _mValue_ReservationType;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.ReservationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the subnet to create the reservation for.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.SubnetId' is not present");
+            }
+        }
     }
 }

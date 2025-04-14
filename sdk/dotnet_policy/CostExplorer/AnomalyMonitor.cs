@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// ARN of the anomaly monitor.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AnomalyMonitor.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The dimensions to evaluate. Valid values: `SERVICE`.
         /// </summary>
-        [Input("monitorDimension")]
+        [PolicyResourceProperty("monitorDimension", "_mUnknown_MonitorDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorDimension;
-
-        public string? MonitorDimension => _mMonitorDimension.GetValue("monitorDimension");
+        private string? _mValue_MonitorDimension;
+        private bool _mUnknown_MonitorDimension;
+        public string? MonitorDimension
+        {
+            get
+            {
+                if (!_mUnknown_MonitorDimension) return _mValue_MonitorDimension;
+                throw new UndeferrableValueException("Value 'AnomalyMonitor.MonitorDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         /// </summary>
-        [Input("monitorSpecification")]
+        [PolicyResourceProperty("monitorSpecification", "_mUnknown_MonitorSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorSpecification;
-
-        public string? MonitorSpecification => _mMonitorSpecification.GetValue("monitorSpecification");
+        private string? _mValue_MonitorSpecification;
+        private bool _mUnknown_MonitorSpecification;
+        public string? MonitorSpecification
+        {
+            get
+            {
+                if (!_mUnknown_MonitorSpecification) return _mValue_MonitorSpecification;
+                throw new UndeferrableValueException("Value 'AnomalyMonitor.MonitorSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         /// </summary>
-        [Input("monitorType")]
+        [PolicyResourceProperty("monitorType", "_mUnknown_MonitorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorType;
-
-        public string? MonitorType => _mMonitorType.GetValue("monitorType");
+        private string? _mValue_MonitorType;
+        private bool _mUnknown_MonitorType;
+        public string? MonitorType
+        {
+            get
+            {
+                if (!_mUnknown_MonitorType) return _mValue_MonitorType;
+                throw new UndeferrableValueException("Value 'AnomalyMonitor.MonitorType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the monitor.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnomalyMonitor.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnomalyMonitor.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AnomalyMonitor.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:costexplorer/anomalyMonitor:AnomalyMonitor")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// The dimensions to evaluate. Valid values: `SERVICE`.
         /// </summary>
-        [Input("monitorDimension")]
+        [PolicyResourceProperty("monitorDimension", "_mUnknown_MonitorDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorDimension;
-
-        public string? MonitorDimension => _mMonitorDimension.GetValue("monitorDimension");
+        private string? _mValue_MonitorDimension;
+        private bool _mUnknown_MonitorDimension;
+        public string? MonitorDimension
+        {
+            get
+            {
+                if (!_mUnknown_MonitorDimension) return _mValue_MonitorDimension;
+                throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.MonitorDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         /// </summary>
-        [Input("monitorSpecification")]
+        [PolicyResourceProperty("monitorSpecification", "_mUnknown_MonitorSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorSpecification;
-
-        public string? MonitorSpecification => _mMonitorSpecification.GetValue("monitorSpecification");
+        private string? _mValue_MonitorSpecification;
+        private bool _mUnknown_MonitorSpecification;
+        public string? MonitorSpecification
+        {
+            get
+            {
+                if (!_mUnknown_MonitorSpecification) return _mValue_MonitorSpecification;
+                throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.MonitorSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         /// </summary>
-        [Input("monitorType")]
+        [PolicyResourceProperty("monitorType", "_mUnknown_MonitorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMonitorType;
-
-        public string? MonitorType => _mMonitorType.GetValue("monitorType");
+        private string? _mValue_MonitorType;
+        private bool _mUnknown_MonitorType;
+        public string? MonitorType
+        {
+            get
+            {
+                if (!_mUnknown_MonitorType) return _mValue_MonitorType;
+                throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.MonitorType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the monitor.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.CodeArtifact
         /// <summary>
         /// The ARN of the Domain.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Domain.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The total size of all assets in the domain.
         /// </summary>
-        [Input("assetSizeBytes")]
+        [PolicyResourceProperty("assetSizeBytes", "_mUnknown_AssetSizeBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssetSizeBytes;
-
-        public string? AssetSizeBytes => _mAssetSizeBytes.GetValue("assetSizeBytes");
+        private string? _mValue_AssetSizeBytes;
+        private bool _mUnknown_AssetSizeBytes;
+        public string? AssetSizeBytes
+        {
+            get
+            {
+                if (!_mUnknown_AssetSizeBytes) return _mValue_AssetSizeBytes;
+                throw new UndeferrableValueException("Value 'Domain.AssetSizeBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Domain.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domain");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'Domain.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
-        [Input("encryptionKey")]
+        [PolicyResourceProperty("encryptionKey", "_mUnknown_EncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKey;
-
-        public string? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
+        private string? _mValue_EncryptionKey;
+        private bool _mUnknown_EncryptionKey;
+        public string? EncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionKey) return _mValue_EncryptionKey;
+                throw new UndeferrableValueException("Value 'Domain.EncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID that owns the domain.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'Domain.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of repositories in the domain.
         /// </summary>
-        [Input("repositoryCount")]
+        [PolicyResourceProperty("repositoryCount", "_mUnknown_RepositoryCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRepositoryCount;
-
-        public int? RepositoryCount => _mRepositoryCount.GetValue("repositoryCount");
+        private int? _mValue_RepositoryCount;
+        private bool _mUnknown_RepositoryCount;
+        public int? RepositoryCount
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryCount) return _mValue_RepositoryCount;
+                throw new UndeferrableValueException("Value 'Domain.RepositoryCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
         /// </summary>
-        [Input("s3BucketArn")]
+        [PolicyResourceProperty("s3BucketArn", "_mUnknown_S3BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
-
-        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
+        private string? _mValue_S3BucketArn;
+        private bool _mUnknown_S3BucketArn;
+        public string? S3BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketArn) return _mValue_S3BucketArn;
+                throw new UndeferrableValueException("Value 'Domain.S3BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Domain.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Domain.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codeartifact/domain:Domain")]
@@ -110,28 +180,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeArtifact
         /// <summary>
         /// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domain");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
         /// </summary>
-        [Input("encryptionKey")]
+        [PolicyResourceProperty("encryptionKey", "_mUnknown_EncryptionKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionKey;
-
-        public string? EncryptionKey => _mEncryptionKey.GetValue("encryptionKey");
+        private string? _mValue_EncryptionKey;
+        private bool _mUnknown_EncryptionKey;
+        public string? EncryptionKey
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionKey) return _mValue_EncryptionKey;
+                throw new UndeferrableValueException("Value 'DomainArgs.EncryptionKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainArgs.Tags' is not present");
+            }
+        }
     }
 }

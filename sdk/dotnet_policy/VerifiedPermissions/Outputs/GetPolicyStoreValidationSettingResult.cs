@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Outputs
 {
     public sealed class GetPolicyStoreValidationSettingResult
     {
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
-
-        public string? Mode => _mMode.GetValue("mode");
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'GetPolicyStoreValidationSettingResult.Mode' is not present");
+            }
+        }
     }
 }

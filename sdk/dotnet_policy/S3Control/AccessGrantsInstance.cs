@@ -16,89 +16,159 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Grants instance.
         /// </summary>
-        [Input("accessGrantsInstanceArn")]
+        [PolicyResourceProperty("accessGrantsInstanceArn", "_mUnknown_AccessGrantsInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsInstanceArn;
-
-        public string? AccessGrantsInstanceArn => _mAccessGrantsInstanceArn.GetValue("accessGrantsInstanceArn");
+        private string? _mValue_AccessGrantsInstanceArn;
+        private bool _mUnknown_AccessGrantsInstanceArn;
+        public string? AccessGrantsInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsInstanceArn) return _mValue_AccessGrantsInstanceArn;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstance.AccessGrantsInstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique ID of the S3 Access Grants instance.
         /// </summary>
-        [Input("accessGrantsInstanceId")]
+        [PolicyResourceProperty("accessGrantsInstanceId", "_mUnknown_AccessGrantsInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGrantsInstanceId;
+        private string? _mValue_AccessGrantsInstanceId;
+        private bool _mUnknown_AccessGrantsInstanceId;
+        public string? AccessGrantsInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_AccessGrantsInstanceId) return _mValue_AccessGrantsInstanceId;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstance.AccessGrantsInstanceId' is not present");
+            }
+        }
 
-        public string? AccessGrantsInstanceId => _mAccessGrantsInstanceId.GetValue("accessGrantsInstanceId");
-
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstance.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         /// </summary>
-        [Input("identityCenterApplicationArn")]
+        [PolicyResourceProperty("identityCenterApplicationArn", "_mUnknown_IdentityCenterApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterApplicationArn;
-
-        public string? IdentityCenterApplicationArn => _mIdentityCenterApplicationArn.GetValue("identityCenterApplicationArn");
+        private string? _mValue_IdentityCenterApplicationArn;
+        private bool _mUnknown_IdentityCenterApplicationArn;
+        public string? IdentityCenterApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_IdentityCenterApplicationArn) return _mValue_IdentityCenterApplicationArn;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstance.IdentityCenterApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         /// </summary>
-        [Input("identityCenterArn")]
+        [PolicyResourceProperty("identityCenterArn", "_mUnknown_IdentityCenterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterArn;
-
-        public string? IdentityCenterArn => _mIdentityCenterArn.GetValue("identityCenterArn");
+        private string? _mValue_IdentityCenterArn;
+        private bool _mUnknown_IdentityCenterArn;
+        public string? IdentityCenterArn
+        {
+            get
+            {
+                if (!_mUnknown_IdentityCenterArn) return _mValue_IdentityCenterArn;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstance.IdentityCenterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstance.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstance.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/accessGrantsInstance:AccessGrantsInstance")]
     public sealed class AccessGrantsInstanceArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstanceArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         /// </summary>
-        [Input("identityCenterArn")]
+        [PolicyResourceProperty("identityCenterArn", "_mUnknown_IdentityCenterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterArn;
-
-        public string? IdentityCenterArn => _mIdentityCenterArn.GetValue("identityCenterArn");
+        private string? _mValue_IdentityCenterArn;
+        private bool _mUnknown_IdentityCenterArn;
+        public string? IdentityCenterArn
+        {
+            get
+            {
+                if (!_mUnknown_IdentityCenterArn) return _mValue_IdentityCenterArn;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstanceArgs.IdentityCenterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AccessGrantsInstanceArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -17,65 +17,114 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric
         /// Name of the application.
         /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
         /// </summary>
-        [Input("app")]
+        [PolicyResourceProperty("app", "_mUnknown_App")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
-
-        public string? App => _mApp.GetValue("app");
+        private string? _mValue_App;
+        private bool _mUnknown_App;
+        public string? App
+        {
+            get
+            {
+                if (!_mUnknown_App) return _mValue_App;
+                throw new UndeferrableValueException("Value 'Ingestion.App' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
-        [Input("appBundleArn")]
+        [PolicyResourceProperty("appBundleArn", "_mUnknown_AppBundleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
-
-        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+        private string? _mValue_AppBundleArn;
+        private bool _mUnknown_AppBundleArn;
+        public string? AppBundleArn
+        {
+            get
+            {
+                if (!_mUnknown_AppBundleArn) return _mValue_AppBundleArn;
+                throw new UndeferrableValueException("Value 'Ingestion.AppBundleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Ingestion.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Ingestion.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Ingestion type. Valid values are `auditLog`.
         /// </summary>
-        [Input("ingestionType")]
+        [PolicyResourceProperty("ingestionType", "_mUnknown_IngestionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
-
-        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
+        private string? _mValue_IngestionType;
+        private bool _mUnknown_IngestionType;
+        public string? IngestionType
+        {
+            get
+            {
+                if (!_mUnknown_IngestionType) return _mValue_IngestionType;
+                throw new UndeferrableValueException("Value 'Ingestion.IngestionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Ingestion.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Ingestion.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the application tenant.
         /// </summary>
-        [Input("tenantId")]
+        [PolicyResourceProperty("tenantId", "_mUnknown_TenantId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
-
-        public string? TenantId => _mTenantId.GetValue("tenantId");
+        private string? _mValue_TenantId;
+        private bool _mUnknown_TenantId;
+        public string? TenantId
+        {
+            get
+            {
+                if (!_mUnknown_TenantId) return _mValue_TenantId;
+                throw new UndeferrableValueException("Value 'Ingestion.TenantId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appfabric/ingestion:Ingestion")]
@@ -85,46 +134,81 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric
         /// Name of the application.
         /// Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
         /// </summary>
-        [Input("app")]
+        [PolicyResourceProperty("app", "_mUnknown_App")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApp;
-
-        public string? App => _mApp.GetValue("app");
+        private string? _mValue_App;
+        private bool _mUnknown_App;
+        public string? App
+        {
+            get
+            {
+                if (!_mUnknown_App) return _mValue_App;
+                throw new UndeferrableValueException("Value 'IngestionArgs.App' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the app bundle to use for the request.
         /// </summary>
-        [Input("appBundleArn")]
+        [PolicyResourceProperty("appBundleArn", "_mUnknown_AppBundleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBundleArn;
-
-        public string? AppBundleArn => _mAppBundleArn.GetValue("appBundleArn");
+        private string? _mValue_AppBundleArn;
+        private bool _mUnknown_AppBundleArn;
+        public string? AppBundleArn
+        {
+            get
+            {
+                if (!_mUnknown_AppBundleArn) return _mValue_AppBundleArn;
+                throw new UndeferrableValueException("Value 'IngestionArgs.AppBundleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Ingestion type. Valid values are `auditLog`.
         /// </summary>
-        [Input("ingestionType")]
+        [PolicyResourceProperty("ingestionType", "_mUnknown_IngestionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIngestionType;
-
-        public string? IngestionType => _mIngestionType.GetValue("ingestionType");
+        private string? _mValue_IngestionType;
+        private bool _mUnknown_IngestionType;
+        public string? IngestionType
+        {
+            get
+            {
+                if (!_mUnknown_IngestionType) return _mValue_IngestionType;
+                throw new UndeferrableValueException("Value 'IngestionArgs.IngestionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IngestionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the application tenant.
         /// </summary>
-        [Input("tenantId")]
+        [PolicyResourceProperty("tenantId", "_mUnknown_TenantId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenantId;
-
-        public string? TenantId => _mTenantId.GetValue("tenantId");
+        private string? _mValue_TenantId;
+        private bool _mUnknown_TenantId;
+        public string? TenantId
+        {
+            get
+            {
+                if (!_mUnknown_TenantId) return _mValue_TenantId;
+                throw new UndeferrableValueException("Value 'IngestionArgs.TenantId' is not present");
+            }
+        }
     }
 }

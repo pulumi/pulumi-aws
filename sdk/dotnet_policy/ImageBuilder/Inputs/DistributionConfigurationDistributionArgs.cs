@@ -15,66 +15,115 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         /// </summary>
-        [Input("amiDistributionConfiguration")]
+        [PolicyResourceProperty("amiDistributionConfiguration", "_mUnknown_AmiDistributionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs> _mAmiDistributionConfiguration;
-
-        public Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs? AmiDistributionConfiguration => _mAmiDistributionConfiguration.GetValue("amiDistributionConfiguration");
+        private Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs? _mValue_AmiDistributionConfiguration;
+        private bool _mUnknown_AmiDistributionConfiguration;
+        public Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs? AmiDistributionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AmiDistributionConfiguration) return _mValue_AmiDistributionConfiguration;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionArgs.AmiDistributionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with container distribution settings. Detailed below.
         /// </summary>
-        [Input("containerDistributionConfiguration")]
+        [PolicyResourceProperty("containerDistributionConfiguration", "_mUnknown_ContainerDistributionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationArgs> _mContainerDistributionConfiguration;
-
-        public Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationArgs? ContainerDistributionConfiguration => _mContainerDistributionConfiguration.GetValue("containerDistributionConfiguration");
+        private Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationArgs? _mValue_ContainerDistributionConfiguration;
+        private bool _mUnknown_ContainerDistributionConfiguration;
+        public Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationArgs? ContainerDistributionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ContainerDistributionConfiguration) return _mValue_ContainerDistributionConfiguration;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionArgs.ContainerDistributionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
         /// </summary>
-        [Input("fastLaunchConfigurations")]
+        [PolicyResourceProperty("fastLaunchConfigurations", "_mUnknown_FastLaunchConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationArgs>> _mFastLaunchConfigurations;
-
-        public List<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationArgs>? FastLaunchConfigurations => _mFastLaunchConfigurations.GetValue("fastLaunchConfigurations");
+        private List<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationArgs>? _mValue_FastLaunchConfigurations;
+        private bool _mUnknown_FastLaunchConfigurations;
+        public List<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationArgs>? FastLaunchConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_FastLaunchConfigurations) return _mValue_FastLaunchConfigurations;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionArgs.FastLaunchConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of launch template configuration settings that apply to image distribution. Detailed below.
         /// </summary>
-        [Input("launchTemplateConfigurations")]
+        [PolicyResourceProperty("launchTemplateConfigurations", "_mUnknown_LaunchTemplateConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>> _mLaunchTemplateConfigurations;
-
-        public List<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>? LaunchTemplateConfigurations => _mLaunchTemplateConfigurations.GetValue("launchTemplateConfigurations");
+        private List<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>? _mValue_LaunchTemplateConfigurations;
+        private bool _mUnknown_LaunchTemplateConfigurations;
+        public List<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>? LaunchTemplateConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateConfigurations) return _mValue_LaunchTemplateConfigurations;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionArgs.LaunchTemplateConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         /// </summary>
-        [Input("licenseConfigurationArns")]
+        [PolicyResourceProperty("licenseConfigurationArns", "_mUnknown_LicenseConfigurationArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLicenseConfigurationArns;
-
-        public List<string>? LicenseConfigurationArns => _mLicenseConfigurationArns.GetValue("licenseConfigurationArns");
+        private List<string>? _mValue_LicenseConfigurationArns;
+        private bool _mUnknown_LicenseConfigurationArns;
+        public List<string>? LicenseConfigurationArns
+        {
+            get
+            {
+                if (!_mUnknown_LicenseConfigurationArns) return _mValue_LicenseConfigurationArns;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionArgs.LicenseConfigurationArns' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region for the distribution.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with S3 export settings. Detailed below.
         /// </summary>
-        [Input("s3ExportConfiguration")]
+        [PolicyResourceProperty("s3ExportConfiguration", "_mUnknown_S3ExportConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionConfigurationDistributionS3ExportConfigurationArgs> _mS3ExportConfiguration;
-
-        public Inputs.DistributionConfigurationDistributionS3ExportConfigurationArgs? S3ExportConfiguration => _mS3ExportConfiguration.GetValue("s3ExportConfiguration");
+        private Inputs.DistributionConfigurationDistributionS3ExportConfigurationArgs? _mValue_S3ExportConfiguration;
+        private bool _mUnknown_S3ExportConfiguration;
+        public Inputs.DistributionConfigurationDistributionS3ExportConfigurationArgs? S3ExportConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_S3ExportConfiguration) return _mValue_S3ExportConfiguration;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionArgs.S3ExportConfiguration' is not present");
+            }
+        }
     }
 }

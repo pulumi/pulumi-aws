@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Polly.Inputs
         /// <summary>
         /// Additional codes for languages available for the specified voice in addition to its default language.
         /// </summary>
-        [Input("additionalLanguageCodes")]
+        [PolicyResourceProperty("additionalLanguageCodes", "_mUnknown_AdditionalLanguageCodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalLanguageCodes;
-
-        public List<string>? AdditionalLanguageCodes => _mAdditionalLanguageCodes.GetValue("additionalLanguageCodes");
+        private List<string>? _mValue_AdditionalLanguageCodes;
+        private bool _mUnknown_AdditionalLanguageCodes;
+        public List<string>? AdditionalLanguageCodes
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalLanguageCodes) return _mValue_AdditionalLanguageCodes;
+                throw new UndeferrableValueException("Value 'GetVoicesVoiceArgs.AdditionalLanguageCodes' is not present");
+            }
+        }
 
         /// <summary>
         /// Gender of the voice.
         /// </summary>
-        [Input("gender")]
+        [PolicyResourceProperty("gender", "_mUnknown_Gender")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGender;
-
-        public string? Gender => _mGender.GetValue("gender");
+        private string? _mValue_Gender;
+        private bool _mUnknown_Gender;
+        public string? Gender
+        {
+            get
+            {
+                if (!_mUnknown_Gender) return _mValue_Gender;
+                throw new UndeferrableValueException("Value 'GetVoicesVoiceArgs.Gender' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Polly assigned voice ID.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetVoicesVoiceArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'GetVoicesVoiceArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Human readable name of the language in English.
         /// </summary>
-        [Input("languageName")]
+        [PolicyResourceProperty("languageName", "_mUnknown_LanguageName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageName;
-
-        public string? LanguageName => _mLanguageName.GetValue("languageName");
+        private string? _mValue_LanguageName;
+        private bool _mUnknown_LanguageName;
+        public string? LanguageName
+        {
+            get
+            {
+                if (!_mUnknown_LanguageName) return _mValue_LanguageName;
+                throw new UndeferrableValueException("Value 'GetVoicesVoiceArgs.LanguageName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the voice.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetVoicesVoiceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which engines are supported by a given voice.
         /// </summary>
-        [Input("supportedEngines")]
+        [PolicyResourceProperty("supportedEngines", "_mUnknown_SupportedEngines")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSupportedEngines;
-
-        public List<string>? SupportedEngines => _mSupportedEngines.GetValue("supportedEngines");
+        private List<string>? _mValue_SupportedEngines;
+        private bool _mUnknown_SupportedEngines;
+        public List<string>? SupportedEngines
+        {
+            get
+            {
+                if (!_mUnknown_SupportedEngines) return _mValue_SupportedEngines;
+                throw new UndeferrableValueException("Value 'GetVoicesVoiceArgs.SupportedEngines' is not present");
+            }
+        }
     }
 }

@@ -16,84 +16,147 @@ namespace Pulumi.PolicyPacks.Aws.CodeStarNotifications
         /// <summary>
         /// The codestar notification rule ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NotificationRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
         /// </summary>
-        [Input("detailType")]
+        [PolicyResourceProperty("detailType", "_mUnknown_DetailType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetailType;
-
-        public string? DetailType => _mDetailType.GetValue("detailType");
+        private string? _mValue_DetailType;
+        private bool _mUnknown_DetailType;
+        public string? DetailType
+        {
+            get
+            {
+                if (!_mUnknown_DetailType) return _mValue_DetailType;
+                throw new UndeferrableValueException("Value 'NotificationRule.DetailType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of event types associated with this notification rule.
         /// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         /// </summary>
-        [Input("eventTypeIds")]
+        [PolicyResourceProperty("eventTypeIds", "_mUnknown_EventTypeIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventTypeIds;
-
-        public List<string>? EventTypeIds => _mEventTypeIds.GetValue("eventTypeIds");
+        private List<string>? _mValue_EventTypeIds;
+        private bool _mUnknown_EventTypeIds;
+        public List<string>? EventTypeIds
+        {
+            get
+            {
+                if (!_mUnknown_EventTypeIds) return _mValue_EventTypeIds;
+                throw new UndeferrableValueException("Value 'NotificationRule.EventTypeIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of notification rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NotificationRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the resource to associate with the notification rule.
         /// </summary>
-        [Input("resource")]
+        [PolicyResourceProperty("resource", "_mUnknown_Resource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResource;
-
-        public string? Resource => _mResource.GetValue("resource");
+        private string? _mValue_Resource;
+        private bool _mUnknown_Resource;
+        public string? Resource
+        {
+            get
+            {
+                if (!_mUnknown_Resource) return _mValue_Resource;
+                throw new UndeferrableValueException("Value 'NotificationRule.Resource' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'NotificationRule.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NotificationRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NotificationRule.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NotificationRuleTarget>> _mTargets;
-
-        public List<Outputs.NotificationRuleTarget>? Targets => _mTargets.GetValue("targets");
+        private List<Outputs.NotificationRuleTarget>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Outputs.NotificationRuleTarget>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'NotificationRule.Targets' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codestarnotifications/notificationRule:NotificationRule")]
@@ -102,65 +165,114 @@ namespace Pulumi.PolicyPacks.Aws.CodeStarNotifications
         /// <summary>
         /// The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
         /// </summary>
-        [Input("detailType")]
+        [PolicyResourceProperty("detailType", "_mUnknown_DetailType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetailType;
-
-        public string? DetailType => _mDetailType.GetValue("detailType");
+        private string? _mValue_DetailType;
+        private bool _mUnknown_DetailType;
+        public string? DetailType
+        {
+            get
+            {
+                if (!_mUnknown_DetailType) return _mValue_DetailType;
+                throw new UndeferrableValueException("Value 'NotificationRuleArgs.DetailType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of event types associated with this notification rule.
         /// For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         /// </summary>
-        [Input("eventTypeIds")]
+        [PolicyResourceProperty("eventTypeIds", "_mUnknown_EventTypeIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEventTypeIds;
-
-        public List<string>? EventTypeIds => _mEventTypeIds.GetValue("eventTypeIds");
+        private List<string>? _mValue_EventTypeIds;
+        private bool _mUnknown_EventTypeIds;
+        public List<string>? EventTypeIds
+        {
+            get
+            {
+                if (!_mUnknown_EventTypeIds) return _mValue_EventTypeIds;
+                throw new UndeferrableValueException("Value 'NotificationRuleArgs.EventTypeIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of notification rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NotificationRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the resource to associate with the notification rule.
         /// </summary>
-        [Input("resource")]
+        [PolicyResourceProperty("resource", "_mUnknown_Resource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResource;
-
-        public string? Resource => _mResource.GetValue("resource");
+        private string? _mValue_Resource;
+        private bool _mUnknown_Resource;
+        public string? Resource
+        {
+            get
+            {
+                if (!_mUnknown_Resource) return _mValue_Resource;
+                throw new UndeferrableValueException("Value 'NotificationRuleArgs.Resource' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'NotificationRuleArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NotificationRuleArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.NotificationRuleTargetArgs>> _mTargets;
-
-        public List<Inputs.NotificationRuleTargetArgs>? Targets => _mTargets.GetValue("targets");
+        private List<Inputs.NotificationRuleTargetArgs>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Inputs.NotificationRuleTargetArgs>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'NotificationRuleArgs.Targets' is not present");
+            }
+        }
     }
 }

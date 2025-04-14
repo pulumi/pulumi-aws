@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Outputs
 {
     public sealed class GetTargetGroupStickinessResult
     {
-        [Input("cookieDuration")]
+        [PolicyResourceProperty("cookieDuration", "_mUnknown_CookieDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCookieDuration;
+        private int? _mValue_CookieDuration;
+        private bool _mUnknown_CookieDuration;
+        public int? CookieDuration
+        {
+            get
+            {
+                if (!_mUnknown_CookieDuration) return _mValue_CookieDuration;
+                throw new UndeferrableValueException("Value 'GetTargetGroupStickinessResult.CookieDuration' is not present");
+            }
+        }
 
-        public int? CookieDuration => _mCookieDuration.GetValue("cookieDuration");
-
-        [Input("cookieName")]
+        [PolicyResourceProperty("cookieName", "_mUnknown_CookieName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCookieName;
+        private string? _mValue_CookieName;
+        private bool _mUnknown_CookieName;
+        public string? CookieName
+        {
+            get
+            {
+                if (!_mUnknown_CookieName) return _mValue_CookieName;
+                throw new UndeferrableValueException("Value 'GetTargetGroupStickinessResult.CookieName' is not present");
+            }
+        }
 
-        public string? CookieName => _mCookieName.GetValue("cookieName");
-
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetTargetGroupStickinessResult.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetTargetGroupStickinessResult.Type' is not present");
+            }
+        }
     }
 }

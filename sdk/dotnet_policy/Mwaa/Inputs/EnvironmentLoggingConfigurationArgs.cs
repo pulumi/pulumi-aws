@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Mwaa.Inputs
         /// <summary>
         /// (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
         /// </summary>
-        [Input("dagProcessingLogs")]
+        [PolicyResourceProperty("dagProcessingLogs", "_mUnknown_DagProcessingLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs> _mDagProcessingLogs;
-
-        public Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs? DagProcessingLogs => _mDagProcessingLogs.GetValue("dagProcessingLogs");
+        private Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs? _mValue_DagProcessingLogs;
+        private bool _mUnknown_DagProcessingLogs;
+        public Inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs? DagProcessingLogs
+        {
+            get
+            {
+                if (!_mUnknown_DagProcessingLogs) return _mValue_DagProcessingLogs;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.DagProcessingLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
         /// </summary>
-        [Input("schedulerLogs")]
+        [PolicyResourceProperty("schedulerLogs", "_mUnknown_SchedulerLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs> _mSchedulerLogs;
-
-        public Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs? SchedulerLogs => _mSchedulerLogs.GetValue("schedulerLogs");
+        private Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs? _mValue_SchedulerLogs;
+        private bool _mUnknown_SchedulerLogs;
+        public Inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs? SchedulerLogs
+        {
+            get
+            {
+                if (!_mUnknown_SchedulerLogs) return _mValue_SchedulerLogs;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.SchedulerLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
         /// </summary>
-        [Input("taskLogs")]
+        [PolicyResourceProperty("taskLogs", "_mUnknown_TaskLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentLoggingConfigurationTaskLogsArgs> _mTaskLogs;
-
-        public Inputs.EnvironmentLoggingConfigurationTaskLogsArgs? TaskLogs => _mTaskLogs.GetValue("taskLogs");
+        private Inputs.EnvironmentLoggingConfigurationTaskLogsArgs? _mValue_TaskLogs;
+        private bool _mUnknown_TaskLogs;
+        public Inputs.EnvironmentLoggingConfigurationTaskLogsArgs? TaskLogs
+        {
+            get
+            {
+                if (!_mUnknown_TaskLogs) return _mValue_TaskLogs;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.TaskLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
         /// </summary>
-        [Input("webserverLogs")]
+        [PolicyResourceProperty("webserverLogs", "_mUnknown_WebserverLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs> _mWebserverLogs;
-
-        public Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs? WebserverLogs => _mWebserverLogs.GetValue("webserverLogs");
+        private Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs? _mValue_WebserverLogs;
+        private bool _mUnknown_WebserverLogs;
+        public Inputs.EnvironmentLoggingConfigurationWebserverLogsArgs? WebserverLogs
+        {
+            get
+            {
+                if (!_mUnknown_WebserverLogs) return _mValue_WebserverLogs;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.WebserverLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
         /// </summary>
-        [Input("workerLogs")]
+        [PolicyResourceProperty("workerLogs", "_mUnknown_WorkerLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs> _mWorkerLogs;
-
-        public Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs? WorkerLogs => _mWorkerLogs.GetValue("workerLogs");
+        private Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs? _mValue_WorkerLogs;
+        private bool _mUnknown_WorkerLogs;
+        public Inputs.EnvironmentLoggingConfigurationWorkerLogsArgs? WorkerLogs
+        {
+            get
+            {
+                if (!_mUnknown_WorkerLogs) return _mValue_WorkerLogs;
+                throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.WorkerLogs' is not present");
+            }
+        }
     }
 }

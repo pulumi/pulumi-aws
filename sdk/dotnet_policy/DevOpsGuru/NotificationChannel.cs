@@ -16,22 +16,36 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// <summary>
         /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NotificationChannelFilters> _mFilters;
-
-        public Outputs.NotificationChannelFilters? Filters => _mFilters.GetValue("filters");
+        private Outputs.NotificationChannelFilters? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public Outputs.NotificationChannelFilters? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'NotificationChannel.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// SNS noficiation channel configurations. See the `sns` argument reference below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sns")]
+        [PolicyResourceProperty("sns", "_mUnknown_Sns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NotificationChannelSns> _mSns;
-
-        public Outputs.NotificationChannelSns? Sns => _mSns.GetValue("sns");
+        private Outputs.NotificationChannelSns? _mValue_Sns;
+        private bool _mUnknown_Sns;
+        public Outputs.NotificationChannelSns? Sns
+        {
+            get
+            {
+                if (!_mUnknown_Sns) return _mValue_Sns;
+                throw new UndeferrableValueException("Value 'NotificationChannel.Sns' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:devopsguru/notificationChannel:NotificationChannel")]
@@ -40,21 +54,35 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru
         /// <summary>
         /// Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NotificationChannelFiltersArgs> _mFilters;
-
-        public Inputs.NotificationChannelFiltersArgs? Filters => _mFilters.GetValue("filters");
+        private Inputs.NotificationChannelFiltersArgs? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public Inputs.NotificationChannelFiltersArgs? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'NotificationChannelArgs.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// SNS noficiation channel configurations. See the `sns` argument reference below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sns")]
+        [PolicyResourceProperty("sns", "_mUnknown_Sns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NotificationChannelSnsArgs> _mSns;
-
-        public Inputs.NotificationChannelSnsArgs? Sns => _mSns.GetValue("sns");
+        private Inputs.NotificationChannelSnsArgs? _mValue_Sns;
+        private bool _mUnknown_Sns;
+        public Inputs.NotificationChannelSnsArgs? Sns
+        {
+            get
+            {
+                if (!_mUnknown_Sns) return _mValue_Sns;
+                throw new UndeferrableValueException("Value 'NotificationChannelArgs.Sns' is not present");
+            }
+        }
     }
 }

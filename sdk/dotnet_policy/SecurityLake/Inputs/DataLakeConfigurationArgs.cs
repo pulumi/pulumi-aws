@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Inputs
         /// <summary>
         /// Provides encryption details of Amazon Security Lake object.
         /// </summary>
-        [Input("encryptionConfigurations")]
+        [PolicyResourceProperty("encryptionConfigurations", "_mUnknown_EncryptionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DataLakeConfigurationEncryptionConfigurationArgs>> _mEncryptionConfigurations;
-
-        public List<Inputs.DataLakeConfigurationEncryptionConfigurationArgs>? EncryptionConfigurations => _mEncryptionConfigurations.GetValue("encryptionConfigurations");
+        private List<Inputs.DataLakeConfigurationEncryptionConfigurationArgs>? _mValue_EncryptionConfigurations;
+        private bool _mUnknown_EncryptionConfigurations;
+        public List<Inputs.DataLakeConfigurationEncryptionConfigurationArgs>? EncryptionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfigurations) return _mValue_EncryptionConfigurations;
+                throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.EncryptionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides lifecycle details of Amazon Security Lake object.
         /// </summary>
-        [Input("lifecycleConfiguration")]
+        [PolicyResourceProperty("lifecycleConfiguration", "_mUnknown_LifecycleConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataLakeConfigurationLifecycleConfigurationArgs> _mLifecycleConfiguration;
-
-        public Inputs.DataLakeConfigurationLifecycleConfigurationArgs? LifecycleConfiguration => _mLifecycleConfiguration.GetValue("lifecycleConfiguration");
+        private Inputs.DataLakeConfigurationLifecycleConfigurationArgs? _mValue_LifecycleConfiguration;
+        private bool _mUnknown_LifecycleConfiguration;
+        public Inputs.DataLakeConfigurationLifecycleConfigurationArgs? LifecycleConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfiguration) return _mValue_LifecycleConfiguration;
+                throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.LifecycleConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Regions where Security Lake is automatically enabled.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides replication details of Amazon Security Lake object.
         /// </summary>
-        [Input("replicationConfiguration")]
+        [PolicyResourceProperty("replicationConfiguration", "_mUnknown_ReplicationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataLakeConfigurationReplicationConfigurationArgs> _mReplicationConfiguration;
-
-        public Inputs.DataLakeConfigurationReplicationConfigurationArgs? ReplicationConfiguration => _mReplicationConfiguration.GetValue("replicationConfiguration");
+        private Inputs.DataLakeConfigurationReplicationConfigurationArgs? _mValue_ReplicationConfiguration;
+        private bool _mUnknown_ReplicationConfiguration;
+        public Inputs.DataLakeConfigurationReplicationConfigurationArgs? ReplicationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationConfiguration) return _mValue_ReplicationConfiguration;
+                throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.ReplicationConfiguration' is not present");
+            }
+        }
     }
 }

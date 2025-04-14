@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
         /// </summary>
-        [Input("enableResourceNameDnsARecord")]
+        [PolicyResourceProperty("enableResourceNameDnsARecord", "_mUnknown_EnableResourceNameDnsARecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsARecord;
-
-        public bool? EnableResourceNameDnsARecord => _mEnableResourceNameDnsARecord.GetValue("enableResourceNameDnsARecord");
+        private bool? _mValue_EnableResourceNameDnsARecord;
+        private bool _mUnknown_EnableResourceNameDnsARecord;
+        public bool? EnableResourceNameDnsARecord
+        {
+            get
+            {
+                if (!_mUnknown_EnableResourceNameDnsARecord) return _mValue_EnableResourceNameDnsARecord;
+                throw new UndeferrableValueException("Value 'InstancePrivateDnsNameOptions.EnableResourceNameDnsARecord' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
         /// </summary>
-        [Input("enableResourceNameDnsAaaaRecord")]
+        [PolicyResourceProperty("enableResourceNameDnsAaaaRecord", "_mUnknown_EnableResourceNameDnsAaaaRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableResourceNameDnsAaaaRecord;
-
-        public bool? EnableResourceNameDnsAaaaRecord => _mEnableResourceNameDnsAaaaRecord.GetValue("enableResourceNameDnsAaaaRecord");
+        private bool? _mValue_EnableResourceNameDnsAaaaRecord;
+        private bool _mUnknown_EnableResourceNameDnsAaaaRecord;
+        public bool? EnableResourceNameDnsAaaaRecord
+        {
+            get
+            {
+                if (!_mUnknown_EnableResourceNameDnsAaaaRecord) return _mValue_EnableResourceNameDnsAaaaRecord;
+                throw new UndeferrableValueException("Value 'InstancePrivateDnsNameOptions.EnableResourceNameDnsAaaaRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
         /// </summary>
-        [Input("hostnameType")]
+        [PolicyResourceProperty("hostnameType", "_mUnknown_HostnameType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostnameType;
-
-        public string? HostnameType => _mHostnameType.GetValue("hostnameType");
+        private string? _mValue_HostnameType;
+        private bool _mUnknown_HostnameType;
+        public string? HostnameType
+        {
+            get
+            {
+                if (!_mUnknown_HostnameType) return _mValue_HostnameType;
+                throw new UndeferrableValueException("Value 'InstancePrivateDnsNameOptions.HostnameType' is not present");
+            }
+        }
     }
 }

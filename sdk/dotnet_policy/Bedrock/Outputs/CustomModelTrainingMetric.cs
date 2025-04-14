@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Loss metric associated with the customization job.
         /// </summary>
-        [Input("trainingLoss")]
+        [PolicyResourceProperty("trainingLoss", "_mUnknown_TrainingLoss")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTrainingLoss;
-
-        public double? TrainingLoss => _mTrainingLoss.GetValue("trainingLoss");
+        private double? _mValue_TrainingLoss;
+        private bool _mUnknown_TrainingLoss;
+        public double? TrainingLoss
+        {
+            get
+            {
+                if (!_mUnknown_TrainingLoss) return _mValue_TrainingLoss;
+                throw new UndeferrableValueException("Value 'CustomModelTrainingMetric.TrainingLoss' is not present");
+            }
+        }
     }
 }

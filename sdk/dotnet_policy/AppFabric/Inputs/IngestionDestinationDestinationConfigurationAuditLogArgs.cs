@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Inputs
         /// <summary>
         /// Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs> _mDestination;
-
-        public Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs? Destination => _mDestination.GetValue("destination");
+        private Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogArgs.Destination' is not present");
+            }
+        }
     }
 }

@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ID of the hosted connection.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'ConnectionConfirmation.ConnectionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The ID of the hosted connection.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'ConnectionConfirmationArgs.ConnectionId' is not present");
+            }
+        }
     }
 }

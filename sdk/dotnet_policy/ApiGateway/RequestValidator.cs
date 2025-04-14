@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Name of the request validator
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RequestValidator.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated Rest API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'RequestValidator.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to validate request body. Defaults to `false`.
         /// </summary>
-        [Input("validateRequestBody")]
+        [PolicyResourceProperty("validateRequestBody", "_mUnknown_ValidateRequestBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestBody;
-
-        public bool? ValidateRequestBody => _mValidateRequestBody.GetValue("validateRequestBody");
+        private bool? _mValue_ValidateRequestBody;
+        private bool _mUnknown_ValidateRequestBody;
+        public bool? ValidateRequestBody
+        {
+            get
+            {
+                if (!_mUnknown_ValidateRequestBody) return _mValue_ValidateRequestBody;
+                throw new UndeferrableValueException("Value 'RequestValidator.ValidateRequestBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to validate request parameters. Defaults to `false`.
         /// </summary>
-        [Input("validateRequestParameters")]
+        [PolicyResourceProperty("validateRequestParameters", "_mUnknown_ValidateRequestParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestParameters;
-
-        public bool? ValidateRequestParameters => _mValidateRequestParameters.GetValue("validateRequestParameters");
+        private bool? _mValue_ValidateRequestParameters;
+        private bool _mUnknown_ValidateRequestParameters;
+        public bool? ValidateRequestParameters
+        {
+            get
+            {
+                if (!_mUnknown_ValidateRequestParameters) return _mValue_ValidateRequestParameters;
+                throw new UndeferrableValueException("Value 'RequestValidator.ValidateRequestParameters' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/requestValidator:RequestValidator")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Name of the request validator
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RequestValidatorArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated Rest API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'RequestValidatorArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to validate request body. Defaults to `false`.
         /// </summary>
-        [Input("validateRequestBody")]
+        [PolicyResourceProperty("validateRequestBody", "_mUnknown_ValidateRequestBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestBody;
-
-        public bool? ValidateRequestBody => _mValidateRequestBody.GetValue("validateRequestBody");
+        private bool? _mValue_ValidateRequestBody;
+        private bool _mUnknown_ValidateRequestBody;
+        public bool? ValidateRequestBody
+        {
+            get
+            {
+                if (!_mUnknown_ValidateRequestBody) return _mValue_ValidateRequestBody;
+                throw new UndeferrableValueException("Value 'RequestValidatorArgs.ValidateRequestBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to validate request parameters. Defaults to `false`.
         /// </summary>
-        [Input("validateRequestParameters")]
+        [PolicyResourceProperty("validateRequestParameters", "_mUnknown_ValidateRequestParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mValidateRequestParameters;
-
-        public bool? ValidateRequestParameters => _mValidateRequestParameters.GetValue("validateRequestParameters");
+        private bool? _mValue_ValidateRequestParameters;
+        private bool _mUnknown_ValidateRequestParameters;
+        public bool? ValidateRequestParameters
+        {
+            get
+            {
+                if (!_mUnknown_ValidateRequestParameters) return _mValue_ValidateRequestParameters;
+                throw new UndeferrableValueException("Value 'RequestValidatorArgs.ValidateRequestParameters' is not present");
+            }
+        }
     }
 }

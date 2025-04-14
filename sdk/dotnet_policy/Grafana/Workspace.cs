@@ -16,181 +16,321 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         /// </summary>
-        [Input("accountAccessType")]
+        [PolicyResourceProperty("accountAccessType", "_mUnknown_AccountAccessType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountAccessType;
-
-        public string? AccountAccessType => _mAccountAccessType.GetValue("accountAccessType");
+        private string? _mValue_AccountAccessType;
+        private bool _mUnknown_AccountAccessType;
+        public string? AccountAccessType
+        {
+            get
+            {
+                if (!_mUnknown_AccountAccessType) return _mValue_AccountAccessType;
+                throw new UndeferrableValueException("Value 'Workspace.AccountAccessType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Grafana workspace.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Workspace.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         /// </summary>
-        [Input("authenticationProviders")]
+        [PolicyResourceProperty("authenticationProviders", "_mUnknown_AuthenticationProviders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthenticationProviders;
-
-        public List<string>? AuthenticationProviders => _mAuthenticationProviders.GetValue("authenticationProviders");
+        private List<string>? _mValue_AuthenticationProviders;
+        private bool _mUnknown_AuthenticationProviders;
+        public List<string>? AuthenticationProviders
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationProviders) return _mValue_AuthenticationProviders;
+                throw new UndeferrableValueException("Value 'Workspace.AuthenticationProviders' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
-
-        public string? Configuration => _mConfiguration.GetValue("configuration");
+        private string? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public string? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'Workspace.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         /// </summary>
-        [Input("dataSources")]
+        [PolicyResourceProperty("dataSources", "_mUnknown_DataSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDataSources;
-
-        public List<string>? DataSources => _mDataSources.GetValue("dataSources");
+        private List<string>? _mValue_DataSources;
+        private bool _mUnknown_DataSources;
+        public List<string>? DataSources
+        {
+            get
+            {
+                if (!_mUnknown_DataSources) return _mValue_DataSources;
+                throw new UndeferrableValueException("Value 'Workspace.DataSources' is not present");
+            }
+        }
 
         /// <summary>
         /// The workspace description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Workspace.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the Grafana workspace.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Workspace.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
         /// </summary>
-        [Input("grafanaVersion")]
+        [PolicyResourceProperty("grafanaVersion", "_mUnknown_GrafanaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaVersion;
-
-        public string? GrafanaVersion => _mGrafanaVersion.GetValue("grafanaVersion");
+        private string? _mValue_GrafanaVersion;
+        private bool _mUnknown_GrafanaVersion;
+        public string? GrafanaVersion
+        {
+            get
+            {
+                if (!_mUnknown_GrafanaVersion) return _mValue_GrafanaVersion;
+                throw new UndeferrableValueException("Value 'Workspace.GrafanaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Grafana workspace name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Workspace.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for network access to your workspace.See Network Access Control below.
         /// </summary>
-        [Input("networkAccessControl")]
+        [PolicyResourceProperty("networkAccessControl", "_mUnknown_NetworkAccessControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkspaceNetworkAccessControl> _mNetworkAccessControl;
-
-        public Outputs.WorkspaceNetworkAccessControl? NetworkAccessControl => _mNetworkAccessControl.GetValue("networkAccessControl");
+        private Outputs.WorkspaceNetworkAccessControl? _mValue_NetworkAccessControl;
+        private bool _mUnknown_NetworkAccessControl;
+        public Outputs.WorkspaceNetworkAccessControl? NetworkAccessControl
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAccessControl) return _mValue_NetworkAccessControl;
+                throw new UndeferrableValueException("Value 'Workspace.NetworkAccessControl' is not present");
+            }
+        }
 
         /// <summary>
         /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         /// </summary>
-        [Input("notificationDestinations")]
+        [PolicyResourceProperty("notificationDestinations", "_mUnknown_NotificationDestinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationDestinations;
-
-        public List<string>? NotificationDestinations => _mNotificationDestinations.GetValue("notificationDestinations");
+        private List<string>? _mValue_NotificationDestinations;
+        private bool _mUnknown_NotificationDestinations;
+        public List<string>? NotificationDestinations
+        {
+            get
+            {
+                if (!_mUnknown_NotificationDestinations) return _mValue_NotificationDestinations;
+                throw new UndeferrableValueException("Value 'Workspace.NotificationDestinations' is not present");
+            }
+        }
 
         /// <summary>
         /// The role name that the workspace uses to access resources through Amazon Organizations.
         /// </summary>
-        [Input("organizationRoleName")]
+        [PolicyResourceProperty("organizationRoleName", "_mUnknown_OrganizationRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationRoleName;
-
-        public string? OrganizationRoleName => _mOrganizationRoleName.GetValue("organizationRoleName");
+        private string? _mValue_OrganizationRoleName;
+        private bool _mUnknown_OrganizationRoleName;
+        public string? OrganizationRoleName
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationRoleName) return _mValue_OrganizationRoleName;
+                throw new UndeferrableValueException("Value 'Workspace.OrganizationRoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         /// </summary>
-        [Input("organizationalUnits")]
+        [PolicyResourceProperty("organizationalUnits", "_mUnknown_OrganizationalUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnits;
-
-        public List<string>? OrganizationalUnits => _mOrganizationalUnits.GetValue("organizationalUnits");
+        private List<string>? _mValue_OrganizationalUnits;
+        private bool _mUnknown_OrganizationalUnits;
+        public List<string>? OrganizationalUnits
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnits) return _mValue_OrganizationalUnits;
+                throw new UndeferrableValueException("Value 'Workspace.OrganizationalUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("permissionType")]
+        [PolicyResourceProperty("permissionType", "_mUnknown_PermissionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionType;
-
-        public string? PermissionType => _mPermissionType.GetValue("permissionType");
+        private string? _mValue_PermissionType;
+        private bool _mUnknown_PermissionType;
+        public string? PermissionType
+        {
+            get
+            {
+                if (!_mUnknown_PermissionType) return _mValue_PermissionType;
+                throw new UndeferrableValueException("Value 'Workspace.PermissionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN that the workspace assumes.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Workspace.RoleArn' is not present");
+            }
+        }
 
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
-
-        [Input("samlConfigurationStatus")]
+        [PolicyResourceProperty("samlConfigurationStatus", "_mUnknown_SamlConfigurationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSamlConfigurationStatus;
-
-        public string? SamlConfigurationStatus => _mSamlConfigurationStatus.GetValue("samlConfigurationStatus");
+        private string? _mValue_SamlConfigurationStatus;
+        private bool _mUnknown_SamlConfigurationStatus;
+        public string? SamlConfigurationStatus
+        {
+            get
+            {
+                if (!_mUnknown_SamlConfigurationStatus) return _mValue_SamlConfigurationStatus;
+                throw new UndeferrableValueException("Value 'Workspace.SamlConfigurationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         /// </summary>
-        [Input("stackSetName")]
+        [PolicyResourceProperty("stackSetName", "_mUnknown_StackSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetName;
-
-        public string? StackSetName => _mStackSetName.GetValue("stackSetName");
+        private string? _mValue_StackSetName;
+        private bool _mUnknown_StackSetName;
+        public string? StackSetName
+        {
+            get
+            {
+                if (!_mUnknown_StackSetName) return _mValue_StackSetName;
+                throw new UndeferrableValueException("Value 'Workspace.StackSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Workspace.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Workspace.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkspaceVpcConfiguration> _mVpcConfiguration;
-
-        public Outputs.WorkspaceVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Outputs.WorkspaceVpcConfiguration? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Outputs.WorkspaceVpcConfiguration? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'Workspace.VpcConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:grafana/workspace:Workspace")]
@@ -199,147 +339,259 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         /// </summary>
-        [Input("accountAccessType")]
+        [PolicyResourceProperty("accountAccessType", "_mUnknown_AccountAccessType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountAccessType;
-
-        public string? AccountAccessType => _mAccountAccessType.GetValue("accountAccessType");
+        private string? _mValue_AccountAccessType;
+        private bool _mUnknown_AccountAccessType;
+        public string? AccountAccessType
+        {
+            get
+            {
+                if (!_mUnknown_AccountAccessType) return _mValue_AccountAccessType;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.AccountAccessType' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         /// </summary>
-        [Input("authenticationProviders")]
+        [PolicyResourceProperty("authenticationProviders", "_mUnknown_AuthenticationProviders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAuthenticationProviders;
-
-        public List<string>? AuthenticationProviders => _mAuthenticationProviders.GetValue("authenticationProviders");
+        private List<string>? _mValue_AuthenticationProviders;
+        private bool _mUnknown_AuthenticationProviders;
+        public List<string>? AuthenticationProviders
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationProviders) return _mValue_AuthenticationProviders;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.AuthenticationProviders' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfiguration;
-
-        public string? Configuration => _mConfiguration.GetValue("configuration");
+        private string? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public string? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         /// </summary>
-        [Input("dataSources")]
+        [PolicyResourceProperty("dataSources", "_mUnknown_DataSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDataSources;
-
-        public List<string>? DataSources => _mDataSources.GetValue("dataSources");
+        private List<string>? _mValue_DataSources;
+        private bool _mUnknown_DataSources;
+        public List<string>? DataSources
+        {
+            get
+            {
+                if (!_mUnknown_DataSources) return _mValue_DataSources;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.DataSources' is not present");
+            }
+        }
 
         /// <summary>
         /// The workspace description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
         /// </summary>
-        [Input("grafanaVersion")]
+        [PolicyResourceProperty("grafanaVersion", "_mUnknown_GrafanaVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaVersion;
-
-        public string? GrafanaVersion => _mGrafanaVersion.GetValue("grafanaVersion");
+        private string? _mValue_GrafanaVersion;
+        private bool _mUnknown_GrafanaVersion;
+        public string? GrafanaVersion
+        {
+            get
+            {
+                if (!_mUnknown_GrafanaVersion) return _mValue_GrafanaVersion;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.GrafanaVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Grafana workspace name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for network access to your workspace.See Network Access Control below.
         /// </summary>
-        [Input("networkAccessControl")]
+        [PolicyResourceProperty("networkAccessControl", "_mUnknown_NetworkAccessControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkspaceNetworkAccessControlArgs> _mNetworkAccessControl;
-
-        public Inputs.WorkspaceNetworkAccessControlArgs? NetworkAccessControl => _mNetworkAccessControl.GetValue("networkAccessControl");
+        private Inputs.WorkspaceNetworkAccessControlArgs? _mValue_NetworkAccessControl;
+        private bool _mUnknown_NetworkAccessControl;
+        public Inputs.WorkspaceNetworkAccessControlArgs? NetworkAccessControl
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAccessControl) return _mValue_NetworkAccessControl;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.NetworkAccessControl' is not present");
+            }
+        }
 
         /// <summary>
         /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         /// </summary>
-        [Input("notificationDestinations")]
+        [PolicyResourceProperty("notificationDestinations", "_mUnknown_NotificationDestinations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationDestinations;
-
-        public List<string>? NotificationDestinations => _mNotificationDestinations.GetValue("notificationDestinations");
+        private List<string>? _mValue_NotificationDestinations;
+        private bool _mUnknown_NotificationDestinations;
+        public List<string>? NotificationDestinations
+        {
+            get
+            {
+                if (!_mUnknown_NotificationDestinations) return _mValue_NotificationDestinations;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.NotificationDestinations' is not present");
+            }
+        }
 
         /// <summary>
         /// The role name that the workspace uses to access resources through Amazon Organizations.
         /// </summary>
-        [Input("organizationRoleName")]
+        [PolicyResourceProperty("organizationRoleName", "_mUnknown_OrganizationRoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationRoleName;
-
-        public string? OrganizationRoleName => _mOrganizationRoleName.GetValue("organizationRoleName");
+        private string? _mValue_OrganizationRoleName;
+        private bool _mUnknown_OrganizationRoleName;
+        public string? OrganizationRoleName
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationRoleName) return _mValue_OrganizationRoleName;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.OrganizationRoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         /// </summary>
-        [Input("organizationalUnits")]
+        [PolicyResourceProperty("organizationalUnits", "_mUnknown_OrganizationalUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnits;
-
-        public List<string>? OrganizationalUnits => _mOrganizationalUnits.GetValue("organizationalUnits");
+        private List<string>? _mValue_OrganizationalUnits;
+        private bool _mUnknown_OrganizationalUnits;
+        public List<string>? OrganizationalUnits
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnits) return _mValue_OrganizationalUnits;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.OrganizationalUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("permissionType")]
+        [PolicyResourceProperty("permissionType", "_mUnknown_PermissionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionType;
-
-        public string? PermissionType => _mPermissionType.GetValue("permissionType");
+        private string? _mValue_PermissionType;
+        private bool _mUnknown_PermissionType;
+        public string? PermissionType
+        {
+            get
+            {
+                if (!_mUnknown_PermissionType) return _mValue_PermissionType;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.PermissionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role ARN that the workspace assumes.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         /// </summary>
-        [Input("stackSetName")]
+        [PolicyResourceProperty("stackSetName", "_mUnknown_StackSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackSetName;
-
-        public string? StackSetName => _mStackSetName.GetValue("stackSetName");
+        private string? _mValue_StackSetName;
+        private bool _mUnknown_StackSetName;
+        public string? StackSetName
+        {
+            get
+            {
+                if (!_mUnknown_StackSetName) return _mValue_StackSetName;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.StackSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkspaceVpcConfigurationArgs> _mVpcConfiguration;
-
-        public Inputs.WorkspaceVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Inputs.WorkspaceVpcConfigurationArgs? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Inputs.WorkspaceVpcConfigurationArgs? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'WorkspaceArgs.VpcConfiguration' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
         /// </summary>
-        [Input("maxConcurrentInvocationsPerInstance")]
+        [PolicyResourceProperty("maxConcurrentInvocationsPerInstance", "_mUnknown_MaxConcurrentInvocationsPerInstance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrentInvocationsPerInstance;
-
-        public int? MaxConcurrentInvocationsPerInstance => _mMaxConcurrentInvocationsPerInstance.GetValue("maxConcurrentInvocationsPerInstance");
+        private int? _mValue_MaxConcurrentInvocationsPerInstance;
+        private bool _mUnknown_MaxConcurrentInvocationsPerInstance;
+        public int? MaxConcurrentInvocationsPerInstance
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrentInvocationsPerInstance) return _mValue_MaxConcurrentInvocationsPerInstance;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigClientConfig.MaxConcurrentInvocationsPerInstance' is not present");
+            }
+        }
     }
 }

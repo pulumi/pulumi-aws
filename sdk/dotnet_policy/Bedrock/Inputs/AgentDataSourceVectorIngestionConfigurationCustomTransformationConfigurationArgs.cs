@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// The intermediate storage for custom transformation.
         /// </summary>
-        [Input("intermediateStorage")]
+        [PolicyResourceProperty("intermediateStorage", "_mUnknown_IntermediateStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs> _mIntermediateStorage;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs? IntermediateStorage => _mIntermediateStorage.GetValue("intermediateStorage");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs? _mValue_IntermediateStorage;
+        private bool _mUnknown_IntermediateStorage;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs? IntermediateStorage
+        {
+            get
+            {
+                if (!_mUnknown_IntermediateStorage) return _mValue_IntermediateStorage;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs.IntermediateStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// A custom processing step for documents moving through the data source ingestion pipeline.
         /// </summary>
-        [Input("transformation")]
+        [PolicyResourceProperty("transformation", "_mUnknown_Transformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs> _mTransformation;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs? Transformation => _mTransformation.GetValue("transformation");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs? _mValue_Transformation;
+        private bool _mUnknown_Transformation;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs? Transformation
+        {
+            get
+            {
+                if (!_mUnknown_Transformation) return _mValue_Transformation;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs.Transformation' is not present");
+            }
+        }
     }
 }

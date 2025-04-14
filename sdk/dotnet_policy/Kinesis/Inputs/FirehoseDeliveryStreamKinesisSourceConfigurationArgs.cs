@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The kinesis stream used as the source of the firehose delivery stream.
         /// </summary>
-        [Input("kinesisStreamArn")]
+        [PolicyResourceProperty("kinesisStreamArn", "_mUnknown_KinesisStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKinesisStreamArn;
-
-        public string? KinesisStreamArn => _mKinesisStreamArn.GetValue("kinesisStreamArn");
+        private string? _mValue_KinesisStreamArn;
+        private bool _mUnknown_KinesisStreamArn;
+        public string? KinesisStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamArn) return _mValue_KinesisStreamArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamKinesisSourceConfigurationArgs.KinesisStreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the role that provides access to the source Kinesis stream.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamKinesisSourceConfigurationArgs.RoleArn' is not present");
+            }
+        }
     }
 }

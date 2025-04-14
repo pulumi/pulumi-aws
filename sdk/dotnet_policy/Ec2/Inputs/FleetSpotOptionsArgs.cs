@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
         /// </summary>
-        [Input("allocationStrategy")]
+        [PolicyResourceProperty("allocationStrategy", "_mUnknown_AllocationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationStrategy;
-
-        public string? AllocationStrategy => _mAllocationStrategy.GetValue("allocationStrategy");
+        private string? _mValue_AllocationStrategy;
+        private bool _mUnknown_AllocationStrategy;
+        public string? AllocationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AllocationStrategy) return _mValue_AllocationStrategy;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.AllocationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
         /// </summary>
-        [Input("instanceInterruptionBehavior")]
+        [PolicyResourceProperty("instanceInterruptionBehavior", "_mUnknown_InstanceInterruptionBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInterruptionBehavior;
-
-        public string? InstanceInterruptionBehavior => _mInstanceInterruptionBehavior.GetValue("instanceInterruptionBehavior");
+        private string? _mValue_InstanceInterruptionBehavior;
+        private bool _mUnknown_InstanceInterruptionBehavior;
+        public string? InstanceInterruptionBehavior
+        {
+            get
+            {
+                if (!_mUnknown_InstanceInterruptionBehavior) return _mValue_InstanceInterruptionBehavior;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.InstanceInterruptionBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
         /// </summary>
-        [Input("instancePoolsToUseCount")]
+        [PolicyResourceProperty("instancePoolsToUseCount", "_mUnknown_InstancePoolsToUseCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstancePoolsToUseCount;
-
-        public int? InstancePoolsToUseCount => _mInstancePoolsToUseCount.GetValue("instancePoolsToUseCount");
+        private int? _mValue_InstancePoolsToUseCount;
+        private bool _mUnknown_InstancePoolsToUseCount;
+        public int? InstancePoolsToUseCount
+        {
+            get
+            {
+                if (!_mUnknown_InstancePoolsToUseCount) return _mValue_InstancePoolsToUseCount;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.InstancePoolsToUseCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         /// </summary>
-        [Input("maintenanceStrategies")]
+        [PolicyResourceProperty("maintenanceStrategies", "_mUnknown_MaintenanceStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FleetSpotOptionsMaintenanceStrategiesArgs> _mMaintenanceStrategies;
-
-        public Inputs.FleetSpotOptionsMaintenanceStrategiesArgs? MaintenanceStrategies => _mMaintenanceStrategies.GetValue("maintenanceStrategies");
+        private Inputs.FleetSpotOptionsMaintenanceStrategiesArgs? _mValue_MaintenanceStrategies;
+        private bool _mUnknown_MaintenanceStrategies;
+        public Inputs.FleetSpotOptionsMaintenanceStrategiesArgs? MaintenanceStrategies
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceStrategies) return _mValue_MaintenanceStrategies;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.MaintenanceStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount per hour for Spot Instances that you're willing to pay.
         /// </summary>
-        [Input("maxTotalPrice")]
+        [PolicyResourceProperty("maxTotalPrice", "_mUnknown_MaxTotalPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxTotalPrice;
-
-        public string? MaxTotalPrice => _mMaxTotalPrice.GetValue("maxTotalPrice");
+        private string? _mValue_MaxTotalPrice;
+        private bool _mUnknown_MaxTotalPrice;
+        public string? MaxTotalPrice
+        {
+            get
+            {
+                if (!_mUnknown_MaxTotalPrice) return _mValue_MaxTotalPrice;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.MaxTotalPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
         /// </summary>
-        [Input("minTargetCapacity")]
+        [PolicyResourceProperty("minTargetCapacity", "_mUnknown_MinTargetCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinTargetCapacity;
-
-        public int? MinTargetCapacity => _mMinTargetCapacity.GetValue("minTargetCapacity");
+        private int? _mValue_MinTargetCapacity;
+        private bool _mUnknown_MinTargetCapacity;
+        public int? MinTargetCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinTargetCapacity) return _mValue_MinTargetCapacity;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.MinTargetCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
         /// </summary>
-        [Input("singleAvailabilityZone")]
+        [PolicyResourceProperty("singleAvailabilityZone", "_mUnknown_SingleAvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSingleAvailabilityZone;
-
-        public bool? SingleAvailabilityZone => _mSingleAvailabilityZone.GetValue("singleAvailabilityZone");
+        private bool? _mValue_SingleAvailabilityZone;
+        private bool _mUnknown_SingleAvailabilityZone;
+        public bool? SingleAvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_SingleAvailabilityZone) return _mValue_SingleAvailabilityZone;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.SingleAvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
         /// </summary>
-        [Input("singleInstanceType")]
+        [PolicyResourceProperty("singleInstanceType", "_mUnknown_SingleInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSingleInstanceType;
-
-        public bool? SingleInstanceType => _mSingleInstanceType.GetValue("singleInstanceType");
+        private bool? _mValue_SingleInstanceType;
+        private bool _mUnknown_SingleInstanceType;
+        public bool? SingleInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_SingleInstanceType) return _mValue_SingleInstanceType;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsArgs.SingleInstanceType' is not present");
+            }
+        }
     }
 }

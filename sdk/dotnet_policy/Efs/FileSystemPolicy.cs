@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// <summary>
         /// A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypass_policy_lockout_safety_check` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'FileSystemPolicy.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the EFS file system.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'FileSystemPolicy.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'FileSystemPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:efs/fileSystemPolicy:FileSystemPolicy")]
@@ -49,30 +70,51 @@ namespace Pulumi.PolicyPacks.Aws.Efs
         /// <summary>
         /// A flag to indicate whether to bypass the `aws.efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypass_policy_lockout_safety_check` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'FileSystemPolicyArgs.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the EFS file system.
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'FileSystemPolicyArgs.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'FileSystemPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

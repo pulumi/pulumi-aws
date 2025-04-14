@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// Type for the dimension. Valid value: `VARCHAR`.
         /// </summary>
-        [Input("dimensionValueType")]
+        [PolicyResourceProperty("dimensionValueType", "_mUnknown_DimensionValueType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimensionValueType;
-
-        public string? DimensionValueType => _mDimensionValueType.GetValue("dimensionValueType");
+        private string? _mValue_DimensionValueType;
+        private bool _mUnknown_DimensionValueType;
+        public string? DimensionValueType
+        {
+            get
+            {
+                if (!_mUnknown_DimensionValueType) return _mValue_DimensionValueType;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.DimensionValueType' is not present");
+            }
+        }
 
         /// <summary>
         /// Column name from query result.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.Name' is not present");
+            }
+        }
     }
 }

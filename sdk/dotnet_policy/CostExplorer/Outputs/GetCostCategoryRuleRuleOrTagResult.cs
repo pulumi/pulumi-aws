@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Outputs
         /// <summary>
         /// Key for the tag.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleOrTagResult.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
         /// </summary>
-        [Input("matchOptions")]
+        [PolicyResourceProperty("matchOptions", "_mUnknown_MatchOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchOptions;
-
-        public List<string>? MatchOptions => _mMatchOptions.GetValue("matchOptions");
+        private List<string>? _mValue_MatchOptions;
+        private bool _mUnknown_MatchOptions;
+        public List<string>? MatchOptions
+        {
+            get
+            {
+                if (!_mUnknown_MatchOptions) return _mValue_MatchOptions;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleOrTagResult.MatchOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter values.
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'GetCostCategoryRuleRuleOrTagResult.Values' is not present");
+            }
+        }
     }
 }

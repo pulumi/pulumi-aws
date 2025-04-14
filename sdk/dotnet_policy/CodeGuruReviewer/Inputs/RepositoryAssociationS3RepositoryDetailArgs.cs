@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer.Inputs
         /// <summary>
         /// The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetailArgs.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("codeArtifacts")]
+        [PolicyResourceProperty("codeArtifacts", "_mUnknown_CodeArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RepositoryAssociationS3RepositoryDetailCodeArtifactArgs>> _mCodeArtifacts;
-
-        public List<Inputs.RepositoryAssociationS3RepositoryDetailCodeArtifactArgs>? CodeArtifacts => _mCodeArtifacts.GetValue("codeArtifacts");
+        private List<Inputs.RepositoryAssociationS3RepositoryDetailCodeArtifactArgs>? _mValue_CodeArtifacts;
+        private bool _mUnknown_CodeArtifacts;
+        public List<Inputs.RepositoryAssociationS3RepositoryDetailCodeArtifactArgs>? CodeArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_CodeArtifacts) return _mValue_CodeArtifacts;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetailArgs.CodeArtifacts' is not present");
+            }
+        }
     }
 }

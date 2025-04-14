@@ -16,91 +16,161 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         /// </summary>
-        [Input("accessString")]
+        [PolicyResourceProperty("accessString", "_mUnknown_AccessString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
-
-        public string? AccessString => _mAccessString.GetValue("accessString");
+        private string? _mValue_AccessString;
+        private bool _mUnknown_AccessString;
+        public string? AccessString
+        {
+            get
+            {
+                if (!_mUnknown_AccessString) return _mValue_AccessString;
+                throw new UndeferrableValueException("Value 'User.AccessString' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the created ElastiCache User.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'User.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
-        [Input("authenticationMode")]
+        [PolicyResourceProperty("authenticationMode", "_mUnknown_AuthenticationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserAuthenticationMode> _mAuthenticationMode;
-
-        public Outputs.UserAuthenticationMode? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
+        private Outputs.UserAuthenticationMode? _mValue_AuthenticationMode;
+        private bool _mUnknown_AuthenticationMode;
+        public Outputs.UserAuthenticationMode? AuthenticationMode
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationMode) return _mValue_AuthenticationMode;
+                throw new UndeferrableValueException("Value 'User.AuthenticationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The current supported values are `redis`, `valkey` (case insensitive).
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'User.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates a password is not required for this user.
         /// </summary>
-        [Input("noPasswordRequired")]
+        [PolicyResourceProperty("noPasswordRequired", "_mUnknown_NoPasswordRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoPasswordRequired;
-
-        public bool? NoPasswordRequired => _mNoPasswordRequired.GetValue("noPasswordRequired");
+        private bool? _mValue_NoPasswordRequired;
+        private bool _mUnknown_NoPasswordRequired;
+        public bool? NoPasswordRequired
+        {
+            get
+            {
+                if (!_mUnknown_NoPasswordRequired) return _mValue_NoPasswordRequired;
+                throw new UndeferrableValueException("Value 'User.NoPasswordRequired' is not present");
+            }
+        }
 
         /// <summary>
         /// Passwords used for this user. You can create up to two passwords for each user.
         /// </summary>
-        [Input("passwords")]
+        [PolicyResourceProperty("passwords", "_mUnknown_Passwords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPasswords;
-
-        public List<string>? Passwords => _mPasswords.GetValue("passwords");
+        private List<string>? _mValue_Passwords;
+        private bool _mUnknown_Passwords;
+        public List<string>? Passwords
+        {
+            get
+            {
+                if (!_mUnknown_Passwords) return _mValue_Passwords;
+                throw new UndeferrableValueException("Value 'User.Passwords' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of tags to be added to this resource. A tag is a key-value pair.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'User.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'User.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the user.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'User.UserId' is not present");
+            }
+        }
 
         /// <summary>
         /// The username of the user.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'User.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/user:User")]
@@ -109,75 +179,131 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         /// </summary>
-        [Input("accessString")]
+        [PolicyResourceProperty("accessString", "_mUnknown_AccessString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessString;
-
-        public string? AccessString => _mAccessString.GetValue("accessString");
+        private string? _mValue_AccessString;
+        private bool _mUnknown_AccessString;
+        public string? AccessString
+        {
+            get
+            {
+                if (!_mUnknown_AccessString) return _mValue_AccessString;
+                throw new UndeferrableValueException("Value 'UserArgs.AccessString' is not present");
+            }
+        }
 
         /// <summary>
         /// Denotes the user's authentication properties. Detailed below.
         /// </summary>
-        [Input("authenticationMode")]
+        [PolicyResourceProperty("authenticationMode", "_mUnknown_AuthenticationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserAuthenticationModeArgs> _mAuthenticationMode;
-
-        public Inputs.UserAuthenticationModeArgs? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
+        private Inputs.UserAuthenticationModeArgs? _mValue_AuthenticationMode;
+        private bool _mUnknown_AuthenticationMode;
+        public Inputs.UserAuthenticationModeArgs? AuthenticationMode
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationMode) return _mValue_AuthenticationMode;
+                throw new UndeferrableValueException("Value 'UserArgs.AuthenticationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The current supported values are `redis`, `valkey` (case insensitive).
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'UserArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates a password is not required for this user.
         /// </summary>
-        [Input("noPasswordRequired")]
+        [PolicyResourceProperty("noPasswordRequired", "_mUnknown_NoPasswordRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoPasswordRequired;
-
-        public bool? NoPasswordRequired => _mNoPasswordRequired.GetValue("noPasswordRequired");
+        private bool? _mValue_NoPasswordRequired;
+        private bool _mUnknown_NoPasswordRequired;
+        public bool? NoPasswordRequired
+        {
+            get
+            {
+                if (!_mUnknown_NoPasswordRequired) return _mValue_NoPasswordRequired;
+                throw new UndeferrableValueException("Value 'UserArgs.NoPasswordRequired' is not present");
+            }
+        }
 
         /// <summary>
         /// Passwords used for this user. You can create up to two passwords for each user.
         /// </summary>
-        [Input("passwords")]
+        [PolicyResourceProperty("passwords", "_mUnknown_Passwords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPasswords;
-
-        public List<string>? Passwords => _mPasswords.GetValue("passwords");
+        private List<string>? _mValue_Passwords;
+        private bool _mUnknown_Passwords;
+        public List<string>? Passwords
+        {
+            get
+            {
+                if (!_mUnknown_Passwords) return _mValue_Passwords;
+                throw new UndeferrableValueException("Value 'UserArgs.Passwords' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of tags to be added to this resource. A tag is a key-value pair.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the user.
         /// </summary>
-        [Input("userId")]
+        [PolicyResourceProperty("userId", "_mUnknown_UserId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserId;
-
-        public string? UserId => _mUserId.GetValue("userId");
+        private string? _mValue_UserId;
+        private bool _mUnknown_UserId;
+        public string? UserId
+        {
+            get
+            {
+                if (!_mUnknown_UserId) return _mValue_UserId;
+                throw new UndeferrableValueException("Value 'UserArgs.UserId' is not present");
+            }
+        }
 
         /// <summary>
         /// The username of the user.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserArgs.UserName' is not present");
+            }
+        }
     }
 }

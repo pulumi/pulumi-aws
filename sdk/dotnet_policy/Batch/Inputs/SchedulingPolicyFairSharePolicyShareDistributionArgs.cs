@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         /// </summary>
-        [Input("shareIdentifier")]
+        [PolicyResourceProperty("shareIdentifier", "_mUnknown_ShareIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShareIdentifier;
-
-        public string? ShareIdentifier => _mShareIdentifier.GetValue("shareIdentifier");
+        private string? _mValue_ShareIdentifier;
+        private bool _mUnknown_ShareIdentifier;
+        public string? ShareIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ShareIdentifier) return _mValue_ShareIdentifier;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicyShareDistributionArgs.ShareIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
         /// </summary>
-        [Input("weightFactor")]
+        [PolicyResourceProperty("weightFactor", "_mUnknown_WeightFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mWeightFactor;
-
-        public double? WeightFactor => _mWeightFactor.GetValue("weightFactor");
+        private double? _mValue_WeightFactor;
+        private bool _mUnknown_WeightFactor;
+        public double? WeightFactor
+        {
+            get
+            {
+                if (!_mUnknown_WeightFactor) return _mValue_WeightFactor;
+                throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicyShareDistributionArgs.WeightFactor' is not present");
+            }
+        }
     }
 }

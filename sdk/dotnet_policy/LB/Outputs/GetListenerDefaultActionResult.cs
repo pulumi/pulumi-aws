@@ -12,52 +12,108 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
 {
     public sealed class GetListenerDefaultActionResult
     {
-        [Input("authenticateCognitos")]
+        [PolicyResourceProperty("authenticateCognitos", "_mUnknown_AuthenticateCognitos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionAuthenticateCognitoResult>> _mAuthenticateCognitos;
+        private List<Outputs.GetListenerDefaultActionAuthenticateCognitoResult>? _mValue_AuthenticateCognitos;
+        private bool _mUnknown_AuthenticateCognitos;
+        public List<Outputs.GetListenerDefaultActionAuthenticateCognitoResult>? AuthenticateCognitos
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticateCognitos) return _mValue_AuthenticateCognitos;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.AuthenticateCognitos' is not present");
+            }
+        }
 
-        public List<Outputs.GetListenerDefaultActionAuthenticateCognitoResult>? AuthenticateCognitos => _mAuthenticateCognitos.GetValue("authenticateCognitos");
-
-        [Input("authenticateOidcs")]
+        [PolicyResourceProperty("authenticateOidcs", "_mUnknown_AuthenticateOidcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionAuthenticateOidcResult>> _mAuthenticateOidcs;
+        private List<Outputs.GetListenerDefaultActionAuthenticateOidcResult>? _mValue_AuthenticateOidcs;
+        private bool _mUnknown_AuthenticateOidcs;
+        public List<Outputs.GetListenerDefaultActionAuthenticateOidcResult>? AuthenticateOidcs
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticateOidcs) return _mValue_AuthenticateOidcs;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.AuthenticateOidcs' is not present");
+            }
+        }
 
-        public List<Outputs.GetListenerDefaultActionAuthenticateOidcResult>? AuthenticateOidcs => _mAuthenticateOidcs.GetValue("authenticateOidcs");
-
-        [Input("fixedResponses")]
+        [PolicyResourceProperty("fixedResponses", "_mUnknown_FixedResponses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionFixedResponseResult>> _mFixedResponses;
+        private List<Outputs.GetListenerDefaultActionFixedResponseResult>? _mValue_FixedResponses;
+        private bool _mUnknown_FixedResponses;
+        public List<Outputs.GetListenerDefaultActionFixedResponseResult>? FixedResponses
+        {
+            get
+            {
+                if (!_mUnknown_FixedResponses) return _mValue_FixedResponses;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.FixedResponses' is not present");
+            }
+        }
 
-        public List<Outputs.GetListenerDefaultActionFixedResponseResult>? FixedResponses => _mFixedResponses.GetValue("fixedResponses");
-
-        [Input("forwards")]
+        [PolicyResourceProperty("forwards", "_mUnknown_Forwards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionForwardResult>> _mForwards;
+        private List<Outputs.GetListenerDefaultActionForwardResult>? _mValue_Forwards;
+        private bool _mUnknown_Forwards;
+        public List<Outputs.GetListenerDefaultActionForwardResult>? Forwards
+        {
+            get
+            {
+                if (!_mUnknown_Forwards) return _mValue_Forwards;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.Forwards' is not present");
+            }
+        }
 
-        public List<Outputs.GetListenerDefaultActionForwardResult>? Forwards => _mForwards.GetValue("forwards");
-
-        [Input("order")]
+        [PolicyResourceProperty("order", "_mUnknown_Order")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOrder;
+        private int? _mValue_Order;
+        private bool _mUnknown_Order;
+        public int? Order
+        {
+            get
+            {
+                if (!_mUnknown_Order) return _mValue_Order;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.Order' is not present");
+            }
+        }
 
-        public int? Order => _mOrder.GetValue("order");
-
-        [Input("redirects")]
+        [PolicyResourceProperty("redirects", "_mUnknown_Redirects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionRedirectResult>> _mRedirects;
+        private List<Outputs.GetListenerDefaultActionRedirectResult>? _mValue_Redirects;
+        private bool _mUnknown_Redirects;
+        public List<Outputs.GetListenerDefaultActionRedirectResult>? Redirects
+        {
+            get
+            {
+                if (!_mUnknown_Redirects) return _mValue_Redirects;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.Redirects' is not present");
+            }
+        }
 
-        public List<Outputs.GetListenerDefaultActionRedirectResult>? Redirects => _mRedirects.GetValue("redirects");
-
-        [Input("targetGroupArn")]
+        [PolicyResourceProperty("targetGroupArn", "_mUnknown_TargetGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupArn;
+        private string? _mValue_TargetGroupArn;
+        private bool _mUnknown_TargetGroupArn;
+        public string? TargetGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupArn) return _mValue_TargetGroupArn;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.TargetGroupArn' is not present");
+            }
+        }
 
-        public string? TargetGroupArn => _mTargetGroupArn.GetValue("targetGroupArn");
-
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.Type' is not present");
+            }
+        }
     }
 }

@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Key
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'GroupTagArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables propagation of the tag to
@@ -29,19 +36,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// 
         /// &gt; **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `min_size` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.
         /// </summary>
-        [Input("propagateAtLaunch")]
+        [PolicyResourceProperty("propagateAtLaunch", "_mUnknown_PropagateAtLaunch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPropagateAtLaunch;
-
-        public bool? PropagateAtLaunch => _mPropagateAtLaunch.GetValue("propagateAtLaunch");
+        private bool? _mValue_PropagateAtLaunch;
+        private bool _mUnknown_PropagateAtLaunch;
+        public bool? PropagateAtLaunch
+        {
+            get
+            {
+                if (!_mUnknown_PropagateAtLaunch) return _mValue_PropagateAtLaunch;
+                throw new UndeferrableValueException("Value 'GroupTagArgs.PropagateAtLaunch' is not present");
+            }
+        }
 
         /// <summary>
         /// Value
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GroupTagArgs.Value' is not present");
+            }
+        }
     }
 }

@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.Mq
         /// <summary>
         /// ARN of the configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Configuration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         /// </summary>
-        [Input("authenticationStrategy")]
+        [PolicyResourceProperty("authenticationStrategy", "_mUnknown_AuthenticationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationStrategy;
-
-        public string? AuthenticationStrategy => _mAuthenticationStrategy.GetValue("authenticationStrategy");
+        private string? _mValue_AuthenticationStrategy;
+        private bool _mUnknown_AuthenticationStrategy;
+        public string? AuthenticationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationStrategy) return _mValue_AuthenticationStrategy;
+                throw new UndeferrableValueException("Value 'Configuration.AuthenticationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'Configuration.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Configuration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'Configuration.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the broker engine.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Configuration.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Latest revision of the configuration.
         /// </summary>
-        [Input("latestRevision")]
+        [PolicyResourceProperty("latestRevision", "_mUnknown_LatestRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLatestRevision;
-
-        public int? LatestRevision => _mLatestRevision.GetValue("latestRevision");
+        private int? _mValue_LatestRevision;
+        private bool _mUnknown_LatestRevision;
+        public int? LatestRevision
+        {
+            get
+            {
+                if (!_mUnknown_LatestRevision) return _mValue_LatestRevision;
+                throw new UndeferrableValueException("Value 'Configuration.LatestRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Configuration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Configuration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Configuration.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:mq/configuration:Configuration")]
@@ -112,66 +182,115 @@ namespace Pulumi.PolicyPacks.Aws.Mq
         /// <summary>
         /// Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         /// </summary>
-        [Input("authenticationStrategy")]
+        [PolicyResourceProperty("authenticationStrategy", "_mUnknown_AuthenticationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationStrategy;
-
-        public string? AuthenticationStrategy => _mAuthenticationStrategy.GetValue("authenticationStrategy");
+        private string? _mValue_AuthenticationStrategy;
+        private bool _mUnknown_AuthenticationStrategy;
+        public string? AuthenticationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationStrategy) return _mValue_AuthenticationStrategy;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.AuthenticationStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
         /// </summary>
-        [Input("data")]
+        [PolicyResourceProperty("data", "_mUnknown_Data")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mData;
-
-        public string? Data => _mData.GetValue("data");
+        private string? _mValue_Data;
+        private bool _mUnknown_Data;
+        public string? Data
+        {
+            get
+            {
+                if (!_mUnknown_Data) return _mValue_Data;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.Data' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the broker engine.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// A AWS region where the resource is present.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicy.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
         /// </summary>
-        [Input("bias")]
+        [PolicyResourceProperty("bias", "_mUnknown_Bias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBias;
-
-        public int? Bias => _mBias.GetValue("bias");
+        private int? _mValue_Bias;
+        private bool _mUnknown_Bias;
+        public int? Bias
+        {
+            get
+            {
+                if (!_mUnknown_Bias) return _mValue_Bias;
+                throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicy.Bias' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
         /// </summary>
-        [Input("coordinates")]
+        [PolicyResourceProperty("coordinates", "_mUnknown_Coordinates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RecordGeoproximityRoutingPolicyCoordinate>> _mCoordinates;
-
-        public List<Outputs.RecordGeoproximityRoutingPolicyCoordinate>? Coordinates => _mCoordinates.GetValue("coordinates");
+        private List<Outputs.RecordGeoproximityRoutingPolicyCoordinate>? _mValue_Coordinates;
+        private bool _mUnknown_Coordinates;
+        public List<Outputs.RecordGeoproximityRoutingPolicyCoordinate>? Coordinates
+        {
+            get
+            {
+                if (!_mUnknown_Coordinates) return _mValue_Coordinates;
+                throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicy.Coordinates' is not present");
+            }
+        }
 
         /// <summary>
         /// A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
         /// </summary>
-        [Input("localZoneGroup")]
+        [PolicyResourceProperty("localZoneGroup", "_mUnknown_LocalZoneGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalZoneGroup;
-
-        public string? LocalZoneGroup => _mLocalZoneGroup.GetValue("localZoneGroup");
+        private string? _mValue_LocalZoneGroup;
+        private bool _mUnknown_LocalZoneGroup;
+        public string? LocalZoneGroup
+        {
+            get
+            {
+                if (!_mUnknown_LocalZoneGroup) return _mValue_LocalZoneGroup;
+                throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicy.LocalZoneGroup' is not present");
+            }
+        }
     }
 }

@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Lambda function name.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'FunctionRecursionConfig.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
         /// </summary>
-        [Input("recursiveLoop")]
+        [PolicyResourceProperty("recursiveLoop", "_mUnknown_RecursiveLoop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecursiveLoop;
-
-        public string? RecursiveLoop => _mRecursiveLoop.GetValue("recursiveLoop");
+        private string? _mValue_RecursiveLoop;
+        private bool _mUnknown_RecursiveLoop;
+        public string? RecursiveLoop
+        {
+            get
+            {
+                if (!_mUnknown_RecursiveLoop) return _mValue_RecursiveLoop;
+                throw new UndeferrableValueException("Value 'FunctionRecursionConfig.RecursiveLoop' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/functionRecursionConfig:FunctionRecursionConfig")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Lambda function name.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'FunctionRecursionConfigArgs.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
         /// </summary>
-        [Input("recursiveLoop")]
+        [PolicyResourceProperty("recursiveLoop", "_mUnknown_RecursiveLoop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecursiveLoop;
-
-        public string? RecursiveLoop => _mRecursiveLoop.GetValue("recursiveLoop");
+        private string? _mValue_RecursiveLoop;
+        private bool _mUnknown_RecursiveLoop;
+        public string? RecursiveLoop
+        {
+            get
+            {
+                if (!_mUnknown_RecursiveLoop) return _mValue_RecursiveLoop;
+                throw new UndeferrableValueException("Value 'FunctionRecursionConfigArgs.RecursiveLoop' is not present");
+            }
+        }
     }
 }

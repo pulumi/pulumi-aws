@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Inputs
         /// <summary>
         /// Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
         /// </summary>
-        [Input("autoscaling")]
+        [PolicyResourceProperty("autoscaling", "_mUnknown_Autoscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorCapacityAutoscalingArgs> _mAutoscaling;
-
-        public Inputs.ConnectorCapacityAutoscalingArgs? Autoscaling => _mAutoscaling.GetValue("autoscaling");
+        private Inputs.ConnectorCapacityAutoscalingArgs? _mValue_Autoscaling;
+        private bool _mUnknown_Autoscaling;
+        public Inputs.ConnectorCapacityAutoscalingArgs? Autoscaling
+        {
+            get
+            {
+                if (!_mUnknown_Autoscaling) return _mValue_Autoscaling;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityArgs.Autoscaling' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
         /// </summary>
-        [Input("provisionedCapacity")]
+        [PolicyResourceProperty("provisionedCapacity", "_mUnknown_ProvisionedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorCapacityProvisionedCapacityArgs> _mProvisionedCapacity;
-
-        public Inputs.ConnectorCapacityProvisionedCapacityArgs? ProvisionedCapacity => _mProvisionedCapacity.GetValue("provisionedCapacity");
+        private Inputs.ConnectorCapacityProvisionedCapacityArgs? _mValue_ProvisionedCapacity;
+        private bool _mUnknown_ProvisionedCapacity;
+        public Inputs.ConnectorCapacityProvisionedCapacityArgs? ProvisionedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedCapacity) return _mValue_ProvisionedCapacity;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityArgs.ProvisionedCapacity' is not present");
+            }
+        }
     }
 }

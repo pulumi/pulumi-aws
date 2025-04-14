@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Athena.Outputs
         /// <summary>
         /// The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
         /// </summary>
-        [Input("effectiveEngineVersion")]
+        [PolicyResourceProperty("effectiveEngineVersion", "_mUnknown_EffectiveEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEffectiveEngineVersion;
-
-        public string? EffectiveEngineVersion => _mEffectiveEngineVersion.GetValue("effectiveEngineVersion");
+        private string? _mValue_EffectiveEngineVersion;
+        private bool _mUnknown_EffectiveEngineVersion;
+        public string? EffectiveEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EffectiveEngineVersion) return _mValue_EffectiveEngineVersion;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationEngineVersion.EffectiveEngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Requested engine version. Defaults to `AUTO`.
         /// </summary>
-        [Input("selectedEngineVersion")]
+        [PolicyResourceProperty("selectedEngineVersion", "_mUnknown_SelectedEngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectedEngineVersion;
-
-        public string? SelectedEngineVersion => _mSelectedEngineVersion.GetValue("selectedEngineVersion");
+        private string? _mValue_SelectedEngineVersion;
+        private bool _mUnknown_SelectedEngineVersion;
+        public string? SelectedEngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_SelectedEngineVersion) return _mValue_SelectedEngineVersion;
+                throw new UndeferrableValueException("Value 'WorkgroupConfigurationEngineVersion.SelectedEngineVersion' is not present");
+            }
+        }
     }
 }

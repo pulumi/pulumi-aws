@@ -15,70 +15,126 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
         /// </summary>
-        [Input("geoProximityLocations")]
+        [PolicyResourceProperty("geoProximityLocations", "_mUnknown_GeoProximityLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult>> _mGeoProximityLocations;
-
-        public List<Outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult>? GeoProximityLocations => _mGeoProximityLocations.GetValue("geoProximityLocations");
+        private List<Outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult>? _mValue_GeoProximityLocations;
+        private bool _mUnknown_GeoProximityLocations;
+        public List<Outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult>? GeoProximityLocations
+        {
+            get
+            {
+                if (!_mUnknown_GeoProximityLocations) return _mValue_GeoProximityLocations;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.GeoProximityLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of a rule you want to assign.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
         /// </summary>
-        [Input("items")]
+        [PolicyResourceProperty("items", "_mUnknown_Items")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTrafficPolicyDocumentRuleItemResult>> _mItems;
-
-        public List<Outputs.GetTrafficPolicyDocumentRuleItemResult>? Items => _mItems.GetValue("items");
+        private List<Outputs.GetTrafficPolicyDocumentRuleItemResult>? _mValue_Items;
+        private bool _mUnknown_Items;
+        public List<Outputs.GetTrafficPolicyDocumentRuleItemResult>? Items
+        {
+            get
+            {
+                if (!_mUnknown_Items) return _mValue_Items;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.Items' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
         /// </summary>
-        [Input("locations")]
+        [PolicyResourceProperty("locations", "_mUnknown_Locations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTrafficPolicyDocumentRuleLocationResult>> _mLocations;
-
-        public List<Outputs.GetTrafficPolicyDocumentRuleLocationResult>? Locations => _mLocations.GetValue("locations");
+        private List<Outputs.GetTrafficPolicyDocumentRuleLocationResult>? _mValue_Locations;
+        private bool _mUnknown_Locations;
+        public List<Outputs.GetTrafficPolicyDocumentRuleLocationResult>? Locations
+        {
+            get
+            {
+                if (!_mUnknown_Locations) return _mValue_Locations;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.Locations' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
         /// </summary>
-        [Input("primary")]
+        [PolicyResourceProperty("primary", "_mUnknown_Primary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetTrafficPolicyDocumentRulePrimaryResult> _mPrimary;
+        private Outputs.GetTrafficPolicyDocumentRulePrimaryResult? _mValue_Primary;
+        private bool _mUnknown_Primary;
+        public Outputs.GetTrafficPolicyDocumentRulePrimaryResult? Primary
+        {
+            get
+            {
+                if (!_mUnknown_Primary) return _mValue_Primary;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.Primary' is not present");
+            }
+        }
 
-        public Outputs.GetTrafficPolicyDocumentRulePrimaryResult? Primary => _mPrimary.GetValue("primary");
-
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTrafficPolicyDocumentRuleRegionResult>> _mRegions;
-
-        public List<Outputs.GetTrafficPolicyDocumentRuleRegionResult>? Regions => _mRegions.GetValue("regions");
+        private List<Outputs.GetTrafficPolicyDocumentRuleRegionResult>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<Outputs.GetTrafficPolicyDocumentRuleRegionResult>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
         /// </summary>
-        [Input("secondary")]
+        [PolicyResourceProperty("secondary", "_mUnknown_Secondary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetTrafficPolicyDocumentRuleSecondaryResult> _mSecondary;
-
-        public Outputs.GetTrafficPolicyDocumentRuleSecondaryResult? Secondary => _mSecondary.GetValue("secondary");
+        private Outputs.GetTrafficPolicyDocumentRuleSecondaryResult? _mValue_Secondary;
+        private bool _mUnknown_Secondary;
+        public Outputs.GetTrafficPolicyDocumentRuleSecondaryResult? Secondary
+        {
+            get
+            {
+                if (!_mUnknown_Secondary) return _mValue_Secondary;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.Secondary' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the rule.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleResult.Type' is not present");
+            }
+        }
     }
 }

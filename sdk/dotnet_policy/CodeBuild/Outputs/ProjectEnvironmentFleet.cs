@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// Compute fleet ARN for the build project.
         /// </summary>
-        [Input("fleetArn")]
+        [PolicyResourceProperty("fleetArn", "_mUnknown_FleetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetArn;
-
-        public string? FleetArn => _mFleetArn.GetValue("fleetArn");
+        private string? _mValue_FleetArn;
+        private bool _mUnknown_FleetArn;
+        public string? FleetArn
+        {
+            get
+            {
+                if (!_mUnknown_FleetArn) return _mValue_FleetArn;
+                throw new UndeferrableValueException("Value 'ProjectEnvironmentFleet.FleetArn' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
         /// </summary>
-        [Input("storageMetrics")]
+        [PolicyResourceProperty("storageMetrics", "_mUnknown_StorageMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics> _mStorageMetrics;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics? StorageMetrics => _mStorageMetrics.GetValue("storageMetrics");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics? _mValue_StorageMetrics;
+        private bool _mUnknown_StorageMetrics;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics? StorageMetrics
+        {
+            get
+            {
+                if (!_mUnknown_StorageMetrics) return _mValue_StorageMetrics;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel.StorageMetrics' is not present");
+            }
+        }
     }
 }

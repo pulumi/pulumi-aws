@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Whether node to node encryption is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GetDomainAdvancedSecurityOptionResult.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the internal user database is enabled.
         /// </summary>
-        [Input("internalUserDatabaseEnabled")]
+        [PolicyResourceProperty("internalUserDatabaseEnabled", "_mUnknown_InternalUserDatabaseEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInternalUserDatabaseEnabled;
-
-        public bool? InternalUserDatabaseEnabled => _mInternalUserDatabaseEnabled.GetValue("internalUserDatabaseEnabled");
+        private bool? _mValue_InternalUserDatabaseEnabled;
+        private bool _mUnknown_InternalUserDatabaseEnabled;
+        public bool? InternalUserDatabaseEnabled
+        {
+            get
+            {
+                if (!_mUnknown_InternalUserDatabaseEnabled) return _mValue_InternalUserDatabaseEnabled;
+                throw new UndeferrableValueException("Value 'GetDomainAdvancedSecurityOptionResult.InternalUserDatabaseEnabled' is not present");
+            }
+        }
     }
 }

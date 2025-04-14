@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
         /// </summary>
-        [Input("accessControlMaxAgeSec")]
+        [PolicyResourceProperty("accessControlMaxAgeSec", "_mUnknown_AccessControlMaxAgeSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAccessControlMaxAgeSec;
-
-        public int? AccessControlMaxAgeSec => _mAccessControlMaxAgeSec.GetValue("accessControlMaxAgeSec");
+        private int? _mValue_AccessControlMaxAgeSec;
+        private bool _mUnknown_AccessControlMaxAgeSec;
+        public int? AccessControlMaxAgeSec
+        {
+            get
+            {
+                if (!_mUnknown_AccessControlMaxAgeSec) return _mValue_AccessControlMaxAgeSec;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult.AccessControlMaxAgeSec' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
         /// </summary>
-        [Input("includeSubdomains")]
+        [PolicyResourceProperty("includeSubdomains", "_mUnknown_IncludeSubdomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeSubdomains;
-
-        public bool? IncludeSubdomains => _mIncludeSubdomains.GetValue("includeSubdomains");
+        private bool? _mValue_IncludeSubdomains;
+        private bool _mUnknown_IncludeSubdomains;
+        public bool? IncludeSubdomains
+        {
+            get
+            {
+                if (!_mUnknown_IncludeSubdomains) return _mValue_IncludeSubdomains;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult.IncludeSubdomains' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverride;
-
-        public bool? Override => _mOverride.GetValue("override");
+        private bool? _mValue_Override;
+        private bool _mUnknown_Override;
+        public bool? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult.Override' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
         /// </summary>
-        [Input("preload")]
+        [PolicyResourceProperty("preload", "_mUnknown_Preload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPreload;
-
-        public bool? Preload => _mPreload.GetValue("preload");
+        private bool? _mValue_Preload;
+        private bool _mUnknown_Preload;
+        public bool? Preload
+        {
+            get
+            {
+                if (!_mUnknown_Preload) return _mValue_Preload;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult.Preload' is not present");
+            }
+        }
     }
 }

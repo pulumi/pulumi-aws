@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Account
         /// <summary>
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Region.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the region is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'Region.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The region opt status.
         /// </summary>
-        [Input("optStatus")]
+        [PolicyResourceProperty("optStatus", "_mUnknown_OptStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOptStatus;
-
-        public string? OptStatus => _mOptStatus.GetValue("optStatus");
+        private string? _mValue_OptStatus;
+        private bool _mUnknown_OptStatus;
+        public string? OptStatus
+        {
+            get
+            {
+                if (!_mUnknown_OptStatus) return _mValue_OptStatus;
+                throw new UndeferrableValueException("Value 'Region.OptStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The region name to manage.
         /// </summary>
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'Region.RegionName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:account/region:Region")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Account
         /// <summary>
         /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted. To use this parameter, the caller must be an identity in the organization's management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'RegionArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the region is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'RegionArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The region name to manage.
         /// </summary>
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'RegionArgs.RegionName' is not present");
+            }
+        }
     }
 }

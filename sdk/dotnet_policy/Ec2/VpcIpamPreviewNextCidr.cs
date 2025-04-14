@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The previewed CIDR from the pool.
         /// </summary>
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
-
-        public string? Cidr => _mCidr.GetValue("cidr");
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Exclude a particular CIDR range from being returned by the pool.
         /// </summary>
-        [Input("disallowedCidrs")]
+        [PolicyResourceProperty("disallowedCidrs", "_mUnknown_DisallowedCidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
-
-        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
+        private List<string>? _mValue_DisallowedCidrs;
+        private bool _mUnknown_DisallowedCidrs;
+        public List<string>? DisallowedCidrs
+        {
+            get
+            {
+                if (!_mUnknown_DisallowedCidrs) return _mValue_DisallowedCidrs;
+                throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.DisallowedCidrs' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
-        [Input("ipamPoolId")]
+        [PolicyResourceProperty("ipamPoolId", "_mUnknown_IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
-
-        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+        private string? _mValue_IpamPoolId;
+        private bool _mUnknown_IpamPoolId;
+        public string? IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IpamPoolId) return _mValue_IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the CIDR you would like to preview from the IPAM pool.
         /// </summary>
-        [Input("netmaskLength")]
+        [PolicyResourceProperty("netmaskLength", "_mUnknown_NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
-
-        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
+        private int? _mValue_NetmaskLength;
+        private bool _mUnknown_NetmaskLength;
+        public int? NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_NetmaskLength) return _mValue_NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.NetmaskLength' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcIpamPreviewNextCidr:VpcIpamPreviewNextCidr")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Exclude a particular CIDR range from being returned by the pool.
         /// </summary>
-        [Input("disallowedCidrs")]
+        [PolicyResourceProperty("disallowedCidrs", "_mUnknown_DisallowedCidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDisallowedCidrs;
-
-        public List<string>? DisallowedCidrs => _mDisallowedCidrs.GetValue("disallowedCidrs");
+        private List<string>? _mValue_DisallowedCidrs;
+        private bool _mUnknown_DisallowedCidrs;
+        public List<string>? DisallowedCidrs
+        {
+            get
+            {
+                if (!_mUnknown_DisallowedCidrs) return _mValue_DisallowedCidrs;
+                throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidrArgs.DisallowedCidrs' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the pool to which you want to assign a CIDR.
         /// </summary>
-        [Input("ipamPoolId")]
+        [PolicyResourceProperty("ipamPoolId", "_mUnknown_IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
-
-        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+        private string? _mValue_IpamPoolId;
+        private bool _mUnknown_IpamPoolId;
+        public string? IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IpamPoolId) return _mValue_IpamPoolId;
+                throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidrArgs.IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The netmask length of the CIDR you would like to preview from the IPAM pool.
         /// </summary>
-        [Input("netmaskLength")]
+        [PolicyResourceProperty("netmaskLength", "_mUnknown_NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetmaskLength;
-
-        public int? NetmaskLength => _mNetmaskLength.GetValue("netmaskLength");
+        private int? _mValue_NetmaskLength;
+        private bool _mUnknown_NetmaskLength;
+        public int? NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_NetmaskLength) return _mValue_NetmaskLength;
+                throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidrArgs.NetmaskLength' is not present");
+            }
+        }
     }
 }

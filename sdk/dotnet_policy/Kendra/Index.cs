@@ -16,165 +16,291 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Index.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Index.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
-        [Input("capacityUnits")]
+        [PolicyResourceProperty("capacityUnits", "_mUnknown_CapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexCapacityUnits> _mCapacityUnits;
-
-        public Outputs.IndexCapacityUnits? CapacityUnits => _mCapacityUnits.GetValue("capacityUnits");
+        private Outputs.IndexCapacityUnits? _mValue_CapacityUnits;
+        private bool _mUnknown_CapacityUnits;
+        public Outputs.IndexCapacityUnits? CapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_CapacityUnits) return _mValue_CapacityUnits;
+                throw new UndeferrableValueException("Value 'Index.CapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The Unix datetime that the index was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Index.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the Index.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Index.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         /// </summary>
-        [Input("documentMetadataConfigurationUpdates")]
+        [PolicyResourceProperty("documentMetadataConfigurationUpdates", "_mUnknown_DocumentMetadataConfigurationUpdates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IndexDocumentMetadataConfigurationUpdate>> _mDocumentMetadataConfigurationUpdates;
-
-        public List<Outputs.IndexDocumentMetadataConfigurationUpdate>? DocumentMetadataConfigurationUpdates => _mDocumentMetadataConfigurationUpdates.GetValue("documentMetadataConfigurationUpdates");
+        private List<Outputs.IndexDocumentMetadataConfigurationUpdate>? _mValue_DocumentMetadataConfigurationUpdates;
+        private bool _mUnknown_DocumentMetadataConfigurationUpdates;
+        public List<Outputs.IndexDocumentMetadataConfigurationUpdate>? DocumentMetadataConfigurationUpdates
+        {
+            get
+            {
+                if (!_mUnknown_DocumentMetadataConfigurationUpdates) return _mValue_DocumentMetadataConfigurationUpdates;
+                throw new UndeferrableValueException("Value 'Index.DocumentMetadataConfigurationUpdates' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         /// </summary>
-        [Input("edition")]
+        [PolicyResourceProperty("edition", "_mUnknown_Edition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
-
-        public string? Edition => _mEdition.GetValue("edition");
+        private string? _mValue_Edition;
+        private bool _mUnknown_Edition;
+        public string? Edition
+        {
+            get
+            {
+                if (!_mUnknown_Edition) return _mValue_Edition;
+                throw new UndeferrableValueException("Value 'Index.Edition' is not present");
+            }
+        }
 
         /// <summary>
         /// When the Status field value is `FAILED`, this contains a message that explains why.
         /// </summary>
-        [Input("errorMessage")]
+        [PolicyResourceProperty("errorMessage", "_mUnknown_ErrorMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorMessage;
-
-        public string? ErrorMessage => _mErrorMessage.GetValue("errorMessage");
+        private string? _mValue_ErrorMessage;
+        private bool _mUnknown_ErrorMessage;
+        public string? ErrorMessage
+        {
+            get
+            {
+                if (!_mUnknown_ErrorMessage) return _mValue_ErrorMessage;
+                throw new UndeferrableValueException("Value 'Index.ErrorMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         /// </summary>
-        [Input("indexStatistics")]
+        [PolicyResourceProperty("indexStatistics", "_mUnknown_IndexStatistics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IndexIndexStatistic>> _mIndexStatistics;
-
-        public List<Outputs.IndexIndexStatistic>? IndexStatistics => _mIndexStatistics.GetValue("indexStatistics");
+        private List<Outputs.IndexIndexStatistic>? _mValue_IndexStatistics;
+        private bool _mUnknown_IndexStatistics;
+        public List<Outputs.IndexIndexStatistic>? IndexStatistics
+        {
+            get
+            {
+                if (!_mUnknown_IndexStatistics) return _mValue_IndexStatistics;
+                throw new UndeferrableValueException("Value 'Index.IndexStatistics' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Index.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Index.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Index.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
-        [Input("serverSideEncryptionConfiguration")]
+        [PolicyResourceProperty("serverSideEncryptionConfiguration", "_mUnknown_ServerSideEncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexServerSideEncryptionConfiguration> _mServerSideEncryptionConfiguration;
-
-        public Outputs.IndexServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
+        private Outputs.IndexServerSideEncryptionConfiguration? _mValue_ServerSideEncryptionConfiguration;
+        private bool _mUnknown_ServerSideEncryptionConfiguration;
+        public Outputs.IndexServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfiguration) return _mValue_ServerSideEncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'Index.ServerSideEncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Index.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Index. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Index.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Index.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Unix datetime that the index was last updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'Index.UpdatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         /// </summary>
-        [Input("userContextPolicy")]
+        [PolicyResourceProperty("userContextPolicy", "_mUnknown_UserContextPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserContextPolicy;
-
-        public string? UserContextPolicy => _mUserContextPolicy.GetValue("userContextPolicy");
+        private string? _mValue_UserContextPolicy;
+        private bool _mUnknown_UserContextPolicy;
+        public string? UserContextPolicy
+        {
+            get
+            {
+                if (!_mUnknown_UserContextPolicy) return _mValue_UserContextPolicy;
+                throw new UndeferrableValueException("Value 'Index.UserContextPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
-        [Input("userGroupResolutionConfiguration")]
+        [PolicyResourceProperty("userGroupResolutionConfiguration", "_mUnknown_UserGroupResolutionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexUserGroupResolutionConfiguration> _mUserGroupResolutionConfiguration;
-
-        public Outputs.IndexUserGroupResolutionConfiguration? UserGroupResolutionConfiguration => _mUserGroupResolutionConfiguration.GetValue("userGroupResolutionConfiguration");
+        private Outputs.IndexUserGroupResolutionConfiguration? _mValue_UserGroupResolutionConfiguration;
+        private bool _mUnknown_UserGroupResolutionConfiguration;
+        public Outputs.IndexUserGroupResolutionConfiguration? UserGroupResolutionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupResolutionConfiguration) return _mValue_UserGroupResolutionConfiguration;
+                throw new UndeferrableValueException("Value 'Index.UserGroupResolutionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the user token configuration. Detailed below.
         /// </summary>
-        [Input("userTokenConfigurations")]
+        [PolicyResourceProperty("userTokenConfigurations", "_mUnknown_UserTokenConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IndexUserTokenConfigurations> _mUserTokenConfigurations;
-
-        public Outputs.IndexUserTokenConfigurations? UserTokenConfigurations => _mUserTokenConfigurations.GetValue("userTokenConfigurations");
+        private Outputs.IndexUserTokenConfigurations? _mValue_UserTokenConfigurations;
+        private bool _mUnknown_UserTokenConfigurations;
+        public Outputs.IndexUserTokenConfigurations? UserTokenConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_UserTokenConfigurations) return _mValue_UserTokenConfigurations;
+                throw new UndeferrableValueException("Value 'Index.UserTokenConfigurations' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kendra/index:Index")]
@@ -183,101 +309,178 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
-        [Input("capacityUnits")]
+        [PolicyResourceProperty("capacityUnits", "_mUnknown_CapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexCapacityUnitsArgs> _mCapacityUnits;
-
-        public Inputs.IndexCapacityUnitsArgs? CapacityUnits => _mCapacityUnits.GetValue("capacityUnits");
+        private Inputs.IndexCapacityUnitsArgs? _mValue_CapacityUnits;
+        private bool _mUnknown_CapacityUnits;
+        public Inputs.IndexCapacityUnitsArgs? CapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_CapacityUnits) return _mValue_CapacityUnits;
+                throw new UndeferrableValueException("Value 'IndexArgs.CapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the Index.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'IndexArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         /// </summary>
-        [Input("documentMetadataConfigurationUpdates")]
+        [PolicyResourceProperty("documentMetadataConfigurationUpdates", "_mUnknown_DocumentMetadataConfigurationUpdates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IndexDocumentMetadataConfigurationUpdateArgs>> _mDocumentMetadataConfigurationUpdates;
-
-        public List<Inputs.IndexDocumentMetadataConfigurationUpdateArgs>? DocumentMetadataConfigurationUpdates => _mDocumentMetadataConfigurationUpdates.GetValue("documentMetadataConfigurationUpdates");
+        private List<Inputs.IndexDocumentMetadataConfigurationUpdateArgs>? _mValue_DocumentMetadataConfigurationUpdates;
+        private bool _mUnknown_DocumentMetadataConfigurationUpdates;
+        public List<Inputs.IndexDocumentMetadataConfigurationUpdateArgs>? DocumentMetadataConfigurationUpdates
+        {
+            get
+            {
+                if (!_mUnknown_DocumentMetadataConfigurationUpdates) return _mValue_DocumentMetadataConfigurationUpdates;
+                throw new UndeferrableValueException("Value 'IndexArgs.DocumentMetadataConfigurationUpdates' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         /// </summary>
-        [Input("edition")]
+        [PolicyResourceProperty("edition", "_mUnknown_Edition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdition;
-
-        public string? Edition => _mEdition.GetValue("edition");
+        private string? _mValue_Edition;
+        private bool _mUnknown_Edition;
+        public string? Edition
+        {
+            get
+            {
+                if (!_mUnknown_Edition) return _mValue_Edition;
+                throw new UndeferrableValueException("Value 'IndexArgs.Edition' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Index.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'IndexArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'IndexArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
-        [Input("serverSideEncryptionConfiguration")]
+        [PolicyResourceProperty("serverSideEncryptionConfiguration", "_mUnknown_ServerSideEncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexServerSideEncryptionConfigurationArgs> _mServerSideEncryptionConfiguration;
-
-        public Inputs.IndexServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
+        private Inputs.IndexServerSideEncryptionConfigurationArgs? _mValue_ServerSideEncryptionConfiguration;
+        private bool _mUnknown_ServerSideEncryptionConfiguration;
+        public Inputs.IndexServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfiguration) return _mValue_ServerSideEncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'IndexArgs.ServerSideEncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Index. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'IndexArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         /// </summary>
-        [Input("userContextPolicy")]
+        [PolicyResourceProperty("userContextPolicy", "_mUnknown_UserContextPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserContextPolicy;
-
-        public string? UserContextPolicy => _mUserContextPolicy.GetValue("userContextPolicy");
+        private string? _mValue_UserContextPolicy;
+        private bool _mUnknown_UserContextPolicy;
+        public string? UserContextPolicy
+        {
+            get
+            {
+                if (!_mUnknown_UserContextPolicy) return _mValue_UserContextPolicy;
+                throw new UndeferrableValueException("Value 'IndexArgs.UserContextPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
-        [Input("userGroupResolutionConfiguration")]
+        [PolicyResourceProperty("userGroupResolutionConfiguration", "_mUnknown_UserGroupResolutionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexUserGroupResolutionConfigurationArgs> _mUserGroupResolutionConfiguration;
-
-        public Inputs.IndexUserGroupResolutionConfigurationArgs? UserGroupResolutionConfiguration => _mUserGroupResolutionConfiguration.GetValue("userGroupResolutionConfiguration");
+        private Inputs.IndexUserGroupResolutionConfigurationArgs? _mValue_UserGroupResolutionConfiguration;
+        private bool _mUnknown_UserGroupResolutionConfiguration;
+        public Inputs.IndexUserGroupResolutionConfigurationArgs? UserGroupResolutionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupResolutionConfiguration) return _mValue_UserGroupResolutionConfiguration;
+                throw new UndeferrableValueException("Value 'IndexArgs.UserGroupResolutionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the user token configuration. Detailed below.
         /// </summary>
-        [Input("userTokenConfigurations")]
+        [PolicyResourceProperty("userTokenConfigurations", "_mUnknown_UserTokenConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IndexUserTokenConfigurationsArgs> _mUserTokenConfigurations;
-
-        public Inputs.IndexUserTokenConfigurationsArgs? UserTokenConfigurations => _mUserTokenConfigurations.GetValue("userTokenConfigurations");
+        private Inputs.IndexUserTokenConfigurationsArgs? _mValue_UserTokenConfigurations;
+        private bool _mUnknown_UserTokenConfigurations;
+        public Inputs.IndexUserTokenConfigurationsArgs? UserTokenConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_UserTokenConfigurations) return _mValue_UserTokenConfigurations;
+                throw new UndeferrableValueException("Value 'IndexArgs.UserTokenConfigurations' is not present");
+            }
+        }
     }
 }

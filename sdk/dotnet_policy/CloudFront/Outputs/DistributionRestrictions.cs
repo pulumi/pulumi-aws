@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class DistributionRestrictions
     {
-        [Input("geoRestriction")]
+        [PolicyResourceProperty("geoRestriction", "_mUnknown_GeoRestriction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DistributionRestrictionsGeoRestriction> _mGeoRestriction;
-
-        public Outputs.DistributionRestrictionsGeoRestriction? GeoRestriction => _mGeoRestriction.GetValue("geoRestriction");
+        private Outputs.DistributionRestrictionsGeoRestriction? _mValue_GeoRestriction;
+        private bool _mUnknown_GeoRestriction;
+        public Outputs.DistributionRestrictionsGeoRestriction? GeoRestriction
+        {
+            get
+            {
+                if (!_mUnknown_GeoRestriction) return _mValue_GeoRestriction;
+                throw new UndeferrableValueException("Value 'DistributionRestrictions.GeoRestriction' is not present");
+            }
+        }
     }
 }

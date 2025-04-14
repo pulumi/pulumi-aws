@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
         /// </summary>
-        [Input("accounts")]
+        [PolicyResourceProperty("accounts", "_mUnknown_Accounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OrganizationalUnitAccount>> _mAccounts;
-
-        public List<Outputs.OrganizationalUnitAccount>? Accounts => _mAccounts.GetValue("accounts");
+        private List<Outputs.OrganizationalUnitAccount>? _mValue_Accounts;
+        private bool _mUnknown_Accounts;
+        public List<Outputs.OrganizationalUnitAccount>? Accounts
+        {
+            get
+            {
+                if (!_mUnknown_Accounts) return _mValue_Accounts;
+                throw new UndeferrableValueException("Value 'OrganizationalUnit.Accounts' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the organizational unit
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OrganizationalUnit.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for the organizational unit
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OrganizationalUnit.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the parent organizational unit, which may be the root
         /// </summary>
-        [Input("parentId")]
+        [PolicyResourceProperty("parentId", "_mUnknown_ParentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
-
-        public string? ParentId => _mParentId.GetValue("parentId");
+        private string? _mValue_ParentId;
+        private bool _mUnknown_ParentId;
+        public string? ParentId
+        {
+            get
+            {
+                if (!_mUnknown_ParentId) return _mValue_ParentId;
+                throw new UndeferrableValueException("Value 'OrganizationalUnit.ParentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OrganizationalUnit.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'OrganizationalUnit.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:organizations/organizationalUnit:OrganizationalUnit")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.Organizations
         /// <summary>
         /// The name for the organizational unit
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OrganizationalUnitArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the parent organizational unit, which may be the root
         /// </summary>
-        [Input("parentId")]
+        [PolicyResourceProperty("parentId", "_mUnknown_ParentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
-
-        public string? ParentId => _mParentId.GetValue("parentId");
+        private string? _mValue_ParentId;
+        private bool _mUnknown_ParentId;
+        public string? ParentId
+        {
+            get
+            {
+                if (!_mUnknown_ParentId) return _mValue_ParentId;
+                throw new UndeferrableValueException("Value 'OrganizationalUnitArgs.ParentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OrganizationalUnitArgs.Tags' is not present");
+            }
+        }
     }
 }

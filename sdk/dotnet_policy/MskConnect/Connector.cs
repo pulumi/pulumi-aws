@@ -16,148 +16,260 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connector.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Connector.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the capacity allocated to the connector. See `capacity` Block for details.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorCapacity> _mCapacity;
-
-        public Outputs.ConnectorCapacity? Capacity => _mCapacity.GetValue("capacity");
+        private Outputs.ConnectorCapacity? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public Outputs.ConnectorCapacity? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'Connector.Capacity' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of keys to values that represent the configuration for the connector.
         /// </summary>
-        [Input("connectorConfiguration")]
+        [PolicyResourceProperty("connectorConfiguration", "_mUnknown_ConnectorConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectorConfiguration;
-
-        public Dictionary<string, string>? ConnectorConfiguration => _mConnectorConfiguration.GetValue("connectorConfiguration");
+        private Dictionary<string, string>? _mValue_ConnectorConfiguration;
+        private bool _mUnknown_ConnectorConfiguration;
+        public Dictionary<string, string>? ConnectorConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorConfiguration) return _mValue_ConnectorConfiguration;
+                throw new UndeferrableValueException("Value 'Connector.ConnectorConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A summary description of the connector.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Connector.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         /// </summary>
-        [Input("kafkaCluster")]
+        [PolicyResourceProperty("kafkaCluster", "_mUnknown_KafkaCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaCluster> _mKafkaCluster;
-
-        public Outputs.ConnectorKafkaCluster? KafkaCluster => _mKafkaCluster.GetValue("kafkaCluster");
+        private Outputs.ConnectorKafkaCluster? _mValue_KafkaCluster;
+        private bool _mUnknown_KafkaCluster;
+        public Outputs.ConnectorKafkaCluster? KafkaCluster
+        {
+            get
+            {
+                if (!_mUnknown_KafkaCluster) return _mValue_KafkaCluster;
+                throw new UndeferrableValueException("Value 'Connector.KafkaCluster' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         /// </summary>
-        [Input("kafkaClusterClientAuthentication")]
+        [PolicyResourceProperty("kafkaClusterClientAuthentication", "_mUnknown_KafkaClusterClientAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaClusterClientAuthentication> _mKafkaClusterClientAuthentication;
-
-        public Outputs.ConnectorKafkaClusterClientAuthentication? KafkaClusterClientAuthentication => _mKafkaClusterClientAuthentication.GetValue("kafkaClusterClientAuthentication");
+        private Outputs.ConnectorKafkaClusterClientAuthentication? _mValue_KafkaClusterClientAuthentication;
+        private bool _mUnknown_KafkaClusterClientAuthentication;
+        public Outputs.ConnectorKafkaClusterClientAuthentication? KafkaClusterClientAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_KafkaClusterClientAuthentication) return _mValue_KafkaClusterClientAuthentication;
+                throw new UndeferrableValueException("Value 'Connector.KafkaClusterClientAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         /// </summary>
-        [Input("kafkaClusterEncryptionInTransit")]
+        [PolicyResourceProperty("kafkaClusterEncryptionInTransit", "_mUnknown_KafkaClusterEncryptionInTransit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorKafkaClusterEncryptionInTransit> _mKafkaClusterEncryptionInTransit;
-
-        public Outputs.ConnectorKafkaClusterEncryptionInTransit? KafkaClusterEncryptionInTransit => _mKafkaClusterEncryptionInTransit.GetValue("kafkaClusterEncryptionInTransit");
+        private Outputs.ConnectorKafkaClusterEncryptionInTransit? _mValue_KafkaClusterEncryptionInTransit;
+        private bool _mUnknown_KafkaClusterEncryptionInTransit;
+        public Outputs.ConnectorKafkaClusterEncryptionInTransit? KafkaClusterEncryptionInTransit
+        {
+            get
+            {
+                if (!_mUnknown_KafkaClusterEncryptionInTransit) return _mValue_KafkaClusterEncryptionInTransit;
+                throw new UndeferrableValueException("Value 'Connector.KafkaClusterEncryptionInTransit' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
         /// </summary>
-        [Input("kafkaconnectVersion")]
+        [PolicyResourceProperty("kafkaconnectVersion", "_mUnknown_KafkaconnectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaconnectVersion;
-
-        public string? KafkaconnectVersion => _mKafkaconnectVersion.GetValue("kafkaconnectVersion");
+        private string? _mValue_KafkaconnectVersion;
+        private bool _mUnknown_KafkaconnectVersion;
+        public string? KafkaconnectVersion
+        {
+            get
+            {
+                if (!_mUnknown_KafkaconnectVersion) return _mValue_KafkaconnectVersion;
+                throw new UndeferrableValueException("Value 'Connector.KafkaconnectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about log delivery. See `log_delivery` Block for details.
         /// </summary>
-        [Input("logDelivery")]
+        [PolicyResourceProperty("logDelivery", "_mUnknown_LogDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorLogDelivery> _mLogDelivery;
-
-        public Outputs.ConnectorLogDelivery? LogDelivery => _mLogDelivery.GetValue("logDelivery");
+        private Outputs.ConnectorLogDelivery? _mValue_LogDelivery;
+        private bool _mUnknown_LogDelivery;
+        public Outputs.ConnectorLogDelivery? LogDelivery
+        {
+            get
+            {
+                if (!_mUnknown_LogDelivery) return _mValue_LogDelivery;
+                throw new UndeferrableValueException("Value 'Connector.LogDelivery' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connector.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Connector.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which plugins to use for the connector. See `plugin` Block for details.
         /// </summary>
-        [Input("plugins")]
+        [PolicyResourceProperty("plugins", "_mUnknown_Plugins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConnectorPlugin>> _mPlugins;
-
-        public List<Outputs.ConnectorPlugin>? Plugins => _mPlugins.GetValue("plugins");
+        private List<Outputs.ConnectorPlugin>? _mValue_Plugins;
+        private bool _mUnknown_Plugins;
+        public List<Outputs.ConnectorPlugin>? Plugins
+        {
+            get
+            {
+                if (!_mUnknown_Plugins) return _mValue_Plugins;
+                throw new UndeferrableValueException("Value 'Connector.Plugins' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceExecutionRoleArn")]
+        [PolicyResourceProperty("serviceExecutionRoleArn", "_mUnknown_ServiceExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
-
-        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
+        private string? _mValue_ServiceExecutionRoleArn;
+        private bool _mUnknown_ServiceExecutionRoleArn;
+        public string? ServiceExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceExecutionRoleArn) return _mValue_ServiceExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'Connector.ServiceExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Connector.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Connector.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the connector.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Connector.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         /// </summary>
-        [Input("workerConfiguration")]
+        [PolicyResourceProperty("workerConfiguration", "_mUnknown_WorkerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorWorkerConfiguration> _mWorkerConfiguration;
-
-        public Outputs.ConnectorWorkerConfiguration? WorkerConfiguration => _mWorkerConfiguration.GetValue("workerConfiguration");
+        private Outputs.ConnectorWorkerConfiguration? _mValue_WorkerConfiguration;
+        private bool _mUnknown_WorkerConfiguration;
+        public Outputs.ConnectorWorkerConfiguration? WorkerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_WorkerConfiguration) return _mValue_WorkerConfiguration;
+                throw new UndeferrableValueException("Value 'Connector.WorkerConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:mskconnect/connector:Connector")]
@@ -166,120 +278,211 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect
         /// <summary>
         /// Information about the capacity allocated to the connector. See `capacity` Block for details.
         /// </summary>
-        [Input("capacity")]
+        [PolicyResourceProperty("capacity", "_mUnknown_Capacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorCapacityArgs> _mCapacity;
-
-        public Inputs.ConnectorCapacityArgs? Capacity => _mCapacity.GetValue("capacity");
+        private Inputs.ConnectorCapacityArgs? _mValue_Capacity;
+        private bool _mUnknown_Capacity;
+        public Inputs.ConnectorCapacityArgs? Capacity
+        {
+            get
+            {
+                if (!_mUnknown_Capacity) return _mValue_Capacity;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.Capacity' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of keys to values that represent the configuration for the connector.
         /// </summary>
-        [Input("connectorConfiguration")]
+        [PolicyResourceProperty("connectorConfiguration", "_mUnknown_ConnectorConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectorConfiguration;
-
-        public Dictionary<string, string>? ConnectorConfiguration => _mConnectorConfiguration.GetValue("connectorConfiguration");
+        private Dictionary<string, string>? _mValue_ConnectorConfiguration;
+        private bool _mUnknown_ConnectorConfiguration;
+        public Dictionary<string, string>? ConnectorConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorConfiguration) return _mValue_ConnectorConfiguration;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.ConnectorConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// A summary description of the connector.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         /// </summary>
-        [Input("kafkaCluster")]
+        [PolicyResourceProperty("kafkaCluster", "_mUnknown_KafkaCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorKafkaClusterArgs> _mKafkaCluster;
-
-        public Inputs.ConnectorKafkaClusterArgs? KafkaCluster => _mKafkaCluster.GetValue("kafkaCluster");
+        private Inputs.ConnectorKafkaClusterArgs? _mValue_KafkaCluster;
+        private bool _mUnknown_KafkaCluster;
+        public Inputs.ConnectorKafkaClusterArgs? KafkaCluster
+        {
+            get
+            {
+                if (!_mUnknown_KafkaCluster) return _mValue_KafkaCluster;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.KafkaCluster' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         /// </summary>
-        [Input("kafkaClusterClientAuthentication")]
+        [PolicyResourceProperty("kafkaClusterClientAuthentication", "_mUnknown_KafkaClusterClientAuthentication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorKafkaClusterClientAuthenticationArgs> _mKafkaClusterClientAuthentication;
-
-        public Inputs.ConnectorKafkaClusterClientAuthenticationArgs? KafkaClusterClientAuthentication => _mKafkaClusterClientAuthentication.GetValue("kafkaClusterClientAuthentication");
+        private Inputs.ConnectorKafkaClusterClientAuthenticationArgs? _mValue_KafkaClusterClientAuthentication;
+        private bool _mUnknown_KafkaClusterClientAuthentication;
+        public Inputs.ConnectorKafkaClusterClientAuthenticationArgs? KafkaClusterClientAuthentication
+        {
+            get
+            {
+                if (!_mUnknown_KafkaClusterClientAuthentication) return _mValue_KafkaClusterClientAuthentication;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.KafkaClusterClientAuthentication' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         /// </summary>
-        [Input("kafkaClusterEncryptionInTransit")]
+        [PolicyResourceProperty("kafkaClusterEncryptionInTransit", "_mUnknown_KafkaClusterEncryptionInTransit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorKafkaClusterEncryptionInTransitArgs> _mKafkaClusterEncryptionInTransit;
-
-        public Inputs.ConnectorKafkaClusterEncryptionInTransitArgs? KafkaClusterEncryptionInTransit => _mKafkaClusterEncryptionInTransit.GetValue("kafkaClusterEncryptionInTransit");
+        private Inputs.ConnectorKafkaClusterEncryptionInTransitArgs? _mValue_KafkaClusterEncryptionInTransit;
+        private bool _mUnknown_KafkaClusterEncryptionInTransit;
+        public Inputs.ConnectorKafkaClusterEncryptionInTransitArgs? KafkaClusterEncryptionInTransit
+        {
+            get
+            {
+                if (!_mUnknown_KafkaClusterEncryptionInTransit) return _mValue_KafkaClusterEncryptionInTransit;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.KafkaClusterEncryptionInTransit' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
         /// </summary>
-        [Input("kafkaconnectVersion")]
+        [PolicyResourceProperty("kafkaconnectVersion", "_mUnknown_KafkaconnectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaconnectVersion;
-
-        public string? KafkaconnectVersion => _mKafkaconnectVersion.GetValue("kafkaconnectVersion");
+        private string? _mValue_KafkaconnectVersion;
+        private bool _mUnknown_KafkaconnectVersion;
+        public string? KafkaconnectVersion
+        {
+            get
+            {
+                if (!_mUnknown_KafkaconnectVersion) return _mValue_KafkaconnectVersion;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.KafkaconnectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about log delivery. See `log_delivery` Block for details.
         /// </summary>
-        [Input("logDelivery")]
+        [PolicyResourceProperty("logDelivery", "_mUnknown_LogDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorLogDeliveryArgs> _mLogDelivery;
-
-        public Inputs.ConnectorLogDeliveryArgs? LogDelivery => _mLogDelivery.GetValue("logDelivery");
+        private Inputs.ConnectorLogDeliveryArgs? _mValue_LogDelivery;
+        private bool _mUnknown_LogDelivery;
+        public Inputs.ConnectorLogDeliveryArgs? LogDelivery
+        {
+            get
+            {
+                if (!_mUnknown_LogDelivery) return _mValue_LogDelivery;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.LogDelivery' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connector.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which plugins to use for the connector. See `plugin` Block for details.
         /// </summary>
-        [Input("plugins")]
+        [PolicyResourceProperty("plugins", "_mUnknown_Plugins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConnectorPluginArgs>> _mPlugins;
-
-        public List<Inputs.ConnectorPluginArgs>? Plugins => _mPlugins.GetValue("plugins");
+        private List<Inputs.ConnectorPluginArgs>? _mValue_Plugins;
+        private bool _mUnknown_Plugins;
+        public List<Inputs.ConnectorPluginArgs>? Plugins
+        {
+            get
+            {
+                if (!_mUnknown_Plugins) return _mValue_Plugins;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.Plugins' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("serviceExecutionRoleArn")]
+        [PolicyResourceProperty("serviceExecutionRoleArn", "_mUnknown_ServiceExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRoleArn;
-
-        public string? ServiceExecutionRoleArn => _mServiceExecutionRoleArn.GetValue("serviceExecutionRoleArn");
+        private string? _mValue_ServiceExecutionRoleArn;
+        private bool _mUnknown_ServiceExecutionRoleArn;
+        public string? ServiceExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceExecutionRoleArn) return _mValue_ServiceExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.ServiceExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         /// </summary>
-        [Input("workerConfiguration")]
+        [PolicyResourceProperty("workerConfiguration", "_mUnknown_WorkerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorWorkerConfigurationArgs> _mWorkerConfiguration;
-
-        public Inputs.ConnectorWorkerConfigurationArgs? WorkerConfiguration => _mWorkerConfiguration.GetValue("workerConfiguration");
+        private Inputs.ConnectorWorkerConfigurationArgs? _mValue_WorkerConfiguration;
+        private bool _mUnknown_WorkerConfiguration;
+        public Inputs.ConnectorWorkerConfigurationArgs? WorkerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_WorkerConfiguration) return _mValue_WorkerConfiguration;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.WorkerConfiguration' is not present");
+            }
+        }
     }
 }

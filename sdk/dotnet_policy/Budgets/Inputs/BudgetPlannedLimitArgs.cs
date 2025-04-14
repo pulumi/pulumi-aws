@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Inputs
         /// <summary>
         /// (Required) The amount of cost or usage being measured for a budget.
         /// </summary>
-        [Input("amount")]
+        [PolicyResourceProperty("amount", "_mUnknown_Amount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmount;
-
-        public string? Amount => _mAmount.GetValue("amount");
+        private string? _mValue_Amount;
+        private bool _mUnknown_Amount;
+        public string? Amount
+        {
+            get
+            {
+                if (!_mUnknown_Amount) return _mValue_Amount;
+                throw new UndeferrableValueException("Value 'BudgetPlannedLimitArgs.Amount' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'BudgetPlannedLimitArgs.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'BudgetPlannedLimitArgs.Unit' is not present");
+            }
+        }
     }
 }

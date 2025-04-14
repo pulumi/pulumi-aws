@@ -15,100 +15,177 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         /// </summary>
-        [Input("cookie")]
+        [PolicyResourceProperty("cookie", "_mUnknown_Cookie")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie> _mCookie;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie? Cookie => _mCookie.GetValue("cookie");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie? _mValue_Cookie;
+        private bool _mUnknown_Cookie;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie? Cookie
+        {
+            get
+            {
+                if (!_mUnknown_Cookie) return _mValue_Cookie;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.Cookie' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
         /// </summary>
-        [Input("forwardedIp")]
+        [PolicyResourceProperty("forwardedIp", "_mUnknown_ForwardedIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp> _mForwardedIp;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp? ForwardedIp => _mForwardedIp.GetValue("forwardedIp");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp? _mValue_ForwardedIp;
+        private bool _mUnknown_ForwardedIp;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp? ForwardedIp
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedIp) return _mValue_ForwardedIp;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.ForwardedIp' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
         /// </summary>
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader> _mHeader;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader? Header => _mHeader.GetValue("header");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader? _mValue_Header;
+        private bool _mUnknown_Header;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.Header' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod> _mHttpMethod;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
         /// </summary>
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp> _mIp;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp? Ip => _mIp.GetValue("ip");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.Ip' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
         /// </summary>
-        [Input("ja3Fingerprint")]
+        [PolicyResourceProperty("ja3Fingerprint", "_mUnknown_Ja3Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint> _mJa3Fingerprint;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint? Ja3Fingerprint => _mJa3Fingerprint.GetValue("ja3Fingerprint");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint? _mValue_Ja3Fingerprint;
+        private bool _mUnknown_Ja3Fingerprint;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint? Ja3Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja3Fingerprint) return _mValue_Ja3Fingerprint;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.Ja3Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
         /// </summary>
-        [Input("ja4Fingerprint")]
+        [PolicyResourceProperty("ja4Fingerprint", "_mUnknown_Ja4Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint> _mJa4Fingerprint;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? Ja4Fingerprint => _mJa4Fingerprint.GetValue("ja4Fingerprint");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? _mValue_Ja4Fingerprint;
+        private bool _mUnknown_Ja4Fingerprint;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint? Ja4Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Ja4Fingerprint) return _mValue_Ja4Fingerprint;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.Ja4Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         /// </summary>
-        [Input("labelNamespace")]
+        [PolicyResourceProperty("labelNamespace", "_mUnknown_LabelNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace> _mLabelNamespace;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace? LabelNamespace => _mLabelNamespace.GetValue("labelNamespace");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace? _mValue_LabelNamespace;
+        private bool _mUnknown_LabelNamespace;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace? LabelNamespace
+        {
+            get
+            {
+                if (!_mUnknown_LabelNamespace) return _mValue_LabelNamespace;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.LabelNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
         /// </summary>
-        [Input("queryArgument")]
+        [PolicyResourceProperty("queryArgument", "_mUnknown_QueryArgument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument> _mQueryArgument;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument? QueryArgument => _mQueryArgument.GetValue("queryArgument");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument? _mValue_QueryArgument;
+        private bool _mUnknown_QueryArgument;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument? QueryArgument
+        {
+            get
+            {
+                if (!_mUnknown_QueryArgument) return _mValue_QueryArgument;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.QueryArgument' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString> _mQueryString;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString? QueryString => _mQueryString.GetValue("queryString");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.QueryString' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         /// </summary>
-        [Input("uriPath")]
+        [PolicyResourceProperty("uriPath", "_mUnknown_UriPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath> _mUriPath;
-
-        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath? UriPath => _mUriPath.GetValue("uriPath");
+        private Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath? _mValue_UriPath;
+        private bool _mUnknown_UriPath;
+        public Outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath? UriPath
+        {
+            get
+            {
+                if (!_mUnknown_UriPath) return _mValue_UriPath;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.UriPath' is not present");
+            }
+        }
     }
 }

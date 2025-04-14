@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Quick Connect.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'QuickConnect.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the Quick Connect.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'QuickConnect.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'QuickConnect.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Quick Connect.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QuickConnect.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         /// </summary>
-        [Input("quickConnectConfig")]
+        [PolicyResourceProperty("quickConnectConfig", "_mUnknown_QuickConnectConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.QuickConnectQuickConnectConfig> _mQuickConnectConfig;
-
-        public Outputs.QuickConnectQuickConnectConfig? QuickConnectConfig => _mQuickConnectConfig.GetValue("quickConnectConfig");
+        private Outputs.QuickConnectQuickConnectConfig? _mValue_QuickConnectConfig;
+        private bool _mUnknown_QuickConnectConfig;
+        public Outputs.QuickConnectQuickConnectConfig? QuickConnectConfig
+        {
+            get
+            {
+                if (!_mUnknown_QuickConnectConfig) return _mValue_QuickConnectConfig;
+                throw new UndeferrableValueException("Value 'QuickConnect.QuickConnectConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the Quick Connect.
         /// </summary>
-        [Input("quickConnectId")]
+        [PolicyResourceProperty("quickConnectId", "_mUnknown_QuickConnectId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuickConnectId;
-
-        public string? QuickConnectId => _mQuickConnectId.GetValue("quickConnectId");
+        private string? _mValue_QuickConnectId;
+        private bool _mUnknown_QuickConnectId;
+        public string? QuickConnectId
+        {
+            get
+            {
+                if (!_mUnknown_QuickConnectId) return _mValue_QuickConnectId;
+                throw new UndeferrableValueException("Value 'QuickConnect.QuickConnectId' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'QuickConnect.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'QuickConnect.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/quickConnect:QuickConnect")]
@@ -92,46 +148,81 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// Specifies the description of the Quick Connect.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'QuickConnectArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'QuickConnectArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the name of the Quick Connect.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QuickConnectArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         /// </summary>
-        [Input("quickConnectConfig")]
+        [PolicyResourceProperty("quickConnectConfig", "_mUnknown_QuickConnectConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.QuickConnectQuickConnectConfigArgs> _mQuickConnectConfig;
-
-        public Inputs.QuickConnectQuickConnectConfigArgs? QuickConnectConfig => _mQuickConnectConfig.GetValue("quickConnectConfig");
+        private Inputs.QuickConnectQuickConnectConfigArgs? _mValue_QuickConnectConfig;
+        private bool _mUnknown_QuickConnectConfig;
+        public Inputs.QuickConnectQuickConnectConfigArgs? QuickConnectConfig
+        {
+            get
+            {
+                if (!_mUnknown_QuickConnectConfig) return _mValue_QuickConnectConfig;
+                throw new UndeferrableValueException("Value 'QuickConnectArgs.QuickConnectConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'QuickConnectArgs.Tags' is not present");
+            }
+        }
     }
 }

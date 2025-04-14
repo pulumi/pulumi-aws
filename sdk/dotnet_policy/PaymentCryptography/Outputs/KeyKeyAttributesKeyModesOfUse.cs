@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.PaymentCryptography.Outputs
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used to decrypt data.
         /// </summary>
-        [Input("decrypt")]
+        [PolicyResourceProperty("decrypt", "_mUnknown_Decrypt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDecrypt;
-
-        public bool? Decrypt => _mDecrypt.GetValue("decrypt");
+        private bool? _mValue_Decrypt;
+        private bool _mUnknown_Decrypt;
+        public bool? Decrypt
+        {
+            get
+            {
+                if (!_mUnknown_Decrypt) return _mValue_Decrypt;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.Decrypt' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used to derive new keys.
         /// </summary>
-        [Input("deriveKey")]
+        [PolicyResourceProperty("deriveKey", "_mUnknown_DeriveKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeriveKey;
-
-        public bool? DeriveKey => _mDeriveKey.GetValue("deriveKey");
+        private bool? _mValue_DeriveKey;
+        private bool _mUnknown_DeriveKey;
+        public bool? DeriveKey
+        {
+            get
+            {
+                if (!_mUnknown_DeriveKey) return _mValue_DeriveKey;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.DeriveKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used to encrypt data.
         /// </summary>
-        [Input("encrypt")]
+        [PolicyResourceProperty("encrypt", "_mUnknown_Encrypt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypt;
-
-        public bool? Encrypt => _mEncrypt.GetValue("encrypt");
+        private bool? _mValue_Encrypt;
+        private bool _mUnknown_Encrypt;
+        public bool? Encrypt
+        {
+            get
+            {
+                if (!_mUnknown_Encrypt) return _mValue_Encrypt;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.Encrypt' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
         /// </summary>
-        [Input("generate")]
+        [PolicyResourceProperty("generate", "_mUnknown_Generate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mGenerate;
-
-        public bool? Generate => _mGenerate.GetValue("generate");
+        private bool? _mValue_Generate;
+        private bool _mUnknown_Generate;
+        public bool? Generate
+        {
+            get
+            {
+                if (!_mUnknown_Generate) return _mValue_Generate;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.Generate' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
         /// </summary>
-        [Input("noRestrictions")]
+        [PolicyResourceProperty("noRestrictions", "_mUnknown_NoRestrictions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoRestrictions;
-
-        public bool? NoRestrictions => _mNoRestrictions.GetValue("noRestrictions");
+        private bool? _mValue_NoRestrictions;
+        private bool _mUnknown_NoRestrictions;
+        public bool? NoRestrictions
+        {
+            get
+            {
+                if (!_mUnknown_NoRestrictions) return _mValue_NoRestrictions;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.NoRestrictions' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used for signing.
         /// </summary>
-        [Input("sign")]
+        [PolicyResourceProperty("sign", "_mUnknown_Sign")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSign;
-
-        public bool? Sign => _mSign.GetValue("sign");
+        private bool? _mValue_Sign;
+        private bool _mUnknown_Sign;
+        public bool? Sign
+        {
+            get
+            {
+                if (!_mUnknown_Sign) return _mValue_Sign;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.Sign' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used to unwrap other keys.
         /// </summary>
-        [Input("unwrap")]
+        [PolicyResourceProperty("unwrap", "_mUnknown_Unwrap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUnwrap;
-
-        public bool? Unwrap => _mUnwrap.GetValue("unwrap");
+        private bool? _mValue_Unwrap;
+        private bool _mUnknown_Unwrap;
+        public bool? Unwrap
+        {
+            get
+            {
+                if (!_mUnknown_Unwrap) return _mValue_Unwrap;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.Unwrap' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used to verify signatures.
         /// </summary>
-        [Input("verify")]
+        [PolicyResourceProperty("verify", "_mUnknown_Verify")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVerify;
-
-        public bool? Verify => _mVerify.GetValue("verify");
+        private bool? _mValue_Verify;
+        private bool _mUnknown_Verify;
+        public bool? Verify
+        {
+            get
+            {
+                if (!_mUnknown_Verify) return _mValue_Verify;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.Verify' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether an AWS Payment Cryptography key can be used to wrap other keys.
         /// </summary>
-        [Input("wrap")]
+        [PolicyResourceProperty("wrap", "_mUnknown_Wrap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWrap;
-
-        public bool? Wrap => _mWrap.GetValue("wrap");
+        private bool? _mValue_Wrap;
+        private bool _mUnknown_Wrap;
+        public bool? Wrap
+        {
+            get
+            {
+                if (!_mUnknown_Wrap) return _mValue_Wrap;
+                throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.Wrap' is not present");
+            }
+        }
     }
 }

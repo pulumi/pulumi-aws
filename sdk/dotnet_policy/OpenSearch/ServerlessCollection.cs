@@ -16,97 +16,174 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Amazon Resource Name (ARN) of the collection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         /// </summary>
-        [Input("collectionEndpoint")]
+        [PolicyResourceProperty("collectionEndpoint", "_mUnknown_CollectionEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCollectionEndpoint;
-
-        public string? CollectionEndpoint => _mCollectionEndpoint.GetValue("collectionEndpoint");
+        private string? _mValue_CollectionEndpoint;
+        private bool _mUnknown_CollectionEndpoint;
+        public string? CollectionEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_CollectionEndpoint) return _mValue_CollectionEndpoint;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.CollectionEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Collection-specific endpoint used to access OpenSearch Dashboards.
         /// </summary>
-        [Input("dashboardEndpoint")]
+        [PolicyResourceProperty("dashboardEndpoint", "_mUnknown_DashboardEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDashboardEndpoint;
-
-        public string? DashboardEndpoint => _mDashboardEndpoint.GetValue("dashboardEndpoint");
+        private string? _mValue_DashboardEndpoint;
+        private bool _mUnknown_DashboardEndpoint;
+        public string? DashboardEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_DashboardEndpoint) return _mValue_DashboardEndpoint;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.DashboardEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the collection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the collection.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
-        [Input("standbyReplicas")]
+        [PolicyResourceProperty("standbyReplicas", "_mUnknown_StandbyReplicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandbyReplicas;
-
-        public string? StandbyReplicas => _mStandbyReplicas.GetValue("standbyReplicas");
+        private string? _mValue_StandbyReplicas;
+        private bool _mUnknown_StandbyReplicas;
+        public string? StandbyReplicas
+        {
+            get
+            {
+                if (!_mUnknown_StandbyReplicas) return _mValue_StandbyReplicas;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.StandbyReplicas' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServerlessCollectionTimeouts> _mTimeouts;
-
-        public Outputs.ServerlessCollectionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ServerlessCollectionTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ServerlessCollectionTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServerlessCollection.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/serverlessCollection:ServerlessCollection")]
@@ -115,54 +192,96 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// Description of the collection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the collection.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
-        [Input("standbyReplicas")]
+        [PolicyResourceProperty("standbyReplicas", "_mUnknown_StandbyReplicas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandbyReplicas;
-
-        public string? StandbyReplicas => _mStandbyReplicas.GetValue("standbyReplicas");
+        private string? _mValue_StandbyReplicas;
+        private bool _mUnknown_StandbyReplicas;
+        public string? StandbyReplicas
+        {
+            get
+            {
+                if (!_mUnknown_StandbyReplicas) return _mValue_StandbyReplicas;
+                throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.StandbyReplicas' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerlessCollectionTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ServerlessCollectionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ServerlessCollectionTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ServerlessCollectionTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.Type' is not present");
+            }
+        }
     }
 }

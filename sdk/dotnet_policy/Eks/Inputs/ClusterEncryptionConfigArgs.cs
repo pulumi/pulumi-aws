@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// Configuration block with provider for encryption. Detailed below.
         /// </summary>
-        [Input("provider")]
+        [PolicyResourceProperty("provider", "_mUnknown_Provider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClusterEncryptionConfigProviderArgs> _mProvider;
-
-        public Inputs.ClusterEncryptionConfigProviderArgs? Provider => _mProvider.GetValue("provider");
+        private Inputs.ClusterEncryptionConfigProviderArgs? _mValue_Provider;
+        private bool _mUnknown_Provider;
+        public Inputs.ClusterEncryptionConfigProviderArgs? Provider
+        {
+            get
+            {
+                if (!_mUnknown_Provider) return _mValue_Provider;
+                throw new UndeferrableValueException("Value 'ClusterEncryptionConfigArgs.Provider' is not present");
+            }
+        }
 
         /// <summary>
         /// List of strings with resources to be encrypted. Valid values: `secrets`.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
-
-        public List<string>? Resources => _mResources.GetValue("resources");
+        private List<string>? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public List<string>? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'ClusterEncryptionConfigArgs.Resources' is not present");
+            }
+        }
     }
 }

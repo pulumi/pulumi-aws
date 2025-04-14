@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ARN of the Glue Catalog Database.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         /// </summary>
-        [Input("createTableDefaultPermissions")]
+        [PolicyResourceProperty("createTableDefaultPermissions", "_mUnknown_CreateTableDefaultPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CatalogDatabaseCreateTableDefaultPermission>> _mCreateTableDefaultPermissions;
-
-        public List<Outputs.CatalogDatabaseCreateTableDefaultPermission>? CreateTableDefaultPermissions => _mCreateTableDefaultPermissions.GetValue("createTableDefaultPermissions");
+        private List<Outputs.CatalogDatabaseCreateTableDefaultPermission>? _mValue_CreateTableDefaultPermissions;
+        private bool _mUnknown_CreateTableDefaultPermissions;
+        public List<Outputs.CatalogDatabaseCreateTableDefaultPermission>? CreateTableDefaultPermissions
+        {
+            get
+            {
+                if (!_mUnknown_CreateTableDefaultPermissions) return _mValue_CreateTableDefaultPermissions;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.CreateTableDefaultPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the database.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         /// </summary>
-        [Input("federatedDatabase")]
+        [PolicyResourceProperty("federatedDatabase", "_mUnknown_FederatedDatabase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogDatabaseFederatedDatabase> _mFederatedDatabase;
-
-        public Outputs.CatalogDatabaseFederatedDatabase? FederatedDatabase => _mFederatedDatabase.GetValue("federatedDatabase");
+        private Outputs.CatalogDatabaseFederatedDatabase? _mValue_FederatedDatabase;
+        private bool _mUnknown_FederatedDatabase;
+        public Outputs.CatalogDatabaseFederatedDatabase? FederatedDatabase
+        {
+            get
+            {
+                if (!_mUnknown_FederatedDatabase) return _mValue_FederatedDatabase;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.FederatedDatabase' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of the database (for example, an HDFS path).
         /// </summary>
-        [Input("locationUri")]
+        [PolicyResourceProperty("locationUri", "_mUnknown_LocationUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationUri;
-
-        public string? LocationUri => _mLocationUri.GetValue("locationUri");
+        private string? _mValue_LocationUri;
+        private bool _mUnknown_LocationUri;
+        public string? LocationUri
+        {
+            get
+            {
+                if (!_mUnknown_LocationUri) return _mValue_LocationUri;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.LocationUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of key-value pairs that define parameters and properties of the database.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a target database for resource linking. See `target_database` below.
         /// </summary>
-        [Input("targetDatabase")]
+        [PolicyResourceProperty("targetDatabase", "_mUnknown_TargetDatabase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogDatabaseTargetDatabase> _mTargetDatabase;
-
-        public Outputs.CatalogDatabaseTargetDatabase? TargetDatabase => _mTargetDatabase.GetValue("targetDatabase");
+        private Outputs.CatalogDatabaseTargetDatabase? _mValue_TargetDatabase;
+        private bool _mUnknown_TargetDatabase;
+        public Outputs.CatalogDatabaseTargetDatabase? TargetDatabase
+        {
+            get
+            {
+                if (!_mUnknown_TargetDatabase) return _mValue_TargetDatabase;
+                throw new UndeferrableValueException("Value 'CatalogDatabase.TargetDatabase' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/catalogDatabase:CatalogDatabase")]
@@ -119,82 +196,145 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         /// </summary>
-        [Input("createTableDefaultPermissions")]
+        [PolicyResourceProperty("createTableDefaultPermissions", "_mUnknown_CreateTableDefaultPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>> _mCreateTableDefaultPermissions;
-
-        public List<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>? CreateTableDefaultPermissions => _mCreateTableDefaultPermissions.GetValue("createTableDefaultPermissions");
+        private List<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>? _mValue_CreateTableDefaultPermissions;
+        private bool _mUnknown_CreateTableDefaultPermissions;
+        public List<Inputs.CatalogDatabaseCreateTableDefaultPermissionArgs>? CreateTableDefaultPermissions
+        {
+            get
+            {
+                if (!_mUnknown_CreateTableDefaultPermissions) return _mValue_CreateTableDefaultPermissions;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.CreateTableDefaultPermissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the database.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         /// </summary>
-        [Input("federatedDatabase")]
+        [PolicyResourceProperty("federatedDatabase", "_mUnknown_FederatedDatabase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogDatabaseFederatedDatabaseArgs> _mFederatedDatabase;
-
-        public Inputs.CatalogDatabaseFederatedDatabaseArgs? FederatedDatabase => _mFederatedDatabase.GetValue("federatedDatabase");
+        private Inputs.CatalogDatabaseFederatedDatabaseArgs? _mValue_FederatedDatabase;
+        private bool _mUnknown_FederatedDatabase;
+        public Inputs.CatalogDatabaseFederatedDatabaseArgs? FederatedDatabase
+        {
+            get
+            {
+                if (!_mUnknown_FederatedDatabase) return _mValue_FederatedDatabase;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.FederatedDatabase' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of the database (for example, an HDFS path).
         /// </summary>
-        [Input("locationUri")]
+        [PolicyResourceProperty("locationUri", "_mUnknown_LocationUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationUri;
-
-        public string? LocationUri => _mLocationUri.GetValue("locationUri");
+        private string? _mValue_LocationUri;
+        private bool _mUnknown_LocationUri;
+        public string? LocationUri
+        {
+            get
+            {
+                if (!_mUnknown_LocationUri) return _mValue_LocationUri;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.LocationUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// List of key-value pairs that define parameters and properties of the database.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a target database for resource linking. See `target_database` below.
         /// </summary>
-        [Input("targetDatabase")]
+        [PolicyResourceProperty("targetDatabase", "_mUnknown_TargetDatabase")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CatalogDatabaseTargetDatabaseArgs> _mTargetDatabase;
-
-        public Inputs.CatalogDatabaseTargetDatabaseArgs? TargetDatabase => _mTargetDatabase.GetValue("targetDatabase");
+        private Inputs.CatalogDatabaseTargetDatabaseArgs? _mValue_TargetDatabase;
+        private bool _mUnknown_TargetDatabase;
+        public Inputs.CatalogDatabaseTargetDatabaseArgs? TargetDatabase
+        {
+            get
+            {
+                if (!_mUnknown_TargetDatabase) return _mValue_TargetDatabase;
+                throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.TargetDatabase' is not present");
+            }
+        }
     }
 }

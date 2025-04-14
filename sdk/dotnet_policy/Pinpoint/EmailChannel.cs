@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'EmailChannel.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         /// </summary>
-        [Input("configurationSet")]
+        [PolicyResourceProperty("configurationSet", "_mUnknown_ConfigurationSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSet;
-
-        public string? ConfigurationSet => _mConfigurationSet.GetValue("configurationSet");
+        private string? _mValue_ConfigurationSet;
+        private bool _mUnknown_ConfigurationSet;
+        public string? ConfigurationSet
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSet) return _mValue_ConfigurationSet;
+                throw new UndeferrableValueException("Value 'EmailChannel.ConfigurationSet' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EmailChannel.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
-        [Input("fromAddress")]
+        [PolicyResourceProperty("fromAddress", "_mUnknown_FromAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFromAddress;
-
-        public string? FromAddress => _mFromAddress.GetValue("fromAddress");
+        private string? _mValue_FromAddress;
+        private bool _mUnknown_FromAddress;
+        public string? FromAddress
+        {
+            get
+            {
+                if (!_mUnknown_FromAddress) return _mValue_FromAddress;
+                throw new UndeferrableValueException("Value 'EmailChannel.FromAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an identity verified with SES.
         /// </summary>
-        [Input("identity")]
+        [PolicyResourceProperty("identity", "_mUnknown_Identity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
-
-        public string? Identity => _mIdentity.GetValue("identity");
+        private string? _mValue_Identity;
+        private bool _mUnknown_Identity;
+        public string? Identity
+        {
+            get
+            {
+                if (!_mUnknown_Identity) return _mValue_Identity;
+                throw new UndeferrableValueException("Value 'EmailChannel.Identity' is not present");
+            }
+        }
 
         /// <summary>
         /// Messages per second that can be sent.
         /// </summary>
-        [Input("messagesPerSecond")]
+        [PolicyResourceProperty("messagesPerSecond", "_mUnknown_MessagesPerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMessagesPerSecond;
-
-        public int? MessagesPerSecond => _mMessagesPerSecond.GetValue("messagesPerSecond");
+        private int? _mValue_MessagesPerSecond;
+        private bool _mUnknown_MessagesPerSecond;
+        public int? MessagesPerSecond
+        {
+            get
+            {
+                if (!_mUnknown_MessagesPerSecond) return _mValue_MessagesPerSecond;
+                throw new UndeferrableValueException("Value 'EmailChannel.MessagesPerSecond' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         /// </summary>
-        [Input("orchestrationSendingRoleArn")]
+        [PolicyResourceProperty("orchestrationSendingRoleArn", "_mUnknown_OrchestrationSendingRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrchestrationSendingRoleArn;
-
-        public string? OrchestrationSendingRoleArn => _mOrchestrationSendingRoleArn.GetValue("orchestrationSendingRoleArn");
+        private string? _mValue_OrchestrationSendingRoleArn;
+        private bool _mUnknown_OrchestrationSendingRoleArn;
+        public string? OrchestrationSendingRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_OrchestrationSendingRoleArn) return _mValue_OrchestrationSendingRoleArn;
+                throw new UndeferrableValueException("Value 'EmailChannel.OrchestrationSendingRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EmailChannel.RoleArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/emailChannel:EmailChannel")]
@@ -92,64 +148,113 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'EmailChannelArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         /// </summary>
-        [Input("configurationSet")]
+        [PolicyResourceProperty("configurationSet", "_mUnknown_ConfigurationSet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationSet;
-
-        public string? ConfigurationSet => _mConfigurationSet.GetValue("configurationSet");
+        private string? _mValue_ConfigurationSet;
+        private bool _mUnknown_ConfigurationSet;
+        public string? ConfigurationSet
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationSet) return _mValue_ConfigurationSet;
+                throw new UndeferrableValueException("Value 'EmailChannelArgs.ConfigurationSet' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'EmailChannelArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
-        [Input("fromAddress")]
+        [PolicyResourceProperty("fromAddress", "_mUnknown_FromAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFromAddress;
-
-        public string? FromAddress => _mFromAddress.GetValue("fromAddress");
+        private string? _mValue_FromAddress;
+        private bool _mUnknown_FromAddress;
+        public string? FromAddress
+        {
+            get
+            {
+                if (!_mUnknown_FromAddress) return _mValue_FromAddress;
+                throw new UndeferrableValueException("Value 'EmailChannelArgs.FromAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an identity verified with SES.
         /// </summary>
-        [Input("identity")]
+        [PolicyResourceProperty("identity", "_mUnknown_Identity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
-
-        public string? Identity => _mIdentity.GetValue("identity");
+        private string? _mValue_Identity;
+        private bool _mUnknown_Identity;
+        public string? Identity
+        {
+            get
+            {
+                if (!_mUnknown_Identity) return _mValue_Identity;
+                throw new UndeferrableValueException("Value 'EmailChannelArgs.Identity' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         /// </summary>
-        [Input("orchestrationSendingRoleArn")]
+        [PolicyResourceProperty("orchestrationSendingRoleArn", "_mUnknown_OrchestrationSendingRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrchestrationSendingRoleArn;
-
-        public string? OrchestrationSendingRoleArn => _mOrchestrationSendingRoleArn.GetValue("orchestrationSendingRoleArn");
+        private string? _mValue_OrchestrationSendingRoleArn;
+        private bool _mUnknown_OrchestrationSendingRoleArn;
+        public string? OrchestrationSendingRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_OrchestrationSendingRoleArn) return _mValue_OrchestrationSendingRoleArn;
+                throw new UndeferrableValueException("Value 'EmailChannelArgs.OrchestrationSendingRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EmailChannelArgs.RoleArn' is not present");
+            }
+        }
     }
 }

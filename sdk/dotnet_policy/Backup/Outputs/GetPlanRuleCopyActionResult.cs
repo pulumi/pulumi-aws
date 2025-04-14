@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
 {
     public sealed class GetPlanRuleCopyActionResult
     {
-        [Input("destinationVaultArn")]
+        [PolicyResourceProperty("destinationVaultArn", "_mUnknown_DestinationVaultArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationVaultArn;
+        private string? _mValue_DestinationVaultArn;
+        private bool _mUnknown_DestinationVaultArn;
+        public string? DestinationVaultArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationVaultArn) return _mValue_DestinationVaultArn;
+                throw new UndeferrableValueException("Value 'GetPlanRuleCopyActionResult.DestinationVaultArn' is not present");
+            }
+        }
 
-        public string? DestinationVaultArn => _mDestinationVaultArn.GetValue("destinationVaultArn");
-
-        [Input("lifecycles")]
+        [PolicyResourceProperty("lifecycles", "_mUnknown_Lifecycles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetPlanRuleCopyActionLifecycleResult>> _mLifecycles;
-
-        public List<Outputs.GetPlanRuleCopyActionLifecycleResult>? Lifecycles => _mLifecycles.GetValue("lifecycles");
+        private List<Outputs.GetPlanRuleCopyActionLifecycleResult>? _mValue_Lifecycles;
+        private bool _mUnknown_Lifecycles;
+        public List<Outputs.GetPlanRuleCopyActionLifecycleResult>? Lifecycles
+        {
+            get
+            {
+                if (!_mUnknown_Lifecycles) return _mValue_Lifecycles;
+                throw new UndeferrableValueException("Value 'GetPlanRuleCopyActionResult.Lifecycles' is not present");
+            }
+        }
     }
 }

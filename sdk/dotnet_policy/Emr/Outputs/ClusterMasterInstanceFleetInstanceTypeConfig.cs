@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
-        [Input("bidPrice")]
+        [PolicyResourceProperty("bidPrice", "_mUnknown_BidPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBidPrice;
-
-        public string? BidPrice => _mBidPrice.GetValue("bidPrice");
+        private string? _mValue_BidPrice;
+        private bool _mUnknown_BidPrice;
+        public string? BidPrice
+        {
+            get
+            {
+                if (!_mUnknown_BidPrice) return _mValue_BidPrice;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetInstanceTypeConfig.BidPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
-        [Input("bidPriceAsPercentageOfOnDemandPrice")]
+        [PolicyResourceProperty("bidPriceAsPercentageOfOnDemandPrice", "_mUnknown_BidPriceAsPercentageOfOnDemandPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBidPriceAsPercentageOfOnDemandPrice;
-
-        public double? BidPriceAsPercentageOfOnDemandPrice => _mBidPriceAsPercentageOfOnDemandPrice.GetValue("bidPriceAsPercentageOfOnDemandPrice");
+        private double? _mValue_BidPriceAsPercentageOfOnDemandPrice;
+        private bool _mUnknown_BidPriceAsPercentageOfOnDemandPrice;
+        public double? BidPriceAsPercentageOfOnDemandPrice
+        {
+            get
+            {
+                if (!_mUnknown_BidPriceAsPercentageOfOnDemandPrice) return _mValue_BidPriceAsPercentageOfOnDemandPrice;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetInstanceTypeConfig.BidPriceAsPercentageOfOnDemandPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         /// </summary>
-        [Input("configurations")]
+        [PolicyResourceProperty("configurations", "_mUnknown_Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration>> _mConfigurations;
-
-        public List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration>? Configurations => _mConfigurations.GetValue("configurations");
+        private List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration>? _mValue_Configurations;
+        private bool _mUnknown_Configurations;
+        public List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration>? Configurations
+        {
+            get
+            {
+                if (!_mUnknown_Configurations) return _mValue_Configurations;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetInstanceTypeConfig.Configurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         /// </summary>
-        [Input("ebsConfigs")]
+        [PolicyResourceProperty("ebsConfigs", "_mUnknown_EbsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig>> _mEbsConfigs;
-
-        public List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig>? EbsConfigs => _mEbsConfigs.GetValue("ebsConfigs");
+        private List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig>? _mValue_EbsConfigs;
+        private bool _mUnknown_EbsConfigs;
+        public List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig>? EbsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_EbsConfigs) return _mValue_EbsConfigs;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetInstanceTypeConfig.EbsConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 instance type, such as m4.xlarge.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetInstanceTypeConfig.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
         /// </summary>
-        [Input("weightedCapacity")]
+        [PolicyResourceProperty("weightedCapacity", "_mUnknown_WeightedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeightedCapacity;
-
-        public int? WeightedCapacity => _mWeightedCapacity.GetValue("weightedCapacity");
+        private int? _mValue_WeightedCapacity;
+        private bool _mUnknown_WeightedCapacity;
+        public int? WeightedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WeightedCapacity) return _mValue_WeightedCapacity;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetInstanceTypeConfig.WeightedCapacity' is not present");
+            }
+        }
     }
 }

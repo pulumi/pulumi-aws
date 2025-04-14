@@ -15,38 +15,66 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics.Inputs
         /// <summary>
         /// Date of deprecation if the runtme version is deprecated.
         /// </summary>
-        [Input("deprecationDate")]
+        [PolicyResourceProperty("deprecationDate", "_mUnknown_DeprecationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeprecationDate;
-
-        public string? DeprecationDate => _mDeprecationDate.GetValue("deprecationDate");
+        private string? _mValue_DeprecationDate;
+        private bool _mUnknown_DeprecationDate;
+        public string? DeprecationDate
+        {
+            get
+            {
+                if (!_mUnknown_DeprecationDate) return _mValue_DeprecationDate;
+                throw new UndeferrableValueException("Value 'GetRuntimeVersionsRuntimeVersionInputArgs.DeprecationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the runtime version, created by Amazon.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetRuntimeVersionsRuntimeVersionInputArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Date that the runtime version was released.
         /// </summary>
-        [Input("releaseDate")]
+        [PolicyResourceProperty("releaseDate", "_mUnknown_ReleaseDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseDate;
-
-        public string? ReleaseDate => _mReleaseDate.GetValue("releaseDate");
+        private string? _mValue_ReleaseDate;
+        private bool _mUnknown_ReleaseDate;
+        public string? ReleaseDate
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseDate) return _mValue_ReleaseDate;
+                throw new UndeferrableValueException("Value 'GetRuntimeVersionsRuntimeVersionInputArgs.ReleaseDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the runtime version.
         /// For a list of valid runtime versions, see [Canary Runtime Versions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html).
         /// </summary>
-        [Input("versionName")]
+        [PolicyResourceProperty("versionName", "_mUnknown_VersionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
-
-        public string? VersionName => _mVersionName.GetValue("versionName");
+        private string? _mValue_VersionName;
+        private bool _mUnknown_VersionName;
+        public string? VersionName
+        {
+            get
+            {
+                if (!_mUnknown_VersionName) return _mValue_VersionName;
+                throw new UndeferrableValueException("Value 'GetRuntimeVersionsRuntimeVersionInputArgs.VersionName' is not present");
+            }
+        }
     }
 }

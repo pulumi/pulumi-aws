@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Inputs
         /// <summary>
         /// Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
         /// </summary>
-        [Input("clientBroker")]
+        [PolicyResourceProperty("clientBroker", "_mUnknown_ClientBroker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientBroker;
-
-        public string? ClientBroker => _mClientBroker.GetValue("clientBroker");
+        private string? _mValue_ClientBroker;
+        private bool _mUnknown_ClientBroker;
+        public string? ClientBroker
+        {
+            get
+            {
+                if (!_mUnknown_ClientBroker) return _mValue_ClientBroker;
+                throw new UndeferrableValueException("Value 'ClusterEncryptionInfoEncryptionInTransitArgs.ClientBroker' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether data communication among broker nodes is encrypted. Default value: `true`.
         /// </summary>
-        [Input("inCluster")]
+        [PolicyResourceProperty("inCluster", "_mUnknown_InCluster")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInCluster;
-
-        public bool? InCluster => _mInCluster.GetValue("inCluster");
+        private bool? _mValue_InCluster;
+        private bool _mUnknown_InCluster;
+        public bool? InCluster
+        {
+            get
+            {
+                if (!_mUnknown_InCluster) return _mValue_InCluster;
+                throw new UndeferrableValueException("Value 'ClusterEncryptionInfoEncryptionInTransitArgs.InCluster' is not present");
+            }
+        }
     }
 }

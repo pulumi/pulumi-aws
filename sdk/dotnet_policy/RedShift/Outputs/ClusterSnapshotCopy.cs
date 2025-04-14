@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.RedShift.Outputs
         /// <summary>
         /// The destination region that you want to copy snapshots to.
         /// </summary>
-        [Input("destinationRegion")]
+        [PolicyResourceProperty("destinationRegion", "_mUnknown_DestinationRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationRegion;
-
-        public string? DestinationRegion => _mDestinationRegion.GetValue("destinationRegion");
+        private string? _mValue_DestinationRegion;
+        private bool _mUnknown_DestinationRegion;
+        public string? DestinationRegion
+        {
+            get
+            {
+                if (!_mUnknown_DestinationRegion) return _mValue_DestinationRegion;
+                throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.DestinationRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         /// </summary>
-        [Input("grantName")]
+        [PolicyResourceProperty("grantName", "_mUnknown_GrantName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrantName;
-
-        public string? GrantName => _mGrantName.GetValue("grantName");
+        private string? _mValue_GrantName;
+        private bool _mUnknown_GrantName;
+        public string? GrantName
+        {
+            get
+            {
+                if (!_mUnknown_GrantName) return _mValue_GrantName;
+                throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.GrantName' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetentionPeriod;
-
-        public int? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private int? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public int? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.RetentionPeriod' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
         /// </summary>
-        [Input("crossAccountModelRegisterRoleArn")]
+        [PolicyResourceProperty("crossAccountModelRegisterRoleArn", "_mUnknown_CrossAccountModelRegisterRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCrossAccountModelRegisterRoleArn;
-
-        public string? CrossAccountModelRegisterRoleArn => _mCrossAccountModelRegisterRoleArn.GetValue("crossAccountModelRegisterRoleArn");
+        private string? _mValue_CrossAccountModelRegisterRoleArn;
+        private bool _mUnknown_CrossAccountModelRegisterRoleArn;
+        public string? CrossAccountModelRegisterRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CrossAccountModelRegisterRoleArn) return _mValue_CrossAccountModelRegisterRoleArn;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.CrossAccountModelRegisterRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.Status' is not present");
+            }
+        }
     }
 }

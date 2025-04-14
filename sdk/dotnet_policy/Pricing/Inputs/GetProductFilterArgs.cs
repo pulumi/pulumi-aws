@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Pricing.Inputs
         /// <summary>
         /// Product attribute name that you want to filter on.
         /// </summary>
-        [Input("field")]
+        [PolicyResourceProperty("field", "_mUnknown_Field")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mField;
-
-        public string? Field => _mField.GetValue("field");
+        private string? _mValue_Field;
+        private bool _mUnknown_Field;
+        public string? Field
+        {
+            get
+            {
+                if (!_mUnknown_Field) return _mValue_Field;
+                throw new UndeferrableValueException("Value 'GetProductFilterInputArgs.Field' is not present");
+            }
+        }
 
         /// <summary>
         /// Product attribute value that you want to filter on.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetProductFilterInputArgs.Value' is not present");
+            }
+        }
     }
 }

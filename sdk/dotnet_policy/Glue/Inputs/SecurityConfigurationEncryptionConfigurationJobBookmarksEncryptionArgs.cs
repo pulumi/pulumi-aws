@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
         /// </summary>
-        [Input("jobBookmarksEncryptionMode")]
+        [PolicyResourceProperty("jobBookmarksEncryptionMode", "_mUnknown_JobBookmarksEncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobBookmarksEncryptionMode;
-
-        public string? JobBookmarksEncryptionMode => _mJobBookmarksEncryptionMode.GetValue("jobBookmarksEncryptionMode");
+        private string? _mValue_JobBookmarksEncryptionMode;
+        private bool _mUnknown_JobBookmarksEncryptionMode;
+        public string? JobBookmarksEncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_JobBookmarksEncryptionMode) return _mValue_JobBookmarksEncryptionMode;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.JobBookmarksEncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.KmsKeyArn' is not present");
+            }
+        }
     }
 }

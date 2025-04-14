@@ -16,85 +16,148 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FargateProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'FargateProfile.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Fargate Profile.
         /// </summary>
-        [Input("fargateProfileName")]
+        [PolicyResourceProperty("fargateProfileName", "_mUnknown_FargateProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFargateProfileName;
-
-        public string? FargateProfileName => _mFargateProfileName.GetValue("fargateProfileName");
+        private string? _mValue_FargateProfileName;
+        private bool _mUnknown_FargateProfileName;
+        public string? FargateProfileName
+        {
+            get
+            {
+                if (!_mUnknown_FargateProfileName) return _mValue_FargateProfileName;
+                throw new UndeferrableValueException("Value 'FargateProfile.FargateProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         /// </summary>
-        [Input("podExecutionRoleArn")]
+        [PolicyResourceProperty("podExecutionRoleArn", "_mUnknown_PodExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPodExecutionRoleArn;
-
-        public string? PodExecutionRoleArn => _mPodExecutionRoleArn.GetValue("podExecutionRoleArn");
+        private string? _mValue_PodExecutionRoleArn;
+        private bool _mUnknown_PodExecutionRoleArn;
+        public string? PodExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_PodExecutionRoleArn) return _mValue_PodExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'FargateProfile.PodExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
-        [Input("selectors")]
+        [PolicyResourceProperty("selectors", "_mUnknown_Selectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FargateProfileSelector>> _mSelectors;
-
-        public List<Outputs.FargateProfileSelector>? Selectors => _mSelectors.GetValue("selectors");
+        private List<Outputs.FargateProfileSelector>? _mValue_Selectors;
+        private bool _mUnknown_Selectors;
+        public List<Outputs.FargateProfileSelector>? Selectors
+        {
+            get
+            {
+                if (!_mUnknown_Selectors) return _mValue_Selectors;
+                throw new UndeferrableValueException("Value 'FargateProfile.Selectors' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the EKS Fargate Profile.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'FargateProfile.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'FargateProfile.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FargateProfile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'FargateProfile.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:eks/fargateProfile:FargateProfile")]
@@ -103,57 +166,99 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'FargateProfileArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Fargate Profile.
         /// </summary>
-        [Input("fargateProfileName")]
+        [PolicyResourceProperty("fargateProfileName", "_mUnknown_FargateProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFargateProfileName;
-
-        public string? FargateProfileName => _mFargateProfileName.GetValue("fargateProfileName");
+        private string? _mValue_FargateProfileName;
+        private bool _mUnknown_FargateProfileName;
+        public string? FargateProfileName
+        {
+            get
+            {
+                if (!_mUnknown_FargateProfileName) return _mValue_FargateProfileName;
+                throw new UndeferrableValueException("Value 'FargateProfileArgs.FargateProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
         /// </summary>
-        [Input("podExecutionRoleArn")]
+        [PolicyResourceProperty("podExecutionRoleArn", "_mUnknown_PodExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPodExecutionRoleArn;
-
-        public string? PodExecutionRoleArn => _mPodExecutionRoleArn.GetValue("podExecutionRoleArn");
+        private string? _mValue_PodExecutionRoleArn;
+        private bool _mUnknown_PodExecutionRoleArn;
+        public string? PodExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_PodExecutionRoleArn) return _mValue_PodExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'FargateProfileArgs.PodExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         /// </summary>
-        [Input("selectors")]
+        [PolicyResourceProperty("selectors", "_mUnknown_Selectors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FargateProfileSelectorArgs>> _mSelectors;
-
-        public List<Inputs.FargateProfileSelectorArgs>? Selectors => _mSelectors.GetValue("selectors");
+        private List<Inputs.FargateProfileSelectorArgs>? _mValue_Selectors;
+        private bool _mUnknown_Selectors;
+        public List<Inputs.FargateProfileSelectorArgs>? Selectors
+        {
+            get
+            {
+                if (!_mUnknown_Selectors) return _mValue_Selectors;
+                throw new UndeferrableValueException("Value 'FargateProfileArgs.Selectors' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'FargateProfileArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FargateProfileArgs.Tags' is not present");
+            }
+        }
     }
 }

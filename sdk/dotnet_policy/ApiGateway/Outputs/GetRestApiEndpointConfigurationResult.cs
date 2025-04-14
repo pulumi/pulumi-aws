@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
 {
     public sealed class GetRestApiEndpointConfigurationResult
     {
-        [Input("types")]
+        [PolicyResourceProperty("types", "_mUnknown_Types")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTypes;
+        private List<string>? _mValue_Types;
+        private bool _mUnknown_Types;
+        public List<string>? Types
+        {
+            get
+            {
+                if (!_mUnknown_Types) return _mValue_Types;
+                throw new UndeferrableValueException("Value 'GetRestApiEndpointConfigurationResult.Types' is not present");
+            }
+        }
 
-        public List<string>? Types => _mTypes.GetValue("types");
-
-        [Input("vpcEndpointIds")]
+        [PolicyResourceProperty("vpcEndpointIds", "_mUnknown_VpcEndpointIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcEndpointIds;
-
-        public List<string>? VpcEndpointIds => _mVpcEndpointIds.GetValue("vpcEndpointIds");
+        private List<string>? _mValue_VpcEndpointIds;
+        private bool _mUnknown_VpcEndpointIds;
+        public List<string>? VpcEndpointIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointIds) return _mValue_VpcEndpointIds;
+                throw new UndeferrableValueException("Value 'GetRestApiEndpointConfigurationResult.VpcEndpointIds' is not present");
+            }
+        }
     }
 }

@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Allocation ID.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
-
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAssociationResult.AllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Association ID.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAssociationResult.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Carrier IP address associated with the network interface. This attribute is only set when the network interface is in a subnet which is associated with a Wavelength Zone.
         /// </summary>
-        [Input("carrierIp")]
+        [PolicyResourceProperty("carrierIp", "_mUnknown_CarrierIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCarrierIp;
-
-        public string? CarrierIp => _mCarrierIp.GetValue("carrierIp");
+        private string? _mValue_CarrierIp;
+        private bool _mUnknown_CarrierIp;
+        public string? CarrierIp
+        {
+            get
+            {
+                if (!_mUnknown_CarrierIp) return _mValue_CarrierIp;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAssociationResult.CarrierIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Customer-owned IP address.
         /// </summary>
-        [Input("customerOwnedIp")]
+        [PolicyResourceProperty("customerOwnedIp", "_mUnknown_CustomerOwnedIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIp;
-
-        public string? CustomerOwnedIp => _mCustomerOwnedIp.GetValue("customerOwnedIp");
+        private string? _mValue_CustomerOwnedIp;
+        private bool _mUnknown_CustomerOwnedIp;
+        public string? CustomerOwnedIp
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIp) return _mValue_CustomerOwnedIp;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAssociationResult.CustomerOwnedIp' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Elastic IP address owner.
         /// </summary>
-        [Input("ipOwnerId")]
+        [PolicyResourceProperty("ipOwnerId", "_mUnknown_IpOwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpOwnerId;
-
-        public string? IpOwnerId => _mIpOwnerId.GetValue("ipOwnerId");
+        private string? _mValue_IpOwnerId;
+        private bool _mUnknown_IpOwnerId;
+        public string? IpOwnerId
+        {
+            get
+            {
+                if (!_mUnknown_IpOwnerId) return _mValue_IpOwnerId;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAssociationResult.IpOwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Public DNS name.
         /// </summary>
-        [Input("publicDnsName")]
+        [PolicyResourceProperty("publicDnsName", "_mUnknown_PublicDnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDnsName;
-
-        public string? PublicDnsName => _mPublicDnsName.GetValue("publicDnsName");
+        private string? _mValue_PublicDnsName;
+        private bool _mUnknown_PublicDnsName;
+        public string? PublicDnsName
+        {
+            get
+            {
+                if (!_mUnknown_PublicDnsName) return _mValue_PublicDnsName;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAssociationResult.PublicDnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// Address of the Elastic IP address bound to the network interface.
         /// </summary>
-        [Input("publicIp")]
+        [PolicyResourceProperty("publicIp", "_mUnknown_PublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
-
-        public string? PublicIp => _mPublicIp.GetValue("publicIp");
+        private string? _mValue_PublicIp;
+        private bool _mUnknown_PublicIp;
+        public string? PublicIp
+        {
+            get
+            {
+                if (!_mUnknown_PublicIp) return _mValue_PublicIp;
+                throw new UndeferrableValueException("Value 'GetNetworkInterfaceAssociationResult.PublicIp' is not present");
+            }
+        }
     }
 }

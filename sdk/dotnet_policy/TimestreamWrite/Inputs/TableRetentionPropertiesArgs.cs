@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite.Inputs
         /// <summary>
         /// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
         /// </summary>
-        [Input("magneticStoreRetentionPeriodInDays")]
+        [PolicyResourceProperty("magneticStoreRetentionPeriodInDays", "_mUnknown_MagneticStoreRetentionPeriodInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMagneticStoreRetentionPeriodInDays;
-
-        public int? MagneticStoreRetentionPeriodInDays => _mMagneticStoreRetentionPeriodInDays.GetValue("magneticStoreRetentionPeriodInDays");
+        private int? _mValue_MagneticStoreRetentionPeriodInDays;
+        private bool _mUnknown_MagneticStoreRetentionPeriodInDays;
+        public int? MagneticStoreRetentionPeriodInDays
+        {
+            get
+            {
+                if (!_mUnknown_MagneticStoreRetentionPeriodInDays) return _mValue_MagneticStoreRetentionPeriodInDays;
+                throw new UndeferrableValueException("Value 'TableRetentionPropertiesArgs.MagneticStoreRetentionPeriodInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
         /// </summary>
-        [Input("memoryStoreRetentionPeriodInHours")]
+        [PolicyResourceProperty("memoryStoreRetentionPeriodInHours", "_mUnknown_MemoryStoreRetentionPeriodInHours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMemoryStoreRetentionPeriodInHours;
-
-        public int? MemoryStoreRetentionPeriodInHours => _mMemoryStoreRetentionPeriodInHours.GetValue("memoryStoreRetentionPeriodInHours");
+        private int? _mValue_MemoryStoreRetentionPeriodInHours;
+        private bool _mUnknown_MemoryStoreRetentionPeriodInHours;
+        public int? MemoryStoreRetentionPeriodInHours
+        {
+            get
+            {
+                if (!_mUnknown_MemoryStoreRetentionPeriodInHours) return _mValue_MemoryStoreRetentionPeriodInHours;
+                throw new UndeferrableValueException("Value 'TableRetentionPropertiesArgs.MemoryStoreRetentionPeriodInHours' is not present");
+            }
+        }
     }
 }

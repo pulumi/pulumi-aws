@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// The ARN that identifies the user group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'UserGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The current supported value are `redis`, `valkey` (case insensitive).
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'UserGroup.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'UserGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the user group.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userGroupId")]
+        [PolicyResourceProperty("userGroupId", "_mUnknown_UserGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
-
-        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+        private string? _mValue_UserGroupId;
+        private bool _mUnknown_UserGroupId;
+        public string? UserGroupId
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupId) return _mValue_UserGroupId;
+                throw new UndeferrableValueException("Value 'UserGroup.UserGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of user IDs that belong to the user group.
         /// </summary>
-        [Input("userIds")]
+        [PolicyResourceProperty("userIds", "_mUnknown_UserIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserIds;
-
-        public List<string>? UserIds => _mUserIds.GetValue("userIds");
+        private List<string>? _mValue_UserIds;
+        private bool _mUnknown_UserIds;
+        public List<string>? UserIds
+        {
+            get
+            {
+                if (!_mUnknown_UserIds) return _mValue_UserIds;
+                throw new UndeferrableValueException("Value 'UserGroup.UserIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/userGroup:UserGroup")]
@@ -76,39 +118,67 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// The current supported value are `redis`, `valkey` (case insensitive).
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the user group.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userGroupId")]
+        [PolicyResourceProperty("userGroupId", "_mUnknown_UserGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupId;
-
-        public string? UserGroupId => _mUserGroupId.GetValue("userGroupId");
+        private string? _mValue_UserGroupId;
+        private bool _mUnknown_UserGroupId;
+        public string? UserGroupId
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupId) return _mValue_UserGroupId;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.UserGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of user IDs that belong to the user group.
         /// </summary>
-        [Input("userIds")]
+        [PolicyResourceProperty("userIds", "_mUnknown_UserIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserIds;
-
-        public List<string>? UserIds => _mUserIds.GetValue("userIds");
+        private List<string>? _mValue_UserIds;
+        private bool _mUnknown_UserIds;
+        public List<string>? UserIds
+        {
+            get
+            {
+                if (!_mUnknown_UserIds) return _mValue_UserIds;
+                throw new UndeferrableValueException("Value 'UserGroupArgs.UserIds' is not present");
+            }
+        }
     }
 }

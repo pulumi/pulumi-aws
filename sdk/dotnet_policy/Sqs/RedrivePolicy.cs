@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Sqs
         /// <summary>
         /// The URL of the SQS Queue to which to attach the policy
         /// </summary>
-        [Input("queueUrl")]
+        [PolicyResourceProperty("queueUrl", "_mUnknown_QueueUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
-
-        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+        private string? _mValue_QueueUrl;
+        private bool _mUnknown_QueueUrl;
+        public string? QueueUrl
+        {
+            get
+            {
+                if (!_mUnknown_QueueUrl) return _mValue_QueueUrl;
+                throw new UndeferrableValueException("Value 'RedrivePolicy.QueueUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         /// </summary>
-        [Input("redrivePolicy")]
+        [PolicyResourceProperty("redrivePolicy", "_mUnknown_RedrivePolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicyName;
-
-        public string? RedrivePolicyName => _mRedrivePolicyName.GetValue("redrivePolicy");
+        private string? _mValue_RedrivePolicyName;
+        private bool _mUnknown_RedrivePolicyName;
+        public string? RedrivePolicyName
+        {
+            get
+            {
+                if (!_mUnknown_RedrivePolicyName) return _mValue_RedrivePolicyName;
+                throw new UndeferrableValueException("Value 'RedrivePolicy.RedrivePolicyName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sqs/redrivePolicy:RedrivePolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Sqs
         /// <summary>
         /// The URL of the SQS Queue to which to attach the policy
         /// </summary>
-        [Input("queueUrl")]
+        [PolicyResourceProperty("queueUrl", "_mUnknown_QueueUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
-
-        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+        private string? _mValue_QueueUrl;
+        private bool _mUnknown_QueueUrl;
+        public string? QueueUrl
+        {
+            get
+            {
+                if (!_mUnknown_QueueUrl) return _mValue_QueueUrl;
+                throw new UndeferrableValueException("Value 'RedrivePolicyArgs.QueueUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
         /// </summary>
-        [Input("redrivePolicy")]
+        [PolicyResourceProperty("redrivePolicy", "_mUnknown_RedrivePolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicyName;
-
-        public string? RedrivePolicyName => _mRedrivePolicyName.GetValue("redrivePolicy");
+        private string? _mValue_RedrivePolicyName;
+        private bool _mUnknown_RedrivePolicyName;
+        public string? RedrivePolicyName
+        {
+            get
+            {
+                if (!_mUnknown_RedrivePolicyName) return _mValue_RedrivePolicyName;
+                throw new UndeferrableValueException("Value 'RedrivePolicyArgs.RedrivePolicyName' is not present");
+            }
+        }
     }
 }

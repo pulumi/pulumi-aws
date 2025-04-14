@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoResult
     {
-        [Input("azDistribution")]
+        [PolicyResourceProperty("azDistribution", "_mUnknown_AzDistribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzDistribution;
+        private string? _mValue_AzDistribution;
+        private bool _mUnknown_AzDistribution;
+        public string? AzDistribution
+        {
+            get
+            {
+                if (!_mUnknown_AzDistribution) return _mValue_AzDistribution;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoResult.AzDistribution' is not present");
+            }
+        }
 
-        public string? AzDistribution => _mAzDistribution.GetValue("azDistribution");
-
-        [Input("clientSubnets")]
+        [PolicyResourceProperty("clientSubnets", "_mUnknown_ClientSubnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mClientSubnets;
+        private List<string>? _mValue_ClientSubnets;
+        private bool _mUnknown_ClientSubnets;
+        public List<string>? ClientSubnets
+        {
+            get
+            {
+                if (!_mUnknown_ClientSubnets) return _mValue_ClientSubnets;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoResult.ClientSubnets' is not present");
+            }
+        }
 
-        public List<string>? ClientSubnets => _mClientSubnets.GetValue("clientSubnets");
-
-        [Input("connectivityInfos")]
+        [PolicyResourceProperty("connectivityInfos", "_mUnknown_ConnectivityInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoResult>> _mConnectivityInfos;
+        private List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoResult>? _mValue_ConnectivityInfos;
+        private bool _mUnknown_ConnectivityInfos;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoResult>? ConnectivityInfos
+        {
+            get
+            {
+                if (!_mUnknown_ConnectivityInfos) return _mValue_ConnectivityInfos;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoResult.ConnectivityInfos' is not present");
+            }
+        }
 
-        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoResult>? ConnectivityInfos => _mConnectivityInfos.GetValue("connectivityInfos");
-
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoResult.InstanceType' is not present");
+            }
+        }
 
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
-
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoResult.SecurityGroups' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
-
-        [Input("storageInfos")]
+        [PolicyResourceProperty("storageInfos", "_mUnknown_StorageInfos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoResult>> _mStorageInfos;
-
-        public List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoResult>? StorageInfos => _mStorageInfos.GetValue("storageInfos");
+        private List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoResult>? _mValue_StorageInfos;
+        private bool _mUnknown_StorageInfos;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoStorageInfoResult>? StorageInfos
+        {
+            get
+            {
+                if (!_mUnknown_StorageInfos) return _mValue_StorageInfos;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoResult.StorageInfos' is not present");
+            }
+        }
     }
 }

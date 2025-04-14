@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.DataPipeline.Outputs
 {
     public sealed class GetPipelineDefinitionParameterObjectResult
     {
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetPipelineDefinitionParameterObjectAttributeResult>> _mAttributes;
-
-        public List<Outputs.GetPipelineDefinitionParameterObjectAttributeResult>? Attributes => _mAttributes.GetValue("attributes");
+        private List<Outputs.GetPipelineDefinitionParameterObjectAttributeResult>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public List<Outputs.GetPipelineDefinitionParameterObjectAttributeResult>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'GetPipelineDefinitionParameterObjectResult.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the object.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetPipelineDefinitionParameterObjectResult.Id' is not present");
+            }
+        }
     }
 }

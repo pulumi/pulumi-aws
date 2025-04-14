@@ -16,220 +16,388 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         /// </summary>
-        [Input("aggregateConfiguration")]
+        [PolicyResourceProperty("aggregateConfiguration", "_mUnknown_AggregateConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeAggregateConfiguration> _mAggregateConfiguration;
-
-        public Outputs.OntapVolumeAggregateConfiguration? AggregateConfiguration => _mAggregateConfiguration.GetValue("aggregateConfiguration");
+        private Outputs.OntapVolumeAggregateConfiguration? _mValue_AggregateConfiguration;
+        private bool _mUnknown_AggregateConfiguration;
+        public Outputs.OntapVolumeAggregateConfiguration? AggregateConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AggregateConfiguration) return _mValue_AggregateConfiguration;
+                throw new UndeferrableValueException("Value 'OntapVolume.AggregateConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name of the volune.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OntapVolume.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("bypassSnaplockEnterpriseRetention")]
+        [PolicyResourceProperty("bypassSnaplockEnterpriseRetention", "_mUnknown_BypassSnaplockEnterpriseRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassSnaplockEnterpriseRetention;
-
-        public bool? BypassSnaplockEnterpriseRetention => _mBypassSnaplockEnterpriseRetention.GetValue("bypassSnaplockEnterpriseRetention");
+        private bool? _mValue_BypassSnaplockEnterpriseRetention;
+        private bool _mUnknown_BypassSnaplockEnterpriseRetention;
+        public bool? BypassSnaplockEnterpriseRetention
+        {
+            get
+            {
+                if (!_mUnknown_BypassSnaplockEnterpriseRetention) return _mValue_BypassSnaplockEnterpriseRetention;
+                throw new UndeferrableValueException("Value 'OntapVolume.BypassSnaplockEnterpriseRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'OntapVolume.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the file system for the volume, e.g. `fs-12345679`
         /// </summary>
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
-
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'OntapVolume.FileSystemId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the volume's final backup.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'OntapVolume.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the FlexCache endpoint type of the volume, Valid values are `NONE`, `ORIGIN`, `CACHE`. Default value is `NONE`. These can be set by the ONTAP CLI or API and are use with FlexCache feature.
         /// </summary>
-        [Input("flexcacheEndpointType")]
+        [PolicyResourceProperty("flexcacheEndpointType", "_mUnknown_FlexcacheEndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlexcacheEndpointType;
-
-        public string? FlexcacheEndpointType => _mFlexcacheEndpointType.GetValue("flexcacheEndpointType");
+        private string? _mValue_FlexcacheEndpointType;
+        private bool _mUnknown_FlexcacheEndpointType;
+        public string? FlexcacheEndpointType
+        {
+            get
+            {
+                if (!_mUnknown_FlexcacheEndpointType) return _mValue_FlexcacheEndpointType;
+                throw new UndeferrableValueException("Value 'OntapVolume.FlexcacheEndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         /// </summary>
-        [Input("junctionPath")]
+        [PolicyResourceProperty("junctionPath", "_mUnknown_JunctionPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJunctionPath;
-
-        public string? JunctionPath => _mJunctionPath.GetValue("junctionPath");
+        private string? _mValue_JunctionPath;
+        private bool _mUnknown_JunctionPath;
+        public string? JunctionPath
+        {
+            get
+            {
+                if (!_mUnknown_JunctionPath) return _mValue_JunctionPath;
+                throw new UndeferrableValueException("Value 'OntapVolume.JunctionPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OntapVolume.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         /// </summary>
-        [Input("ontapVolumeType")]
+        [PolicyResourceProperty("ontapVolumeType", "_mUnknown_OntapVolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOntapVolumeType;
-
-        public string? OntapVolumeType => _mOntapVolumeType.GetValue("ontapVolumeType");
+        private string? _mValue_OntapVolumeType;
+        private bool _mUnknown_OntapVolumeType;
+        public string? OntapVolumeType
+        {
+            get
+            {
+                if (!_mUnknown_OntapVolumeType) return _mValue_OntapVolumeType;
+                throw new UndeferrableValueException("Value 'OntapVolume.OntapVolumeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
-        [Input("securityStyle")]
+        [PolicyResourceProperty("securityStyle", "_mUnknown_SecurityStyle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityStyle;
-
-        public string? SecurityStyle => _mSecurityStyle.GetValue("securityStyle");
+        private string? _mValue_SecurityStyle;
+        private bool _mUnknown_SecurityStyle;
+        public string? SecurityStyle
+        {
+            get
+            {
+                if (!_mUnknown_SecurityStyle) return _mValue_SecurityStyle;
+                throw new UndeferrableValueException("Value 'OntapVolume.SecurityStyle' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
-        [Input("sizeInBytes")]
+        [PolicyResourceProperty("sizeInBytes", "_mUnknown_SizeInBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSizeInBytes;
-
-        public string? SizeInBytes => _mSizeInBytes.GetValue("sizeInBytes");
+        private string? _mValue_SizeInBytes;
+        private bool _mUnknown_SizeInBytes;
+        public string? SizeInBytes
+        {
+            get
+            {
+                if (!_mUnknown_SizeInBytes) return _mValue_SizeInBytes;
+                throw new UndeferrableValueException("Value 'OntapVolume.SizeInBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
-        [Input("sizeInMegabytes")]
+        [PolicyResourceProperty("sizeInMegabytes", "_mUnknown_SizeInMegabytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInMegabytes;
-
-        public int? SizeInMegabytes => _mSizeInMegabytes.GetValue("sizeInMegabytes");
+        private int? _mValue_SizeInMegabytes;
+        private bool _mUnknown_SizeInMegabytes;
+        public int? SizeInMegabytes
+        {
+            get
+            {
+                if (!_mUnknown_SizeInMegabytes) return _mValue_SizeInMegabytes;
+                throw new UndeferrableValueException("Value 'OntapVolume.SizeInMegabytes' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'OntapVolume.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         /// </summary>
-        [Input("snaplockConfiguration")]
+        [PolicyResourceProperty("snaplockConfiguration", "_mUnknown_SnaplockConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeSnaplockConfiguration> _mSnaplockConfiguration;
-
-        public Outputs.OntapVolumeSnaplockConfiguration? SnaplockConfiguration => _mSnaplockConfiguration.GetValue("snaplockConfiguration");
+        private Outputs.OntapVolumeSnaplockConfiguration? _mValue_SnaplockConfiguration;
+        private bool _mUnknown_SnaplockConfiguration;
+        public Outputs.OntapVolumeSnaplockConfiguration? SnaplockConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnaplockConfiguration) return _mValue_SnaplockConfiguration;
+                throw new UndeferrableValueException("Value 'OntapVolume.SnaplockConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         /// </summary>
-        [Input("snapshotPolicy")]
+        [PolicyResourceProperty("snapshotPolicy", "_mUnknown_SnapshotPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotPolicy;
-
-        public string? SnapshotPolicy => _mSnapshotPolicy.GetValue("snapshotPolicy");
+        private string? _mValue_SnapshotPolicy;
+        private bool _mUnknown_SnapshotPolicy;
+        public string? SnapshotPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotPolicy) return _mValue_SnapshotPolicy;
+                throw new UndeferrableValueException("Value 'OntapVolume.SnapshotPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         /// </summary>
-        [Input("storageEfficiencyEnabled")]
+        [PolicyResourceProperty("storageEfficiencyEnabled", "_mUnknown_StorageEfficiencyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEfficiencyEnabled;
-
-        public bool? StorageEfficiencyEnabled => _mStorageEfficiencyEnabled.GetValue("storageEfficiencyEnabled");
+        private bool? _mValue_StorageEfficiencyEnabled;
+        private bool _mUnknown_StorageEfficiencyEnabled;
+        public bool? StorageEfficiencyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_StorageEfficiencyEnabled) return _mValue_StorageEfficiencyEnabled;
+                throw new UndeferrableValueException("Value 'OntapVolume.StorageEfficiencyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("storageVirtualMachineId")]
+        [PolicyResourceProperty("storageVirtualMachineId", "_mUnknown_StorageVirtualMachineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageVirtualMachineId;
-
-        public string? StorageVirtualMachineId => _mStorageVirtualMachineId.GetValue("storageVirtualMachineId");
+        private string? _mValue_StorageVirtualMachineId;
+        private bool _mUnknown_StorageVirtualMachineId;
+        public string? StorageVirtualMachineId
+        {
+            get
+            {
+                if (!_mUnknown_StorageVirtualMachineId) return _mValue_StorageVirtualMachineId;
+                throw new UndeferrableValueException("Value 'OntapVolume.StorageVirtualMachineId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OntapVolume.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'OntapVolume.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         /// </summary>
-        [Input("tieringPolicy")]
+        [PolicyResourceProperty("tieringPolicy", "_mUnknown_TieringPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeTieringPolicy> _mTieringPolicy;
-
-        public Outputs.OntapVolumeTieringPolicy? TieringPolicy => _mTieringPolicy.GetValue("tieringPolicy");
+        private Outputs.OntapVolumeTieringPolicy? _mValue_TieringPolicy;
+        private bool _mUnknown_TieringPolicy;
+        public Outputs.OntapVolumeTieringPolicy? TieringPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TieringPolicy) return _mValue_TieringPolicy;
+                throw new UndeferrableValueException("Value 'OntapVolume.TieringPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The Volume's UUID (universally unique identifier).
         /// </summary>
-        [Input("uuid")]
+        [PolicyResourceProperty("uuid", "_mUnknown_Uuid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUuid;
-
-        public string? Uuid => _mUuid.GetValue("uuid");
+        private string? _mValue_Uuid;
+        private bool _mUnknown_Uuid;
+        public string? Uuid
+        {
+            get
+            {
+                if (!_mUnknown_Uuid) return _mValue_Uuid;
+                throw new UndeferrableValueException("Value 'OntapVolume.Uuid' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         /// </summary>
-        [Input("volumeStyle")]
+        [PolicyResourceProperty("volumeStyle", "_mUnknown_VolumeStyle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeStyle;
-
-        public string? VolumeStyle => _mVolumeStyle.GetValue("volumeStyle");
+        private string? _mValue_VolumeStyle;
+        private bool _mUnknown_VolumeStyle;
+        public string? VolumeStyle
+        {
+            get
+            {
+                if (!_mUnknown_VolumeStyle) return _mValue_VolumeStyle;
+                throw new UndeferrableValueException("Value 'OntapVolume.VolumeStyle' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of volume, currently the only valid value is `ONTAP`.
         /// </summary>
-        [Input("volumeType")]
+        [PolicyResourceProperty("volumeType", "_mUnknown_VolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
-
-        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+        private string? _mValue_VolumeType;
+        private bool _mUnknown_VolumeType;
+        public string? VolumeType
+        {
+            get
+            {
+                if (!_mUnknown_VolumeType) return _mValue_VolumeType;
+                throw new UndeferrableValueException("Value 'OntapVolume.VolumeType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:fsx/ontapVolume:OntapVolume")]
@@ -238,174 +406,307 @@ namespace Pulumi.PolicyPacks.Aws.Fsx
         /// <summary>
         /// The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
         /// </summary>
-        [Input("aggregateConfiguration")]
+        [PolicyResourceProperty("aggregateConfiguration", "_mUnknown_AggregateConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeAggregateConfigurationArgs> _mAggregateConfiguration;
-
-        public Inputs.OntapVolumeAggregateConfigurationArgs? AggregateConfiguration => _mAggregateConfiguration.GetValue("aggregateConfiguration");
+        private Inputs.OntapVolumeAggregateConfigurationArgs? _mValue_AggregateConfiguration;
+        private bool _mUnknown_AggregateConfiguration;
+        public Inputs.OntapVolumeAggregateConfigurationArgs? AggregateConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AggregateConfiguration) return _mValue_AggregateConfiguration;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.AggregateConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("bypassSnaplockEnterpriseRetention")]
+        [PolicyResourceProperty("bypassSnaplockEnterpriseRetention", "_mUnknown_BypassSnaplockEnterpriseRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassSnaplockEnterpriseRetention;
-
-        public bool? BypassSnaplockEnterpriseRetention => _mBypassSnaplockEnterpriseRetention.GetValue("bypassSnaplockEnterpriseRetention");
+        private bool? _mValue_BypassSnaplockEnterpriseRetention;
+        private bool _mUnknown_BypassSnaplockEnterpriseRetention;
+        public bool? BypassSnaplockEnterpriseRetention
+        {
+            get
+            {
+                if (!_mUnknown_BypassSnaplockEnterpriseRetention) return _mValue_BypassSnaplockEnterpriseRetention;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.BypassSnaplockEnterpriseRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
         /// </summary>
-        [Input("copyTagsToBackups")]
+        [PolicyResourceProperty("copyTagsToBackups", "_mUnknown_CopyTagsToBackups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToBackups;
-
-        public bool? CopyTagsToBackups => _mCopyTagsToBackups.GetValue("copyTagsToBackups");
+        private bool? _mValue_CopyTagsToBackups;
+        private bool _mUnknown_CopyTagsToBackups;
+        public bool? CopyTagsToBackups
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToBackups) return _mValue_CopyTagsToBackups;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.CopyTagsToBackups' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to apply to the volume's final backup.
         /// </summary>
-        [Input("finalBackupTags")]
+        [PolicyResourceProperty("finalBackupTags", "_mUnknown_FinalBackupTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mFinalBackupTags;
-
-        public Dictionary<string, string>? FinalBackupTags => _mFinalBackupTags.GetValue("finalBackupTags");
+        private Dictionary<string, string>? _mValue_FinalBackupTags;
+        private bool _mUnknown_FinalBackupTags;
+        public Dictionary<string, string>? FinalBackupTags
+        {
+            get
+            {
+                if (!_mUnknown_FinalBackupTags) return _mValue_FinalBackupTags;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.FinalBackupTags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         /// </summary>
-        [Input("junctionPath")]
+        [PolicyResourceProperty("junctionPath", "_mUnknown_JunctionPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJunctionPath;
-
-        public string? JunctionPath => _mJunctionPath.GetValue("junctionPath");
+        private string? _mValue_JunctionPath;
+        private bool _mUnknown_JunctionPath;
+        public string? JunctionPath
+        {
+            get
+            {
+                if (!_mUnknown_JunctionPath) return _mValue_JunctionPath;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.JunctionPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
         /// </summary>
-        [Input("ontapVolumeType")]
+        [PolicyResourceProperty("ontapVolumeType", "_mUnknown_OntapVolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOntapVolumeType;
-
-        public string? OntapVolumeType => _mOntapVolumeType.GetValue("ontapVolumeType");
+        private string? _mValue_OntapVolumeType;
+        private bool _mUnknown_OntapVolumeType;
+        public string? OntapVolumeType
+        {
+            get
+            {
+                if (!_mUnknown_OntapVolumeType) return _mValue_OntapVolumeType;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.OntapVolumeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         /// </summary>
-        [Input("securityStyle")]
+        [PolicyResourceProperty("securityStyle", "_mUnknown_SecurityStyle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityStyle;
-
-        public string? SecurityStyle => _mSecurityStyle.GetValue("securityStyle");
+        private string? _mValue_SecurityStyle;
+        private bool _mUnknown_SecurityStyle;
+        public string? SecurityStyle
+        {
+            get
+            {
+                if (!_mUnknown_SecurityStyle) return _mValue_SecurityStyle;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.SecurityStyle' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
-        [Input("sizeInBytes")]
+        [PolicyResourceProperty("sizeInBytes", "_mUnknown_SizeInBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSizeInBytes;
-
-        public string? SizeInBytes => _mSizeInBytes.GetValue("sizeInBytes");
+        private string? _mValue_SizeInBytes;
+        private bool _mUnknown_SizeInBytes;
+        public string? SizeInBytes
+        {
+            get
+            {
+                if (!_mUnknown_SizeInBytes) return _mValue_SizeInBytes;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.SizeInBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         /// </summary>
-        [Input("sizeInMegabytes")]
+        [PolicyResourceProperty("sizeInMegabytes", "_mUnknown_SizeInMegabytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInMegabytes;
-
-        public int? SizeInMegabytes => _mSizeInMegabytes.GetValue("sizeInMegabytes");
+        private int? _mValue_SizeInMegabytes;
+        private bool _mUnknown_SizeInMegabytes;
+        public int? SizeInMegabytes
+        {
+            get
+            {
+                if (!_mUnknown_SizeInMegabytes) return _mValue_SizeInMegabytes;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.SizeInMegabytes' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         /// </summary>
-        [Input("skipFinalBackup")]
+        [PolicyResourceProperty("skipFinalBackup", "_mUnknown_SkipFinalBackup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalBackup;
-
-        public bool? SkipFinalBackup => _mSkipFinalBackup.GetValue("skipFinalBackup");
+        private bool? _mValue_SkipFinalBackup;
+        private bool _mUnknown_SkipFinalBackup;
+        public bool? SkipFinalBackup
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalBackup) return _mValue_SkipFinalBackup;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.SkipFinalBackup' is not present");
+            }
+        }
 
         /// <summary>
         /// The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
         /// </summary>
-        [Input("snaplockConfiguration")]
+        [PolicyResourceProperty("snaplockConfiguration", "_mUnknown_SnaplockConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeSnaplockConfigurationArgs> _mSnaplockConfiguration;
-
-        public Inputs.OntapVolumeSnaplockConfigurationArgs? SnaplockConfiguration => _mSnaplockConfiguration.GetValue("snaplockConfiguration");
+        private Inputs.OntapVolumeSnaplockConfigurationArgs? _mValue_SnaplockConfiguration;
+        private bool _mUnknown_SnaplockConfiguration;
+        public Inputs.OntapVolumeSnaplockConfigurationArgs? SnaplockConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnaplockConfiguration) return _mValue_SnaplockConfiguration;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.SnaplockConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         /// </summary>
-        [Input("snapshotPolicy")]
+        [PolicyResourceProperty("snapshotPolicy", "_mUnknown_SnapshotPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotPolicy;
-
-        public string? SnapshotPolicy => _mSnapshotPolicy.GetValue("snapshotPolicy");
+        private string? _mValue_SnapshotPolicy;
+        private bool _mUnknown_SnapshotPolicy;
+        public string? SnapshotPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotPolicy) return _mValue_SnapshotPolicy;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.SnapshotPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         /// </summary>
-        [Input("storageEfficiencyEnabled")]
+        [PolicyResourceProperty("storageEfficiencyEnabled", "_mUnknown_StorageEfficiencyEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEfficiencyEnabled;
-
-        public bool? StorageEfficiencyEnabled => _mStorageEfficiencyEnabled.GetValue("storageEfficiencyEnabled");
+        private bool? _mValue_StorageEfficiencyEnabled;
+        private bool _mUnknown_StorageEfficiencyEnabled;
+        public bool? StorageEfficiencyEnabled
+        {
+            get
+            {
+                if (!_mUnknown_StorageEfficiencyEnabled) return _mValue_StorageEfficiencyEnabled;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.StorageEfficiencyEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the storage virtual machine in which to create the volume.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("storageVirtualMachineId")]
+        [PolicyResourceProperty("storageVirtualMachineId", "_mUnknown_StorageVirtualMachineId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageVirtualMachineId;
-
-        public string? StorageVirtualMachineId => _mStorageVirtualMachineId.GetValue("storageVirtualMachineId");
+        private string? _mValue_StorageVirtualMachineId;
+        private bool _mUnknown_StorageVirtualMachineId;
+        public string? StorageVirtualMachineId
+        {
+            get
+            {
+                if (!_mUnknown_StorageVirtualMachineId) return _mValue_StorageVirtualMachineId;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.StorageVirtualMachineId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
         /// </summary>
-        [Input("tieringPolicy")]
+        [PolicyResourceProperty("tieringPolicy", "_mUnknown_TieringPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeTieringPolicyArgs> _mTieringPolicy;
-
-        public Inputs.OntapVolumeTieringPolicyArgs? TieringPolicy => _mTieringPolicy.GetValue("tieringPolicy");
+        private Inputs.OntapVolumeTieringPolicyArgs? _mValue_TieringPolicy;
+        private bool _mUnknown_TieringPolicy;
+        public Inputs.OntapVolumeTieringPolicyArgs? TieringPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TieringPolicy) return _mValue_TieringPolicy;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.TieringPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         /// </summary>
-        [Input("volumeStyle")]
+        [PolicyResourceProperty("volumeStyle", "_mUnknown_VolumeStyle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeStyle;
-
-        public string? VolumeStyle => _mVolumeStyle.GetValue("volumeStyle");
+        private string? _mValue_VolumeStyle;
+        private bool _mUnknown_VolumeStyle;
+        public string? VolumeStyle
+        {
+            get
+            {
+                if (!_mUnknown_VolumeStyle) return _mValue_VolumeStyle;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.VolumeStyle' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of volume, currently the only valid value is `ONTAP`.
         /// </summary>
-        [Input("volumeType")]
+        [PolicyResourceProperty("volumeType", "_mUnknown_VolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
-
-        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+        private string? _mValue_VolumeType;
+        private bool _mUnknown_VolumeType;
+        public string? VolumeType
+        {
+            get
+            {
+                if (!_mUnknown_VolumeType) return _mValue_VolumeType;
+                throw new UndeferrableValueException("Value 'OntapVolumeArgs.VolumeType' is not present");
+            }
+        }
     }
 }

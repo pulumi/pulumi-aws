@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// The account ID that this configuration applies to.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
         /// </summary>
-        [Input("default")]
+        [PolicyResourceProperty("default", "_mUnknown_Default")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDefault;
-
-        public bool? Default => _mDefault.GetValue("default");
+        private bool? _mValue_Default;
+        private bool _mUnknown_Default;
+        public bool? Default
+        {
+            get
+            {
+                if (!_mUnknown_Default) return _mValue_Default;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.Default' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon EC2 launch template to use.
         /// </summary>
-        [Input("launchTemplateId")]
+        [PolicyResourceProperty("launchTemplateId", "_mUnknown_LaunchTemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchTemplateId;
-
-        public string? LaunchTemplateId => _mLaunchTemplateId.GetValue("launchTemplateId");
+        private string? _mValue_LaunchTemplateId;
+        private bool _mUnknown_LaunchTemplateId;
+        public string? LaunchTemplateId
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateId) return _mValue_LaunchTemplateId;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionLaunchTemplateConfigurationArgs.LaunchTemplateId' is not present");
+            }
+        }
     }
 }

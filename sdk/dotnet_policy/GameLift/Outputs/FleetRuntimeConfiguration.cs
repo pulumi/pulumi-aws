@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Outputs
         /// <summary>
         /// Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
         /// </summary>
-        [Input("gameSessionActivationTimeoutSeconds")]
+        [PolicyResourceProperty("gameSessionActivationTimeoutSeconds", "_mUnknown_GameSessionActivationTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGameSessionActivationTimeoutSeconds;
-
-        public int? GameSessionActivationTimeoutSeconds => _mGameSessionActivationTimeoutSeconds.GetValue("gameSessionActivationTimeoutSeconds");
+        private int? _mValue_GameSessionActivationTimeoutSeconds;
+        private bool _mUnknown_GameSessionActivationTimeoutSeconds;
+        public int? GameSessionActivationTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_GameSessionActivationTimeoutSeconds) return _mValue_GameSessionActivationTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'FleetRuntimeConfiguration.GameSessionActivationTimeoutSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
         /// </summary>
-        [Input("maxConcurrentGameSessionActivations")]
+        [PolicyResourceProperty("maxConcurrentGameSessionActivations", "_mUnknown_MaxConcurrentGameSessionActivations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrentGameSessionActivations;
-
-        public int? MaxConcurrentGameSessionActivations => _mMaxConcurrentGameSessionActivations.GetValue("maxConcurrentGameSessionActivations");
+        private int? _mValue_MaxConcurrentGameSessionActivations;
+        private bool _mUnknown_MaxConcurrentGameSessionActivations;
+        public int? MaxConcurrentGameSessionActivations
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrentGameSessionActivations) return _mValue_MaxConcurrentGameSessionActivations;
+                throw new UndeferrableValueException("Value 'FleetRuntimeConfiguration.MaxConcurrentGameSessionActivations' is not present");
+            }
+        }
 
         /// <summary>
         /// Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         /// </summary>
-        [Input("serverProcesses")]
+        [PolicyResourceProperty("serverProcesses", "_mUnknown_ServerProcesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FleetRuntimeConfigurationServerProcess>> _mServerProcesses;
-
-        public List<Outputs.FleetRuntimeConfigurationServerProcess>? ServerProcesses => _mServerProcesses.GetValue("serverProcesses");
+        private List<Outputs.FleetRuntimeConfigurationServerProcess>? _mValue_ServerProcesses;
+        private bool _mUnknown_ServerProcesses;
+        public List<Outputs.FleetRuntimeConfigurationServerProcess>? ServerProcesses
+        {
+            get
+            {
+                if (!_mUnknown_ServerProcesses) return _mValue_ServerProcesses;
+                throw new UndeferrableValueException("Value 'FleetRuntimeConfiguration.ServerProcesses' is not present");
+            }
+        }
     }
 }

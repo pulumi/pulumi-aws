@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
         /// </summary>
-        [Input("certificateValidationRecords")]
+        [PolicyResourceProperty("certificateValidationRecords", "_mUnknown_CertificateValidationRecords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomDomainAssociationCertificateValidationRecord>> _mCertificateValidationRecords;
-
-        public List<Outputs.CustomDomainAssociationCertificateValidationRecord>? CertificateValidationRecords => _mCertificateValidationRecords.GetValue("certificateValidationRecords");
+        private List<Outputs.CustomDomainAssociationCertificateValidationRecord>? _mValue_CertificateValidationRecords;
+        private bool _mUnknown_CertificateValidationRecords;
+        public List<Outputs.CustomDomainAssociationCertificateValidationRecord>? CertificateValidationRecords
+        {
+            get
+            {
+                if (!_mUnknown_CertificateValidationRecords) return _mValue_CertificateValidationRecords;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.CertificateValidationRecords' is not present");
+            }
+        }
 
         /// <summary>
         /// App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
         /// </summary>
-        [Input("dnsTarget")]
+        [PolicyResourceProperty("dnsTarget", "_mUnknown_DnsTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsTarget;
-
-        public string? DnsTarget => _mDnsTarget.GetValue("dnsTarget");
+        private string? _mValue_DnsTarget;
+        private bool _mUnknown_DnsTarget;
+        public string? DnsTarget
+        {
+            get
+            {
+                if (!_mUnknown_DnsTarget) return _mValue_DnsTarget;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.DnsTarget' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
         /// </summary>
-        [Input("enableWwwSubdomain")]
+        [PolicyResourceProperty("enableWwwSubdomain", "_mUnknown_EnableWwwSubdomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableWwwSubdomain;
-
-        public bool? EnableWwwSubdomain => _mEnableWwwSubdomain.GetValue("enableWwwSubdomain");
+        private bool? _mValue_EnableWwwSubdomain;
+        private bool _mUnknown_EnableWwwSubdomain;
+        public bool? EnableWwwSubdomain
+        {
+            get
+            {
+                if (!_mUnknown_EnableWwwSubdomain) return _mValue_EnableWwwSubdomain;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.EnableWwwSubdomain' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the App Runner service.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
-
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.ServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociation.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apprunner/customDomainAssociation:CustomDomainAssociation")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner
         /// <summary>
         /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
         /// </summary>
-        [Input("enableWwwSubdomain")]
+        [PolicyResourceProperty("enableWwwSubdomain", "_mUnknown_EnableWwwSubdomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableWwwSubdomain;
-
-        public bool? EnableWwwSubdomain => _mEnableWwwSubdomain.GetValue("enableWwwSubdomain");
+        private bool? _mValue_EnableWwwSubdomain;
+        private bool _mUnknown_EnableWwwSubdomain;
+        public bool? EnableWwwSubdomain
+        {
+            get
+            {
+                if (!_mUnknown_EnableWwwSubdomain) return _mValue_EnableWwwSubdomain;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.EnableWwwSubdomain' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the App Runner service.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
-
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.ServiceArn' is not present");
+            }
+        }
     }
 }

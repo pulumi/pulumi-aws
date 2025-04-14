@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         /// </summary>
-        [Input("dnsName")]
+        [PolicyResourceProperty("dnsName", "_mUnknown_DnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsName;
-
-        public string? DnsName => _mDnsName.GetValue("dnsName");
+        private string? _mValue_DnsName;
+        private bool _mUnknown_DnsName;
+        public string? DnsName
+        {
+            get
+            {
+                if (!_mUnknown_DnsName) return _mValue_DnsName;
+                throw new UndeferrableValueException("Value 'OntapFileSystemEndpointManagement.DnsName' is not present");
+            }
+        }
 
         /// <summary>
         /// IP addresses of the file system endpoint.
         /// </summary>
-        [Input("ipAddresses")]
+        [PolicyResourceProperty("ipAddresses", "_mUnknown_IpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpAddresses;
-
-        public List<string>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
+        private List<string>? _mValue_IpAddresses;
+        private bool _mUnknown_IpAddresses;
+        public List<string>? IpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_IpAddresses) return _mValue_IpAddresses;
+                throw new UndeferrableValueException("Value 'OntapFileSystemEndpointManagement.IpAddresses' is not present");
+            }
+        }
     }
 }

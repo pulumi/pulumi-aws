@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The code location and type parameters for the application.
         /// </summary>
-        [Input("applicationCodeConfiguration")]
+        [PolicyResourceProperty("applicationCodeConfiguration", "_mUnknown_ApplicationCodeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> _mApplicationCodeConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs? ApplicationCodeConfiguration => _mApplicationCodeConfiguration.GetValue("applicationCodeConfiguration");
+        private Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs? _mValue_ApplicationCodeConfiguration;
+        private bool _mUnknown_ApplicationCodeConfiguration;
+        public Inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs? ApplicationCodeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationCodeConfiguration) return _mValue_ApplicationCodeConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.ApplicationCodeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether snapshots are enabled for a Flink-based application.
         /// </summary>
-        [Input("applicationSnapshotConfiguration")]
+        [PolicyResourceProperty("applicationSnapshotConfiguration", "_mUnknown_ApplicationSnapshotConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs> _mApplicationSnapshotConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs? ApplicationSnapshotConfiguration => _mApplicationSnapshotConfiguration.GetValue("applicationSnapshotConfiguration");
+        private Inputs.ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs? _mValue_ApplicationSnapshotConfiguration;
+        private bool _mUnknown_ApplicationSnapshotConfiguration;
+        public Inputs.ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs? ApplicationSnapshotConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationSnapshotConfiguration) return _mValue_ApplicationSnapshotConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.ApplicationSnapshotConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes execution properties for a Flink-based application.
         /// </summary>
-        [Input("environmentProperties")]
+        [PolicyResourceProperty("environmentProperties", "_mUnknown_EnvironmentProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs> _mEnvironmentProperties;
-
-        public Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs? EnvironmentProperties => _mEnvironmentProperties.GetValue("environmentProperties");
+        private Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs? _mValue_EnvironmentProperties;
+        private bool _mUnknown_EnvironmentProperties;
+        public Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs? EnvironmentProperties
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentProperties) return _mValue_EnvironmentProperties;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.EnvironmentProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration of a Flink-based application.
         /// </summary>
-        [Input("flinkApplicationConfiguration")]
+        [PolicyResourceProperty("flinkApplicationConfiguration", "_mUnknown_FlinkApplicationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs> _mFlinkApplicationConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs? FlinkApplicationConfiguration => _mFlinkApplicationConfiguration.GetValue("flinkApplicationConfiguration");
+        private Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs? _mValue_FlinkApplicationConfiguration;
+        private bool _mUnknown_FlinkApplicationConfiguration;
+        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs? FlinkApplicationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_FlinkApplicationConfiguration) return _mValue_FlinkApplicationConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.FlinkApplicationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the starting properties for a Flink-based application.
         /// </summary>
-        [Input("runConfiguration")]
+        [PolicyResourceProperty("runConfiguration", "_mUnknown_RunConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationRunConfigurationArgs> _mRunConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationRunConfigurationArgs? RunConfiguration => _mRunConfiguration.GetValue("runConfiguration");
+        private Inputs.ApplicationApplicationConfigurationRunConfigurationArgs? _mValue_RunConfiguration;
+        private bool _mUnknown_RunConfiguration;
+        public Inputs.ApplicationApplicationConfigurationRunConfigurationArgs? RunConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RunConfiguration) return _mValue_RunConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.RunConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration of a SQL-based application.
         /// </summary>
-        [Input("sqlApplicationConfiguration")]
+        [PolicyResourceProperty("sqlApplicationConfiguration", "_mUnknown_SqlApplicationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs> _mSqlApplicationConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs? SqlApplicationConfiguration => _mSqlApplicationConfiguration.GetValue("sqlApplicationConfiguration");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs? _mValue_SqlApplicationConfiguration;
+        private bool _mUnknown_SqlApplicationConfiguration;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs? SqlApplicationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SqlApplicationConfiguration) return _mValue_SqlApplicationConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.SqlApplicationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC configuration of a Flink-based application.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationVpcConfigurationArgs> _mVpcConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Inputs.ApplicationApplicationConfigurationVpcConfigurationArgs? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Inputs.ApplicationApplicationConfigurationVpcConfigurationArgs? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.VpcConfiguration' is not present");
+            }
+        }
     }
 }

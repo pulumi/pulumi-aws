@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Inputs
         /// <summary>
         /// A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
         /// </summary>
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectDataDeliveryCloudwatchLogsArgs> _mCloudwatchLogs;
-
-        public Inputs.ProjectDataDeliveryCloudwatchLogsArgs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
+        private Inputs.ProjectDataDeliveryCloudwatchLogsArgs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Inputs.ProjectDataDeliveryCloudwatchLogsArgs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'ProjectDataDeliveryArgs.CloudwatchLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectDataDeliveryS3DestinationArgs> _mS3Destination;
-
-        public Inputs.ProjectDataDeliveryS3DestinationArgs? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Inputs.ProjectDataDeliveryS3DestinationArgs? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Inputs.ProjectDataDeliveryS3DestinationArgs? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'ProjectDataDeliveryArgs.S3Destination' is not present");
+            }
+        }
     }
 }

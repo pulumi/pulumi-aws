@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruProfiler.Outputs
 {
     public sealed class GetProfilingGroupAgentOrchestrationConfigResult
     {
-        [Input("profilingEnabled")]
+        [PolicyResourceProperty("profilingEnabled", "_mUnknown_ProfilingEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProfilingEnabled;
-
-        public bool? ProfilingEnabled => _mProfilingEnabled.GetValue("profilingEnabled");
+        private bool? _mValue_ProfilingEnabled;
+        private bool _mUnknown_ProfilingEnabled;
+        public bool? ProfilingEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ProfilingEnabled) return _mValue_ProfilingEnabled;
+                throw new UndeferrableValueException("Value 'GetProfilingGroupAgentOrchestrationConfigResult.ProfilingEnabled' is not present");
+            }
+        }
     }
 }

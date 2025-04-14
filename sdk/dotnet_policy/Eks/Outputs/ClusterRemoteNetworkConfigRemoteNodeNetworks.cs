@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// List of network CIDRs that can contain hybrid nodes.
         /// </summary>
-        [Input("cidrs")]
+        [PolicyResourceProperty("cidrs", "_mUnknown_Cidrs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrs;
-
-        public List<string>? Cidrs => _mCidrs.GetValue("cidrs");
+        private List<string>? _mValue_Cidrs;
+        private bool _mUnknown_Cidrs;
+        public List<string>? Cidrs
+        {
+            get
+            {
+                if (!_mUnknown_Cidrs) return _mValue_Cidrs;
+                throw new UndeferrableValueException("Value 'ClusterRemoteNetworkConfigRemoteNodeNetworks.Cidrs' is not present");
+            }
+        }
     }
 }

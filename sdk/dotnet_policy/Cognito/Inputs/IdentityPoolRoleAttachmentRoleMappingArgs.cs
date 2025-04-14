@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
         /// </summary>
-        [Input("ambiguousRoleResolution")]
+        [PolicyResourceProperty("ambiguousRoleResolution", "_mUnknown_AmbiguousRoleResolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmbiguousRoleResolution;
-
-        public string? AmbiguousRoleResolution => _mAmbiguousRoleResolution.GetValue("ambiguousRoleResolution");
+        private string? _mValue_AmbiguousRoleResolution;
+        private bool _mUnknown_AmbiguousRoleResolution;
+        public string? AmbiguousRoleResolution
+        {
+            get
+            {
+                if (!_mUnknown_AmbiguousRoleResolution) return _mValue_AmbiguousRoleResolution;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingArgs.AmbiguousRoleResolution' is not present");
+            }
+        }
 
         /// <summary>
         /// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `aws.cognito.IdentityPool` resource or a `aws.cognito.IdentityProvider` resource.
         /// </summary>
-        [Input("identityProvider")]
+        [PolicyResourceProperty("identityProvider", "_mUnknown_IdentityProvider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProvider;
-
-        public string? IdentityProvider => _mIdentityProvider.GetValue("identityProvider");
+        private string? _mValue_IdentityProvider;
+        private bool _mUnknown_IdentityProvider;
+        public string? IdentityProvider
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProvider) return _mValue_IdentityProvider;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingArgs.IdentityProvider' is not present");
+            }
+        }
 
         /// <summary>
         /// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
         /// </summary>
-        [Input("mappingRules")]
+        [PolicyResourceProperty("mappingRules", "_mUnknown_MappingRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs>> _mMappingRules;
-
-        public List<Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs>? MappingRules => _mMappingRules.GetValue("mappingRules");
+        private List<Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs>? _mValue_MappingRules;
+        private bool _mUnknown_MappingRules;
+        public List<Inputs.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs>? MappingRules
+        {
+            get
+            {
+                if (!_mUnknown_MappingRules) return _mValue_MappingRules;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingArgs.MappingRules' is not present");
+            }
+        }
 
         /// <summary>
         /// The role mapping type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingArgs.Type' is not present");
+            }
+        }
     }
 }

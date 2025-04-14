@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless.Outputs
         /// <summary>
         /// The resource configuration of the initial capacity configuration.
         /// </summary>
-        [Input("workerConfiguration")]
+        [PolicyResourceProperty("workerConfiguration", "_mUnknown_WorkerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration> _mWorkerConfiguration;
-
-        public Outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration? WorkerConfiguration => _mWorkerConfiguration.GetValue("workerConfiguration");
+        private Outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration? _mValue_WorkerConfiguration;
+        private bool _mUnknown_WorkerConfiguration;
+        public Outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration? WorkerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_WorkerConfiguration) return _mValue_WorkerConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationInitialCapacityInitialCapacityConfig.WorkerConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers in the initial capacity configuration.
         /// </summary>
-        [Input("workerCount")]
+        [PolicyResourceProperty("workerCount", "_mUnknown_WorkerCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWorkerCount;
-
-        public int? WorkerCount => _mWorkerCount.GetValue("workerCount");
+        private int? _mValue_WorkerCount;
+        private bool _mUnknown_WorkerCount;
+        public int? WorkerCount
+        {
+            get
+            {
+                if (!_mUnknown_WorkerCount) return _mValue_WorkerCount;
+                throw new UndeferrableValueException("Value 'ApplicationInitialCapacityInitialCapacityConfig.WorkerCount' is not present");
+            }
+        }
     }
 }

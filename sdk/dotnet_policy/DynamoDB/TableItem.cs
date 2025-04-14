@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Hash key to use for lookups and identification of the item
         /// </summary>
-        [Input("hashKey")]
+        [PolicyResourceProperty("hashKey", "_mUnknown_HashKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
-
-        public string? HashKey => _mHashKey.GetValue("hashKey");
+        private string? _mValue_HashKey;
+        private bool _mUnknown_HashKey;
+        public string? HashKey
+        {
+            get
+            {
+                if (!_mUnknown_HashKey) return _mValue_HashKey;
+                throw new UndeferrableValueException("Value 'TableItem.HashKey' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         /// </summary>
-        [Input("item")]
+        [PolicyResourceProperty("item", "_mUnknown_Item")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mItem;
-
-        public string? Item => _mItem.GetValue("item");
+        private string? _mValue_Item;
+        private bool _mUnknown_Item;
+        public string? Item
+        {
+            get
+            {
+                if (!_mUnknown_Item) return _mValue_Item;
+                throw new UndeferrableValueException("Value 'TableItem.Item' is not present");
+            }
+        }
 
         /// <summary>
         /// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         /// </summary>
-        [Input("rangeKey")]
+        [PolicyResourceProperty("rangeKey", "_mUnknown_RangeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
-
-        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+        private string? _mValue_RangeKey;
+        private bool _mUnknown_RangeKey;
+        public string? RangeKey
+        {
+            get
+            {
+                if (!_mUnknown_RangeKey) return _mValue_RangeKey;
+                throw new UndeferrableValueException("Value 'TableItem.RangeKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table to contain the item.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'TableItem.TableName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/tableItem:TableItem")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Hash key to use for lookups and identification of the item
         /// </summary>
-        [Input("hashKey")]
+        [PolicyResourceProperty("hashKey", "_mUnknown_HashKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKey;
-
-        public string? HashKey => _mHashKey.GetValue("hashKey");
+        private string? _mValue_HashKey;
+        private bool _mUnknown_HashKey;
+        public string? HashKey
+        {
+            get
+            {
+                if (!_mUnknown_HashKey) return _mValue_HashKey;
+                throw new UndeferrableValueException("Value 'TableItemArgs.HashKey' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         /// </summary>
-        [Input("item")]
+        [PolicyResourceProperty("item", "_mUnknown_Item")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mItem;
-
-        public string? Item => _mItem.GetValue("item");
+        private string? _mValue_Item;
+        private bool _mUnknown_Item;
+        public string? Item
+        {
+            get
+            {
+                if (!_mUnknown_Item) return _mValue_Item;
+                throw new UndeferrableValueException("Value 'TableItemArgs.Item' is not present");
+            }
+        }
 
         /// <summary>
         /// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         /// </summary>
-        [Input("rangeKey")]
+        [PolicyResourceProperty("rangeKey", "_mUnknown_RangeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKey;
-
-        public string? RangeKey => _mRangeKey.GetValue("rangeKey");
+        private string? _mValue_RangeKey;
+        private bool _mUnknown_RangeKey;
+        public string? RangeKey
+        {
+            get
+            {
+                if (!_mUnknown_RangeKey) return _mValue_RangeKey;
+                throw new UndeferrableValueException("Value 'TableItemArgs.RangeKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table to contain the item.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'TableItemArgs.TableName' is not present");
+            }
+        }
     }
 }

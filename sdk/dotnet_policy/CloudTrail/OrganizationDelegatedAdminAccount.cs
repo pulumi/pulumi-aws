@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail
         /// <summary>
         /// An organization member account ID that you want to designate as a delegated administrator.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the delegated administrator's account.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address that is associated with the delegated administrator's AWS account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// The friendly name of the delegated administrator's account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS CloudTrail service principal name.
         /// </summary>
-        [Input("servicePrincipal")]
+        [PolicyResourceProperty("servicePrincipal", "_mUnknown_ServicePrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicePrincipal;
-
-        public string? ServicePrincipal => _mServicePrincipal.GetValue("servicePrincipal");
+        private string? _mValue_ServicePrincipal;
+        private bool _mUnknown_ServicePrincipal;
+        public string? ServicePrincipal
+        {
+            get
+            {
+                if (!_mUnknown_ServicePrincipal) return _mValue_ServicePrincipal;
+                throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.ServicePrincipal' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount")]
@@ -65,10 +100,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail
         /// <summary>
         /// An organization member account ID that you want to designate as a delegated administrator.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccountArgs.AccountId' is not present");
+            }
+        }
     }
 }

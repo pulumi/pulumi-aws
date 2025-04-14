@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// Configuration block for on demand instances launch specifications
         /// </summary>
-        [Input("onDemandSpecifications")]
+        [PolicyResourceProperty("onDemandSpecifications", "_mUnknown_OnDemandSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification>> _mOnDemandSpecifications;
-
-        public List<Outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification>? OnDemandSpecifications => _mOnDemandSpecifications.GetValue("onDemandSpecifications");
+        private List<Outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification>? _mValue_OnDemandSpecifications;
+        private bool _mUnknown_OnDemandSpecifications;
+        public List<Outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification>? OnDemandSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_OnDemandSpecifications) return _mValue_OnDemandSpecifications;
+                throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecifications.OnDemandSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for spot instances launch specifications
         /// </summary>
-        [Input("spotSpecifications")]
+        [PolicyResourceProperty("spotSpecifications", "_mUnknown_SpotSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InstanceFleetLaunchSpecificationsSpotSpecification>> _mSpotSpecifications;
-
-        public List<Outputs.InstanceFleetLaunchSpecificationsSpotSpecification>? SpotSpecifications => _mSpotSpecifications.GetValue("spotSpecifications");
+        private List<Outputs.InstanceFleetLaunchSpecificationsSpotSpecification>? _mValue_SpotSpecifications;
+        private bool _mUnknown_SpotSpecifications;
+        public List<Outputs.InstanceFleetLaunchSpecificationsSpotSpecification>? SpotSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_SpotSpecifications) return _mValue_SpotSpecifications;
+                throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecifications.SpotSpecifications' is not present");
+            }
+        }
     }
 }

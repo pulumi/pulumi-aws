@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DevOpsGuru.Inputs
         /// <summary>
         /// An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
         /// </summary>
-        [Input("appBoundaryKey")]
+        [PolicyResourceProperty("appBoundaryKey", "_mUnknown_AppBoundaryKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppBoundaryKey;
-
-        public string? AppBoundaryKey => _mAppBoundaryKey.GetValue("appBoundaryKey");
+        private string? _mValue_AppBoundaryKey;
+        private bool _mUnknown_AppBoundaryKey;
+        public string? AppBoundaryKey
+        {
+            get
+            {
+                if (!_mUnknown_AppBoundaryKey) return _mValue_AppBoundaryKey;
+                throw new UndeferrableValueException("Value 'GetResourceCollectionTagInputArgs.AppBoundaryKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Array of tag values.
         /// </summary>
-        [Input("tagValues")]
+        [PolicyResourceProperty("tagValues", "_mUnknown_TagValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTagValues;
-
-        public List<string>? TagValues => _mTagValues.GetValue("tagValues");
+        private List<string>? _mValue_TagValues;
+        private bool _mUnknown_TagValues;
+        public List<string>? TagValues
+        {
+            get
+            {
+                if (!_mUnknown_TagValues) return _mValue_TagValues;
+                throw new UndeferrableValueException("Value 'GetResourceCollectionTagInputArgs.TagValues' is not present");
+            }
+        }
     }
 }

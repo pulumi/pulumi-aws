@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
         /// </summary>
-        [Input("protocolPolicy")]
+        [PolicyResourceProperty("protocolPolicy", "_mUnknown_ProtocolPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocolPolicy;
-
-        public string? ProtocolPolicy => _mProtocolPolicy.GetValue("protocolPolicy");
+        private string? _mValue_ProtocolPolicy;
+        private bool _mUnknown_ProtocolPolicy;
+        public string? ProtocolPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ProtocolPolicy) return _mValue_ProtocolPolicy;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.ProtocolPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region name of the origin resource.
         /// </summary>
-        [Input("regionName")]
+        [PolicyResourceProperty("regionName", "_mUnknown_RegionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegionName;
-
-        public string? RegionName => _mRegionName.GetValue("regionName");
+        private string? _mValue_RegionName;
+        private bool _mUnknown_RegionName;
+        public string? RegionName
+        {
+            get
+            {
+                if (!_mUnknown_RegionName) return _mValue_RegionName;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.RegionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource type of the origin resource (e.g., Instance).
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.ResourceType' is not present");
+            }
+        }
     }
 }

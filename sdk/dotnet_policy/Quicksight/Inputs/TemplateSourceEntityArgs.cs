@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
         /// </summary>
-        [Input("sourceAnalysis")]
+        [PolicyResourceProperty("sourceAnalysis", "_mUnknown_SourceAnalysis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TemplateSourceEntitySourceAnalysisArgs> _mSourceAnalysis;
-
-        public Inputs.TemplateSourceEntitySourceAnalysisArgs? SourceAnalysis => _mSourceAnalysis.GetValue("sourceAnalysis");
+        private Inputs.TemplateSourceEntitySourceAnalysisArgs? _mValue_SourceAnalysis;
+        private bool _mUnknown_SourceAnalysis;
+        public Inputs.TemplateSourceEntitySourceAnalysisArgs? SourceAnalysis
+        {
+            get
+            {
+                if (!_mUnknown_SourceAnalysis) return _mValue_SourceAnalysis;
+                throw new UndeferrableValueException("Value 'TemplateSourceEntityArgs.SourceAnalysis' is not present");
+            }
+        }
 
         /// <summary>
         /// The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
         /// </summary>
-        [Input("sourceTemplate")]
+        [PolicyResourceProperty("sourceTemplate", "_mUnknown_SourceTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TemplateSourceEntitySourceTemplateArgs> _mSourceTemplate;
-
-        public Inputs.TemplateSourceEntitySourceTemplateArgs? SourceTemplate => _mSourceTemplate.GetValue("sourceTemplate");
+        private Inputs.TemplateSourceEntitySourceTemplateArgs? _mValue_SourceTemplate;
+        private bool _mUnknown_SourceTemplate;
+        public Inputs.TemplateSourceEntitySourceTemplateArgs? SourceTemplate
+        {
+            get
+            {
+                if (!_mUnknown_SourceTemplate) return _mValue_SourceTemplate;
+                throw new UndeferrableValueException("Value 'TemplateSourceEntityArgs.SourceTemplate' is not present");
+            }
+        }
     }
 }

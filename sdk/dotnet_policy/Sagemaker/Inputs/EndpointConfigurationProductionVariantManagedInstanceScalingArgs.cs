@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
         /// </summary>
-        [Input("maxInstanceCount")]
+        [PolicyResourceProperty("maxInstanceCount", "_mUnknown_MaxInstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxInstanceCount;
-
-        public int? MaxInstanceCount => _mMaxInstanceCount.GetValue("maxInstanceCount");
+        private int? _mValue_MaxInstanceCount;
+        private bool _mUnknown_MaxInstanceCount;
+        public int? MaxInstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_MaxInstanceCount) return _mValue_MaxInstanceCount;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantManagedInstanceScalingArgs.MaxInstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
         /// </summary>
-        [Input("minInstanceCount")]
+        [PolicyResourceProperty("minInstanceCount", "_mUnknown_MinInstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinInstanceCount;
-
-        public int? MinInstanceCount => _mMinInstanceCount.GetValue("minInstanceCount");
+        private int? _mValue_MinInstanceCount;
+        private bool _mUnknown_MinInstanceCount;
+        public int? MinInstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_MinInstanceCount) return _mValue_MinInstanceCount;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantManagedInstanceScalingArgs.MinInstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantManagedInstanceScalingArgs.Status' is not present");
+            }
+        }
     }
 }

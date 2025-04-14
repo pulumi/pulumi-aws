@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// The name of the port for a target group associated with the VPC Lattice configuration.
         /// </summary>
-        [Input("portName")]
+        [PolicyResourceProperty("portName", "_mUnknown_PortName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortName;
-
-        public string? PortName => _mPortName.GetValue("portName");
+        private string? _mValue_PortName;
+        private bool _mUnknown_PortName;
+        public string? PortName
+        {
+            get
+            {
+                if (!_mUnknown_PortName) return _mValue_PortName;
+                throw new UndeferrableValueException("Value 'ServiceVpcLatticeConfiguration.PortName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ServiceVpcLatticeConfiguration.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The full ARN of the target group or groups associated with the VPC Lattice configuration.
         /// </summary>
-        [Input("targetGroupArn")]
+        [PolicyResourceProperty("targetGroupArn", "_mUnknown_TargetGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupArn;
-
-        public string? TargetGroupArn => _mTargetGroupArn.GetValue("targetGroupArn");
+        private string? _mValue_TargetGroupArn;
+        private bool _mUnknown_TargetGroupArn;
+        public string? TargetGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupArn) return _mValue_TargetGroupArn;
+                throw new UndeferrableValueException("Value 'ServiceVpcLatticeConfiguration.TargetGroupArn' is not present");
+            }
+        }
     }
 }

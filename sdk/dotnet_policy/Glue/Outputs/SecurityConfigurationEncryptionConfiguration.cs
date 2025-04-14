@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
 {
     public sealed class SecurityConfigurationEncryptionConfiguration
     {
-        [Input("cloudwatchEncryption")]
+        [PolicyResourceProperty("cloudwatchEncryption", "_mUnknown_CloudwatchEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption> _mCloudwatchEncryption;
+        private Outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption? _mValue_CloudwatchEncryption;
+        private bool _mUnknown_CloudwatchEncryption;
+        public Outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption? CloudwatchEncryption
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchEncryption) return _mValue_CloudwatchEncryption;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfiguration.CloudwatchEncryption' is not present");
+            }
+        }
 
-        public Outputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryption? CloudwatchEncryption => _mCloudwatchEncryption.GetValue("cloudwatchEncryption");
-
-        [Input("jobBookmarksEncryption")]
+        [PolicyResourceProperty("jobBookmarksEncryption", "_mUnknown_JobBookmarksEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption> _mJobBookmarksEncryption;
-
-        public Outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption? JobBookmarksEncryption => _mJobBookmarksEncryption.GetValue("jobBookmarksEncryption");
+        private Outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption? _mValue_JobBookmarksEncryption;
+        private bool _mUnknown_JobBookmarksEncryption;
+        public Outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption? JobBookmarksEncryption
+        {
+            get
+            {
+                if (!_mUnknown_JobBookmarksEncryption) return _mValue_JobBookmarksEncryption;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfiguration.JobBookmarksEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
         /// </summary>
-        [Input("s3Encryption")]
+        [PolicyResourceProperty("s3Encryption", "_mUnknown_S3Encryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SecurityConfigurationEncryptionConfigurationS3Encryption> _mS3Encryption;
-
-        public Outputs.SecurityConfigurationEncryptionConfigurationS3Encryption? S3Encryption => _mS3Encryption.GetValue("s3Encryption");
+        private Outputs.SecurityConfigurationEncryptionConfigurationS3Encryption? _mValue_S3Encryption;
+        private bool _mUnknown_S3Encryption;
+        public Outputs.SecurityConfigurationEncryptionConfigurationS3Encryption? S3Encryption
+        {
+            get
+            {
+                if (!_mUnknown_S3Encryption) return _mValue_S3Encryption;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfiguration.S3Encryption' is not present");
+            }
+        }
     }
 }

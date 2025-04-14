@@ -15,154 +15,280 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// IP protocol assigned to this pool.
         /// </summary>
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         /// </summary>
-        [Input("allocationDefaultNetmaskLength")]
+        [PolicyResourceProperty("allocationDefaultNetmaskLength", "_mUnknown_AllocationDefaultNetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationDefaultNetmaskLength;
-
-        public int? AllocationDefaultNetmaskLength => _mAllocationDefaultNetmaskLength.GetValue("allocationDefaultNetmaskLength");
+        private int? _mValue_AllocationDefaultNetmaskLength;
+        private bool _mUnknown_AllocationDefaultNetmaskLength;
+        public int? AllocationDefaultNetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_AllocationDefaultNetmaskLength) return _mValue_AllocationDefaultNetmaskLength;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.AllocationDefaultNetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum netmask length that will be required for CIDR allocations in this pool.
         /// </summary>
-        [Input("allocationMaxNetmaskLength")]
+        [PolicyResourceProperty("allocationMaxNetmaskLength", "_mUnknown_AllocationMaxNetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationMaxNetmaskLength;
-
-        public int? AllocationMaxNetmaskLength => _mAllocationMaxNetmaskLength.GetValue("allocationMaxNetmaskLength");
+        private int? _mValue_AllocationMaxNetmaskLength;
+        private bool _mUnknown_AllocationMaxNetmaskLength;
+        public int? AllocationMaxNetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_AllocationMaxNetmaskLength) return _mValue_AllocationMaxNetmaskLength;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.AllocationMaxNetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum netmask length that will be required for CIDR allocations in this pool.
         /// </summary>
-        [Input("allocationMinNetmaskLength")]
+        [PolicyResourceProperty("allocationMinNetmaskLength", "_mUnknown_AllocationMinNetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocationMinNetmaskLength;
-
-        public int? AllocationMinNetmaskLength => _mAllocationMinNetmaskLength.GetValue("allocationMinNetmaskLength");
+        private int? _mValue_AllocationMinNetmaskLength;
+        private bool _mUnknown_AllocationMinNetmaskLength;
+        public int? AllocationMinNetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_AllocationMinNetmaskLength) return _mValue_AllocationMinNetmaskLength;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.AllocationMinNetmaskLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags that are required to create resources in using this pool.
         /// </summary>
-        [Input("allocationResourceTags")]
+        [PolicyResourceProperty("allocationResourceTags", "_mUnknown_AllocationResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAllocationResourceTags;
-
-        public Dictionary<string, string>? AllocationResourceTags => _mAllocationResourceTags.GetValue("allocationResourceTags");
+        private Dictionary<string, string>? _mValue_AllocationResourceTags;
+        private bool _mUnknown_AllocationResourceTags;
+        public Dictionary<string, string>? AllocationResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_AllocationResourceTags) return _mValue_AllocationResourceTags;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.AllocationResourceTags' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the pool
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
         /// </summary>
-        [Input("autoImport")]
+        [PolicyResourceProperty("autoImport", "_mUnknown_AutoImport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoImport;
-
-        public bool? AutoImport => _mAutoImport.GetValue("autoImport");
+        private bool? _mValue_AutoImport;
+        private bool _mUnknown_AutoImport;
+        public bool? AutoImport
+        {
+            get
+            {
+                if (!_mUnknown_AutoImport) return _mValue_AutoImport;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.AutoImport' is not present");
+            }
+        }
 
         /// <summary>
         /// Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
         /// </summary>
-        [Input("awsService")]
+        [PolicyResourceProperty("awsService", "_mUnknown_AwsService")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsService;
-
-        public string? AwsService => _mAwsService.GetValue("awsService");
+        private string? _mValue_AwsService;
+        private bool _mUnknown_AwsService;
+        public string? AwsService
+        {
+            get
+            {
+                if (!_mUnknown_AwsService) return _mValue_AwsService;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.AwsService' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the IPAM pool.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the IPAM pool.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the scope the pool belongs to.
         /// </summary>
-        [Input("ipamScopeId")]
+        [PolicyResourceProperty("ipamScopeId", "_mUnknown_IpamScopeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamScopeId;
+        private string? _mValue_IpamScopeId;
+        private bool _mUnknown_IpamScopeId;
+        public string? IpamScopeId
+        {
+            get
+            {
+                if (!_mUnknown_IpamScopeId) return _mValue_IpamScopeId;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.IpamScopeId' is not present");
+            }
+        }
 
-        public string? IpamScopeId => _mIpamScopeId.GetValue("ipamScopeId");
-
-        [Input("ipamScopeType")]
+        [PolicyResourceProperty("ipamScopeType", "_mUnknown_IpamScopeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamScopeType;
-
-        public string? IpamScopeType => _mIpamScopeType.GetValue("ipamScopeType");
+        private string? _mValue_IpamScopeType;
+        private bool _mUnknown_IpamScopeType;
+        public string? IpamScopeType
+        {
+            get
+            {
+                if (!_mUnknown_IpamScopeType) return _mValue_IpamScopeType;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.IpamScopeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
         /// </summary>
-        [Input("locale")]
+        [PolicyResourceProperty("locale", "_mUnknown_Locale")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocale;
+        private string? _mValue_Locale;
+        private bool _mUnknown_Locale;
+        public string? Locale
+        {
+            get
+            {
+                if (!_mUnknown_Locale) return _mValue_Locale;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.Locale' is not present");
+            }
+        }
 
-        public string? Locale => _mLocale.GetValue("locale");
-
-        [Input("poolDepth")]
+        [PolicyResourceProperty("poolDepth", "_mUnknown_PoolDepth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPoolDepth;
-
-        public int? PoolDepth => _mPoolDepth.GetValue("poolDepth");
+        private int? _mValue_PoolDepth;
+        private bool _mUnknown_PoolDepth;
+        public int? PoolDepth
+        {
+            get
+            {
+                if (!_mUnknown_PoolDepth) return _mValue_PoolDepth;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.PoolDepth' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
         /// </summary>
-        [Input("publiclyAdvertisable")]
+        [PolicyResourceProperty("publiclyAdvertisable", "_mUnknown_PubliclyAdvertisable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAdvertisable;
-
-        public bool? PubliclyAdvertisable => _mPubliclyAdvertisable.GetValue("publiclyAdvertisable");
+        private bool? _mValue_PubliclyAdvertisable;
+        private bool _mUnknown_PubliclyAdvertisable;
+        public bool? PubliclyAdvertisable
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAdvertisable) return _mValue_PubliclyAdvertisable;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.PubliclyAdvertisable' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the source IPAM pool.
         /// </summary>
-        [Input("sourceIpamPoolId")]
+        [PolicyResourceProperty("sourceIpamPoolId", "_mUnknown_SourceIpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceIpamPoolId;
+        private string? _mValue_SourceIpamPoolId;
+        private bool _mUnknown_SourceIpamPoolId;
+        public string? SourceIpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_SourceIpamPoolId) return _mValue_SourceIpamPoolId;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.SourceIpamPoolId' is not present");
+            }
+        }
 
-        public string? SourceIpamPoolId => _mSourceIpamPoolId.GetValue("sourceIpamPoolId");
-
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assigned to the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GetVpcIpamPoolsIpamPoolResult.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchArgs> _mFieldToMatch;
-
-        public Inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchArgs? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchArgs? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Inputs.WebAclRuleStatementRegexMatchStatementFieldToMatchArgs? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRegexMatchStatementArgs.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
         /// </summary>
-        [Input("regexString")]
+        [PolicyResourceProperty("regexString", "_mUnknown_RegexString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegexString;
-
-        public string? RegexString => _mRegexString.GetValue("regexString");
+        private string? _mValue_RegexString;
+        private bool _mUnknown_RegexString;
+        public string? RegexString
+        {
+            get
+            {
+                if (!_mUnknown_RegexString) return _mValue_RegexString;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRegexMatchStatementArgs.RegexString' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         /// </summary>
-        [Input("textTransformations")]
+        [PolicyResourceProperty("textTransformations", "_mUnknown_TextTransformations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleStatementRegexMatchStatementTextTransformationArgs>> _mTextTransformations;
-
-        public List<Inputs.WebAclRuleStatementRegexMatchStatementTextTransformationArgs>? TextTransformations => _mTextTransformations.GetValue("textTransformations");
+        private List<Inputs.WebAclRuleStatementRegexMatchStatementTextTransformationArgs>? _mValue_TextTransformations;
+        private bool _mUnknown_TextTransformations;
+        public List<Inputs.WebAclRuleStatementRegexMatchStatementTextTransformationArgs>? TextTransformations
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformations) return _mValue_TextTransformations;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementRegexMatchStatementArgs.TextTransformations' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'CostAllocationTag.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The key for the cost allocation tag.
         /// </summary>
-        [Input("tagKey")]
+        [PolicyResourceProperty("tagKey", "_mUnknown_TagKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagKey;
-
-        public string? TagKey => _mTagKey.GetValue("tagKey");
+        private string? _mValue_TagKey;
+        private bool _mUnknown_TagKey;
+        public string? TagKey
+        {
+            get
+            {
+                if (!_mUnknown_TagKey) return _mValue_TagKey;
+                throw new UndeferrableValueException("Value 'CostAllocationTag.TagKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of cost allocation tag.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'CostAllocationTag.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:costexplorer/costAllocationTag:CostAllocationTag")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer
         /// <summary>
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'CostAllocationTagArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The key for the cost allocation tag.
         /// </summary>
-        [Input("tagKey")]
+        [PolicyResourceProperty("tagKey", "_mUnknown_TagKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagKey;
-
-        public string? TagKey => _mTagKey.GetValue("tagKey");
+        private string? _mValue_TagKey;
+        private bool _mUnknown_TagKey;
+        public string? TagKey
+        {
+            get
+            {
+                if (!_mUnknown_TagKey) return _mValue_TagKey;
+                throw new UndeferrableValueException("Value 'CostAllocationTagArgs.TagKey' is not present");
+            }
+        }
     }
 }

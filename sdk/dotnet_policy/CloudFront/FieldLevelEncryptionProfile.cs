@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The Field Level Encryption Profile ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
         /// </summary>
-        [Input("callerReference")]
+        [PolicyResourceProperty("callerReference", "_mUnknown_CallerReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCallerReference;
-
-        public string? CallerReference => _mCallerReference.GetValue("callerReference");
+        private string? _mValue_CallerReference;
+        private bool _mUnknown_CallerReference;
+        public string? CallerReference
+        {
+            get
+            {
+                if (!_mUnknown_CallerReference) return _mValue_CallerReference;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.CallerReference' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional comment about the Field Level Encryption Profile.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         /// </summary>
-        [Input("encryptionEntities")]
+        [PolicyResourceProperty("encryptionEntities", "_mUnknown_EncryptionEntities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FieldLevelEncryptionProfileEncryptionEntities> _mEncryptionEntities;
-
-        public Outputs.FieldLevelEncryptionProfileEncryptionEntities? EncryptionEntities => _mEncryptionEntities.GetValue("encryptionEntities");
+        private Outputs.FieldLevelEncryptionProfileEncryptionEntities? _mValue_EncryptionEntities;
+        private bool _mUnknown_EncryptionEntities;
+        public Outputs.FieldLevelEncryptionProfileEncryptionEntities? EncryptionEntities
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionEntities) return _mValue_EncryptionEntities;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.EncryptionEntities' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Field Level Encryption Profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// An optional comment about the Field Level Encryption Profile.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         /// </summary>
-        [Input("encryptionEntities")]
+        [PolicyResourceProperty("encryptionEntities", "_mUnknown_EncryptionEntities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs> _mEncryptionEntities;
-
-        public Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs? EncryptionEntities => _mEncryptionEntities.GetValue("encryptionEntities");
+        private Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs? _mValue_EncryptionEntities;
+        private bool _mUnknown_EncryptionEntities;
+        public Inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs? EncryptionEntities
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionEntities) return _mValue_EncryptionEntities;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileArgs.EncryptionEntities' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Field Level Encryption Profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileArgs.Name' is not present");
+            }
+        }
     }
 }

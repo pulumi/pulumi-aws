@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings
     {
-        [Input("outputSdt")]
+        [PolicyResourceProperty("outputSdt", "_mUnknown_OutputSdt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputSdt;
+        private string? _mValue_OutputSdt;
+        private bool _mUnknown_OutputSdt;
+        public string? OutputSdt
+        {
+            get
+            {
+                if (!_mUnknown_OutputSdt) return _mValue_OutputSdt;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.OutputSdt' is not present");
+            }
+        }
 
-        public string? OutputSdt => _mOutputSdt.GetValue("outputSdt");
-
-        [Input("repInterval")]
+        [PolicyResourceProperty("repInterval", "_mUnknown_RepInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRepInterval;
+        private int? _mValue_RepInterval;
+        private bool _mUnknown_RepInterval;
+        public int? RepInterval
+        {
+            get
+            {
+                if (!_mUnknown_RepInterval) return _mValue_RepInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.RepInterval' is not present");
+            }
+        }
 
-        public int? RepInterval => _mRepInterval.GetValue("repInterval");
-
-        [Input("serviceName")]
+        [PolicyResourceProperty("serviceName", "_mUnknown_ServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceName;
+        private string? _mValue_ServiceName;
+        private bool _mUnknown_ServiceName;
+        public string? ServiceName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceName) return _mValue_ServiceName;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.ServiceName' is not present");
+            }
+        }
 
-        public string? ServiceName => _mServiceName.GetValue("serviceName");
-
-        [Input("serviceProviderName")]
+        [PolicyResourceProperty("serviceProviderName", "_mUnknown_ServiceProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceProviderName;
-
-        public string? ServiceProviderName => _mServiceProviderName.GetValue("serviceProviderName");
+        private string? _mValue_ServiceProviderName;
+        private bool _mUnknown_ServiceProviderName;
+        public string? ServiceProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceProviderName) return _mValue_ServiceProviderName;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.ServiceProviderName' is not present");
+            }
+        }
     }
 }

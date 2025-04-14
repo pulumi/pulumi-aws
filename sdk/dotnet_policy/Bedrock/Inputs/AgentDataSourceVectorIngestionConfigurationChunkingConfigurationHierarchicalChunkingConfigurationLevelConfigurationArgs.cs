@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// The maximum number of tokens that a chunk can contain in this layer.
         /// </summary>
-        [Input("maxTokens")]
+        [PolicyResourceProperty("maxTokens", "_mUnknown_MaxTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTokens;
-
-        public int? MaxTokens => _mMaxTokens.GetValue("maxTokens");
+        private int? _mValue_MaxTokens;
+        private bool _mUnknown_MaxTokens;
+        public int? MaxTokens
+        {
+            get
+            {
+                if (!_mUnknown_MaxTokens) return _mValue_MaxTokens;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs.MaxTokens' is not present");
+            }
+        }
     }
 }

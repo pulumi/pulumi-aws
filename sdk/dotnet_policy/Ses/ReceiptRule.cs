@@ -16,137 +16,242 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// A list of Add Header Action blocks. Documented below.
         /// </summary>
-        [Input("addHeaderActions")]
+        [PolicyResourceProperty("addHeaderActions", "_mUnknown_AddHeaderActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleAddHeaderAction>> _mAddHeaderActions;
-
-        public List<Outputs.ReceiptRuleAddHeaderAction>? AddHeaderActions => _mAddHeaderActions.GetValue("addHeaderActions");
+        private List<Outputs.ReceiptRuleAddHeaderAction>? _mValue_AddHeaderActions;
+        private bool _mUnknown_AddHeaderActions;
+        public List<Outputs.ReceiptRuleAddHeaderAction>? AddHeaderActions
+        {
+            get
+            {
+                if (!_mUnknown_AddHeaderActions) return _mValue_AddHeaderActions;
+                throw new UndeferrableValueException("Value 'ReceiptRule.AddHeaderActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule to place this rule after
         /// </summary>
-        [Input("after")]
+        [PolicyResourceProperty("after", "_mUnknown_After")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAfter;
-
-        public string? After => _mAfter.GetValue("after");
+        private string? _mValue_After;
+        private bool _mUnknown_After;
+        public string? After
+        {
+            get
+            {
+                if (!_mUnknown_After) return _mValue_After;
+                throw new UndeferrableValueException("Value 'ReceiptRule.After' is not present");
+            }
+        }
 
         /// <summary>
         /// The SES receipt rule ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReceiptRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Bounce Action blocks. Documented below.
         /// </summary>
-        [Input("bounceActions")]
+        [PolicyResourceProperty("bounceActions", "_mUnknown_BounceActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleBounceAction>> _mBounceActions;
-
-        public List<Outputs.ReceiptRuleBounceAction>? BounceActions => _mBounceActions.GetValue("bounceActions");
+        private List<Outputs.ReceiptRuleBounceAction>? _mValue_BounceActions;
+        private bool _mUnknown_BounceActions;
+        public List<Outputs.ReceiptRuleBounceAction>? BounceActions
+        {
+            get
+            {
+                if (!_mUnknown_BounceActions) return _mValue_BounceActions;
+                throw new UndeferrableValueException("Value 'ReceiptRule.BounceActions' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the rule will be enabled
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ReceiptRule.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Lambda Action blocks. Documented below.
         /// </summary>
-        [Input("lambdaActions")]
+        [PolicyResourceProperty("lambdaActions", "_mUnknown_LambdaActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleLambdaAction>> _mLambdaActions;
-
-        public List<Outputs.ReceiptRuleLambdaAction>? LambdaActions => _mLambdaActions.GetValue("lambdaActions");
+        private List<Outputs.ReceiptRuleLambdaAction>? _mValue_LambdaActions;
+        private bool _mUnknown_LambdaActions;
+        public List<Outputs.ReceiptRuleLambdaAction>? LambdaActions
+        {
+            get
+            {
+                if (!_mUnknown_LambdaActions) return _mValue_LambdaActions;
+                throw new UndeferrableValueException("Value 'ReceiptRule.LambdaActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReceiptRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of email addresses
         /// </summary>
-        [Input("recipients")]
+        [PolicyResourceProperty("recipients", "_mUnknown_Recipients")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecipients;
-
-        public List<string>? Recipients => _mRecipients.GetValue("recipients");
+        private List<string>? _mValue_Recipients;
+        private bool _mUnknown_Recipients;
+        public List<string>? Recipients
+        {
+            get
+            {
+                if (!_mUnknown_Recipients) return _mValue_Recipients;
+                throw new UndeferrableValueException("Value 'ReceiptRule.Recipients' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule set
         /// </summary>
-        [Input("ruleSetName")]
+        [PolicyResourceProperty("ruleSetName", "_mUnknown_RuleSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
-
-        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
+        private string? _mValue_RuleSetName;
+        private bool _mUnknown_RuleSetName;
+        public string? RuleSetName
+        {
+            get
+            {
+                if (!_mUnknown_RuleSetName) return _mValue_RuleSetName;
+                throw new UndeferrableValueException("Value 'ReceiptRule.RuleSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of S3 Action blocks. Documented below.
         /// </summary>
-        [Input("s3Actions")]
+        [PolicyResourceProperty("s3Actions", "_mUnknown_S3Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleS3Action>> _mS3Actions;
-
-        public List<Outputs.ReceiptRuleS3Action>? S3Actions => _mS3Actions.GetValue("s3Actions");
+        private List<Outputs.ReceiptRuleS3Action>? _mValue_S3Actions;
+        private bool _mUnknown_S3Actions;
+        public List<Outputs.ReceiptRuleS3Action>? S3Actions
+        {
+            get
+            {
+                if (!_mUnknown_S3Actions) return _mValue_S3Actions;
+                throw new UndeferrableValueException("Value 'ReceiptRule.S3Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, incoming emails will be scanned for spam and viruses
         /// </summary>
-        [Input("scanEnabled")]
+        [PolicyResourceProperty("scanEnabled", "_mUnknown_ScanEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mScanEnabled;
-
-        public bool? ScanEnabled => _mScanEnabled.GetValue("scanEnabled");
+        private bool? _mValue_ScanEnabled;
+        private bool _mUnknown_ScanEnabled;
+        public bool? ScanEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ScanEnabled) return _mValue_ScanEnabled;
+                throw new UndeferrableValueException("Value 'ReceiptRule.ScanEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of SNS Action blocks. Documented below.
         /// </summary>
-        [Input("snsActions")]
+        [PolicyResourceProperty("snsActions", "_mUnknown_SnsActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleSnsAction>> _mSnsActions;
-
-        public List<Outputs.ReceiptRuleSnsAction>? SnsActions => _mSnsActions.GetValue("snsActions");
+        private List<Outputs.ReceiptRuleSnsAction>? _mValue_SnsActions;
+        private bool _mUnknown_SnsActions;
+        public List<Outputs.ReceiptRuleSnsAction>? SnsActions
+        {
+            get
+            {
+                if (!_mUnknown_SnsActions) return _mValue_SnsActions;
+                throw new UndeferrableValueException("Value 'ReceiptRule.SnsActions' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Stop Action blocks. Documented below.
         /// </summary>
-        [Input("stopActions")]
+        [PolicyResourceProperty("stopActions", "_mUnknown_StopActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleStopAction>> _mStopActions;
-
-        public List<Outputs.ReceiptRuleStopAction>? StopActions => _mStopActions.GetValue("stopActions");
+        private List<Outputs.ReceiptRuleStopAction>? _mValue_StopActions;
+        private bool _mUnknown_StopActions;
+        public List<Outputs.ReceiptRuleStopAction>? StopActions
+        {
+            get
+            {
+                if (!_mUnknown_StopActions) return _mValue_StopActions;
+                throw new UndeferrableValueException("Value 'ReceiptRule.StopActions' is not present");
+            }
+        }
 
         /// <summary>
         /// `Require` or `Optional`
         /// </summary>
-        [Input("tlsPolicy")]
+        [PolicyResourceProperty("tlsPolicy", "_mUnknown_TlsPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsPolicy;
-
-        public string? TlsPolicy => _mTlsPolicy.GetValue("tlsPolicy");
+        private string? _mValue_TlsPolicy;
+        private bool _mUnknown_TlsPolicy;
+        public string? TlsPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TlsPolicy) return _mValue_TlsPolicy;
+                throw new UndeferrableValueException("Value 'ReceiptRule.TlsPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of WorkMail Action blocks. Documented below.
         /// </summary>
-        [Input("workmailActions")]
+        [PolicyResourceProperty("workmailActions", "_mUnknown_WorkmailActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReceiptRuleWorkmailAction>> _mWorkmailActions;
-
-        public List<Outputs.ReceiptRuleWorkmailAction>? WorkmailActions => _mWorkmailActions.GetValue("workmailActions");
+        private List<Outputs.ReceiptRuleWorkmailAction>? _mValue_WorkmailActions;
+        private bool _mUnknown_WorkmailActions;
+        public List<Outputs.ReceiptRuleWorkmailAction>? WorkmailActions
+        {
+            get
+            {
+                if (!_mUnknown_WorkmailActions) return _mValue_WorkmailActions;
+                throw new UndeferrableValueException("Value 'ReceiptRule.WorkmailActions' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/receiptRule:ReceiptRule")]
@@ -155,127 +260,225 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// A list of Add Header Action blocks. Documented below.
         /// </summary>
-        [Input("addHeaderActions")]
+        [PolicyResourceProperty("addHeaderActions", "_mUnknown_AddHeaderActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleAddHeaderActionArgs>> _mAddHeaderActions;
-
-        public List<Inputs.ReceiptRuleAddHeaderActionArgs>? AddHeaderActions => _mAddHeaderActions.GetValue("addHeaderActions");
+        private List<Inputs.ReceiptRuleAddHeaderActionArgs>? _mValue_AddHeaderActions;
+        private bool _mUnknown_AddHeaderActions;
+        public List<Inputs.ReceiptRuleAddHeaderActionArgs>? AddHeaderActions
+        {
+            get
+            {
+                if (!_mUnknown_AddHeaderActions) return _mValue_AddHeaderActions;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.AddHeaderActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule to place this rule after
         /// </summary>
-        [Input("after")]
+        [PolicyResourceProperty("after", "_mUnknown_After")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAfter;
-
-        public string? After => _mAfter.GetValue("after");
+        private string? _mValue_After;
+        private bool _mUnknown_After;
+        public string? After
+        {
+            get
+            {
+                if (!_mUnknown_After) return _mValue_After;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.After' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Bounce Action blocks. Documented below.
         /// </summary>
-        [Input("bounceActions")]
+        [PolicyResourceProperty("bounceActions", "_mUnknown_BounceActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleBounceActionArgs>> _mBounceActions;
-
-        public List<Inputs.ReceiptRuleBounceActionArgs>? BounceActions => _mBounceActions.GetValue("bounceActions");
+        private List<Inputs.ReceiptRuleBounceActionArgs>? _mValue_BounceActions;
+        private bool _mUnknown_BounceActions;
+        public List<Inputs.ReceiptRuleBounceActionArgs>? BounceActions
+        {
+            get
+            {
+                if (!_mUnknown_BounceActions) return _mValue_BounceActions;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.BounceActions' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, the rule will be enabled
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Lambda Action blocks. Documented below.
         /// </summary>
-        [Input("lambdaActions")]
+        [PolicyResourceProperty("lambdaActions", "_mUnknown_LambdaActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleLambdaActionArgs>> _mLambdaActions;
-
-        public List<Inputs.ReceiptRuleLambdaActionArgs>? LambdaActions => _mLambdaActions.GetValue("lambdaActions");
+        private List<Inputs.ReceiptRuleLambdaActionArgs>? _mValue_LambdaActions;
+        private bool _mUnknown_LambdaActions;
+        public List<Inputs.ReceiptRuleLambdaActionArgs>? LambdaActions
+        {
+            get
+            {
+                if (!_mUnknown_LambdaActions) return _mValue_LambdaActions;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.LambdaActions' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of email addresses
         /// </summary>
-        [Input("recipients")]
+        [PolicyResourceProperty("recipients", "_mUnknown_Recipients")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRecipients;
-
-        public List<string>? Recipients => _mRecipients.GetValue("recipients");
+        private List<string>? _mValue_Recipients;
+        private bool _mUnknown_Recipients;
+        public List<string>? Recipients
+        {
+            get
+            {
+                if (!_mUnknown_Recipients) return _mValue_Recipients;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.Recipients' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule set
         /// </summary>
-        [Input("ruleSetName")]
+        [PolicyResourceProperty("ruleSetName", "_mUnknown_RuleSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleSetName;
-
-        public string? RuleSetName => _mRuleSetName.GetValue("ruleSetName");
+        private string? _mValue_RuleSetName;
+        private bool _mUnknown_RuleSetName;
+        public string? RuleSetName
+        {
+            get
+            {
+                if (!_mUnknown_RuleSetName) return _mValue_RuleSetName;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.RuleSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of S3 Action blocks. Documented below.
         /// </summary>
-        [Input("s3Actions")]
+        [PolicyResourceProperty("s3Actions", "_mUnknown_S3Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleS3ActionArgs>> _mS3Actions;
-
-        public List<Inputs.ReceiptRuleS3ActionArgs>? S3Actions => _mS3Actions.GetValue("s3Actions");
+        private List<Inputs.ReceiptRuleS3ActionArgs>? _mValue_S3Actions;
+        private bool _mUnknown_S3Actions;
+        public List<Inputs.ReceiptRuleS3ActionArgs>? S3Actions
+        {
+            get
+            {
+                if (!_mUnknown_S3Actions) return _mValue_S3Actions;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.S3Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// If true, incoming emails will be scanned for spam and viruses
         /// </summary>
-        [Input("scanEnabled")]
+        [PolicyResourceProperty("scanEnabled", "_mUnknown_ScanEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mScanEnabled;
-
-        public bool? ScanEnabled => _mScanEnabled.GetValue("scanEnabled");
+        private bool? _mValue_ScanEnabled;
+        private bool _mUnknown_ScanEnabled;
+        public bool? ScanEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ScanEnabled) return _mValue_ScanEnabled;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.ScanEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of SNS Action blocks. Documented below.
         /// </summary>
-        [Input("snsActions")]
+        [PolicyResourceProperty("snsActions", "_mUnknown_SnsActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleSnsActionArgs>> _mSnsActions;
-
-        public List<Inputs.ReceiptRuleSnsActionArgs>? SnsActions => _mSnsActions.GetValue("snsActions");
+        private List<Inputs.ReceiptRuleSnsActionArgs>? _mValue_SnsActions;
+        private bool _mUnknown_SnsActions;
+        public List<Inputs.ReceiptRuleSnsActionArgs>? SnsActions
+        {
+            get
+            {
+                if (!_mUnknown_SnsActions) return _mValue_SnsActions;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.SnsActions' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Stop Action blocks. Documented below.
         /// </summary>
-        [Input("stopActions")]
+        [PolicyResourceProperty("stopActions", "_mUnknown_StopActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleStopActionArgs>> _mStopActions;
-
-        public List<Inputs.ReceiptRuleStopActionArgs>? StopActions => _mStopActions.GetValue("stopActions");
+        private List<Inputs.ReceiptRuleStopActionArgs>? _mValue_StopActions;
+        private bool _mUnknown_StopActions;
+        public List<Inputs.ReceiptRuleStopActionArgs>? StopActions
+        {
+            get
+            {
+                if (!_mUnknown_StopActions) return _mValue_StopActions;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.StopActions' is not present");
+            }
+        }
 
         /// <summary>
         /// `Require` or `Optional`
         /// </summary>
-        [Input("tlsPolicy")]
+        [PolicyResourceProperty("tlsPolicy", "_mUnknown_TlsPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsPolicy;
-
-        public string? TlsPolicy => _mTlsPolicy.GetValue("tlsPolicy");
+        private string? _mValue_TlsPolicy;
+        private bool _mUnknown_TlsPolicy;
+        public string? TlsPolicy
+        {
+            get
+            {
+                if (!_mUnknown_TlsPolicy) return _mValue_TlsPolicy;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.TlsPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of WorkMail Action blocks. Documented below.
         /// </summary>
-        [Input("workmailActions")]
+        [PolicyResourceProperty("workmailActions", "_mUnknown_WorkmailActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReceiptRuleWorkmailActionArgs>> _mWorkmailActions;
-
-        public List<Inputs.ReceiptRuleWorkmailActionArgs>? WorkmailActions => _mWorkmailActions.GetValue("workmailActions");
+        private List<Inputs.ReceiptRuleWorkmailActionArgs>? _mValue_WorkmailActions;
+        private bool _mUnknown_WorkmailActions;
+        public List<Inputs.ReceiptRuleWorkmailActionArgs>? WorkmailActions
+        {
+            get
+            {
+                if (!_mUnknown_WorkmailActions) return _mValue_WorkmailActions;
+                throw new UndeferrableValueException("Value 'ReceiptRuleArgs.WorkmailActions' is not present");
+            }
+        }
     }
 }

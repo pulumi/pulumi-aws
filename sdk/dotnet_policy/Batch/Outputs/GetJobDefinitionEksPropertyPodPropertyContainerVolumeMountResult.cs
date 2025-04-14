@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The path on the container where the volume is mounted.
         /// </summary>
-        [Input("mountPath")]
+        [PolicyResourceProperty("mountPath", "_mUnknown_MountPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountPath;
-
-        public string? MountPath => _mMountPath.GetValue("mountPath");
+        private string? _mValue_MountPath;
+        private bool _mUnknown_MountPath;
+        public string? MountPath
+        {
+            get
+            {
+                if (!_mUnknown_MountPath) return _mValue_MountPath;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountResult.MountPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// If this value is true, the container has read-only access to the volume.
         /// </summary>
-        [Input("readOnly")]
+        [PolicyResourceProperty("readOnly", "_mUnknown_ReadOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReadOnly;
-
-        public bool? ReadOnly => _mReadOnly.GetValue("readOnly");
+        private bool? _mValue_ReadOnly;
+        private bool _mUnknown_ReadOnly;
+        public bool? ReadOnly
+        {
+            get
+            {
+                if (!_mUnknown_ReadOnly) return _mValue_ReadOnly;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountResult.ReadOnly' is not present");
+            }
+        }
     }
 }

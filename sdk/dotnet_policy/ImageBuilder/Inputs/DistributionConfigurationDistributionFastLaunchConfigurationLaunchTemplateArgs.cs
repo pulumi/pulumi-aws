@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// The ID of the launch template to use for faster launching for a Windows AMI.
         /// </summary>
-        [Input("launchTemplateId")]
+        [PolicyResourceProperty("launchTemplateId", "_mUnknown_LaunchTemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchTemplateId;
-
-        public string? LaunchTemplateId => _mLaunchTemplateId.GetValue("launchTemplateId");
+        private string? _mValue_LaunchTemplateId;
+        private bool _mUnknown_LaunchTemplateId;
+        public string? LaunchTemplateId
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateId) return _mValue_LaunchTemplateId;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs.LaunchTemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the launch template to use for faster launching for a Windows AMI.
         /// </summary>
-        [Input("launchTemplateName")]
+        [PolicyResourceProperty("launchTemplateName", "_mUnknown_LaunchTemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchTemplateName;
-
-        public string? LaunchTemplateName => _mLaunchTemplateName.GetValue("launchTemplateName");
+        private string? _mValue_LaunchTemplateName;
+        private bool _mUnknown_LaunchTemplateName;
+        public string? LaunchTemplateName
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateName) return _mValue_LaunchTemplateName;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs.LaunchTemplateName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the launch template to use for faster launching for a Windows AMI.
         /// </summary>
-        [Input("launchTemplateVersion")]
+        [PolicyResourceProperty("launchTemplateVersion", "_mUnknown_LaunchTemplateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchTemplateVersion;
-
-        public string? LaunchTemplateVersion => _mLaunchTemplateVersion.GetValue("launchTemplateVersion");
+        private string? _mValue_LaunchTemplateVersion;
+        private bool _mUnknown_LaunchTemplateVersion;
+        public string? LaunchTemplateVersion
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateVersion) return _mValue_LaunchTemplateVersion;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs.LaunchTemplateVersion' is not present");
+            }
+        }
     }
 }

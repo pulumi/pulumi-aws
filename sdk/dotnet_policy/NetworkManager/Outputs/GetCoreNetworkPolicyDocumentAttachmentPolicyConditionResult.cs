@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// string value
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
         /// </summary>
-        [Input("operator")]
+        [PolicyResourceProperty("operator", "_mUnknown_Operator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperator;
-
-        public string? Operator => _mOperator.GetValue("operator");
+        private string? _mValue_Operator;
+        private bool _mUnknown_Operator;
+        public string? Operator
+        {
+            get
+            {
+                if (!_mUnknown_Operator) return _mValue_Operator;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult.Operator' is not present");
+            }
+        }
 
         /// <summary>
         /// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// string value
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult.Value' is not present");
+            }
+        }
     }
 }

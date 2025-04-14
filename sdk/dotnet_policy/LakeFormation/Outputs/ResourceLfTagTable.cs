@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'ResourceLfTagTable.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database for the table. Unique to a Data Catalog.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'ResourceLfTagTable.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the table.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResourceLfTagTable.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use a wildcard representing every table under a database. Defaults to `false`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("wildcard")]
+        [PolicyResourceProperty("wildcard", "_mUnknown_Wildcard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWildcard;
-
-        public bool? Wildcard => _mWildcard.GetValue("wildcard");
+        private bool? _mValue_Wildcard;
+        private bool _mUnknown_Wildcard;
+        public bool? Wildcard
+        {
+            get
+            {
+                if (!_mUnknown_Wildcard) return _mValue_Wildcard;
+                throw new UndeferrableValueException("Value 'ResourceLfTagTable.Wildcard' is not present");
+            }
+        }
     }
 }

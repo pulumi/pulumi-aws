@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
 {
     public sealed class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction
     {
-        [Input("eventAction")]
+        [PolicyResourceProperty("eventAction", "_mUnknown_EventAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventAction;
-
-        public string? EventAction => _mEventAction.GetValue("eventAction");
+        private string? _mValue_EventAction;
+        private bool _mUnknown_EventAction;
+        public string? EventAction
+        {
+            get
+            {
+                if (!_mUnknown_EventAction) return _mValue_EventAction;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction.EventAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to send a notification.
         /// </summary>
-        [Input("notify")]
+        [PolicyResourceProperty("notify", "_mUnknown_Notify")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNotify;
-
-        public bool? Notify => _mNotify.GetValue("notify");
+        private bool? _mValue_Notify;
+        private bool _mUnknown_Notify;
+        public bool? Notify
+        {
+            get
+            {
+                if (!_mUnknown_Notify) return _mValue_Notify;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction.Notify' is not present");
+            }
+        }
     }
 }

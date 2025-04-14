@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfiguration.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
         /// </summary>
-        [Input("vectorKnowledgeBaseConfiguration")]
+        [PolicyResourceProperty("vectorKnowledgeBaseConfiguration", "_mUnknown_VectorKnowledgeBaseConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration> _mVectorKnowledgeBaseConfiguration;
-
-        public Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? VectorKnowledgeBaseConfiguration => _mVectorKnowledgeBaseConfiguration.GetValue("vectorKnowledgeBaseConfiguration");
+        private Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? _mValue_VectorKnowledgeBaseConfiguration;
+        private bool _mUnknown_VectorKnowledgeBaseConfiguration;
+        public Outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfiguration? VectorKnowledgeBaseConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VectorKnowledgeBaseConfiguration) return _mValue_VectorKnowledgeBaseConfiguration;
+                throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfiguration.VectorKnowledgeBaseConfiguration' is not present");
+            }
+        }
     }
 }

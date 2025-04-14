@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness.Outputs
         /// <summary>
         /// NLB resource ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResourceNlbResource.Arn' is not present");
+            }
+        }
     }
 }

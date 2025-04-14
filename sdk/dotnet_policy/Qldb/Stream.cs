@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Qldb
         /// <summary>
         /// The ARN of the QLDB Stream.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Stream.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         /// </summary>
-        [Input("exclusiveEndTime")]
+        [PolicyResourceProperty("exclusiveEndTime", "_mUnknown_ExclusiveEndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExclusiveEndTime;
-
-        public string? ExclusiveEndTime => _mExclusiveEndTime.GetValue("exclusiveEndTime");
+        private string? _mValue_ExclusiveEndTime;
+        private bool _mUnknown_ExclusiveEndTime;
+        public string? ExclusiveEndTime
+        {
+            get
+            {
+                if (!_mUnknown_ExclusiveEndTime) return _mValue_ExclusiveEndTime;
+                throw new UndeferrableValueException("Value 'Stream.ExclusiveEndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         /// </summary>
-        [Input("inclusiveStartTime")]
+        [PolicyResourceProperty("inclusiveStartTime", "_mUnknown_InclusiveStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInclusiveStartTime;
-
-        public string? InclusiveStartTime => _mInclusiveStartTime.GetValue("inclusiveStartTime");
+        private string? _mValue_InclusiveStartTime;
+        private bool _mUnknown_InclusiveStartTime;
+        public string? InclusiveStartTime
+        {
+            get
+            {
+                if (!_mUnknown_InclusiveStartTime) return _mValue_InclusiveStartTime;
+                throw new UndeferrableValueException("Value 'Stream.InclusiveStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         /// </summary>
-        [Input("kinesisConfiguration")]
+        [PolicyResourceProperty("kinesisConfiguration", "_mUnknown_KinesisConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StreamKinesisConfiguration> _mKinesisConfiguration;
-
-        public Outputs.StreamKinesisConfiguration? KinesisConfiguration => _mKinesisConfiguration.GetValue("kinesisConfiguration");
+        private Outputs.StreamKinesisConfiguration? _mValue_KinesisConfiguration;
+        private bool _mUnknown_KinesisConfiguration;
+        public Outputs.StreamKinesisConfiguration? KinesisConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KinesisConfiguration) return _mValue_KinesisConfiguration;
+                throw new UndeferrableValueException("Value 'Stream.KinesisConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the QLDB ledger.
         /// </summary>
-        [Input("ledgerName")]
+        [PolicyResourceProperty("ledgerName", "_mUnknown_LedgerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLedgerName;
-
-        public string? LedgerName => _mLedgerName.GetValue("ledgerName");
+        private string? _mValue_LedgerName;
+        private bool _mUnknown_LedgerName;
+        public string? LedgerName
+        {
+            get
+            {
+                if (!_mUnknown_LedgerName) return _mValue_LedgerName;
+                throw new UndeferrableValueException("Value 'Stream.LedgerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Stream.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         /// </summary>
-        [Input("streamName")]
+        [PolicyResourceProperty("streamName", "_mUnknown_StreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
-
-        public string? StreamName => _mStreamName.GetValue("streamName");
+        private string? _mValue_StreamName;
+        private bool _mUnknown_StreamName;
+        public string? StreamName
+        {
+            get
+            {
+                if (!_mUnknown_StreamName) return _mValue_StreamName;
+                throw new UndeferrableValueException("Value 'Stream.StreamName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Stream.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Stream.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:qldb/stream:Stream")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.Qldb
         /// <summary>
         /// The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         /// </summary>
-        [Input("exclusiveEndTime")]
+        [PolicyResourceProperty("exclusiveEndTime", "_mUnknown_ExclusiveEndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExclusiveEndTime;
-
-        public string? ExclusiveEndTime => _mExclusiveEndTime.GetValue("exclusiveEndTime");
+        private string? _mValue_ExclusiveEndTime;
+        private bool _mUnknown_ExclusiveEndTime;
+        public string? ExclusiveEndTime
+        {
+            get
+            {
+                if (!_mUnknown_ExclusiveEndTime) return _mValue_ExclusiveEndTime;
+                throw new UndeferrableValueException("Value 'StreamArgs.ExclusiveEndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
         /// </summary>
-        [Input("inclusiveStartTime")]
+        [PolicyResourceProperty("inclusiveStartTime", "_mUnknown_InclusiveStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInclusiveStartTime;
-
-        public string? InclusiveStartTime => _mInclusiveStartTime.GetValue("inclusiveStartTime");
+        private string? _mValue_InclusiveStartTime;
+        private bool _mUnknown_InclusiveStartTime;
+        public string? InclusiveStartTime
+        {
+            get
+            {
+                if (!_mUnknown_InclusiveStartTime) return _mValue_InclusiveStartTime;
+                throw new UndeferrableValueException("Value 'StreamArgs.InclusiveStartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         /// </summary>
-        [Input("kinesisConfiguration")]
+        [PolicyResourceProperty("kinesisConfiguration", "_mUnknown_KinesisConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamKinesisConfigurationArgs> _mKinesisConfiguration;
-
-        public Inputs.StreamKinesisConfigurationArgs? KinesisConfiguration => _mKinesisConfiguration.GetValue("kinesisConfiguration");
+        private Inputs.StreamKinesisConfigurationArgs? _mValue_KinesisConfiguration;
+        private bool _mUnknown_KinesisConfiguration;
+        public Inputs.StreamKinesisConfigurationArgs? KinesisConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_KinesisConfiguration) return _mValue_KinesisConfiguration;
+                throw new UndeferrableValueException("Value 'StreamArgs.KinesisConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the QLDB ledger.
         /// </summary>
-        [Input("ledgerName")]
+        [PolicyResourceProperty("ledgerName", "_mUnknown_LedgerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLedgerName;
-
-        public string? LedgerName => _mLedgerName.GetValue("ledgerName");
+        private string? _mValue_LedgerName;
+        private bool _mUnknown_LedgerName;
+        public string? LedgerName
+        {
+            get
+            {
+                if (!_mUnknown_LedgerName) return _mValue_LedgerName;
+                throw new UndeferrableValueException("Value 'StreamArgs.LedgerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'StreamArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
         /// </summary>
-        [Input("streamName")]
+        [PolicyResourceProperty("streamName", "_mUnknown_StreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
-
-        public string? StreamName => _mStreamName.GetValue("streamName");
+        private string? _mValue_StreamName;
+        private bool _mUnknown_StreamName;
+        public string? StreamName
+        {
+            get
+            {
+                if (!_mUnknown_StreamName) return _mValue_StreamName;
+                throw new UndeferrableValueException("Value 'StreamArgs.StreamName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StreamArgs.Tags' is not present");
+            }
+        }
     }
 }

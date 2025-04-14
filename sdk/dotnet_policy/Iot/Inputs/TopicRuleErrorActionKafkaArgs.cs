@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
         /// </summary>
-        [Input("clientProperties")]
+        [PolicyResourceProperty("clientProperties", "_mUnknown_ClientProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mClientProperties;
-
-        public Dictionary<string, string>? ClientProperties => _mClientProperties.GetValue("clientProperties");
+        private Dictionary<string, string>? _mValue_ClientProperties;
+        private bool _mUnknown_ClientProperties;
+        public Dictionary<string, string>? ClientProperties
+        {
+            get
+            {
+                if (!_mUnknown_ClientProperties) return _mValue_ClientProperties;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafkaArgs.ClientProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination`.
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafkaArgs.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of Kafka headers that you specify. Nested arguments below.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TopicRuleErrorActionKafkaHeaderArgs>> _mHeaders;
-
-        public List<Inputs.TopicRuleErrorActionKafkaHeaderArgs>? Headers => _mHeaders.GetValue("headers");
+        private List<Inputs.TopicRuleErrorActionKafkaHeaderArgs>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Inputs.TopicRuleErrorActionKafkaHeaderArgs>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafkaArgs.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kafka message key.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafkaArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kafka message partition.
         /// </summary>
-        [Input("partition")]
+        [PolicyResourceProperty("partition", "_mUnknown_Partition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartition;
-
-        public string? Partition => _mPartition.GetValue("partition");
+        private string? _mValue_Partition;
+        private bool _mUnknown_Partition;
+        public string? Partition
+        {
+            get
+            {
+                if (!_mUnknown_Partition) return _mValue_Partition;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafkaArgs.Partition' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kafka topic for messages to be sent to the Kafka broker.
         /// </summary>
-        [Input("topic")]
+        [PolicyResourceProperty("topic", "_mUnknown_Topic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopic;
-
-        public string? Topic => _mTopic.GetValue("topic");
+        private string? _mValue_Topic;
+        private bool _mUnknown_Topic;
+        public string? Topic
+        {
+            get
+            {
+                if (!_mUnknown_Topic) return _mValue_Topic;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafkaArgs.Topic' is not present");
+            }
+        }
     }
 }

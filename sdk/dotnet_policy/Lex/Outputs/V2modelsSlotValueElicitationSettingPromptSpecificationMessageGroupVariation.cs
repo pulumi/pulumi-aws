@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
 {
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation
     {
-        [Input("customPayloads")]
+        [PolicyResourceProperty("customPayloads", "_mUnknown_CustomPayloads")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>> _mCustomPayloads;
+        private List<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>? _mValue_CustomPayloads;
+        private bool _mUnknown_CustomPayloads;
+        public List<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>? CustomPayloads
+        {
+            get
+            {
+                if (!_mUnknown_CustomPayloads) return _mValue_CustomPayloads;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.CustomPayloads' is not present");
+            }
+        }
 
-        public List<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>? CustomPayloads => _mCustomPayloads.GetValue("customPayloads");
-
-        [Input("imageResponseCard")]
+        [PolicyResourceProperty("imageResponseCard", "_mUnknown_ImageResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard> _mImageResponseCard;
+        private Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard? _mValue_ImageResponseCard;
+        private bool _mUnknown_ImageResponseCard;
+        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard? ImageResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ImageResponseCard) return _mValue_ImageResponseCard;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.ImageResponseCard' is not present");
+            }
+        }
 
-        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard? ImageResponseCard => _mImageResponseCard.GetValue("imageResponseCard");
-
-        [Input("plainTextMessage")]
+        [PolicyResourceProperty("plainTextMessage", "_mUnknown_PlainTextMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage> _mPlainTextMessage;
+        private Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage? _mValue_PlainTextMessage;
+        private bool _mUnknown_PlainTextMessage;
+        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage? PlainTextMessage
+        {
+            get
+            {
+                if (!_mUnknown_PlainTextMessage) return _mValue_PlainTextMessage;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.PlainTextMessage' is not present");
+            }
+        }
 
-        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage? PlainTextMessage => _mPlainTextMessage.GetValue("plainTextMessage");
-
-        [Input("ssmlMessage")]
+        [PolicyResourceProperty("ssmlMessage", "_mUnknown_SsmlMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage> _mSsmlMessage;
-
-        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage? SsmlMessage => _mSsmlMessage.GetValue("ssmlMessage");
+        private Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage? _mValue_SsmlMessage;
+        private bool _mUnknown_SsmlMessage;
+        public Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage? SsmlMessage
+        {
+            get
+            {
+                if (!_mUnknown_SsmlMessage) return _mValue_SsmlMessage;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.SsmlMessage' is not present");
+            }
+        }
     }
 }

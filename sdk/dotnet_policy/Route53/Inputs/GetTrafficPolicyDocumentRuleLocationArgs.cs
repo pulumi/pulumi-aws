@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
         /// <summary>
         /// Value of a continent.
         /// </summary>
-        [Input("continent")]
+        [PolicyResourceProperty("continent", "_mUnknown_Continent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContinent;
-
-        public string? Continent => _mContinent.GetValue("continent");
+        private string? _mValue_Continent;
+        private bool _mUnknown_Continent;
+        public string? Continent
+        {
+            get
+            {
+                if (!_mUnknown_Continent) return _mValue_Continent;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.Continent' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of a country.
         /// </summary>
-        [Input("country")]
+        [PolicyResourceProperty("country", "_mUnknown_Country")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountry;
-
-        public string? Country => _mCountry.GetValue("country");
+        private string? _mValue_Country;
+        private bool _mUnknown_Country;
+        public string? Country
+        {
+            get
+            {
+                if (!_mUnknown_Country) return _mValue_Country;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.Country' is not present");
+            }
+        }
 
         /// <summary>
         /// References to an endpoint.
         /// </summary>
-        [Input("endpointReference")]
+        [PolicyResourceProperty("endpointReference", "_mUnknown_EndpointReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointReference;
-
-        public string? EndpointReference => _mEndpointReference.GetValue("endpointReference");
+        private string? _mValue_EndpointReference;
+        private bool _mUnknown_EndpointReference;
+        public string? EndpointReference
+        {
+            get
+            {
+                if (!_mUnknown_EndpointReference) return _mValue_EndpointReference;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.EndpointReference' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
         /// </summary>
-        [Input("evaluateTargetHealth")]
+        [PolicyResourceProperty("evaluateTargetHealth", "_mUnknown_EvaluateTargetHealth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEvaluateTargetHealth;
-
-        public bool? EvaluateTargetHealth => _mEvaluateTargetHealth.GetValue("evaluateTargetHealth");
+        private bool? _mValue_EvaluateTargetHealth;
+        private bool _mUnknown_EvaluateTargetHealth;
+        public bool? EvaluateTargetHealth
+        {
+            get
+            {
+                if (!_mUnknown_EvaluateTargetHealth) return _mValue_EvaluateTargetHealth;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.EvaluateTargetHealth' is not present");
+            }
+        }
 
         /// <summary>
         /// If you want to associate a health check with the endpoint or rule.
         /// </summary>
-        [Input("healthCheck")]
+        [PolicyResourceProperty("healthCheck", "_mUnknown_HealthCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheck;
-
-        public string? HealthCheck => _mHealthCheck.GetValue("healthCheck");
+        private string? _mValue_HealthCheck;
+        private bool _mUnknown_HealthCheck;
+        public string? HealthCheck
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheck) return _mValue_HealthCheck;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.HealthCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this set of values represents the default location.
         /// </summary>
-        [Input("isDefault")]
+        [PolicyResourceProperty("isDefault", "_mUnknown_IsDefault")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsDefault;
-
-        public bool? IsDefault => _mIsDefault.GetValue("isDefault");
+        private bool? _mValue_IsDefault;
+        private bool _mUnknown_IsDefault;
+        public bool? IsDefault
+        {
+            get
+            {
+                if (!_mUnknown_IsDefault) return _mValue_IsDefault;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.IsDefault' is not present");
+            }
+        }
 
         /// <summary>
         /// References to a rule.
         /// </summary>
-        [Input("ruleReference")]
+        [PolicyResourceProperty("ruleReference", "_mUnknown_RuleReference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleReference;
-
-        public string? RuleReference => _mRuleReference.GetValue("ruleReference");
+        private string? _mValue_RuleReference;
+        private bool _mUnknown_RuleReference;
+        public string? RuleReference
+        {
+            get
+            {
+                if (!_mUnknown_RuleReference) return _mValue_RuleReference;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.RuleReference' is not present");
+            }
+        }
 
         /// <summary>
         /// Value of a subdivision.
         /// </summary>
-        [Input("subdivision")]
+        [PolicyResourceProperty("subdivision", "_mUnknown_Subdivision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdivision;
-
-        public string? Subdivision => _mSubdivision.GetValue("subdivision");
+        private string? _mValue_Subdivision;
+        private bool _mUnknown_Subdivision;
+        public string? Subdivision
+        {
+            get
+            {
+                if (!_mUnknown_Subdivision) return _mValue_Subdivision;
+                throw new UndeferrableValueException("Value 'GetTrafficPolicyDocumentRuleLocationInputArgs.Subdivision' is not present");
+            }
+        }
     }
 }

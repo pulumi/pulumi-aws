@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// <summary>
         /// Content type of the response.
         /// </summary>
-        [Input("contentType")]
+        [PolicyResourceProperty("contentType", "_mUnknown_ContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentType;
-
-        public string? ContentType => _mContentType.GetValue("contentType");
+        private string? _mValue_ContentType;
+        private bool _mUnknown_ContentType;
+        public string? ContentType
+        {
+            get
+            {
+                if (!_mUnknown_ContentType) return _mValue_ContentType;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionFixedResponseArgs.ContentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Message body of the response.
         /// </summary>
-        [Input("messageBody")]
+        [PolicyResourceProperty("messageBody", "_mUnknown_MessageBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageBody;
-
-        public string? MessageBody => _mMessageBody.GetValue("messageBody");
+        private string? _mValue_MessageBody;
+        private bool _mUnknown_MessageBody;
+        public string? MessageBody
+        {
+            get
+            {
+                if (!_mUnknown_MessageBody) return _mValue_MessageBody;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionFixedResponseArgs.MessageBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP redirect code.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionFixedResponseArgs.StatusCode' is not present");
+            }
+        }
     }
 }

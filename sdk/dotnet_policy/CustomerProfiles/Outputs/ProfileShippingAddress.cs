@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Outputs
         /// <summary>
         /// The first line of a customer address.
         /// </summary>
-        [Input("address1")]
+        [PolicyResourceProperty("address1", "_mUnknown_Address1")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress1;
-
-        public string? Address1 => _mAddress1.GetValue("address1");
+        private string? _mValue_Address1;
+        private bool _mUnknown_Address1;
+        public string? Address1
+        {
+            get
+            {
+                if (!_mUnknown_Address1) return _mValue_Address1;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.Address1' is not present");
+            }
+        }
 
         /// <summary>
         /// The second line of a customer address.
         /// </summary>
-        [Input("address2")]
+        [PolicyResourceProperty("address2", "_mUnknown_Address2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress2;
-
-        public string? Address2 => _mAddress2.GetValue("address2");
+        private string? _mValue_Address2;
+        private bool _mUnknown_Address2;
+        public string? Address2
+        {
+            get
+            {
+                if (!_mUnknown_Address2) return _mValue_Address2;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.Address2' is not present");
+            }
+        }
 
         /// <summary>
         /// The third line of a customer address.
         /// </summary>
-        [Input("address3")]
+        [PolicyResourceProperty("address3", "_mUnknown_Address3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress3;
-
-        public string? Address3 => _mAddress3.GetValue("address3");
+        private string? _mValue_Address3;
+        private bool _mUnknown_Address3;
+        public string? Address3
+        {
+            get
+            {
+                if (!_mUnknown_Address3) return _mValue_Address3;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.Address3' is not present");
+            }
+        }
 
         /// <summary>
         /// The fourth line of a customer address.
         /// </summary>
-        [Input("address4")]
+        [PolicyResourceProperty("address4", "_mUnknown_Address4")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress4;
-
-        public string? Address4 => _mAddress4.GetValue("address4");
+        private string? _mValue_Address4;
+        private bool _mUnknown_Address4;
+        public string? Address4
+        {
+            get
+            {
+                if (!_mUnknown_Address4) return _mValue_Address4;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.Address4' is not present");
+            }
+        }
 
         /// <summary>
         /// The city in which a customer lives.
         /// </summary>
-        [Input("city")]
+        [PolicyResourceProperty("city", "_mUnknown_City")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCity;
-
-        public string? City => _mCity.GetValue("city");
+        private string? _mValue_City;
+        private bool _mUnknown_City;
+        public string? City
+        {
+            get
+            {
+                if (!_mUnknown_City) return _mValue_City;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.City' is not present");
+            }
+        }
 
         /// <summary>
         /// The country in which a customer lives.
         /// </summary>
-        [Input("country")]
+        [PolicyResourceProperty("country", "_mUnknown_Country")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountry;
-
-        public string? Country => _mCountry.GetValue("country");
+        private string? _mValue_Country;
+        private bool _mUnknown_Country;
+        public string? Country
+        {
+            get
+            {
+                if (!_mUnknown_Country) return _mValue_Country;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.Country' is not present");
+            }
+        }
 
         /// <summary>
         /// The county in which a customer lives.
         /// </summary>
-        [Input("county")]
+        [PolicyResourceProperty("county", "_mUnknown_County")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCounty;
-
-        public string? County => _mCounty.GetValue("county");
+        private string? _mValue_County;
+        private bool _mUnknown_County;
+        public string? County
+        {
+            get
+            {
+                if (!_mUnknown_County) return _mValue_County;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.County' is not present");
+            }
+        }
 
         /// <summary>
         /// The postal code of a customer address.
         /// </summary>
-        [Input("postalCode")]
+        [PolicyResourceProperty("postalCode", "_mUnknown_PostalCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostalCode;
-
-        public string? PostalCode => _mPostalCode.GetValue("postalCode");
+        private string? _mValue_PostalCode;
+        private bool _mUnknown_PostalCode;
+        public string? PostalCode
+        {
+            get
+            {
+                if (!_mUnknown_PostalCode) return _mValue_PostalCode;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.PostalCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The province in which a customer lives.
         /// </summary>
-        [Input("province")]
+        [PolicyResourceProperty("province", "_mUnknown_Province")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvince;
-
-        public string? Province => _mProvince.GetValue("province");
+        private string? _mValue_Province;
+        private bool _mUnknown_Province;
+        public string? Province
+        {
+            get
+            {
+                if (!_mUnknown_Province) return _mValue_Province;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.Province' is not present");
+            }
+        }
 
         /// <summary>
         /// The state in which a customer lives.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ProfileShippingAddress.State' is not present");
+            }
+        }
     }
 }

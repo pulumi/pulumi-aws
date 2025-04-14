@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'BotAssociation.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
         /// </summary>
-        [Input("lexBot")]
+        [PolicyResourceProperty("lexBot", "_mUnknown_LexBot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BotAssociationLexBot> _mLexBot;
-
-        public Outputs.BotAssociationLexBot? LexBot => _mLexBot.GetValue("lexBot");
+        private Outputs.BotAssociationLexBot? _mValue_LexBot;
+        private bool _mUnknown_LexBot;
+        public Outputs.BotAssociationLexBot? LexBot
+        {
+            get
+            {
+                if (!_mUnknown_LexBot) return _mValue_LexBot;
+                throw new UndeferrableValueException("Value 'BotAssociation.LexBot' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/botAssociation:BotAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'BotAssociationArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
         /// </summary>
-        [Input("lexBot")]
+        [PolicyResourceProperty("lexBot", "_mUnknown_LexBot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BotAssociationLexBotArgs> _mLexBot;
-
-        public Inputs.BotAssociationLexBotArgs? LexBot => _mLexBot.GetValue("lexBot");
+        private Inputs.BotAssociationLexBotArgs? _mValue_LexBot;
+        private bool _mUnknown_LexBot;
+        public Inputs.BotAssociationLexBotArgs? LexBot
+        {
+            get
+            {
+                if (!_mUnknown_LexBot) return _mValue_LexBot;
+                throw new UndeferrableValueException("Value 'BotAssociationArgs.LexBot' is not present");
+            }
+        }
     }
 }

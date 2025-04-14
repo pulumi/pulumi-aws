@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// A name for the association that you're creating between a resolver rule and a VPC.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverRuleAssociation.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the resolver rule that you want to associate with the VPC.
         /// </summary>
-        [Input("resolverRuleId")]
+        [PolicyResourceProperty("resolverRuleId", "_mUnknown_ResolverRuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverRuleId;
-
-        public string? ResolverRuleId => _mResolverRuleId.GetValue("resolverRuleId");
+        private string? _mValue_ResolverRuleId;
+        private bool _mUnknown_ResolverRuleId;
+        public string? ResolverRuleId
+        {
+            get
+            {
+                if (!_mUnknown_ResolverRuleId) return _mValue_ResolverRuleId;
+                throw new UndeferrableValueException("Value 'ResolverRuleAssociation.ResolverRuleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC that you want to associate the resolver rule with.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ResolverRuleAssociation.VpcId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// A name for the association that you're creating between a resolver rule and a VPC.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverRuleAssociationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the resolver rule that you want to associate with the VPC.
         /// </summary>
-        [Input("resolverRuleId")]
+        [PolicyResourceProperty("resolverRuleId", "_mUnknown_ResolverRuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverRuleId;
-
-        public string? ResolverRuleId => _mResolverRuleId.GetValue("resolverRuleId");
+        private string? _mValue_ResolverRuleId;
+        private bool _mUnknown_ResolverRuleId;
+        public string? ResolverRuleId
+        {
+            get
+            {
+                if (!_mUnknown_ResolverRuleId) return _mValue_ResolverRuleId;
+                throw new UndeferrableValueException("Value 'ResolverRuleAssociationArgs.ResolverRuleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC that you want to associate the resolver rule with.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ResolverRuleAssociationArgs.VpcId' is not present");
+            }
+        }
     }
 }

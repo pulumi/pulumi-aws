@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
         /// </summary>
-        [Input("parameterName")]
+        [PolicyResourceProperty("parameterName", "_mUnknown_ParameterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterName;
-
-        public string? ParameterName => _mParameterName.GetValue("parameterName");
+        private string? _mValue_ParameterName;
+        private bool _mUnknown_ParameterName;
+        public string? ParameterName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterName) return _mValue_ParameterName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.ParameterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         /// 
         /// &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
         /// </summary>
-        [Input("parameterValue")]
+        [PolicyResourceProperty("parameterValue", "_mUnknown_ParameterValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterValue;
-
-        public string? ParameterValue => _mParameterValue.GetValue("parameterValue");
+        private string? _mValue_ParameterValue;
+        private bool _mUnknown_ParameterValue;
+        public string? ParameterValue
+        {
+            get
+            {
+                if (!_mUnknown_ParameterValue) return _mValue_ParameterValue;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.ParameterValue' is not present");
+            }
+        }
     }
 }

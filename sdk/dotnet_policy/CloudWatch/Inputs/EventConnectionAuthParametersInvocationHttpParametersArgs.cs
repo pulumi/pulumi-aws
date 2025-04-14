@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         /// </summary>
-        [Input("bodies")]
+        [PolicyResourceProperty("bodies", "_mUnknown_Bodies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs>> _mBodies;
-
-        public List<Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs>? Bodies => _mBodies.GetValue("bodies");
+        private List<Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs>? _mValue_Bodies;
+        private bool _mUnknown_Bodies;
+        public List<Inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs>? Bodies
+        {
+            get
+            {
+                if (!_mUnknown_Bodies) return _mValue_Bodies;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersArgs.Bodies' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs>> _mHeaders;
-
-        public List<Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs>? Headers => _mHeaders.GetValue("headers");
+        private List<Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersArgs.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         /// </summary>
-        [Input("queryStrings")]
+        [PolicyResourceProperty("queryStrings", "_mUnknown_QueryStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs>> _mQueryStrings;
-
-        public List<Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs>? QueryStrings => _mQueryStrings.GetValue("queryStrings");
+        private List<Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs>? _mValue_QueryStrings;
+        private bool _mUnknown_QueryStrings;
+        public List<Inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs>? QueryStrings
+        {
+            get
+            {
+                if (!_mUnknown_QueryStrings) return _mValue_QueryStrings;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersArgs.QueryStrings' is not present");
+            }
+        }
     }
 }

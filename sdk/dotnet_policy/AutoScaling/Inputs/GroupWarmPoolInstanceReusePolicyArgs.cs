@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
         /// </summary>
-        [Input("reuseOnScaleIn")]
+        [PolicyResourceProperty("reuseOnScaleIn", "_mUnknown_ReuseOnScaleIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReuseOnScaleIn;
-
-        public bool? ReuseOnScaleIn => _mReuseOnScaleIn.GetValue("reuseOnScaleIn");
+        private bool? _mValue_ReuseOnScaleIn;
+        private bool _mUnknown_ReuseOnScaleIn;
+        public bool? ReuseOnScaleIn
+        {
+            get
+            {
+                if (!_mUnknown_ReuseOnScaleIn) return _mValue_ReuseOnScaleIn;
+                throw new UndeferrableValueException("Value 'GroupWarmPoolInstanceReusePolicyArgs.ReuseOnScaleIn' is not present");
+            }
+        }
     }
 }

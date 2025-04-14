@@ -12,28 +12,49 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesSapoData
     {
-        [Input("objectPath")]
+        [PolicyResourceProperty("objectPath", "_mUnknown_ObjectPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectPath;
-
-        public string? ObjectPath => _mObjectPath.GetValue("objectPath");
+        private string? _mValue_ObjectPath;
+        private bool _mUnknown_ObjectPath;
+        public string? ObjectPath
+        {
+            get
+            {
+                if (!_mUnknown_ObjectPath) return _mValue_ObjectPath;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoData.ObjectPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
         /// </summary>
-        [Input("paginationConfig")]
+        [PolicyResourceProperty("paginationConfig", "_mUnknown_PaginationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig> _mPaginationConfig;
-
-        public Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig? PaginationConfig => _mPaginationConfig.GetValue("paginationConfig");
+        private Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig? _mValue_PaginationConfig;
+        private bool _mUnknown_PaginationConfig;
+        public Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig? PaginationConfig
+        {
+            get
+            {
+                if (!_mUnknown_PaginationConfig) return _mValue_PaginationConfig;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoData.PaginationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the number of concurrent processes that transfers OData records from your SAP instance.
         /// </summary>
-        [Input("parallelismConfig")]
+        [PolicyResourceProperty("parallelismConfig", "_mUnknown_ParallelismConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig> _mParallelismConfig;
-
-        public Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig? ParallelismConfig => _mParallelismConfig.GetValue("parallelismConfig");
+        private Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig? _mValue_ParallelismConfig;
+        private bool _mUnknown_ParallelismConfig;
+        public Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig? ParallelismConfig
+        {
+            get
+            {
+                if (!_mUnknown_ParallelismConfig) return _mValue_ParallelismConfig;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoData.ParallelismConfig' is not present");
+            }
+        }
     }
 }

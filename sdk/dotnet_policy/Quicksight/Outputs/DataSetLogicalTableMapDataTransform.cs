@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// A transform operation that casts a column to a different type. See cast_column_type_operation.
         /// </summary>
-        [Input("castColumnTypeOperation")]
+        [PolicyResourceProperty("castColumnTypeOperation", "_mUnknown_CastColumnTypeOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation> _mCastColumnTypeOperation;
-
-        public Outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation? CastColumnTypeOperation => _mCastColumnTypeOperation.GetValue("castColumnTypeOperation");
+        private Outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation? _mValue_CastColumnTypeOperation;
+        private bool _mUnknown_CastColumnTypeOperation;
+        public Outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation? CastColumnTypeOperation
+        {
+            get
+            {
+                if (!_mUnknown_CastColumnTypeOperation) return _mValue_CastColumnTypeOperation;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.CastColumnTypeOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
         /// </summary>
-        [Input("createColumnsOperation")]
+        [PolicyResourceProperty("createColumnsOperation", "_mUnknown_CreateColumnsOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation> _mCreateColumnsOperation;
-
-        public Outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation? CreateColumnsOperation => _mCreateColumnsOperation.GetValue("createColumnsOperation");
+        private Outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation? _mValue_CreateColumnsOperation;
+        private bool _mUnknown_CreateColumnsOperation;
+        public Outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation? CreateColumnsOperation
+        {
+            get
+            {
+                if (!_mUnknown_CreateColumnsOperation) return _mValue_CreateColumnsOperation;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.CreateColumnsOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// An operation that filters rows based on some condition. See filter_operation.
         /// </summary>
-        [Input("filterOperation")]
+        [PolicyResourceProperty("filterOperation", "_mUnknown_FilterOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformFilterOperation> _mFilterOperation;
-
-        public Outputs.DataSetLogicalTableMapDataTransformFilterOperation? FilterOperation => _mFilterOperation.GetValue("filterOperation");
+        private Outputs.DataSetLogicalTableMapDataTransformFilterOperation? _mValue_FilterOperation;
+        private bool _mUnknown_FilterOperation;
+        public Outputs.DataSetLogicalTableMapDataTransformFilterOperation? FilterOperation
+        {
+            get
+            {
+                if (!_mUnknown_FilterOperation) return _mValue_FilterOperation;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.FilterOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
         /// </summary>
-        [Input("projectOperation")]
+        [PolicyResourceProperty("projectOperation", "_mUnknown_ProjectOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformProjectOperation> _mProjectOperation;
-
-        public Outputs.DataSetLogicalTableMapDataTransformProjectOperation? ProjectOperation => _mProjectOperation.GetValue("projectOperation");
+        private Outputs.DataSetLogicalTableMapDataTransformProjectOperation? _mValue_ProjectOperation;
+        private bool _mUnknown_ProjectOperation;
+        public Outputs.DataSetLogicalTableMapDataTransformProjectOperation? ProjectOperation
+        {
+            get
+            {
+                if (!_mUnknown_ProjectOperation) return _mValue_ProjectOperation;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.ProjectOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// An operation that renames a column. See rename_column_operation.
         /// </summary>
-        [Input("renameColumnOperation")]
+        [PolicyResourceProperty("renameColumnOperation", "_mUnknown_RenameColumnOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation> _mRenameColumnOperation;
-
-        public Outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation? RenameColumnOperation => _mRenameColumnOperation.GetValue("renameColumnOperation");
+        private Outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation? _mValue_RenameColumnOperation;
+        private bool _mUnknown_RenameColumnOperation;
+        public Outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation? RenameColumnOperation
+        {
+            get
+            {
+                if (!_mUnknown_RenameColumnOperation) return _mValue_RenameColumnOperation;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.RenameColumnOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// An operation that tags a column with additional information. See tag_column_operation.
         /// </summary>
-        [Input("tagColumnOperation")]
+        [PolicyResourceProperty("tagColumnOperation", "_mUnknown_TagColumnOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformTagColumnOperation> _mTagColumnOperation;
-
-        public Outputs.DataSetLogicalTableMapDataTransformTagColumnOperation? TagColumnOperation => _mTagColumnOperation.GetValue("tagColumnOperation");
+        private Outputs.DataSetLogicalTableMapDataTransformTagColumnOperation? _mValue_TagColumnOperation;
+        private bool _mUnknown_TagColumnOperation;
+        public Outputs.DataSetLogicalTableMapDataTransformTagColumnOperation? TagColumnOperation
+        {
+            get
+            {
+                if (!_mUnknown_TagColumnOperation) return _mValue_TagColumnOperation;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.TagColumnOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// A transform operation that removes tags associated with a column. See untag_column_operation.
         /// </summary>
-        [Input("untagColumnOperation")]
+        [PolicyResourceProperty("untagColumnOperation", "_mUnknown_UntagColumnOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation> _mUntagColumnOperation;
-
-        public Outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation? UntagColumnOperation => _mUntagColumnOperation.GetValue("untagColumnOperation");
+        private Outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation? _mValue_UntagColumnOperation;
+        private bool _mUnknown_UntagColumnOperation;
+        public Outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation? UntagColumnOperation
+        {
+            get
+            {
+                if (!_mUnknown_UntagColumnOperation) return _mValue_UntagColumnOperation;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.UntagColumnOperation' is not present");
+            }
+        }
     }
 }

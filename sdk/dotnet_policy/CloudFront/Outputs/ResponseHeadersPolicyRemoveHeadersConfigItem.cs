@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class ResponseHeadersPolicyRemoveHeadersConfigItem
     {
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeader;
-
-        public string? Header => _mHeader.GetValue("header");
+        private string? _mValue_Header;
+        private bool _mUnknown_Header;
+        public string? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyRemoveHeadersConfigItem.Header' is not present");
+            }
+        }
     }
 }

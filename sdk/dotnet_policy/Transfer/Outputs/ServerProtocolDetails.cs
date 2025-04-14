@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
         /// </summary>
-        [Input("as2Transports")]
+        [PolicyResourceProperty("as2Transports", "_mUnknown_As2Transports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAs2Transports;
-
-        public List<string>? As2Transports => _mAs2Transports.GetValue("as2Transports");
+        private List<string>? _mValue_As2Transports;
+        private bool _mUnknown_As2Transports;
+        public List<string>? As2Transports
+        {
+            get
+            {
+                if (!_mUnknown_As2Transports) return _mValue_As2Transports;
+                throw new UndeferrableValueException("Value 'ServerProtocolDetails.As2Transports' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
         /// </summary>
-        [Input("passiveIp")]
+        [PolicyResourceProperty("passiveIp", "_mUnknown_PassiveIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassiveIp;
-
-        public string? PassiveIp => _mPassiveIp.GetValue("passiveIp");
+        private string? _mValue_PassiveIp;
+        private bool _mUnknown_PassiveIp;
+        public string? PassiveIp
+        {
+            get
+            {
+                if (!_mUnknown_PassiveIp) return _mValue_PassiveIp;
+                throw new UndeferrableValueException("Value 'ServerProtocolDetails.PassiveIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
         /// </summary>
-        [Input("setStatOption")]
+        [PolicyResourceProperty("setStatOption", "_mUnknown_SetStatOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSetStatOption;
-
-        public string? SetStatOption => _mSetStatOption.GetValue("setStatOption");
+        private string? _mValue_SetStatOption;
+        private bool _mUnknown_SetStatOption;
+        public string? SetStatOption
+        {
+            get
+            {
+                if (!_mUnknown_SetStatOption) return _mValue_SetStatOption;
+                throw new UndeferrableValueException("Value 'ServerProtocolDetails.SetStatOption' is not present");
+            }
+        }
 
         /// <summary>
         /// A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
         /// </summary>
-        [Input("tlsSessionResumptionMode")]
+        [PolicyResourceProperty("tlsSessionResumptionMode", "_mUnknown_TlsSessionResumptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTlsSessionResumptionMode;
-
-        public string? TlsSessionResumptionMode => _mTlsSessionResumptionMode.GetValue("tlsSessionResumptionMode");
+        private string? _mValue_TlsSessionResumptionMode;
+        private bool _mUnknown_TlsSessionResumptionMode;
+        public string? TlsSessionResumptionMode
+        {
+            get
+            {
+                if (!_mUnknown_TlsSessionResumptionMode) return _mValue_TlsSessionResumptionMode;
+                throw new UndeferrableValueException("Value 'ServerProtocolDetails.TlsSessionResumptionMode' is not present");
+            }
+        }
     }
 }

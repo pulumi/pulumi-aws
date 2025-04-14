@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Inputs
         /// <summary>
         /// Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
         /// </summary>
-        [Input("labels")]
+        [PolicyResourceProperty("labels", "_mUnknown_Labels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLabels;
-
-        public List<string>? Labels => _mLabels.GetValue("labels");
+        private List<string>? _mValue_Labels;
+        private bool _mUnknown_Labels;
+        public List<string>? Labels
+        {
+            get
+            {
+                if (!_mUnknown_Labels) return _mValue_Labels;
+                throw new UndeferrableValueException("Value 'StreamProcessorSettingsConnectedHomeArgs.Labels' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum confidence required to label an object in the video.
         /// </summary>
-        [Input("minConfidence")]
+        [PolicyResourceProperty("minConfidence", "_mUnknown_MinConfidence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMinConfidence;
-
-        public double? MinConfidence => _mMinConfidence.GetValue("minConfidence");
+        private double? _mValue_MinConfidence;
+        private bool _mUnknown_MinConfidence;
+        public double? MinConfidence
+        {
+            get
+            {
+                if (!_mUnknown_MinConfidence) return _mValue_MinConfidence;
+                throw new UndeferrableValueException("Value 'StreamProcessorSettingsConnectedHomeArgs.MinConfidence' is not present");
+            }
+        }
     }
 }

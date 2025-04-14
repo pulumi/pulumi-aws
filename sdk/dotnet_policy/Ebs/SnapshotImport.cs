@@ -16,158 +16,284 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SnapshotImport.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The client-specific data. Detailed below.
         /// </summary>
-        [Input("clientData")]
+        [PolicyResourceProperty("clientData", "_mUnknown_ClientData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SnapshotImportClientData> _mClientData;
-
-        public Outputs.SnapshotImportClientData? ClientData => _mClientData.GetValue("clientData");
+        private Outputs.SnapshotImportClientData? _mValue_ClientData;
+        private bool _mUnknown_ClientData;
+        public Outputs.SnapshotImportClientData? ClientData
+        {
+            get
+            {
+                if (!_mUnknown_ClientData) return _mValue_ClientData;
+                throw new UndeferrableValueException("Value 'SnapshotImport.ClientData' is not present");
+            }
+        }
 
         /// <summary>
         /// The data encryption key identifier for the snapshot.
         /// </summary>
-        [Input("dataEncryptionKeyId")]
+        [PolicyResourceProperty("dataEncryptionKeyId", "_mUnknown_DataEncryptionKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataEncryptionKeyId;
-
-        public string? DataEncryptionKeyId => _mDataEncryptionKeyId.GetValue("dataEncryptionKeyId");
+        private string? _mValue_DataEncryptionKeyId;
+        private bool _mUnknown_DataEncryptionKeyId;
+        public string? DataEncryptionKeyId
+        {
+            get
+            {
+                if (!_mUnknown_DataEncryptionKeyId) return _mValue_DataEncryptionKeyId;
+                throw new UndeferrableValueException("Value 'SnapshotImport.DataEncryptionKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The description string for the import snapshot task.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SnapshotImport.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the disk container. Detailed below.
         /// </summary>
-        [Input("diskContainer")]
+        [PolicyResourceProperty("diskContainer", "_mUnknown_DiskContainer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SnapshotImportDiskContainer> _mDiskContainer;
-
-        public Outputs.SnapshotImportDiskContainer? DiskContainer => _mDiskContainer.GetValue("diskContainer");
+        private Outputs.SnapshotImportDiskContainer? _mValue_DiskContainer;
+        private bool _mUnknown_DiskContainer;
+        public Outputs.SnapshotImportDiskContainer? DiskContainer
+        {
+            get
+            {
+                if (!_mUnknown_DiskContainer) return _mValue_DiskContainer;
+                throw new UndeferrableValueException("Value 'SnapshotImport.DiskContainer' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'SnapshotImport.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'SnapshotImport.KmsKeyId' is not present");
+            }
+        }
 
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
-
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'SnapshotImport.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         /// </summary>
-        [Input("ownerAlias")]
+        [PolicyResourceProperty("ownerAlias", "_mUnknown_OwnerAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAlias;
-
-        public string? OwnerAlias => _mOwnerAlias.GetValue("ownerAlias");
+        private string? _mValue_OwnerAlias;
+        private bool _mUnknown_OwnerAlias;
+        public string? OwnerAlias
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAlias) return _mValue_OwnerAlias;
+                throw new UndeferrableValueException("Value 'SnapshotImport.OwnerAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the EBS snapshot owner.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'SnapshotImport.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to permanently restore an archived snapshot.
         /// </summary>
-        [Input("permanentRestore")]
+        [PolicyResourceProperty("permanentRestore", "_mUnknown_PermanentRestore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPermanentRestore;
-
-        public bool? PermanentRestore => _mPermanentRestore.GetValue("permanentRestore");
+        private bool? _mValue_PermanentRestore;
+        private bool _mUnknown_PermanentRestore;
+        public bool? PermanentRestore
+        {
+            get
+            {
+                if (!_mUnknown_PermanentRestore) return _mValue_PermanentRestore;
+                throw new UndeferrableValueException("Value 'SnapshotImport.PermanentRestore' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         /// </summary>
-        [Input("roleName")]
+        [PolicyResourceProperty("roleName", "_mUnknown_RoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
-
-        public string? RoleName => _mRoleName.GetValue("roleName");
+        private string? _mValue_RoleName;
+        private bool _mUnknown_RoleName;
+        public string? RoleName
+        {
+            get
+            {
+                if (!_mUnknown_RoleName) return _mValue_RoleName;
+                throw new UndeferrableValueException("Value 'SnapshotImport.RoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
-        [Input("storageTier")]
+        [PolicyResourceProperty("storageTier", "_mUnknown_StorageTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageTier;
-
-        public string? StorageTier => _mStorageTier.GetValue("storageTier");
+        private string? _mValue_StorageTier;
+        private bool _mUnknown_StorageTier;
+        public string? StorageTier
+        {
+            get
+            {
+                if (!_mUnknown_StorageTier) return _mValue_StorageTier;
+                throw new UndeferrableValueException("Value 'SnapshotImport.StorageTier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the snapshot.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SnapshotImport.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SnapshotImport.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         /// </summary>
-        [Input("temporaryRestoreDays")]
+        [PolicyResourceProperty("temporaryRestoreDays", "_mUnknown_TemporaryRestoreDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTemporaryRestoreDays;
+        private int? _mValue_TemporaryRestoreDays;
+        private bool _mUnknown_TemporaryRestoreDays;
+        public int? TemporaryRestoreDays
+        {
+            get
+            {
+                if (!_mUnknown_TemporaryRestoreDays) return _mValue_TemporaryRestoreDays;
+                throw new UndeferrableValueException("Value 'SnapshotImport.TemporaryRestoreDays' is not present");
+            }
+        }
 
-        public int? TemporaryRestoreDays => _mTemporaryRestoreDays.GetValue("temporaryRestoreDays");
-
-        [Input("volumeId")]
+        [PolicyResourceProperty("volumeId", "_mUnknown_VolumeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeId;
-
-        public string? VolumeId => _mVolumeId.GetValue("volumeId");
+        private string? _mValue_VolumeId;
+        private bool _mUnknown_VolumeId;
+        public string? VolumeId
+        {
+            get
+            {
+                if (!_mUnknown_VolumeId) return _mValue_VolumeId;
+                throw new UndeferrableValueException("Value 'SnapshotImport.VolumeId' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the drive in GiBs.
         /// </summary>
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
-
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'SnapshotImport.VolumeSize' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ebs/snapshotImport:SnapshotImport")]
@@ -176,91 +302,161 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// The client-specific data. Detailed below.
         /// </summary>
-        [Input("clientData")]
+        [PolicyResourceProperty("clientData", "_mUnknown_ClientData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SnapshotImportClientDataArgs> _mClientData;
-
-        public Inputs.SnapshotImportClientDataArgs? ClientData => _mClientData.GetValue("clientData");
+        private Inputs.SnapshotImportClientDataArgs? _mValue_ClientData;
+        private bool _mUnknown_ClientData;
+        public Inputs.SnapshotImportClientDataArgs? ClientData
+        {
+            get
+            {
+                if (!_mUnknown_ClientData) return _mValue_ClientData;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.ClientData' is not present");
+            }
+        }
 
         /// <summary>
         /// The description string for the import snapshot task.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the disk container. Detailed below.
         /// </summary>
-        [Input("diskContainer")]
+        [PolicyResourceProperty("diskContainer", "_mUnknown_DiskContainer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SnapshotImportDiskContainerArgs> _mDiskContainer;
-
-        public Inputs.SnapshotImportDiskContainerArgs? DiskContainer => _mDiskContainer.GetValue("diskContainer");
+        private Inputs.SnapshotImportDiskContainerArgs? _mValue_DiskContainer;
+        private bool _mUnknown_DiskContainer;
+        public Inputs.SnapshotImportDiskContainerArgs? DiskContainer
+        {
+            get
+            {
+                if (!_mUnknown_DiskContainer) return _mValue_DiskContainer;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.DiskContainer' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to permanently restore an archived snapshot.
         /// </summary>
-        [Input("permanentRestore")]
+        [PolicyResourceProperty("permanentRestore", "_mUnknown_PermanentRestore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPermanentRestore;
-
-        public bool? PermanentRestore => _mPermanentRestore.GetValue("permanentRestore");
+        private bool? _mValue_PermanentRestore;
+        private bool _mUnknown_PermanentRestore;
+        public bool? PermanentRestore
+        {
+            get
+            {
+                if (!_mUnknown_PermanentRestore) return _mValue_PermanentRestore;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.PermanentRestore' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         /// </summary>
-        [Input("roleName")]
+        [PolicyResourceProperty("roleName", "_mUnknown_RoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
-
-        public string? RoleName => _mRoleName.GetValue("roleName");
+        private string? _mValue_RoleName;
+        private bool _mUnknown_RoleName;
+        public string? RoleName
+        {
+            get
+            {
+                if (!_mUnknown_RoleName) return _mValue_RoleName;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.RoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         /// </summary>
-        [Input("storageTier")]
+        [PolicyResourceProperty("storageTier", "_mUnknown_StorageTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStorageTier;
-
-        public string? StorageTier => _mStorageTier.GetValue("storageTier");
+        private string? _mValue_StorageTier;
+        private bool _mUnknown_StorageTier;
+        public string? StorageTier
+        {
+            get
+            {
+                if (!_mUnknown_StorageTier) return _mValue_StorageTier;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.StorageTier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the snapshot.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         /// </summary>
-        [Input("temporaryRestoreDays")]
+        [PolicyResourceProperty("temporaryRestoreDays", "_mUnknown_TemporaryRestoreDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTemporaryRestoreDays;
-
-        public int? TemporaryRestoreDays => _mTemporaryRestoreDays.GetValue("temporaryRestoreDays");
+        private int? _mValue_TemporaryRestoreDays;
+        private bool _mUnknown_TemporaryRestoreDays;
+        public int? TemporaryRestoreDays
+        {
+            get
+            {
+                if (!_mUnknown_TemporaryRestoreDays) return _mValue_TemporaryRestoreDays;
+                throw new UndeferrableValueException("Value 'SnapshotImportArgs.TemporaryRestoreDays' is not present");
+            }
+        }
     }
 }

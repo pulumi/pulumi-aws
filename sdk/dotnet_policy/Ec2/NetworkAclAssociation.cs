@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the network ACL.
         /// </summary>
-        [Input("networkAclId")]
+        [PolicyResourceProperty("networkAclId", "_mUnknown_NetworkAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
-
-        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
+        private string? _mValue_NetworkAclId;
+        private bool _mUnknown_NetworkAclId;
+        public string? NetworkAclId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAclId) return _mValue_NetworkAclId;
+                throw new UndeferrableValueException("Value 'NetworkAclAssociation.NetworkAclId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the associated Subnet.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NetworkAclAssociation.SubnetId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/networkAclAssociation:NetworkAclAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the network ACL.
         /// </summary>
-        [Input("networkAclId")]
+        [PolicyResourceProperty("networkAclId", "_mUnknown_NetworkAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkAclId;
-
-        public string? NetworkAclId => _mNetworkAclId.GetValue("networkAclId");
+        private string? _mValue_NetworkAclId;
+        private bool _mUnknown_NetworkAclId;
+        public string? NetworkAclId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkAclId) return _mValue_NetworkAclId;
+                throw new UndeferrableValueException("Value 'NetworkAclAssociationArgs.NetworkAclId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the associated Subnet.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NetworkAclAssociationArgs.SubnetId' is not present");
+            }
+        }
     }
 }

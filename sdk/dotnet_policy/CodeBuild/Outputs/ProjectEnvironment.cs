@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the compute resources the build project will use. Valid values:
@@ -29,29 +36,50 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// `BUILD_GENERAL1_LARGE`. When `type` is set to `LINUX_LAMBDA_CONTAINER` or `ARM_LAMBDA_CONTAINER`, `compute_type` must
         /// be `BUILD_LAMBDA_XGB`.`
         /// </summary>
-        [Input("computeType")]
+        [PolicyResourceProperty("computeType", "_mUnknown_ComputeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeType;
-
-        public string? ComputeType => _mComputeType.GetValue("computeType");
+        private string? _mValue_ComputeType;
+        private bool _mUnknown_ComputeType;
+        public string? ComputeType
+        {
+            get
+            {
+                if (!_mUnknown_ComputeType) return _mValue_ComputeType;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.ComputeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("environmentVariables")]
+        [PolicyResourceProperty("environmentVariables", "_mUnknown_EnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectEnvironmentEnvironmentVariable>> _mEnvironmentVariables;
-
-        public List<Outputs.ProjectEnvironmentEnvironmentVariable>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+        private List<Outputs.ProjectEnvironmentEnvironmentVariable>? _mValue_EnvironmentVariables;
+        private bool _mUnknown_EnvironmentVariables;
+        public List<Outputs.ProjectEnvironmentEnvironmentVariable>? EnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentVariables) return _mValue_EnvironmentVariables;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.EnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("fleet")]
+        [PolicyResourceProperty("fleet", "_mUnknown_Fleet")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectEnvironmentFleet> _mFleet;
-
-        public Outputs.ProjectEnvironmentFleet? Fleet => _mFleet.GetValue("fleet");
+        private Outputs.ProjectEnvironmentFleet? _mValue_Fleet;
+        private bool _mUnknown_Fleet;
+        public Outputs.ProjectEnvironmentFleet? Fleet
+        {
+            get
+            {
+                if (!_mUnknown_Fleet) return _mValue_Fleet;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.Fleet' is not present");
+            }
+        }
 
         /// <summary>
         /// Docker image to use for this build project. Valid values
@@ -60,41 +88,69 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g.,
         /// `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
         /// </summary>
-        [Input("image")]
+        [PolicyResourceProperty("image", "_mUnknown_Image")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImage;
-
-        public string? Image => _mImage.GetValue("image");
+        private string? _mValue_Image;
+        private bool _mUnknown_Image;
+        public string? Image
+        {
+            get
+            {
+                if (!_mUnknown_Image) return _mValue_Image;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.Image' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of credentials AWS CodeBuild uses to pull images in your build. Valid
         /// values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
         /// credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
         /// </summary>
-        [Input("imagePullCredentialsType")]
+        [PolicyResourceProperty("imagePullCredentialsType", "_mUnknown_ImagePullCredentialsType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImagePullCredentialsType;
-
-        public string? ImagePullCredentialsType => _mImagePullCredentialsType.GetValue("imagePullCredentialsType");
+        private string? _mValue_ImagePullCredentialsType;
+        private bool _mUnknown_ImagePullCredentialsType;
+        public string? ImagePullCredentialsType
+        {
+            get
+            {
+                if (!_mUnknown_ImagePullCredentialsType) return _mValue_ImagePullCredentialsType;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.ImagePullCredentialsType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable running the Docker daemon inside a Docker container. Defaults to
         /// `false`.
         /// </summary>
-        [Input("privilegedMode")]
+        [PolicyResourceProperty("privilegedMode", "_mUnknown_PrivilegedMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivilegedMode;
-
-        public bool? PrivilegedMode => _mPrivilegedMode.GetValue("privilegedMode");
+        private bool? _mValue_PrivilegedMode;
+        private bool _mUnknown_PrivilegedMode;
+        public bool? PrivilegedMode
+        {
+            get
+            {
+                if (!_mUnknown_PrivilegedMode) return _mValue_PrivilegedMode;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.PrivilegedMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("registryCredential")]
+        [PolicyResourceProperty("registryCredential", "_mUnknown_RegistryCredential")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectEnvironmentRegistryCredential> _mRegistryCredential;
-
-        public Outputs.ProjectEnvironmentRegistryCredential? RegistryCredential => _mRegistryCredential.GetValue("registryCredential");
+        private Outputs.ProjectEnvironmentRegistryCredential? _mValue_RegistryCredential;
+        private bool _mUnknown_RegistryCredential;
+        public Outputs.ProjectEnvironmentRegistryCredential? RegistryCredential
+        {
+            get
+            {
+                if (!_mUnknown_RegistryCredential) return _mValue_RegistryCredential;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.RegistryCredential' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of build environment to use for related builds. Valid values: `LINUX_CONTAINER`,
@@ -102,10 +158,17 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// `LINUX_LAMBDA_CONTAINER`, `ARM_LAMBDA_CONTAINER`. For additional information, see
         /// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProjectEnvironment.Type' is not present");
+            }
+        }
     }
 }

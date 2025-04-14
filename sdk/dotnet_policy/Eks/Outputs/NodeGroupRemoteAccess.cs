@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
         /// </summary>
-        [Input("ec2SshKey")]
+        [PolicyResourceProperty("ec2SshKey", "_mUnknown_Ec2SshKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEc2SshKey;
-
-        public string? Ec2SshKey => _mEc2SshKey.GetValue("ec2SshKey");
+        private string? _mValue_Ec2SshKey;
+        private bool _mUnknown_Ec2SshKey;
+        public string? Ec2SshKey
+        {
+            get
+            {
+                if (!_mUnknown_Ec2SshKey) return _mValue_Ec2SshKey;
+                throw new UndeferrableValueException("Value 'NodeGroupRemoteAccess.Ec2SshKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
         /// </summary>
-        [Input("sourceSecurityGroupIds")]
+        [PolicyResourceProperty("sourceSecurityGroupIds", "_mUnknown_SourceSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSourceSecurityGroupIds;
-
-        public List<string>? SourceSecurityGroupIds => _mSourceSecurityGroupIds.GetValue("sourceSecurityGroupIds");
+        private List<string>? _mValue_SourceSecurityGroupIds;
+        private bool _mUnknown_SourceSecurityGroupIds;
+        public List<string>? SourceSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SourceSecurityGroupIds) return _mValue_SourceSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'NodeGroupRemoteAccess.SourceSecurityGroupIds' is not present");
+            }
+        }
     }
 }

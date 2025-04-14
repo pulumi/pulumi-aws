@@ -16,97 +16,174 @@ namespace Pulumi.PolicyPacks.Aws.Qbusiness
         /// <summary>
         /// ARN of the Q Business application.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Application.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         /// </summary>
-        [Input("attachmentsConfiguration")]
+        [PolicyResourceProperty("attachmentsConfiguration", "_mUnknown_AttachmentsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationAttachmentsConfiguration> _mAttachmentsConfiguration;
-
-        public Outputs.ApplicationAttachmentsConfiguration? AttachmentsConfiguration => _mAttachmentsConfiguration.GetValue("attachmentsConfiguration");
+        private Outputs.ApplicationAttachmentsConfiguration? _mValue_AttachmentsConfiguration;
+        private bool _mUnknown_AttachmentsConfiguration;
+        public Outputs.ApplicationAttachmentsConfiguration? AttachmentsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentsConfiguration) return _mValue_AttachmentsConfiguration;
+                throw new UndeferrableValueException("Value 'Application.AttachmentsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the Amazon Q application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Application.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon Q application.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Application.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about encryption configuration. See `encryption_configuration` below.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationEncryptionConfiguration> _mEncryptionConfiguration;
-
-        public Outputs.ApplicationEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Outputs.ApplicationEncryptionConfiguration? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Outputs.ApplicationEncryptionConfiguration? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'Application.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         /// </summary>
-        [Input("iamServiceRoleArn")]
+        [PolicyResourceProperty("iamServiceRoleArn", "_mUnknown_IamServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
-
-        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
+        private string? _mValue_IamServiceRoleArn;
+        private bool _mUnknown_IamServiceRoleArn;
+        public string? IamServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamServiceRoleArn) return _mValue_IamServiceRoleArn;
+                throw new UndeferrableValueException("Value 'Application.IamServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AWS IAM Identity Center application attached to your Amazon Q Business application.
         /// </summary>
-        [Input("identityCenterApplicationArn")]
+        [PolicyResourceProperty("identityCenterApplicationArn", "_mUnknown_IdentityCenterApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterApplicationArn;
-
-        public string? IdentityCenterApplicationArn => _mIdentityCenterApplicationArn.GetValue("identityCenterApplicationArn");
+        private string? _mValue_IdentityCenterApplicationArn;
+        private bool _mUnknown_IdentityCenterApplicationArn;
+        public string? IdentityCenterApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_IdentityCenterApplicationArn) return _mValue_IdentityCenterApplicationArn;
+                throw new UndeferrableValueException("Value 'Application.IdentityCenterApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("identityCenterInstanceArn")]
+        [PolicyResourceProperty("identityCenterInstanceArn", "_mUnknown_IdentityCenterInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterInstanceArn;
+        private string? _mValue_IdentityCenterInstanceArn;
+        private bool _mUnknown_IdentityCenterInstanceArn;
+        public string? IdentityCenterInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_IdentityCenterInstanceArn) return _mValue_IdentityCenterInstanceArn;
+                throw new UndeferrableValueException("Value 'Application.IdentityCenterInstanceArn' is not present");
+            }
+        }
 
-        public string? IdentityCenterInstanceArn => _mIdentityCenterInstanceArn.GetValue("identityCenterInstanceArn");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Application.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Application.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationTimeouts> _mTimeouts;
-
-        public Outputs.ApplicationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ApplicationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ApplicationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Application.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:qbusiness/application:Application")]
@@ -115,69 +192,125 @@ namespace Pulumi.PolicyPacks.Aws.Qbusiness
         /// <summary>
         /// Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
         /// </summary>
-        [Input("attachmentsConfiguration")]
+        [PolicyResourceProperty("attachmentsConfiguration", "_mUnknown_AttachmentsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationAttachmentsConfigurationArgs> _mAttachmentsConfiguration;
-
-        public Inputs.ApplicationAttachmentsConfigurationArgs? AttachmentsConfiguration => _mAttachmentsConfiguration.GetValue("attachmentsConfiguration");
+        private Inputs.ApplicationAttachmentsConfigurationArgs? _mValue_AttachmentsConfiguration;
+        private bool _mUnknown_AttachmentsConfiguration;
+        public Inputs.ApplicationAttachmentsConfigurationArgs? AttachmentsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentsConfiguration) return _mValue_AttachmentsConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AttachmentsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the Amazon Q application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon Q application.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about encryption configuration. See `encryption_configuration` below.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationEncryptionConfigurationArgs> _mEncryptionConfiguration;
-
-        public Inputs.ApplicationEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Inputs.ApplicationEncryptionConfigurationArgs? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Inputs.ApplicationEncryptionConfigurationArgs? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
         /// </summary>
-        [Input("iamServiceRoleArn")]
+        [PolicyResourceProperty("iamServiceRoleArn", "_mUnknown_IamServiceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamServiceRoleArn;
-
-        public string? IamServiceRoleArn => _mIamServiceRoleArn.GetValue("iamServiceRoleArn");
+        private string? _mValue_IamServiceRoleArn;
+        private bool _mUnknown_IamServiceRoleArn;
+        public string? IamServiceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamServiceRoleArn) return _mValue_IamServiceRoleArn;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.IamServiceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("identityCenterInstanceArn")]
+        [PolicyResourceProperty("identityCenterInstanceArn", "_mUnknown_IdentityCenterInstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityCenterInstanceArn;
+        private string? _mValue_IdentityCenterInstanceArn;
+        private bool _mUnknown_IdentityCenterInstanceArn;
+        public string? IdentityCenterInstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_IdentityCenterInstanceArn) return _mValue_IdentityCenterInstanceArn;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.IdentityCenterInstanceArn' is not present");
+            }
+        }
 
-        public string? IdentityCenterInstanceArn => _mIdentityCenterInstanceArn.GetValue("identityCenterInstanceArn");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ApplicationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ApplicationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ApplicationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

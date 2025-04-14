@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
 {
     public sealed class GetJobQueueComputeEnvironmentOrderResult
     {
-        [Input("computeEnvironment")]
+        [PolicyResourceProperty("computeEnvironment", "_mUnknown_ComputeEnvironment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironment;
+        private string? _mValue_ComputeEnvironment;
+        private bool _mUnknown_ComputeEnvironment;
+        public string? ComputeEnvironment
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironment) return _mValue_ComputeEnvironment;
+                throw new UndeferrableValueException("Value 'GetJobQueueComputeEnvironmentOrderResult.ComputeEnvironment' is not present");
+            }
+        }
 
-        public string? ComputeEnvironment => _mComputeEnvironment.GetValue("computeEnvironment");
-
-        [Input("order")]
+        [PolicyResourceProperty("order", "_mUnknown_Order")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOrder;
-
-        public int? Order => _mOrder.GetValue("order");
+        private int? _mValue_Order;
+        private bool _mUnknown_Order;
+        public int? Order
+        {
+            get
+            {
+                if (!_mUnknown_Order) return _mValue_Order;
+                throw new UndeferrableValueException("Value 'GetJobQueueComputeEnvironmentOrderResult.Order' is not present");
+            }
+        }
     }
 }

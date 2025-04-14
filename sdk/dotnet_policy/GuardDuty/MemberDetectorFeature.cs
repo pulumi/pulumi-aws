@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// Member account ID to be updated.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeature.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional feature configuration block. See below.
         /// </summary>
-        [Input("additionalConfigurations")]
+        [PolicyResourceProperty("additionalConfigurations", "_mUnknown_AdditionalConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MemberDetectorFeatureAdditionalConfiguration>> _mAdditionalConfigurations;
-
-        public List<Outputs.MemberDetectorFeatureAdditionalConfiguration>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
+        private List<Outputs.MemberDetectorFeatureAdditionalConfiguration>? _mValue_AdditionalConfigurations;
+        private bool _mUnknown_AdditionalConfigurations;
+        public List<Outputs.MemberDetectorFeatureAdditionalConfiguration>? AdditionalConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalConfigurations) return _mValue_AdditionalConfigurations;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeature.AdditionalConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon GuardDuty detector ID.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeature.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeature.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeature.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:guardduty/memberDetectorFeature:MemberDetectorFeature")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// Member account ID to be updated.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeatureArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Additional feature configuration block. See below.
         /// </summary>
-        [Input("additionalConfigurations")]
+        [PolicyResourceProperty("additionalConfigurations", "_mUnknown_AdditionalConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs>> _mAdditionalConfigurations;
-
-        public List<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
+        private List<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs>? _mValue_AdditionalConfigurations;
+        private bool _mUnknown_AdditionalConfigurations;
+        public List<Inputs.MemberDetectorFeatureAdditionalConfigurationArgs>? AdditionalConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalConfigurations) return _mValue_AdditionalConfigurations;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeatureArgs.AdditionalConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon GuardDuty detector ID.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeatureArgs.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeatureArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'MemberDetectorFeatureArgs.Status' is not present");
+            }
+        }
     }
 }

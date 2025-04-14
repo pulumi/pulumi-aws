@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Name of the output context.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsIntentOutputContextArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
         /// </summary>
-        [Input("timeToLiveInSeconds")]
+        [PolicyResourceProperty("timeToLiveInSeconds", "_mUnknown_TimeToLiveInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeToLiveInSeconds;
-
-        public int? TimeToLiveInSeconds => _mTimeToLiveInSeconds.GetValue("timeToLiveInSeconds");
+        private int? _mValue_TimeToLiveInSeconds;
+        private bool _mUnknown_TimeToLiveInSeconds;
+        public int? TimeToLiveInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeToLiveInSeconds) return _mValue_TimeToLiveInSeconds;
+                throw new UndeferrableValueException("Value 'V2modelsIntentOutputContextArgs.TimeToLiveInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
         /// </summary>
-        [Input("turnsToLive")]
+        [PolicyResourceProperty("turnsToLive", "_mUnknown_TurnsToLive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTurnsToLive;
-
-        public int? TurnsToLive => _mTurnsToLive.GetValue("turnsToLive");
+        private int? _mValue_TurnsToLive;
+        private bool _mUnknown_TurnsToLive;
+        public int? TurnsToLive
+        {
+            get
+            {
+                if (!_mUnknown_TurnsToLive) return _mValue_TurnsToLive;
+                throw new UndeferrableValueException("Value 'V2modelsIntentOutputContextArgs.TurnsToLive' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ebs.Inputs
         /// <summary>
         /// The name of the Amazon S3 bucket where the disk image is located.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'SnapshotImportDiskContainerUserBucketArgs.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The file name of the disk image.
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'SnapshotImportDiskContainerUserBucketArgs.S3Key' is not present");
+            }
+        }
     }
 }

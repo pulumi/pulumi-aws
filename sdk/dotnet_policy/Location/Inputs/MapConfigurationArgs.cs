@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Location.Inputs
         /// <summary>
         /// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
         /// </summary>
-        [Input("style")]
+        [PolicyResourceProperty("style", "_mUnknown_Style")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStyle;
-
-        public string? Style => _mStyle.GetValue("style");
+        private string? _mValue_Style;
+        private bool _mUnknown_Style;
+        public string? Style
+        {
+            get
+            {
+                if (!_mUnknown_Style) return _mValue_Style;
+                throw new UndeferrableValueException("Value 'MapConfigurationArgs.Style' is not present");
+            }
+        }
     }
 }

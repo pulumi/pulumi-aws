@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// A list of CloudFront domain names for the staging distribution.
         /// </summary>
-        [Input("items")]
+        [PolicyResourceProperty("items", "_mUnknown_Items")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mItems;
-
-        public List<string>? Items => _mItems.GetValue("items");
+        private List<string>? _mValue_Items;
+        private bool _mUnknown_Items;
+        public List<string>? Items
+        {
+            get
+            {
+                if (!_mUnknown_Items) return _mValue_Items;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.Items' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of CloudFront domain names in the staging distribution.
         /// </summary>
-        [Input("quantity")]
+        [PolicyResourceProperty("quantity", "_mUnknown_Quantity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQuantity;
-
-        public int? Quantity => _mQuantity.GetValue("quantity");
+        private int? _mValue_Quantity;
+        private bool _mUnknown_Quantity;
+        public int? Quantity
+        {
+            get
+            {
+                if (!_mUnknown_Quantity) return _mValue_Quantity;
+                throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.Quantity' is not present");
+            }
+        }
     }
 }

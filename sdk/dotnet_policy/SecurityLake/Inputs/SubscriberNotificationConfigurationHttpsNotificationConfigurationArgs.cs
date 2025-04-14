@@ -15,49 +15,84 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Inputs
         /// <summary>
         /// The API key name for the notification subscription.
         /// </summary>
-        [Input("authorizationApiKeyName")]
+        [PolicyResourceProperty("authorizationApiKeyName", "_mUnknown_AuthorizationApiKeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationApiKeyName;
-
-        public string? AuthorizationApiKeyName => _mAuthorizationApiKeyName.GetValue("authorizationApiKeyName");
+        private string? _mValue_AuthorizationApiKeyName;
+        private bool _mUnknown_AuthorizationApiKeyName;
+        public string? AuthorizationApiKeyName
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationApiKeyName) return _mValue_AuthorizationApiKeyName;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.AuthorizationApiKeyName' is not present");
+            }
+        }
 
         /// <summary>
         /// The API key value for the notification subscription.
         /// </summary>
-        [Input("authorizationApiKeyValue")]
+        [PolicyResourceProperty("authorizationApiKeyValue", "_mUnknown_AuthorizationApiKeyValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationApiKeyValue;
-
-        public string? AuthorizationApiKeyValue => _mAuthorizationApiKeyValue.GetValue("authorizationApiKeyValue");
+        private string? _mValue_AuthorizationApiKeyValue;
+        private bool _mUnknown_AuthorizationApiKeyValue;
+        public string? AuthorizationApiKeyValue
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationApiKeyValue) return _mValue_AuthorizationApiKeyValue;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.AuthorizationApiKeyValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The subscription endpoint in Security Lake.
         /// If you prefer notification with an HTTPS endpoint, populate this field.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP method used for the notification subscription.
         /// Valid values are `POST` and `PUT`.
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
         /// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
         /// </summary>
-        [Input("targetRoleArn")]
+        [PolicyResourceProperty("targetRoleArn", "_mUnknown_TargetRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetRoleArn;
-
-        public string? TargetRoleArn => _mTargetRoleArn.GetValue("targetRoleArn");
+        private string? _mValue_TargetRoleArn;
+        private bool _mUnknown_TargetRoleArn;
+        public string? TargetRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetRoleArn) return _mValue_TargetRoleArn;
+                throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.TargetRoleArn' is not present");
+            }
+        }
     }
 }

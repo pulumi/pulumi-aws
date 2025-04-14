@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
 {
     public sealed class GetFirewallPolicyFirewallPolicyStatelessCustomActionResult
     {
-        [Input("actionDefinitions")]
+        [PolicyResourceProperty("actionDefinitions", "_mUnknown_ActionDefinitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult>> _mActionDefinitions;
+        private List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult>? _mValue_ActionDefinitions;
+        private bool _mUnknown_ActionDefinitions;
+        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult>? ActionDefinitions
+        {
+            get
+            {
+                if (!_mUnknown_ActionDefinitions) return _mValue_ActionDefinitions;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyStatelessCustomActionResult.ActionDefinitions' is not present");
+            }
+        }
 
-        public List<Outputs.GetFirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionResult>? ActionDefinitions => _mActionDefinitions.GetValue("actionDefinitions");
-
-        [Input("actionName")]
+        [PolicyResourceProperty("actionName", "_mUnknown_ActionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionName;
-
-        public string? ActionName => _mActionName.GetValue("actionName");
+        private string? _mValue_ActionName;
+        private bool _mUnknown_ActionName;
+        public string? ActionName
+        {
+            get
+            {
+                if (!_mUnknown_ActionName) return _mValue_ActionName;
+                throw new UndeferrableValueException("Value 'GetFirewallPolicyFirewallPolicyStatelessCustomActionResult.ActionName' is not present");
+            }
+        }
     }
 }

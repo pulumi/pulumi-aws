@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.ApplicationInsights
         /// <summary>
         /// ARN of the Application.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Application.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         /// </summary>
-        [Input("autoConfigEnabled")]
+        [PolicyResourceProperty("autoConfigEnabled", "_mUnknown_AutoConfigEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoConfigEnabled;
-
-        public bool? AutoConfigEnabled => _mAutoConfigEnabled.GetValue("autoConfigEnabled");
+        private bool? _mValue_AutoConfigEnabled;
+        private bool _mUnknown_AutoConfigEnabled;
+        public bool? AutoConfigEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AutoConfigEnabled) return _mValue_AutoConfigEnabled;
+                throw new UndeferrableValueException("Value 'Application.AutoConfigEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures all of the resources in the resource group by applying the recommended configurations.
         /// </summary>
-        [Input("autoCreate")]
+        [PolicyResourceProperty("autoCreate", "_mUnknown_AutoCreate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoCreate;
-
-        public bool? AutoCreate => _mAutoCreate.GetValue("autoCreate");
+        private bool? _mValue_AutoCreate;
+        private bool _mUnknown_AutoCreate;
+        public bool? AutoCreate
+        {
+            get
+            {
+                if (!_mUnknown_AutoCreate) return _mValue_AutoCreate;
+                throw new UndeferrableValueException("Value 'Application.AutoCreate' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         /// </summary>
-        [Input("cweMonitorEnabled")]
+        [PolicyResourceProperty("cweMonitorEnabled", "_mUnknown_CweMonitorEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCweMonitorEnabled;
-
-        public bool? CweMonitorEnabled => _mCweMonitorEnabled.GetValue("cweMonitorEnabled");
+        private bool? _mValue_CweMonitorEnabled;
+        private bool _mUnknown_CweMonitorEnabled;
+        public bool? CweMonitorEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CweMonitorEnabled) return _mValue_CweMonitorEnabled;
+                throw new UndeferrableValueException("Value 'Application.CweMonitorEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         /// </summary>
-        [Input("groupingType")]
+        [PolicyResourceProperty("groupingType", "_mUnknown_GroupingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupingType;
-
-        public string? GroupingType => _mGroupingType.GetValue("groupingType");
+        private string? _mValue_GroupingType;
+        private bool _mUnknown_GroupingType;
+        public string? GroupingType
+        {
+            get
+            {
+                if (!_mUnknown_GroupingType) return _mValue_GroupingType;
+                throw new UndeferrableValueException("Value 'Application.GroupingType' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, creates opsItems for any problems detected on an application.
         /// </summary>
-        [Input("opsCenterEnabled")]
+        [PolicyResourceProperty("opsCenterEnabled", "_mUnknown_OpsCenterEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOpsCenterEnabled;
-
-        public bool? OpsCenterEnabled => _mOpsCenterEnabled.GetValue("opsCenterEnabled");
+        private bool? _mValue_OpsCenterEnabled;
+        private bool _mUnknown_OpsCenterEnabled;
+        public bool? OpsCenterEnabled
+        {
+            get
+            {
+                if (!_mUnknown_OpsCenterEnabled) return _mValue_OpsCenterEnabled;
+                throw new UndeferrableValueException("Value 'Application.OpsCenterEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         /// </summary>
-        [Input("opsItemSnsTopicArn")]
+        [PolicyResourceProperty("opsItemSnsTopicArn", "_mUnknown_OpsItemSnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpsItemSnsTopicArn;
-
-        public string? OpsItemSnsTopicArn => _mOpsItemSnsTopicArn.GetValue("opsItemSnsTopicArn");
+        private string? _mValue_OpsItemSnsTopicArn;
+        private bool _mUnknown_OpsItemSnsTopicArn;
+        public string? OpsItemSnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_OpsItemSnsTopicArn) return _mValue_OpsItemSnsTopicArn;
+                throw new UndeferrableValueException("Value 'Application.OpsItemSnsTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the resource group.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceGroupName")]
+        [PolicyResourceProperty("resourceGroupName", "_mUnknown_ResourceGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupName;
-
-        public string? ResourceGroupName => _mResourceGroupName.GetValue("resourceGroupName");
+        private string? _mValue_ResourceGroupName;
+        private bool _mUnknown_ResourceGroupName;
+        public string? ResourceGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceGroupName) return _mValue_ResourceGroupName;
+                throw new UndeferrableValueException("Value 'Application.ResourceGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Application.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Application.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:applicationinsights/application:Application")]
@@ -112,75 +182,131 @@ namespace Pulumi.PolicyPacks.Aws.ApplicationInsights
         /// <summary>
         /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         /// </summary>
-        [Input("autoConfigEnabled")]
+        [PolicyResourceProperty("autoConfigEnabled", "_mUnknown_AutoConfigEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoConfigEnabled;
-
-        public bool? AutoConfigEnabled => _mAutoConfigEnabled.GetValue("autoConfigEnabled");
+        private bool? _mValue_AutoConfigEnabled;
+        private bool _mUnknown_AutoConfigEnabled;
+        public bool? AutoConfigEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AutoConfigEnabled) return _mValue_AutoConfigEnabled;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AutoConfigEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures all of the resources in the resource group by applying the recommended configurations.
         /// </summary>
-        [Input("autoCreate")]
+        [PolicyResourceProperty("autoCreate", "_mUnknown_AutoCreate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoCreate;
-
-        public bool? AutoCreate => _mAutoCreate.GetValue("autoCreate");
+        private bool? _mValue_AutoCreate;
+        private bool _mUnknown_AutoCreate;
+        public bool? AutoCreate
+        {
+            get
+            {
+                if (!_mUnknown_AutoCreate) return _mValue_AutoCreate;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AutoCreate' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         /// </summary>
-        [Input("cweMonitorEnabled")]
+        [PolicyResourceProperty("cweMonitorEnabled", "_mUnknown_CweMonitorEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCweMonitorEnabled;
-
-        public bool? CweMonitorEnabled => _mCweMonitorEnabled.GetValue("cweMonitorEnabled");
+        private bool? _mValue_CweMonitorEnabled;
+        private bool _mUnknown_CweMonitorEnabled;
+        public bool? CweMonitorEnabled
+        {
+            get
+            {
+                if (!_mUnknown_CweMonitorEnabled) return _mValue_CweMonitorEnabled;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.CweMonitorEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         /// </summary>
-        [Input("groupingType")]
+        [PolicyResourceProperty("groupingType", "_mUnknown_GroupingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupingType;
-
-        public string? GroupingType => _mGroupingType.GetValue("groupingType");
+        private string? _mValue_GroupingType;
+        private bool _mUnknown_GroupingType;
+        public string? GroupingType
+        {
+            get
+            {
+                if (!_mUnknown_GroupingType) return _mValue_GroupingType;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.GroupingType' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, creates opsItems for any problems detected on an application.
         /// </summary>
-        [Input("opsCenterEnabled")]
+        [PolicyResourceProperty("opsCenterEnabled", "_mUnknown_OpsCenterEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOpsCenterEnabled;
-
-        public bool? OpsCenterEnabled => _mOpsCenterEnabled.GetValue("opsCenterEnabled");
+        private bool? _mValue_OpsCenterEnabled;
+        private bool _mUnknown_OpsCenterEnabled;
+        public bool? OpsCenterEnabled
+        {
+            get
+            {
+                if (!_mUnknown_OpsCenterEnabled) return _mValue_OpsCenterEnabled;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.OpsCenterEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         /// </summary>
-        [Input("opsItemSnsTopicArn")]
+        [PolicyResourceProperty("opsItemSnsTopicArn", "_mUnknown_OpsItemSnsTopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpsItemSnsTopicArn;
-
-        public string? OpsItemSnsTopicArn => _mOpsItemSnsTopicArn.GetValue("opsItemSnsTopicArn");
+        private string? _mValue_OpsItemSnsTopicArn;
+        private bool _mUnknown_OpsItemSnsTopicArn;
+        public string? OpsItemSnsTopicArn
+        {
+            get
+            {
+                if (!_mUnknown_OpsItemSnsTopicArn) return _mValue_OpsItemSnsTopicArn;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.OpsItemSnsTopicArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the resource group.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceGroupName")]
+        [PolicyResourceProperty("resourceGroupName", "_mUnknown_ResourceGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceGroupName;
-
-        public string? ResourceGroupName => _mResourceGroupName.GetValue("resourceGroupName");
+        private string? _mValue_ResourceGroupName;
+        private bool _mUnknown_ResourceGroupName;
+        public string? ResourceGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceGroupName) return _mValue_ResourceGroupName;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ResourceGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Tags' is not present");
+            }
+        }
     }
 }

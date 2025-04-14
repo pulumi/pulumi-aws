@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// ID of the parent API resource
         /// </summary>
-        [Input("parentId")]
+        [PolicyResourceProperty("parentId", "_mUnknown_ParentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
-
-        public string? ParentId => _mParentId.GetValue("parentId");
+        private string? _mValue_ParentId;
+        private bool _mUnknown_ParentId;
+        public string? ParentId
+        {
+            get
+            {
+                if (!_mUnknown_ParentId) return _mValue_ParentId;
+                throw new UndeferrableValueException("Value 'Resource.ParentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Complete path for this API resource, including all parent paths.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'Resource.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Last path segment of this API resource.
         /// </summary>
-        [Input("pathPart")]
+        [PolicyResourceProperty("pathPart", "_mUnknown_PathPart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathPart;
-
-        public string? PathPart => _mPathPart.GetValue("pathPart");
+        private string? _mValue_PathPart;
+        private bool _mUnknown_PathPart;
+        public string? PathPart
+        {
+            get
+            {
+                if (!_mUnknown_PathPart) return _mValue_PathPart;
+                throw new UndeferrableValueException("Value 'Resource.PathPart' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'Resource.RestApi' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/resource:Resource")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// ID of the parent API resource
         /// </summary>
-        [Input("parentId")]
+        [PolicyResourceProperty("parentId", "_mUnknown_ParentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentId;
-
-        public string? ParentId => _mParentId.GetValue("parentId");
+        private string? _mValue_ParentId;
+        private bool _mUnknown_ParentId;
+        public string? ParentId
+        {
+            get
+            {
+                if (!_mUnknown_ParentId) return _mValue_ParentId;
+                throw new UndeferrableValueException("Value 'ResourceArgs.ParentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Last path segment of this API resource.
         /// </summary>
-        [Input("pathPart")]
+        [PolicyResourceProperty("pathPart", "_mUnknown_PathPart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathPart;
-
-        public string? PathPart => _mPathPart.GetValue("pathPart");
+        private string? _mValue_PathPart;
+        private bool _mUnknown_PathPart;
+        public string? PathPart
+        {
+            get
+            {
+                if (!_mUnknown_PathPart) return _mValue_PathPart;
+                throw new UndeferrableValueException("Value 'ResourceArgs.PathPart' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'ResourceArgs.RestApi' is not present");
+            }
+        }
     }
 }

@@ -12,64 +12,113 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
 {
     public sealed class StaticWebLayerEbsVolume
     {
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncrypted;
-
-        public bool? Encrypted => _mEncrypted.GetValue("encrypted");
+        private bool? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public bool? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'StaticWebLayerEbsVolume.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// For PIOPS volumes, the IOPS per disk.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'StaticWebLayerEbsVolume.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to mount the EBS volume on the layer's instances.
         /// </summary>
-        [Input("mountPoint")]
+        [PolicyResourceProperty("mountPoint", "_mUnknown_MountPoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMountPoint;
-
-        public string? MountPoint => _mMountPoint.GetValue("mountPoint");
+        private string? _mValue_MountPoint;
+        private bool _mUnknown_MountPoint;
+        public string? MountPoint
+        {
+            get
+            {
+                if (!_mUnknown_MountPoint) return _mValue_MountPoint;
+                throw new UndeferrableValueException("Value 'StaticWebLayerEbsVolume.MountPoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of disks to use for the EBS volume.
         /// </summary>
-        [Input("numberOfDisks")]
+        [PolicyResourceProperty("numberOfDisks", "_mUnknown_NumberOfDisks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfDisks;
-
-        public int? NumberOfDisks => _mNumberOfDisks.GetValue("numberOfDisks");
+        private int? _mValue_NumberOfDisks;
+        private bool _mUnknown_NumberOfDisks;
+        public int? NumberOfDisks
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfDisks) return _mValue_NumberOfDisks;
+                throw new UndeferrableValueException("Value 'StaticWebLayerEbsVolume.NumberOfDisks' is not present");
+            }
+        }
 
         /// <summary>
         /// The RAID level to use for the volume.
         /// </summary>
-        [Input("raidLevel")]
+        [PolicyResourceProperty("raidLevel", "_mUnknown_RaidLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRaidLevel;
-
-        public string? RaidLevel => _mRaidLevel.GetValue("raidLevel");
+        private string? _mValue_RaidLevel;
+        private bool _mUnknown_RaidLevel;
+        public string? RaidLevel
+        {
+            get
+            {
+                if (!_mUnknown_RaidLevel) return _mValue_RaidLevel;
+                throw new UndeferrableValueException("Value 'StaticWebLayerEbsVolume.RaidLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the volume in gigabytes.
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'StaticWebLayerEbsVolume.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'StaticWebLayerEbsVolume.Type' is not present");
+            }
+        }
     }
 }

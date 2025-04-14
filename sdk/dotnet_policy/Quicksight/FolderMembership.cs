@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'FolderMembership.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the folder.
         /// </summary>
-        [Input("folderId")]
+        [PolicyResourceProperty("folderId", "_mUnknown_FolderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
-
-        public string? FolderId => _mFolderId.GetValue("folderId");
+        private string? _mValue_FolderId;
+        private bool _mUnknown_FolderId;
+        public string? FolderId
+        {
+            get
+            {
+                if (!_mUnknown_FolderId) return _mValue_FolderId;
+                throw new UndeferrableValueException("Value 'FolderMembership.FolderId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the asset (the dashboard, analysis, or dataset).
         /// </summary>
-        [Input("memberId")]
+        [PolicyResourceProperty("memberId", "_mUnknown_MemberId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberId;
-
-        public string? MemberId => _mMemberId.GetValue("memberId");
+        private string? _mValue_MemberId;
+        private bool _mUnknown_MemberId;
+        public string? MemberId
+        {
+            get
+            {
+                if (!_mUnknown_MemberId) return _mValue_MemberId;
+                throw new UndeferrableValueException("Value 'FolderMembership.MemberId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("memberType")]
+        [PolicyResourceProperty("memberType", "_mUnknown_MemberType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberType;
-
-        public string? MemberType => _mMemberType.GetValue("memberType");
+        private string? _mValue_MemberType;
+        private bool _mUnknown_MemberType;
+        public string? MemberType
+        {
+            get
+            {
+                if (!_mUnknown_MemberType) return _mValue_MemberType;
+                throw new UndeferrableValueException("Value 'FolderMembership.MemberType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/folderMembership:FolderMembership")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'FolderMembershipArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the folder.
         /// </summary>
-        [Input("folderId")]
+        [PolicyResourceProperty("folderId", "_mUnknown_FolderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
-
-        public string? FolderId => _mFolderId.GetValue("folderId");
+        private string? _mValue_FolderId;
+        private bool _mUnknown_FolderId;
+        public string? FolderId
+        {
+            get
+            {
+                if (!_mUnknown_FolderId) return _mValue_FolderId;
+                throw new UndeferrableValueException("Value 'FolderMembershipArgs.FolderId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the asset (the dashboard, analysis, or dataset).
         /// </summary>
-        [Input("memberId")]
+        [PolicyResourceProperty("memberId", "_mUnknown_MemberId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberId;
-
-        public string? MemberId => _mMemberId.GetValue("memberId");
+        private string? _mValue_MemberId;
+        private bool _mUnknown_MemberId;
+        public string? MemberId
+        {
+            get
+            {
+                if (!_mUnknown_MemberId) return _mValue_MemberId;
+                throw new UndeferrableValueException("Value 'FolderMembershipArgs.MemberId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("memberType")]
+        [PolicyResourceProperty("memberType", "_mUnknown_MemberType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberType;
-
-        public string? MemberType => _mMemberType.GetValue("memberType");
+        private string? _mValue_MemberType;
+        private bool _mUnknown_MemberType;
+        public string? MemberType
+        {
+            get
+            {
+                if (!_mUnknown_MemberType) return _mValue_MemberType;
+                throw new UndeferrableValueException("Value 'FolderMembershipArgs.MemberType' is not present");
+            }
+        }
     }
 }

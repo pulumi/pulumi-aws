@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Outputs
         /// <summary>
         /// Additional feature configuration.
         /// </summary>
-        [Input("additionalConfigurations")]
+        [PolicyResourceProperty("additionalConfigurations", "_mUnknown_AdditionalConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDetectorFeatureAdditionalConfigurationResult>> _mAdditionalConfigurations;
-
-        public List<Outputs.GetDetectorFeatureAdditionalConfigurationResult>? AdditionalConfigurations => _mAdditionalConfigurations.GetValue("additionalConfigurations");
+        private List<Outputs.GetDetectorFeatureAdditionalConfigurationResult>? _mValue_AdditionalConfigurations;
+        private bool _mUnknown_AdditionalConfigurations;
+        public List<Outputs.GetDetectorFeatureAdditionalConfigurationResult>? AdditionalConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalConfigurations) return _mValue_AdditionalConfigurations;
+                throw new UndeferrableValueException("Value 'GetDetectorFeatureResult.AdditionalConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the detector feature.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetDetectorFeatureResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Current status of the detector.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetDetectorFeatureResult.Status' is not present");
+            }
+        }
     }
 }

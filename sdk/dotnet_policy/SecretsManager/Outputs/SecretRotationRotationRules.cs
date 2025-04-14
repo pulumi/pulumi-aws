@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SecretsManager.Outputs
         /// <summary>
         /// Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         /// </summary>
-        [Input("automaticallyAfterDays")]
+        [PolicyResourceProperty("automaticallyAfterDays", "_mUnknown_AutomaticallyAfterDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAutomaticallyAfterDays;
-
-        public int? AutomaticallyAfterDays => _mAutomaticallyAfterDays.GetValue("automaticallyAfterDays");
+        private int? _mValue_AutomaticallyAfterDays;
+        private bool _mUnknown_AutomaticallyAfterDays;
+        public int? AutomaticallyAfterDays
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticallyAfterDays) return _mValue_AutomaticallyAfterDays;
+                throw new UndeferrableValueException("Value 'SecretRotationRotationRules.AutomaticallyAfterDays' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of the rotation window in hours. For example, `3h` for a three hour window.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDuration;
-
-        public string? Duration => _mDuration.GetValue("duration");
+        private string? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public string? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'SecretRotationRotationRules.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'SecretRotationRotationRules.ScheduleExpression' is not present");
+            }
+        }
     }
 }

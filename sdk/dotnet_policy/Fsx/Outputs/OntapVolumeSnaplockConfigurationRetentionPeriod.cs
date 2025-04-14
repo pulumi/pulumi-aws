@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
         /// </summary>
-        [Input("defaultRetention")]
+        [PolicyResourceProperty("defaultRetention", "_mUnknown_DefaultRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention> _mDefaultRetention;
-
-        public Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention? DefaultRetention => _mDefaultRetention.GetValue("defaultRetention");
+        private Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention? _mValue_DefaultRetention;
+        private bool _mUnknown_DefaultRetention;
+        public Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention? DefaultRetention
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRetention) return _mValue_DefaultRetention;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriod.DefaultRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
         /// </summary>
-        [Input("maximumRetention")]
+        [PolicyResourceProperty("maximumRetention", "_mUnknown_MaximumRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention> _mMaximumRetention;
-
-        public Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention? MaximumRetention => _mMaximumRetention.GetValue("maximumRetention");
+        private Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention? _mValue_MaximumRetention;
+        private bool _mUnknown_MaximumRetention;
+        public Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention? MaximumRetention
+        {
+            get
+            {
+                if (!_mUnknown_MaximumRetention) return _mValue_MaximumRetention;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriod.MaximumRetention' is not present");
+            }
+        }
 
         /// <summary>
         /// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
         /// </summary>
-        [Input("minimumRetention")]
+        [PolicyResourceProperty("minimumRetention", "_mUnknown_MinimumRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention> _mMinimumRetention;
-
-        public Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention? MinimumRetention => _mMinimumRetention.GetValue("minimumRetention");
+        private Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention? _mValue_MinimumRetention;
+        private bool _mUnknown_MinimumRetention;
+        public Outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention? MinimumRetention
+        {
+            get
+            {
+                if (!_mUnknown_MinimumRetention) return _mValue_MinimumRetention;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriod.MinimumRetention' is not present");
+            }
+        }
     }
 }

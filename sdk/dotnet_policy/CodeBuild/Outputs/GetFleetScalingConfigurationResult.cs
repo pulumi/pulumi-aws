@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// <summary>
         /// The desired number of instances in the ﬂeet when auto-scaling.
         /// </summary>
-        [Input("desiredCapacity")]
+        [PolicyResourceProperty("desiredCapacity", "_mUnknown_DesiredCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
-
-        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+        private int? _mValue_DesiredCapacity;
+        private bool _mUnknown_DesiredCapacity;
+        public int? DesiredCapacity
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacity) return _mValue_DesiredCapacity;
+                throw new UndeferrableValueException("Value 'GetFleetScalingConfigurationResult.DesiredCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of instances in the ﬂeet when auto-scaling.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCapacity;
-
-        public int? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private int? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public int? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'GetFleetScalingConfigurationResult.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The scaling type for a compute fleet.
         /// </summary>
-        [Input("scalingType")]
+        [PolicyResourceProperty("scalingType", "_mUnknown_ScalingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalingType;
-
-        public string? ScalingType => _mScalingType.GetValue("scalingType");
+        private string? _mValue_ScalingType;
+        private bool _mUnknown_ScalingType;
+        public string? ScalingType
+        {
+            get
+            {
+                if (!_mUnknown_ScalingType) return _mValue_ScalingType;
+                throw new UndeferrableValueException("Value 'GetFleetScalingConfigurationResult.ScalingType' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested attribute containing information about thresholds when new instance is auto-scaled into the compute fleet.
         /// </summary>
-        [Input("targetTrackingScalingConfigs")]
+        [PolicyResourceProperty("targetTrackingScalingConfigs", "_mUnknown_TargetTrackingScalingConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetFleetScalingConfigurationTargetTrackingScalingConfigResult>> _mTargetTrackingScalingConfigs;
-
-        public List<Outputs.GetFleetScalingConfigurationTargetTrackingScalingConfigResult>? TargetTrackingScalingConfigs => _mTargetTrackingScalingConfigs.GetValue("targetTrackingScalingConfigs");
+        private List<Outputs.GetFleetScalingConfigurationTargetTrackingScalingConfigResult>? _mValue_TargetTrackingScalingConfigs;
+        private bool _mUnknown_TargetTrackingScalingConfigs;
+        public List<Outputs.GetFleetScalingConfigurationTargetTrackingScalingConfigResult>? TargetTrackingScalingConfigs
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingScalingConfigs) return _mValue_TargetTrackingScalingConfigs;
+                throw new UndeferrableValueException("Value 'GetFleetScalingConfigurationResult.TargetTrackingScalingConfigs' is not present");
+            }
+        }
     }
 }

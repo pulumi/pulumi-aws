@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         /// </summary>
-        [Input("artifactStoreUri")]
+        [PolicyResourceProperty("artifactStoreUri", "_mUnknown_ArtifactStoreUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactStoreUri;
-
-        public string? ArtifactStoreUri => _mArtifactStoreUri.GetValue("artifactStoreUri");
+        private string? _mValue_ArtifactStoreUri;
+        private bool _mUnknown_ArtifactStoreUri;
+        public string? ArtifactStoreUri
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactStoreUri) return _mValue_ArtifactStoreUri;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.ArtifactStoreUri' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
         /// </summary>
-        [Input("automaticModelRegistration")]
+        [PolicyResourceProperty("automaticModelRegistration", "_mUnknown_AutomaticModelRegistration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticModelRegistration;
-
-        public bool? AutomaticModelRegistration => _mAutomaticModelRegistration.GetValue("automaticModelRegistration");
+        private bool? _mValue_AutomaticModelRegistration;
+        private bool _mUnknown_AutomaticModelRegistration;
+        public bool? AutomaticModelRegistration
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticModelRegistration) return _mValue_AutomaticModelRegistration;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.AutomaticModelRegistration' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         /// </summary>
-        [Input("mlflowVersion")]
+        [PolicyResourceProperty("mlflowVersion", "_mUnknown_MlflowVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMlflowVersion;
-
-        public string? MlflowVersion => _mMlflowVersion.GetValue("mlflowVersion");
+        private string? _mValue_MlflowVersion;
+        private bool _mUnknown_MlflowVersion;
+        public string? MlflowVersion
+        {
+            get
+            {
+                if (!_mUnknown_MlflowVersion) return _mValue_MlflowVersion;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.MlflowVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         /// </summary>
-        [Input("trackingServerName")]
+        [PolicyResourceProperty("trackingServerName", "_mUnknown_TrackingServerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerName;
-
-        public string? TrackingServerName => _mTrackingServerName.GetValue("trackingServerName");
+        private string? _mValue_TrackingServerName;
+        private bool _mUnknown_TrackingServerName;
+        public string? TrackingServerName
+        {
+            get
+            {
+                if (!_mUnknown_TrackingServerName) return _mValue_TrackingServerName;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.TrackingServerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         /// </summary>
-        [Input("trackingServerSize")]
+        [PolicyResourceProperty("trackingServerSize", "_mUnknown_TrackingServerSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerSize;
-
-        public string? TrackingServerSize => _mTrackingServerSize.GetValue("trackingServerSize");
+        private string? _mValue_TrackingServerSize;
+        private bool _mUnknown_TrackingServerSize;
+        public string? TrackingServerSize
+        {
+            get
+            {
+                if (!_mUnknown_TrackingServerSize) return _mValue_TrackingServerSize;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.TrackingServerSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL to connect to the MLflow user interface for the described tracking server.
         /// </summary>
-        [Input("trackingServerUrl")]
+        [PolicyResourceProperty("trackingServerUrl", "_mUnknown_TrackingServerUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerUrl;
-
-        public string? TrackingServerUrl => _mTrackingServerUrl.GetValue("trackingServerUrl");
+        private string? _mValue_TrackingServerUrl;
+        private bool _mUnknown_TrackingServerUrl;
+        public string? TrackingServerUrl
+        {
+            get
+            {
+                if (!_mUnknown_TrackingServerUrl) return _mValue_TrackingServerUrl;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.TrackingServerUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         /// </summary>
-        [Input("weeklyMaintenanceWindowStart")]
+        [PolicyResourceProperty("weeklyMaintenanceWindowStart", "_mUnknown_WeeklyMaintenanceWindowStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceWindowStart;
-
-        public string? WeeklyMaintenanceWindowStart => _mWeeklyMaintenanceWindowStart.GetValue("weeklyMaintenanceWindowStart");
+        private string? _mValue_WeeklyMaintenanceWindowStart;
+        private bool _mUnknown_WeeklyMaintenanceWindowStart;
+        public string? WeeklyMaintenanceWindowStart
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceWindowStart) return _mValue_WeeklyMaintenanceWindowStart;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServer.WeeklyMaintenanceWindowStart' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         /// </summary>
-        [Input("artifactStoreUri")]
+        [PolicyResourceProperty("artifactStoreUri", "_mUnknown_ArtifactStoreUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactStoreUri;
-
-        public string? ArtifactStoreUri => _mArtifactStoreUri.GetValue("artifactStoreUri");
+        private string? _mValue_ArtifactStoreUri;
+        private bool _mUnknown_ArtifactStoreUri;
+        public string? ArtifactStoreUri
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactStoreUri) return _mValue_ArtifactStoreUri;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.ArtifactStoreUri' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
         /// </summary>
-        [Input("automaticModelRegistration")]
+        [PolicyResourceProperty("automaticModelRegistration", "_mUnknown_AutomaticModelRegistration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticModelRegistration;
-
-        public bool? AutomaticModelRegistration => _mAutomaticModelRegistration.GetValue("automaticModelRegistration");
+        private bool? _mValue_AutomaticModelRegistration;
+        private bool _mUnknown_AutomaticModelRegistration;
+        public bool? AutomaticModelRegistration
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticModelRegistration) return _mValue_AutomaticModelRegistration;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.AutomaticModelRegistration' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
         /// </summary>
-        [Input("mlflowVersion")]
+        [PolicyResourceProperty("mlflowVersion", "_mUnknown_MlflowVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMlflowVersion;
-
-        public string? MlflowVersion => _mMlflowVersion.GetValue("mlflowVersion");
+        private string? _mValue_MlflowVersion;
+        private bool _mUnknown_MlflowVersion;
+        public string? MlflowVersion
+        {
+            get
+            {
+                if (!_mUnknown_MlflowVersion) return _mValue_MlflowVersion;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.MlflowVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         /// </summary>
-        [Input("trackingServerName")]
+        [PolicyResourceProperty("trackingServerName", "_mUnknown_TrackingServerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerName;
-
-        public string? TrackingServerName => _mTrackingServerName.GetValue("trackingServerName");
+        private string? _mValue_TrackingServerName;
+        private bool _mUnknown_TrackingServerName;
+        public string? TrackingServerName
+        {
+            get
+            {
+                if (!_mUnknown_TrackingServerName) return _mValue_TrackingServerName;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.TrackingServerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         /// </summary>
-        [Input("trackingServerSize")]
+        [PolicyResourceProperty("trackingServerSize", "_mUnknown_TrackingServerSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrackingServerSize;
-
-        public string? TrackingServerSize => _mTrackingServerSize.GetValue("trackingServerSize");
+        private string? _mValue_TrackingServerSize;
+        private bool _mUnknown_TrackingServerSize;
+        public string? TrackingServerSize
+        {
+            get
+            {
+                if (!_mUnknown_TrackingServerSize) return _mValue_TrackingServerSize;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.TrackingServerSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
         /// </summary>
-        [Input("weeklyMaintenanceWindowStart")]
+        [PolicyResourceProperty("weeklyMaintenanceWindowStart", "_mUnknown_WeeklyMaintenanceWindowStart")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeeklyMaintenanceWindowStart;
-
-        public string? WeeklyMaintenanceWindowStart => _mWeeklyMaintenanceWindowStart.GetValue("weeklyMaintenanceWindowStart");
+        private string? _mValue_WeeklyMaintenanceWindowStart;
+        private bool _mUnknown_WeeklyMaintenanceWindowStart;
+        public string? WeeklyMaintenanceWindowStart
+        {
+            get
+            {
+                if (!_mUnknown_WeeklyMaintenanceWindowStart) return _mValue_WeeklyMaintenanceWindowStart;
+                throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.WeeklyMaintenanceWindowStart' is not present");
+            }
+        }
     }
 }

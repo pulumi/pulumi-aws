@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class GetClusterBrokerNodeGroupInfoConnectivityInfoResult
     {
-        [Input("publicAccesses")]
+        [PolicyResourceProperty("publicAccesses", "_mUnknown_PublicAccesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult>> _mPublicAccesses;
+        private List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult>? _mValue_PublicAccesses;
+        private bool _mUnknown_PublicAccesses;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult>? PublicAccesses
+        {
+            get
+            {
+                if (!_mUnknown_PublicAccesses) return _mValue_PublicAccesses;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoConnectivityInfoResult.PublicAccesses' is not present");
+            }
+        }
 
-        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessResult>? PublicAccesses => _mPublicAccesses.GetValue("publicAccesses");
-
-        [Input("vpcConnectivities")]
+        [PolicyResourceProperty("vpcConnectivities", "_mUnknown_VpcConnectivities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult>> _mVpcConnectivities;
-
-        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult>? VpcConnectivities => _mVpcConnectivities.GetValue("vpcConnectivities");
+        private List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult>? _mValue_VpcConnectivities;
+        private bool _mUnknown_VpcConnectivities;
+        public List<Outputs.GetClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityResult>? VpcConnectivities
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectivities) return _mValue_VpcConnectivities;
+                throw new UndeferrableValueException("Value 'GetClusterBrokerNodeGroupInfoConnectivityInfoResult.VpcConnectivities' is not present");
+            }
+        }
     }
 }

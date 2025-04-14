@@ -12,45 +12,80 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Inputs
 {
     public sealed class ConnectPeerConfigurationArgs
     {
-        [Input("bgpConfigurations")]
+        [PolicyResourceProperty("bgpConfigurations", "_mUnknown_BgpConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConnectPeerConfigurationBgpConfigurationArgs>> _mBgpConfigurations;
-
-        public List<Inputs.ConnectPeerConfigurationBgpConfigurationArgs>? BgpConfigurations => _mBgpConfigurations.GetValue("bgpConfigurations");
+        private List<Inputs.ConnectPeerConfigurationBgpConfigurationArgs>? _mValue_BgpConfigurations;
+        private bool _mUnknown_BgpConfigurations;
+        public List<Inputs.ConnectPeerConfigurationBgpConfigurationArgs>? BgpConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_BgpConfigurations) return _mValue_BgpConfigurations;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationArgs.BgpConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// A Connect peer core network address.
         /// </summary>
-        [Input("coreNetworkAddress")]
+        [PolicyResourceProperty("coreNetworkAddress", "_mUnknown_CoreNetworkAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkAddress;
-
-        public string? CoreNetworkAddress => _mCoreNetworkAddress.GetValue("coreNetworkAddress");
+        private string? _mValue_CoreNetworkAddress;
+        private bool _mUnknown_CoreNetworkAddress;
+        public string? CoreNetworkAddress
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkAddress) return _mValue_CoreNetworkAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationArgs.CoreNetworkAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         /// </summary>
-        [Input("insideCidrBlocks")]
+        [PolicyResourceProperty("insideCidrBlocks", "_mUnknown_InsideCidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInsideCidrBlocks;
-
-        public List<string>? InsideCidrBlocks => _mInsideCidrBlocks.GetValue("insideCidrBlocks");
+        private List<string>? _mValue_InsideCidrBlocks;
+        private bool _mUnknown_InsideCidrBlocks;
+        public List<string>? InsideCidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_InsideCidrBlocks) return _mValue_InsideCidrBlocks;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationArgs.InsideCidrBlocks' is not present");
+            }
+        }
 
         /// <summary>
         /// The Connect peer address.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("peerAddress")]
+        [PolicyResourceProperty("peerAddress", "_mUnknown_PeerAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeerAddress;
+        private string? _mValue_PeerAddress;
+        private bool _mUnknown_PeerAddress;
+        public string? PeerAddress
+        {
+            get
+            {
+                if (!_mUnknown_PeerAddress) return _mValue_PeerAddress;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationArgs.PeerAddress' is not present");
+            }
+        }
 
-        public string? PeerAddress => _mPeerAddress.GetValue("peerAddress");
-
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ConnectPeerConfigurationArgs.Protocol' is not present");
+            }
+        }
     }
 }

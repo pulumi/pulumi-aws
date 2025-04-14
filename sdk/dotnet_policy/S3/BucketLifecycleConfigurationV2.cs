@@ -16,44 +16,79 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketLifecycleConfigurationV2Rule>> _mRules;
+        private List<Outputs.BucketLifecycleConfigurationV2Rule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.BucketLifecycleConfigurationV2Rule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.Rules' is not present");
+            }
+        }
 
-        public List<Outputs.BucketLifecycleConfigurationV2Rule>? Rules => _mRules.GetValue("rules");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketLifecycleConfigurationV2Timeouts> _mTimeouts;
-
-        public Outputs.BucketLifecycleConfigurationV2Timeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.BucketLifecycleConfigurationV2Timeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.BucketLifecycleConfigurationV2Timeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         /// </summary>
-        [Input("transitionDefaultMinimumObjectSize")]
+        [PolicyResourceProperty("transitionDefaultMinimumObjectSize", "_mUnknown_TransitionDefaultMinimumObjectSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionDefaultMinimumObjectSize;
-
-        public string? TransitionDefaultMinimumObjectSize => _mTransitionDefaultMinimumObjectSize.GetValue("transitionDefaultMinimumObjectSize");
+        private string? _mValue_TransitionDefaultMinimumObjectSize;
+        private bool _mUnknown_TransitionDefaultMinimumObjectSize;
+        public string? TransitionDefaultMinimumObjectSize
+        {
+            get
+            {
+                if (!_mUnknown_TransitionDefaultMinimumObjectSize) return _mValue_TransitionDefaultMinimumObjectSize;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.TransitionDefaultMinimumObjectSize' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")]
@@ -62,43 +97,78 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Args.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Args.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// List of configuration blocks describing the rules managing the replication. See below.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketLifecycleConfigurationV2RuleArgs>> _mRules;
+        private List<Inputs.BucketLifecycleConfigurationV2RuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.BucketLifecycleConfigurationV2RuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Args.Rules' is not present");
+            }
+        }
 
-        public List<Inputs.BucketLifecycleConfigurationV2RuleArgs>? Rules => _mRules.GetValue("rules");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketLifecycleConfigurationV2TimeoutsArgs> _mTimeouts;
-
-        public Inputs.BucketLifecycleConfigurationV2TimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.BucketLifecycleConfigurationV2TimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.BucketLifecycleConfigurationV2TimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Args.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         /// </summary>
-        [Input("transitionDefaultMinimumObjectSize")]
+        [PolicyResourceProperty("transitionDefaultMinimumObjectSize", "_mUnknown_TransitionDefaultMinimumObjectSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitionDefaultMinimumObjectSize;
-
-        public string? TransitionDefaultMinimumObjectSize => _mTransitionDefaultMinimumObjectSize.GetValue("transitionDefaultMinimumObjectSize");
+        private string? _mValue_TransitionDefaultMinimumObjectSize;
+        private bool _mUnknown_TransitionDefaultMinimumObjectSize;
+        public string? TransitionDefaultMinimumObjectSize
+        {
+            get
+            {
+                if (!_mUnknown_TransitionDefaultMinimumObjectSize) return _mValue_TransitionDefaultMinimumObjectSize;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Args.TransitionDefaultMinimumObjectSize' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Outputs
         /// <summary>
         /// The configurations for the application running by the job run.
         /// </summary>
-        [Input("applicationConfigurations")]
+        [PolicyResourceProperty("applicationConfigurations", "_mUnknown_ApplicationConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration>> _mApplicationConfigurations;
-
-        public List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration>? ApplicationConfigurations => _mApplicationConfigurations.GetValue("applicationConfigurations");
+        private List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration>? _mValue_ApplicationConfigurations;
+        private bool _mUnknown_ApplicationConfigurations;
+        public List<Outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration>? ApplicationConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationConfigurations) return _mValue_ApplicationConfigurations;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverrides.ApplicationConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The configurations for monitoring.
         /// </summary>
-        [Input("monitoringConfiguration")]
+        [PolicyResourceProperty("monitoringConfiguration", "_mUnknown_MonitoringConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration> _mMonitoringConfiguration;
-
-        public Outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration? MonitoringConfiguration => _mMonitoringConfiguration.GetValue("monitoringConfiguration");
+        private Outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration? _mValue_MonitoringConfiguration;
+        private bool _mUnknown_MonitoringConfiguration;
+        public Outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration? MonitoringConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringConfiguration) return _mValue_MonitoringConfiguration;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverrides.MonitoringConfiguration' is not present");
+            }
+        }
     }
 }

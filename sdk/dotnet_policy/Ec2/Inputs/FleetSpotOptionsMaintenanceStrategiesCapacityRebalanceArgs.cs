@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
         /// </summary>
-        [Input("replacementStrategy")]
+        [PolicyResourceProperty("replacementStrategy", "_mUnknown_ReplacementStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplacementStrategy;
+        private string? _mValue_ReplacementStrategy;
+        private bool _mUnknown_ReplacementStrategy;
+        public string? ReplacementStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ReplacementStrategy) return _mValue_ReplacementStrategy;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs.ReplacementStrategy' is not present");
+            }
+        }
 
-        public string? ReplacementStrategy => _mReplacementStrategy.GetValue("replacementStrategy");
-
-        [Input("terminationDelay")]
+        [PolicyResourceProperty("terminationDelay", "_mUnknown_TerminationDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTerminationDelay;
-
-        public int? TerminationDelay => _mTerminationDelay.GetValue("terminationDelay");
+        private int? _mValue_TerminationDelay;
+        private bool _mUnknown_TerminationDelay;
+        public int? TerminationDelay
+        {
+            get
+            {
+                if (!_mUnknown_TerminationDelay) return _mValue_TerminationDelay;
+                throw new UndeferrableValueException("Value 'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs.TerminationDelay' is not present");
+            }
+        }
     }
 }

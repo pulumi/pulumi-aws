@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless.Inputs
         /// <summary>
         /// The image URI.
         /// </summary>
-        [Input("imageUri")]
+        [PolicyResourceProperty("imageUri", "_mUnknown_ImageUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageUri;
-
-        public string? ImageUri => _mImageUri.GetValue("imageUri");
+        private string? _mValue_ImageUri;
+        private bool _mUnknown_ImageUri;
+        public string? ImageUri
+        {
+            get
+            {
+                if (!_mUnknown_ImageUri) return _mValue_ImageUri;
+                throw new UndeferrableValueException("Value 'ApplicationImageConfigurationArgs.ImageUri' is not present");
+            }
+        }
     }
 }

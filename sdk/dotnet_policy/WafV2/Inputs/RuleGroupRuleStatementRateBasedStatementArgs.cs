@@ -15,57 +15,99 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
         /// </summary>
-        [Input("aggregateKeyType")]
+        [PolicyResourceProperty("aggregateKeyType", "_mUnknown_AggregateKeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAggregateKeyType;
-
-        public string? AggregateKeyType => _mAggregateKeyType.GetValue("aggregateKeyType");
+        private string? _mValue_AggregateKeyType;
+        private bool _mUnknown_AggregateKeyType;
+        public string? AggregateKeyType
+        {
+            get
+            {
+                if (!_mUnknown_AggregateKeyType) return _mValue_AggregateKeyType;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementArgs.AggregateKeyType' is not present");
+            }
+        }
 
         /// <summary>
         /// Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         /// </summary>
-        [Input("customKeys")]
+        [PolicyResourceProperty("customKeys", "_mUnknown_CustomKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyArgs>> _mCustomKeys;
-
-        public List<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyArgs>? CustomKeys => _mCustomKeys.GetValue("customKeys");
+        private List<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyArgs>? _mValue_CustomKeys;
+        private bool _mUnknown_CustomKeys;
+        public List<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyArgs>? CustomKeys
+        {
+            get
+            {
+                if (!_mUnknown_CustomKeys) return _mValue_CustomKeys;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementArgs.CustomKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
         /// 
         /// **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
         /// </summary>
-        [Input("evaluationWindowSec")]
+        [PolicyResourceProperty("evaluationWindowSec", "_mUnknown_EvaluationWindowSec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEvaluationWindowSec;
-
-        public int? EvaluationWindowSec => _mEvaluationWindowSec.GetValue("evaluationWindowSec");
+        private int? _mValue_EvaluationWindowSec;
+        private bool _mUnknown_EvaluationWindowSec;
+        public int? EvaluationWindowSec
+        {
+            get
+            {
+                if (!_mUnknown_EvaluationWindowSec) return _mValue_EvaluationWindowSec;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementArgs.EvaluationWindowSec' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
         /// </summary>
-        [Input("forwardedIpConfig")]
+        [PolicyResourceProperty("forwardedIpConfig", "_mUnknown_ForwardedIpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs> _mForwardedIpConfig;
-
-        public Inputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs? ForwardedIpConfig => _mForwardedIpConfig.GetValue("forwardedIpConfig");
+        private Inputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs? _mValue_ForwardedIpConfig;
+        private bool _mUnknown_ForwardedIpConfig;
+        public Inputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs? ForwardedIpConfig
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedIpConfig) return _mValue_ForwardedIpConfig;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementArgs.ForwardedIpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The limit on requests per 5-minute period for a single originating IP address.
         /// </summary>
-        [Input("limit")]
+        [PolicyResourceProperty("limit", "_mUnknown_Limit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLimit;
-
-        public int? Limit => _mLimit.GetValue("limit");
+        private int? _mValue_Limit;
+        private bool _mUnknown_Limit;
+        public int? Limit
+        {
+            get
+            {
+                if (!_mUnknown_Limit) return _mValue_Limit;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementArgs.Limit' is not present");
+            }
+        }
 
         /// <summary>
         /// An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         /// </summary>
-        [Input("scopeDownStatement")]
+        [PolicyResourceProperty("scopeDownStatement", "_mUnknown_ScopeDownStatement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs> _mScopeDownStatement;
-
-        public Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs? ScopeDownStatement => _mScopeDownStatement.GetValue("scopeDownStatement");
+        private Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs? _mValue_ScopeDownStatement;
+        private bool _mUnknown_ScopeDownStatement;
+        public Inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs? ScopeDownStatement
+        {
+            get
+            {
+                if (!_mUnknown_ScopeDownStatement) return _mValue_ScopeDownStatement;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementArgs.ScopeDownStatement' is not present");
+            }
+        }
     }
 }

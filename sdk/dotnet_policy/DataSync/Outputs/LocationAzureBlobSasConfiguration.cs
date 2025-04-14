@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// A SAS token that provides permissions to access your Azure Blob Storage.
         /// </summary>
-        [Input("token")]
+        [PolicyResourceProperty("token", "_mUnknown_Token")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mToken;
-
-        public string? Token => _mToken.GetValue("token");
+        private string? _mValue_Token;
+        private bool _mUnknown_Token;
+        public string? Token
+        {
+            get
+            {
+                if (!_mUnknown_Token) return _mValue_Token;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobSasConfiguration.Token' is not present");
+            }
+        }
     }
 }

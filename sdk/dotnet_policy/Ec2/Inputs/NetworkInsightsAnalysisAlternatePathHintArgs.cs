@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the component.
         /// </summary>
-        [Input("componentArn")]
+        [PolicyResourceProperty("componentArn", "_mUnknown_ComponentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComponentArn;
-
-        public string? ComponentArn => _mComponentArn.GetValue("componentArn");
+        private string? _mValue_ComponentArn;
+        private bool _mUnknown_ComponentArn;
+        public string? ComponentArn
+        {
+            get
+            {
+                if (!_mUnknown_ComponentArn) return _mValue_ComponentArn;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisAlternatePathHintArgs.ComponentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the component.
         /// </summary>
-        [Input("componentId")]
+        [PolicyResourceProperty("componentId", "_mUnknown_ComponentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComponentId;
-
-        public string? ComponentId => _mComponentId.GetValue("componentId");
+        private string? _mValue_ComponentId;
+        private bool _mUnknown_ComponentId;
+        public string? ComponentId
+        {
+            get
+            {
+                if (!_mUnknown_ComponentId) return _mValue_ComponentId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisAlternatePathHintArgs.ComponentId' is not present");
+            }
+        }
     }
 }

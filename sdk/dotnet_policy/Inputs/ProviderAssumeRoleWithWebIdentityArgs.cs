@@ -15,58 +15,107 @@ namespace Pulumi.PolicyPacks.Aws.Inputs
         /// <summary>
         /// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
         /// </summary>
-        [Input("duration")]
+        [PolicyResourceProperty("duration", "_mUnknown_Duration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDuration;
-
-        public string? Duration => _mDuration.GetValue("duration");
+        private string? _mValue_Duration;
+        private bool _mUnknown_Duration;
+        public string? Duration
+        {
+            get
+            {
+                if (!_mUnknown_Duration) return _mValue_Duration;
+                throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.Duration' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
         /// </summary>
-        [Input("policyArns")]
+        [PolicyResourceProperty("policyArns", "_mUnknown_PolicyArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
-
-        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
+        private List<string>? _mValue_PolicyArns;
+        private bool _mUnknown_PolicyArns;
+        public List<string>? PolicyArns
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArns) return _mValue_PolicyArns;
+                throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.PolicyArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// An identifier for the assumed role session.
         /// </summary>
-        [Input("sessionName")]
+        [PolicyResourceProperty("sessionName", "_mUnknown_SessionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionName;
+        private string? _mValue_SessionName;
+        private bool _mUnknown_SessionName;
+        public string? SessionName
+        {
+            get
+            {
+                if (!_mUnknown_SessionName) return _mValue_SessionName;
+                throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.SessionName' is not present");
+            }
+        }
 
-        public string? SessionName => _mSessionName.GetValue("sessionName");
-
-        [Input("webIdentityToken")]
+        [PolicyResourceProperty("webIdentityToken", "_mUnknown_WebIdentityToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebIdentityToken;
+        private string? _mValue_WebIdentityToken;
+        private bool _mUnknown_WebIdentityToken;
+        public string? WebIdentityToken
+        {
+            get
+            {
+                if (!_mUnknown_WebIdentityToken) return _mValue_WebIdentityToken;
+                throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.WebIdentityToken' is not present");
+            }
+        }
 
-        public string? WebIdentityToken => _mWebIdentityToken.GetValue("webIdentityToken");
-
-        [Input("webIdentityTokenFile")]
+        [PolicyResourceProperty("webIdentityTokenFile", "_mUnknown_WebIdentityTokenFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebIdentityTokenFile;
-
-        public string? WebIdentityTokenFile => _mWebIdentityTokenFile.GetValue("webIdentityTokenFile");
+        private string? _mValue_WebIdentityTokenFile;
+        private bool _mUnknown_WebIdentityTokenFile;
+        public string? WebIdentityTokenFile
+        {
+            get
+            {
+                if (!_mUnknown_WebIdentityTokenFile) return _mValue_WebIdentityTokenFile;
+                throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.WebIdentityTokenFile' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.BedrockModel.Inputs
         /// <summary>
         /// S3 bucket name.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 prefix.
         /// </summary>
-        [Input("keyPrefix")]
+        [PolicyResourceProperty("keyPrefix", "_mUnknown_KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPrefix;
-
-        public string? KeyPrefix => _mKeyPrefix.GetValue("keyPrefix");
+        private string? _mValue_KeyPrefix;
+        private bool _mUnknown_KeyPrefix;
+        public string? KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_KeyPrefix) return _mValue_KeyPrefix;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs.KeyPrefix' is not present");
+            }
+        }
     }
 }

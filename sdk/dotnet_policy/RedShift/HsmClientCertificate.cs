@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'HsmClientCertificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the HSM client certificate.
         /// </summary>
-        [Input("hsmClientCertificateIdentifier")]
+        [PolicyResourceProperty("hsmClientCertificateIdentifier", "_mUnknown_HsmClientCertificateIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmClientCertificateIdentifier;
-
-        public string? HsmClientCertificateIdentifier => _mHsmClientCertificateIdentifier.GetValue("hsmClientCertificateIdentifier");
+        private string? _mValue_HsmClientCertificateIdentifier;
+        private bool _mUnknown_HsmClientCertificateIdentifier;
+        public string? HsmClientCertificateIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_HsmClientCertificateIdentifier) return _mValue_HsmClientCertificateIdentifier;
+                throw new UndeferrableValueException("Value 'HsmClientCertificate.HsmClientCertificateIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
         /// </summary>
-        [Input("hsmClientCertificatePublicKey")]
+        [PolicyResourceProperty("hsmClientCertificatePublicKey", "_mUnknown_HsmClientCertificatePublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmClientCertificatePublicKey;
-
-        public string? HsmClientCertificatePublicKey => _mHsmClientCertificatePublicKey.GetValue("hsmClientCertificatePublicKey");
+        private string? _mValue_HsmClientCertificatePublicKey;
+        private bool _mUnknown_HsmClientCertificatePublicKey;
+        public string? HsmClientCertificatePublicKey
+        {
+            get
+            {
+                if (!_mUnknown_HsmClientCertificatePublicKey) return _mValue_HsmClientCertificatePublicKey;
+                throw new UndeferrableValueException("Value 'HsmClientCertificate.HsmClientCertificatePublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HsmClientCertificate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'HsmClientCertificate.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/hsmClientCertificate:HsmClientCertificate")]
@@ -65,19 +100,33 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The identifier of the HSM client certificate.
         /// </summary>
-        [Input("hsmClientCertificateIdentifier")]
+        [PolicyResourceProperty("hsmClientCertificateIdentifier", "_mUnknown_HsmClientCertificateIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmClientCertificateIdentifier;
-
-        public string? HsmClientCertificateIdentifier => _mHsmClientCertificateIdentifier.GetValue("hsmClientCertificateIdentifier");
+        private string? _mValue_HsmClientCertificateIdentifier;
+        private bool _mUnknown_HsmClientCertificateIdentifier;
+        public string? HsmClientCertificateIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_HsmClientCertificateIdentifier) return _mValue_HsmClientCertificateIdentifier;
+                throw new UndeferrableValueException("Value 'HsmClientCertificateArgs.HsmClientCertificateIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HsmClientCertificateArgs.Tags' is not present");
+            }
+        }
     }
 }

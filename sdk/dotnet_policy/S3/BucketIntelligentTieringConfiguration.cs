@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket this intelligent tiering configuration is associated with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfiguration.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketIntelligentTieringConfigurationFilter> _mFilter;
-
-        public Outputs.BucketIntelligentTieringConfigurationFilter? Filter => _mFilter.GetValue("filter");
+        private Outputs.BucketIntelligentTieringConfigurationFilter? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Outputs.BucketIntelligentTieringConfigurationFilter? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfiguration.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfiguration.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         /// </summary>
-        [Input("tierings")]
+        [PolicyResourceProperty("tierings", "_mUnknown_Tierings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketIntelligentTieringConfigurationTiering>> _mTierings;
-
-        public List<Outputs.BucketIntelligentTieringConfigurationTiering>? Tierings => _mTierings.GetValue("tierings");
+        private List<Outputs.BucketIntelligentTieringConfigurationTiering>? _mValue_Tierings;
+        private bool _mUnknown_Tierings;
+        public List<Outputs.BucketIntelligentTieringConfigurationTiering>? Tierings
+        {
+            get
+            {
+                if (!_mUnknown_Tierings) return _mValue_Tierings;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfiguration.Tierings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.S3
         /// <summary>
         /// Name of the bucket this intelligent tiering configuration is associated with.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
         /// </summary>
-        [Input("filter")]
+        [PolicyResourceProperty("filter", "_mUnknown_Filter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketIntelligentTieringConfigurationFilterArgs> _mFilter;
-
-        public Inputs.BucketIntelligentTieringConfigurationFilterArgs? Filter => _mFilter.GetValue("filter");
+        private Inputs.BucketIntelligentTieringConfigurationFilterArgs? _mValue_Filter;
+        private bool _mUnknown_Filter;
+        public Inputs.BucketIntelligentTieringConfigurationFilterArgs? Filter
+        {
+            get
+            {
+                if (!_mUnknown_Filter) return _mValue_Filter;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.Filter' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         /// </summary>
-        [Input("tierings")]
+        [PolicyResourceProperty("tierings", "_mUnknown_Tierings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketIntelligentTieringConfigurationTieringArgs>> _mTierings;
-
-        public List<Inputs.BucketIntelligentTieringConfigurationTieringArgs>? Tierings => _mTierings.GetValue("tierings");
+        private List<Inputs.BucketIntelligentTieringConfigurationTieringArgs>? _mValue_Tierings;
+        private bool _mUnknown_Tierings;
+        public List<Inputs.BucketIntelligentTieringConfigurationTieringArgs>? Tierings
+        {
+            get
+            {
+                if (!_mUnknown_Tierings) return _mValue_Tierings;
+                throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.Tierings' is not present");
+            }
+        }
     }
 }

@@ -16,220 +16,388 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics
         /// <summary>
         /// Amazon Resource Name (ARN) of the Canary.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Canary.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         /// </summary>
-        [Input("artifactConfig")]
+        [PolicyResourceProperty("artifactConfig", "_mUnknown_ArtifactConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CanaryArtifactConfig> _mArtifactConfig;
-
-        public Outputs.CanaryArtifactConfig? ArtifactConfig => _mArtifactConfig.GetValue("artifactConfig");
+        private Outputs.CanaryArtifactConfig? _mValue_ArtifactConfig;
+        private bool _mUnknown_ArtifactConfig;
+        public Outputs.CanaryArtifactConfig? ArtifactConfig
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactConfig) return _mValue_ArtifactConfig;
+                throw new UndeferrableValueException("Value 'Canary.ArtifactConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         /// </summary>
-        [Input("artifactS3Location")]
+        [PolicyResourceProperty("artifactS3Location", "_mUnknown_ArtifactS3Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactS3Location;
-
-        public string? ArtifactS3Location => _mArtifactS3Location.GetValue("artifactS3Location");
+        private string? _mValue_ArtifactS3Location;
+        private bool _mUnknown_ArtifactS3Location;
+        public string? ArtifactS3Location
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactS3Location) return _mValue_ArtifactS3Location;
+                throw new UndeferrableValueException("Value 'Canary.ArtifactS3Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         /// </summary>
-        [Input("deleteLambda")]
+        [PolicyResourceProperty("deleteLambda", "_mUnknown_DeleteLambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteLambda;
-
-        public bool? DeleteLambda => _mDeleteLambda.GetValue("deleteLambda");
+        private bool? _mValue_DeleteLambda;
+        private bool _mUnknown_DeleteLambda;
+        public bool? DeleteLambda
+        {
+            get
+            {
+                if (!_mUnknown_DeleteLambda) return _mValue_DeleteLambda;
+                throw new UndeferrableValueException("Value 'Canary.DeleteLambda' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Lambda function that is used as your canary's engine.
         /// </summary>
-        [Input("engineArn")]
+        [PolicyResourceProperty("engineArn", "_mUnknown_EngineArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineArn;
-
-        public string? EngineArn => _mEngineArn.GetValue("engineArn");
+        private string? _mValue_EngineArn;
+        private bool _mUnknown_EngineArn;
+        public string? EngineArn
+        {
+            get
+            {
+                if (!_mUnknown_EngineArn) return _mValue_EngineArn;
+                throw new UndeferrableValueException("Value 'Canary.EngineArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'Canary.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         /// </summary>
-        [Input("failureRetentionPeriod")]
+        [PolicyResourceProperty("failureRetentionPeriod", "_mUnknown_FailureRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureRetentionPeriod;
-
-        public int? FailureRetentionPeriod => _mFailureRetentionPeriod.GetValue("failureRetentionPeriod");
+        private int? _mValue_FailureRetentionPeriod;
+        private bool _mUnknown_FailureRetentionPeriod;
+        public int? FailureRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_FailureRetentionPeriod) return _mValue_FailureRetentionPeriod;
+                throw new UndeferrableValueException("Value 'Canary.FailureRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         /// </summary>
-        [Input("handler")]
+        [PolicyResourceProperty("handler", "_mUnknown_Handler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHandler;
-
-        public string? Handler => _mHandler.GetValue("handler");
+        private string? _mValue_Handler;
+        private bool _mUnknown_Handler;
+        public string? Handler
+        {
+            get
+            {
+                if (!_mUnknown_Handler) return _mValue_Handler;
+                throw new UndeferrableValueException("Value 'Canary.Handler' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Canary.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for individual canary runs. Detailed below.
         /// </summary>
-        [Input("runConfig")]
+        [PolicyResourceProperty("runConfig", "_mUnknown_RunConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CanaryRunConfig> _mRunConfig;
-
-        public Outputs.CanaryRunConfig? RunConfig => _mRunConfig.GetValue("runConfig");
+        private Outputs.CanaryRunConfig? _mValue_RunConfig;
+        private bool _mUnknown_RunConfig;
+        public Outputs.CanaryRunConfig? RunConfig
+        {
+            get
+            {
+                if (!_mUnknown_RunConfig) return _mValue_RunConfig;
+                throw new UndeferrableValueException("Value 'Canary.RunConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         /// </summary>
-        [Input("runtimeVersion")]
+        [PolicyResourceProperty("runtimeVersion", "_mUnknown_RuntimeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersion;
-
-        public string? RuntimeVersion => _mRuntimeVersion.GetValue("runtimeVersion");
+        private string? _mValue_RuntimeVersion;
+        private bool _mUnknown_RuntimeVersion;
+        public string? RuntimeVersion
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeVersion) return _mValue_RuntimeVersion;
+                throw new UndeferrableValueException("Value 'Canary.RuntimeVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'Canary.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 key of your script. **Conflicts with `zip_file`.**
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'Canary.S3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 version ID of your script. **Conflicts with `zip_file`.**
         /// </summary>
-        [Input("s3Version")]
+        [PolicyResourceProperty("s3Version", "_mUnknown_S3Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Version;
-
-        public string? S3Version => _mS3Version.GetValue("s3Version");
+        private string? _mValue_S3Version;
+        private bool _mUnknown_S3Version;
+        public string? S3Version
+        {
+            get
+            {
+                if (!_mUnknown_S3Version) return _mValue_S3Version;
+                throw new UndeferrableValueException("Value 'Canary.S3Version' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CanarySchedule> _mSchedule;
-
-        public Outputs.CanarySchedule? Schedule => _mSchedule.GetValue("schedule");
+        private Outputs.CanarySchedule? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Outputs.CanarySchedule? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'Canary.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Lambda layer where Synthetics stores the canary script code.
         /// </summary>
-        [Input("sourceLocationArn")]
+        [PolicyResourceProperty("sourceLocationArn", "_mUnknown_SourceLocationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceLocationArn;
-
-        public string? SourceLocationArn => _mSourceLocationArn.GetValue("sourceLocationArn");
+        private string? _mValue_SourceLocationArn;
+        private bool _mUnknown_SourceLocationArn;
+        public string? SourceLocationArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceLocationArn) return _mValue_SourceLocationArn;
+                throw new UndeferrableValueException("Value 'Canary.SourceLocationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to run or stop the canary.
         /// </summary>
-        [Input("startCanary")]
+        [PolicyResourceProperty("startCanary", "_mUnknown_StartCanary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartCanary;
-
-        public bool? StartCanary => _mStartCanary.GetValue("startCanary");
+        private bool? _mValue_StartCanary;
+        private bool _mUnknown_StartCanary;
+        public bool? StartCanary
+        {
+            get
+            {
+                if (!_mUnknown_StartCanary) return _mValue_StartCanary;
+                throw new UndeferrableValueException("Value 'Canary.StartCanary' is not present");
+            }
+        }
 
         /// <summary>
         /// Canary status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Canary.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         /// </summary>
-        [Input("successRetentionPeriod")]
+        [PolicyResourceProperty("successRetentionPeriod", "_mUnknown_SuccessRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSuccessRetentionPeriod;
-
-        public int? SuccessRetentionPeriod => _mSuccessRetentionPeriod.GetValue("successRetentionPeriod");
+        private int? _mValue_SuccessRetentionPeriod;
+        private bool _mUnknown_SuccessRetentionPeriod;
+        public int? SuccessRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_SuccessRetentionPeriod) return _mValue_SuccessRetentionPeriod;
+                throw new UndeferrableValueException("Value 'Canary.SuccessRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Canary.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Canary.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
         /// </summary>
-        [Input("timelines")]
+        [PolicyResourceProperty("timelines", "_mUnknown_Timelines")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CanaryTimeline>> _mTimelines;
-
-        public List<Outputs.CanaryTimeline>? Timelines => _mTimelines.GetValue("timelines");
+        private List<Outputs.CanaryTimeline>? _mValue_Timelines;
+        private bool _mUnknown_Timelines;
+        public List<Outputs.CanaryTimeline>? Timelines
+        {
+            get
+            {
+                if (!_mUnknown_Timelines) return _mValue_Timelines;
+                throw new UndeferrableValueException("Value 'Canary.Timelines' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CanaryVpcConfig> _mVpcConfig;
-
-        public Outputs.CanaryVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.CanaryVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.CanaryVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'Canary.VpcConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         /// </summary>
-        [Input("zipFile")]
+        [PolicyResourceProperty("zipFile", "_mUnknown_ZipFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZipFile;
-
-        public string? ZipFile => _mZipFile.GetValue("zipFile");
+        private string? _mValue_ZipFile;
+        private bool _mUnknown_ZipFile;
+        public string? ZipFile
+        {
+            get
+            {
+                if (!_mUnknown_ZipFile) return _mValue_ZipFile;
+                throw new UndeferrableValueException("Value 'Canary.ZipFile' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:synthetics/canary:Canary")]
@@ -238,165 +406,291 @@ namespace Pulumi.PolicyPacks.Aws.Synthetics
         /// <summary>
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         /// </summary>
-        [Input("artifactConfig")]
+        [PolicyResourceProperty("artifactConfig", "_mUnknown_ArtifactConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryArtifactConfigArgs> _mArtifactConfig;
-
-        public Inputs.CanaryArtifactConfigArgs? ArtifactConfig => _mArtifactConfig.GetValue("artifactConfig");
+        private Inputs.CanaryArtifactConfigArgs? _mValue_ArtifactConfig;
+        private bool _mUnknown_ArtifactConfig;
+        public Inputs.CanaryArtifactConfigArgs? ArtifactConfig
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactConfig) return _mValue_ArtifactConfig;
+                throw new UndeferrableValueException("Value 'CanaryArgs.ArtifactConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         /// </summary>
-        [Input("artifactS3Location")]
+        [PolicyResourceProperty("artifactS3Location", "_mUnknown_ArtifactS3Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArtifactS3Location;
-
-        public string? ArtifactS3Location => _mArtifactS3Location.GetValue("artifactS3Location");
+        private string? _mValue_ArtifactS3Location;
+        private bool _mUnknown_ArtifactS3Location;
+        public string? ArtifactS3Location
+        {
+            get
+            {
+                if (!_mUnknown_ArtifactS3Location) return _mValue_ArtifactS3Location;
+                throw new UndeferrableValueException("Value 'CanaryArgs.ArtifactS3Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         /// </summary>
-        [Input("deleteLambda")]
+        [PolicyResourceProperty("deleteLambda", "_mUnknown_DeleteLambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteLambda;
-
-        public bool? DeleteLambda => _mDeleteLambda.GetValue("deleteLambda");
+        private bool? _mValue_DeleteLambda;
+        private bool _mUnknown_DeleteLambda;
+        public bool? DeleteLambda
+        {
+            get
+            {
+                if (!_mUnknown_DeleteLambda) return _mValue_DeleteLambda;
+                throw new UndeferrableValueException("Value 'CanaryArgs.DeleteLambda' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'CanaryArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         /// </summary>
-        [Input("failureRetentionPeriod")]
+        [PolicyResourceProperty("failureRetentionPeriod", "_mUnknown_FailureRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureRetentionPeriod;
-
-        public int? FailureRetentionPeriod => _mFailureRetentionPeriod.GetValue("failureRetentionPeriod");
+        private int? _mValue_FailureRetentionPeriod;
+        private bool _mUnknown_FailureRetentionPeriod;
+        public int? FailureRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_FailureRetentionPeriod) return _mValue_FailureRetentionPeriod;
+                throw new UndeferrableValueException("Value 'CanaryArgs.FailureRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         /// </summary>
-        [Input("handler")]
+        [PolicyResourceProperty("handler", "_mUnknown_Handler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHandler;
-
-        public string? Handler => _mHandler.GetValue("handler");
+        private string? _mValue_Handler;
+        private bool _mUnknown_Handler;
+        public string? Handler
+        {
+            get
+            {
+                if (!_mUnknown_Handler) return _mValue_Handler;
+                throw new UndeferrableValueException("Value 'CanaryArgs.Handler' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CanaryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for individual canary runs. Detailed below.
         /// </summary>
-        [Input("runConfig")]
+        [PolicyResourceProperty("runConfig", "_mUnknown_RunConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryRunConfigArgs> _mRunConfig;
-
-        public Inputs.CanaryRunConfigArgs? RunConfig => _mRunConfig.GetValue("runConfig");
+        private Inputs.CanaryRunConfigArgs? _mValue_RunConfig;
+        private bool _mUnknown_RunConfig;
+        public Inputs.CanaryRunConfigArgs? RunConfig
+        {
+            get
+            {
+                if (!_mUnknown_RunConfig) return _mValue_RunConfig;
+                throw new UndeferrableValueException("Value 'CanaryArgs.RunConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         /// </summary>
-        [Input("runtimeVersion")]
+        [PolicyResourceProperty("runtimeVersion", "_mUnknown_RuntimeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeVersion;
-
-        public string? RuntimeVersion => _mRuntimeVersion.GetValue("runtimeVersion");
+        private string? _mValue_RuntimeVersion;
+        private bool _mUnknown_RuntimeVersion;
+        public string? RuntimeVersion
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeVersion) return _mValue_RuntimeVersion;
+                throw new UndeferrableValueException("Value 'CanaryArgs.RuntimeVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'CanaryArgs.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 key of your script. **Conflicts with `zip_file`.**
         /// </summary>
-        [Input("s3Key")]
+        [PolicyResourceProperty("s3Key", "_mUnknown_S3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Key;
-
-        public string? S3Key => _mS3Key.GetValue("s3Key");
+        private string? _mValue_S3Key;
+        private bool _mUnknown_S3Key;
+        public string? S3Key
+        {
+            get
+            {
+                if (!_mUnknown_S3Key) return _mValue_S3Key;
+                throw new UndeferrableValueException("Value 'CanaryArgs.S3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 version ID of your script. **Conflicts with `zip_file`.**
         /// </summary>
-        [Input("s3Version")]
+        [PolicyResourceProperty("s3Version", "_mUnknown_S3Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Version;
-
-        public string? S3Version => _mS3Version.GetValue("s3Version");
+        private string? _mValue_S3Version;
+        private bool _mUnknown_S3Version;
+        public string? S3Version
+        {
+            get
+            {
+                if (!_mUnknown_S3Version) return _mValue_S3Version;
+                throw new UndeferrableValueException("Value 'CanaryArgs.S3Version' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryScheduleArgs> _mSchedule;
-
-        public Inputs.CanaryScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
+        private Inputs.CanaryScheduleArgs? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Inputs.CanaryScheduleArgs? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'CanaryArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to run or stop the canary.
         /// </summary>
-        [Input("startCanary")]
+        [PolicyResourceProperty("startCanary", "_mUnknown_StartCanary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartCanary;
-
-        public bool? StartCanary => _mStartCanary.GetValue("startCanary");
+        private bool? _mValue_StartCanary;
+        private bool _mUnknown_StartCanary;
+        public bool? StartCanary
+        {
+            get
+            {
+                if (!_mUnknown_StartCanary) return _mValue_StartCanary;
+                throw new UndeferrableValueException("Value 'CanaryArgs.StartCanary' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         /// </summary>
-        [Input("successRetentionPeriod")]
+        [PolicyResourceProperty("successRetentionPeriod", "_mUnknown_SuccessRetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSuccessRetentionPeriod;
-
-        public int? SuccessRetentionPeriod => _mSuccessRetentionPeriod.GetValue("successRetentionPeriod");
+        private int? _mValue_SuccessRetentionPeriod;
+        private bool _mUnknown_SuccessRetentionPeriod;
+        public int? SuccessRetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_SuccessRetentionPeriod) return _mValue_SuccessRetentionPeriod;
+                throw new UndeferrableValueException("Value 'CanaryArgs.SuccessRetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CanaryArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CanaryVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.CanaryVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.CanaryVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.CanaryVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'CanaryArgs.VpcConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         /// </summary>
-        [Input("zipFile")]
+        [PolicyResourceProperty("zipFile", "_mUnknown_ZipFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZipFile;
-
-        public string? ZipFile => _mZipFile.GetValue("zipFile");
+        private string? _mValue_ZipFile;
+        private bool _mUnknown_ZipFile;
+        public string? ZipFile
+        {
+            get
+            {
+                if (!_mUnknown_ZipFile) return _mValue_ZipFile;
+                throw new UndeferrableValueException("Value 'CanaryArgs.ZipFile' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings
     {
-        [Input("networkId")]
+        [PolicyResourceProperty("networkId", "_mUnknown_NetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetworkId;
+        private int? _mValue_NetworkId;
+        private bool _mUnknown_NetworkId;
+        public int? NetworkId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkId) return _mValue_NetworkId;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings.NetworkId' is not present");
+            }
+        }
 
-        public int? NetworkId => _mNetworkId.GetValue("networkId");
-
-        [Input("networkName")]
+        [PolicyResourceProperty("networkName", "_mUnknown_NetworkName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkName;
+        private string? _mValue_NetworkName;
+        private bool _mUnknown_NetworkName;
+        public string? NetworkName
+        {
+            get
+            {
+                if (!_mUnknown_NetworkName) return _mValue_NetworkName;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings.NetworkName' is not present");
+            }
+        }
 
-        public string? NetworkName => _mNetworkName.GetValue("networkName");
-
-        [Input("repInterval")]
+        [PolicyResourceProperty("repInterval", "_mUnknown_RepInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRepInterval;
-
-        public int? RepInterval => _mRepInterval.GetValue("repInterval");
+        private int? _mValue_RepInterval;
+        private bool _mUnknown_RepInterval;
+        public int? RepInterval
+        {
+            get
+            {
+                if (!_mUnknown_RepInterval) return _mValue_RepInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings.RepInterval' is not present");
+            }
+        }
     }
 }

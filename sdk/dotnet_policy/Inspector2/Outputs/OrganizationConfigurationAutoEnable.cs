@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Inspector2.Outputs
         /// <summary>
         /// Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
         /// </summary>
-        [Input("ec2")]
+        [PolicyResourceProperty("ec2", "_mUnknown_Ec2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEc2;
-
-        public bool? Ec2 => _mEc2.GetValue("ec2");
+        private bool? _mValue_Ec2;
+        private bool _mUnknown_Ec2;
+        public bool? Ec2
+        {
+            get
+            {
+                if (!_mUnknown_Ec2) return _mValue_Ec2;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.Ec2' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
         /// </summary>
-        [Input("ecr")]
+        [PolicyResourceProperty("ecr", "_mUnknown_Ecr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEcr;
-
-        public bool? Ecr => _mEcr.GetValue("ecr");
+        private bool? _mValue_Ecr;
+        private bool _mUnknown_Ecr;
+        public bool? Ecr
+        {
+            get
+            {
+                if (!_mUnknown_Ecr) return _mValue_Ecr;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.Ecr' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
         /// </summary>
-        [Input("lambda")]
+        [PolicyResourceProperty("lambda", "_mUnknown_Lambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLambda;
-
-        public bool? Lambda => _mLambda.GetValue("lambda");
+        private bool? _mValue_Lambda;
+        private bool _mUnknown_Lambda;
+        public bool? Lambda
+        {
+            get
+            {
+                if (!_mUnknown_Lambda) return _mValue_Lambda;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.Lambda' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
         /// </summary>
-        [Input("lambdaCode")]
+        [PolicyResourceProperty("lambdaCode", "_mUnknown_LambdaCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLambdaCode;
-
-        public bool? LambdaCode => _mLambdaCode.GetValue("lambdaCode");
+        private bool? _mValue_LambdaCode;
+        private bool _mUnknown_LambdaCode;
+        public bool? LambdaCode
+        {
+            get
+            {
+                if (!_mUnknown_LambdaCode) return _mValue_LambdaCode;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.LambdaCode' is not present");
+            }
+        }
     }
 }

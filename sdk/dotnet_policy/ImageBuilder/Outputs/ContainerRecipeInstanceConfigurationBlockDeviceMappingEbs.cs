@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
-        [Input("deleteOnTermination")]
+        [PolicyResourceProperty("deleteOnTermination", "_mUnknown_DeleteOnTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeleteOnTermination;
-
-        public string? DeleteOnTermination => _mDeleteOnTermination.GetValue("deleteOnTermination");
+        private string? _mValue_DeleteOnTermination;
+        private bool _mUnknown_DeleteOnTermination;
+        public string? DeleteOnTermination
+        {
+            get
+            {
+                if (!_mUnknown_DeleteOnTermination) return _mValue_DeleteOnTermination;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.DeleteOnTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         /// </summary>
-        [Input("encrypted")]
+        [PolicyResourceProperty("encrypted", "_mUnknown_Encrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncrypted;
-
-        public string? Encrypted => _mEncrypted.GetValue("encrypted");
+        private string? _mValue_Encrypted;
+        private bool _mUnknown_Encrypted;
+        public string? Encrypted
+        {
+            get
+            {
+                if (!_mUnknown_Encrypted) return _mValue_Encrypted;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.Encrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the EC2 Volume Snapshot.
         /// </summary>
-        [Input("snapshotId")]
+        [PolicyResourceProperty("snapshotId", "_mUnknown_SnapshotId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotId;
-
-        public string? SnapshotId => _mSnapshotId.GetValue("snapshotId");
+        private string? _mValue_SnapshotId;
+        private bool _mUnknown_SnapshotId;
+        public string? SnapshotId
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotId) return _mValue_SnapshotId;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.SnapshotId' is not present");
+            }
+        }
 
         /// <summary>
         /// For GP3 volumes only. The throughput in MiB/s that the volume supports.
         /// </summary>
-        [Input("throughput")]
+        [PolicyResourceProperty("throughput", "_mUnknown_Throughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughput;
-
-        public int? Throughput => _mThroughput.GetValue("throughput");
+        private int? _mValue_Throughput;
+        private bool _mUnknown_Throughput;
+        public int? Throughput
+        {
+            get
+            {
+                if (!_mUnknown_Throughput) return _mValue_Throughput;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.Throughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Size of the volume, in GiB.
         /// </summary>
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
-
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.VolumeSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the volume. For example, `gp2` or `io2`.
         /// </summary>
-        [Input("volumeType")]
+        [PolicyResourceProperty("volumeType", "_mUnknown_VolumeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeType;
-
-        public string? VolumeType => _mVolumeType.GetValue("volumeType");
+        private string? _mValue_VolumeType;
+        private bool _mUnknown_VolumeType;
+        public string? VolumeType
+        {
+            get
+            {
+                if (!_mUnknown_VolumeType) return _mValue_VolumeType;
+                throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs.VolumeType' is not present");
+            }
+        }
     }
 }

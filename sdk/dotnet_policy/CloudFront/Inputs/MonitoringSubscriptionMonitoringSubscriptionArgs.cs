@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// A subscription configuration for additional CloudWatch metrics. See below.
         /// </summary>
-        [Input("realtimeMetricsSubscriptionConfig")]
+        [PolicyResourceProperty("realtimeMetricsSubscriptionConfig", "_mUnknown_RealtimeMetricsSubscriptionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs> _mRealtimeMetricsSubscriptionConfig;
-
-        public Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs? RealtimeMetricsSubscriptionConfig => _mRealtimeMetricsSubscriptionConfig.GetValue("realtimeMetricsSubscriptionConfig");
+        private Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs? _mValue_RealtimeMetricsSubscriptionConfig;
+        private bool _mUnknown_RealtimeMetricsSubscriptionConfig;
+        public Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs? RealtimeMetricsSubscriptionConfig
+        {
+            get
+            {
+                if (!_mUnknown_RealtimeMetricsSubscriptionConfig) return _mValue_RealtimeMetricsSubscriptionConfig;
+                throw new UndeferrableValueException("Value 'MonitoringSubscriptionMonitoringSubscriptionArgs.RealtimeMetricsSubscriptionConfig' is not present");
+            }
+        }
     }
 }

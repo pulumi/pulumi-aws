@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult
     {
-        [Input("virtualServiceName")]
+        [PolicyResourceProperty("virtualServiceName", "_mUnknown_VirtualServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualServiceName;
-
-        public string? VirtualServiceName => _mVirtualServiceName.GetValue("virtualServiceName");
+        private string? _mValue_VirtualServiceName;
+        private bool _mUnknown_VirtualServiceName;
+        public string? VirtualServiceName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualServiceName) return _mValue_VirtualServiceName;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult.VirtualServiceName' is not present");
+            }
+        }
     }
 }

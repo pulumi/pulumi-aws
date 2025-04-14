@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// A required metadata operation. Can only be set to CREATE.
         /// </summary>
-        [Input("metadataOperation")]
+        [PolicyResourceProperty("metadataOperation", "_mUnknown_MetadataOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetadataOperation;
-
-        public string? MetadataOperation => _mMetadataOperation.GetValue("metadataOperation");
+        private string? _mValue_MetadataOperation;
+        private bool _mUnknown_MetadataOperation;
+        public string? MetadataOperation
+        {
+            get
+            {
+                if (!_mUnknown_MetadataOperation) return _mValue_MetadataOperation;
+                throw new UndeferrableValueException("Value 'CatalogTableOpenTableFormatInputIcebergInputArgs.MetadataOperation' is not present");
+            }
+        }
 
         /// <summary>
         /// The table version for the Iceberg table. Defaults to 2.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'CatalogTableOpenTableFormatInputIcebergInputArgs.Version' is not present");
+            }
+        }
     }
 }

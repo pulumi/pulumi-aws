@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Settings specific to the container type of the file. See Container Settings for more details.
         /// </summary>
-        [Input("containerSettings")]
+        [PolicyResourceProperty("containerSettings", "_mUnknown_ContainerSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings> _mContainerSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings? ContainerSettings => _mContainerSettings.GetValue("containerSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings? _mValue_ContainerSettings;
+        private bool _mUnknown_ContainerSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings? ContainerSettings
+        {
+            get
+            {
+                if (!_mUnknown_ContainerSettings) return _mValue_ContainerSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings.ContainerSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Output file extension.
         /// </summary>
-        [Input("extension")]
+        [PolicyResourceProperty("extension", "_mUnknown_Extension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtension;
-
-        public string? Extension => _mExtension.GetValue("extension");
+        private string? _mValue_Extension;
+        private bool _mUnknown_Extension;
+        public string? Extension
+        {
+            get
+            {
+                if (!_mUnknown_Extension) return _mValue_Extension;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings.Extension' is not present");
+            }
+        }
 
         /// <summary>
         /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         /// </summary>
-        [Input("nameModifier")]
+        [PolicyResourceProperty("nameModifier", "_mUnknown_NameModifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameModifier;
-
-        public string? NameModifier => _mNameModifier.GetValue("nameModifier");
+        private string? _mValue_NameModifier;
+        private bool _mUnknown_NameModifier;
+        public string? NameModifier
+        {
+            get
+            {
+                if (!_mUnknown_NameModifier) return _mValue_NameModifier;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings.NameModifier' is not present");
+            }
+        }
     }
 }

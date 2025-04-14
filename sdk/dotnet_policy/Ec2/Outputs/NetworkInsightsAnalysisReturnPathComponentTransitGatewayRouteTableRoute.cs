@@ -12,46 +12,95 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute
     {
-        [Input("attachmentId")]
+        [PolicyResourceProperty("attachmentId", "_mUnknown_AttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentId;
+        private string? _mValue_AttachmentId;
+        private bool _mUnknown_AttachmentId;
+        public string? AttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentId) return _mValue_AttachmentId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.AttachmentId' is not present");
+            }
+        }
 
-        public string? AttachmentId => _mAttachmentId.GetValue("attachmentId");
-
-        [Input("destinationCidr")]
+        [PolicyResourceProperty("destinationCidr", "_mUnknown_DestinationCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidr;
+        private string? _mValue_DestinationCidr;
+        private bool _mUnknown_DestinationCidr;
+        public string? DestinationCidr
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidr) return _mValue_DestinationCidr;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.DestinationCidr' is not present");
+            }
+        }
 
-        public string? DestinationCidr => _mDestinationCidr.GetValue("destinationCidr");
-
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.PrefixListId' is not present");
+            }
+        }
 
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
-
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.ResourceId' is not present");
+            }
+        }
 
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
-
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.ResourceType' is not present");
+            }
+        }
 
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
-
-        [Input("routeOrigin")]
+        [PolicyResourceProperty("routeOrigin", "_mUnknown_RouteOrigin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteOrigin;
+        private string? _mValue_RouteOrigin;
+        private bool _mUnknown_RouteOrigin;
+        public string? RouteOrigin
+        {
+            get
+            {
+                if (!_mUnknown_RouteOrigin) return _mValue_RouteOrigin;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.RouteOrigin' is not present");
+            }
+        }
 
-        public string? RouteOrigin => _mRouteOrigin.GetValue("routeOrigin");
-
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.State' is not present");
+            }
+        }
     }
 }

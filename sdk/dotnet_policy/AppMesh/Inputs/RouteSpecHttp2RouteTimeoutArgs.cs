@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         /// </summary>
-        [Input("idle")]
+        [PolicyResourceProperty("idle", "_mUnknown_Idle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecHttp2RouteTimeoutIdleArgs> _mIdle;
-
-        public Inputs.RouteSpecHttp2RouteTimeoutIdleArgs? Idle => _mIdle.GetValue("idle");
+        private Inputs.RouteSpecHttp2RouteTimeoutIdleArgs? _mValue_Idle;
+        private bool _mUnknown_Idle;
+        public Inputs.RouteSpecHttp2RouteTimeoutIdleArgs? Idle
+        {
+            get
+            {
+                if (!_mUnknown_Idle) return _mValue_Idle;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteTimeoutArgs.Idle' is not present");
+            }
+        }
 
         /// <summary>
         /// Per request timeout.
         /// </summary>
-        [Input("perRequest")]
+        [PolicyResourceProperty("perRequest", "_mUnknown_PerRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecHttp2RouteTimeoutPerRequestArgs> _mPerRequest;
-
-        public Inputs.RouteSpecHttp2RouteTimeoutPerRequestArgs? PerRequest => _mPerRequest.GetValue("perRequest");
+        private Inputs.RouteSpecHttp2RouteTimeoutPerRequestArgs? _mValue_PerRequest;
+        private bool _mUnknown_PerRequest;
+        public Inputs.RouteSpecHttp2RouteTimeoutPerRequestArgs? PerRequest
+        {
+            get
+            {
+                if (!_mUnknown_PerRequest) return _mValue_PerRequest;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteTimeoutArgs.PerRequest' is not present");
+            }
+        }
     }
 }

@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class NetworkInsightsAnalysisExplanationSecurityGroupRule
     {
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.Cidr' is not present");
+            }
+        }
 
-        public string? Cidr => _mCidr.GetValue("cidr");
-
-        [Input("direction")]
+        [PolicyResourceProperty("direction", "_mUnknown_Direction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirection;
+        private string? _mValue_Direction;
+        private bool _mUnknown_Direction;
+        public string? Direction
+        {
+            get
+            {
+                if (!_mUnknown_Direction) return _mValue_Direction;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.Direction' is not present");
+            }
+        }
 
-        public string? Direction => _mDirection.GetValue("direction");
-
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange>> _mPortRanges;
+        private List<Outputs.NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Outputs.NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.PortRanges' is not present");
+            }
+        }
 
-        public List<Outputs.NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange>? PortRanges => _mPortRanges.GetValue("portRanges");
-
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.PrefixListId' is not present");
+            }
+        }
 
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
-
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.Protocol' is not present");
+            }
+        }
 
-        public string? Protocol => _mProtocol.GetValue("protocol");
-
-        [Input("securityGroupId")]
+        [PolicyResourceProperty("securityGroupId", "_mUnknown_SecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityGroupId;
-
-        public string? SecurityGroupId => _mSecurityGroupId.GetValue("securityGroupId");
+        private string? _mValue_SecurityGroupId;
+        private bool _mUnknown_SecurityGroupId;
+        public string? SecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupId) return _mValue_SecurityGroupId;
+                throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.SecurityGroupId' is not present");
+            }
+        }
     }
 }

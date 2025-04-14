@@ -16,17 +16,31 @@ namespace Pulumi.PolicyPacks.Aws.CostOptimizationHub
         /// <summary>
         /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         /// </summary>
-        [Input("includeMemberAccounts")]
+        [PolicyResourceProperty("includeMemberAccounts", "_mUnknown_IncludeMemberAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
+        private bool? _mValue_IncludeMemberAccounts;
+        private bool _mUnknown_IncludeMemberAccounts;
+        public bool? IncludeMemberAccounts
+        {
+            get
+            {
+                if (!_mUnknown_IncludeMemberAccounts) return _mValue_IncludeMemberAccounts;
+                throw new UndeferrableValueException("Value 'EnrollmentStatus.IncludeMemberAccounts' is not present");
+            }
+        }
 
-        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'EnrollmentStatus.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus")]
@@ -35,10 +49,17 @@ namespace Pulumi.PolicyPacks.Aws.CostOptimizationHub
         /// <summary>
         /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         /// </summary>
-        [Input("includeMemberAccounts")]
+        [PolicyResourceProperty("includeMemberAccounts", "_mUnknown_IncludeMemberAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeMemberAccounts;
-
-        public bool? IncludeMemberAccounts => _mIncludeMemberAccounts.GetValue("includeMemberAccounts");
+        private bool? _mValue_IncludeMemberAccounts;
+        private bool _mUnknown_IncludeMemberAccounts;
+        public bool? IncludeMemberAccounts
+        {
+            get
+            {
+                if (!_mUnknown_IncludeMemberAccounts) return _mValue_IncludeMemberAccounts;
+                throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.IncludeMemberAccounts' is not present");
+            }
+        }
     }
 }

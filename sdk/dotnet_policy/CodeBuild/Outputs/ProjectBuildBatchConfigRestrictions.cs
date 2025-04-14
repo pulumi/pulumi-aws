@@ -18,19 +18,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html)
         /// in the AWS CodeBuild User Guide for these values.
         /// </summary>
-        [Input("computeTypesAlloweds")]
+        [PolicyResourceProperty("computeTypesAlloweds", "_mUnknown_ComputeTypesAlloweds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mComputeTypesAlloweds;
-
-        public List<string>? ComputeTypesAlloweds => _mComputeTypesAlloweds.GetValue("computeTypesAlloweds");
+        private List<string>? _mValue_ComputeTypesAlloweds;
+        private bool _mUnknown_ComputeTypesAlloweds;
+        public List<string>? ComputeTypesAlloweds
+        {
+            get
+            {
+                if (!_mUnknown_ComputeTypesAlloweds) return _mValue_ComputeTypesAlloweds;
+                throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigRestrictions.ComputeTypesAlloweds' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the maximum number of builds allowed.
         /// </summary>
-        [Input("maximumBuildsAllowed")]
+        [PolicyResourceProperty("maximumBuildsAllowed", "_mUnknown_MaximumBuildsAllowed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBuildsAllowed;
-
-        public int? MaximumBuildsAllowed => _mMaximumBuildsAllowed.GetValue("maximumBuildsAllowed");
+        private int? _mValue_MaximumBuildsAllowed;
+        private bool _mUnknown_MaximumBuildsAllowed;
+        public int? MaximumBuildsAllowed
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBuildsAllowed) return _mValue_MaximumBuildsAllowed;
+                throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigRestrictions.MaximumBuildsAllowed' is not present");
+            }
+        }
     }
 }

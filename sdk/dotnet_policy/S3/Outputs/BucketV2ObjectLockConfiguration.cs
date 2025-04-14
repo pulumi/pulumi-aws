@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         /// </summary>
-        [Input("objectLockEnabled")]
+        [PolicyResourceProperty("objectLockEnabled", "_mUnknown_ObjectLockEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectLockEnabled;
-
-        public string? ObjectLockEnabled => _mObjectLockEnabled.GetValue("objectLockEnabled");
+        private string? _mValue_ObjectLockEnabled;
+        private bool _mUnknown_ObjectLockEnabled;
+        public string? ObjectLockEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ObjectLockEnabled) return _mValue_ObjectLockEnabled;
+                throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfiguration.ObjectLockEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Object Lock rule in place for this bucket (documented below).
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BucketV2ObjectLockConfigurationRule>> _mRules;
-
-        public List<Outputs.BucketV2ObjectLockConfigurationRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.BucketV2ObjectLockConfigurationRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.BucketV2ObjectLockConfigurationRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfiguration.Rules' is not present");
+            }
+        }
     }
 }

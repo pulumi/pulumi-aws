@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DocDB.Outputs
         /// <summary>
         /// Amazon Resource Name (ARN) of member DB Cluster.
         /// </summary>
-        [Input("dbClusterArn")]
+        [PolicyResourceProperty("dbClusterArn", "_mUnknown_DbClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterArn;
-
-        public string? DbClusterArn => _mDbClusterArn.GetValue("dbClusterArn");
+        private string? _mValue_DbClusterArn;
+        private bool _mUnknown_DbClusterArn;
+        public string? DbClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterArn) return _mValue_DbClusterArn;
+                throw new UndeferrableValueException("Value 'GlobalClusterGlobalClusterMember.DbClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the member is the primary DB Cluster.
         /// </summary>
-        [Input("isWriter")]
+        [PolicyResourceProperty("isWriter", "_mUnknown_IsWriter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsWriter;
-
-        public bool? IsWriter => _mIsWriter.GetValue("isWriter");
+        private bool? _mValue_IsWriter;
+        private bool _mUnknown_IsWriter;
+        public bool? IsWriter
+        {
+            get
+            {
+                if (!_mUnknown_IsWriter) return _mValue_IsWriter;
+                throw new UndeferrableValueException("Value 'GlobalClusterGlobalClusterMember.IsWriter' is not present");
+            }
+        }
     }
 }

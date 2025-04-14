@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
 {
     public sealed class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
         /// </summary>
-        [Input("volumeThroughput")]
+        [PolicyResourceProperty("volumeThroughput", "_mUnknown_VolumeThroughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeThroughput;
-
-        public int? VolumeThroughput => _mVolumeThroughput.GetValue("volumeThroughput");
+        private int? _mValue_VolumeThroughput;
+        private bool _mUnknown_VolumeThroughput;
+        public int? VolumeThroughput
+        {
+            get
+            {
+                if (!_mUnknown_VolumeThroughput) return _mValue_VolumeThroughput;
+                throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput.VolumeThroughput' is not present");
+            }
+        }
     }
 }

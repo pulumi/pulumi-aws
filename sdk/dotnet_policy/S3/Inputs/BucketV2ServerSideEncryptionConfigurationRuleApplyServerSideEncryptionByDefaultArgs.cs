@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
         /// </summary>
-        [Input("kmsMasterKeyId")]
+        [PolicyResourceProperty("kmsMasterKeyId", "_mUnknown_KmsMasterKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsMasterKeyId;
-
-        public string? KmsMasterKeyId => _mKmsMasterKeyId.GetValue("kmsMasterKeyId");
+        private string? _mValue_KmsMasterKeyId;
+        private bool _mUnknown_KmsMasterKeyId;
+        public string? KmsMasterKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsMasterKeyId) return _mValue_KmsMasterKeyId;
+                throw new UndeferrableValueException("Value 'BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.KmsMasterKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
         /// </summary>
-        [Input("sseAlgorithm")]
+        [PolicyResourceProperty("sseAlgorithm", "_mUnknown_SseAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSseAlgorithm;
-
-        public string? SseAlgorithm => _mSseAlgorithm.GetValue("sseAlgorithm");
+        private string? _mValue_SseAlgorithm;
+        private bool _mUnknown_SseAlgorithm;
+        public string? SseAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SseAlgorithm) return _mValue_SseAlgorithm;
+                throw new UndeferrableValueException("Value 'BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.SseAlgorithm' is not present");
+            }
+        }
     }
 }

@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Inputs
         /// <summary>
         /// Configuration for running the identified image. See Image Configuration below for more details.
         /// </summary>
-        [Input("imageConfiguration")]
+        [PolicyResourceProperty("imageConfiguration", "_mUnknown_ImageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs> _mImageConfiguration;
-
-        public Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs? ImageConfiguration => _mImageConfiguration.GetValue("imageConfiguration");
+        private Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs? _mValue_ImageConfiguration;
+        private bool _mUnknown_ImageConfiguration;
+        public Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs? ImageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageConfiguration) return _mValue_ImageConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepositoryArgs.ImageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
         /// image name format, see Pulling an image in the Amazon ECR User Guide.
         /// </summary>
-        [Input("imageIdentifier")]
+        [PolicyResourceProperty("imageIdentifier", "_mUnknown_ImageIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageIdentifier;
-
-        public string? ImageIdentifier => _mImageIdentifier.GetValue("imageIdentifier");
+        private string? _mValue_ImageIdentifier;
+        private bool _mUnknown_ImageIdentifier;
+        public string? ImageIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ImageIdentifier) return _mValue_ImageIdentifier;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepositoryArgs.ImageIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
         /// </summary>
-        [Input("imageRepositoryType")]
+        [PolicyResourceProperty("imageRepositoryType", "_mUnknown_ImageRepositoryType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageRepositoryType;
-
-        public string? ImageRepositoryType => _mImageRepositoryType.GetValue("imageRepositoryType");
+        private string? _mValue_ImageRepositoryType;
+        private bool _mUnknown_ImageRepositoryType;
+        public string? ImageRepositoryType
+        {
+            get
+            {
+                if (!_mUnknown_ImageRepositoryType) return _mValue_ImageRepositoryType;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepositoryArgs.ImageRepositoryType' is not present");
+            }
+        }
     }
 }

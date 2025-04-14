@@ -16,155 +16,274 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// ARN of the Table Export.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TableExport.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Billable size of the table export.
         /// </summary>
-        [Input("billedSizeInBytes")]
+        [PolicyResourceProperty("billedSizeInBytes", "_mUnknown_BilledSizeInBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBilledSizeInBytes;
-
-        public int? BilledSizeInBytes => _mBilledSizeInBytes.GetValue("billedSizeInBytes");
+        private int? _mValue_BilledSizeInBytes;
+        private bool _mUnknown_BilledSizeInBytes;
+        public int? BilledSizeInBytes
+        {
+            get
+            {
+                if (!_mUnknown_BilledSizeInBytes) return _mValue_BilledSizeInBytes;
+                throw new UndeferrableValueException("Value 'TableExport.BilledSizeInBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the export task completed.
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
-
-        public string? EndTime => _mEndTime.GetValue("endTime");
+        private string? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public string? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'TableExport.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         /// </summary>
-        [Input("exportFormat")]
+        [PolicyResourceProperty("exportFormat", "_mUnknown_ExportFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportFormat;
-
-        public string? ExportFormat => _mExportFormat.GetValue("exportFormat");
+        private string? _mValue_ExportFormat;
+        private bool _mUnknown_ExportFormat;
+        public string? ExportFormat
+        {
+            get
+            {
+                if (!_mUnknown_ExportFormat) return _mValue_ExportFormat;
+                throw new UndeferrableValueException("Value 'TableExport.ExportFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
         /// </summary>
-        [Input("exportStatus")]
+        [PolicyResourceProperty("exportStatus", "_mUnknown_ExportStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportStatus;
-
-        public string? ExportStatus => _mExportStatus.GetValue("exportStatus");
+        private string? _mValue_ExportStatus;
+        private bool _mUnknown_ExportStatus;
+        public string? ExportStatus
+        {
+            get
+            {
+                if (!_mUnknown_ExportStatus) return _mValue_ExportStatus;
+                throw new UndeferrableValueException("Value 'TableExport.ExportStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         /// </summary>
-        [Input("exportTime")]
+        [PolicyResourceProperty("exportTime", "_mUnknown_ExportTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportTime;
-
-        public string? ExportTime => _mExportTime.GetValue("exportTime");
+        private string? _mValue_ExportTime;
+        private bool _mUnknown_ExportTime;
+        public string? ExportTime
+        {
+            get
+            {
+                if (!_mUnknown_ExportTime) return _mValue_ExportTime;
+                throw new UndeferrableValueException("Value 'TableExport.ExportTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
         /// `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         /// </summary>
-        [Input("exportType")]
+        [PolicyResourceProperty("exportType", "_mUnknown_ExportType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportType;
+        private string? _mValue_ExportType;
+        private bool _mUnknown_ExportType;
+        public string? ExportType
+        {
+            get
+            {
+                if (!_mUnknown_ExportType) return _mValue_ExportType;
+                throw new UndeferrableValueException("Value 'TableExport.ExportType' is not present");
+            }
+        }
 
-        public string? ExportType => _mExportType.GetValue("exportType");
-
-        [Input("incrementalExportSpecification")]
+        [PolicyResourceProperty("incrementalExportSpecification", "_mUnknown_IncrementalExportSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableExportIncrementalExportSpecification> _mIncrementalExportSpecification;
-
-        public Outputs.TableExportIncrementalExportSpecification? IncrementalExportSpecification => _mIncrementalExportSpecification.GetValue("incrementalExportSpecification");
+        private Outputs.TableExportIncrementalExportSpecification? _mValue_IncrementalExportSpecification;
+        private bool _mUnknown_IncrementalExportSpecification;
+        public Outputs.TableExportIncrementalExportSpecification? IncrementalExportSpecification
+        {
+            get
+            {
+                if (!_mUnknown_IncrementalExportSpecification) return _mValue_IncrementalExportSpecification;
+                throw new UndeferrableValueException("Value 'TableExport.IncrementalExportSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of items exported.
         /// </summary>
-        [Input("itemCount")]
+        [PolicyResourceProperty("itemCount", "_mUnknown_ItemCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mItemCount;
-
-        public int? ItemCount => _mItemCount.GetValue("itemCount");
+        private int? _mValue_ItemCount;
+        private bool _mUnknown_ItemCount;
+        public int? ItemCount
+        {
+            get
+            {
+                if (!_mUnknown_ItemCount) return _mValue_ItemCount;
+                throw new UndeferrableValueException("Value 'TableExport.ItemCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
         /// </summary>
-        [Input("manifestFilesS3Key")]
+        [PolicyResourceProperty("manifestFilesS3Key", "_mUnknown_ManifestFilesS3Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManifestFilesS3Key;
-
-        public string? ManifestFilesS3Key => _mManifestFilesS3Key.GetValue("manifestFilesS3Key");
+        private string? _mValue_ManifestFilesS3Key;
+        private bool _mUnknown_ManifestFilesS3Key;
+        public string? ManifestFilesS3Key
+        {
+            get
+            {
+                if (!_mUnknown_ManifestFilesS3Key) return _mValue_ManifestFilesS3Key;
+                throw new UndeferrableValueException("Value 'TableExport.ManifestFilesS3Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'TableExport.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS account that owns the bucket the export will be stored in.
         /// </summary>
-        [Input("s3BucketOwner")]
+        [PolicyResourceProperty("s3BucketOwner", "_mUnknown_S3BucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketOwner;
-
-        public string? S3BucketOwner => _mS3BucketOwner.GetValue("s3BucketOwner");
+        private string? _mValue_S3BucketOwner;
+        private bool _mUnknown_S3BucketOwner;
+        public string? S3BucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketOwner) return _mValue_S3BucketOwner;
+                throw new UndeferrableValueException("Value 'TableExport.S3BucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'TableExport.S3Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
         /// </summary>
-        [Input("s3SseAlgorithm")]
+        [PolicyResourceProperty("s3SseAlgorithm", "_mUnknown_S3SseAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseAlgorithm;
-
-        public string? S3SseAlgorithm => _mS3SseAlgorithm.GetValue("s3SseAlgorithm");
+        private string? _mValue_S3SseAlgorithm;
+        private bool _mUnknown_S3SseAlgorithm;
+        public string? S3SseAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_S3SseAlgorithm) return _mValue_S3SseAlgorithm;
+                throw new UndeferrableValueException("Value 'TableExport.S3SseAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
         /// </summary>
-        [Input("s3SseKmsKeyId")]
+        [PolicyResourceProperty("s3SseKmsKeyId", "_mUnknown_S3SseKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseKmsKeyId;
-
-        public string? S3SseKmsKeyId => _mS3SseKmsKeyId.GetValue("s3SseKmsKeyId");
+        private string? _mValue_S3SseKmsKeyId;
+        private bool _mUnknown_S3SseKmsKeyId;
+        public string? S3SseKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_S3SseKmsKeyId) return _mValue_S3SseKmsKeyId;
+                throw new UndeferrableValueException("Value 'TableExport.S3SseKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the export task began.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'TableExport.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN associated with the table to export.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableArn")]
+        [PolicyResourceProperty("tableArn", "_mUnknown_TableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableArn;
-
-        public string? TableArn => _mTableArn.GetValue("tableArn");
+        private string? _mValue_TableArn;
+        private bool _mUnknown_TableArn;
+        public string? TableArn
+        {
+            get
+            {
+                if (!_mUnknown_TableArn) return _mValue_TableArn;
+                throw new UndeferrableValueException("Value 'TableExport.TableArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/tableExport:TableExport")]
@@ -173,91 +292,161 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         /// </summary>
-        [Input("exportFormat")]
+        [PolicyResourceProperty("exportFormat", "_mUnknown_ExportFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportFormat;
-
-        public string? ExportFormat => _mExportFormat.GetValue("exportFormat");
+        private string? _mValue_ExportFormat;
+        private bool _mUnknown_ExportFormat;
+        public string? ExportFormat
+        {
+            get
+            {
+                if (!_mUnknown_ExportFormat) return _mValue_ExportFormat;
+                throw new UndeferrableValueException("Value 'TableExportArgs.ExportFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         /// </summary>
-        [Input("exportTime")]
+        [PolicyResourceProperty("exportTime", "_mUnknown_ExportTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportTime;
-
-        public string? ExportTime => _mExportTime.GetValue("exportTime");
+        private string? _mValue_ExportTime;
+        private bool _mUnknown_ExportTime;
+        public string? ExportTime
+        {
+            get
+            {
+                if (!_mUnknown_ExportTime) return _mValue_ExportTime;
+                throw new UndeferrableValueException("Value 'TableExportArgs.ExportTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to execute as a full export or incremental export. Valid values are: `FULL_EXPORT`, `INCREMENTAL_EXPORT`. Defaults to `FULL_EXPORT`. If `INCREMENTAL_EXPORT` is provided, the `incremental_export_specification` argument must also be provided.
         /// `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
         /// </summary>
-        [Input("exportType")]
+        [PolicyResourceProperty("exportType", "_mUnknown_ExportType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExportType;
+        private string? _mValue_ExportType;
+        private bool _mUnknown_ExportType;
+        public string? ExportType
+        {
+            get
+            {
+                if (!_mUnknown_ExportType) return _mValue_ExportType;
+                throw new UndeferrableValueException("Value 'TableExportArgs.ExportType' is not present");
+            }
+        }
 
-        public string? ExportType => _mExportType.GetValue("exportType");
-
-        [Input("incrementalExportSpecification")]
+        [PolicyResourceProperty("incrementalExportSpecification", "_mUnknown_IncrementalExportSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableExportIncrementalExportSpecificationArgs> _mIncrementalExportSpecification;
-
-        public Inputs.TableExportIncrementalExportSpecificationArgs? IncrementalExportSpecification => _mIncrementalExportSpecification.GetValue("incrementalExportSpecification");
+        private Inputs.TableExportIncrementalExportSpecificationArgs? _mValue_IncrementalExportSpecification;
+        private bool _mUnknown_IncrementalExportSpecification;
+        public Inputs.TableExportIncrementalExportSpecificationArgs? IncrementalExportSpecification
+        {
+            get
+            {
+                if (!_mUnknown_IncrementalExportSpecification) return _mValue_IncrementalExportSpecification;
+                throw new UndeferrableValueException("Value 'TableExportArgs.IncrementalExportSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'TableExportArgs.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS account that owns the bucket the export will be stored in.
         /// </summary>
-        [Input("s3BucketOwner")]
+        [PolicyResourceProperty("s3BucketOwner", "_mUnknown_S3BucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketOwner;
-
-        public string? S3BucketOwner => _mS3BucketOwner.GetValue("s3BucketOwner");
+        private string? _mValue_S3BucketOwner;
+        private bool _mUnknown_S3BucketOwner;
+        public string? S3BucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketOwner) return _mValue_S3BucketOwner;
+                throw new UndeferrableValueException("Value 'TableExportArgs.S3BucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'TableExportArgs.S3Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
         /// </summary>
-        [Input("s3SseAlgorithm")]
+        [PolicyResourceProperty("s3SseAlgorithm", "_mUnknown_S3SseAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseAlgorithm;
-
-        public string? S3SseAlgorithm => _mS3SseAlgorithm.GetValue("s3SseAlgorithm");
+        private string? _mValue_S3SseAlgorithm;
+        private bool _mUnknown_S3SseAlgorithm;
+        public string? S3SseAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_S3SseAlgorithm) return _mValue_S3SseAlgorithm;
+                throw new UndeferrableValueException("Value 'TableExportArgs.S3SseAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
         /// </summary>
-        [Input("s3SseKmsKeyId")]
+        [PolicyResourceProperty("s3SseKmsKeyId", "_mUnknown_S3SseKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3SseKmsKeyId;
-
-        public string? S3SseKmsKeyId => _mS3SseKmsKeyId.GetValue("s3SseKmsKeyId");
+        private string? _mValue_S3SseKmsKeyId;
+        private bool _mUnknown_S3SseKmsKeyId;
+        public string? S3SseKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_S3SseKmsKeyId) return _mValue_S3SseKmsKeyId;
+                throw new UndeferrableValueException("Value 'TableExportArgs.S3SseKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN associated with the table to export.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableArn")]
+        [PolicyResourceProperty("tableArn", "_mUnknown_TableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableArn;
-
-        public string? TableArn => _mTableArn.GetValue("tableArn");
+        private string? _mValue_TableArn;
+        private bool _mUnknown_TableArn;
+        public string? TableArn
+        {
+            get
+            {
+                if (!_mUnknown_TableArn) return _mValue_TableArn;
+                throw new UndeferrableValueException("Value 'TableExportArgs.TableArn' is not present");
+            }
+        }
     }
 }

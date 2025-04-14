@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
         /// </summary>
-        [Input("dialogAction")]
+        [PolicyResourceProperty("dialogAction", "_mUnknown_DialogAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgs> _mDialogAction;
-
-        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgs? DialogAction => _mDialogAction.GetValue("dialogAction");
+        private Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgs? _mValue_DialogAction;
+        private bool _mUnknown_DialogAction;
+        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgs? DialogAction
+        {
+            get
+            {
+                if (!_mUnknown_DialogAction) return _mValue_DialogAction;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgs.DialogAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for override settings to configure the intent state. See `intent`.
         /// </summary>
-        [Input("intent")]
+        [PolicyResourceProperty("intent", "_mUnknown_Intent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgs> _mIntent;
-
-        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgs? Intent => _mIntent.GetValue("intent");
+        private Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgs? _mValue_Intent;
+        private bool _mUnknown_Intent;
+        public Inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgs? Intent
+        {
+            get
+            {
+                if (!_mUnknown_Intent) return _mValue_Intent;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgs.Intent' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         /// </summary>
-        [Input("sessionAttributes")]
+        [PolicyResourceProperty("sessionAttributes", "_mUnknown_SessionAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mSessionAttributes;
-
-        public Dictionary<string, string>? SessionAttributes => _mSessionAttributes.GetValue("sessionAttributes");
+        private Dictionary<string, string>? _mValue_SessionAttributes;
+        private bool _mUnknown_SessionAttributes;
+        public Dictionary<string, string>? SessionAttributes
+        {
+            get
+            {
+                if (!_mUnknown_SessionAttributes) return _mValue_SessionAttributes;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgs.SessionAttributes' is not present");
+            }
+        }
     }
 }

@@ -16,31 +16,52 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         /// </summary>
-        [Input("force")]
+        [PolicyResourceProperty("force", "_mUnknown_Force")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForce;
-
-        public bool? Force => _mForce.GetValue("force");
+        private bool? _mValue_Force;
+        private bool _mUnknown_Force;
+        public bool? Force
+        {
+            get
+            {
+                if (!_mUnknown_Force) return _mValue_Force;
+                throw new UndeferrableValueException("Value 'InstanceState.Force' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'InstanceState.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'InstanceState.State' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/instanceState:InstanceState")]
@@ -49,30 +70,51 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         /// </summary>
-        [Input("force")]
+        [PolicyResourceProperty("force", "_mUnknown_Force")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForce;
-
-        public bool? Force => _mForce.GetValue("force");
+        private bool? _mValue_Force;
+        private bool _mUnknown_Force;
+        public bool? Force
+        {
+            get
+            {
+                if (!_mUnknown_Force) return _mValue_Force;
+                throw new UndeferrableValueException("Value 'InstanceStateArgs.Force' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'InstanceStateArgs.InstanceId' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the instance. Valid values are `stopped`, `running`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'InstanceStateArgs.State' is not present");
+            }
+        }
     }
 }

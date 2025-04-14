@@ -16,46 +16,81 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// ARN of the Dedicated IP Pool.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DedicatedIpPool.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the dedicated IP pool.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("poolName")]
+        [PolicyResourceProperty("poolName", "_mUnknown_PoolName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPoolName;
-
-        public string? PoolName => _mPoolName.GetValue("poolName");
+        private string? _mValue_PoolName;
+        private bool _mUnknown_PoolName;
+        public string? PoolName
+        {
+            get
+            {
+                if (!_mUnknown_PoolName) return _mValue_PoolName;
+                throw new UndeferrableValueException("Value 'DedicatedIpPool.PoolName' is not present");
+            }
+        }
 
         /// <summary>
         /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         /// </summary>
-        [Input("scalingMode")]
+        [PolicyResourceProperty("scalingMode", "_mUnknown_ScalingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalingMode;
-
-        public string? ScalingMode => _mScalingMode.GetValue("scalingMode");
+        private string? _mValue_ScalingMode;
+        private bool _mUnknown_ScalingMode;
+        public string? ScalingMode
+        {
+            get
+            {
+                if (!_mUnknown_ScalingMode) return _mValue_ScalingMode;
+                throw new UndeferrableValueException("Value 'DedicatedIpPool.ScalingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DedicatedIpPool.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DedicatedIpPool.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/dedicatedIpPool:DedicatedIpPool")]
@@ -66,28 +101,49 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("poolName")]
+        [PolicyResourceProperty("poolName", "_mUnknown_PoolName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPoolName;
-
-        public string? PoolName => _mPoolName.GetValue("poolName");
+        private string? _mValue_PoolName;
+        private bool _mUnknown_PoolName;
+        public string? PoolName
+        {
+            get
+            {
+                if (!_mUnknown_PoolName) return _mValue_PoolName;
+                throw new UndeferrableValueException("Value 'DedicatedIpPoolArgs.PoolName' is not present");
+            }
+        }
 
         /// <summary>
         /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         /// </summary>
-        [Input("scalingMode")]
+        [PolicyResourceProperty("scalingMode", "_mUnknown_ScalingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalingMode;
-
-        public string? ScalingMode => _mScalingMode.GetValue("scalingMode");
+        private string? _mValue_ScalingMode;
+        private bool _mUnknown_ScalingMode;
+        public string? ScalingMode
+        {
+            get
+            {
+                if (!_mUnknown_ScalingMode) return _mValue_ScalingMode;
+                throw new UndeferrableValueException("Value 'DedicatedIpPoolArgs.ScalingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DedicatedIpPoolArgs.Tags' is not present");
+            }
+        }
     }
 }

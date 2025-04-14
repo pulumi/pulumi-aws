@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroups.Inputs
         /// <summary>
         /// A collection of parameters for this group configuration item. See below for details.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupConfigurationParameterArgs>> _mParameters;
-
-        public List<Inputs.GroupConfigurationParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.GroupConfigurationParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.GroupConfigurationParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'GroupConfigurationArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of group configuration item.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GroupConfigurationArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Whether the user can interrupt a speech prompt from the bot.
         /// </summary>
-        [Input("allowInterrupt")]
+        [PolicyResourceProperty("allowInterrupt", "_mUnknown_AllowInterrupt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowInterrupt;
-
-        public bool? AllowInterrupt => _mAllowInterrupt.GetValue("allowInterrupt");
+        private bool? _mValue_AllowInterrupt;
+        private bool _mUnknown_AllowInterrupt;
+        public bool? AllowInterrupt
+        {
+            get
+            {
+                if (!_mUnknown_AllowInterrupt) return _mValue_AllowInterrupt;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.AllowInterrupt' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of times the bot tries to elicit a response from the user using this prompt.
         /// </summary>
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
-
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.MaxRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
         /// </summary>
-        [Input("messageGroups")]
+        [PolicyResourceProperty("messageGroups", "_mUnknown_MessageGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>> _mMessageGroups;
-
-        public List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>? MessageGroups => _mMessageGroups.GetValue("messageGroups");
+        private List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>? _mValue_MessageGroups;
+        private bool _mUnknown_MessageGroups;
+        public List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>? MessageGroups
+        {
+            get
+            {
+                if (!_mUnknown_MessageGroups) return _mValue_MessageGroups;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.MessageGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// How a message is selected from a message group among retries. Valid values are `Random` and `Ordered`.
         /// </summary>
-        [Input("messageSelectionStrategy")]
+        [PolicyResourceProperty("messageSelectionStrategy", "_mUnknown_MessageSelectionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageSelectionStrategy;
-
-        public string? MessageSelectionStrategy => _mMessageSelectionStrategy.GetValue("messageSelectionStrategy");
+        private string? _mValue_MessageSelectionStrategy;
+        private bool _mUnknown_MessageSelectionStrategy;
+        public string? MessageSelectionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_MessageSelectionStrategy) return _mValue_MessageSelectionStrategy;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.MessageSelectionStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
         /// </summary>
-        [Input("promptAttemptsSpecifications")]
+        [PolicyResourceProperty("promptAttemptsSpecifications", "_mUnknown_PromptAttemptsSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>> _mPromptAttemptsSpecifications;
-
-        public List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>? PromptAttemptsSpecifications => _mPromptAttemptsSpecifications.GetValue("promptAttemptsSpecifications");
+        private List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>? _mValue_PromptAttemptsSpecifications;
+        private bool _mUnknown_PromptAttemptsSpecifications;
+        public List<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>? PromptAttemptsSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_PromptAttemptsSpecifications) return _mValue_PromptAttemptsSpecifications;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.PromptAttemptsSpecifications' is not present");
+            }
+        }
     }
 }

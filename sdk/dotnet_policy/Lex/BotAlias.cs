@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// The ARN of the bot alias.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'BotAlias.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the bot.
         /// </summary>
-        [Input("botName")]
+        [PolicyResourceProperty("botName", "_mUnknown_BotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotName;
-
-        public string? BotName => _mBotName.GetValue("botName");
+        private string? _mValue_BotName;
+        private bool _mUnknown_BotName;
+        public string? BotName
+        {
+            get
+            {
+                if (!_mUnknown_BotName) return _mValue_BotName;
+                throw new UndeferrableValueException("Value 'BotAlias.BotName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the bot.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'BotAlias.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Checksum of the bot alias.
         /// </summary>
-        [Input("checksum")]
+        [PolicyResourceProperty("checksum", "_mUnknown_Checksum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChecksum;
-
-        public string? Checksum => _mChecksum.GetValue("checksum");
+        private string? _mValue_Checksum;
+        private bool _mUnknown_Checksum;
+        public string? Checksum
+        {
+            get
+            {
+                if (!_mUnknown_Checksum) return _mValue_Checksum;
+                throw new UndeferrableValueException("Value 'BotAlias.Checksum' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         /// </summary>
-        [Input("conversationLogs")]
+        [PolicyResourceProperty("conversationLogs", "_mUnknown_ConversationLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BotAliasConversationLogs> _mConversationLogs;
-
-        public Outputs.BotAliasConversationLogs? ConversationLogs => _mConversationLogs.GetValue("conversationLogs");
+        private Outputs.BotAliasConversationLogs? _mValue_ConversationLogs;
+        private bool _mUnknown_ConversationLogs;
+        public Outputs.BotAliasConversationLogs? ConversationLogs
+        {
+            get
+            {
+                if (!_mUnknown_ConversationLogs) return _mValue_ConversationLogs;
+                throw new UndeferrableValueException("Value 'BotAlias.ConversationLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// The date that the bot alias was created.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'BotAlias.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the alias. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'BotAlias.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         /// </summary>
-        [Input("lastUpdatedDate")]
+        [PolicyResourceProperty("lastUpdatedDate", "_mUnknown_LastUpdatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
-
-        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
+        private string? _mValue_LastUpdatedDate;
+        private bool _mUnknown_LastUpdatedDate;
+        public string? LastUpdatedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDate) return _mValue_LastUpdatedDate;
+                throw new UndeferrableValueException("Value 'BotAlias.LastUpdatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BotAlias.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lex/botAlias:BotAlias")]
@@ -101,46 +164,81 @@ namespace Pulumi.PolicyPacks.Aws.Lex
         /// <summary>
         /// The name of the bot.
         /// </summary>
-        [Input("botName")]
+        [PolicyResourceProperty("botName", "_mUnknown_BotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotName;
-
-        public string? BotName => _mBotName.GetValue("botName");
+        private string? _mValue_BotName;
+        private bool _mUnknown_BotName;
+        public string? BotName
+        {
+            get
+            {
+                if (!_mUnknown_BotName) return _mValue_BotName;
+                throw new UndeferrableValueException("Value 'BotAliasArgs.BotName' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the bot.
         /// </summary>
-        [Input("botVersion")]
+        [PolicyResourceProperty("botVersion", "_mUnknown_BotVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBotVersion;
-
-        public string? BotVersion => _mBotVersion.GetValue("botVersion");
+        private string? _mValue_BotVersion;
+        private bool _mUnknown_BotVersion;
+        public string? BotVersion
+        {
+            get
+            {
+                if (!_mUnknown_BotVersion) return _mValue_BotVersion;
+                throw new UndeferrableValueException("Value 'BotAliasArgs.BotVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         /// </summary>
-        [Input("conversationLogs")]
+        [PolicyResourceProperty("conversationLogs", "_mUnknown_ConversationLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BotAliasConversationLogsArgs> _mConversationLogs;
-
-        public Inputs.BotAliasConversationLogsArgs? ConversationLogs => _mConversationLogs.GetValue("conversationLogs");
+        private Inputs.BotAliasConversationLogsArgs? _mValue_ConversationLogs;
+        private bool _mUnknown_ConversationLogs;
+        public Inputs.BotAliasConversationLogsArgs? ConversationLogs
+        {
+            get
+            {
+                if (!_mUnknown_ConversationLogs) return _mValue_ConversationLogs;
+                throw new UndeferrableValueException("Value 'BotAliasArgs.ConversationLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the alias. Must be less than or equal to 200 characters in length.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'BotAliasArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'BotAliasArgs.Name' is not present");
+            }
+        }
     }
 }

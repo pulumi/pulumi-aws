@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         /// </summary>
-        [Input("hierarchyStructure")]
+        [PolicyResourceProperty("hierarchyStructure", "_mUnknown_HierarchyStructure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserHierarchyStructureHierarchyStructure> _mHierarchyStructure;
-
-        public Outputs.UserHierarchyStructureHierarchyStructure? HierarchyStructure => _mHierarchyStructure.GetValue("hierarchyStructure");
+        private Outputs.UserHierarchyStructureHierarchyStructure? _mValue_HierarchyStructure;
+        private bool _mUnknown_HierarchyStructure;
+        public Outputs.UserHierarchyStructureHierarchyStructure? HierarchyStructure
+        {
+            get
+            {
+                if (!_mUnknown_HierarchyStructure) return _mValue_HierarchyStructure;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructure.HierarchyStructure' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructure.InstanceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:connect/userHierarchyStructure:UserHierarchyStructure")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Connect
         /// <summary>
         /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         /// </summary>
-        [Input("hierarchyStructure")]
+        [PolicyResourceProperty("hierarchyStructure", "_mUnknown_HierarchyStructure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserHierarchyStructureHierarchyStructureArgs> _mHierarchyStructure;
-
-        public Inputs.UserHierarchyStructureHierarchyStructureArgs? HierarchyStructure => _mHierarchyStructure.GetValue("hierarchyStructure");
+        private Inputs.UserHierarchyStructureHierarchyStructureArgs? _mValue_HierarchyStructure;
+        private bool _mUnknown_HierarchyStructure;
+        public Inputs.UserHierarchyStructureHierarchyStructureArgs? HierarchyStructure
+        {
+            get
+            {
+                if (!_mUnknown_HierarchyStructure) return _mValue_HierarchyStructure;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructureArgs.HierarchyStructure' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         /// </summary>
-        [Input("instanceId")]
+        [PolicyResourceProperty("instanceId", "_mUnknown_InstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceId;
-
-        public string? InstanceId => _mInstanceId.GetValue("instanceId");
+        private string? _mValue_InstanceId;
+        private bool _mUnknown_InstanceId;
+        public string? InstanceId
+        {
+            get
+            {
+                if (!_mUnknown_InstanceId) return _mValue_InstanceId;
+                throw new UndeferrableValueException("Value 'UserHierarchyStructureArgs.InstanceId' is not present");
+            }
+        }
     }
 }

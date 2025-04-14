@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.BedrockFoundation.Outputs
         /// <summary>
         /// Customizations that the model supports.
         /// </summary>
-        [Input("customizationsSupporteds")]
+        [PolicyResourceProperty("customizationsSupporteds", "_mUnknown_CustomizationsSupporteds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomizationsSupporteds;
-
-        public List<string>? CustomizationsSupporteds => _mCustomizationsSupporteds.GetValue("customizationsSupporteds");
+        private List<string>? _mValue_CustomizationsSupporteds;
+        private bool _mUnknown_CustomizationsSupporteds;
+        public List<string>? CustomizationsSupporteds
+        {
+            get
+            {
+                if (!_mUnknown_CustomizationsSupporteds) return _mValue_CustomizationsSupporteds;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.CustomizationsSupporteds' is not present");
+            }
+        }
 
         /// <summary>
         /// Inference types that the model supports.
         /// </summary>
-        [Input("inferenceTypesSupporteds")]
+        [PolicyResourceProperty("inferenceTypesSupporteds", "_mUnknown_InferenceTypesSupporteds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInferenceTypesSupporteds;
-
-        public List<string>? InferenceTypesSupporteds => _mInferenceTypesSupporteds.GetValue("inferenceTypesSupporteds");
+        private List<string>? _mValue_InferenceTypesSupporteds;
+        private bool _mUnknown_InferenceTypesSupporteds;
+        public List<string>? InferenceTypesSupporteds
+        {
+            get
+            {
+                if (!_mUnknown_InferenceTypesSupporteds) return _mValue_InferenceTypesSupporteds;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.InferenceTypesSupporteds' is not present");
+            }
+        }
 
         /// <summary>
         /// Input modalities that the model supports.
         /// </summary>
-        [Input("inputModalities")]
+        [PolicyResourceProperty("inputModalities", "_mUnknown_InputModalities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputModalities;
-
-        public List<string>? InputModalities => _mInputModalities.GetValue("inputModalities");
+        private List<string>? _mValue_InputModalities;
+        private bool _mUnknown_InputModalities;
+        public List<string>? InputModalities
+        {
+            get
+            {
+                if (!_mUnknown_InputModalities) return _mValue_InputModalities;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.InputModalities' is not present");
+            }
+        }
 
         /// <summary>
         /// Model ARN.
         /// </summary>
-        [Input("modelArn")]
+        [PolicyResourceProperty("modelArn", "_mUnknown_ModelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelArn;
-
-        public string? ModelArn => _mModelArn.GetValue("modelArn");
+        private string? _mValue_ModelArn;
+        private bool _mUnknown_ModelArn;
+        public string? ModelArn
+        {
+            get
+            {
+                if (!_mUnknown_ModelArn) return _mValue_ModelArn;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.ModelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Model identifier.
         /// </summary>
-        [Input("modelId")]
+        [PolicyResourceProperty("modelId", "_mUnknown_ModelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelId;
-
-        public string? ModelId => _mModelId.GetValue("modelId");
+        private string? _mValue_ModelId;
+        private bool _mUnknown_ModelId;
+        public string? ModelId
+        {
+            get
+            {
+                if (!_mUnknown_ModelId) return _mValue_ModelId;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.ModelId' is not present");
+            }
+        }
 
         /// <summary>
         /// Model name.
         /// </summary>
-        [Input("modelName")]
+        [PolicyResourceProperty("modelName", "_mUnknown_ModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelName;
-
-        public string? ModelName => _mModelName.GetValue("modelName");
+        private string? _mValue_ModelName;
+        private bool _mUnknown_ModelName;
+        public string? ModelName
+        {
+            get
+            {
+                if (!_mUnknown_ModelName) return _mValue_ModelName;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.ModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// Output modalities that the model supports.
         /// </summary>
-        [Input("outputModalities")]
+        [PolicyResourceProperty("outputModalities", "_mUnknown_OutputModalities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOutputModalities;
-
-        public List<string>? OutputModalities => _mOutputModalities.GetValue("outputModalities");
+        private List<string>? _mValue_OutputModalities;
+        private bool _mUnknown_OutputModalities;
+        public List<string>? OutputModalities
+        {
+            get
+            {
+                if (!_mUnknown_OutputModalities) return _mValue_OutputModalities;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.OutputModalities' is not present");
+            }
+        }
 
         /// <summary>
         /// Model provider name.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the model supports streaming.
         /// </summary>
-        [Input("responseStreamingSupported")]
+        [PolicyResourceProperty("responseStreamingSupported", "_mUnknown_ResponseStreamingSupported")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mResponseStreamingSupported;
-
-        public bool? ResponseStreamingSupported => _mResponseStreamingSupported.GetValue("responseStreamingSupported");
+        private bool? _mValue_ResponseStreamingSupported;
+        private bool _mUnknown_ResponseStreamingSupported;
+        public bool? ResponseStreamingSupported
+        {
+            get
+            {
+                if (!_mUnknown_ResponseStreamingSupported) return _mValue_ResponseStreamingSupported;
+                throw new UndeferrableValueException("Value 'GetModelsModelSummaryResult.ResponseStreamingSupported' is not present");
+            }
+        }
     }
 }

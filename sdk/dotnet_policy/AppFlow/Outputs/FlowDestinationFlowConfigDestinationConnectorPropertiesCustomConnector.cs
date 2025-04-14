@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector
     {
-        [Input("customProperties")]
+        [PolicyResourceProperty("customProperties", "_mUnknown_CustomProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mCustomProperties;
+        private Dictionary<string, string>? _mValue_CustomProperties;
+        private bool _mUnknown_CustomProperties;
+        public Dictionary<string, string>? CustomProperties
+        {
+            get
+            {
+                if (!_mUnknown_CustomProperties) return _mValue_CustomProperties;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.CustomProperties' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? CustomProperties => _mCustomProperties.GetValue("customProperties");
-
-        [Input("entityName")]
+        [PolicyResourceProperty("entityName", "_mUnknown_EntityName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityName;
+        private string? _mValue_EntityName;
+        private bool _mUnknown_EntityName;
+        public string? EntityName
+        {
+            get
+            {
+                if (!_mUnknown_EntityName) return _mValue_EntityName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.EntityName' is not present");
+            }
+        }
 
-        public string? EntityName => _mEntityName.GetValue("entityName");
-
-        [Input("errorHandlingConfig")]
+        [PolicyResourceProperty("errorHandlingConfig", "_mUnknown_ErrorHandlingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig> _mErrorHandlingConfig;
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig? _mValue_ErrorHandlingConfig;
+        private bool _mUnknown_ErrorHandlingConfig;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig? ErrorHandlingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ErrorHandlingConfig) return _mValue_ErrorHandlingConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.ErrorHandlingConfig' is not present");
+            }
+        }
 
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig? ErrorHandlingConfig => _mErrorHandlingConfig.GetValue("errorHandlingConfig");
-
-        [Input("idFieldNames")]
+        [PolicyResourceProperty("idFieldNames", "_mUnknown_IdFieldNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdFieldNames;
+        private List<string>? _mValue_IdFieldNames;
+        private bool _mUnknown_IdFieldNames;
+        public List<string>? IdFieldNames
+        {
+            get
+            {
+                if (!_mUnknown_IdFieldNames) return _mValue_IdFieldNames;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.IdFieldNames' is not present");
+            }
+        }
 
-        public List<string>? IdFieldNames => _mIdFieldNames.GetValue("idFieldNames");
-
-        [Input("writeOperationType")]
+        [PolicyResourceProperty("writeOperationType", "_mUnknown_WriteOperationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWriteOperationType;
-
-        public string? WriteOperationType => _mWriteOperationType.GetValue("writeOperationType");
+        private string? _mValue_WriteOperationType;
+        private bool _mUnknown_WriteOperationType;
+        public string? WriteOperationType
+        {
+            get
+            {
+                if (!_mUnknown_WriteOperationType) return _mValue_WriteOperationType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.WriteOperationType' is not present");
+            }
+        }
     }
 }

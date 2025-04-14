@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer
         /// <summary>
         /// Analyzer name.
         /// </summary>
-        [Input("analyzerName")]
+        [PolicyResourceProperty("analyzerName", "_mUnknown_AnalyzerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalyzerName;
-
-        public string? AnalyzerName => _mAnalyzerName.GetValue("analyzerName");
+        private string? _mValue_AnalyzerName;
+        private bool _mUnknown_AnalyzerName;
+        public string? AnalyzerName
+        {
+            get
+            {
+                if (!_mUnknown_AnalyzerName) return _mValue_AnalyzerName;
+                throw new UndeferrableValueException("Value 'ArchiveRule.AnalyzerName' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter criteria for the archive rule. See Filter for more details.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ArchiveRuleFilter>> _mFilters;
-
-        public List<Outputs.ArchiveRuleFilter>? Filters => _mFilters.GetValue("filters");
+        private List<Outputs.ArchiveRuleFilter>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Outputs.ArchiveRuleFilter>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'ArchiveRule.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule name.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'ArchiveRule.RuleName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:accessanalyzer/archiveRule:ArchiveRule")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.AccessAnalyzer
         /// <summary>
         /// Analyzer name.
         /// </summary>
-        [Input("analyzerName")]
+        [PolicyResourceProperty("analyzerName", "_mUnknown_AnalyzerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAnalyzerName;
-
-        public string? AnalyzerName => _mAnalyzerName.GetValue("analyzerName");
+        private string? _mValue_AnalyzerName;
+        private bool _mUnknown_AnalyzerName;
+        public string? AnalyzerName
+        {
+            get
+            {
+                if (!_mUnknown_AnalyzerName) return _mValue_AnalyzerName;
+                throw new UndeferrableValueException("Value 'ArchiveRuleArgs.AnalyzerName' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter criteria for the archive rule. See Filter for more details.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ArchiveRuleFilterArgs>> _mFilters;
-
-        public List<Inputs.ArchiveRuleFilterArgs>? Filters => _mFilters.GetValue("filters");
+        private List<Inputs.ArchiveRuleFilterArgs>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Inputs.ArchiveRuleFilterArgs>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'ArchiveRuleArgs.Filters' is not present");
+            }
+        }
 
         /// <summary>
         /// Rule name.
         /// </summary>
-        [Input("ruleName")]
+        [PolicyResourceProperty("ruleName", "_mUnknown_RuleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleName;
-
-        public string? RuleName => _mRuleName.GetValue("ruleName");
+        private string? _mValue_RuleName;
+        private bool _mUnknown_RuleName;
+        public string? RuleName
+        {
+            get
+            {
+                if (!_mUnknown_RuleName) return _mValue_RuleName;
+                throw new UndeferrableValueException("Value 'ArchiveRuleArgs.RuleName' is not present");
+            }
+        }
     }
 }

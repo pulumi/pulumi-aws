@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Identifier for the organization administrator account.
         /// </summary>
-        [Input("adminAccountId")]
+        [PolicyResourceProperty("adminAccountId", "_mUnknown_AdminAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
-
-        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
+        private string? _mValue_AdminAccountId;
+        private bool _mUnknown_AdminAccountId;
+        public string? AdminAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AdminAccountId) return _mValue_AdminAccountId;
+                throw new UndeferrableValueException("Value 'OrganizationAdminAccountRegistration.AdminAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the organization.
         /// </summary>
-        [Input("organizationId")]
+        [PolicyResourceProperty("organizationId", "_mUnknown_OrganizationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationId;
-
-        public string? OrganizationId => _mOrganizationId.GetValue("organizationId");
+        private string? _mValue_OrganizationId;
+        private bool _mUnknown_OrganizationId;
+        public string? OrganizationId
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationId) return _mValue_OrganizationId;
+                throw new UndeferrableValueException("Value 'OrganizationAdminAccountRegistration.OrganizationId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager
         /// <summary>
         /// Identifier for the organization administrator account.
         /// </summary>
-        [Input("adminAccountId")]
+        [PolicyResourceProperty("adminAccountId", "_mUnknown_AdminAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdminAccountId;
-
-        public string? AdminAccountId => _mAdminAccountId.GetValue("adminAccountId");
+        private string? _mValue_AdminAccountId;
+        private bool _mUnknown_AdminAccountId;
+        public string? AdminAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AdminAccountId) return _mValue_AdminAccountId;
+                throw new UndeferrableValueException("Value 'OrganizationAdminAccountRegistrationArgs.AdminAccountId' is not present");
+            }
+        }
     }
 }

@@ -15,31 +15,59 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The Security Group IDs used by the VPC configuration.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The Subnet IDs used by the VPC configuration.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.SubnetIds' is not present");
+            }
+        }
 
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
-
-        [Input("vpcConfigurationId")]
+        [PolicyResourceProperty("vpcConfigurationId", "_mUnknown_VpcConfigurationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcConfigurationId;
+        private string? _mValue_VpcConfigurationId;
+        private bool _mUnknown_VpcConfigurationId;
+        public string? VpcConfigurationId
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfigurationId) return _mValue_VpcConfigurationId;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.VpcConfigurationId' is not present");
+            }
+        }
 
-        public string? VpcConfigurationId => _mVpcConfigurationId.GetValue("vpcConfigurationId");
-
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.VpcId' is not present");
+            }
+        }
     }
 }

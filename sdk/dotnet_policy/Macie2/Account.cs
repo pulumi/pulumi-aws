@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Account.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         /// </summary>
-        [Input("findingPublishingFrequency")]
+        [PolicyResourceProperty("findingPublishingFrequency", "_mUnknown_FindingPublishingFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFindingPublishingFrequency;
-
-        public string? FindingPublishingFrequency => _mFindingPublishingFrequency.GetValue("findingPublishingFrequency");
+        private string? _mValue_FindingPublishingFrequency;
+        private bool _mUnknown_FindingPublishingFrequency;
+        public string? FindingPublishingFrequency
+        {
+            get
+            {
+                if (!_mUnknown_FindingPublishingFrequency) return _mValue_FindingPublishingFrequency;
+                throw new UndeferrableValueException("Value 'Account.FindingPublishingFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
         /// </summary>
-        [Input("serviceRole")]
+        [PolicyResourceProperty("serviceRole", "_mUnknown_ServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
-
-        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+        private string? _mValue_ServiceRole;
+        private bool _mUnknown_ServiceRole;
+        public string? ServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRole) return _mValue_ServiceRole;
+                throw new UndeferrableValueException("Value 'Account.ServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Account.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'Account.UpdatedAt' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:macie2/account:Account")]
@@ -65,19 +100,33 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         /// </summary>
-        [Input("findingPublishingFrequency")]
+        [PolicyResourceProperty("findingPublishingFrequency", "_mUnknown_FindingPublishingFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFindingPublishingFrequency;
-
-        public string? FindingPublishingFrequency => _mFindingPublishingFrequency.GetValue("findingPublishingFrequency");
+        private string? _mValue_FindingPublishingFrequency;
+        private bool _mUnknown_FindingPublishingFrequency;
+        public string? FindingPublishingFrequency
+        {
+            get
+            {
+                if (!_mUnknown_FindingPublishingFrequency) return _mValue_FindingPublishingFrequency;
+                throw new UndeferrableValueException("Value 'AccountArgs.FindingPublishingFrequency' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AccountArgs.Status' is not present");
+            }
+        }
     }
 }

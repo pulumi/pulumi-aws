@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// AWS Key Management Service key ID for the Fargate ephemeral storage.
         /// </summary>
-        [Input("fargateEphemeralStorageKmsKeyId")]
+        [PolicyResourceProperty("fargateEphemeralStorageKmsKeyId", "_mUnknown_FargateEphemeralStorageKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFargateEphemeralStorageKmsKeyId;
-
-        public string? FargateEphemeralStorageKmsKeyId => _mFargateEphemeralStorageKmsKeyId.GetValue("fargateEphemeralStorageKmsKeyId");
+        private string? _mValue_FargateEphemeralStorageKmsKeyId;
+        private bool _mUnknown_FargateEphemeralStorageKmsKeyId;
+        public string? FargateEphemeralStorageKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_FargateEphemeralStorageKmsKeyId) return _mValue_FargateEphemeralStorageKmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationManagedStorageConfiguration.FargateEphemeralStorageKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Key Management Service key ID to encrypt the managed storage.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterConfigurationManagedStorageConfiguration.KmsKeyId' is not present");
+            }
+        }
     }
 }

@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Configures the detection of sensitive data.
         /// </summary>
-        [Input("audit")]
+        [PolicyResourceProperty("audit", "_mUnknown_Audit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs> _mAudit;
-
-        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs? Audit => _mAudit.GetValue("audit");
+        private Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs? _mValue_Audit;
+        private bool _mUnknown_Audit;
+        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditInputArgs? Audit
+        {
+            get
+            {
+                if (!_mUnknown_Audit) return _mValue_Audit;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationInputArgs.Audit' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the masking of sensitive data.
         /// 
         /// &gt; Every policy statement must specify exactly one operation.
         /// </summary>
-        [Input("deidentify")]
+        [PolicyResourceProperty("deidentify", "_mUnknown_Deidentify")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs> _mDeidentify;
-
-        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs? Deidentify => _mDeidentify.GetValue("deidentify");
+        private Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs? _mValue_Deidentify;
+        private bool _mUnknown_Deidentify;
+        public Inputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyInputArgs? Deidentify
+        {
+            get
+            {
+                if (!_mUnknown_Deidentify) return _mValue_Deidentify;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationInputArgs.Deidentify' is not present");
+            }
+        }
     }
 }

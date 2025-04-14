@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.CodeCommit.Inputs
         /// <summary>
         /// The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
         /// </summary>
-        [Input("branches")]
+        [PolicyResourceProperty("branches", "_mUnknown_Branches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBranches;
-
-        public List<string>? Branches => _mBranches.GetValue("branches");
+        private List<string>? _mValue_Branches;
+        private bool _mUnknown_Branches;
+        public List<string>? Branches
+        {
+            get
+            {
+                if (!_mUnknown_Branches) return _mValue_Branches;
+                throw new UndeferrableValueException("Value 'TriggerTriggerArgs.Branches' is not present");
+            }
+        }
 
         /// <summary>
         /// Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
         /// </summary>
-        [Input("customData")]
+        [PolicyResourceProperty("customData", "_mUnknown_CustomData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomData;
-
-        public string? CustomData => _mCustomData.GetValue("customData");
+        private string? _mValue_CustomData;
+        private bool _mUnknown_CustomData;
+        public string? CustomData
+        {
+            get
+            {
+                if (!_mUnknown_CustomData) return _mValue_CustomData;
+                throw new UndeferrableValueException("Value 'TriggerTriggerArgs.CustomData' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
         /// </summary>
-        [Input("destinationArn")]
+        [PolicyResourceProperty("destinationArn", "_mUnknown_DestinationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationArn;
-
-        public string? DestinationArn => _mDestinationArn.GetValue("destinationArn");
+        private string? _mValue_DestinationArn;
+        private bool _mUnknown_DestinationArn;
+        public string? DestinationArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationArn) return _mValue_DestinationArn;
+                throw new UndeferrableValueException("Value 'TriggerTriggerArgs.DestinationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
         /// </summary>
-        [Input("events")]
+        [PolicyResourceProperty("events", "_mUnknown_Events")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEvents;
-
-        public List<string>? Events => _mEvents.GetValue("events");
+        private List<string>? _mValue_Events;
+        private bool _mUnknown_Events;
+        public List<string>? Events
+        {
+            get
+            {
+                if (!_mUnknown_Events) return _mValue_Events;
+                throw new UndeferrableValueException("Value 'TriggerTriggerArgs.Events' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the trigger.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TriggerTriggerArgs.Name' is not present");
+            }
+        }
     }
 }

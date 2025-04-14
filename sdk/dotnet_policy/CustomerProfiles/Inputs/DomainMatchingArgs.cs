@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles.Inputs
         /// <summary>
         /// A block that specifies the configuration about the auto-merging process. Documented below.
         /// </summary>
-        [Input("autoMerging")]
+        [PolicyResourceProperty("autoMerging", "_mUnknown_AutoMerging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainMatchingAutoMergingArgs> _mAutoMerging;
-
-        public Inputs.DomainMatchingAutoMergingArgs? AutoMerging => _mAutoMerging.GetValue("autoMerging");
+        private Inputs.DomainMatchingAutoMergingArgs? _mValue_AutoMerging;
+        private bool _mUnknown_AutoMerging;
+        public Inputs.DomainMatchingAutoMergingArgs? AutoMerging
+        {
+            get
+            {
+                if (!_mUnknown_AutoMerging) return _mValue_AutoMerging;
+                throw new UndeferrableValueException("Value 'DomainMatchingArgs.AutoMerging' is not present");
+            }
+        }
 
         /// <summary>
         /// The flag that enables the matching process of duplicate profiles.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainMatchingArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the configuration for exporting Identity Resolution results. Documented below.
         /// </summary>
-        [Input("exportingConfig")]
+        [PolicyResourceProperty("exportingConfig", "_mUnknown_ExportingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainMatchingExportingConfigArgs> _mExportingConfig;
-
-        public Inputs.DomainMatchingExportingConfigArgs? ExportingConfig => _mExportingConfig.GetValue("exportingConfig");
+        private Inputs.DomainMatchingExportingConfigArgs? _mValue_ExportingConfig;
+        private bool _mUnknown_ExportingConfig;
+        public Inputs.DomainMatchingExportingConfigArgs? ExportingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ExportingConfig) return _mValue_ExportingConfig;
+                throw new UndeferrableValueException("Value 'DomainMatchingArgs.ExportingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
         /// </summary>
-        [Input("jobSchedule")]
+        [PolicyResourceProperty("jobSchedule", "_mUnknown_JobSchedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainMatchingJobScheduleArgs> _mJobSchedule;
-
-        public Inputs.DomainMatchingJobScheduleArgs? JobSchedule => _mJobSchedule.GetValue("jobSchedule");
+        private Inputs.DomainMatchingJobScheduleArgs? _mValue_JobSchedule;
+        private bool _mUnknown_JobSchedule;
+        public Inputs.DomainMatchingJobScheduleArgs? JobSchedule
+        {
+            get
+            {
+                if (!_mUnknown_JobSchedule) return _mValue_JobSchedule;
+                throw new UndeferrableValueException("Value 'DomainMatchingArgs.JobSchedule' is not present");
+            }
+        }
     }
 }

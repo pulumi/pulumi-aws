@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
         /// </summary>
-        [Input("codeHook")]
+        [PolicyResourceProperty("codeHook", "_mUnknown_CodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSettingCodeHook> _mCodeHook;
-
-        public Outputs.V2modelsIntentInitialResponseSettingCodeHook? CodeHook => _mCodeHook.GetValue("codeHook");
+        private Outputs.V2modelsIntentInitialResponseSettingCodeHook? _mValue_CodeHook;
+        private bool _mUnknown_CodeHook;
+        public Outputs.V2modelsIntentInitialResponseSettingCodeHook? CodeHook
+        {
+            get
+            {
+                if (!_mUnknown_CodeHook) return _mValue_CodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.CodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
         /// </summary>
-        [Input("conditional")]
+        [PolicyResourceProperty("conditional", "_mUnknown_Conditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSettingConditional> _mConditional;
-
-        public Outputs.V2modelsIntentInitialResponseSettingConditional? Conditional => _mConditional.GetValue("conditional");
+        private Outputs.V2modelsIntentInitialResponseSettingConditional? _mValue_Conditional;
+        private bool _mUnknown_Conditional;
+        public Outputs.V2modelsIntentInitialResponseSettingConditional? Conditional
+        {
+            get
+            {
+                if (!_mUnknown_Conditional) return _mValue_Conditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.Conditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
         /// </summary>
-        [Input("initialResponse")]
+        [PolicyResourceProperty("initialResponse", "_mUnknown_InitialResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSettingInitialResponse> _mInitialResponse;
-
-        public Outputs.V2modelsIntentInitialResponseSettingInitialResponse? InitialResponse => _mInitialResponse.GetValue("initialResponse");
+        private Outputs.V2modelsIntentInitialResponseSettingInitialResponse? _mValue_InitialResponse;
+        private bool _mUnknown_InitialResponse;
+        public Outputs.V2modelsIntentInitialResponseSettingInitialResponse? InitialResponse
+        {
+            get
+            {
+                if (!_mUnknown_InitialResponse) return _mValue_InitialResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.InitialResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step in the conversation. See `next_step`.
         /// </summary>
-        [Input("nextStep")]
+        [PolicyResourceProperty("nextStep", "_mUnknown_NextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSettingNextStep> _mNextStep;
-
-        public Outputs.V2modelsIntentInitialResponseSettingNextStep? NextStep => _mNextStep.GetValue("nextStep");
+        private Outputs.V2modelsIntentInitialResponseSettingNextStep? _mValue_NextStep;
+        private bool _mUnknown_NextStep;
+        public Outputs.V2modelsIntentInitialResponseSettingNextStep? NextStep
+        {
+            get
+            {
+                if (!_mUnknown_NextStep) return _mValue_NextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.NextStep' is not present");
+            }
+        }
     }
 }

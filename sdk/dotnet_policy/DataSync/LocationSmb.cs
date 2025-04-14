@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'LocationSmb.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LocationSmb.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Windows domain the SMB server belongs to.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'LocationSmb.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationSmbMountOptions> _mMountOptions;
-
-        public Outputs.LocationSmbMountOptions? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private Outputs.LocationSmbMountOptions? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public Outputs.LocationSmbMountOptions? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'LocationSmb.MountOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the user who can mount the share and has file permissions in the SMB.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'LocationSmb.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         /// </summary>
-        [Input("serverHostname")]
+        [PolicyResourceProperty("serverHostname", "_mUnknown_ServerHostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
-
-        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
+        private string? _mValue_ServerHostname;
+        private bool _mUnknown_ServerHostname;
+        public string? ServerHostname
+        {
+            get
+            {
+                if (!_mUnknown_ServerHostname) return _mValue_ServerHostname;
+                throw new UndeferrableValueException("Value 'LocationSmb.ServerHostname' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationSmb.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationSmb.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LocationSmb.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'LocationSmb.Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// The user who can mount the share and has file and folder permissions in the SMB share.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'LocationSmb.User' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/locationSmb:LocationSmb")]
@@ -116,73 +193,129 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Windows domain the SMB server belongs to.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         /// </summary>
-        [Input("mountOptions")]
+        [PolicyResourceProperty("mountOptions", "_mUnknown_MountOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LocationSmbMountOptionsArgs> _mMountOptions;
-
-        public Inputs.LocationSmbMountOptionsArgs? MountOptions => _mMountOptions.GetValue("mountOptions");
+        private Inputs.LocationSmbMountOptionsArgs? _mValue_MountOptions;
+        private bool _mUnknown_MountOptions;
+        public Inputs.LocationSmbMountOptionsArgs? MountOptions
+        {
+            get
+            {
+                if (!_mUnknown_MountOptions) return _mValue_MountOptions;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.MountOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The password of the user who can mount the share and has file permissions in the SMB.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         /// </summary>
-        [Input("serverHostname")]
+        [PolicyResourceProperty("serverHostname", "_mUnknown_ServerHostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerHostname;
-
-        public string? ServerHostname => _mServerHostname.GetValue("serverHostname");
+        private string? _mValue_ServerHostname;
+        private bool _mUnknown_ServerHostname;
+        public string? ServerHostname
+        {
+            get
+            {
+                if (!_mUnknown_ServerHostname) return _mValue_ServerHostname;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.ServerHostname' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The user who can mount the share and has file and folder permissions in the SMB share.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'LocationSmbArgs.User' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents.Outputs
         /// <summary>
         /// The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         /// </summary>
-        [Input("ssmAutomations")]
+        [PolicyResourceProperty("ssmAutomations", "_mUnknown_SsmAutomations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResponsePlanActionSsmAutomation>> _mSsmAutomations;
-
-        public List<Outputs.ResponsePlanActionSsmAutomation>? SsmAutomations => _mSsmAutomations.GetValue("ssmAutomations");
+        private List<Outputs.ResponsePlanActionSsmAutomation>? _mValue_SsmAutomations;
+        private bool _mUnknown_SsmAutomations;
+        public List<Outputs.ResponsePlanActionSsmAutomation>? SsmAutomations
+        {
+            get
+            {
+                if (!_mUnknown_SsmAutomations) return _mValue_SsmAutomations;
+                throw new UndeferrableValueException("Value 'ResponsePlanAction.SsmAutomations' is not present");
+            }
+        }
     }
 }

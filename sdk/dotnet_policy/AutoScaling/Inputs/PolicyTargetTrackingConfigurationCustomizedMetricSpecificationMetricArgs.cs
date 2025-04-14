@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         /// </summary>
-        [Input("expression")]
+        [PolicyResourceProperty("expression", "_mUnknown_Expression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpression;
-
-        public string? Expression => _mExpression.GetValue("expression");
+        private string? _mValue_Expression;
+        private bool _mUnknown_Expression;
+        public string? Expression
+        {
+            get
+            {
+                if (!_mUnknown_Expression) return _mValue_Expression;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.Expression' is not present");
+            }
+        }
 
         /// <summary>
         /// Short name for the metric used in target tracking scaling policy.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Human-readable label for this metric or expression.
         /// </summary>
-        [Input("label")]
+        [PolicyResourceProperty("label", "_mUnknown_Label")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLabel;
-
-        public string? Label => _mLabel.GetValue("label");
+        private string? _mValue_Label;
+        private bool _mUnknown_Label;
+        public string? Label
+        {
+            get
+            {
+                if (!_mUnknown_Label) return _mValue_Label;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.Label' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         /// </summary>
-        [Input("metricStat")]
+        [PolicyResourceProperty("metricStat", "_mUnknown_MetricStat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs> _mMetricStat;
-
-        public Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs? MetricStat => _mMetricStat.GetValue("metricStat");
+        private Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs? _mValue_MetricStat;
+        private bool _mUnknown_MetricStat;
+        public Inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs? MetricStat
+        {
+            get
+            {
+                if (!_mUnknown_MetricStat) return _mValue_MetricStat;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.MetricStat' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         /// </summary>
-        [Input("returnData")]
+        [PolicyResourceProperty("returnData", "_mUnknown_ReturnData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReturnData;
-
-        public bool? ReturnData => _mReturnData.GetValue("returnData");
+        private bool? _mValue_ReturnData;
+        private bool _mUnknown_ReturnData;
+        public bool? ReturnData
+        {
+            get
+            {
+                if (!_mUnknown_ReturnData) return _mValue_ReturnData;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs.ReturnData' is not present");
+            }
+        }
     }
 }

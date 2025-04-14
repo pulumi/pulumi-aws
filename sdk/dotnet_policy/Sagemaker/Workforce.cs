@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Workforce.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         /// </summary>
-        [Input("cognitoConfig")]
+        [PolicyResourceProperty("cognitoConfig", "_mUnknown_CognitoConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkforceCognitoConfig> _mCognitoConfig;
-
-        public Outputs.WorkforceCognitoConfig? CognitoConfig => _mCognitoConfig.GetValue("cognitoConfig");
+        private Outputs.WorkforceCognitoConfig? _mValue_CognitoConfig;
+        private bool _mUnknown_CognitoConfig;
+        public Outputs.WorkforceCognitoConfig? CognitoConfig
+        {
+            get
+            {
+                if (!_mUnknown_CognitoConfig) return _mValue_CognitoConfig;
+                throw new UndeferrableValueException("Value 'Workforce.CognitoConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         /// </summary>
-        [Input("oidcConfig")]
+        [PolicyResourceProperty("oidcConfig", "_mUnknown_OidcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkforceOidcConfig> _mOidcConfig;
-
-        public Outputs.WorkforceOidcConfig? OidcConfig => _mOidcConfig.GetValue("oidcConfig");
+        private Outputs.WorkforceOidcConfig? _mValue_OidcConfig;
+        private bool _mUnknown_OidcConfig;
+        public Outputs.WorkforceOidcConfig? OidcConfig
+        {
+            get
+            {
+                if (!_mUnknown_OidcConfig) return _mValue_OidcConfig;
+                throw new UndeferrableValueException("Value 'Workforce.OidcConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         /// </summary>
-        [Input("sourceIpConfig")]
+        [PolicyResourceProperty("sourceIpConfig", "_mUnknown_SourceIpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkforceSourceIpConfig> _mSourceIpConfig;
-
-        public Outputs.WorkforceSourceIpConfig? SourceIpConfig => _mSourceIpConfig.GetValue("sourceIpConfig");
+        private Outputs.WorkforceSourceIpConfig? _mValue_SourceIpConfig;
+        private bool _mUnknown_SourceIpConfig;
+        public Outputs.WorkforceSourceIpConfig? SourceIpConfig
+        {
+            get
+            {
+                if (!_mUnknown_SourceIpConfig) return _mValue_SourceIpConfig;
+                throw new UndeferrableValueException("Value 'Workforce.SourceIpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The subdomain for your OIDC Identity Provider.
         /// </summary>
-        [Input("subdomain")]
+        [PolicyResourceProperty("subdomain", "_mUnknown_Subdomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdomain;
-
-        public string? Subdomain => _mSubdomain.GetValue("subdomain");
+        private string? _mValue_Subdomain;
+        private bool _mUnknown_Subdomain;
+        public string? Subdomain
+        {
+            get
+            {
+                if (!_mUnknown_Subdomain) return _mValue_Subdomain;
+                throw new UndeferrableValueException("Value 'Workforce.Subdomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Workforce (must be unique).
         /// </summary>
-        [Input("workforceName")]
+        [PolicyResourceProperty("workforceName", "_mUnknown_WorkforceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkforceName;
-
-        public string? WorkforceName => _mWorkforceName.GetValue("workforceName");
+        private string? _mValue_WorkforceName;
+        private bool _mUnknown_WorkforceName;
+        public string? WorkforceName
+        {
+            get
+            {
+                if (!_mUnknown_WorkforceName) return _mValue_WorkforceName;
+                throw new UndeferrableValueException("Value 'Workforce.WorkforceName' is not present");
+            }
+        }
 
         /// <summary>
         /// configure a workforce using VPC. see Workforce VPC Config details below.
         /// </summary>
-        [Input("workforceVpcConfig")]
+        [PolicyResourceProperty("workforceVpcConfig", "_mUnknown_WorkforceVpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkforceWorkforceVpcConfig> _mWorkforceVpcConfig;
-
-        public Outputs.WorkforceWorkforceVpcConfig? WorkforceVpcConfig => _mWorkforceVpcConfig.GetValue("workforceVpcConfig");
+        private Outputs.WorkforceWorkforceVpcConfig? _mValue_WorkforceVpcConfig;
+        private bool _mUnknown_WorkforceVpcConfig;
+        public Outputs.WorkforceWorkforceVpcConfig? WorkforceVpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_WorkforceVpcConfig) return _mValue_WorkforceVpcConfig;
+                throw new UndeferrableValueException("Value 'Workforce.WorkforceVpcConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/workforce:Workforce")]
@@ -83,46 +132,81 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         /// </summary>
-        [Input("cognitoConfig")]
+        [PolicyResourceProperty("cognitoConfig", "_mUnknown_CognitoConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkforceCognitoConfigArgs> _mCognitoConfig;
-
-        public Inputs.WorkforceCognitoConfigArgs? CognitoConfig => _mCognitoConfig.GetValue("cognitoConfig");
+        private Inputs.WorkforceCognitoConfigArgs? _mValue_CognitoConfig;
+        private bool _mUnknown_CognitoConfig;
+        public Inputs.WorkforceCognitoConfigArgs? CognitoConfig
+        {
+            get
+            {
+                if (!_mUnknown_CognitoConfig) return _mValue_CognitoConfig;
+                throw new UndeferrableValueException("Value 'WorkforceArgs.CognitoConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         /// </summary>
-        [Input("oidcConfig")]
+        [PolicyResourceProperty("oidcConfig", "_mUnknown_OidcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkforceOidcConfigArgs> _mOidcConfig;
-
-        public Inputs.WorkforceOidcConfigArgs? OidcConfig => _mOidcConfig.GetValue("oidcConfig");
+        private Inputs.WorkforceOidcConfigArgs? _mValue_OidcConfig;
+        private bool _mUnknown_OidcConfig;
+        public Inputs.WorkforceOidcConfigArgs? OidcConfig
+        {
+            get
+            {
+                if (!_mUnknown_OidcConfig) return _mValue_OidcConfig;
+                throw new UndeferrableValueException("Value 'WorkforceArgs.OidcConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         /// </summary>
-        [Input("sourceIpConfig")]
+        [PolicyResourceProperty("sourceIpConfig", "_mUnknown_SourceIpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkforceSourceIpConfigArgs> _mSourceIpConfig;
-
-        public Inputs.WorkforceSourceIpConfigArgs? SourceIpConfig => _mSourceIpConfig.GetValue("sourceIpConfig");
+        private Inputs.WorkforceSourceIpConfigArgs? _mValue_SourceIpConfig;
+        private bool _mUnknown_SourceIpConfig;
+        public Inputs.WorkforceSourceIpConfigArgs? SourceIpConfig
+        {
+            get
+            {
+                if (!_mUnknown_SourceIpConfig) return _mValue_SourceIpConfig;
+                throw new UndeferrableValueException("Value 'WorkforceArgs.SourceIpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Workforce (must be unique).
         /// </summary>
-        [Input("workforceName")]
+        [PolicyResourceProperty("workforceName", "_mUnknown_WorkforceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkforceName;
-
-        public string? WorkforceName => _mWorkforceName.GetValue("workforceName");
+        private string? _mValue_WorkforceName;
+        private bool _mUnknown_WorkforceName;
+        public string? WorkforceName
+        {
+            get
+            {
+                if (!_mUnknown_WorkforceName) return _mValue_WorkforceName;
+                throw new UndeferrableValueException("Value 'WorkforceArgs.WorkforceName' is not present");
+            }
+        }
 
         /// <summary>
         /// configure a workforce using VPC. see Workforce VPC Config details below.
         /// </summary>
-        [Input("workforceVpcConfig")]
+        [PolicyResourceProperty("workforceVpcConfig", "_mUnknown_WorkforceVpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WorkforceWorkforceVpcConfigArgs> _mWorkforceVpcConfig;
-
-        public Inputs.WorkforceWorkforceVpcConfigArgs? WorkforceVpcConfig => _mWorkforceVpcConfig.GetValue("workforceVpcConfig");
+        private Inputs.WorkforceWorkforceVpcConfigArgs? _mValue_WorkforceVpcConfig;
+        private bool _mUnknown_WorkforceVpcConfig;
+        public Inputs.WorkforceWorkforceVpcConfigArgs? WorkforceVpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_WorkforceVpcConfig) return _mValue_WorkforceVpcConfig;
+                throw new UndeferrableValueException("Value 'WorkforceArgs.WorkforceVpcConfig' is not present");
+            }
+        }
     }
 }

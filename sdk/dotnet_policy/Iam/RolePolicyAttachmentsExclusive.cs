@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyArns")]
+        [PolicyResourceProperty("policyArns", "_mUnknown_PolicyArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
-
-        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
+        private List<string>? _mValue_PolicyArns;
+        private bool _mUnknown_PolicyArns;
+        public List<string>? PolicyArns
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArns) return _mValue_PolicyArns;
+                throw new UndeferrableValueException("Value 'RolePolicyAttachmentsExclusive.PolicyArns' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role name.
         /// </summary>
-        [Input("roleName")]
+        [PolicyResourceProperty("roleName", "_mUnknown_RoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
-
-        public string? RoleName => _mRoleName.GetValue("roleName");
+        private string? _mValue_RoleName;
+        private bool _mUnknown_RoleName;
+        public string? RoleName
+        {
+            get
+            {
+                if (!_mUnknown_RoleName) return _mValue_RoleName;
+                throw new UndeferrableValueException("Value 'RolePolicyAttachmentsExclusive.RoleName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyArns")]
+        [PolicyResourceProperty("policyArns", "_mUnknown_PolicyArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
-
-        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
+        private List<string>? _mValue_PolicyArns;
+        private bool _mUnknown_PolicyArns;
+        public List<string>? PolicyArns
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArns) return _mValue_PolicyArns;
+                throw new UndeferrableValueException("Value 'RolePolicyAttachmentsExclusiveArgs.PolicyArns' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM role name.
         /// </summary>
-        [Input("roleName")]
+        [PolicyResourceProperty("roleName", "_mUnknown_RoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
-
-        public string? RoleName => _mRoleName.GetValue("roleName");
+        private string? _mValue_RoleName;
+        private bool _mUnknown_RoleName;
+        public string? RoleName
+        {
+            get
+            {
+                if (!_mUnknown_RoleName) return _mValue_RoleName;
+                throw new UndeferrableValueException("Value 'RolePolicyAttachmentsExclusiveArgs.RoleName' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DashboardSourceEntitySourceTemplateArgs.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of dataset references. See data_set_references.
         /// </summary>
-        [Input("dataSetReferences")]
+        [PolicyResourceProperty("dataSetReferences", "_mUnknown_DataSetReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs>> _mDataSetReferences;
-
-        public List<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs>? DataSetReferences => _mDataSetReferences.GetValue("dataSetReferences");
+        private List<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs>? _mValue_DataSetReferences;
+        private bool _mUnknown_DataSetReferences;
+        public List<Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs>? DataSetReferences
+        {
+            get
+            {
+                if (!_mUnknown_DataSetReferences) return _mValue_DataSetReferences;
+                throw new UndeferrableValueException("Value 'DashboardSourceEntitySourceTemplateArgs.DataSetReferences' is not present");
+            }
+        }
     }
 }

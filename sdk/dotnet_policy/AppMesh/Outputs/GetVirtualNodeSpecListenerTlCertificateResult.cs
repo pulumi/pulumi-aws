@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerTlCertificateResult
     {
-        [Input("acms")]
+        [PolicyResourceProperty("acms", "_mUnknown_Acms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult>> _mAcms;
+        private List<Outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult>? _mValue_Acms;
+        private bool _mUnknown_Acms;
+        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult>? Acms
+        {
+            get
+            {
+                if (!_mUnknown_Acms) return _mValue_Acms;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTlCertificateResult.Acms' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult>? Acms => _mAcms.GetValue("acms");
-
-        [Input("files")]
+        [PolicyResourceProperty("files", "_mUnknown_Files")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTlCertificateFileResult>> _mFiles;
+        private List<Outputs.GetVirtualNodeSpecListenerTlCertificateFileResult>? _mValue_Files;
+        private bool _mUnknown_Files;
+        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateFileResult>? Files
+        {
+            get
+            {
+                if (!_mUnknown_Files) return _mValue_Files;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTlCertificateResult.Files' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateFileResult>? Files => _mFiles.GetValue("files");
-
-        [Input("sds")]
+        [PolicyResourceProperty("sds", "_mUnknown_Sds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerTlCertificateSdResult>> _mSds;
-
-        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateSdResult>? Sds => _mSds.GetValue("sds");
+        private List<Outputs.GetVirtualNodeSpecListenerTlCertificateSdResult>? _mValue_Sds;
+        private bool _mUnknown_Sds;
+        public List<Outputs.GetVirtualNodeSpecListenerTlCertificateSdResult>? Sds
+        {
+            get
+            {
+                if (!_mUnknown_Sds) return _mValue_Sds;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerTlCertificateResult.Sds' is not present");
+            }
+        }
     }
 }

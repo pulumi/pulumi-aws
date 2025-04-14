@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Outputs
 {
     public sealed class GetPlanRuleCopyActionLifecycleResult
     {
-        [Input("coldStorageAfter")]
+        [PolicyResourceProperty("coldStorageAfter", "_mUnknown_ColdStorageAfter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mColdStorageAfter;
+        private int? _mValue_ColdStorageAfter;
+        private bool _mUnknown_ColdStorageAfter;
+        public int? ColdStorageAfter
+        {
+            get
+            {
+                if (!_mUnknown_ColdStorageAfter) return _mValue_ColdStorageAfter;
+                throw new UndeferrableValueException("Value 'GetPlanRuleCopyActionLifecycleResult.ColdStorageAfter' is not present");
+            }
+        }
 
-        public int? ColdStorageAfter => _mColdStorageAfter.GetValue("coldStorageAfter");
-
-        [Input("deleteAfter")]
+        [PolicyResourceProperty("deleteAfter", "_mUnknown_DeleteAfter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeleteAfter;
+        private int? _mValue_DeleteAfter;
+        private bool _mUnknown_DeleteAfter;
+        public int? DeleteAfter
+        {
+            get
+            {
+                if (!_mUnknown_DeleteAfter) return _mValue_DeleteAfter;
+                throw new UndeferrableValueException("Value 'GetPlanRuleCopyActionLifecycleResult.DeleteAfter' is not present");
+            }
+        }
 
-        public int? DeleteAfter => _mDeleteAfter.GetValue("deleteAfter");
-
-        [Input("optInToArchiveForSupportedResources")]
+        [PolicyResourceProperty("optInToArchiveForSupportedResources", "_mUnknown_OptInToArchiveForSupportedResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOptInToArchiveForSupportedResources;
-
-        public bool? OptInToArchiveForSupportedResources => _mOptInToArchiveForSupportedResources.GetValue("optInToArchiveForSupportedResources");
+        private bool? _mValue_OptInToArchiveForSupportedResources;
+        private bool _mUnknown_OptInToArchiveForSupportedResources;
+        public bool? OptInToArchiveForSupportedResources
+        {
+            get
+            {
+                if (!_mUnknown_OptInToArchiveForSupportedResources) return _mValue_OptInToArchiveForSupportedResources;
+                throw new UndeferrableValueException("Value 'GetPlanRuleCopyActionLifecycleResult.OptInToArchiveForSupportedResources' is not present");
+            }
+        }
     }
 }

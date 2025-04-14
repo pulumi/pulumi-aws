@@ -12,19 +12,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs
     {
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
-
-        public string? ApiKey => _mApiKey.GetValue("apiKey");
+        private string? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public string? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The Secret Access Key portion of the credentials.
         /// </summary>
-        [Input("secretKey")]
+        [PolicyResourceProperty("secretKey", "_mUnknown_SecretKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
-
-        public string? SecretKey => _mSecretKey.GetValue("secretKey");
+        private string? _mValue_SecretKey;
+        private bool _mUnknown_SecretKey;
+        public string? SecretKey
+        {
+            get
+            {
+                if (!_mUnknown_SecretKey) return _mValue_SecretKey;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs.SecretKey' is not present");
+            }
+        }
     }
 }

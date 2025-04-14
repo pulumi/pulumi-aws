@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CodeGuruReviewer.Inputs
 {
     public sealed class RepositoryAssociationS3RepositoryDetailCodeArtifactArgs
     {
-        [Input("buildArtifactsObjectKey")]
+        [PolicyResourceProperty("buildArtifactsObjectKey", "_mUnknown_BuildArtifactsObjectKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBuildArtifactsObjectKey;
+        private string? _mValue_BuildArtifactsObjectKey;
+        private bool _mUnknown_BuildArtifactsObjectKey;
+        public string? BuildArtifactsObjectKey
+        {
+            get
+            {
+                if (!_mUnknown_BuildArtifactsObjectKey) return _mValue_BuildArtifactsObjectKey;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetailCodeArtifactArgs.BuildArtifactsObjectKey' is not present");
+            }
+        }
 
-        public string? BuildArtifactsObjectKey => _mBuildArtifactsObjectKey.GetValue("buildArtifactsObjectKey");
-
-        [Input("sourceCodeArtifactsObjectKey")]
+        [PolicyResourceProperty("sourceCodeArtifactsObjectKey", "_mUnknown_SourceCodeArtifactsObjectKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCodeArtifactsObjectKey;
-
-        public string? SourceCodeArtifactsObjectKey => _mSourceCodeArtifactsObjectKey.GetValue("sourceCodeArtifactsObjectKey");
+        private string? _mValue_SourceCodeArtifactsObjectKey;
+        private bool _mUnknown_SourceCodeArtifactsObjectKey;
+        public string? SourceCodeArtifactsObjectKey
+        {
+            get
+            {
+                if (!_mUnknown_SourceCodeArtifactsObjectKey) return _mValue_SourceCodeArtifactsObjectKey;
+                throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetailCodeArtifactArgs.SourceCodeArtifactsObjectKey' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
         /// </summary>
-        [Input("generatedRulesType")]
+        [PolicyResourceProperty("generatedRulesType", "_mUnknown_GeneratedRulesType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGeneratedRulesType;
-
-        public string? GeneratedRulesType => _mGeneratedRulesType.GetValue("generatedRulesType");
+        private string? _mValue_GeneratedRulesType;
+        private bool _mUnknown_GeneratedRulesType;
+        public string? GeneratedRulesType
+        {
+            get
+            {
+                if (!_mUnknown_GeneratedRulesType) return _mValue_GeneratedRulesType;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceRulesSourceListArgs.GeneratedRulesType' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
         /// </summary>
-        [Input("targetTypes")]
+        [PolicyResourceProperty("targetTypes", "_mUnknown_TargetTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetTypes;
-
-        public List<string>? TargetTypes => _mTargetTypes.GetValue("targetTypes");
+        private List<string>? _mValue_TargetTypes;
+        private bool _mUnknown_TargetTypes;
+        public List<string>? TargetTypes
+        {
+            get
+            {
+                if (!_mUnknown_TargetTypes) return _mValue_TargetTypes;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceRulesSourceListArgs.TargetTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of domains that you want to inspect for in your traffic flows.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargets;
-
-        public List<string>? Targets => _mTargets.GetValue("targets");
+        private List<string>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<string>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceRulesSourceListArgs.Targets' is not present");
+            }
+        }
     }
 }

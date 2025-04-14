@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// The owner account ID for the fast-launch enabled Windows AMI.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
         /// </summary>
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs> _mLaunchTemplate;
-
-        public Inputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Inputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Inputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of parallel instances that are launched for creating resources.
         /// </summary>
-        [Input("maxParallelLaunches")]
+        [PolicyResourceProperty("maxParallelLaunches", "_mUnknown_MaxParallelLaunches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxParallelLaunches;
-
-        public int? MaxParallelLaunches => _mMaxParallelLaunches.GetValue("maxParallelLaunches");
+        private int? _mValue_MaxParallelLaunches;
+        private bool _mUnknown_MaxParallelLaunches;
+        public int? MaxParallelLaunches
+        {
+            get
+            {
+                if (!_mUnknown_MaxParallelLaunches) return _mValue_MaxParallelLaunches;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.MaxParallelLaunches' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
         /// </summary>
-        [Input("snapshotConfiguration")]
+        [PolicyResourceProperty("snapshotConfiguration", "_mUnknown_SnapshotConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs> _mSnapshotConfiguration;
-
-        public Inputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs? SnapshotConfiguration => _mSnapshotConfiguration.GetValue("snapshotConfiguration");
+        private Inputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs? _mValue_SnapshotConfiguration;
+        private bool _mUnknown_SnapshotConfiguration;
+        public Inputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs? SnapshotConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotConfiguration) return _mValue_SnapshotConfiguration;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.SnapshotConfiguration' is not present");
+            }
+        }
     }
 }

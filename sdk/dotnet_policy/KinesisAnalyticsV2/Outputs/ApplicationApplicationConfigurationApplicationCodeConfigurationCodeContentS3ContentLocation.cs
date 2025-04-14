@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The ARN for the S3 bucket containing the application code.
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
-
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The file key for the object containing the application code.
         /// </summary>
-        [Input("fileKey")]
+        [PolicyResourceProperty("fileKey", "_mUnknown_FileKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileKey;
-
-        public string? FileKey => _mFileKey.GetValue("fileKey");
+        private string? _mValue_FileKey;
+        private bool _mUnknown_FileKey;
+        public string? FileKey
+        {
+            get
+            {
+                if (!_mUnknown_FileKey) return _mValue_FileKey;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.FileKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the object containing the application code.
         /// </summary>
-        [Input("objectVersion")]
+        [PolicyResourceProperty("objectVersion", "_mUnknown_ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectVersion;
-
-        public string? ObjectVersion => _mObjectVersion.GetValue("objectVersion");
+        private string? _mValue_ObjectVersion;
+        private bool _mUnknown_ObjectVersion;
+        public string? ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_ObjectVersion) return _mValue_ObjectVersion;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.ObjectVersion' is not present");
+            }
+        }
     }
 }

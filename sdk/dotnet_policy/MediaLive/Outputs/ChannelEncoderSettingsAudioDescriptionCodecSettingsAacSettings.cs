@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Average bitrate in bits/second.
         /// </summary>
-        [Input("bitrate")]
+        [PolicyResourceProperty("bitrate", "_mUnknown_Bitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mBitrate;
-
-        public double? Bitrate => _mBitrate.GetValue("bitrate");
+        private double? _mValue_Bitrate;
+        private bool _mUnknown_Bitrate;
+        public double? Bitrate
+        {
+            get
+            {
+                if (!_mUnknown_Bitrate) return _mValue_Bitrate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.Bitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Mono, Stereo, or 5.1 channel layout.
         /// </summary>
-        [Input("codingMode")]
+        [PolicyResourceProperty("codingMode", "_mUnknown_CodingMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodingMode;
-
-        public string? CodingMode => _mCodingMode.GetValue("codingMode");
+        private string? _mValue_CodingMode;
+        private bool _mUnknown_CodingMode;
+        public string? CodingMode
+        {
+            get
+            {
+                if (!_mUnknown_CodingMode) return _mValue_CodingMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.CodingMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
         /// </summary>
-        [Input("inputType")]
+        [PolicyResourceProperty("inputType", "_mUnknown_InputType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputType;
-
-        public string? InputType => _mInputType.GetValue("inputType");
+        private string? _mValue_InputType;
+        private bool _mUnknown_InputType;
+        public string? InputType
+        {
+            get
+            {
+                if (!_mUnknown_InputType) return _mValue_InputType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.InputType' is not present");
+            }
+        }
 
         /// <summary>
         /// AAC profile.
         /// </summary>
-        [Input("profile")]
+        [PolicyResourceProperty("profile", "_mUnknown_Profile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProfile;
-
-        public string? Profile => _mProfile.GetValue("profile");
+        private string? _mValue_Profile;
+        private bool _mUnknown_Profile;
+        public string? Profile
+        {
+            get
+            {
+                if (!_mUnknown_Profile) return _mValue_Profile;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.Profile' is not present");
+            }
+        }
 
         /// <summary>
         /// The rate control mode.
         /// </summary>
-        [Input("rateControlMode")]
+        [PolicyResourceProperty("rateControlMode", "_mUnknown_RateControlMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRateControlMode;
-
-        public string? RateControlMode => _mRateControlMode.GetValue("rateControlMode");
+        private string? _mValue_RateControlMode;
+        private bool _mUnknown_RateControlMode;
+        public string? RateControlMode
+        {
+            get
+            {
+                if (!_mUnknown_RateControlMode) return _mValue_RateControlMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.RateControlMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets LATM/LOAS AAC output for raw containers.
         /// </summary>
-        [Input("rawFormat")]
+        [PolicyResourceProperty("rawFormat", "_mUnknown_RawFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRawFormat;
-
-        public string? RawFormat => _mRawFormat.GetValue("rawFormat");
+        private string? _mValue_RawFormat;
+        private bool _mUnknown_RawFormat;
+        public string? RawFormat
+        {
+            get
+            {
+                if (!_mUnknown_RawFormat) return _mValue_RawFormat;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.RawFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Sample rate in Hz.
         /// </summary>
-        [Input("sampleRate")]
+        [PolicyResourceProperty("sampleRate", "_mUnknown_SampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mSampleRate;
-
-        public double? SampleRate => _mSampleRate.GetValue("sampleRate");
+        private double? _mValue_SampleRate;
+        private bool _mUnknown_SampleRate;
+        public double? SampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SampleRate) return _mValue_SampleRate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.SampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
         /// </summary>
-        [Input("spec")]
+        [PolicyResourceProperty("spec", "_mUnknown_Spec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpec;
-
-        public string? Spec => _mSpec.GetValue("spec");
+        private string? _mValue_Spec;
+        private bool _mUnknown_Spec;
+        public string? Spec
+        {
+            get
+            {
+                if (!_mUnknown_Spec) return _mValue_Spec;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.Spec' is not present");
+            }
+        }
 
         /// <summary>
         /// VBR Quality Level - Only used if rateControlMode is VBR.
         /// </summary>
-        [Input("vbrQuality")]
+        [PolicyResourceProperty("vbrQuality", "_mUnknown_VbrQuality")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVbrQuality;
-
-        public string? VbrQuality => _mVbrQuality.GetValue("vbrQuality");
+        private string? _mValue_VbrQuality;
+        private bool _mUnknown_VbrQuality;
+        public string? VbrQuality
+        {
+            get
+            {
+                if (!_mUnknown_VbrQuality) return _mValue_VbrQuality;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.VbrQuality' is not present");
+            }
+        }
     }
 }

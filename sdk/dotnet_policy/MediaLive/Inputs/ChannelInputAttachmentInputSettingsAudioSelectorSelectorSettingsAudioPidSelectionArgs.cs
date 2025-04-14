@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Selects a specific PID from within a source.
         /// </summary>
-        [Input("pid")]
+        [PolicyResourceProperty("pid", "_mUnknown_Pid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPid;
-
-        public int? Pid => _mPid.GetValue("pid");
+        private int? _mValue_Pid;
+        private bool _mUnknown_Pid;
+        public int? Pid
+        {
+            get
+            {
+                if (!_mUnknown_Pid) return _mValue_Pid;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs.Pid' is not present");
+            }
+        }
     }
 }

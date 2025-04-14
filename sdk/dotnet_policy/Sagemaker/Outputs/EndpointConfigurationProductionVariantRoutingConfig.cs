@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
         /// </summary>
-        [Input("routingStrategy")]
+        [PolicyResourceProperty("routingStrategy", "_mUnknown_RoutingStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingStrategy;
-
-        public string? RoutingStrategy => _mRoutingStrategy.GetValue("routingStrategy");
+        private string? _mValue_RoutingStrategy;
+        private bool _mUnknown_RoutingStrategy;
+        public string? RoutingStrategy
+        {
+            get
+            {
+                if (!_mUnknown_RoutingStrategy) return _mValue_RoutingStrategy;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantRoutingConfig.RoutingStrategy' is not present");
+            }
+        }
     }
 }

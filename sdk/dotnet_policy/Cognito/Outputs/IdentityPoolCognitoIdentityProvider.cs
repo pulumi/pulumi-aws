@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// The client ID for the Amazon Cognito Identity User Pool.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'IdentityPoolCognitoIdentityProvider.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider name for an Amazon Cognito Identity User Pool.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'IdentityPoolCognitoIdentityProvider.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether server-side token validation is enabled for the identity provider’s token or not.
         /// </summary>
-        [Input("serverSideTokenCheck")]
+        [PolicyResourceProperty("serverSideTokenCheck", "_mUnknown_ServerSideTokenCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mServerSideTokenCheck;
-
-        public bool? ServerSideTokenCheck => _mServerSideTokenCheck.GetValue("serverSideTokenCheck");
+        private bool? _mValue_ServerSideTokenCheck;
+        private bool _mUnknown_ServerSideTokenCheck;
+        public bool? ServerSideTokenCheck
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideTokenCheck) return _mValue_ServerSideTokenCheck;
+                throw new UndeferrableValueException("Value 'IdentityPoolCognitoIdentityProvider.ServerSideTokenCheck' is not present");
+            }
+        }
     }
 }

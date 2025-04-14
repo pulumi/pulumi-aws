@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleVoiceSettings.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the Amazon Polly voice to use.
         /// </summary>
-        [Input("voiceId")]
+        [PolicyResourceProperty("voiceId", "_mUnknown_VoiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceId;
-
-        public string? VoiceId => _mVoiceId.GetValue("voiceId");
+        private string? _mValue_VoiceId;
+        private bool _mUnknown_VoiceId;
+        public string? VoiceId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceId) return _mValue_VoiceId;
+                throw new UndeferrableValueException("Value 'V2modelsBotLocaleVoiceSettings.VoiceId' is not present");
+            }
+        }
     }
 }

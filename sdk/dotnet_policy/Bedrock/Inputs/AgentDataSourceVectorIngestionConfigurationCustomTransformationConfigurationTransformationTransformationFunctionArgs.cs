@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// The configuration of the lambda function.
         /// </summary>
-        [Input("transformationLambdaConfiguration")]
+        [PolicyResourceProperty("transformationLambdaConfiguration", "_mUnknown_TransformationLambdaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs> _mTransformationLambdaConfiguration;
-
-        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs? TransformationLambdaConfiguration => _mTransformationLambdaConfiguration.GetValue("transformationLambdaConfiguration");
+        private Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs? _mValue_TransformationLambdaConfiguration;
+        private bool _mUnknown_TransformationLambdaConfiguration;
+        public Inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs? TransformationLambdaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TransformationLambdaConfiguration) return _mValue_TransformationLambdaConfiguration;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs.TransformationLambdaConfiguration' is not present");
+            }
+        }
     }
 }

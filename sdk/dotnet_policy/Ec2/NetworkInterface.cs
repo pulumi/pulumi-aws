@@ -16,241 +16,430 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ARN of the network interface.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
         /// </summary>
-        [Input("attachments")]
+        [PolicyResourceProperty("attachments", "_mUnknown_Attachments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NetworkInterfaceAttachment>> _mAttachments;
-
-        public List<Outputs.NetworkInterfaceAttachment>? Attachments => _mAttachments.GetValue("attachments");
+        private List<Outputs.NetworkInterfaceAttachment>? _mValue_Attachments;
+        private bool _mUnknown_Attachments;
+        public List<Outputs.NetworkInterfaceAttachment>? Attachments
+        {
+            get
+            {
+                if (!_mUnknown_Attachments) return _mValue_Attachments;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Attachments' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the network interface.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         /// </summary>
-        [Input("enablePrimaryIpv6")]
+        [PolicyResourceProperty("enablePrimaryIpv6", "_mUnknown_EnablePrimaryIpv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrimaryIpv6;
-
-        public bool? EnablePrimaryIpv6 => _mEnablePrimaryIpv6.GetValue("enablePrimaryIpv6");
+        private bool? _mValue_EnablePrimaryIpv6;
+        private bool _mUnknown_EnablePrimaryIpv6;
+        public bool? EnablePrimaryIpv6
+        {
+            get
+            {
+                if (!_mUnknown_EnablePrimaryIpv6) return _mValue_EnablePrimaryIpv6;
+                throw new UndeferrableValueException("Value 'NetworkInterface.EnablePrimaryIpv6' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         /// </summary>
-        [Input("interfaceType")]
+        [PolicyResourceProperty("interfaceType", "_mUnknown_InterfaceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInterfaceType;
-
-        public string? InterfaceType => _mInterfaceType.GetValue("interfaceType");
+        private string? _mValue_InterfaceType;
+        private bool _mUnknown_InterfaceType;
+        public string? InterfaceType
+        {
+            get
+            {
+                if (!_mUnknown_InterfaceType) return _mValue_InterfaceType;
+                throw new UndeferrableValueException("Value 'NetworkInterface.InterfaceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
-        [Input("ipv4PrefixCount")]
+        [PolicyResourceProperty("ipv4PrefixCount", "_mUnknown_Ipv4PrefixCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4PrefixCount;
-
-        public int? Ipv4PrefixCount => _mIpv4PrefixCount.GetValue("ipv4PrefixCount");
+        private int? _mValue_Ipv4PrefixCount;
+        private bool _mUnknown_Ipv4PrefixCount;
+        public int? Ipv4PrefixCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4PrefixCount) return _mValue_Ipv4PrefixCount;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv4PrefixCount' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more IPv4 prefixes assigned to the network interface.
         /// </summary>
-        [Input("ipv4Prefixes")]
+        [PolicyResourceProperty("ipv4Prefixes", "_mUnknown_Ipv4Prefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv4Prefixes;
-
-        public List<string>? Ipv4Prefixes => _mIpv4Prefixes.GetValue("ipv4Prefixes");
+        private List<string>? _mValue_Ipv4Prefixes;
+        private bool _mUnknown_Ipv4Prefixes;
+        public List<string>? Ipv4Prefixes
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4Prefixes) return _mValue_Ipv4Prefixes;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv4Prefixes' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
-        [Input("ipv6AddressCount")]
+        [PolicyResourceProperty("ipv6AddressCount", "_mUnknown_Ipv6AddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6AddressCount;
-
-        public int? Ipv6AddressCount => _mIpv6AddressCount.GetValue("ipv6AddressCount");
+        private int? _mValue_Ipv6AddressCount;
+        private bool _mUnknown_Ipv6AddressCount;
+        public int? Ipv6AddressCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressCount) return _mValue_Ipv6AddressCount;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv6AddressCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         /// </summary>
-        [Input("ipv6AddressListEnabled")]
+        [PolicyResourceProperty("ipv6AddressListEnabled", "_mUnknown_Ipv6AddressListEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6AddressListEnabled;
-
-        public bool? Ipv6AddressListEnabled => _mIpv6AddressListEnabled.GetValue("ipv6AddressListEnabled");
+        private bool? _mValue_Ipv6AddressListEnabled;
+        private bool _mUnknown_Ipv6AddressListEnabled;
+        public bool? Ipv6AddressListEnabled
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressListEnabled) return _mValue_Ipv6AddressListEnabled;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv6AddressListEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// List of private IPs to assign to the ENI in sequential order.
         /// </summary>
-        [Input("ipv6AddressLists")]
+        [PolicyResourceProperty("ipv6AddressLists", "_mUnknown_Ipv6AddressLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6AddressLists;
-
-        public List<string>? Ipv6AddressLists => _mIpv6AddressLists.GetValue("ipv6AddressLists");
+        private List<string>? _mValue_Ipv6AddressLists;
+        private bool _mUnknown_Ipv6AddressLists;
+        public List<string>? Ipv6AddressLists
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressLists) return _mValue_Ipv6AddressLists;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv6AddressLists' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         /// </summary>
-        [Input("ipv6Addresses")]
+        [PolicyResourceProperty("ipv6Addresses", "_mUnknown_Ipv6Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
-
-        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
+        private List<string>? _mValue_Ipv6Addresses;
+        private bool _mUnknown_Ipv6Addresses;
+        public List<string>? Ipv6Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Addresses) return _mValue_Ipv6Addresses;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv6Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
-        [Input("ipv6PrefixCount")]
+        [PolicyResourceProperty("ipv6PrefixCount", "_mUnknown_Ipv6PrefixCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6PrefixCount;
-
-        public int? Ipv6PrefixCount => _mIpv6PrefixCount.GetValue("ipv6PrefixCount");
+        private int? _mValue_Ipv6PrefixCount;
+        private bool _mUnknown_Ipv6PrefixCount;
+        public int? Ipv6PrefixCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6PrefixCount) return _mValue_Ipv6PrefixCount;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv6PrefixCount' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more IPv6 prefixes assigned to the network interface.
         /// </summary>
-        [Input("ipv6Prefixes")]
+        [PolicyResourceProperty("ipv6Prefixes", "_mUnknown_Ipv6Prefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Prefixes;
-
-        public List<string>? Ipv6Prefixes => _mIpv6Prefixes.GetValue("ipv6Prefixes");
+        private List<string>? _mValue_Ipv6Prefixes;
+        private bool _mUnknown_Ipv6Prefixes;
+        public List<string>? Ipv6Prefixes
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Prefixes) return _mValue_Ipv6Prefixes;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Ipv6Prefixes' is not present");
+            }
+        }
 
         /// <summary>
         /// MAC address of the network interface.
         /// </summary>
-        [Input("macAddress")]
+        [PolicyResourceProperty("macAddress", "_mUnknown_MacAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMacAddress;
+        private string? _mValue_MacAddress;
+        private bool _mUnknown_MacAddress;
+        public string? MacAddress
+        {
+            get
+            {
+                if (!_mUnknown_MacAddress) return _mValue_MacAddress;
+                throw new UndeferrableValueException("Value 'NetworkInterface.MacAddress' is not present");
+            }
+        }
 
-        public string? MacAddress => _mMacAddress.GetValue("macAddress");
-
-        [Input("outpostArn")]
+        [PolicyResourceProperty("outpostArn", "_mUnknown_OutpostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostArn;
-
-        public string? OutpostArn => _mOutpostArn.GetValue("outpostArn");
+        private string? _mValue_OutpostArn;
+        private bool _mUnknown_OutpostArn;
+        public string? OutpostArn
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArn) return _mValue_OutpostArn;
+                throw new UndeferrableValueException("Value 'NetworkInterface.OutpostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID of the owner of the network interface.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'NetworkInterface.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Private DNS name of the network interface (IPv4).
         /// </summary>
-        [Input("privateDnsName")]
+        [PolicyResourceProperty("privateDnsName", "_mUnknown_PrivateDnsName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDnsName;
+        private string? _mValue_PrivateDnsName;
+        private bool _mUnknown_PrivateDnsName;
+        public string? PrivateDnsName
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDnsName) return _mValue_PrivateDnsName;
+                throw new UndeferrableValueException("Value 'NetworkInterface.PrivateDnsName' is not present");
+            }
+        }
 
-        public string? PrivateDnsName => _mPrivateDnsName.GetValue("privateDnsName");
-
-        [Input("privateIp")]
+        [PolicyResourceProperty("privateIp", "_mUnknown_PrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
-
-        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+        private string? _mValue_PrivateIp;
+        private bool _mUnknown_PrivateIp;
+        public string? PrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIp) return _mValue_PrivateIp;
+                throw new UndeferrableValueException("Value 'NetworkInterface.PrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         /// </summary>
-        [Input("privateIpListEnabled")]
+        [PolicyResourceProperty("privateIpListEnabled", "_mUnknown_PrivateIpListEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateIpListEnabled;
-
-        public bool? PrivateIpListEnabled => _mPrivateIpListEnabled.GetValue("privateIpListEnabled");
+        private bool? _mValue_PrivateIpListEnabled;
+        private bool _mUnknown_PrivateIpListEnabled;
+        public bool? PrivateIpListEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpListEnabled) return _mValue_PrivateIpListEnabled;
+                throw new UndeferrableValueException("Value 'NetworkInterface.PrivateIpListEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         /// </summary>
-        [Input("privateIpLists")]
+        [PolicyResourceProperty("privateIpLists", "_mUnknown_PrivateIpLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIpLists;
-
-        public List<string>? PrivateIpLists => _mPrivateIpLists.GetValue("privateIpLists");
+        private List<string>? _mValue_PrivateIpLists;
+        private bool _mUnknown_PrivateIpLists;
+        public List<string>? PrivateIpLists
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpLists) return _mValue_PrivateIpLists;
+                throw new UndeferrableValueException("Value 'NetworkInterface.PrivateIpLists' is not present");
+            }
+        }
 
         /// <summary>
         /// List of private IPs to assign to the ENI without regard to order.
         /// </summary>
-        [Input("privateIps")]
+        [PolicyResourceProperty("privateIps", "_mUnknown_PrivateIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIps;
-
-        public List<string>? PrivateIps => _mPrivateIps.GetValue("privateIps");
+        private List<string>? _mValue_PrivateIps;
+        private bool _mUnknown_PrivateIps;
+        public List<string>? PrivateIps
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIps) return _mValue_PrivateIps;
+                throw new UndeferrableValueException("Value 'NetworkInterface.PrivateIps' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
-        [Input("privateIpsCount")]
+        [PolicyResourceProperty("privateIpsCount", "_mUnknown_PrivateIpsCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPrivateIpsCount;
-
-        public int? PrivateIpsCount => _mPrivateIpsCount.GetValue("privateIpsCount");
+        private int? _mValue_PrivateIpsCount;
+        private bool _mUnknown_PrivateIpsCount;
+        public int? PrivateIpsCount
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpsCount) return _mValue_PrivateIpsCount;
+                throw new UndeferrableValueException("Value 'NetworkInterface.PrivateIpsCount' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs to assign to the ENI.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'NetworkInterface.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable source destination checking for the ENI. Default true.
         /// </summary>
-        [Input("sourceDestCheck")]
+        [PolicyResourceProperty("sourceDestCheck", "_mUnknown_SourceDestCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSourceDestCheck;
-
-        public bool? SourceDestCheck => _mSourceDestCheck.GetValue("sourceDestCheck");
+        private bool? _mValue_SourceDestCheck;
+        private bool _mUnknown_SourceDestCheck;
+        public bool? SourceDestCheck
+        {
+            get
+            {
+                if (!_mUnknown_SourceDestCheck) return _mValue_SourceDestCheck;
+                throw new UndeferrableValueException("Value 'NetworkInterface.SourceDestCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet ID to create the ENI in.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NetworkInterface.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkInterface.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NetworkInterface.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/networkInterface:NetworkInterface")]
@@ -259,189 +448,336 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
         /// </summary>
-        [Input("attachments")]
+        [PolicyResourceProperty("attachments", "_mUnknown_Attachments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.NetworkInterfaceAttachmentArgs>> _mAttachments;
-
-        public List<Inputs.NetworkInterfaceAttachmentArgs>? Attachments => _mAttachments.GetValue("attachments");
+        private List<Inputs.NetworkInterfaceAttachmentArgs>? _mValue_Attachments;
+        private bool _mUnknown_Attachments;
+        public List<Inputs.NetworkInterfaceAttachmentArgs>? Attachments
+        {
+            get
+            {
+                if (!_mUnknown_Attachments) return _mValue_Attachments;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Attachments' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the network interface.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         /// </summary>
-        [Input("enablePrimaryIpv6")]
+        [PolicyResourceProperty("enablePrimaryIpv6", "_mUnknown_EnablePrimaryIpv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrimaryIpv6;
-
-        public bool? EnablePrimaryIpv6 => _mEnablePrimaryIpv6.GetValue("enablePrimaryIpv6");
+        private bool? _mValue_EnablePrimaryIpv6;
+        private bool _mUnknown_EnablePrimaryIpv6;
+        public bool? EnablePrimaryIpv6
+        {
+            get
+            {
+                if (!_mUnknown_EnablePrimaryIpv6) return _mValue_EnablePrimaryIpv6;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.EnablePrimaryIpv6' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         /// </summary>
-        [Input("interfaceType")]
+        [PolicyResourceProperty("interfaceType", "_mUnknown_InterfaceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInterfaceType;
-
-        public string? InterfaceType => _mInterfaceType.GetValue("interfaceType");
+        private string? _mValue_InterfaceType;
+        private bool _mUnknown_InterfaceType;
+        public string? InterfaceType
+        {
+            get
+            {
+                if (!_mUnknown_InterfaceType) return _mValue_InterfaceType;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.InterfaceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
-        [Input("ipv4PrefixCount")]
+        [PolicyResourceProperty("ipv4PrefixCount", "_mUnknown_Ipv4PrefixCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4PrefixCount;
-
-        public int? Ipv4PrefixCount => _mIpv4PrefixCount.GetValue("ipv4PrefixCount");
+        private int? _mValue_Ipv4PrefixCount;
+        private bool _mUnknown_Ipv4PrefixCount;
+        public int? Ipv4PrefixCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4PrefixCount) return _mValue_Ipv4PrefixCount;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv4PrefixCount' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more IPv4 prefixes assigned to the network interface.
         /// </summary>
-        [Input("ipv4Prefixes")]
+        [PolicyResourceProperty("ipv4Prefixes", "_mUnknown_Ipv4Prefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv4Prefixes;
-
-        public List<string>? Ipv4Prefixes => _mIpv4Prefixes.GetValue("ipv4Prefixes");
+        private List<string>? _mValue_Ipv4Prefixes;
+        private bool _mUnknown_Ipv4Prefixes;
+        public List<string>? Ipv4Prefixes
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4Prefixes) return _mValue_Ipv4Prefixes;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv4Prefixes' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
-        [Input("ipv6AddressCount")]
+        [PolicyResourceProperty("ipv6AddressCount", "_mUnknown_Ipv6AddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6AddressCount;
-
-        public int? Ipv6AddressCount => _mIpv6AddressCount.GetValue("ipv6AddressCount");
+        private int? _mValue_Ipv6AddressCount;
+        private bool _mUnknown_Ipv6AddressCount;
+        public int? Ipv6AddressCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressCount) return _mValue_Ipv6AddressCount;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv6AddressCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         /// </summary>
-        [Input("ipv6AddressListEnabled")]
+        [PolicyResourceProperty("ipv6AddressListEnabled", "_mUnknown_Ipv6AddressListEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6AddressListEnabled;
-
-        public bool? Ipv6AddressListEnabled => _mIpv6AddressListEnabled.GetValue("ipv6AddressListEnabled");
+        private bool? _mValue_Ipv6AddressListEnabled;
+        private bool _mUnknown_Ipv6AddressListEnabled;
+        public bool? Ipv6AddressListEnabled
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressListEnabled) return _mValue_Ipv6AddressListEnabled;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv6AddressListEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// List of private IPs to assign to the ENI in sequential order.
         /// </summary>
-        [Input("ipv6AddressLists")]
+        [PolicyResourceProperty("ipv6AddressLists", "_mUnknown_Ipv6AddressLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6AddressLists;
-
-        public List<string>? Ipv6AddressLists => _mIpv6AddressLists.GetValue("ipv6AddressLists");
+        private List<string>? _mValue_Ipv6AddressLists;
+        private bool _mUnknown_Ipv6AddressLists;
+        public List<string>? Ipv6AddressLists
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressLists) return _mValue_Ipv6AddressLists;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv6AddressLists' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         /// </summary>
-        [Input("ipv6Addresses")]
+        [PolicyResourceProperty("ipv6Addresses", "_mUnknown_Ipv6Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
-
-        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
+        private List<string>? _mValue_Ipv6Addresses;
+        private bool _mUnknown_Ipv6Addresses;
+        public List<string>? Ipv6Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Addresses) return _mValue_Ipv6Addresses;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv6Addresses' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         /// </summary>
-        [Input("ipv6PrefixCount")]
+        [PolicyResourceProperty("ipv6PrefixCount", "_mUnknown_Ipv6PrefixCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6PrefixCount;
-
-        public int? Ipv6PrefixCount => _mIpv6PrefixCount.GetValue("ipv6PrefixCount");
+        private int? _mValue_Ipv6PrefixCount;
+        private bool _mUnknown_Ipv6PrefixCount;
+        public int? Ipv6PrefixCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6PrefixCount) return _mValue_Ipv6PrefixCount;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv6PrefixCount' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more IPv6 prefixes assigned to the network interface.
         /// </summary>
-        [Input("ipv6Prefixes")]
+        [PolicyResourceProperty("ipv6Prefixes", "_mUnknown_Ipv6Prefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Prefixes;
+        private List<string>? _mValue_Ipv6Prefixes;
+        private bool _mUnknown_Ipv6Prefixes;
+        public List<string>? Ipv6Prefixes
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Prefixes) return _mValue_Ipv6Prefixes;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Ipv6Prefixes' is not present");
+            }
+        }
 
-        public List<string>? Ipv6Prefixes => _mIpv6Prefixes.GetValue("ipv6Prefixes");
-
-        [Input("privateIp")]
+        [PolicyResourceProperty("privateIp", "_mUnknown_PrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
-
-        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+        private string? _mValue_PrivateIp;
+        private bool _mUnknown_PrivateIp;
+        public string? PrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIp) return _mValue_PrivateIp;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.PrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         /// </summary>
-        [Input("privateIpListEnabled")]
+        [PolicyResourceProperty("privateIpListEnabled", "_mUnknown_PrivateIpListEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrivateIpListEnabled;
-
-        public bool? PrivateIpListEnabled => _mPrivateIpListEnabled.GetValue("privateIpListEnabled");
+        private bool? _mValue_PrivateIpListEnabled;
+        private bool _mUnknown_PrivateIpListEnabled;
+        public bool? PrivateIpListEnabled
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpListEnabled) return _mValue_PrivateIpListEnabled;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.PrivateIpListEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         /// </summary>
-        [Input("privateIpLists")]
+        [PolicyResourceProperty("privateIpLists", "_mUnknown_PrivateIpLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIpLists;
-
-        public List<string>? PrivateIpLists => _mPrivateIpLists.GetValue("privateIpLists");
+        private List<string>? _mValue_PrivateIpLists;
+        private bool _mUnknown_PrivateIpLists;
+        public List<string>? PrivateIpLists
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpLists) return _mValue_PrivateIpLists;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.PrivateIpLists' is not present");
+            }
+        }
 
         /// <summary>
         /// List of private IPs to assign to the ENI without regard to order.
         /// </summary>
-        [Input("privateIps")]
+        [PolicyResourceProperty("privateIps", "_mUnknown_PrivateIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrivateIps;
-
-        public List<string>? PrivateIps => _mPrivateIps.GetValue("privateIps");
+        private List<string>? _mValue_PrivateIps;
+        private bool _mUnknown_PrivateIps;
+        public List<string>? PrivateIps
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIps) return _mValue_PrivateIps;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.PrivateIps' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         /// </summary>
-        [Input("privateIpsCount")]
+        [PolicyResourceProperty("privateIpsCount", "_mUnknown_PrivateIpsCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPrivateIpsCount;
-
-        public int? PrivateIpsCount => _mPrivateIpsCount.GetValue("privateIpsCount");
+        private int? _mValue_PrivateIpsCount;
+        private bool _mUnknown_PrivateIpsCount;
+        public int? PrivateIpsCount
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpsCount) return _mValue_PrivateIpsCount;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.PrivateIpsCount' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security group IDs to assign to the ENI.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable source destination checking for the ENI. Default true.
         /// </summary>
-        [Input("sourceDestCheck")]
+        [PolicyResourceProperty("sourceDestCheck", "_mUnknown_SourceDestCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSourceDestCheck;
-
-        public bool? SourceDestCheck => _mSourceDestCheck.GetValue("sourceDestCheck");
+        private bool? _mValue_SourceDestCheck;
+        private bool _mUnknown_SourceDestCheck;
+        public bool? SourceDestCheck
+        {
+            get
+            {
+                if (!_mUnknown_SourceDestCheck) return _mValue_SourceDestCheck;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.SourceDestCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnet ID to create the ENI in.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.Tags' is not present");
+            }
+        }
     }
 }

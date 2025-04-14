@@ -15,70 +15,126 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
         /// </summary>
-        [Input("directDeploySettings")]
+        [PolicyResourceProperty("directDeploySettings", "_mUnknown_DirectDeploySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> _mDirectDeploySettings;
-
-        public Inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs? DirectDeploySettings => _mDirectDeploySettings.GetValue("directDeploySettings");
+        private Inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs? _mValue_DirectDeploySettings;
+        private bool _mUnknown_DirectDeploySettings;
+        public Inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs? DirectDeploySettings
+        {
+            get
+            {
+                if (!_mUnknown_DirectDeploySettings) return _mValue_DirectDeploySettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.DirectDeploySettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
         /// </summary>
-        [Input("emrServerlessSettings")]
+        [PolicyResourceProperty("emrServerlessSettings", "_mUnknown_EmrServerlessSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs> _mEmrServerlessSettings;
+        private Inputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs? _mValue_EmrServerlessSettings;
+        private bool _mUnknown_EmrServerlessSettings;
+        public Inputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs? EmrServerlessSettings
+        {
+            get
+            {
+                if (!_mUnknown_EmrServerlessSettings) return _mValue_EmrServerlessSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.EmrServerlessSettings' is not present");
+            }
+        }
 
-        public Inputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs? EmrServerlessSettings => _mEmrServerlessSettings.GetValue("emrServerlessSettings");
-
-        [Input("generativeAiSettings")]
+        [PolicyResourceProperty("generativeAiSettings", "_mUnknown_GenerativeAiSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs> _mGenerativeAiSettings;
-
-        public Inputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs? GenerativeAiSettings => _mGenerativeAiSettings.GetValue("generativeAiSettings");
+        private Inputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs? _mValue_GenerativeAiSettings;
+        private bool _mUnknown_GenerativeAiSettings;
+        public Inputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs? GenerativeAiSettings
+        {
+            get
+            {
+                if (!_mUnknown_GenerativeAiSettings) return _mValue_GenerativeAiSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.GenerativeAiSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
         /// </summary>
-        [Input("identityProviderOauthSettings")]
+        [PolicyResourceProperty("identityProviderOauthSettings", "_mUnknown_IdentityProviderOauthSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> _mIdentityProviderOauthSettings;
-
-        public List<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>? IdentityProviderOauthSettings => _mIdentityProviderOauthSettings.GetValue("identityProviderOauthSettings");
+        private List<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>? _mValue_IdentityProviderOauthSettings;
+        private bool _mUnknown_IdentityProviderOauthSettings;
+        public List<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>? IdentityProviderOauthSettings
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProviderOauthSettings) return _mValue_IdentityProviderOauthSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.IdentityProviderOauthSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for document querying. See Kendra Settings below.
         /// </summary>
-        [Input("kendraSettings")]
+        [PolicyResourceProperty("kendraSettings", "_mUnknown_KendraSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs> _mKendraSettings;
-
-        public Inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs? KendraSettings => _mKendraSettings.GetValue("kendraSettings");
+        private Inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs? _mValue_KendraSettings;
+        private bool _mUnknown_KendraSettings;
+        public Inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs? KendraSettings
+        {
+            get
+            {
+                if (!_mUnknown_KendraSettings) return _mValue_KendraSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.KendraSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
         /// </summary>
-        [Input("modelRegisterSettings")]
+        [PolicyResourceProperty("modelRegisterSettings", "_mUnknown_ModelRegisterSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs> _mModelRegisterSettings;
-
-        public Inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs? ModelRegisterSettings => _mModelRegisterSettings.GetValue("modelRegisterSettings");
+        private Inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs? _mValue_ModelRegisterSettings;
+        private bool _mUnknown_ModelRegisterSettings;
+        public Inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs? ModelRegisterSettings
+        {
+            get
+            {
+                if (!_mUnknown_ModelRegisterSettings) return _mValue_ModelRegisterSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.ModelRegisterSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         /// </summary>
-        [Input("timeSeriesForecastingSettings")]
+        [PolicyResourceProperty("timeSeriesForecastingSettings", "_mUnknown_TimeSeriesForecastingSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs> _mTimeSeriesForecastingSettings;
-
-        public Inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs? TimeSeriesForecastingSettings => _mTimeSeriesForecastingSettings.GetValue("timeSeriesForecastingSettings");
+        private Inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs? _mValue_TimeSeriesForecastingSettings;
+        private bool _mUnknown_TimeSeriesForecastingSettings;
+        public Inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs? TimeSeriesForecastingSettings
+        {
+            get
+            {
+                if (!_mUnknown_TimeSeriesForecastingSettings) return _mValue_TimeSeriesForecastingSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.TimeSeriesForecastingSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
         /// </summary>
-        [Input("workspaceSettings")]
+        [PolicyResourceProperty("workspaceSettings", "_mUnknown_WorkspaceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> _mWorkspaceSettings;
-
-        public Inputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs? WorkspaceSettings => _mWorkspaceSettings.GetValue("workspaceSettings");
+        private Inputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs? _mValue_WorkspaceSettings;
+        private bool _mUnknown_WorkspaceSettings;
+        public Inputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs? WorkspaceSettings
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceSettings) return _mValue_WorkspaceSettings;
+                throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsArgs.WorkspaceSettings' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch.Inputs
         /// <summary>
         /// Configuration block for cross cluster search.
         /// </summary>
-        [Input("crossClusterSearch")]
+        [PolicyResourceProperty("crossClusterSearch", "_mUnknown_CrossClusterSearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OutboundConnectionConnectionPropertiesCrossClusterSearchArgs> _mCrossClusterSearch;
-
-        public Inputs.OutboundConnectionConnectionPropertiesCrossClusterSearchArgs? CrossClusterSearch => _mCrossClusterSearch.GetValue("crossClusterSearch");
+        private Inputs.OutboundConnectionConnectionPropertiesCrossClusterSearchArgs? _mValue_CrossClusterSearch;
+        private bool _mUnknown_CrossClusterSearch;
+        public Inputs.OutboundConnectionConnectionPropertiesCrossClusterSearchArgs? CrossClusterSearch
+        {
+            get
+            {
+                if (!_mUnknown_CrossClusterSearch) return _mValue_CrossClusterSearch;
+                throw new UndeferrableValueException("Value 'OutboundConnectionConnectionPropertiesArgs.CrossClusterSearch' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'OutboundConnectionConnectionPropertiesArgs.Endpoint' is not present");
+            }
+        }
     }
 }

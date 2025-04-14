@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Single object for server-side encryption by default configuration. (documented below)
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ServerSideEncryptionConfigurationRuleArgs>> _mRules;
-
-        public List<Inputs.BucketV2ServerSideEncryptionConfigurationRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.BucketV2ServerSideEncryptionConfigurationRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.BucketV2ServerSideEncryptionConfigurationRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketV2ServerSideEncryptionConfigurationArgs.Rules' is not present");
+            }
+        }
     }
 }

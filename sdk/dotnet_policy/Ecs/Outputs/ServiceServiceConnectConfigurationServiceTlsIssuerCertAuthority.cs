@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
         /// </summary>
-        [Input("awsPcaAuthorityArn")]
+        [PolicyResourceProperty("awsPcaAuthorityArn", "_mUnknown_AwsPcaAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsPcaAuthorityArn;
-
-        public string? AwsPcaAuthorityArn => _mAwsPcaAuthorityArn.GetValue("awsPcaAuthorityArn");
+        private string? _mValue_AwsPcaAuthorityArn;
+        private bool _mUnknown_AwsPcaAuthorityArn;
+        public string? AwsPcaAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_AwsPcaAuthorityArn) return _mValue_AwsPcaAuthorityArn;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority.AwsPcaAuthorityArn' is not present");
+            }
+        }
     }
 }

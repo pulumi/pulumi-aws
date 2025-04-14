@@ -16,64 +16,113 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Details about the user profile.
         /// </summary>
-        [Input("details")]
+        [PolicyResourceProperty("details", "_mUnknown_Details")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserProfileDetail>> _mDetails;
-
-        public List<Outputs.UserProfileDetail>? Details => _mDetails.GetValue("details");
+        private List<Outputs.UserProfileDetail>? _mValue_Details;
+        private bool _mUnknown_Details;
+        public List<Outputs.UserProfileDetail>? Details
+        {
+            get
+            {
+                if (!_mUnknown_Details) return _mValue_Details;
+                throw new UndeferrableValueException("Value 'UserProfile.Details' is not present");
+            }
+        }
 
         /// <summary>
         /// The domain identifier.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'UserProfile.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The user profile status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'UserProfile.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.UserProfileTimeouts> _mTimeouts;
-
-        public Outputs.UserProfileTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.UserProfileTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.UserProfileTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'UserProfile.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The user profile type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'UserProfile.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The user identifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userIdentifier")]
+        [PolicyResourceProperty("userIdentifier", "_mUnknown_UserIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserIdentifier;
-
-        public string? UserIdentifier => _mUserIdentifier.GetValue("userIdentifier");
+        private string? _mValue_UserIdentifier;
+        private bool _mUnknown_UserIdentifier;
+        public string? UserIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_UserIdentifier) return _mValue_UserIdentifier;
+                throw new UndeferrableValueException("Value 'UserProfile.UserIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The user type.
         /// </summary>
-        [Input("userType")]
+        [PolicyResourceProperty("userType", "_mUnknown_UserType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
-
-        public string? UserType => _mUserType.GetValue("userType");
+        private string? _mValue_UserType;
+        private bool _mUnknown_UserType;
+        public string? UserType
+        {
+            get
+            {
+                if (!_mUnknown_UserType) return _mValue_UserType;
+                throw new UndeferrableValueException("Value 'UserProfile.UserType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datazone/userProfile:UserProfile")]
@@ -82,45 +131,80 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// The domain identifier.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The user profile status.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.UserProfileTimeoutsArgs> _mTimeouts;
-
-        public Inputs.UserProfileTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.UserProfileTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.UserProfileTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The user identifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userIdentifier")]
+        [PolicyResourceProperty("userIdentifier", "_mUnknown_UserIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserIdentifier;
-
-        public string? UserIdentifier => _mUserIdentifier.GetValue("userIdentifier");
+        private string? _mValue_UserIdentifier;
+        private bool _mUnknown_UserIdentifier;
+        public string? UserIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_UserIdentifier) return _mValue_UserIdentifier;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.UserIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The user type.
         /// </summary>
-        [Input("userType")]
+        [PolicyResourceProperty("userType", "_mUnknown_UserType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserType;
-
-        public string? UserType => _mUserType.GetValue("userType");
+        private string? _mValue_UserType;
+        private bool _mUnknown_UserType;
+        public string? UserType
+        {
+            get
+            {
+                if (!_mUnknown_UserType) return _mValue_UserType;
+                throw new UndeferrableValueException("Value 'UserProfileArgs.UserType' is not present");
+            }
+        }
     }
 }

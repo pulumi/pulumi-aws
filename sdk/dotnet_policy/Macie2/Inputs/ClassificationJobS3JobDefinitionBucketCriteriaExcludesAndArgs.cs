@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Inputs
         /// <summary>
         /// A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
         /// </summary>
-        [Input("simpleCriterion")]
+        [PolicyResourceProperty("simpleCriterion", "_mUnknown_SimpleCriterion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs> _mSimpleCriterion;
-
-        public Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs? SimpleCriterion => _mSimpleCriterion.GetValue("simpleCriterion");
+        private Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs? _mValue_SimpleCriterion;
+        private bool _mUnknown_SimpleCriterion;
+        public Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs? SimpleCriterion
+        {
+            get
+            {
+                if (!_mUnknown_SimpleCriterion) return _mValue_SimpleCriterion;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs.SimpleCriterion' is not present");
+            }
+        }
 
         /// <summary>
         /// A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
         /// </summary>
-        [Input("tagCriterion")]
+        [PolicyResourceProperty("tagCriterion", "_mUnknown_TagCriterion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs> _mTagCriterion;
-
-        public Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs? TagCriterion => _mTagCriterion.GetValue("tagCriterion");
+        private Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs? _mValue_TagCriterion;
+        private bool _mUnknown_TagCriterion;
+        public Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs? TagCriterion
+        {
+            get
+            {
+                if (!_mUnknown_TagCriterion) return _mValue_TagCriterion;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs.TagCriterion' is not present");
+            }
+        }
     }
 }

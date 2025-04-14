@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs> _mCondition;
-
-        public Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs? Condition => _mCondition.GetValue("condition");
+        private Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleArgs.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for redirect information. See below.
         /// </summary>
-        [Input("redirect")]
+        [PolicyResourceProperty("redirect", "_mUnknown_Redirect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs> _mRedirect;
-
-        public Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs? Redirect => _mRedirect.GetValue("redirect");
+        private Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs? _mValue_Redirect;
+        private bool _mUnknown_Redirect;
+        public Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs? Redirect
+        {
+            get
+            {
+                if (!_mUnknown_Redirect) return _mValue_Redirect;
+                throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleArgs.Redirect' is not present");
+            }
+        }
     }
 }

@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// The S3 bucket name.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'AssociationOutputLocationArgs.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 bucket prefix. Results stored in the root if not configured.
         /// </summary>
-        [Input("s3KeyPrefix")]
+        [PolicyResourceProperty("s3KeyPrefix", "_mUnknown_S3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3KeyPrefix;
-
-        public string? S3KeyPrefix => _mS3KeyPrefix.GetValue("s3KeyPrefix");
+        private string? _mValue_S3KeyPrefix;
+        private bool _mUnknown_S3KeyPrefix;
+        public string? S3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_S3KeyPrefix) return _mValue_S3KeyPrefix;
+                throw new UndeferrableValueException("Value 'AssociationOutputLocationArgs.S3KeyPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 bucket region.
         /// 
         /// Targets specify what instance IDs or tags to apply the document to and has these keys:
         /// </summary>
-        [Input("s3Region")]
+        [PolicyResourceProperty("s3Region", "_mUnknown_S3Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Region;
-
-        public string? S3Region => _mS3Region.GetValue("s3Region");
+        private string? _mValue_S3Region;
+        private bool _mUnknown_S3Region;
+        public string? S3Region
+        {
+            get
+            {
+                if (!_mUnknown_S3Region) return _mValue_S3Region;
+                throw new UndeferrableValueException("Value 'AssociationOutputLocationArgs.S3Region' is not present");
+            }
+        }
     }
 }

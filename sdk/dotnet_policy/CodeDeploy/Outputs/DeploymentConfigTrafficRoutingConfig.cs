@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Outputs
         /// <summary>
         /// The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
         /// </summary>
-        [Input("timeBasedCanary")]
+        [PolicyResourceProperty("timeBasedCanary", "_mUnknown_TimeBasedCanary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanary> _mTimeBasedCanary;
-
-        public Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanary? TimeBasedCanary => _mTimeBasedCanary.GetValue("timeBasedCanary");
+        private Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanary? _mValue_TimeBasedCanary;
+        private bool _mUnknown_TimeBasedCanary;
+        public Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanary? TimeBasedCanary
+        {
+            get
+            {
+                if (!_mUnknown_TimeBasedCanary) return _mValue_TimeBasedCanary;
+                throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfig.TimeBasedCanary' is not present");
+            }
+        }
 
         /// <summary>
         /// The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
         /// </summary>
-        [Input("timeBasedLinear")]
+        [PolicyResourceProperty("timeBasedLinear", "_mUnknown_TimeBasedLinear")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear> _mTimeBasedLinear;
-
-        public Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear? TimeBasedLinear => _mTimeBasedLinear.GetValue("timeBasedLinear");
+        private Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear? _mValue_TimeBasedLinear;
+        private bool _mUnknown_TimeBasedLinear;
+        public Outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear? TimeBasedLinear
+        {
+            get
+            {
+                if (!_mUnknown_TimeBasedLinear) return _mValue_TimeBasedLinear;
+                throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfig.TimeBasedLinear' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfig.Type' is not present");
+            }
+        }
     }
 }

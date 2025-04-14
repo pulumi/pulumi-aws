@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Maximum. May be a decimal number, e.g. `0.5`.
         /// </summary>
-        [Input("max")]
+        [PolicyResourceProperty("max", "_mUnknown_Max")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMax;
-
-        public double? Max => _mMax.GetValue("max");
+        private double? _mValue_Max;
+        private bool _mUnknown_Max;
+        public double? Max
+        {
+            get
+            {
+                if (!_mUnknown_Max) return _mValue_Max;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs.Max' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum. May be a decimal number, e.g. `0.5`.
         /// </summary>
-        [Input("min")]
+        [PolicyResourceProperty("min", "_mUnknown_Min")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMin;
-
-        public double? Min => _mMin.GetValue("min");
+        private double? _mValue_Min;
+        private bool _mUnknown_Min;
+        public double? Min
+        {
+            get
+            {
+                if (!_mUnknown_Min) return _mValue_Min;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs.Min' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Constant bitrate value.
         /// </summary>
-        [Input("constantBitrate")]
+        [PolicyResourceProperty("constantBitrate", "_mUnknown_ConstantBitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConstantBitrate;
-
-        public int? ConstantBitrate => _mConstantBitrate.GetValue("constantBitrate");
+        private int? _mValue_ConstantBitrate;
+        private bool _mUnknown_ConstantBitrate;
+        public int? ConstantBitrate
+        {
+            get
+            {
+                if (!_mUnknown_ConstantBitrate) return _mValue_ConstantBitrate;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettings.ConstantBitrate' is not present");
+            }
+        }
 
         /// <summary>
         /// Statmux settings. See Statmux Settings for more details.
         /// </summary>
-        [Input("statmuxSettings")]
+        [PolicyResourceProperty("statmuxSettings", "_mUnknown_StatmuxSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings> _mStatmuxSettings;
-
-        public Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings? StatmuxSettings => _mStatmuxSettings.GetValue("statmuxSettings");
+        private Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings? _mValue_StatmuxSettings;
+        private bool _mUnknown_StatmuxSettings;
+        public Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings? StatmuxSettings
+        {
+            get
+            {
+                if (!_mUnknown_StatmuxSettings) return _mValue_StatmuxSettings;
+                throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettings.StatmuxSettings' is not present");
+            }
+        }
     }
 }

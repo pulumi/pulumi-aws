@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// This field is not currently supported and will not affect the output styling. Leave the default value.
         /// </summary>
-        [Input("styleControl")]
+        [PolicyResourceProperty("styleControl", "_mUnknown_StyleControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStyleControl;
-
-        public string? StyleControl => _mStyleControl.GetValue("styleControl");
+        private string? _mValue_StyleControl;
+        private bool _mUnknown_StyleControl;
+        public string? StyleControl
+        {
+            get
+            {
+                if (!_mUnknown_StyleControl) return _mValue_StyleControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings.StyleControl' is not present");
+            }
+        }
     }
 }

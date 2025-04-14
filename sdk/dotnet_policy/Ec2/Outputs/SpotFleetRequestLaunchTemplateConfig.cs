@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Launch template specification. See Launch Template Specification below for more details.
         /// </summary>
-        [Input("launchTemplateSpecification")]
+        [PolicyResourceProperty("launchTemplateSpecification", "_mUnknown_LaunchTemplateSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification> _mLaunchTemplateSpecification;
-
-        public Outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification? LaunchTemplateSpecification => _mLaunchTemplateSpecification.GetValue("launchTemplateSpecification");
+        private Outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification? _mValue_LaunchTemplateSpecification;
+        private bool _mUnknown_LaunchTemplateSpecification;
+        public Outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification? LaunchTemplateSpecification
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplateSpecification) return _mValue_LaunchTemplateSpecification;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfig.LaunchTemplateSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more override configurations. See Overrides below for more details.
         /// </summary>
-        [Input("overrides")]
+        [PolicyResourceProperty("overrides", "_mUnknown_Overrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SpotFleetRequestLaunchTemplateConfigOverride>> _mOverrides;
-
-        public List<Outputs.SpotFleetRequestLaunchTemplateConfigOverride>? Overrides => _mOverrides.GetValue("overrides");
+        private List<Outputs.SpotFleetRequestLaunchTemplateConfigOverride>? _mValue_Overrides;
+        private bool _mUnknown_Overrides;
+        public List<Outputs.SpotFleetRequestLaunchTemplateConfigOverride>? Overrides
+        {
+            get
+            {
+                if (!_mUnknown_Overrides) return _mValue_Overrides;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfig.Overrides' is not present");
+            }
+        }
     }
 }

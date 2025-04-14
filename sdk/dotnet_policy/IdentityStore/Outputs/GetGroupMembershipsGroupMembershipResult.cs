@@ -15,34 +15,62 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Outputs
         /// <summary>
         /// The identifier for a group in the Identity Store.
         /// </summary>
-        [Input("groupId")]
+        [PolicyResourceProperty("groupId", "_mUnknown_GroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupId;
-
-        public string? GroupId => _mGroupId.GetValue("groupId");
+        private string? _mValue_GroupId;
+        private bool _mUnknown_GroupId;
+        public string? GroupId
+        {
+            get
+            {
+                if (!_mUnknown_GroupId) return _mValue_GroupId;
+                throw new UndeferrableValueException("Value 'GetGroupMembershipsGroupMembershipResult.GroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
         /// </summary>
-        [Input("identityStoreId")]
+        [PolicyResourceProperty("identityStoreId", "_mUnknown_IdentityStoreId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityStoreId;
-
-        public string? IdentityStoreId => _mIdentityStoreId.GetValue("identityStoreId");
+        private string? _mValue_IdentityStoreId;
+        private bool _mUnknown_IdentityStoreId;
+        public string? IdentityStoreId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityStoreId) return _mValue_IdentityStoreId;
+                throw new UndeferrableValueException("Value 'GetGroupMembershipsGroupMembershipResult.IdentityStoreId' is not present");
+            }
+        }
 
         /// <summary>
         /// An object containing the identifier of a group member. See `member_id` below.
         /// </summary>
-        [Input("memberId")]
+        [PolicyResourceProperty("memberId", "_mUnknown_MemberId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetGroupMembershipsGroupMembershipMemberIdResult> _mMemberId;
+        private Outputs.GetGroupMembershipsGroupMembershipMemberIdResult? _mValue_MemberId;
+        private bool _mUnknown_MemberId;
+        public Outputs.GetGroupMembershipsGroupMembershipMemberIdResult? MemberId
+        {
+            get
+            {
+                if (!_mUnknown_MemberId) return _mValue_MemberId;
+                throw new UndeferrableValueException("Value 'GetGroupMembershipsGroupMembershipResult.MemberId' is not present");
+            }
+        }
 
-        public Outputs.GetGroupMembershipsGroupMembershipMemberIdResult? MemberId => _mMemberId.GetValue("memberId");
-
-        [Input("membershipId")]
+        [PolicyResourceProperty("membershipId", "_mUnknown_MembershipId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMembershipId;
-
-        public string? MembershipId => _mMembershipId.GetValue("membershipId");
+        private string? _mValue_MembershipId;
+        private bool _mUnknown_MembershipId;
+        public string? MembershipId
+        {
+            get
+            {
+                if (!_mUnknown_MembershipId) return _mValue_MembershipId;
+                throw new UndeferrableValueException("Value 'GetGroupMembershipsGroupMembershipResult.MembershipId' is not present");
+            }
+        }
     }
 }

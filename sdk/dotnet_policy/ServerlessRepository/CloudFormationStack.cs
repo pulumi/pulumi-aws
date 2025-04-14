@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.ServerlessRepository
         /// <summary>
         /// The ARN of the application from the Serverless Application Repository.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         /// </summary>
-        [Input("capabilities")]
+        [PolicyResourceProperty("capabilities", "_mUnknown_Capabilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
-
-        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
+        private List<string>? _mValue_Capabilities;
+        private bool _mUnknown_Capabilities;
+        public List<string>? Capabilities
+        {
+            get
+            {
+                if (!_mUnknown_Capabilities) return _mValue_Capabilities;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.Capabilities' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of outputs from the stack.
         /// </summary>
-        [Input("outputs")]
+        [PolicyResourceProperty("outputs", "_mUnknown_Outputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mOutputs;
-
-        public Dictionary<string, string>? Outputs => _mOutputs.GetValue("outputs");
+        private Dictionary<string, string>? _mValue_Outputs;
+        private bool _mUnknown_Outputs;
+        public Dictionary<string, string>? Outputs
+        {
+            get
+            {
+                if (!_mUnknown_Outputs) return _mValue_Outputs;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.Outputs' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
-        [Input("semanticVersion")]
+        [PolicyResourceProperty("semanticVersion", "_mUnknown_SemanticVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSemanticVersion;
-
-        public string? SemanticVersion => _mSemanticVersion.GetValue("semanticVersion");
+        private string? _mValue_SemanticVersion;
+        private bool _mUnknown_SemanticVersion;
+        public string? SemanticVersion
+        {
+            get
+            {
+                if (!_mUnknown_SemanticVersion) return _mValue_SemanticVersion;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.SemanticVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CloudFormationStack.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:serverlessrepository/cloudFormationStack:CloudFormationStack")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.ServerlessRepository
         /// <summary>
         /// The ARN of the application from the Serverless Application Repository.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'CloudFormationStackArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         /// </summary>
-        [Input("capabilities")]
+        [PolicyResourceProperty("capabilities", "_mUnknown_Capabilities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapabilities;
-
-        public List<string>? Capabilities => _mCapabilities.GetValue("capabilities");
+        private List<string>? _mValue_Capabilities;
+        private bool _mUnknown_Capabilities;
+        public List<string>? Capabilities
+        {
+            get
+            {
+                if (!_mUnknown_Capabilities) return _mValue_Capabilities;
+                throw new UndeferrableValueException("Value 'CloudFormationStackArgs.Capabilities' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CloudFormationStackArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of Parameter structures that specify input parameters for the stack.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'CloudFormationStackArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
-        [Input("semanticVersion")]
+        [PolicyResourceProperty("semanticVersion", "_mUnknown_SemanticVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSemanticVersion;
-
-        public string? SemanticVersion => _mSemanticVersion.GetValue("semanticVersion");
+        private string? _mValue_SemanticVersion;
+        private bool _mUnknown_SemanticVersion;
+        public string? SemanticVersion
+        {
+            get
+            {
+                if (!_mUnknown_SemanticVersion) return _mValue_SemanticVersion;
+                throw new UndeferrableValueException("Value 'CloudFormationStackArgs.SemanticVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CloudFormationStackArgs.Tags' is not present");
+            }
+        }
     }
 }

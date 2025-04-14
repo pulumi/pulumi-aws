@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The S3 Bucket ARN.
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
-
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesS3Args.BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The File Key name containing reference data.
         /// </summary>
-        [Input("fileKey")]
+        [PolicyResourceProperty("fileKey", "_mUnknown_FileKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileKey;
-
-        public string? FileKey => _mFileKey.GetValue("fileKey");
+        private string? _mValue_FileKey;
+        private bool _mUnknown_FileKey;
+        public string? FileKey
+        {
+            get
+            {
+                if (!_mUnknown_FileKey) return _mValue_FileKey;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesS3Args.FileKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Role ARN to read the data.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesS3Args.RoleArn' is not present");
+            }
+        }
     }
 }

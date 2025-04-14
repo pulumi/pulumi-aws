@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// <summary>
         /// A list of strings. The network function group to use for the service insertion action.
         /// </summary>
-        [Input("networkFunctionGroups")]
+        [PolicyResourceProperty("networkFunctionGroups", "_mUnknown_NetworkFunctionGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetworkFunctionGroups;
-
-        public List<string>? NetworkFunctionGroups => _mNetworkFunctionGroups.GetValue("networkFunctionGroups");
+        private List<string>? _mValue_NetworkFunctionGroups;
+        private bool _mUnknown_NetworkFunctionGroups;
+        public List<string>? NetworkFunctionGroups
+        {
+            get
+            {
+                if (!_mUnknown_NetworkFunctionGroups) return _mValue_NetworkFunctionGroups;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionViaResult.NetworkFunctionGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Any edge overrides and the preferred edge to use.
         /// </summary>
-        [Input("withEdgeOverrides")]
+        [PolicyResourceProperty("withEdgeOverrides", "_mUnknown_WithEdgeOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult>> _mWithEdgeOverrides;
-
-        public List<Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult>? WithEdgeOverrides => _mWithEdgeOverrides.GetValue("withEdgeOverrides");
+        private List<Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult>? _mValue_WithEdgeOverrides;
+        private bool _mUnknown_WithEdgeOverrides;
+        public List<Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideResult>? WithEdgeOverrides
+        {
+            get
+            {
+                if (!_mUnknown_WithEdgeOverrides) return _mValue_WithEdgeOverrides;
+                throw new UndeferrableValueException("Value 'GetCoreNetworkPolicyDocumentSegmentActionViaResult.WithEdgeOverrides' is not present");
+            }
+        }
     }
 }

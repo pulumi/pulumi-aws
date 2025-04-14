@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
         /// </summary>
-        [Input("mainNode")]
+        [PolicyResourceProperty("mainNode", "_mUnknown_MainNode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMainNode;
-
-        public int? MainNode => _mMainNode.GetValue("mainNode");
+        private int? _mValue_MainNode;
+        private bool _mUnknown_MainNode;
+        public int? MainNode
+        {
+            get
+            {
+                if (!_mUnknown_MainNode) return _mValue_MainNode;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyResult.MainNode' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of node ranges and their properties that are associated with a multi-node parallel job.
         /// </summary>
-        [Input("nodeRangeProperties")]
+        [PolicyResourceProperty("nodeRangeProperties", "_mUnknown_NodeRangeProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyResult>> _mNodeRangeProperties;
-
-        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyResult>? NodeRangeProperties => _mNodeRangeProperties.GetValue("nodeRangeProperties");
+        private List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyResult>? _mValue_NodeRangeProperties;
+        private bool _mUnknown_NodeRangeProperties;
+        public List<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyResult>? NodeRangeProperties
+        {
+            get
+            {
+                if (!_mUnknown_NodeRangeProperties) return _mValue_NodeRangeProperties;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyResult.NodeRangeProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of nodes that are associated with a multi-node parallel job.
         /// </summary>
-        [Input("numNodes")]
+        [PolicyResourceProperty("numNodes", "_mUnknown_NumNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumNodes;
-
-        public int? NumNodes => _mNumNodes.GetValue("numNodes");
+        private int? _mValue_NumNodes;
+        private bool _mUnknown_NumNodes;
+        public int? NumNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumNodes) return _mValue_NumNodes;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyResult.NumNodes' is not present");
+            }
+        }
     }
 }

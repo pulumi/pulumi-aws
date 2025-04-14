@@ -12,31 +12,59 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings
     {
-        [Input("h265PackagingType")]
+        [PolicyResourceProperty("h265PackagingType", "_mUnknown_H265PackagingType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mH265PackagingType;
+        private string? _mValue_H265PackagingType;
+        private bool _mUnknown_H265PackagingType;
+        public string? H265PackagingType
+        {
+            get
+            {
+                if (!_mUnknown_H265PackagingType) return _mValue_H265PackagingType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.H265PackagingType' is not present");
+            }
+        }
 
-        public string? H265PackagingType => _mH265PackagingType.GetValue("h265PackagingType");
-
-        [Input("hlsSettings")]
+        [PolicyResourceProperty("hlsSettings", "_mUnknown_HlsSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings> _mHlsSettings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings? HlsSettings => _mHlsSettings.GetValue("hlsSettings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings? _mValue_HlsSettings;
+        private bool _mUnknown_HlsSettings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings? HlsSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsSettings) return _mValue_HlsSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.HlsSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         /// </summary>
-        [Input("nameModifier")]
+        [PolicyResourceProperty("nameModifier", "_mUnknown_NameModifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameModifier;
+        private string? _mValue_NameModifier;
+        private bool _mUnknown_NameModifier;
+        public string? NameModifier
+        {
+            get
+            {
+                if (!_mUnknown_NameModifier) return _mValue_NameModifier;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.NameModifier' is not present");
+            }
+        }
 
-        public string? NameModifier => _mNameModifier.GetValue("nameModifier");
-
-        [Input("segmentModifier")]
+        [PolicyResourceProperty("segmentModifier", "_mUnknown_SegmentModifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentModifier;
-
-        public string? SegmentModifier => _mSegmentModifier.GetValue("segmentModifier");
+        private string? _mValue_SegmentModifier;
+        private bool _mUnknown_SegmentModifier;
+        public string? SegmentModifier
+        {
+            get
+            {
+                if (!_mUnknown_SegmentModifier) return _mValue_SegmentModifier;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.SegmentModifier' is not present");
+            }
+        }
     }
 }

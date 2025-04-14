@@ -16,59 +16,108 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// <summary>
         /// ARN of the LanguageModel.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LanguageModel.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of reference base model.
         /// </summary>
-        [Input("baseModelName")]
+        [PolicyResourceProperty("baseModelName", "_mUnknown_BaseModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelName;
-
-        public string? BaseModelName => _mBaseModelName.GetValue("baseModelName");
+        private string? _mValue_BaseModelName;
+        private bool _mUnknown_BaseModelName;
+        public string? BaseModelName
+        {
+            get
+            {
+                if (!_mUnknown_BaseModelName) return _mValue_BaseModelName;
+                throw new UndeferrableValueException("Value 'LanguageModel.BaseModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// The input data config for the LanguageModel. See Input Data Config for more details.
         /// </summary>
-        [Input("inputDataConfig")]
+        [PolicyResourceProperty("inputDataConfig", "_mUnknown_InputDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LanguageModelInputDataConfig> _mInputDataConfig;
-
-        public Outputs.LanguageModelInputDataConfig? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
+        private Outputs.LanguageModelInputDataConfig? _mValue_InputDataConfig;
+        private bool _mUnknown_InputDataConfig;
+        public Outputs.LanguageModelInputDataConfig? InputDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_InputDataConfig) return _mValue_InputDataConfig;
+                throw new UndeferrableValueException("Value 'LanguageModel.InputDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'LanguageModel.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The model name.
         /// </summary>
-        [Input("modelName")]
+        [PolicyResourceProperty("modelName", "_mUnknown_ModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelName;
+        private string? _mValue_ModelName;
+        private bool _mUnknown_ModelName;
+        public string? ModelName
+        {
+            get
+            {
+                if (!_mUnknown_ModelName) return _mValue_ModelName;
+                throw new UndeferrableValueException("Value 'LanguageModel.ModelName' is not present");
+            }
+        }
 
-        public string? ModelName => _mModelName.GetValue("modelName");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LanguageModel.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LanguageModel.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transcribe/languageModel:LanguageModel")]
@@ -77,43 +126,78 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// <summary>
         /// Name of reference base model.
         /// </summary>
-        [Input("baseModelName")]
+        [PolicyResourceProperty("baseModelName", "_mUnknown_BaseModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseModelName;
-
-        public string? BaseModelName => _mBaseModelName.GetValue("baseModelName");
+        private string? _mValue_BaseModelName;
+        private bool _mUnknown_BaseModelName;
+        public string? BaseModelName
+        {
+            get
+            {
+                if (!_mUnknown_BaseModelName) return _mValue_BaseModelName;
+                throw new UndeferrableValueException("Value 'LanguageModelArgs.BaseModelName' is not present");
+            }
+        }
 
         /// <summary>
         /// The input data config for the LanguageModel. See Input Data Config for more details.
         /// </summary>
-        [Input("inputDataConfig")]
+        [PolicyResourceProperty("inputDataConfig", "_mUnknown_InputDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LanguageModelInputDataConfigArgs> _mInputDataConfig;
-
-        public Inputs.LanguageModelInputDataConfigArgs? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
+        private Inputs.LanguageModelInputDataConfigArgs? _mValue_InputDataConfig;
+        private bool _mUnknown_InputDataConfig;
+        public Inputs.LanguageModelInputDataConfigArgs? InputDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_InputDataConfig) return _mValue_InputDataConfig;
+                throw new UndeferrableValueException("Value 'LanguageModelArgs.InputDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'LanguageModelArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The model name.
         /// </summary>
-        [Input("modelName")]
+        [PolicyResourceProperty("modelName", "_mUnknown_ModelName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelName;
+        private string? _mValue_ModelName;
+        private bool _mUnknown_ModelName;
+        public string? ModelName
+        {
+            get
+            {
+                if (!_mUnknown_ModelName) return _mValue_ModelName;
+                throw new UndeferrableValueException("Value 'LanguageModelArgs.ModelName' is not present");
+            }
+        }
 
-        public string? ModelName => _mModelName.GetValue("modelName");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LanguageModelArgs.Tags' is not present");
+            }
+        }
     }
 }

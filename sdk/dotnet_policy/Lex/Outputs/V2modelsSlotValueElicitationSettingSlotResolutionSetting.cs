@@ -18,10 +18,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// If the value is `EnhancedFallback`, assisted slot resolution is activated when Amazon Lex defaults to the `AMAZON.FallbackIntent`.
         /// If the value is `Default`, assisted slot resolution is turned off.
         /// </summary>
-        [Input("slotResolutionStrategy")]
+        [PolicyResourceProperty("slotResolutionStrategy", "_mUnknown_SlotResolutionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSlotResolutionStrategy;
-
-        public string? SlotResolutionStrategy => _mSlotResolutionStrategy.GetValue("slotResolutionStrategy");
+        private string? _mValue_SlotResolutionStrategy;
+        private bool _mUnknown_SlotResolutionStrategy;
+        public string? SlotResolutionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_SlotResolutionStrategy) return _mValue_SlotResolutionStrategy;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingSlotResolutionSetting.SlotResolutionStrategy' is not present");
+            }
+        }
     }
 }

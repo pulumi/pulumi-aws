@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The gutter settings that apply between tiles. See gutter.
         /// </summary>
-        [Input("gutter")]
+        [PolicyResourceProperty("gutter", "_mUnknown_Gutter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationSheetTileLayoutGutterArgs> _mGutter;
-
-        public Inputs.ThemeConfigurationSheetTileLayoutGutterArgs? Gutter => _mGutter.GetValue("gutter");
+        private Inputs.ThemeConfigurationSheetTileLayoutGutterArgs? _mValue_Gutter;
+        private bool _mUnknown_Gutter;
+        public Inputs.ThemeConfigurationSheetTileLayoutGutterArgs? Gutter
+        {
+            get
+            {
+                if (!_mUnknown_Gutter) return _mValue_Gutter;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileLayoutArgs.Gutter' is not present");
+            }
+        }
 
         /// <summary>
         /// The margin settings that apply around the outside edge of sheets. See margin.
         /// </summary>
-        [Input("margin")]
+        [PolicyResourceProperty("margin", "_mUnknown_Margin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThemeConfigurationSheetTileLayoutMarginArgs> _mMargin;
-
-        public Inputs.ThemeConfigurationSheetTileLayoutMarginArgs? Margin => _mMargin.GetValue("margin");
+        private Inputs.ThemeConfigurationSheetTileLayoutMarginArgs? _mValue_Margin;
+        private bool _mUnknown_Margin;
+        public Inputs.ThemeConfigurationSheetTileLayoutMarginArgs? Margin
+        {
+            get
+            {
+                if (!_mUnknown_Margin) return _mValue_Margin;
+                throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileLayoutArgs.Margin' is not present");
+            }
+        }
     }
 }

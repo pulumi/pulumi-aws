@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway.Outputs
 {
     public sealed class UsagePlanThrottleSettings
     {
-        [Input("burstLimit")]
+        [PolicyResourceProperty("burstLimit", "_mUnknown_BurstLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBurstLimit;
+        private int? _mValue_BurstLimit;
+        private bool _mUnknown_BurstLimit;
+        public int? BurstLimit
+        {
+            get
+            {
+                if (!_mUnknown_BurstLimit) return _mValue_BurstLimit;
+                throw new UndeferrableValueException("Value 'UsagePlanThrottleSettings.BurstLimit' is not present");
+            }
+        }
 
-        public int? BurstLimit => _mBurstLimit.GetValue("burstLimit");
-
-        [Input("rateLimit")]
+        [PolicyResourceProperty("rateLimit", "_mUnknown_RateLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mRateLimit;
-
-        public double? RateLimit => _mRateLimit.GetValue("rateLimit");
+        private double? _mValue_RateLimit;
+        private bool _mUnknown_RateLimit;
+        public double? RateLimit
+        {
+            get
+            {
+                if (!_mUnknown_RateLimit) return _mValue_RateLimit;
+                throw new UndeferrableValueException("Value 'UsagePlanThrottleSettings.RateLimit' is not present");
+            }
+        }
     }
 }

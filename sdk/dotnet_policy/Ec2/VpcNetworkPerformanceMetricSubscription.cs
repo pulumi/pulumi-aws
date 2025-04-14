@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         /// </summary>
-        [Input("metric")]
+        [PolicyResourceProperty("metric", "_mUnknown_Metric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetric;
-
-        public string? Metric => _mMetric.GetValue("metric");
+        private string? _mValue_Metric;
+        private bool _mUnknown_Metric;
+        public string? Metric
+        {
+            get
+            {
+                if (!_mUnknown_Metric) return _mValue_Metric;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.Metric' is not present");
+            }
+        }
 
         /// <summary>
         /// The data aggregation time for the subscription.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
-
-        public string? Period => _mPeriod.GetValue("period");
+        private string? _mValue_Period;
+        private bool _mUnknown_Period;
+        public string? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         /// </summary>
-        [Input("statistic")]
+        [PolicyResourceProperty("statistic", "_mUnknown_Statistic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatistic;
-
-        public string? Statistic => _mStatistic.GetValue("statistic");
+        private string? _mValue_Statistic;
+        private bool _mUnknown_Statistic;
+        public string? Statistic
+        {
+            get
+            {
+                if (!_mUnknown_Statistic) return _mValue_Statistic;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.Statistic' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestination;
-
-        public string? Destination => _mDestination.GetValue("destination");
+        private string? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public string? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscriptionArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         /// </summary>
-        [Input("metric")]
+        [PolicyResourceProperty("metric", "_mUnknown_Metric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetric;
-
-        public string? Metric => _mMetric.GetValue("metric");
+        private string? _mValue_Metric;
+        private bool _mUnknown_Metric;
+        public string? Metric
+        {
+            get
+            {
+                if (!_mUnknown_Metric) return _mValue_Metric;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscriptionArgs.Metric' is not present");
+            }
+        }
 
         /// <summary>
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscriptionArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         /// </summary>
-        [Input("statistic")]
+        [PolicyResourceProperty("statistic", "_mUnknown_Statistic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatistic;
-
-        public string? Statistic => _mStatistic.GetValue("statistic");
+        private string? _mValue_Statistic;
+        private bool _mUnknown_Statistic;
+        public string? Statistic
+        {
+            get
+            {
+                if (!_mUnknown_Statistic) return _mValue_Statistic;
+                throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscriptionArgs.Statistic' is not present");
+            }
+        }
     }
 }

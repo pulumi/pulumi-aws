@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
         /// </summary>
-        [Input("cpuArchitecture")]
+        [PolicyResourceProperty("cpuArchitecture", "_mUnknown_CpuArchitecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpuArchitecture;
-
-        public string? CpuArchitecture => _mCpuArchitecture.GetValue("cpuArchitecture");
+        private string? _mValue_CpuArchitecture;
+        private bool _mUnknown_CpuArchitecture;
+        public string? CpuArchitecture
+        {
+            get
+            {
+                if (!_mUnknown_CpuArchitecture) return _mValue_CpuArchitecture;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionRuntimePlatformResult.CpuArchitecture' is not present");
+            }
+        }
 
         /// <summary>
         /// If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
         /// </summary>
-        [Input("operatingSystemFamily")]
+        [PolicyResourceProperty("operatingSystemFamily", "_mUnknown_OperatingSystemFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystemFamily;
-
-        public string? OperatingSystemFamily => _mOperatingSystemFamily.GetValue("operatingSystemFamily");
+        private string? _mValue_OperatingSystemFamily;
+        private bool _mUnknown_OperatingSystemFamily;
+        public string? OperatingSystemFamily
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystemFamily) return _mValue_OperatingSystemFamily;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionRuntimePlatformResult.OperatingSystemFamily' is not present");
+            }
+        }
     }
 }

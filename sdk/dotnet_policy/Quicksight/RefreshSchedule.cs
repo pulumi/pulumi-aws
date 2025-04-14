@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Amazon Resource Name (ARN) of the refresh schedule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RefreshSchedule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'RefreshSchedule.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the dataset.
         /// </summary>
-        [Input("dataSetId")]
+        [PolicyResourceProperty("dataSetId", "_mUnknown_DataSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
-
-        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+        private string? _mValue_DataSetId;
+        private bool _mUnknown_DataSetId;
+        public string? DataSetId
+        {
+            get
+            {
+                if (!_mUnknown_DataSetId) return _mValue_DataSetId;
+                throw new UndeferrableValueException("Value 'RefreshSchedule.DataSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RefreshScheduleSchedule> _mSchedule;
-
-        public Outputs.RefreshScheduleSchedule? Schedule => _mSchedule.GetValue("schedule");
+        private Outputs.RefreshScheduleSchedule? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Outputs.RefreshScheduleSchedule? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'RefreshSchedule.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the refresh schedule.
         /// </summary>
-        [Input("scheduleId")]
+        [PolicyResourceProperty("scheduleId", "_mUnknown_ScheduleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleId;
-
-        public string? ScheduleId => _mScheduleId.GetValue("scheduleId");
+        private string? _mValue_ScheduleId;
+        private bool _mUnknown_ScheduleId;
+        public string? ScheduleId
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleId) return _mValue_ScheduleId;
+                throw new UndeferrableValueException("Value 'RefreshSchedule.ScheduleId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/refreshSchedule:RefreshSchedule")]
@@ -67,39 +102,67 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'RefreshScheduleArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the dataset.
         /// </summary>
-        [Input("dataSetId")]
+        [PolicyResourceProperty("dataSetId", "_mUnknown_DataSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
-
-        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+        private string? _mValue_DataSetId;
+        private bool _mUnknown_DataSetId;
+        public string? DataSetId
+        {
+            get
+            {
+                if (!_mUnknown_DataSetId) return _mValue_DataSetId;
+                throw new UndeferrableValueException("Value 'RefreshScheduleArgs.DataSetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RefreshScheduleScheduleArgs> _mSchedule;
-
-        public Inputs.RefreshScheduleScheduleArgs? Schedule => _mSchedule.GetValue("schedule");
+        private Inputs.RefreshScheduleScheduleArgs? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public Inputs.RefreshScheduleScheduleArgs? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'RefreshScheduleArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the refresh schedule.
         /// </summary>
-        [Input("scheduleId")]
+        [PolicyResourceProperty("scheduleId", "_mUnknown_ScheduleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleId;
-
-        public string? ScheduleId => _mScheduleId.GetValue("scheduleId");
+        private string? _mValue_ScheduleId;
+        private bool _mUnknown_ScheduleId;
+        public string? ScheduleId
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleId) return _mValue_ScheduleId;
+                throw new UndeferrableValueException("Value 'RefreshScheduleArgs.ScheduleId' is not present");
+            }
+        }
     }
 }

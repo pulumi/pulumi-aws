@@ -15,145 +15,257 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// ARN of the IPAM.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The default resource discovery association ID.
         /// </summary>
-        [Input("defaultResourceDiscoveryAssociationId")]
+        [PolicyResourceProperty("defaultResourceDiscoveryAssociationId", "_mUnknown_DefaultResourceDiscoveryAssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResourceDiscoveryAssociationId;
-
-        public string? DefaultResourceDiscoveryAssociationId => _mDefaultResourceDiscoveryAssociationId.GetValue("defaultResourceDiscoveryAssociationId");
+        private string? _mValue_DefaultResourceDiscoveryAssociationId;
+        private bool _mUnknown_DefaultResourceDiscoveryAssociationId;
+        public string? DefaultResourceDiscoveryAssociationId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceDiscoveryAssociationId) return _mValue_DefaultResourceDiscoveryAssociationId;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.DefaultResourceDiscoveryAssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The default resource discovery ID.
         /// </summary>
-        [Input("defaultResourceDiscoveryId")]
+        [PolicyResourceProperty("defaultResourceDiscoveryId", "_mUnknown_DefaultResourceDiscoveryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultResourceDiscoveryId;
-
-        public string? DefaultResourceDiscoveryId => _mDefaultResourceDiscoveryId.GetValue("defaultResourceDiscoveryId");
+        private string? _mValue_DefaultResourceDiscoveryId;
+        private bool _mUnknown_DefaultResourceDiscoveryId;
+        public string? DefaultResourceDiscoveryId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceDiscoveryId) return _mValue_DefaultResourceDiscoveryId;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.DefaultResourceDiscoveryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the IPAM.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// If private GUA is enabled.
         /// </summary>
-        [Input("enablePrivateGua")]
+        [PolicyResourceProperty("enablePrivateGua", "_mUnknown_EnablePrivateGua")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePrivateGua;
-
-        public bool? EnablePrivateGua => _mEnablePrivateGua.GetValue("enablePrivateGua");
+        private bool? _mValue_EnablePrivateGua;
+        private bool _mUnknown_EnablePrivateGua;
+        public bool? EnablePrivateGua
+        {
+            get
+            {
+                if (!_mUnknown_EnablePrivateGua) return _mValue_EnablePrivateGua;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.EnablePrivateGua' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the IPAM resource.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Region that the IPAM exists in.
         /// </summary>
-        [Input("ipamRegion")]
+        [PolicyResourceProperty("ipamRegion", "_mUnknown_IpamRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamRegion;
-
-        public string? IpamRegion => _mIpamRegion.GetValue("ipamRegion");
+        private string? _mValue_IpamRegion;
+        private bool _mUnknown_IpamRegion;
+        public string? IpamRegion
+        {
+            get
+            {
+                if (!_mUnknown_IpamRegion) return _mValue_IpamRegion;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.IpamRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Regions that the IPAM is configured to operate in.
         /// </summary>
-        [Input("operatingRegions")]
+        [PolicyResourceProperty("operatingRegions", "_mUnknown_OperatingRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVpcIpamsIpamOperatingRegionResult>> _mOperatingRegions;
-
-        public List<Outputs.GetVpcIpamsIpamOperatingRegionResult>? OperatingRegions => _mOperatingRegions.GetValue("operatingRegions");
+        private List<Outputs.GetVpcIpamsIpamOperatingRegionResult>? _mValue_OperatingRegions;
+        private bool _mUnknown_OperatingRegions;
+        public List<Outputs.GetVpcIpamsIpamOperatingRegionResult>? OperatingRegions
+        {
+            get
+            {
+                if (!_mUnknown_OperatingRegions) return _mValue_OperatingRegions;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.OperatingRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the account that owns this IPAM.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the default private scope.
         /// </summary>
-        [Input("privateDefaultScopeId")]
+        [PolicyResourceProperty("privateDefaultScopeId", "_mUnknown_PrivateDefaultScopeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDefaultScopeId;
-
-        public string? PrivateDefaultScopeId => _mPrivateDefaultScopeId.GetValue("privateDefaultScopeId");
+        private string? _mValue_PrivateDefaultScopeId;
+        private bool _mUnknown_PrivateDefaultScopeId;
+        public string? PrivateDefaultScopeId
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDefaultScopeId) return _mValue_PrivateDefaultScopeId;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.PrivateDefaultScopeId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the default public scope.
         /// </summary>
-        [Input("publicDefaultScopeId")]
+        [PolicyResourceProperty("publicDefaultScopeId", "_mUnknown_PublicDefaultScopeId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDefaultScopeId;
-
-        public string? PublicDefaultScopeId => _mPublicDefaultScopeId.GetValue("publicDefaultScopeId");
+        private string? _mValue_PublicDefaultScopeId;
+        private bool _mUnknown_PublicDefaultScopeId;
+        public string? PublicDefaultScopeId
+        {
+            get
+            {
+                if (!_mUnknown_PublicDefaultScopeId) return _mValue_PublicDefaultScopeId;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.PublicDefaultScopeId' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of resource discovery associations.
         /// </summary>
-        [Input("resourceDiscoveryAssociationCount")]
+        [PolicyResourceProperty("resourceDiscoveryAssociationCount", "_mUnknown_ResourceDiscoveryAssociationCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mResourceDiscoveryAssociationCount;
-
-        public int? ResourceDiscoveryAssociationCount => _mResourceDiscoveryAssociationCount.GetValue("resourceDiscoveryAssociationCount");
+        private int? _mValue_ResourceDiscoveryAssociationCount;
+        private bool _mUnknown_ResourceDiscoveryAssociationCount;
+        public int? ResourceDiscoveryAssociationCount
+        {
+            get
+            {
+                if (!_mUnknown_ResourceDiscoveryAssociationCount) return _mValue_ResourceDiscoveryAssociationCount;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.ResourceDiscoveryAssociationCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of scopes on this IPAM.
         /// </summary>
-        [Input("scopeCount")]
+        [PolicyResourceProperty("scopeCount", "_mUnknown_ScopeCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScopeCount;
-
-        public int? ScopeCount => _mScopeCount.GetValue("scopeCount");
+        private int? _mValue_ScopeCount;
+        private bool _mUnknown_ScopeCount;
+        public int? ScopeCount
+        {
+            get
+            {
+                if (!_mUnknown_ScopeCount) return _mValue_ScopeCount;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.ScopeCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Current state of the IPAM.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.State' is not present");
+            }
+        }
 
         /// <summary>
         /// State message of the IPAM.
         /// </summary>
-        [Input("stateMessage")]
+        [PolicyResourceProperty("stateMessage", "_mUnknown_StateMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateMessage;
-
-        public string? StateMessage => _mStateMessage.GetValue("stateMessage");
+        private string? _mValue_StateMessage;
+        private bool _mUnknown_StateMessage;
+        public string? StateMessage
+        {
+            get
+            {
+                if (!_mUnknown_StateMessage) return _mValue_StateMessage;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.StateMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// IPAM Tier.
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
-
-        public string? Tier => _mTier.GetValue("tier");
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'GetVpcIpamsIpamResult.Tier' is not present");
+            }
+        }
     }
 }

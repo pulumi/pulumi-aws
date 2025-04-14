@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The default branch for the Git repository.
         /// </summary>
-        [Input("branch")]
+        [PolicyResourceProperty("branch", "_mUnknown_Branch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranch;
-
-        public string? Branch => _mBranch.GetValue("branch");
+        private string? _mValue_Branch;
+        private bool _mUnknown_Branch;
+        public string? Branch
+        {
+            get
+            {
+                if (!_mUnknown_Branch) return _mValue_Branch;
+                throw new UndeferrableValueException("Value 'CodeRepositoryGitConfigArgs.Branch' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL where the Git repository is located.
         /// </summary>
-        [Input("repositoryUrl")]
+        [PolicyResourceProperty("repositoryUrl", "_mUnknown_RepositoryUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryUrl;
-
-        public string? RepositoryUrl => _mRepositoryUrl.GetValue("repositoryUrl");
+        private string? _mValue_RepositoryUrl;
+        private bool _mUnknown_RepositoryUrl;
+        public string? RepositoryUrl
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryUrl) return _mValue_RepositoryUrl;
+                throw new UndeferrableValueException("Value 'CodeRepositoryGitConfigArgs.RepositoryUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'CodeRepositoryGitConfigArgs.SecretArn' is not present");
+            }
+        }
     }
 }

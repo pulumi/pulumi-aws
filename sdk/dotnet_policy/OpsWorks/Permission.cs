@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// Whether the user is allowed to use SSH to communicate with the instance
         /// </summary>
-        [Input("allowSsh")]
+        [PolicyResourceProperty("allowSsh", "_mUnknown_AllowSsh")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSsh;
-
-        public bool? AllowSsh => _mAllowSsh.GetValue("allowSsh");
+        private bool? _mValue_AllowSsh;
+        private bool _mUnknown_AllowSsh;
+        public bool? AllowSsh
+        {
+            get
+            {
+                if (!_mUnknown_AllowSsh) return _mValue_AllowSsh;
+                throw new UndeferrableValueException("Value 'Permission.AllowSsh' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user is allowed to use sudo to elevate privileges
         /// </summary>
-        [Input("allowSudo")]
+        [PolicyResourceProperty("allowSudo", "_mUnknown_AllowSudo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSudo;
-
-        public bool? AllowSudo => _mAllowSudo.GetValue("allowSudo");
+        private bool? _mValue_AllowSudo;
+        private bool _mUnknown_AllowSudo;
+        public bool? AllowSudo
+        {
+            get
+            {
+                if (!_mUnknown_AllowSudo) return _mValue_AllowSudo;
+                throw new UndeferrableValueException("Value 'Permission.AllowSudo' is not present");
+            }
+        }
 
         /// <summary>
         /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         /// </summary>
-        [Input("level")]
+        [PolicyResourceProperty("level", "_mUnknown_Level")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
-
-        public string? Level => _mLevel.GetValue("level");
+        private string? _mValue_Level;
+        private bool _mUnknown_Level;
+        public string? Level
+        {
+            get
+            {
+                if (!_mUnknown_Level) return _mValue_Level;
+                throw new UndeferrableValueException("Value 'Permission.Level' is not present");
+            }
+        }
 
         /// <summary>
         /// The stack to set the permissions for
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'Permission.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's IAM ARN to set permissions for
         /// </summary>
-        [Input("userArn")]
+        [PolicyResourceProperty("userArn", "_mUnknown_UserArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
-
-        public string? UserArn => _mUserArn.GetValue("userArn");
+        private string? _mValue_UserArn;
+        private bool _mUnknown_UserArn;
+        public string? UserArn
+        {
+            get
+            {
+                if (!_mUnknown_UserArn) return _mValue_UserArn;
+                throw new UndeferrableValueException("Value 'Permission.UserArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opsworks/permission:Permission")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// Whether the user is allowed to use SSH to communicate with the instance
         /// </summary>
-        [Input("allowSsh")]
+        [PolicyResourceProperty("allowSsh", "_mUnknown_AllowSsh")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSsh;
-
-        public bool? AllowSsh => _mAllowSsh.GetValue("allowSsh");
+        private bool? _mValue_AllowSsh;
+        private bool _mUnknown_AllowSsh;
+        public bool? AllowSsh
+        {
+            get
+            {
+                if (!_mUnknown_AllowSsh) return _mValue_AllowSsh;
+                throw new UndeferrableValueException("Value 'PermissionArgs.AllowSsh' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user is allowed to use sudo to elevate privileges
         /// </summary>
-        [Input("allowSudo")]
+        [PolicyResourceProperty("allowSudo", "_mUnknown_AllowSudo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowSudo;
-
-        public bool? AllowSudo => _mAllowSudo.GetValue("allowSudo");
+        private bool? _mValue_AllowSudo;
+        private bool _mUnknown_AllowSudo;
+        public bool? AllowSudo
+        {
+            get
+            {
+                if (!_mUnknown_AllowSudo) return _mValue_AllowSudo;
+                throw new UndeferrableValueException("Value 'PermissionArgs.AllowSudo' is not present");
+            }
+        }
 
         /// <summary>
         /// The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
         /// </summary>
-        [Input("level")]
+        [PolicyResourceProperty("level", "_mUnknown_Level")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLevel;
-
-        public string? Level => _mLevel.GetValue("level");
+        private string? _mValue_Level;
+        private bool _mUnknown_Level;
+        public string? Level
+        {
+            get
+            {
+                if (!_mUnknown_Level) return _mValue_Level;
+                throw new UndeferrableValueException("Value 'PermissionArgs.Level' is not present");
+            }
+        }
 
         /// <summary>
         /// The stack to set the permissions for
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'PermissionArgs.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// The user's IAM ARN to set permissions for
         /// </summary>
-        [Input("userArn")]
+        [PolicyResourceProperty("userArn", "_mUnknown_UserArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserArn;
-
-        public string? UserArn => _mUserArn.GetValue("userArn");
+        private string? _mValue_UserArn;
+        private bool _mUnknown_UserArn;
+        public string? UserArn
+        {
+            get
+            {
+                if (!_mUnknown_UserArn) return _mValue_UserArn;
+                throw new UndeferrableValueException("Value 'PermissionArgs.UserArn' is not present");
+            }
+        }
     }
 }

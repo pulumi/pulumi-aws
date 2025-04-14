@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'WebAclAssociation.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         /// </summary>
-        [Input("webAclArn")]
+        [PolicyResourceProperty("webAclArn", "_mUnknown_WebAclArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclArn;
-
-        public string? WebAclArn => _mWebAclArn.GetValue("webAclArn");
+        private string? _mValue_WebAclArn;
+        private bool _mUnknown_WebAclArn;
+        public string? WebAclArn
+        {
+            get
+            {
+                if (!_mUnknown_WebAclArn) return _mValue_WebAclArn;
+                throw new UndeferrableValueException("Value 'WebAclAssociation.WebAclArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafv2/webAclAssociation:WebAclAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2
         /// <summary>
         /// The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'WebAclAssociationArgs.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
         /// </summary>
-        [Input("webAclArn")]
+        [PolicyResourceProperty("webAclArn", "_mUnknown_WebAclArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebAclArn;
-
-        public string? WebAclArn => _mWebAclArn.GetValue("webAclArn");
+        private string? _mValue_WebAclArn;
+        private bool _mUnknown_WebAclArn;
+        public string? WebAclArn
+        {
+            get
+            {
+                if (!_mUnknown_WebAclArn) return _mValue_WebAclArn;
+                throw new UndeferrableValueException("Value 'WebAclAssociationArgs.WebAclArn' is not present");
+            }
+        }
     }
 }

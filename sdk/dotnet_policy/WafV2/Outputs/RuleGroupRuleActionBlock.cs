@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Defines a custom response for the web request. See Custom Response below for details.
         /// </summary>
-        [Input("customResponse")]
+        [PolicyResourceProperty("customResponse", "_mUnknown_CustomResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleActionBlockCustomResponse> _mCustomResponse;
-
-        public Outputs.RuleGroupRuleActionBlockCustomResponse? CustomResponse => _mCustomResponse.GetValue("customResponse");
+        private Outputs.RuleGroupRuleActionBlockCustomResponse? _mValue_CustomResponse;
+        private bool _mUnknown_CustomResponse;
+        public Outputs.RuleGroupRuleActionBlockCustomResponse? CustomResponse
+        {
+            get
+            {
+                if (!_mUnknown_CustomResponse) return _mValue_CustomResponse;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleActionBlock.CustomResponse' is not present");
+            }
+        }
     }
 }

@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Group(s) the policy should be applied to.
         /// </summary>
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
-
-        public List<string>? Groups => _mGroups.GetValue("groups");
+        private List<string>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<string>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.Groups' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the attachment. This cannot be an empty string.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.PolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Role(s) the policy should be applied to.
         /// </summary>
-        [Input("roles")]
+        [PolicyResourceProperty("roles", "_mUnknown_Roles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoles;
-
-        public List<string>? Roles => _mRoles.GetValue("roles");
+        private List<string>? _mValue_Roles;
+        private bool _mUnknown_Roles;
+        public List<string>? Roles
+        {
+            get
+            {
+                if (!_mUnknown_Roles) return _mValue_Roles;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.Roles' is not present");
+            }
+        }
 
         /// <summary>
         /// User(s) the policy should be applied to.
         /// </summary>
-        [Input("users")]
+        [PolicyResourceProperty("users", "_mUnknown_Users")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
-
-        public List<string>? Users => _mUsers.GetValue("users");
+        private List<string>? _mValue_Users;
+        private bool _mUnknown_Users;
+        public List<string>? Users
+        {
+            get
+            {
+                if (!_mUnknown_Users) return _mValue_Users;
+                throw new UndeferrableValueException("Value 'PolicyAttachment.Users' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/policyAttachment:PolicyAttachment")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Group(s) the policy should be applied to.
         /// </summary>
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
-
-        public List<string>? Groups => _mGroups.GetValue("groups");
+        private List<string>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<string>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.Groups' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the attachment. This cannot be an empty string.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.PolicyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Role(s) the policy should be applied to.
         /// </summary>
-        [Input("roles")]
+        [PolicyResourceProperty("roles", "_mUnknown_Roles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoles;
-
-        public List<string>? Roles => _mRoles.GetValue("roles");
+        private List<string>? _mValue_Roles;
+        private bool _mUnknown_Roles;
+        public List<string>? Roles
+        {
+            get
+            {
+                if (!_mUnknown_Roles) return _mValue_Roles;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.Roles' is not present");
+            }
+        }
 
         /// <summary>
         /// User(s) the policy should be applied to.
         /// </summary>
-        [Input("users")]
+        [PolicyResourceProperty("users", "_mUnknown_Users")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
-
-        public List<string>? Users => _mUsers.GetValue("users");
+        private List<string>? _mValue_Users;
+        private bool _mUnknown_Users;
+        public List<string>? Users
+        {
+            get
+            {
+                if (!_mUnknown_Users) return _mValue_Users;
+                throw new UndeferrableValueException("Value 'PolicyAttachmentArgs.Users' is not present");
+            }
+        }
     }
 }

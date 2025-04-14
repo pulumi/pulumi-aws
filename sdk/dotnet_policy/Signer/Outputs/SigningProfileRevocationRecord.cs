@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Signer.Outputs
         /// <summary>
         /// The time when revocation becomes effective.
         /// </summary>
-        [Input("revocationEffectiveFrom")]
+        [PolicyResourceProperty("revocationEffectiveFrom", "_mUnknown_RevocationEffectiveFrom")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevocationEffectiveFrom;
-
-        public string? RevocationEffectiveFrom => _mRevocationEffectiveFrom.GetValue("revocationEffectiveFrom");
+        private string? _mValue_RevocationEffectiveFrom;
+        private bool _mUnknown_RevocationEffectiveFrom;
+        public string? RevocationEffectiveFrom
+        {
+            get
+            {
+                if (!_mUnknown_RevocationEffectiveFrom) return _mValue_RevocationEffectiveFrom;
+                throw new UndeferrableValueException("Value 'SigningProfileRevocationRecord.RevocationEffectiveFrom' is not present");
+            }
+        }
 
         /// <summary>
         /// The time when the signing profile was revoked.
         /// </summary>
-        [Input("revokedAt")]
+        [PolicyResourceProperty("revokedAt", "_mUnknown_RevokedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevokedAt;
-
-        public string? RevokedAt => _mRevokedAt.GetValue("revokedAt");
+        private string? _mValue_RevokedAt;
+        private bool _mUnknown_RevokedAt;
+        public string? RevokedAt
+        {
+            get
+            {
+                if (!_mUnknown_RevokedAt) return _mValue_RevokedAt;
+                throw new UndeferrableValueException("Value 'SigningProfileRevocationRecord.RevokedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The identity of the revoker.
         /// </summary>
-        [Input("revokedBy")]
+        [PolicyResourceProperty("revokedBy", "_mUnknown_RevokedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevokedBy;
-
-        public string? RevokedBy => _mRevokedBy.GetValue("revokedBy");
+        private string? _mValue_RevokedBy;
+        private bool _mUnknown_RevokedBy;
+        public string? RevokedBy
+        {
+            get
+            {
+                if (!_mUnknown_RevokedBy) return _mValue_RevokedBy;
+                throw new UndeferrableValueException("Value 'SigningProfileRevocationRecord.RevokedBy' is not present");
+            }
+        }
     }
 }

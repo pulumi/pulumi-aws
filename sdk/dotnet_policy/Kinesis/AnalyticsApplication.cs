@@ -16,140 +16,245 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// <summary>
         /// The ARN of the Kinesis Analytics Appliation.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch log stream options to monitor application errors.
         /// See CloudWatch Logging Options below for more details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationCloudwatchLoggingOptions> _mCloudwatchLoggingOptions;
-
-        public Outputs.AnalyticsApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Outputs.AnalyticsApplicationCloudwatchLoggingOptions? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Outputs.AnalyticsApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// SQL Code to transform input data, and generate output.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// The Timestamp when the application version was created.
         /// </summary>
-        [Input("createTimestamp")]
+        [PolicyResourceProperty("createTimestamp", "_mUnknown_CreateTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTimestamp;
-
-        public string? CreateTimestamp => _mCreateTimestamp.GetValue("createTimestamp");
+        private string? _mValue_CreateTimestamp;
+        private bool _mUnknown_CreateTimestamp;
+        public string? CreateTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreateTimestamp) return _mValue_CreateTimestamp;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.CreateTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Input configuration of the application. See Inputs below for more details.
         /// </summary>
-        [Input("inputs")]
+        [PolicyResourceProperty("inputs", "_mUnknown_Inputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationInputs> _mInputs;
-
-        public Outputs.AnalyticsApplicationInputs? Inputs => _mInputs.GetValue("inputs");
+        private Outputs.AnalyticsApplicationInputs? _mValue_Inputs;
+        private bool _mUnknown_Inputs;
+        public Outputs.AnalyticsApplicationInputs? Inputs
+        {
+            get
+            {
+                if (!_mUnknown_Inputs) return _mValue_Inputs;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Inputs' is not present");
+            }
+        }
 
         /// <summary>
         /// The Timestamp when the application was last updated.
         /// </summary>
-        [Input("lastUpdateTimestamp")]
+        [PolicyResourceProperty("lastUpdateTimestamp", "_mUnknown_LastUpdateTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdateTimestamp;
-
-        public string? LastUpdateTimestamp => _mLastUpdateTimestamp.GetValue("lastUpdateTimestamp");
+        private string? _mValue_LastUpdateTimestamp;
+        private bool _mUnknown_LastUpdateTimestamp;
+        public string? LastUpdateTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdateTimestamp) return _mValue_LastUpdateTimestamp;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.LastUpdateTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Kinesis Analytics Application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Output destination configuration of the application. See Outputs below for more details.
         /// </summary>
-        [Input("outputs")]
+        [PolicyResourceProperty("outputs", "_mUnknown_Outputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AnalyticsApplicationOutput>> _mOutputs;
-
-        public List<Outputs.AnalyticsApplicationOutput>? Outputs => _mOutputs.GetValue("outputs");
+        private List<Outputs.AnalyticsApplicationOutput>? _mValue_Outputs;
+        private bool _mUnknown_Outputs;
+        public List<Outputs.AnalyticsApplicationOutput>? Outputs
+        {
+            get
+            {
+                if (!_mUnknown_Outputs) return _mValue_Outputs;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Outputs' is not present");
+            }
+        }
 
         /// <summary>
         /// An S3 Reference Data Source for the application.
         /// See Reference Data Sources below for more details.
         /// </summary>
-        [Input("referenceDataSources")]
+        [PolicyResourceProperty("referenceDataSources", "_mUnknown_ReferenceDataSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AnalyticsApplicationReferenceDataSources> _mReferenceDataSources;
-
-        public Outputs.AnalyticsApplicationReferenceDataSources? ReferenceDataSources => _mReferenceDataSources.GetValue("referenceDataSources");
+        private Outputs.AnalyticsApplicationReferenceDataSources? _mValue_ReferenceDataSources;
+        private bool _mUnknown_ReferenceDataSources;
+        public Outputs.AnalyticsApplicationReferenceDataSources? ReferenceDataSources
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceDataSources) return _mValue_ReferenceDataSources;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.ReferenceDataSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
         /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         /// </summary>
-        [Input("startApplication")]
+        [PolicyResourceProperty("startApplication", "_mUnknown_StartApplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
-
-        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
+        private bool? _mValue_StartApplication;
+        private bool _mUnknown_StartApplication;
+        public bool? StartApplication
+        {
+            get
+            {
+                if (!_mUnknown_StartApplication) return _mValue_StartApplication;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.StartApplication' is not present");
+            }
+        }
 
         /// <summary>
         /// The Status of the application.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Version of the application.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'AnalyticsApplication.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kinesis/analyticsApplication:AnalyticsApplication")]
@@ -159,84 +264,147 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis
         /// The CloudWatch log stream options to monitor application errors.
         /// See CloudWatch Logging Options below for more details.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
-
-        public Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// SQL Code to transform input data, and generate output.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCode;
-
-        public string? Code => _mCode.GetValue("code");
+        private string? _mValue_Code;
+        private bool _mUnknown_Code;
+        public string? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Input configuration of the application. See Inputs below for more details.
         /// </summary>
-        [Input("inputs")]
+        [PolicyResourceProperty("inputs", "_mUnknown_Inputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationInputsArgs> _mInputs;
-
-        public Inputs.AnalyticsApplicationInputsArgs? Inputs => _mInputs.GetValue("inputs");
+        private Inputs.AnalyticsApplicationInputsArgs? _mValue_Inputs;
+        private bool _mUnknown_Inputs;
+        public Inputs.AnalyticsApplicationInputsArgs? Inputs
+        {
+            get
+            {
+                if (!_mUnknown_Inputs) return _mValue_Inputs;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.Inputs' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Kinesis Analytics Application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Output destination configuration of the application. See Outputs below for more details.
         /// </summary>
-        [Input("outputs")]
+        [PolicyResourceProperty("outputs", "_mUnknown_Outputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnalyticsApplicationOutputArgs>> _mOutputs;
-
-        public List<Inputs.AnalyticsApplicationOutputArgs>? Outputs => _mOutputs.GetValue("outputs");
+        private List<Inputs.AnalyticsApplicationOutputArgs>? _mValue_Outputs;
+        private bool _mUnknown_Outputs;
+        public List<Inputs.AnalyticsApplicationOutputArgs>? Outputs
+        {
+            get
+            {
+                if (!_mUnknown_Outputs) return _mValue_Outputs;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.Outputs' is not present");
+            }
+        }
 
         /// <summary>
         /// An S3 Reference Data Source for the application.
         /// See Reference Data Sources below for more details.
         /// </summary>
-        [Input("referenceDataSources")]
+        [PolicyResourceProperty("referenceDataSources", "_mUnknown_ReferenceDataSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsApplicationReferenceDataSourcesArgs> _mReferenceDataSources;
-
-        public Inputs.AnalyticsApplicationReferenceDataSourcesArgs? ReferenceDataSources => _mReferenceDataSources.GetValue("referenceDataSources");
+        private Inputs.AnalyticsApplicationReferenceDataSourcesArgs? _mValue_ReferenceDataSources;
+        private bool _mUnknown_ReferenceDataSources;
+        public Inputs.AnalyticsApplicationReferenceDataSourcesArgs? ReferenceDataSources
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceDataSources) return _mValue_ReferenceDataSources;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.ReferenceDataSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
         /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         /// </summary>
-        [Input("startApplication")]
+        [PolicyResourceProperty("startApplication", "_mUnknown_StartApplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
-
-        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
+        private bool? _mValue_StartApplication;
+        private bool _mUnknown_StartApplication;
+        public bool? StartApplication
+        {
+            get
+            {
+                if (!_mUnknown_StartApplication) return _mValue_StartApplication;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.StartApplication' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the configuration for notifications of inference results for asynchronous inference.
         /// </summary>
-        [Input("notificationConfig")]
+        [PolicyResourceProperty("notificationConfig", "_mUnknown_NotificationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig> _mNotificationConfig;
-
-        public Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig? NotificationConfig => _mNotificationConfig.GetValue("notificationConfig");
+        private Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig? _mValue_NotificationConfig;
+        private bool _mUnknown_NotificationConfig;
+        public Outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig? NotificationConfig
+        {
+            get
+            {
+                if (!_mUnknown_NotificationConfig) return _mValue_NotificationConfig;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.NotificationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 location to upload failure inference responses to.
         /// </summary>
-        [Input("s3FailurePath")]
+        [PolicyResourceProperty("s3FailurePath", "_mUnknown_S3FailurePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3FailurePath;
-
-        public string? S3FailurePath => _mS3FailurePath.GetValue("s3FailurePath");
+        private string? _mValue_S3FailurePath;
+        private bool _mUnknown_S3FailurePath;
+        public string? S3FailurePath
+        {
+            get
+            {
+                if (!_mUnknown_S3FailurePath) return _mValue_S3FailurePath;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.S3FailurePath' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 location to upload inference responses to.
         /// </summary>
-        [Input("s3OutputPath")]
+        [PolicyResourceProperty("s3OutputPath", "_mUnknown_S3OutputPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3OutputPath;
-
-        public string? S3OutputPath => _mS3OutputPath.GetValue("s3OutputPath");
+        private string? _mValue_S3OutputPath;
+        private bool _mUnknown_S3OutputPath;
+        public string? S3OutputPath
+        {
+            get
+            {
+                if (!_mUnknown_S3OutputPath) return _mValue_S3OutputPath;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.S3OutputPath' is not present");
+            }
+        }
     }
 }

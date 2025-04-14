@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
         /// </summary>
-        [Input("eventType")]
+        [PolicyResourceProperty("eventType", "_mUnknown_EventType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventType;
-
-        public string? EventType => _mEventType.GetValue("eventType");
+        private string? _mValue_EventType;
+        private bool _mUnknown_EventType;
+        public string? EventType
+        {
+            get
+            {
+                if (!_mUnknown_EventType) return _mValue_EventType;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorFunctionAssociation.EventType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the CloudFront function.
         /// </summary>
-        [Input("functionArn")]
+        [PolicyResourceProperty("functionArn", "_mUnknown_FunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionArn;
-
-        public string? FunctionArn => _mFunctionArn.GetValue("functionArn");
+        private string? _mValue_FunctionArn;
+        private bool _mUnknown_FunctionArn;
+        public string? FunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_FunctionArn) return _mValue_FunctionArn;
+                throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorFunctionAssociation.FunctionArn' is not present");
+            }
+        }
     }
 }

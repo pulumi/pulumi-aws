@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
         /// </summary>
-        [Input("geoSpatialColumnGroup")]
+        [PolicyResourceProperty("geoSpatialColumnGroup", "_mUnknown_GeoSpatialColumnGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSetColumnGroupGeoSpatialColumnGroupArgs> _mGeoSpatialColumnGroup;
-
-        public Inputs.DataSetColumnGroupGeoSpatialColumnGroupArgs? GeoSpatialColumnGroup => _mGeoSpatialColumnGroup.GetValue("geoSpatialColumnGroup");
+        private Inputs.DataSetColumnGroupGeoSpatialColumnGroupArgs? _mValue_GeoSpatialColumnGroup;
+        private bool _mUnknown_GeoSpatialColumnGroup;
+        public Inputs.DataSetColumnGroupGeoSpatialColumnGroupArgs? GeoSpatialColumnGroup
+        {
+            get
+            {
+                if (!_mUnknown_GeoSpatialColumnGroup) return _mValue_GeoSpatialColumnGroup;
+                throw new UndeferrableValueException("Value 'DataSetColumnGroupArgs.GeoSpatialColumnGroup' is not present");
+            }
+        }
     }
 }

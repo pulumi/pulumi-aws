@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
         /// </summary>
-        [Input("synonyms")]
+        [PolicyResourceProperty("synonyms", "_mUnknown_Synonyms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSynonyms;
-
-        public List<string>? Synonyms => _mSynonyms.GetValue("synonyms");
+        private List<string>? _mValue_Synonyms;
+        private bool _mUnknown_Synonyms;
+        public List<string>? Synonyms
+        {
+            get
+            {
+                if (!_mUnknown_Synonyms) return _mValue_Synonyms;
+                throw new UndeferrableValueException("Value 'SlotTypeEnumerationValueArgs.Synonyms' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the slot type. Must be less than or equal to 140 characters in length.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'SlotTypeEnumerationValueArgs.Value' is not present");
+            }
+        }
     }
 }

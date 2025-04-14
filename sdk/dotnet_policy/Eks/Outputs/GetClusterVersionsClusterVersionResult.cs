@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// Type of clusters to filter by.
         /// Currently, the only valid value is `eks`.
         /// </summary>
-        [Input("clusterType")]
+        [PolicyResourceProperty("clusterType", "_mUnknown_ClusterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterType;
-
-        public string? ClusterType => _mClusterType.GetValue("clusterType");
+        private string? _mValue_ClusterType;
+        private bool _mUnknown_ClusterType;
+        public string? ClusterType
+        {
+            get
+            {
+                if (!_mUnknown_ClusterType) return _mValue_ClusterType;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.ClusterType' is not present");
+            }
+        }
 
         /// <summary>
         /// Kubernetes version supported by EKS.
         /// </summary>
-        [Input("clusterVersion")]
+        [PolicyResourceProperty("clusterVersion", "_mUnknown_ClusterVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterVersion;
-
-        public string? ClusterVersion => _mClusterVersion.GetValue("clusterVersion");
+        private string? _mValue_ClusterVersion;
+        private bool _mUnknown_ClusterVersion;
+        public string? ClusterVersion
+        {
+            get
+            {
+                if (!_mUnknown_ClusterVersion) return _mValue_ClusterVersion;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.ClusterVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Default eks platform version for the cluster version.
         /// </summary>
-        [Input("defaultPlatformVersion")]
+        [PolicyResourceProperty("defaultPlatformVersion", "_mUnknown_DefaultPlatformVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultPlatformVersion;
-
-        public string? DefaultPlatformVersion => _mDefaultPlatformVersion.GetValue("defaultPlatformVersion");
+        private string? _mValue_DefaultPlatformVersion;
+        private bool _mUnknown_DefaultPlatformVersion;
+        public string? DefaultPlatformVersion
+        {
+            get
+            {
+                if (!_mUnknown_DefaultPlatformVersion) return _mValue_DefaultPlatformVersion;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.DefaultPlatformVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Default Kubernetes version for the cluster version.
         /// </summary>
-        [Input("defaultVersion")]
+        [PolicyResourceProperty("defaultVersion", "_mUnknown_DefaultVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDefaultVersion;
-
-        public bool? DefaultVersion => _mDefaultVersion.GetValue("defaultVersion");
+        private bool? _mValue_DefaultVersion;
+        private bool _mUnknown_DefaultVersion;
+        public bool? DefaultVersion
+        {
+            get
+            {
+                if (!_mUnknown_DefaultVersion) return _mValue_DefaultVersion;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.DefaultVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// End of extended support date for the cluster version.
         /// </summary>
-        [Input("endOfExtendedSupportDate")]
+        [PolicyResourceProperty("endOfExtendedSupportDate", "_mUnknown_EndOfExtendedSupportDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndOfExtendedSupportDate;
-
-        public string? EndOfExtendedSupportDate => _mEndOfExtendedSupportDate.GetValue("endOfExtendedSupportDate");
+        private string? _mValue_EndOfExtendedSupportDate;
+        private bool _mUnknown_EndOfExtendedSupportDate;
+        public string? EndOfExtendedSupportDate
+        {
+            get
+            {
+                if (!_mUnknown_EndOfExtendedSupportDate) return _mValue_EndOfExtendedSupportDate;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.EndOfExtendedSupportDate' is not present");
+            }
+        }
 
         /// <summary>
         /// End of standard support date for the cluster version.
         /// </summary>
-        [Input("endOfStandardSupportDate")]
+        [PolicyResourceProperty("endOfStandardSupportDate", "_mUnknown_EndOfStandardSupportDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndOfStandardSupportDate;
-
-        public string? EndOfStandardSupportDate => _mEndOfStandardSupportDate.GetValue("endOfStandardSupportDate");
+        private string? _mValue_EndOfStandardSupportDate;
+        private bool _mUnknown_EndOfStandardSupportDate;
+        public string? EndOfStandardSupportDate
+        {
+            get
+            {
+                if (!_mUnknown_EndOfStandardSupportDate) return _mValue_EndOfStandardSupportDate;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.EndOfStandardSupportDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Kubernetes patch version for the cluster version.
         /// </summary>
-        [Input("kubernetesPatchVersion")]
+        [PolicyResourceProperty("kubernetesPatchVersion", "_mUnknown_KubernetesPatchVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKubernetesPatchVersion;
-
-        public string? KubernetesPatchVersion => _mKubernetesPatchVersion.GetValue("kubernetesPatchVersion");
+        private string? _mValue_KubernetesPatchVersion;
+        private bool _mUnknown_KubernetesPatchVersion;
+        public string? KubernetesPatchVersion
+        {
+            get
+            {
+                if (!_mUnknown_KubernetesPatchVersion) return _mValue_KubernetesPatchVersion;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.KubernetesPatchVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Release date of the cluster version.
         /// </summary>
-        [Input("releaseDate")]
+        [PolicyResourceProperty("releaseDate", "_mUnknown_ReleaseDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseDate;
-
-        public string? ReleaseDate => _mReleaseDate.GetValue("releaseDate");
+        private string? _mValue_ReleaseDate;
+        private bool _mUnknown_ReleaseDate;
+        public string? ReleaseDate
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseDate) return _mValue_ReleaseDate;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.ReleaseDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the EKS cluster versions to list.
         /// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
         /// </summary>
-        [Input("versionStatus")]
+        [PolicyResourceProperty("versionStatus", "_mUnknown_VersionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionStatus;
-
-        public string? VersionStatus => _mVersionStatus.GetValue("versionStatus");
+        private string? _mValue_VersionStatus;
+        private bool _mUnknown_VersionStatus;
+        public string? VersionStatus
+        {
+            get
+            {
+                if (!_mUnknown_VersionStatus) return _mValue_VersionStatus;
+                throw new UndeferrableValueException("Value 'GetClusterVersionsClusterVersionResult.VersionStatus' is not present");
+            }
+        }
     }
 }

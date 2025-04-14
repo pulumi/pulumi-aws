@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
 {
     public sealed class GetListenerDefaultActionResult
     {
-        [Input("fixedResponses")]
+        [PolicyResourceProperty("fixedResponses", "_mUnknown_FixedResponses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionFixedResponseResult>> _mFixedResponses;
+        private List<Outputs.GetListenerDefaultActionFixedResponseResult>? _mValue_FixedResponses;
+        private bool _mUnknown_FixedResponses;
+        public List<Outputs.GetListenerDefaultActionFixedResponseResult>? FixedResponses
+        {
+            get
+            {
+                if (!_mUnknown_FixedResponses) return _mValue_FixedResponses;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.FixedResponses' is not present");
+            }
+        }
 
-        public List<Outputs.GetListenerDefaultActionFixedResponseResult>? FixedResponses => _mFixedResponses.GetValue("fixedResponses");
-
-        [Input("forwards")]
+        [PolicyResourceProperty("forwards", "_mUnknown_Forwards")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionForwardResult>> _mForwards;
-
-        public List<Outputs.GetListenerDefaultActionForwardResult>? Forwards => _mForwards.GetValue("forwards");
+        private List<Outputs.GetListenerDefaultActionForwardResult>? _mValue_Forwards;
+        private bool _mUnknown_Forwards;
+        public List<Outputs.GetListenerDefaultActionForwardResult>? Forwards
+        {
+            get
+            {
+                if (!_mUnknown_Forwards) return _mValue_Forwards;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionResult.Forwards' is not present");
+            }
+        }
     }
 }

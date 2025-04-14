@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
 {
     public sealed class LocationFsxOntapFileSystemProtocolNfsMountOptions
     {
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolNfsMountOptions.Version' is not present");
+            }
+        }
     }
 }

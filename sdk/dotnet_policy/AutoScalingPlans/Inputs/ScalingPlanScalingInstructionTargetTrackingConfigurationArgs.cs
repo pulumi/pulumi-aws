@@ -16,68 +16,117 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans.Inputs
         /// Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
         /// </summary>
-        [Input("customizedScalingMetricSpecification")]
+        [PolicyResourceProperty("customizedScalingMetricSpecification", "_mUnknown_CustomizedScalingMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs> _mCustomizedScalingMetricSpecification;
-
-        public Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs? CustomizedScalingMetricSpecification => _mCustomizedScalingMetricSpecification.GetValue("customizedScalingMetricSpecification");
+        private Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs? _mValue_CustomizedScalingMetricSpecification;
+        private bool _mUnknown_CustomizedScalingMetricSpecification;
+        public Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs? CustomizedScalingMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CustomizedScalingMetricSpecification) return _mValue_CustomizedScalingMetricSpecification;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.CustomizedScalingMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
         /// </summary>
-        [Input("disableScaleIn")]
+        [PolicyResourceProperty("disableScaleIn", "_mUnknown_DisableScaleIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableScaleIn;
-
-        public bool? DisableScaleIn => _mDisableScaleIn.GetValue("disableScaleIn");
+        private bool? _mValue_DisableScaleIn;
+        private bool _mUnknown_DisableScaleIn;
+        public bool? DisableScaleIn
+        {
+            get
+            {
+                if (!_mUnknown_DisableScaleIn) return _mValue_DisableScaleIn;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.DisableScaleIn' is not present");
+            }
+        }
 
         /// <summary>
         /// Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
         /// This value is used only if the resource is an Auto Scaling group.
         /// </summary>
-        [Input("estimatedInstanceWarmup")]
+        [PolicyResourceProperty("estimatedInstanceWarmup", "_mUnknown_EstimatedInstanceWarmup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEstimatedInstanceWarmup;
-
-        public int? EstimatedInstanceWarmup => _mEstimatedInstanceWarmup.GetValue("estimatedInstanceWarmup");
+        private int? _mValue_EstimatedInstanceWarmup;
+        private bool _mUnknown_EstimatedInstanceWarmup;
+        public int? EstimatedInstanceWarmup
+        {
+            get
+            {
+                if (!_mUnknown_EstimatedInstanceWarmup) return _mValue_EstimatedInstanceWarmup;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.EstimatedInstanceWarmup' is not present");
+            }
+        }
 
         /// <summary>
         /// Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
         /// More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
         /// </summary>
-        [Input("predefinedScalingMetricSpecification")]
+        [PolicyResourceProperty("predefinedScalingMetricSpecification", "_mUnknown_PredefinedScalingMetricSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs> _mPredefinedScalingMetricSpecification;
-
-        public Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs? PredefinedScalingMetricSpecification => _mPredefinedScalingMetricSpecification.GetValue("predefinedScalingMetricSpecification");
+        private Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs? _mValue_PredefinedScalingMetricSpecification;
+        private bool _mUnknown_PredefinedScalingMetricSpecification;
+        public Inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs? PredefinedScalingMetricSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedScalingMetricSpecification) return _mValue_PredefinedScalingMetricSpecification;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.PredefinedScalingMetricSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         /// This value is not used if the scalable resource is an Auto Scaling group.
         /// </summary>
-        [Input("scaleInCooldown")]
+        [PolicyResourceProperty("scaleInCooldown", "_mUnknown_ScaleInCooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScaleInCooldown;
-
-        public int? ScaleInCooldown => _mScaleInCooldown.GetValue("scaleInCooldown");
+        private int? _mValue_ScaleInCooldown;
+        private bool _mUnknown_ScaleInCooldown;
+        public int? ScaleInCooldown
+        {
+            get
+            {
+                if (!_mUnknown_ScaleInCooldown) return _mValue_ScaleInCooldown;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.ScaleInCooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scale-out activity completes before another scale-out activity can start.
         /// This value is not used if the scalable resource is an Auto Scaling group.
         /// </summary>
-        [Input("scaleOutCooldown")]
+        [PolicyResourceProperty("scaleOutCooldown", "_mUnknown_ScaleOutCooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mScaleOutCooldown;
-
-        public int? ScaleOutCooldown => _mScaleOutCooldown.GetValue("scaleOutCooldown");
+        private int? _mValue_ScaleOutCooldown;
+        private bool _mUnknown_ScaleOutCooldown;
+        public int? ScaleOutCooldown
+        {
+            get
+            {
+                if (!_mUnknown_ScaleOutCooldown) return _mValue_ScaleOutCooldown;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.ScaleOutCooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Target value for the metric.
         /// </summary>
-        [Input("targetValue")]
+        [PolicyResourceProperty("targetValue", "_mUnknown_TargetValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTargetValue;
-
-        public double? TargetValue => _mTargetValue.GetValue("targetValue");
+        private double? _mValue_TargetValue;
+        private bool _mUnknown_TargetValue;
+        public double? TargetValue
+        {
+            get
+            {
+                if (!_mUnknown_TargetValue) return _mValue_TargetValue;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.TargetValue' is not present");
+            }
+        }
     }
 }

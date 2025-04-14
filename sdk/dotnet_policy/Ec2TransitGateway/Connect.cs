@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'Connect.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Connect.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Connect.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTableAssociation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTableAssociation", "_mUnknown_TransitGatewayDefaultRouteTableAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTableAssociation;
-
-        public bool? TransitGatewayDefaultRouteTableAssociation => _mTransitGatewayDefaultRouteTableAssociation.GetValue("transitGatewayDefaultRouteTableAssociation");
+        private bool? _mValue_TransitGatewayDefaultRouteTableAssociation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTableAssociation;
+        public bool? TransitGatewayDefaultRouteTableAssociation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTableAssociation) return _mValue_TransitGatewayDefaultRouteTableAssociation;
+                throw new UndeferrableValueException("Value 'Connect.TransitGatewayDefaultRouteTableAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTablePropagation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTablePropagation", "_mUnknown_TransitGatewayDefaultRouteTablePropagation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTablePropagation;
-
-        public bool? TransitGatewayDefaultRouteTablePropagation => _mTransitGatewayDefaultRouteTablePropagation.GetValue("transitGatewayDefaultRouteTablePropagation");
+        private bool? _mValue_TransitGatewayDefaultRouteTablePropagation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTablePropagation;
+        public bool? TransitGatewayDefaultRouteTablePropagation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTablePropagation) return _mValue_TransitGatewayDefaultRouteTablePropagation;
+                throw new UndeferrableValueException("Value 'Connect.TransitGatewayDefaultRouteTablePropagation' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'Connect.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The underlaying VPC attachment
         /// </summary>
-        [Input("transportAttachmentId")]
+        [PolicyResourceProperty("transportAttachmentId", "_mUnknown_TransportAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransportAttachmentId;
-
-        public string? TransportAttachmentId => _mTransportAttachmentId.GetValue("transportAttachmentId");
+        private string? _mValue_TransportAttachmentId;
+        private bool _mUnknown_TransportAttachmentId;
+        public string? TransportAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransportAttachmentId) return _mValue_TransportAttachmentId;
+                throw new UndeferrableValueException("Value 'Connect.TransportAttachmentId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/connect:Connect")]
@@ -83,55 +132,97 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ConnectArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTableAssociation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTableAssociation", "_mUnknown_TransitGatewayDefaultRouteTableAssociation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTableAssociation;
-
-        public bool? TransitGatewayDefaultRouteTableAssociation => _mTransitGatewayDefaultRouteTableAssociation.GetValue("transitGatewayDefaultRouteTableAssociation");
+        private bool? _mValue_TransitGatewayDefaultRouteTableAssociation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTableAssociation;
+        public bool? TransitGatewayDefaultRouteTableAssociation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTableAssociation) return _mValue_TransitGatewayDefaultRouteTableAssociation;
+                throw new UndeferrableValueException("Value 'ConnectArgs.TransitGatewayDefaultRouteTableAssociation' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         /// </summary>
-        [Input("transitGatewayDefaultRouteTablePropagation")]
+        [PolicyResourceProperty("transitGatewayDefaultRouteTablePropagation", "_mUnknown_TransitGatewayDefaultRouteTablePropagation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitGatewayDefaultRouteTablePropagation;
-
-        public bool? TransitGatewayDefaultRouteTablePropagation => _mTransitGatewayDefaultRouteTablePropagation.GetValue("transitGatewayDefaultRouteTablePropagation");
+        private bool? _mValue_TransitGatewayDefaultRouteTablePropagation;
+        private bool _mUnknown_TransitGatewayDefaultRouteTablePropagation;
+        public bool? TransitGatewayDefaultRouteTablePropagation
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayDefaultRouteTablePropagation) return _mValue_TransitGatewayDefaultRouteTablePropagation;
+                throw new UndeferrableValueException("Value 'ConnectArgs.TransitGatewayDefaultRouteTablePropagation' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'ConnectArgs.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// The underlaying VPC attachment
         /// </summary>
-        [Input("transportAttachmentId")]
+        [PolicyResourceProperty("transportAttachmentId", "_mUnknown_TransportAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransportAttachmentId;
-
-        public string? TransportAttachmentId => _mTransportAttachmentId.GetValue("transportAttachmentId");
+        private string? _mValue_TransportAttachmentId;
+        private bool _mUnknown_TransportAttachmentId;
+        public string? TransportAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransportAttachmentId) return _mValue_TransportAttachmentId;
+                throw new UndeferrableValueException("Value 'ConnectArgs.TransportAttachmentId' is not present");
+            }
+        }
     }
 }

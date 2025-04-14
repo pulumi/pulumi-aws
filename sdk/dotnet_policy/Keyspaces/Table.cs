@@ -16,121 +16,212 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces
         /// <summary>
         /// The ARN of the table.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Table.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the read/write throughput capacity mode for the table.
         /// </summary>
-        [Input("capacitySpecification")]
+        [PolicyResourceProperty("capacitySpecification", "_mUnknown_CapacitySpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableCapacitySpecification> _mCapacitySpecification;
-
-        public Outputs.TableCapacitySpecification? CapacitySpecification => _mCapacitySpecification.GetValue("capacitySpecification");
+        private Outputs.TableCapacitySpecification? _mValue_CapacitySpecification;
+        private bool _mUnknown_CapacitySpecification;
+        public Outputs.TableCapacitySpecification? CapacitySpecification
+        {
+            get
+            {
+                if (!_mUnknown_CapacitySpecification) return _mValue_CapacitySpecification;
+                throw new UndeferrableValueException("Value 'Table.CapacitySpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables client-side timestamps for the table. By default, the setting is disabled.
         /// </summary>
-        [Input("clientSideTimestamps")]
+        [PolicyResourceProperty("clientSideTimestamps", "_mUnknown_ClientSideTimestamps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableClientSideTimestamps> _mClientSideTimestamps;
-
-        public Outputs.TableClientSideTimestamps? ClientSideTimestamps => _mClientSideTimestamps.GetValue("clientSideTimestamps");
+        private Outputs.TableClientSideTimestamps? _mValue_ClientSideTimestamps;
+        private bool _mUnknown_ClientSideTimestamps;
+        public Outputs.TableClientSideTimestamps? ClientSideTimestamps
+        {
+            get
+            {
+                if (!_mUnknown_ClientSideTimestamps) return _mValue_ClientSideTimestamps;
+                throw new UndeferrableValueException("Value 'Table.ClientSideTimestamps' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the table.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableComment> _mComment;
-
-        public Outputs.TableComment? Comment => _mComment.GetValue("comment");
+        private Outputs.TableComment? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public Outputs.TableComment? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'Table.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         /// </summary>
-        [Input("defaultTimeToLive")]
+        [PolicyResourceProperty("defaultTimeToLive", "_mUnknown_DefaultTimeToLive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTimeToLive;
-
-        public int? DefaultTimeToLive => _mDefaultTimeToLive.GetValue("defaultTimeToLive");
+        private int? _mValue_DefaultTimeToLive;
+        private bool _mUnknown_DefaultTimeToLive;
+        public int? DefaultTimeToLive
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTimeToLive) return _mValue_DefaultTimeToLive;
+                throw new UndeferrableValueException("Value 'Table.DefaultTimeToLive' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         /// </summary>
-        [Input("encryptionSpecification")]
+        [PolicyResourceProperty("encryptionSpecification", "_mUnknown_EncryptionSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableEncryptionSpecification> _mEncryptionSpecification;
-
-        public Outputs.TableEncryptionSpecification? EncryptionSpecification => _mEncryptionSpecification.GetValue("encryptionSpecification");
+        private Outputs.TableEncryptionSpecification? _mValue_EncryptionSpecification;
+        private bool _mUnknown_EncryptionSpecification;
+        public Outputs.TableEncryptionSpecification? EncryptionSpecification
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionSpecification) return _mValue_EncryptionSpecification;
+                throw new UndeferrableValueException("Value 'Table.EncryptionSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the keyspace that the table is going to be created in.
         /// </summary>
-        [Input("keyspaceName")]
+        [PolicyResourceProperty("keyspaceName", "_mUnknown_KeyspaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyspaceName;
-
-        public string? KeyspaceName => _mKeyspaceName.GetValue("keyspaceName");
+        private string? _mValue_KeyspaceName;
+        private bool _mUnknown_KeyspaceName;
+        public string? KeyspaceName
+        {
+            get
+            {
+                if (!_mUnknown_KeyspaceName) return _mValue_KeyspaceName;
+                throw new UndeferrableValueException("Value 'Table.KeyspaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         /// </summary>
-        [Input("pointInTimeRecovery")]
+        [PolicyResourceProperty("pointInTimeRecovery", "_mUnknown_PointInTimeRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TablePointInTimeRecovery> _mPointInTimeRecovery;
-
-        public Outputs.TablePointInTimeRecovery? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+        private Outputs.TablePointInTimeRecovery? _mValue_PointInTimeRecovery;
+        private bool _mUnknown_PointInTimeRecovery;
+        public Outputs.TablePointInTimeRecovery? PointInTimeRecovery
+        {
+            get
+            {
+                if (!_mUnknown_PointInTimeRecovery) return _mValue_PointInTimeRecovery;
+                throw new UndeferrableValueException("Value 'Table.PointInTimeRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the schema of the table.
         /// </summary>
-        [Input("schemaDefinition")]
+        [PolicyResourceProperty("schemaDefinition", "_mUnknown_SchemaDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableSchemaDefinition> _mSchemaDefinition;
-
-        public Outputs.TableSchemaDefinition? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
+        private Outputs.TableSchemaDefinition? _mValue_SchemaDefinition;
+        private bool _mUnknown_SchemaDefinition;
+        public Outputs.TableSchemaDefinition? SchemaDefinition
+        {
+            get
+            {
+                if (!_mUnknown_SchemaDefinition) return _mValue_SchemaDefinition;
+                throw new UndeferrableValueException("Value 'Table.SchemaDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the table.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'Table.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Table.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Table.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableTtl> _mTtl;
-
-        public Outputs.TableTtl? Ttl => _mTtl.GetValue("ttl");
+        private Outputs.TableTtl? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public Outputs.TableTtl? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'Table.Ttl' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:keyspaces/table:Table")]
@@ -139,102 +230,179 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces
         /// <summary>
         /// Specifies the read/write throughput capacity mode for the table.
         /// </summary>
-        [Input("capacitySpecification")]
+        [PolicyResourceProperty("capacitySpecification", "_mUnknown_CapacitySpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableCapacitySpecificationArgs> _mCapacitySpecification;
-
-        public Inputs.TableCapacitySpecificationArgs? CapacitySpecification => _mCapacitySpecification.GetValue("capacitySpecification");
+        private Inputs.TableCapacitySpecificationArgs? _mValue_CapacitySpecification;
+        private bool _mUnknown_CapacitySpecification;
+        public Inputs.TableCapacitySpecificationArgs? CapacitySpecification
+        {
+            get
+            {
+                if (!_mUnknown_CapacitySpecification) return _mValue_CapacitySpecification;
+                throw new UndeferrableValueException("Value 'TableArgs.CapacitySpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables client-side timestamps for the table. By default, the setting is disabled.
         /// </summary>
-        [Input("clientSideTimestamps")]
+        [PolicyResourceProperty("clientSideTimestamps", "_mUnknown_ClientSideTimestamps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableClientSideTimestampsArgs> _mClientSideTimestamps;
-
-        public Inputs.TableClientSideTimestampsArgs? ClientSideTimestamps => _mClientSideTimestamps.GetValue("clientSideTimestamps");
+        private Inputs.TableClientSideTimestampsArgs? _mValue_ClientSideTimestamps;
+        private bool _mUnknown_ClientSideTimestamps;
+        public Inputs.TableClientSideTimestampsArgs? ClientSideTimestamps
+        {
+            get
+            {
+                if (!_mUnknown_ClientSideTimestamps) return _mValue_ClientSideTimestamps;
+                throw new UndeferrableValueException("Value 'TableArgs.ClientSideTimestamps' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the table.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableCommentArgs> _mComment;
-
-        public Inputs.TableCommentArgs? Comment => _mComment.GetValue("comment");
+        private Inputs.TableCommentArgs? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public Inputs.TableCommentArgs? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'TableArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         /// </summary>
-        [Input("defaultTimeToLive")]
+        [PolicyResourceProperty("defaultTimeToLive", "_mUnknown_DefaultTimeToLive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTimeToLive;
-
-        public int? DefaultTimeToLive => _mDefaultTimeToLive.GetValue("defaultTimeToLive");
+        private int? _mValue_DefaultTimeToLive;
+        private bool _mUnknown_DefaultTimeToLive;
+        public int? DefaultTimeToLive
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTimeToLive) return _mValue_DefaultTimeToLive;
+                throw new UndeferrableValueException("Value 'TableArgs.DefaultTimeToLive' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         /// </summary>
-        [Input("encryptionSpecification")]
+        [PolicyResourceProperty("encryptionSpecification", "_mUnknown_EncryptionSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableEncryptionSpecificationArgs> _mEncryptionSpecification;
-
-        public Inputs.TableEncryptionSpecificationArgs? EncryptionSpecification => _mEncryptionSpecification.GetValue("encryptionSpecification");
+        private Inputs.TableEncryptionSpecificationArgs? _mValue_EncryptionSpecification;
+        private bool _mUnknown_EncryptionSpecification;
+        public Inputs.TableEncryptionSpecificationArgs? EncryptionSpecification
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionSpecification) return _mValue_EncryptionSpecification;
+                throw new UndeferrableValueException("Value 'TableArgs.EncryptionSpecification' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the keyspace that the table is going to be created in.
         /// </summary>
-        [Input("keyspaceName")]
+        [PolicyResourceProperty("keyspaceName", "_mUnknown_KeyspaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyspaceName;
-
-        public string? KeyspaceName => _mKeyspaceName.GetValue("keyspaceName");
+        private string? _mValue_KeyspaceName;
+        private bool _mUnknown_KeyspaceName;
+        public string? KeyspaceName
+        {
+            get
+            {
+                if (!_mUnknown_KeyspaceName) return _mValue_KeyspaceName;
+                throw new UndeferrableValueException("Value 'TableArgs.KeyspaceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         /// </summary>
-        [Input("pointInTimeRecovery")]
+        [PolicyResourceProperty("pointInTimeRecovery", "_mUnknown_PointInTimeRecovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TablePointInTimeRecoveryArgs> _mPointInTimeRecovery;
-
-        public Inputs.TablePointInTimeRecoveryArgs? PointInTimeRecovery => _mPointInTimeRecovery.GetValue("pointInTimeRecovery");
+        private Inputs.TablePointInTimeRecoveryArgs? _mValue_PointInTimeRecovery;
+        private bool _mUnknown_PointInTimeRecovery;
+        public Inputs.TablePointInTimeRecoveryArgs? PointInTimeRecovery
+        {
+            get
+            {
+                if (!_mUnknown_PointInTimeRecovery) return _mValue_PointInTimeRecovery;
+                throw new UndeferrableValueException("Value 'TableArgs.PointInTimeRecovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the schema of the table.
         /// </summary>
-        [Input("schemaDefinition")]
+        [PolicyResourceProperty("schemaDefinition", "_mUnknown_SchemaDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableSchemaDefinitionArgs> _mSchemaDefinition;
-
-        public Inputs.TableSchemaDefinitionArgs? SchemaDefinition => _mSchemaDefinition.GetValue("schemaDefinition");
+        private Inputs.TableSchemaDefinitionArgs? _mValue_SchemaDefinition;
+        private bool _mUnknown_SchemaDefinition;
+        public Inputs.TableSchemaDefinitionArgs? SchemaDefinition
+        {
+            get
+            {
+                if (!_mUnknown_SchemaDefinition) return _mValue_SchemaDefinition;
+                throw new UndeferrableValueException("Value 'TableArgs.SchemaDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the table.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'TableArgs.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TableArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableTtlArgs> _mTtl;
-
-        public Inputs.TableTtlArgs? Ttl => _mTtl.GetValue("ttl");
+        private Inputs.TableTtlArgs? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public Inputs.TableTtlArgs? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'TableArgs.Ttl' is not present");
+            }
+        }
     }
 }

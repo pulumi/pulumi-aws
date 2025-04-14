@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact.
         /// </summary>
-        [Input("contactId")]
+        [PolicyResourceProperty("contactId", "_mUnknown_ContactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
-
-        public string? ContactId => _mContactId.GetValue("contactId");
+        private string? _mValue_ContactId;
+        private bool _mUnknown_ContactId;
+        public string? ContactId
+        {
+            get
+            {
+                if (!_mUnknown_ContactId) return _mValue_ContactId;
+                throw new UndeferrableValueException("Value 'PlanStageTargetContactTargetInfo.ContactId' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         /// </summary>
-        [Input("isEssential")]
+        [PolicyResourceProperty("isEssential", "_mUnknown_IsEssential")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIsEssential;
-
-        public bool? IsEssential => _mIsEssential.GetValue("isEssential");
+        private bool? _mValue_IsEssential;
+        private bool _mUnknown_IsEssential;
+        public bool? IsEssential
+        {
+            get
+            {
+                if (!_mUnknown_IsEssential) return _mValue_IsEssential;
+                throw new UndeferrableValueException("Value 'PlanStageTargetContactTargetInfo.IsEssential' is not present");
+            }
+        }
     }
 }

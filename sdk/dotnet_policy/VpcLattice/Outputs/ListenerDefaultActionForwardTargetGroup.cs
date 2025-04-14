@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// ID or Amazon Resource Name (ARN) of the target group.
         /// </summary>
-        [Input("targetGroupIdentifier")]
+        [PolicyResourceProperty("targetGroupIdentifier", "_mUnknown_TargetGroupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetGroupIdentifier;
-
-        public string? TargetGroupIdentifier => _mTargetGroupIdentifier.GetValue("targetGroupIdentifier");
+        private string? _mValue_TargetGroupIdentifier;
+        private bool _mUnknown_TargetGroupIdentifier;
+        public string? TargetGroupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupIdentifier) return _mValue_TargetGroupIdentifier;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroup.TargetGroupIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
         /// weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroup.Weight' is not present");
+            }
+        }
     }
 }

@@ -16,109 +16,193 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// Timestamp when the access group was created.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'Group.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp when the access group was deleted.
         /// </summary>
-        [Input("deletionTime")]
+        [PolicyResourceProperty("deletionTime", "_mUnknown_DeletionTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeletionTime;
-
-        public string? DeletionTime => _mDeletionTime.GetValue("deletionTime");
+        private string? _mValue_DeletionTime;
+        private bool _mUnknown_DeletionTime;
+        public string? DeletionTime
+        {
+            get
+            {
+                if (!_mUnknown_DeletionTime) return _mValue_DeletionTime;
+                throw new UndeferrableValueException("Value 'Group.DeletionTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the verified access group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Group.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp when the access group was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Group.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account number owning this resource.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'Group.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document that is associated with this resource.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'Group.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to use KMS keys for server-side encryption.
         /// </summary>
-        [Input("sseConfiguration")]
+        [PolicyResourceProperty("sseConfiguration", "_mUnknown_SseConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupSseConfiguration> _mSseConfiguration;
-
-        public Outputs.GroupSseConfiguration? SseConfiguration => _mSseConfiguration.GetValue("sseConfiguration");
+        private Outputs.GroupSseConfiguration? _mValue_SseConfiguration;
+        private bool _mUnknown_SseConfiguration;
+        public Outputs.GroupSseConfiguration? SseConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SseConfiguration) return _mValue_SseConfiguration;
+                throw new UndeferrableValueException("Value 'Group.SseConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Group.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Group.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of this verified acess group.
         /// </summary>
-        [Input("verifiedaccessGroupArn")]
+        [PolicyResourceProperty("verifiedaccessGroupArn", "_mUnknown_VerifiedaccessGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessGroupArn;
-
-        public string? VerifiedaccessGroupArn => _mVerifiedaccessGroupArn.GetValue("verifiedaccessGroupArn");
+        private string? _mValue_VerifiedaccessGroupArn;
+        private bool _mUnknown_VerifiedaccessGroupArn;
+        public string? VerifiedaccessGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessGroupArn) return _mValue_VerifiedaccessGroupArn;
+                throw new UndeferrableValueException("Value 'Group.VerifiedaccessGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of this verified access group.
         /// </summary>
-        [Input("verifiedaccessGroupId")]
+        [PolicyResourceProperty("verifiedaccessGroupId", "_mUnknown_VerifiedaccessGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessGroupId;
-
-        public string? VerifiedaccessGroupId => _mVerifiedaccessGroupId.GetValue("verifiedaccessGroupId");
+        private string? _mValue_VerifiedaccessGroupId;
+        private bool _mUnknown_VerifiedaccessGroupId;
+        public string? VerifiedaccessGroupId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessGroupId) return _mValue_VerifiedaccessGroupId;
+                throw new UndeferrableValueException("Value 'Group.VerifiedaccessGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the verified access instance this group is associated with.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("verifiedaccessInstanceId")]
+        [PolicyResourceProperty("verifiedaccessInstanceId", "_mUnknown_VerifiedaccessInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
-
-        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+        private string? _mValue_VerifiedaccessInstanceId;
+        private bool _mUnknown_VerifiedaccessInstanceId;
+        public string? VerifiedaccessInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessInstanceId) return _mValue_VerifiedaccessInstanceId;
+                throw new UndeferrableValueException("Value 'Group.VerifiedaccessInstanceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:verifiedaccess/group:Group")]
@@ -127,48 +211,83 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedAccess
         /// <summary>
         /// Description of the verified access group.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GroupArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy document that is associated with this resource.
         /// </summary>
-        [Input("policyDocument")]
+        [PolicyResourceProperty("policyDocument", "_mUnknown_PolicyDocument")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDocument;
-
-        public string? PolicyDocument => _mPolicyDocument.GetValue("policyDocument");
+        private string? _mValue_PolicyDocument;
+        private bool _mUnknown_PolicyDocument;
+        public string? PolicyDocument
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDocument) return _mValue_PolicyDocument;
+                throw new UndeferrableValueException("Value 'GroupArgs.PolicyDocument' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to use KMS keys for server-side encryption.
         /// </summary>
-        [Input("sseConfiguration")]
+        [PolicyResourceProperty("sseConfiguration", "_mUnknown_SseConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupSseConfigurationArgs> _mSseConfiguration;
-
-        public Inputs.GroupSseConfigurationArgs? SseConfiguration => _mSseConfiguration.GetValue("sseConfiguration");
+        private Inputs.GroupSseConfigurationArgs? _mValue_SseConfiguration;
+        private bool _mUnknown_SseConfiguration;
+        public Inputs.GroupSseConfigurationArgs? SseConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SseConfiguration) return _mValue_SseConfiguration;
+                throw new UndeferrableValueException("Value 'GroupArgs.SseConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the verified access instance this group is associated with.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("verifiedaccessInstanceId")]
+        [PolicyResourceProperty("verifiedaccessInstanceId", "_mUnknown_VerifiedaccessInstanceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedaccessInstanceId;
-
-        public string? VerifiedaccessInstanceId => _mVerifiedaccessInstanceId.GetValue("verifiedaccessInstanceId");
+        private string? _mValue_VerifiedaccessInstanceId;
+        private bool _mUnknown_VerifiedaccessInstanceId;
+        public string? VerifiedaccessInstanceId
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedaccessInstanceId) return _mValue_VerifiedaccessInstanceId;
+                throw new UndeferrableValueException("Value 'GroupArgs.VerifiedaccessInstanceId' is not present");
+            }
+        }
     }
 }

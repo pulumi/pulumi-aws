@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
         /// </summary>
-        [Input("maxPageSize")]
+        [PolicyResourceProperty("maxPageSize", "_mUnknown_MaxPageSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxPageSize;
-
-        public int? MaxPageSize => _mMaxPageSize.GetValue("maxPageSize");
+        private int? _mValue_MaxPageSize;
+        private bool _mUnknown_MaxPageSize;
+        public int? MaxPageSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxPageSize) return _mValue_MaxPageSize;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs.MaxPageSize' is not present");
+            }
+        }
     }
 }

@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// An array of server URLs. Maximum number of 2 items, each of maximum length 300.
         /// </summary>
-        [Input("additionalBootstrapServers")]
+        [PolicyResourceProperty("additionalBootstrapServers", "_mUnknown_AdditionalBootstrapServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalBootstrapServers;
-
-        public List<string>? AdditionalBootstrapServers => _mAdditionalBootstrapServers.GetValue("additionalBootstrapServers");
+        private List<string>? _mValue_AdditionalBootstrapServers;
+        private bool _mUnknown_AdditionalBootstrapServers;
+        public List<string>? AdditionalBootstrapServers
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalBootstrapServers) return _mValue_AdditionalBootstrapServers;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.AdditionalBootstrapServers' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
-
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.BatchSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the destination queue to consume. Maximum value of 200.
         /// </summary>
-        [Input("consumerGroupId")]
+        [PolicyResourceProperty("consumerGroupId", "_mUnknown_ConsumerGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerGroupId;
-
-        public string? ConsumerGroupId => _mConsumerGroupId.GetValue("consumerGroupId");
+        private string? _mValue_ConsumerGroupId;
+        private bool _mUnknown_ConsumerGroupId;
+        public string? ConsumerGroupId
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerGroupId) return _mValue_ConsumerGroupId;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.ConsumerGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The credentials needed to access the resource. Detailed below.
         /// </summary>
-        [Input("credentials")]
+        [PolicyResourceProperty("credentials", "_mUnknown_Credentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs> _mCredentials;
-
-        public Inputs.PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs? Credentials => _mCredentials.GetValue("credentials");
+        private Inputs.PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs? _mValue_Credentials;
+        private bool _mUnknown_Credentials;
+        public Inputs.PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs? Credentials
+        {
+            get
+            {
+                if (!_mUnknown_Credentials) return _mValue_Credentials;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.Credentials' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
-        [Input("maximumBatchingWindowInSeconds")]
+        [PolicyResourceProperty("maximumBatchingWindowInSeconds", "_mUnknown_MaximumBatchingWindowInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumBatchingWindowInSeconds;
-
-        public int? MaximumBatchingWindowInSeconds => _mMaximumBatchingWindowInSeconds.GetValue("maximumBatchingWindowInSeconds");
+        private int? _mValue_MaximumBatchingWindowInSeconds;
+        private bool _mUnknown_MaximumBatchingWindowInSeconds;
+        public int? MaximumBatchingWindowInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBatchingWindowInSeconds) return _mValue_MaximumBatchingWindowInSeconds;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.MaximumBatchingWindowInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Secrets Manager secret used for certification.
         /// </summary>
-        [Input("serverRootCaCertificate")]
+        [PolicyResourceProperty("serverRootCaCertificate", "_mUnknown_ServerRootCaCertificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerRootCaCertificate;
-
-        public string? ServerRootCaCertificate => _mServerRootCaCertificate.GetValue("serverRootCaCertificate");
+        private string? _mValue_ServerRootCaCertificate;
+        private bool _mUnknown_ServerRootCaCertificate;
+        public string? ServerRootCaCertificate
+        {
+            get
+            {
+                if (!_mUnknown_ServerRootCaCertificate) return _mValue_ServerRootCaCertificate;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.ServerRootCaCertificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         /// </summary>
-        [Input("startingPosition")]
+        [PolicyResourceProperty("startingPosition", "_mUnknown_StartingPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartingPosition;
-
-        public string? StartingPosition => _mStartingPosition.GetValue("startingPosition");
+        private string? _mValue_StartingPosition;
+        private bool _mUnknown_StartingPosition;
+        public string? StartingPosition
+        {
+            get
+            {
+                if (!_mUnknown_StartingPosition) return _mValue_StartingPosition;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.StartingPosition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the topic that the pipe will read from. Maximum length of 249.
         /// </summary>
-        [Input("topicName")]
+        [PolicyResourceProperty("topicName", "_mUnknown_TopicName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicName;
-
-        public string? TopicName => _mTopicName.GetValue("topicName");
+        private string? _mValue_TopicName;
+        private bool _mUnknown_TopicName;
+        public string? TopicName
+        {
+            get
+            {
+                if (!_mUnknown_TopicName) return _mValue_TopicName;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.TopicName' is not present");
+            }
+        }
 
         /// <summary>
         /// This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PipeSourceParametersSelfManagedKafkaParametersVpcArgs> _mVpc;
-
-        public Inputs.PipeSourceParametersSelfManagedKafkaParametersVpcArgs? Vpc => _mVpc.GetValue("vpc");
+        private Inputs.PipeSourceParametersSelfManagedKafkaParametersVpcArgs? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public Inputs.PipeSourceParametersSelfManagedKafkaParametersVpcArgs? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.Vpc' is not present");
+            }
+        }
     }
 }

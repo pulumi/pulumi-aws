@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.RolesAnywhere
         /// <summary>
         /// Amazon Resource Name (ARN) of the Profile
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Profile.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
         /// </summary>
-        [Input("durationSeconds")]
+        [PolicyResourceProperty("durationSeconds", "_mUnknown_DurationSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDurationSeconds;
-
-        public int? DurationSeconds => _mDurationSeconds.GetValue("durationSeconds");
+        private int? _mValue_DurationSeconds;
+        private bool _mUnknown_DurationSeconds;
+        public int? DurationSeconds
+        {
+            get
+            {
+                if (!_mUnknown_DurationSeconds) return _mValue_DurationSeconds;
+                throw new UndeferrableValueException("Value 'Profile.DurationSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not the Profile is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'Profile.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of managed policy ARNs that apply to the vended session credentials.
         /// </summary>
-        [Input("managedPolicyArns")]
+        [PolicyResourceProperty("managedPolicyArns", "_mUnknown_ManagedPolicyArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mManagedPolicyArns;
-
-        public List<string>? ManagedPolicyArns => _mManagedPolicyArns.GetValue("managedPolicyArns");
+        private List<string>? _mValue_ManagedPolicyArns;
+        private bool _mUnknown_ManagedPolicyArns;
+        public List<string>? ManagedPolicyArns
+        {
+            get
+            {
+                if (!_mUnknown_ManagedPolicyArns) return _mValue_ManagedPolicyArns;
+                throw new UndeferrableValueException("Value 'Profile.ManagedPolicyArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Profile.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         /// </summary>
-        [Input("requireInstanceProperties")]
+        [PolicyResourceProperty("requireInstanceProperties", "_mUnknown_RequireInstanceProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireInstanceProperties;
-
-        public bool? RequireInstanceProperties => _mRequireInstanceProperties.GetValue("requireInstanceProperties");
+        private bool? _mValue_RequireInstanceProperties;
+        private bool _mUnknown_RequireInstanceProperties;
+        public bool? RequireInstanceProperties
+        {
+            get
+            {
+                if (!_mUnknown_RequireInstanceProperties) return _mValue_RequireInstanceProperties;
+                throw new UndeferrableValueException("Value 'Profile.RequireInstanceProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM roles that this profile can assume
         /// </summary>
-        [Input("roleArns")]
+        [PolicyResourceProperty("roleArns", "_mUnknown_RoleArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoleArns;
-
-        public List<string>? RoleArns => _mRoleArns.GetValue("roleArns");
+        private List<string>? _mValue_RoleArns;
+        private bool _mUnknown_RoleArns;
+        public List<string>? RoleArns
+        {
+            get
+            {
+                if (!_mUnknown_RoleArns) return _mValue_RoleArns;
+                throw new UndeferrableValueException("Value 'Profile.RoleArns' is not present");
+            }
+        }
 
         /// <summary>
         /// A session policy that applies to the trust boundary of the vended session credentials.
         /// </summary>
-        [Input("sessionPolicy")]
+        [PolicyResourceProperty("sessionPolicy", "_mUnknown_SessionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionPolicy;
-
-        public string? SessionPolicy => _mSessionPolicy.GetValue("sessionPolicy");
+        private string? _mValue_SessionPolicy;
+        private bool _mUnknown_SessionPolicy;
+        public string? SessionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SessionPolicy) return _mValue_SessionPolicy;
+                throw new UndeferrableValueException("Value 'Profile.SessionPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Profile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Profile.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rolesanywhere/profile:Profile")]
@@ -110,73 +180,129 @@ namespace Pulumi.PolicyPacks.Aws.RolesAnywhere
         /// <summary>
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
         /// </summary>
-        [Input("durationSeconds")]
+        [PolicyResourceProperty("durationSeconds", "_mUnknown_DurationSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDurationSeconds;
-
-        public int? DurationSeconds => _mDurationSeconds.GetValue("durationSeconds");
+        private int? _mValue_DurationSeconds;
+        private bool _mUnknown_DurationSeconds;
+        public int? DurationSeconds
+        {
+            get
+            {
+                if (!_mUnknown_DurationSeconds) return _mValue_DurationSeconds;
+                throw new UndeferrableValueException("Value 'ProfileArgs.DurationSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not the Profile is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ProfileArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of managed policy ARNs that apply to the vended session credentials.
         /// </summary>
-        [Input("managedPolicyArns")]
+        [PolicyResourceProperty("managedPolicyArns", "_mUnknown_ManagedPolicyArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mManagedPolicyArns;
-
-        public List<string>? ManagedPolicyArns => _mManagedPolicyArns.GetValue("managedPolicyArns");
+        private List<string>? _mValue_ManagedPolicyArns;
+        private bool _mUnknown_ManagedPolicyArns;
+        public List<string>? ManagedPolicyArns
+        {
+            get
+            {
+                if (!_mUnknown_ManagedPolicyArns) return _mValue_ManagedPolicyArns;
+                throw new UndeferrableValueException("Value 'ProfileArgs.ManagedPolicyArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Profile.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProfileArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         /// </summary>
-        [Input("requireInstanceProperties")]
+        [PolicyResourceProperty("requireInstanceProperties", "_mUnknown_RequireInstanceProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireInstanceProperties;
-
-        public bool? RequireInstanceProperties => _mRequireInstanceProperties.GetValue("requireInstanceProperties");
+        private bool? _mValue_RequireInstanceProperties;
+        private bool _mUnknown_RequireInstanceProperties;
+        public bool? RequireInstanceProperties
+        {
+            get
+            {
+                if (!_mUnknown_RequireInstanceProperties) return _mValue_RequireInstanceProperties;
+                throw new UndeferrableValueException("Value 'ProfileArgs.RequireInstanceProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM roles that this profile can assume
         /// </summary>
-        [Input("roleArns")]
+        [PolicyResourceProperty("roleArns", "_mUnknown_RoleArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRoleArns;
-
-        public List<string>? RoleArns => _mRoleArns.GetValue("roleArns");
+        private List<string>? _mValue_RoleArns;
+        private bool _mUnknown_RoleArns;
+        public List<string>? RoleArns
+        {
+            get
+            {
+                if (!_mUnknown_RoleArns) return _mValue_RoleArns;
+                throw new UndeferrableValueException("Value 'ProfileArgs.RoleArns' is not present");
+            }
+        }
 
         /// <summary>
         /// A session policy that applies to the trust boundary of the vended session credentials.
         /// </summary>
-        [Input("sessionPolicy")]
+        [PolicyResourceProperty("sessionPolicy", "_mUnknown_SessionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSessionPolicy;
-
-        public string? SessionPolicy => _mSessionPolicy.GetValue("sessionPolicy");
+        private string? _mValue_SessionPolicy;
+        private bool _mUnknown_SessionPolicy;
+        public string? SessionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SessionPolicy) return _mValue_SessionPolicy;
+                throw new UndeferrableValueException("Value 'ProfileArgs.SessionPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProfileArgs.Tags' is not present");
+            }
+        }
     }
 }

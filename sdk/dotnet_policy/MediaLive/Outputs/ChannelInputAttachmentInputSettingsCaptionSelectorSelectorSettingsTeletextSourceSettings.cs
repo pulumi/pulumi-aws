@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
         /// </summary>
-        [Input("outputRectangle")]
+        [PolicyResourceProperty("outputRectangle", "_mUnknown_OutputRectangle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle> _mOutputRectangle;
-
-        public Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle? OutputRectangle => _mOutputRectangle.GetValue("outputRectangle");
+        private Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle? _mValue_OutputRectangle;
+        private bool _mUnknown_OutputRectangle;
+        public Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle? OutputRectangle
+        {
+            get
+            {
+                if (!_mUnknown_OutputRectangle) return _mValue_OutputRectangle;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.OutputRectangle' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
         /// </summary>
-        [Input("pageNumber")]
+        [PolicyResourceProperty("pageNumber", "_mUnknown_PageNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPageNumber;
-
-        public string? PageNumber => _mPageNumber.GetValue("pageNumber");
+        private string? _mValue_PageNumber;
+        private bool _mUnknown_PageNumber;
+        public string? PageNumber
+        {
+            get
+            {
+                if (!_mUnknown_PageNumber) return _mValue_PageNumber;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.PageNumber' is not present");
+            }
+        }
     }
 }

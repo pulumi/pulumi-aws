@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
 {
     public sealed class MultiRegionAccessPointDetails
     {
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetails.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("publicAccessBlock")]
+        [PolicyResourceProperty("publicAccessBlock", "_mUnknown_PublicAccessBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.MultiRegionAccessPointDetailsPublicAccessBlock> _mPublicAccessBlock;
+        private Outputs.MultiRegionAccessPointDetailsPublicAccessBlock? _mValue_PublicAccessBlock;
+        private bool _mUnknown_PublicAccessBlock;
+        public Outputs.MultiRegionAccessPointDetailsPublicAccessBlock? PublicAccessBlock
+        {
+            get
+            {
+                if (!_mUnknown_PublicAccessBlock) return _mValue_PublicAccessBlock;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetails.PublicAccessBlock' is not present");
+            }
+        }
 
-        public Outputs.MultiRegionAccessPointDetailsPublicAccessBlock? PublicAccessBlock => _mPublicAccessBlock.GetValue("publicAccessBlock");
-
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MultiRegionAccessPointDetailsRegion>> _mRegions;
-
-        public List<Outputs.MultiRegionAccessPointDetailsRegion>? Regions => _mRegions.GetValue("regions");
+        private List<Outputs.MultiRegionAccessPointDetailsRegion>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<Outputs.MultiRegionAccessPointDetailsRegion>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetails.Regions' is not present");
+            }
+        }
     }
 }

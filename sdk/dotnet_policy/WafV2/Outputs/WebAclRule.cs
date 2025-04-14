@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleAction> _mAction;
-
-        public Outputs.WebAclRuleAction? Action => _mAction.GetValue("action");
+        private Outputs.WebAclRuleAction? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.WebAclRuleAction? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'WebAclRule.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         /// </summary>
-        [Input("captchaConfig")]
+        [PolicyResourceProperty("captchaConfig", "_mUnknown_CaptchaConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleCaptchaConfig> _mCaptchaConfig;
-
-        public Outputs.WebAclRuleCaptchaConfig? CaptchaConfig => _mCaptchaConfig.GetValue("captchaConfig");
+        private Outputs.WebAclRuleCaptchaConfig? _mValue_CaptchaConfig;
+        private bool _mUnknown_CaptchaConfig;
+        public Outputs.WebAclRuleCaptchaConfig? CaptchaConfig
+        {
+            get
+            {
+                if (!_mUnknown_CaptchaConfig) return _mValue_CaptchaConfig;
+                throw new UndeferrableValueException("Value 'WebAclRule.CaptchaConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
         /// </summary>
-        [Input("challengeConfig")]
+        [PolicyResourceProperty("challengeConfig", "_mUnknown_ChallengeConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleChallengeConfig> _mChallengeConfig;
-
-        public Outputs.WebAclRuleChallengeConfig? ChallengeConfig => _mChallengeConfig.GetValue("challengeConfig");
+        private Outputs.WebAclRuleChallengeConfig? _mValue_ChallengeConfig;
+        private bool _mUnknown_ChallengeConfig;
+        public Outputs.WebAclRuleChallengeConfig? ChallengeConfig
+        {
+            get
+            {
+                if (!_mUnknown_ChallengeConfig) return _mValue_ChallengeConfig;
+                throw new UndeferrableValueException("Value 'WebAclRule.ChallengeConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WebAclRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
         /// </summary>
-        [Input("overrideAction")]
+        [PolicyResourceProperty("overrideAction", "_mUnknown_OverrideAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleOverrideAction> _mOverrideAction;
-
-        public Outputs.WebAclRuleOverrideAction? OverrideAction => _mOverrideAction.GetValue("overrideAction");
+        private Outputs.WebAclRuleOverrideAction? _mValue_OverrideAction;
+        private bool _mUnknown_OverrideAction;
+        public Outputs.WebAclRuleOverrideAction? OverrideAction
+        {
+            get
+            {
+                if (!_mUnknown_OverrideAction) return _mValue_OverrideAction;
+                throw new UndeferrableValueException("Value 'WebAclRule.OverrideAction' is not present");
+            }
+        }
 
         /// <summary>
         /// If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'WebAclRule.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
         /// </summary>
-        [Input("ruleLabels")]
+        [PolicyResourceProperty("ruleLabels", "_mUnknown_RuleLabels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclRuleRuleLabel>> _mRuleLabels;
-
-        public List<Outputs.WebAclRuleRuleLabel>? RuleLabels => _mRuleLabels.GetValue("ruleLabels");
+        private List<Outputs.WebAclRuleRuleLabel>? _mValue_RuleLabels;
+        private bool _mUnknown_RuleLabels;
+        public List<Outputs.WebAclRuleRuleLabel>? RuleLabels
+        {
+            get
+            {
+                if (!_mUnknown_RuleLabels) return _mValue_RuleLabels;
+                throw new UndeferrableValueException("Value 'WebAclRule.RuleLabels' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
         /// </summary>
-        [Input("statement")]
+        [PolicyResourceProperty("statement", "_mUnknown_Statement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleStatement> _mStatement;
-
-        public Outputs.WebAclRuleStatement? Statement => _mStatement.GetValue("statement");
+        private Outputs.WebAclRuleStatement? _mValue_Statement;
+        private bool _mUnknown_Statement;
+        public Outputs.WebAclRuleStatement? Statement
+        {
+            get
+            {
+                if (!_mUnknown_Statement) return _mValue_Statement;
+                throw new UndeferrableValueException("Value 'WebAclRule.Statement' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         /// </summary>
-        [Input("visibilityConfig")]
+        [PolicyResourceProperty("visibilityConfig", "_mUnknown_VisibilityConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WebAclRuleVisibilityConfig> _mVisibilityConfig;
-
-        public Outputs.WebAclRuleVisibilityConfig? VisibilityConfig => _mVisibilityConfig.GetValue("visibilityConfig");
+        private Outputs.WebAclRuleVisibilityConfig? _mValue_VisibilityConfig;
+        private bool _mUnknown_VisibilityConfig;
+        public Outputs.WebAclRuleVisibilityConfig? VisibilityConfig
+        {
+            get
+            {
+                if (!_mUnknown_VisibilityConfig) return _mValue_VisibilityConfig;
+                throw new UndeferrableValueException("Value 'WebAclRule.VisibilityConfig' is not present");
+            }
+        }
     }
 }

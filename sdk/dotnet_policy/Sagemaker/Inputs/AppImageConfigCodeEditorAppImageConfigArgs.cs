@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The configuration used to run the application image container. See Container Config details below.
         /// </summary>
-        [Input("containerConfig")]
+        [PolicyResourceProperty("containerConfig", "_mUnknown_ContainerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigCodeEditorAppImageConfigContainerConfigArgs> _mContainerConfig;
-
-        public Inputs.AppImageConfigCodeEditorAppImageConfigContainerConfigArgs? ContainerConfig => _mContainerConfig.GetValue("containerConfig");
+        private Inputs.AppImageConfigCodeEditorAppImageConfigContainerConfigArgs? _mValue_ContainerConfig;
+        private bool _mUnknown_ContainerConfig;
+        public Inputs.AppImageConfigCodeEditorAppImageConfigContainerConfigArgs? ContainerConfig
+        {
+            get
+            {
+                if (!_mUnknown_ContainerConfig) return _mValue_ContainerConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigArgs.ContainerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL where the Git repository is located. See File System Config details below.
         /// </summary>
-        [Input("fileSystemConfig")]
+        [PolicyResourceProperty("fileSystemConfig", "_mUnknown_FileSystemConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs> _mFileSystemConfig;
-
-        public Inputs.AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs? FileSystemConfig => _mFileSystemConfig.GetValue("fileSystemConfig");
+        private Inputs.AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs? _mValue_FileSystemConfig;
+        private bool _mUnknown_FileSystemConfig;
+        public Inputs.AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs? FileSystemConfig
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemConfig) return _mValue_FileSystemConfig;
+                throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigArgs.FileSystemConfig' is not present");
+            }
+        }
     }
 }

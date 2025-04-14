@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         /// </summary>
-        [Input("cookiesConfig")]
+        [PolicyResourceProperty("cookiesConfig", "_mUnknown_CookiesConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig> _mCookiesConfig;
-
-        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig? CookiesConfig => _mCookiesConfig.GetValue("cookiesConfig");
+        private Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig? _mValue_CookiesConfig;
+        private bool _mUnknown_CookiesConfig;
+        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig? CookiesConfig
+        {
+            get
+            {
+                if (!_mUnknown_CookiesConfig) return _mValue_CookiesConfig;
+                throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOrigin.CookiesConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
         /// </summary>
-        [Input("enableAcceptEncodingBrotli")]
+        [PolicyResourceProperty("enableAcceptEncodingBrotli", "_mUnknown_EnableAcceptEncodingBrotli")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAcceptEncodingBrotli;
-
-        public bool? EnableAcceptEncodingBrotli => _mEnableAcceptEncodingBrotli.GetValue("enableAcceptEncodingBrotli");
+        private bool? _mValue_EnableAcceptEncodingBrotli;
+        private bool _mUnknown_EnableAcceptEncodingBrotli;
+        public bool? EnableAcceptEncodingBrotli
+        {
+            get
+            {
+                if (!_mUnknown_EnableAcceptEncodingBrotli) return _mValue_EnableAcceptEncodingBrotli;
+                throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOrigin.EnableAcceptEncodingBrotli' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
         /// </summary>
-        [Input("enableAcceptEncodingGzip")]
+        [PolicyResourceProperty("enableAcceptEncodingGzip", "_mUnknown_EnableAcceptEncodingGzip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAcceptEncodingGzip;
-
-        public bool? EnableAcceptEncodingGzip => _mEnableAcceptEncodingGzip.GetValue("enableAcceptEncodingGzip");
+        private bool? _mValue_EnableAcceptEncodingGzip;
+        private bool _mUnknown_EnableAcceptEncodingGzip;
+        public bool? EnableAcceptEncodingGzip
+        {
+            get
+            {
+                if (!_mUnknown_EnableAcceptEncodingGzip) return _mValue_EnableAcceptEncodingGzip;
+                throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOrigin.EnableAcceptEncodingGzip' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         /// </summary>
-        [Input("headersConfig")]
+        [PolicyResourceProperty("headersConfig", "_mUnknown_HeadersConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig> _mHeadersConfig;
-
-        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig? HeadersConfig => _mHeadersConfig.GetValue("headersConfig");
+        private Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig? _mValue_HeadersConfig;
+        private bool _mUnknown_HeadersConfig;
+        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig? HeadersConfig
+        {
+            get
+            {
+                if (!_mUnknown_HeadersConfig) return _mValue_HeadersConfig;
+                throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOrigin.HeadersConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
         /// </summary>
-        [Input("queryStringsConfig")]
+        [PolicyResourceProperty("queryStringsConfig", "_mUnknown_QueryStringsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig> _mQueryStringsConfig;
-
-        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig? QueryStringsConfig => _mQueryStringsConfig.GetValue("queryStringsConfig");
+        private Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig? _mValue_QueryStringsConfig;
+        private bool _mUnknown_QueryStringsConfig;
+        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig? QueryStringsConfig
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringsConfig) return _mValue_QueryStringsConfig;
+                throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOrigin.QueryStringsConfig' is not present");
+            }
+        }
     }
 }

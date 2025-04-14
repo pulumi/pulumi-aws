@@ -16,30 +16,51 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty.Inputs
         /// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
         /// See Kubernetes and Kubernetes Audit Logs below for more details.
         /// </summary>
-        [Input("kubernetes")]
+        [PolicyResourceProperty("kubernetes", "_mUnknown_Kubernetes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DetectorDatasourcesKubernetesArgs> _mKubernetes;
-
-        public Inputs.DetectorDatasourcesKubernetesArgs? Kubernetes => _mKubernetes.GetValue("kubernetes");
+        private Inputs.DetectorDatasourcesKubernetesArgs? _mValue_Kubernetes;
+        private bool _mUnknown_Kubernetes;
+        public Inputs.DetectorDatasourcesKubernetesArgs? Kubernetes
+        {
+            get
+            {
+                if (!_mUnknown_Kubernetes) return _mValue_Kubernetes;
+                throw new UndeferrableValueException("Value 'DetectorDatasourcesArgs.Kubernetes' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
         /// See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
         /// </summary>
-        [Input("malwareProtection")]
+        [PolicyResourceProperty("malwareProtection", "_mUnknown_MalwareProtection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DetectorDatasourcesMalwareProtectionArgs> _mMalwareProtection;
-
-        public Inputs.DetectorDatasourcesMalwareProtectionArgs? MalwareProtection => _mMalwareProtection.GetValue("malwareProtection");
+        private Inputs.DetectorDatasourcesMalwareProtectionArgs? _mValue_MalwareProtection;
+        private bool _mUnknown_MalwareProtection;
+        public Inputs.DetectorDatasourcesMalwareProtectionArgs? MalwareProtection
+        {
+            get
+            {
+                if (!_mUnknown_MalwareProtection) return _mValue_MalwareProtection;
+                throw new UndeferrableValueException("Value 'DetectorDatasourcesArgs.MalwareProtection' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
         /// See S3 Logs below for more details.
         /// </summary>
-        [Input("s3Logs")]
+        [PolicyResourceProperty("s3Logs", "_mUnknown_S3Logs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DetectorDatasourcesS3LogsArgs> _mS3Logs;
-
-        public Inputs.DetectorDatasourcesS3LogsArgs? S3Logs => _mS3Logs.GetValue("s3Logs");
+        private Inputs.DetectorDatasourcesS3LogsArgs? _mValue_S3Logs;
+        private bool _mUnknown_S3Logs;
+        public Inputs.DetectorDatasourcesS3LogsArgs? S3Logs
+        {
+            get
+            {
+                if (!_mUnknown_S3Logs) return _mValue_S3Logs;
+                throw new UndeferrableValueException("Value 'DetectorDatasourcesArgs.S3Logs' is not present");
+            }
+        }
     }
 }

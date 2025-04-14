@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Acm.Outputs
         /// <summary>
         /// Fully qualified domain name (FQDN) in the certificate.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DNS record to create to validate the certificate
         /// </summary>
-        [Input("resourceRecordName")]
+        [PolicyResourceProperty("resourceRecordName", "_mUnknown_ResourceRecordName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceRecordName;
-
-        public string? ResourceRecordName => _mResourceRecordName.GetValue("resourceRecordName");
+        private string? _mValue_ResourceRecordName;
+        private bool _mUnknown_ResourceRecordName;
+        public string? ResourceRecordName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordName) return _mValue_ResourceRecordName;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.ResourceRecordName' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of DNS record to create
         /// </summary>
-        [Input("resourceRecordType")]
+        [PolicyResourceProperty("resourceRecordType", "_mUnknown_ResourceRecordType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceRecordType;
-
-        public string? ResourceRecordType => _mResourceRecordType.GetValue("resourceRecordType");
+        private string? _mValue_ResourceRecordType;
+        private bool _mUnknown_ResourceRecordType;
+        public string? ResourceRecordType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordType) return _mValue_ResourceRecordType;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.ResourceRecordType' is not present");
+            }
+        }
 
         /// <summary>
         /// The value the DNS record needs to have
         /// </summary>
-        [Input("resourceRecordValue")]
+        [PolicyResourceProperty("resourceRecordValue", "_mUnknown_ResourceRecordValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceRecordValue;
-
-        public string? ResourceRecordValue => _mResourceRecordValue.GetValue("resourceRecordValue");
+        private string? _mValue_ResourceRecordValue;
+        private bool _mUnknown_ResourceRecordValue;
+        public string? ResourceRecordValue
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRecordValue) return _mValue_ResourceRecordValue;
+                throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.ResourceRecordValue' is not present");
+            }
+        }
     }
 }

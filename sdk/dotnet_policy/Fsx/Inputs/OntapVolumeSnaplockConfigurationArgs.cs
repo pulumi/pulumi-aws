@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
         /// </summary>
-        [Input("auditLogVolume")]
+        [PolicyResourceProperty("auditLogVolume", "_mUnknown_AuditLogVolume")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAuditLogVolume;
-
-        public bool? AuditLogVolume => _mAuditLogVolume.GetValue("auditLogVolume");
+        private bool? _mValue_AuditLogVolume;
+        private bool _mUnknown_AuditLogVolume;
+        public bool? AuditLogVolume
+        {
+            get
+            {
+                if (!_mUnknown_AuditLogVolume) return _mValue_AuditLogVolume;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationArgs.AuditLogVolume' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
         /// </summary>
-        [Input("autocommitPeriod")]
+        [PolicyResourceProperty("autocommitPeriod", "_mUnknown_AutocommitPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeSnaplockConfigurationAutocommitPeriodArgs> _mAutocommitPeriod;
-
-        public Inputs.OntapVolumeSnaplockConfigurationAutocommitPeriodArgs? AutocommitPeriod => _mAutocommitPeriod.GetValue("autocommitPeriod");
+        private Inputs.OntapVolumeSnaplockConfigurationAutocommitPeriodArgs? _mValue_AutocommitPeriod;
+        private bool _mUnknown_AutocommitPeriod;
+        public Inputs.OntapVolumeSnaplockConfigurationAutocommitPeriodArgs? AutocommitPeriod
+        {
+            get
+            {
+                if (!_mUnknown_AutocommitPeriod) return _mValue_AutocommitPeriod;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationArgs.AutocommitPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
         /// </summary>
-        [Input("privilegedDelete")]
+        [PolicyResourceProperty("privilegedDelete", "_mUnknown_PrivilegedDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivilegedDelete;
-
-        public string? PrivilegedDelete => _mPrivilegedDelete.GetValue("privilegedDelete");
+        private string? _mValue_PrivilegedDelete;
+        private bool _mUnknown_PrivilegedDelete;
+        public string? PrivilegedDelete
+        {
+            get
+            {
+                if (!_mUnknown_PrivilegedDelete) return _mValue_PrivilegedDelete;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationArgs.PrivilegedDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
         /// </summary>
-        [Input("retentionPeriod")]
+        [PolicyResourceProperty("retentionPeriod", "_mUnknown_RetentionPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodArgs> _mRetentionPeriod;
-
-        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodArgs? RetentionPeriod => _mRetentionPeriod.GetValue("retentionPeriod");
+        private Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodArgs? _mValue_RetentionPeriod;
+        private bool _mUnknown_RetentionPeriod;
+        public Inputs.OntapVolumeSnaplockConfigurationRetentionPeriodArgs? RetentionPeriod
+        {
+            get
+            {
+                if (!_mUnknown_RetentionPeriod) return _mValue_RetentionPeriod;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationArgs.RetentionPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
         /// </summary>
-        [Input("snaplockType")]
+        [PolicyResourceProperty("snaplockType", "_mUnknown_SnaplockType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnaplockType;
-
-        public string? SnaplockType => _mSnaplockType.GetValue("snaplockType");
+        private string? _mValue_SnaplockType;
+        private bool _mUnknown_SnaplockType;
+        public string? SnaplockType
+        {
+            get
+            {
+                if (!_mUnknown_SnaplockType) return _mValue_SnaplockType;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationArgs.SnaplockType' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
         /// </summary>
-        [Input("volumeAppendModeEnabled")]
+        [PolicyResourceProperty("volumeAppendModeEnabled", "_mUnknown_VolumeAppendModeEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVolumeAppendModeEnabled;
-
-        public bool? VolumeAppendModeEnabled => _mVolumeAppendModeEnabled.GetValue("volumeAppendModeEnabled");
+        private bool? _mValue_VolumeAppendModeEnabled;
+        private bool _mUnknown_VolumeAppendModeEnabled;
+        public bool? VolumeAppendModeEnabled
+        {
+            get
+            {
+                if (!_mUnknown_VolumeAppendModeEnabled) return _mValue_VolumeAppendModeEnabled;
+                throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationArgs.VolumeAppendModeEnabled' is not present");
+            }
+        }
     }
 }

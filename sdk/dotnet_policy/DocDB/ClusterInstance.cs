@@ -17,137 +17,242 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is`false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'ClusterInstance.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster instance
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ClusterInstance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
-
-        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private bool? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public bool? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'ClusterInstance.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'ClusterInstance.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
-        [Input("caCertIdentifier")]
+        [PolicyResourceProperty("caCertIdentifier", "_mUnknown_CaCertIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertIdentifier;
-
-        public string? CaCertIdentifier => _mCaCertIdentifier.GetValue("caCertIdentifier");
+        private string? _mValue_CaCertIdentifier;
+        private bool _mUnknown_CaCertIdentifier;
+        public string? CaCertIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_CaCertIdentifier) return _mValue_CaCertIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterInstance.CaCertIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterInstance.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Copy all DB instance `tags` to snapshots. Default is `false`.
         /// </summary>
-        [Input("copyTagsToSnapshot")]
+        [PolicyResourceProperty("copyTagsToSnapshot", "_mUnknown_CopyTagsToSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
-
-        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+        private bool? _mValue_CopyTagsToSnapshot;
+        private bool _mUnknown_CopyTagsToSnapshot;
+        public bool? CopyTagsToSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToSnapshot) return _mValue_CopyTagsToSnapshot;
+                throw new UndeferrableValueException("Value 'ClusterInstance.CopyTagsToSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// The DB subnet group to associate with this DB instance.
         /// </summary>
-        [Input("dbSubnetGroupName")]
+        [PolicyResourceProperty("dbSubnetGroupName", "_mUnknown_DbSubnetGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbSubnetGroupName;
-
-        public string? DbSubnetGroupName => _mDbSubnetGroupName.GetValue("dbSubnetGroupName");
+        private string? _mValue_DbSubnetGroupName;
+        private bool _mUnknown_DbSubnetGroupName;
+        public string? DbSubnetGroupName
+        {
+            get
+            {
+                if (!_mUnknown_DbSubnetGroupName) return _mValue_DbSubnetGroupName;
+                throw new UndeferrableValueException("Value 'ClusterInstance.DbSubnetGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The region-unique, immutable identifier for the DB instance.
         /// </summary>
-        [Input("dbiResourceId")]
+        [PolicyResourceProperty("dbiResourceId", "_mUnknown_DbiResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbiResourceId;
-
-        public string? DbiResourceId => _mDbiResourceId.GetValue("dbiResourceId");
+        private string? _mValue_DbiResourceId;
+        private bool _mUnknown_DbiResourceId;
+        public string? DbiResourceId
+        {
+            get
+            {
+                if (!_mUnknown_DbiResourceId) return _mValue_DbiResourceId;
+                throw new UndeferrableValueException("Value 'ClusterInstance.DbiResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         /// </summary>
-        [Input("enablePerformanceInsights")]
+        [PolicyResourceProperty("enablePerformanceInsights", "_mUnknown_EnablePerformanceInsights")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePerformanceInsights;
-
-        public bool? EnablePerformanceInsights => _mEnablePerformanceInsights.GetValue("enablePerformanceInsights");
+        private bool? _mValue_EnablePerformanceInsights;
+        private bool _mUnknown_EnablePerformanceInsights;
+        public bool? EnablePerformanceInsights
+        {
+            get
+            {
+                if (!_mUnknown_EnablePerformanceInsights) return _mValue_EnablePerformanceInsights;
+                throw new UndeferrableValueException("Value 'ClusterInstance.EnablePerformanceInsights' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS address for this instance. May not be writable
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'ClusterInstance.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'ClusterInstance.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine version
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'ClusterInstance.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'ClusterInstance.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
-        [Input("identifierPrefix")]
+        [PolicyResourceProperty("identifierPrefix", "_mUnknown_IdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
-
-        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+        private string? _mValue_IdentifierPrefix;
+        private bool _mUnknown_IdentifierPrefix;
+        public string? IdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_IdentifierPrefix) return _mValue_IdentifierPrefix;
+                throw new UndeferrableValueException("Value 'ClusterInstance.IdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
@@ -175,108 +280,192 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// - db.t4g.medium
         /// - db.t3.medium
         /// </summary>
-        [Input("instanceClass")]
+        [PolicyResourceProperty("instanceClass", "_mUnknown_InstanceClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
-
-        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
+        private string? _mValue_InstanceClass;
+        private bool _mUnknown_InstanceClass;
+        public string? InstanceClass
+        {
+            get
+            {
+                if (!_mUnknown_InstanceClass) return _mValue_InstanceClass;
+                throw new UndeferrableValueException("Value 'ClusterInstance.InstanceClass' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the KMS encryption key if one is set to the cluster.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterInstance.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         /// </summary>
-        [Input("performanceInsightsKmsKeyId")]
+        [PolicyResourceProperty("performanceInsightsKmsKeyId", "_mUnknown_PerformanceInsightsKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
-
-        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
+        private string? _mValue_PerformanceInsightsKmsKeyId;
+        private bool _mUnknown_PerformanceInsightsKmsKeyId;
+        public string? PerformanceInsightsKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsKmsKeyId) return _mValue_PerformanceInsightsKmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterInstance.PerformanceInsightsKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The database port
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ClusterInstance.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled.
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'ClusterInstance.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ClusterInstance.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         /// </summary>
-        [Input("promotionTier")]
+        [PolicyResourceProperty("promotionTier", "_mUnknown_PromotionTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPromotionTier;
+        private int? _mValue_PromotionTier;
+        private bool _mUnknown_PromotionTier;
+        public int? PromotionTier
+        {
+            get
+            {
+                if (!_mUnknown_PromotionTier) return _mValue_PromotionTier;
+                throw new UndeferrableValueException("Value 'ClusterInstance.PromotionTier' is not present");
+            }
+        }
 
-        public int? PromotionTier => _mPromotionTier.GetValue("promotionTier");
-
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'ClusterInstance.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted.
         /// </summary>
-        [Input("storageEncrypted")]
+        [PolicyResourceProperty("storageEncrypted", "_mUnknown_StorageEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStorageEncrypted;
-
-        public bool? StorageEncrypted => _mStorageEncrypted.GetValue("storageEncrypted");
+        private bool? _mValue_StorageEncrypted;
+        private bool _mUnknown_StorageEncrypted;
+        public bool? StorageEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_StorageEncrypted) return _mValue_StorageEncrypted;
+                throw new UndeferrableValueException("Value 'ClusterInstance.StorageEncrypted' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterInstance.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ClusterInstance.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         /// </summary>
-        [Input("writer")]
+        [PolicyResourceProperty("writer", "_mUnknown_Writer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWriter;
-
-        public bool? Writer => _mWriter.GetValue("writer");
+        private bool? _mValue_Writer;
+        private bool _mUnknown_Writer;
+        public bool? Writer
+        {
+            get
+            {
+                if (!_mUnknown_Writer) return _mValue_Writer;
+                throw new UndeferrableValueException("Value 'ClusterInstance.Writer' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:docdb/clusterInstance:ClusterInstance")]
@@ -286,92 +475,162 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is`false`.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         /// </summary>
-        [Input("autoMinorVersionUpgrade")]
+        [PolicyResourceProperty("autoMinorVersionUpgrade", "_mUnknown_AutoMinorVersionUpgrade")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoMinorVersionUpgrade;
-
-        public bool? AutoMinorVersionUpgrade => _mAutoMinorVersionUpgrade.GetValue("autoMinorVersionUpgrade");
+        private bool? _mValue_AutoMinorVersionUpgrade;
+        private bool _mUnknown_AutoMinorVersionUpgrade;
+        public bool? AutoMinorVersionUpgrade
+        {
+            get
+            {
+                if (!_mUnknown_AutoMinorVersionUpgrade) return _mValue_AutoMinorVersionUpgrade;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.AutoMinorVersionUpgrade' is not present");
+            }
+        }
 
         /// <summary>
         /// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the certificate authority (CA) certificate for the DB instance.
         /// </summary>
-        [Input("caCertIdentifier")]
+        [PolicyResourceProperty("caCertIdentifier", "_mUnknown_CaCertIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertIdentifier;
-
-        public string? CaCertIdentifier => _mCaCertIdentifier.GetValue("caCertIdentifier");
+        private string? _mValue_CaCertIdentifier;
+        private bool _mUnknown_CaCertIdentifier;
+        public string? CaCertIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_CaCertIdentifier) return _mValue_CaCertIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.CaCertIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Copy all DB instance `tags` to snapshots. Default is `false`.
         /// </summary>
-        [Input("copyTagsToSnapshot")]
+        [PolicyResourceProperty("copyTagsToSnapshot", "_mUnknown_CopyTagsToSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTagsToSnapshot;
-
-        public bool? CopyTagsToSnapshot => _mCopyTagsToSnapshot.GetValue("copyTagsToSnapshot");
+        private bool? _mValue_CopyTagsToSnapshot;
+        private bool _mUnknown_CopyTagsToSnapshot;
+        public bool? CopyTagsToSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_CopyTagsToSnapshot) return _mValue_CopyTagsToSnapshot;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.CopyTagsToSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         /// </summary>
-        [Input("enablePerformanceInsights")]
+        [PolicyResourceProperty("enablePerformanceInsights", "_mUnknown_EnablePerformanceInsights")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePerformanceInsights;
-
-        public bool? EnablePerformanceInsights => _mEnablePerformanceInsights.GetValue("enablePerformanceInsights");
+        private bool? _mValue_EnablePerformanceInsights;
+        private bool _mUnknown_EnablePerformanceInsights;
+        public bool? EnablePerformanceInsights
+        {
+            get
+            {
+                if (!_mUnknown_EnablePerformanceInsights) return _mValue_EnablePerformanceInsights;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.EnablePerformanceInsights' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
-        [Input("identifierPrefix")]
+        [PolicyResourceProperty("identifierPrefix", "_mUnknown_IdentifierPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifierPrefix;
-
-        public string? IdentifierPrefix => _mIdentifierPrefix.GetValue("identifierPrefix");
+        private string? _mValue_IdentifierPrefix;
+        private bool _mUnknown_IdentifierPrefix;
+        public string? IdentifierPrefix
+        {
+            get
+            {
+                if (!_mUnknown_IdentifierPrefix) return _mValue_IdentifierPrefix;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.IdentifierPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
@@ -399,47 +658,82 @@ namespace Pulumi.PolicyPacks.Aws.DocDB
         /// - db.t4g.medium
         /// - db.t3.medium
         /// </summary>
-        [Input("instanceClass")]
+        [PolicyResourceProperty("instanceClass", "_mUnknown_InstanceClass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceClass;
-
-        public string? InstanceClass => _mInstanceClass.GetValue("instanceClass");
+        private string? _mValue_InstanceClass;
+        private bool _mUnknown_InstanceClass;
+        public string? InstanceClass
+        {
+            get
+            {
+                if (!_mUnknown_InstanceClass) return _mValue_InstanceClass;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.InstanceClass' is not present");
+            }
+        }
 
         /// <summary>
         /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         /// </summary>
-        [Input("performanceInsightsKmsKeyId")]
+        [PolicyResourceProperty("performanceInsightsKmsKeyId", "_mUnknown_PerformanceInsightsKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPerformanceInsightsKmsKeyId;
-
-        public string? PerformanceInsightsKmsKeyId => _mPerformanceInsightsKmsKeyId.GetValue("performanceInsightsKmsKeyId");
+        private string? _mValue_PerformanceInsightsKmsKeyId;
+        private bool _mUnknown_PerformanceInsightsKmsKeyId;
+        public string? PerformanceInsightsKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_PerformanceInsightsKmsKeyId) return _mValue_PerformanceInsightsKmsKeyId;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.PerformanceInsightsKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         /// </summary>
-        [Input("promotionTier")]
+        [PolicyResourceProperty("promotionTier", "_mUnknown_PromotionTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPromotionTier;
-
-        public int? PromotionTier => _mPromotionTier.GetValue("promotionTier");
+        private int? _mValue_PromotionTier;
+        private bool _mUnknown_PromotionTier;
+        public int? PromotionTier
+        {
+            get
+            {
+                if (!_mUnknown_PromotionTier) return _mValue_PromotionTier;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.PromotionTier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ClusterInstanceArgs.Tags' is not present");
+            }
+        }
     }
 }

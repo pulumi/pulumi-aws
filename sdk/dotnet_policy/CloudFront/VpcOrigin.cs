@@ -16,68 +16,131 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The VPC origin ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcOrigin.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the origin.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'VpcOrigin.Etag' is not present");
+            }
+        }
 
-        public string? Etag => _mEtag.GetValue("etag");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcOrigin.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcOrigin.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcOriginTimeouts> _mTimeouts;
+        private Outputs.VpcOriginTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.VpcOriginTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'VpcOrigin.Timeouts' is not present");
+            }
+        }
 
-        public Outputs.VpcOriginTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
-
-        [Input("vpcOriginEndpointConfig")]
+        [PolicyResourceProperty("vpcOriginEndpointConfig", "_mUnknown_VpcOriginEndpointConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcOriginVpcOriginEndpointConfig> _mVpcOriginEndpointConfig;
-
-        public Outputs.VpcOriginVpcOriginEndpointConfig? VpcOriginEndpointConfig => _mVpcOriginEndpointConfig.GetValue("vpcOriginEndpointConfig");
+        private Outputs.VpcOriginVpcOriginEndpointConfig? _mValue_VpcOriginEndpointConfig;
+        private bool _mUnknown_VpcOriginEndpointConfig;
+        public Outputs.VpcOriginVpcOriginEndpointConfig? VpcOriginEndpointConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcOriginEndpointConfig) return _mValue_VpcOriginEndpointConfig;
+                throw new UndeferrableValueException("Value 'VpcOrigin.VpcOriginEndpointConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/vpcOrigin:VpcOrigin")]
     public sealed class VpcOriginArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcOriginArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcOriginTimeoutsArgs> _mTimeouts;
+        private Inputs.VpcOriginTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.VpcOriginTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'VpcOriginArgs.Timeouts' is not present");
+            }
+        }
 
-        public Inputs.VpcOriginTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
-
-        [Input("vpcOriginEndpointConfig")]
+        [PolicyResourceProperty("vpcOriginEndpointConfig", "_mUnknown_VpcOriginEndpointConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcOriginVpcOriginEndpointConfigArgs> _mVpcOriginEndpointConfig;
-
-        public Inputs.VpcOriginVpcOriginEndpointConfigArgs? VpcOriginEndpointConfig => _mVpcOriginEndpointConfig.GetValue("vpcOriginEndpointConfig");
+        private Inputs.VpcOriginVpcOriginEndpointConfigArgs? _mValue_VpcOriginEndpointConfig;
+        private bool _mUnknown_VpcOriginEndpointConfig;
+        public Inputs.VpcOriginVpcOriginEndpointConfigArgs? VpcOriginEndpointConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcOriginEndpointConfig) return _mValue_VpcOriginEndpointConfig;
+                throw new UndeferrableValueException("Value 'VpcOriginArgs.VpcOriginEndpointConfig' is not present");
+            }
+        }
     }
 }

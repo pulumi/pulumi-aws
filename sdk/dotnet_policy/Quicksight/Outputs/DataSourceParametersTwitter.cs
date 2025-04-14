@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The maximum number of rows to query.
         /// </summary>
-        [Input("maxRows")]
+        [PolicyResourceProperty("maxRows", "_mUnknown_MaxRows")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRows;
-
-        public int? MaxRows => _mMaxRows.GetValue("maxRows");
+        private int? _mValue_MaxRows;
+        private bool _mUnknown_MaxRows;
+        public int? MaxRows
+        {
+            get
+            {
+                if (!_mUnknown_MaxRows) return _mValue_MaxRows;
+                throw new UndeferrableValueException("Value 'DataSourceParametersTwitter.MaxRows' is not present");
+            }
+        }
 
         /// <summary>
         /// The Twitter query to retrieve the data.
         /// </summary>
-        [Input("query")]
+        [PolicyResourceProperty("query", "_mUnknown_Query")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuery;
-
-        public string? Query => _mQuery.GetValue("query");
+        private string? _mValue_Query;
+        private bool _mUnknown_Query;
+        public string? Query
+        {
+            get
+            {
+                if (!_mUnknown_Query) return _mValue_Query;
+                throw new UndeferrableValueException("Value 'DataSourceParametersTwitter.Query' is not present");
+            }
+        }
     }
 }

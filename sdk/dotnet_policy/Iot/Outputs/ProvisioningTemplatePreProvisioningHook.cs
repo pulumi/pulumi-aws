@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
         /// </summary>
-        [Input("payloadVersion")]
+        [PolicyResourceProperty("payloadVersion", "_mUnknown_PayloadVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadVersion;
-
-        public string? PayloadVersion => _mPayloadVersion.GetValue("payloadVersion");
+        private string? _mValue_PayloadVersion;
+        private bool _mUnknown_PayloadVersion;
+        public string? PayloadVersion
+        {
+            get
+            {
+                if (!_mUnknown_PayloadVersion) return _mValue_PayloadVersion;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplatePreProvisioningHook.PayloadVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the target function.
         /// </summary>
-        [Input("targetArn")]
+        [PolicyResourceProperty("targetArn", "_mUnknown_TargetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetArn;
-
-        public string? TargetArn => _mTargetArn.GetValue("targetArn");
+        private string? _mValue_TargetArn;
+        private bool _mUnknown_TargetArn;
+        public string? TargetArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetArn) return _mValue_TargetArn;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplatePreProvisioningHook.TargetArn' is not present");
+            }
+        }
     }
 }

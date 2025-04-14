@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
         /// </summary>
-        [Input("callingRegions")]
+        [PolicyResourceProperty("callingRegions", "_mUnknown_CallingRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCallingRegions;
-
-        public List<string>? CallingRegions => _mCallingRegions.GetValue("callingRegions");
+        private List<string>? _mValue_CallingRegions;
+        private bool _mUnknown_CallingRegions;
+        public List<string>? CallingRegions
+        {
+            get
+            {
+                if (!_mUnknown_CallingRegions) return _mValue_CallingRegions;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTermination.CallingRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addresses allowed to make calls, in CIDR format.
         /// </summary>
-        [Input("cidrAllowLists")]
+        [PolicyResourceProperty("cidrAllowLists", "_mUnknown_CidrAllowLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrAllowLists;
-
-        public List<string>? CidrAllowLists => _mCidrAllowLists.GetValue("cidrAllowLists");
+        private List<string>? _mValue_CidrAllowLists;
+        private bool _mUnknown_CidrAllowLists;
+        public List<string>? CidrAllowLists
+        {
+            get
+            {
+                if (!_mUnknown_CidrAllowLists) return _mValue_CidrAllowLists;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTermination.CidrAllowLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
         /// </summary>
-        [Input("cpsLimit")]
+        [PolicyResourceProperty("cpsLimit", "_mUnknown_CpsLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCpsLimit;
-
-        public int? CpsLimit => _mCpsLimit.GetValue("cpsLimit");
+        private int? _mValue_CpsLimit;
+        private bool _mUnknown_CpsLimit;
+        public int? CpsLimit
+        {
+            get
+            {
+                if (!_mUnknown_CpsLimit) return _mValue_CpsLimit;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTermination.CpsLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The default caller ID phone number.
         /// </summary>
-        [Input("defaultPhoneNumber")]
+        [PolicyResourceProperty("defaultPhoneNumber", "_mUnknown_DefaultPhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultPhoneNumber;
-
-        public string? DefaultPhoneNumber => _mDefaultPhoneNumber.GetValue("defaultPhoneNumber");
+        private string? _mValue_DefaultPhoneNumber;
+        private bool _mUnknown_DefaultPhoneNumber;
+        public string? DefaultPhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_DefaultPhoneNumber) return _mValue_DefaultPhoneNumber;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTermination.DefaultPhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// When termination settings are disabled, outbound calls can not be made.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTermination.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTermination.VoiceConnectorId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/voiceConnectorTermination:VoiceConnectorTermination")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
         /// </summary>
-        [Input("callingRegions")]
+        [PolicyResourceProperty("callingRegions", "_mUnknown_CallingRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCallingRegions;
-
-        public List<string>? CallingRegions => _mCallingRegions.GetValue("callingRegions");
+        private List<string>? _mValue_CallingRegions;
+        private bool _mUnknown_CallingRegions;
+        public List<string>? CallingRegions
+        {
+            get
+            {
+                if (!_mUnknown_CallingRegions) return _mValue_CallingRegions;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationArgs.CallingRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP addresses allowed to make calls, in CIDR format.
         /// </summary>
-        [Input("cidrAllowLists")]
+        [PolicyResourceProperty("cidrAllowLists", "_mUnknown_CidrAllowLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrAllowLists;
-
-        public List<string>? CidrAllowLists => _mCidrAllowLists.GetValue("cidrAllowLists");
+        private List<string>? _mValue_CidrAllowLists;
+        private bool _mUnknown_CidrAllowLists;
+        public List<string>? CidrAllowLists
+        {
+            get
+            {
+                if (!_mUnknown_CidrAllowLists) return _mValue_CidrAllowLists;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationArgs.CidrAllowLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
         /// </summary>
-        [Input("cpsLimit")]
+        [PolicyResourceProperty("cpsLimit", "_mUnknown_CpsLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCpsLimit;
-
-        public int? CpsLimit => _mCpsLimit.GetValue("cpsLimit");
+        private int? _mValue_CpsLimit;
+        private bool _mUnknown_CpsLimit;
+        public int? CpsLimit
+        {
+            get
+            {
+                if (!_mUnknown_CpsLimit) return _mValue_CpsLimit;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationArgs.CpsLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The default caller ID phone number.
         /// </summary>
-        [Input("defaultPhoneNumber")]
+        [PolicyResourceProperty("defaultPhoneNumber", "_mUnknown_DefaultPhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultPhoneNumber;
-
-        public string? DefaultPhoneNumber => _mDefaultPhoneNumber.GetValue("defaultPhoneNumber");
+        private string? _mValue_DefaultPhoneNumber;
+        private bool _mUnknown_DefaultPhoneNumber;
+        public string? DefaultPhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_DefaultPhoneNumber) return _mValue_DefaultPhoneNumber;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationArgs.DefaultPhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// When termination settings are disabled, outbound calls can not be made.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationArgs.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
-        [Input("voiceConnectorId")]
+        [PolicyResourceProperty("voiceConnectorId", "_mUnknown_VoiceConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVoiceConnectorId;
-
-        public string? VoiceConnectorId => _mVoiceConnectorId.GetValue("voiceConnectorId");
+        private string? _mValue_VoiceConnectorId;
+        private bool _mUnknown_VoiceConnectorId;
+        public string? VoiceConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnectorId) return _mValue_VoiceConnectorId;
+                throw new UndeferrableValueException("Value 'VoiceConnectorTerminationArgs.VoiceConnectorId' is not present");
+            }
+        }
     }
 }

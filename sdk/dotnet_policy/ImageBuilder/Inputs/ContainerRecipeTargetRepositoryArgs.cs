@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'ContainerRecipeTargetRepositoryArgs.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// The service in which this image is registered. Valid values: `ECR`.
         /// </summary>
-        [Input("service")]
+        [PolicyResourceProperty("service", "_mUnknown_Service")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mService;
-
-        public string? Service => _mService.GetValue("service");
+        private string? _mValue_Service;
+        private bool _mUnknown_Service;
+        public string? Service
+        {
+            get
+            {
+                if (!_mUnknown_Service) return _mValue_Service;
+                throw new UndeferrableValueException("Value 'ContainerRecipeTargetRepositoryArgs.Service' is not present");
+            }
+        }
     }
 }

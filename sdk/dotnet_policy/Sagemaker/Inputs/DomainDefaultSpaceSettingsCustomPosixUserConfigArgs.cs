@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The POSIX group ID.
         /// </summary>
-        [Input("gid")]
+        [PolicyResourceProperty("gid", "_mUnknown_Gid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mGid;
-
-        public int? Gid => _mGid.GetValue("gid");
+        private int? _mValue_Gid;
+        private bool _mUnknown_Gid;
+        public int? Gid
+        {
+            get
+            {
+                if (!_mUnknown_Gid) return _mValue_Gid;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsCustomPosixUserConfigArgs.Gid' is not present");
+            }
+        }
 
         /// <summary>
         /// The POSIX user ID.
         /// </summary>
-        [Input("uid")]
+        [PolicyResourceProperty("uid", "_mUnknown_Uid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUid;
-
-        public int? Uid => _mUid.GetValue("uid");
+        private int? _mValue_Uid;
+        private bool _mUnknown_Uid;
+        public int? Uid
+        {
+            get
+            {
+                if (!_mUnknown_Uid) return _mValue_Uid;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsCustomPosixUserConfigArgs.Uid' is not present");
+            }
+        }
     }
 }

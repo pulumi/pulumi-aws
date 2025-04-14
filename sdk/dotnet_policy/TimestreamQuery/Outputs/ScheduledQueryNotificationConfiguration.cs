@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
         /// </summary>
-        [Input("snsConfiguration")]
+        [PolicyResourceProperty("snsConfiguration", "_mUnknown_SnsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryNotificationConfigurationSnsConfiguration> _mSnsConfiguration;
-
-        public Outputs.ScheduledQueryNotificationConfigurationSnsConfiguration? SnsConfiguration => _mSnsConfiguration.GetValue("snsConfiguration");
+        private Outputs.ScheduledQueryNotificationConfigurationSnsConfiguration? _mValue_SnsConfiguration;
+        private bool _mUnknown_SnsConfiguration;
+        public Outputs.ScheduledQueryNotificationConfigurationSnsConfiguration? SnsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SnsConfiguration) return _mValue_SnsConfiguration;
+                throw new UndeferrableValueException("Value 'ScheduledQueryNotificationConfiguration.SnsConfiguration' is not present");
+            }
+        }
     }
 }

@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ProductSubscription.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the product that generates findings that you want to import into Security Hub - see below.
@@ -63,11 +70,18 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
         /// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
         /// </summary>
-        [Input("productArn")]
+        [PolicyResourceProperty("productArn", "_mUnknown_ProductArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductArn;
-
-        public string? ProductArn => _mProductArn.GetValue("productArn");
+        private string? _mValue_ProductArn;
+        private bool _mUnknown_ProductArn;
+        public string? ProductArn
+        {
+            get
+            {
+                if (!_mUnknown_ProductArn) return _mValue_ProductArn;
+                throw new UndeferrableValueException("Value 'ProductSubscription.ProductArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/productSubscription:ProductSubscription")]
@@ -114,10 +128,17 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
         /// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
         /// </summary>
-        [Input("productArn")]
+        [PolicyResourceProperty("productArn", "_mUnknown_ProductArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductArn;
-
-        public string? ProductArn => _mProductArn.GetValue("productArn");
+        private string? _mValue_ProductArn;
+        private bool _mUnknown_ProductArn;
+        public string? ProductArn
+        {
+            get
+            {
+                if (!_mUnknown_ProductArn) return _mValue_ProductArn;
+                throw new UndeferrableValueException("Value 'ProductSubscriptionArgs.ProductArn' is not present");
+            }
+        }
     }
 }

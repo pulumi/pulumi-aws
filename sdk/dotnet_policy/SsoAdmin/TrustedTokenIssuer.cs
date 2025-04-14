@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// ARN of the trusted token issuer.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         /// </summary>
-        [Input("clientToken")]
+        [PolicyResourceProperty("clientToken", "_mUnknown_ClientToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
-
-        public string? ClientToken => _mClientToken.GetValue("clientToken");
+        private string? _mValue_ClientToken;
+        private bool _mUnknown_ClientToken;
+        public string? ClientToken
+        {
+            get
+            {
+                if (!_mUnknown_ClientToken) return _mValue_ClientToken;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.ClientToken' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the instance of IAM Identity Center.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the trusted token issuer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         /// </summary>
-        [Input("trustedTokenIssuerConfiguration")]
+        [PolicyResourceProperty("trustedTokenIssuerConfiguration", "_mUnknown_TrustedTokenIssuerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration> _mTrustedTokenIssuerConfiguration;
-
-        public Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration? TrustedTokenIssuerConfiguration => _mTrustedTokenIssuerConfiguration.GetValue("trustedTokenIssuerConfiguration");
+        private Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration? _mValue_TrustedTokenIssuerConfiguration;
+        private bool _mUnknown_TrustedTokenIssuerConfiguration;
+        public Outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration? TrustedTokenIssuerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TrustedTokenIssuerConfiguration) return _mValue_TrustedTokenIssuerConfiguration;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.TrustedTokenIssuerConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("trustedTokenIssuerType")]
+        [PolicyResourceProperty("trustedTokenIssuerType", "_mUnknown_TrustedTokenIssuerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustedTokenIssuerType;
-
-        public string? TrustedTokenIssuerType => _mTrustedTokenIssuerType.GetValue("trustedTokenIssuerType");
+        private string? _mValue_TrustedTokenIssuerType;
+        private bool _mUnknown_TrustedTokenIssuerType;
+        public string? TrustedTokenIssuerType
+        {
+            get
+            {
+                if (!_mUnknown_TrustedTokenIssuerType) return _mValue_TrustedTokenIssuerType;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuer.TrustedTokenIssuerType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer")]
@@ -94,57 +150,99 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
         /// </summary>
-        [Input("clientToken")]
+        [PolicyResourceProperty("clientToken", "_mUnknown_ClientToken")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientToken;
-
-        public string? ClientToken => _mClientToken.GetValue("clientToken");
+        private string? _mValue_ClientToken;
+        private bool _mUnknown_ClientToken;
+        public string? ClientToken
+        {
+            get
+            {
+                if (!_mUnknown_ClientToken) return _mValue_ClientToken;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.ClientToken' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the instance of IAM Identity Center.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the trusted token issuer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         /// </summary>
-        [Input("trustedTokenIssuerConfiguration")]
+        [PolicyResourceProperty("trustedTokenIssuerConfiguration", "_mUnknown_TrustedTokenIssuerConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> _mTrustedTokenIssuerConfiguration;
-
-        public Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs? TrustedTokenIssuerConfiguration => _mTrustedTokenIssuerConfiguration.GetValue("trustedTokenIssuerConfiguration");
+        private Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs? _mValue_TrustedTokenIssuerConfiguration;
+        private bool _mUnknown_TrustedTokenIssuerConfiguration;
+        public Inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs? TrustedTokenIssuerConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TrustedTokenIssuerConfiguration) return _mValue_TrustedTokenIssuerConfiguration;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.TrustedTokenIssuerConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("trustedTokenIssuerType")]
+        [PolicyResourceProperty("trustedTokenIssuerType", "_mUnknown_TrustedTokenIssuerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustedTokenIssuerType;
-
-        public string? TrustedTokenIssuerType => _mTrustedTokenIssuerType.GetValue("trustedTokenIssuerType");
+        private string? _mValue_TrustedTokenIssuerType;
+        private bool _mUnknown_TrustedTokenIssuerType;
+        public string? TrustedTokenIssuerType
+        {
+            get
+            {
+                if (!_mUnknown_TrustedTokenIssuerType) return _mValue_TrustedTokenIssuerType;
+                throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.TrustedTokenIssuerType' is not present");
+            }
+        }
     }
 }

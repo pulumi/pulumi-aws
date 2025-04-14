@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the compute environment.
         /// </summary>
-        [Input("computeEnvironment")]
+        [PolicyResourceProperty("computeEnvironment", "_mUnknown_ComputeEnvironment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironment;
-
-        public string? ComputeEnvironment => _mComputeEnvironment.GetValue("computeEnvironment");
+        private string? _mValue_ComputeEnvironment;
+        private bool _mUnknown_ComputeEnvironment;
+        public string? ComputeEnvironment
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironment) return _mValue_ComputeEnvironment;
+                throw new UndeferrableValueException("Value 'JobQueueComputeEnvironmentOrder.ComputeEnvironment' is not present");
+            }
+        }
 
         /// <summary>
         /// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
         /// </summary>
-        [Input("order")]
+        [PolicyResourceProperty("order", "_mUnknown_Order")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOrder;
-
-        public int? Order => _mOrder.GetValue("order");
+        private int? _mValue_Order;
+        private bool _mUnknown_Order;
+        public int? Order
+        {
+            get
+            {
+                if (!_mUnknown_Order) return _mValue_Order;
+                throw new UndeferrableValueException("Value 'JobQueueComputeEnvironmentOrder.Order' is not present");
+            }
+        }
     }
 }

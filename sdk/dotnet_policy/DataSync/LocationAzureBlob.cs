@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         /// </summary>
-        [Input("accessTier")]
+        [PolicyResourceProperty("accessTier", "_mUnknown_AccessTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessTier;
-
-        public string? AccessTier => _mAccessTier.GetValue("accessTier");
+        private string? _mValue_AccessTier;
+        private bool _mUnknown_AccessTier;
+        public string? AccessTier
+        {
+            get
+            {
+                if (!_mUnknown_AccessTier) return _mValue_AccessTier;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.AccessTier' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         /// </summary>
-        [Input("blobType")]
+        [PolicyResourceProperty("blobType", "_mUnknown_BlobType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlobType;
-
-        public string? BlobType => _mBlobType.GetValue("blobType");
+        private string? _mValue_BlobType;
+        private bool _mUnknown_BlobType;
+        public string? BlobType
+        {
+            get
+            {
+                if (!_mUnknown_BlobType) return _mValue_BlobType;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.BlobType' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the Azure Blob Storage container involved in your transfer.
         /// </summary>
-        [Input("containerUrl")]
+        [PolicyResourceProperty("containerUrl", "_mUnknown_ContainerUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerUrl;
-
-        public string? ContainerUrl => _mContainerUrl.GetValue("containerUrl");
+        private string? _mValue_ContainerUrl;
+        private bool _mUnknown_ContainerUrl;
+        public string? ContainerUrl
+        {
+            get
+            {
+                if (!_mUnknown_ContainerUrl) return _mValue_ContainerUrl;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.ContainerUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         /// </summary>
-        [Input("sasConfiguration")]
+        [PolicyResourceProperty("sasConfiguration", "_mUnknown_SasConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.LocationAzureBlobSasConfiguration> _mSasConfiguration;
-
-        public Outputs.LocationAzureBlobSasConfiguration? SasConfiguration => _mSasConfiguration.GetValue("sasConfiguration");
+        private Outputs.LocationAzureBlobSasConfiguration? _mValue_SasConfiguration;
+        private bool _mUnknown_SasConfiguration;
+        public Outputs.LocationAzureBlobSasConfiguration? SasConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SasConfiguration) return _mValue_SasConfiguration;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.SasConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Path segments if you want to limit your transfer to a virtual directory in the container.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'LocationAzureBlob.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/locationAzureBlob:LocationAzureBlob")]
@@ -116,73 +193,129 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         /// </summary>
-        [Input("accessTier")]
+        [PolicyResourceProperty("accessTier", "_mUnknown_AccessTier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessTier;
-
-        public string? AccessTier => _mAccessTier.GetValue("accessTier");
+        private string? _mValue_AccessTier;
+        private bool _mUnknown_AccessTier;
+        public string? AccessTier
+        {
+            get
+            {
+                if (!_mUnknown_AccessTier) return _mValue_AccessTier;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.AccessTier' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of DataSync Agent ARNs with which this location will be associated.
         /// </summary>
-        [Input("agentArns")]
+        [PolicyResourceProperty("agentArns", "_mUnknown_AgentArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAgentArns;
-
-        public List<string>? AgentArns => _mAgentArns.GetValue("agentArns");
+        private List<string>? _mValue_AgentArns;
+        private bool _mUnknown_AgentArns;
+        public List<string>? AgentArns
+        {
+            get
+            {
+                if (!_mUnknown_AgentArns) return _mValue_AgentArns;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.AgentArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         /// </summary>
-        [Input("blobType")]
+        [PolicyResourceProperty("blobType", "_mUnknown_BlobType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlobType;
-
-        public string? BlobType => _mBlobType.GetValue("blobType");
+        private string? _mValue_BlobType;
+        private bool _mUnknown_BlobType;
+        public string? BlobType
+        {
+            get
+            {
+                if (!_mUnknown_BlobType) return _mValue_BlobType;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.BlobType' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the Azure Blob Storage container involved in your transfer.
         /// </summary>
-        [Input("containerUrl")]
+        [PolicyResourceProperty("containerUrl", "_mUnknown_ContainerUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContainerUrl;
-
-        public string? ContainerUrl => _mContainerUrl.GetValue("containerUrl");
+        private string? _mValue_ContainerUrl;
+        private bool _mUnknown_ContainerUrl;
+        public string? ContainerUrl
+        {
+            get
+            {
+                if (!_mUnknown_ContainerUrl) return _mValue_ContainerUrl;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.ContainerUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         /// </summary>
-        [Input("sasConfiguration")]
+        [PolicyResourceProperty("sasConfiguration", "_mUnknown_SasConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LocationAzureBlobSasConfigurationArgs> _mSasConfiguration;
-
-        public Inputs.LocationAzureBlobSasConfigurationArgs? SasConfiguration => _mSasConfiguration.GetValue("sasConfiguration");
+        private Inputs.LocationAzureBlobSasConfigurationArgs? _mValue_SasConfiguration;
+        private bool _mUnknown_SasConfiguration;
+        public Inputs.LocationAzureBlobSasConfigurationArgs? SasConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SasConfiguration) return _mValue_SasConfiguration;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.SasConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Path segments if you want to limit your transfer to a virtual directory in the container.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.Tags' is not present");
+            }
+        }
     }
 }

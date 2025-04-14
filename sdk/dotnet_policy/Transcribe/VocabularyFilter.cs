@@ -16,73 +16,129 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// <summary>
         /// ARN of the VocabularyFilter.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Generated download URI.
         /// </summary>
-        [Input("downloadUri")]
+        [PolicyResourceProperty("downloadUri", "_mUnknown_DownloadUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDownloadUri;
-
-        public string? DownloadUri => _mDownloadUri.GetValue("downloadUri");
+        private string? _mValue_DownloadUri;
+        private bool _mUnknown_DownloadUri;
+        public string? DownloadUri
+        {
+            get
+            {
+                if (!_mUnknown_DownloadUri) return _mValue_DownloadUri;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.DownloadUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         /// </summary>
-        [Input("vocabularyFilterFileUri")]
+        [PolicyResourceProperty("vocabularyFilterFileUri", "_mUnknown_VocabularyFilterFileUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFilterFileUri;
-
-        public string? VocabularyFilterFileUri => _mVocabularyFilterFileUri.GetValue("vocabularyFilterFileUri");
+        private string? _mValue_VocabularyFilterFileUri;
+        private bool _mUnknown_VocabularyFilterFileUri;
+        public string? VocabularyFilterFileUri
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFilterFileUri) return _mValue_VocabularyFilterFileUri;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.VocabularyFilterFileUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the VocabularyFilter.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vocabularyFilterName")]
+        [PolicyResourceProperty("vocabularyFilterName", "_mUnknown_VocabularyFilterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFilterName;
-
-        public string? VocabularyFilterName => _mVocabularyFilterName.GetValue("vocabularyFilterName");
+        private string? _mValue_VocabularyFilterName;
+        private bool _mUnknown_VocabularyFilterName;
+        public string? VocabularyFilterName
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFilterName) return _mValue_VocabularyFilterName;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.VocabularyFilterName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         /// </summary>
-        [Input("words")]
+        [PolicyResourceProperty("words", "_mUnknown_Words")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mWords;
-
-        public List<string>? Words => _mWords.GetValue("words");
+        private List<string>? _mValue_Words;
+        private bool _mUnknown_Words;
+        public List<string>? Words
+        {
+            get
+            {
+                if (!_mUnknown_Words) return _mValue_Words;
+                throw new UndeferrableValueException("Value 'VocabularyFilter.Words' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transcribe/vocabularyFilter:VocabularyFilter")]
@@ -91,48 +147,83 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// <summary>
         /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'VocabularyFilterArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VocabularyFilterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         /// </summary>
-        [Input("vocabularyFilterFileUri")]
+        [PolicyResourceProperty("vocabularyFilterFileUri", "_mUnknown_VocabularyFilterFileUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFilterFileUri;
-
-        public string? VocabularyFilterFileUri => _mVocabularyFilterFileUri.GetValue("vocabularyFilterFileUri");
+        private string? _mValue_VocabularyFilterFileUri;
+        private bool _mUnknown_VocabularyFilterFileUri;
+        public string? VocabularyFilterFileUri
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFilterFileUri) return _mValue_VocabularyFilterFileUri;
+                throw new UndeferrableValueException("Value 'VocabularyFilterArgs.VocabularyFilterFileUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the VocabularyFilter.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vocabularyFilterName")]
+        [PolicyResourceProperty("vocabularyFilterName", "_mUnknown_VocabularyFilterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFilterName;
-
-        public string? VocabularyFilterName => _mVocabularyFilterName.GetValue("vocabularyFilterName");
+        private string? _mValue_VocabularyFilterName;
+        private bool _mUnknown_VocabularyFilterName;
+        public string? VocabularyFilterName
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFilterName) return _mValue_VocabularyFilterName;
+                throw new UndeferrableValueException("Value 'VocabularyFilterArgs.VocabularyFilterName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         /// </summary>
-        [Input("words")]
+        [PolicyResourceProperty("words", "_mUnknown_Words")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mWords;
-
-        public List<string>? Words => _mWords.GetValue("words");
+        private List<string>? _mValue_Words;
+        private bool _mUnknown_Words;
+        public List<string>? Words
+        {
+            get
+            {
+                if (!_mUnknown_Words) return _mValue_Words;
+                throw new UndeferrableValueException("Value 'VocabularyFilterArgs.Words' is not present");
+            }
+        }
     }
 }

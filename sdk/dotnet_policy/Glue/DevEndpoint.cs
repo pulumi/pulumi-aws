@@ -16,227 +16,402 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// A map of arguments used to configure the endpoint.
         /// </summary>
-        [Input("arguments")]
+        [PolicyResourceProperty("arguments", "_mUnknown_Arguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mArguments;
-
-        public Dictionary<string, string>? Arguments => _mArguments.GetValue("arguments");
+        private Dictionary<string, string>? _mValue_Arguments;
+        private bool _mUnknown_Arguments;
+        public Dictionary<string, string>? Arguments
+        {
+            get
+            {
+                if (!_mUnknown_Arguments) return _mValue_Arguments;
+                throw new UndeferrableValueException("Value 'DevEndpoint.Arguments' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the endpoint.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DevEndpoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS availability zone where this endpoint is located.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'DevEndpoint.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         /// </summary>
-        [Input("extraJarsS3Path")]
+        [PolicyResourceProperty("extraJarsS3Path", "_mUnknown_ExtraJarsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtraJarsS3Path;
-
-        public string? ExtraJarsS3Path => _mExtraJarsS3Path.GetValue("extraJarsS3Path");
+        private string? _mValue_ExtraJarsS3Path;
+        private bool _mUnknown_ExtraJarsS3Path;
+        public string? ExtraJarsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_ExtraJarsS3Path) return _mValue_ExtraJarsS3Path;
+                throw new UndeferrableValueException("Value 'DevEndpoint.ExtraJarsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         /// </summary>
-        [Input("extraPythonLibsS3Path")]
+        [PolicyResourceProperty("extraPythonLibsS3Path", "_mUnknown_ExtraPythonLibsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtraPythonLibsS3Path;
-
-        public string? ExtraPythonLibsS3Path => _mExtraPythonLibsS3Path.GetValue("extraPythonLibsS3Path");
+        private string? _mValue_ExtraPythonLibsS3Path;
+        private bool _mUnknown_ExtraPythonLibsS3Path;
+        public string? ExtraPythonLibsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_ExtraPythonLibsS3Path) return _mValue_ExtraPythonLibsS3Path;
+                throw new UndeferrableValueException("Value 'DevEndpoint.ExtraPythonLibsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The reason for a current failure in this endpoint.
         /// </summary>
-        [Input("failureReason")]
+        [PolicyResourceProperty("failureReason", "_mUnknown_FailureReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFailureReason;
-
-        public string? FailureReason => _mFailureReason.GetValue("failureReason");
+        private string? _mValue_FailureReason;
+        private bool _mUnknown_FailureReason;
+        public string? FailureReason
+        {
+            get
+            {
+                if (!_mUnknown_FailureReason) return _mValue_FailureReason;
+                throw new UndeferrableValueException("Value 'DevEndpoint.FailureReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         /// </summary>
-        [Input("glueVersion")]
+        [PolicyResourceProperty("glueVersion", "_mUnknown_GlueVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
-
-        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+        private string? _mValue_GlueVersion;
+        private bool _mUnknown_GlueVersion;
+        public string? GlueVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlueVersion) return _mValue_GlueVersion;
+                throw new UndeferrableValueException("Value 'DevEndpoint.GlueVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of this endpoint. It must be unique in your account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DevEndpoint.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         /// </summary>
-        [Input("numberOfNodes")]
+        [PolicyResourceProperty("numberOfNodes", "_mUnknown_NumberOfNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfNodes;
-
-        public int? NumberOfNodes => _mNumberOfNodes.GetValue("numberOfNodes");
+        private int? _mValue_NumberOfNodes;
+        private bool _mUnknown_NumberOfNodes;
+        public int? NumberOfNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfNodes) return _mValue_NumberOfNodes;
+                throw new UndeferrableValueException("Value 'DevEndpoint.NumberOfNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         /// </summary>
-        [Input("numberOfWorkers")]
+        [PolicyResourceProperty("numberOfWorkers", "_mUnknown_NumberOfWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
-
-        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+        private int? _mValue_NumberOfWorkers;
+        private bool _mUnknown_NumberOfWorkers;
+        public int? NumberOfWorkers
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfWorkers) return _mValue_NumberOfWorkers;
+                throw new UndeferrableValueException("Value 'DevEndpoint.NumberOfWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// A private IP address to access the endpoint within a VPC, if this endpoint is created within one.
         /// </summary>
-        [Input("privateAddress")]
+        [PolicyResourceProperty("privateAddress", "_mUnknown_PrivateAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateAddress;
-
-        public string? PrivateAddress => _mPrivateAddress.GetValue("privateAddress");
+        private string? _mValue_PrivateAddress;
+        private bool _mUnknown_PrivateAddress;
+        public string? PrivateAddress
+        {
+            get
+            {
+                if (!_mUnknown_PrivateAddress) return _mValue_PrivateAddress;
+                throw new UndeferrableValueException("Value 'DevEndpoint.PrivateAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The public IP address used by this endpoint. The PublicAddress field is present only when you create a non-VPC endpoint.
         /// </summary>
-        [Input("publicAddress")]
+        [PolicyResourceProperty("publicAddress", "_mUnknown_PublicAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicAddress;
-
-        public string? PublicAddress => _mPublicAddress.GetValue("publicAddress");
+        private string? _mValue_PublicAddress;
+        private bool _mUnknown_PublicAddress;
+        public string? PublicAddress
+        {
+            get
+            {
+                if (!_mUnknown_PublicAddress) return _mValue_PublicAddress;
+                throw new UndeferrableValueException("Value 'DevEndpoint.PublicAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The public key to be used by this endpoint for authentication.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'DevEndpoint.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of public keys to be used by this endpoint for authentication.
         /// </summary>
-        [Input("publicKeys")]
+        [PolicyResourceProperty("publicKeys", "_mUnknown_PublicKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPublicKeys;
-
-        public List<string>? PublicKeys => _mPublicKeys.GetValue("publicKeys");
+        private List<string>? _mValue_PublicKeys;
+        private bool _mUnknown_PublicKeys;
+        public List<string>? PublicKeys
+        {
+            get
+            {
+                if (!_mUnknown_PublicKeys) return _mValue_PublicKeys;
+                throw new UndeferrableValueException("Value 'DevEndpoint.PublicKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role for this endpoint.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DevEndpoint.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Security Configuration structure to be used with this endpoint.
         /// </summary>
-        [Input("securityConfiguration")]
+        [PolicyResourceProperty("securityConfiguration", "_mUnknown_SecurityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
-
-        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+        private string? _mValue_SecurityConfiguration;
+        private bool _mUnknown_SecurityConfiguration;
+        public string? SecurityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfiguration) return _mValue_SecurityConfiguration;
+                throw new UndeferrableValueException("Value 'DevEndpoint.SecurityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Security group IDs for the security groups to be used by this endpoint.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'DevEndpoint.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of this endpoint.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DevEndpoint.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet ID for the new endpoint to use.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'DevEndpoint.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DevEndpoint.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DevEndpoint.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// he ID of the VPC used by this endpoint.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'DevEndpoint.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         /// </summary>
-        [Input("workerType")]
+        [PolicyResourceProperty("workerType", "_mUnknown_WorkerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
-
-        public string? WorkerType => _mWorkerType.GetValue("workerType");
+        private string? _mValue_WorkerType;
+        private bool _mUnknown_WorkerType;
+        public string? WorkerType
+        {
+            get
+            {
+                if (!_mUnknown_WorkerType) return _mValue_WorkerType;
+                throw new UndeferrableValueException("Value 'DevEndpoint.WorkerType' is not present");
+            }
+        }
 
         /// <summary>
         /// The YARN endpoint address used by this endpoint.
         /// </summary>
-        [Input("yarnEndpointAddress")]
+        [PolicyResourceProperty("yarnEndpointAddress", "_mUnknown_YarnEndpointAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mYarnEndpointAddress;
-
-        public string? YarnEndpointAddress => _mYarnEndpointAddress.GetValue("yarnEndpointAddress");
+        private string? _mValue_YarnEndpointAddress;
+        private bool _mUnknown_YarnEndpointAddress;
+        public string? YarnEndpointAddress
+        {
+            get
+            {
+                if (!_mUnknown_YarnEndpointAddress) return _mValue_YarnEndpointAddress;
+                throw new UndeferrableValueException("Value 'DevEndpoint.YarnEndpointAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The Apache Zeppelin port for the remote Apache Spark interpreter.
         /// </summary>
-        [Input("zeppelinRemoteSparkInterpreterPort")]
+        [PolicyResourceProperty("zeppelinRemoteSparkInterpreterPort", "_mUnknown_ZeppelinRemoteSparkInterpreterPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mZeppelinRemoteSparkInterpreterPort;
-
-        public int? ZeppelinRemoteSparkInterpreterPort => _mZeppelinRemoteSparkInterpreterPort.GetValue("zeppelinRemoteSparkInterpreterPort");
+        private int? _mValue_ZeppelinRemoteSparkInterpreterPort;
+        private bool _mUnknown_ZeppelinRemoteSparkInterpreterPort;
+        public int? ZeppelinRemoteSparkInterpreterPort
+        {
+            get
+            {
+                if (!_mUnknown_ZeppelinRemoteSparkInterpreterPort) return _mValue_ZeppelinRemoteSparkInterpreterPort;
+                throw new UndeferrableValueException("Value 'DevEndpoint.ZeppelinRemoteSparkInterpreterPort' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/devEndpoint:DevEndpoint")]
@@ -245,136 +420,241 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// A map of arguments used to configure the endpoint.
         /// </summary>
-        [Input("arguments")]
+        [PolicyResourceProperty("arguments", "_mUnknown_Arguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mArguments;
-
-        public Dictionary<string, string>? Arguments => _mArguments.GetValue("arguments");
+        private Dictionary<string, string>? _mValue_Arguments;
+        private bool _mUnknown_Arguments;
+        public Dictionary<string, string>? Arguments
+        {
+            get
+            {
+                if (!_mUnknown_Arguments) return _mValue_Arguments;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.Arguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
         /// </summary>
-        [Input("extraJarsS3Path")]
+        [PolicyResourceProperty("extraJarsS3Path", "_mUnknown_ExtraJarsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtraJarsS3Path;
-
-        public string? ExtraJarsS3Path => _mExtraJarsS3Path.GetValue("extraJarsS3Path");
+        private string? _mValue_ExtraJarsS3Path;
+        private bool _mUnknown_ExtraJarsS3Path;
+        public string? ExtraJarsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_ExtraJarsS3Path) return _mValue_ExtraJarsS3Path;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.ExtraJarsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
         /// </summary>
-        [Input("extraPythonLibsS3Path")]
+        [PolicyResourceProperty("extraPythonLibsS3Path", "_mUnknown_ExtraPythonLibsS3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtraPythonLibsS3Path;
-
-        public string? ExtraPythonLibsS3Path => _mExtraPythonLibsS3Path.GetValue("extraPythonLibsS3Path");
+        private string? _mValue_ExtraPythonLibsS3Path;
+        private bool _mUnknown_ExtraPythonLibsS3Path;
+        public string? ExtraPythonLibsS3Path
+        {
+            get
+            {
+                if (!_mUnknown_ExtraPythonLibsS3Path) return _mValue_ExtraPythonLibsS3Path;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.ExtraPythonLibsS3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
         /// </summary>
-        [Input("glueVersion")]
+        [PolicyResourceProperty("glueVersion", "_mUnknown_GlueVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlueVersion;
-
-        public string? GlueVersion => _mGlueVersion.GetValue("glueVersion");
+        private string? _mValue_GlueVersion;
+        private bool _mUnknown_GlueVersion;
+        public string? GlueVersion
+        {
+            get
+            {
+                if (!_mUnknown_GlueVersion) return _mValue_GlueVersion;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.GlueVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of this endpoint. It must be unique in your account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
         /// </summary>
-        [Input("numberOfNodes")]
+        [PolicyResourceProperty("numberOfNodes", "_mUnknown_NumberOfNodes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfNodes;
-
-        public int? NumberOfNodes => _mNumberOfNodes.GetValue("numberOfNodes");
+        private int? _mValue_NumberOfNodes;
+        private bool _mUnknown_NumberOfNodes;
+        public int? NumberOfNodes
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfNodes) return _mValue_NumberOfNodes;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.NumberOfNodes' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
         /// </summary>
-        [Input("numberOfWorkers")]
+        [PolicyResourceProperty("numberOfWorkers", "_mUnknown_NumberOfWorkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfWorkers;
-
-        public int? NumberOfWorkers => _mNumberOfWorkers.GetValue("numberOfWorkers");
+        private int? _mValue_NumberOfWorkers;
+        private bool _mUnknown_NumberOfWorkers;
+        public int? NumberOfWorkers
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfWorkers) return _mValue_NumberOfWorkers;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.NumberOfWorkers' is not present");
+            }
+        }
 
         /// <summary>
         /// The public key to be used by this endpoint for authentication.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of public keys to be used by this endpoint for authentication.
         /// </summary>
-        [Input("publicKeys")]
+        [PolicyResourceProperty("publicKeys", "_mUnknown_PublicKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPublicKeys;
-
-        public List<string>? PublicKeys => _mPublicKeys.GetValue("publicKeys");
+        private List<string>? _mValue_PublicKeys;
+        private bool _mUnknown_PublicKeys;
+        public List<string>? PublicKeys
+        {
+            get
+            {
+                if (!_mUnknown_PublicKeys) return _mValue_PublicKeys;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.PublicKeys' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role for this endpoint.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Security Configuration structure to be used with this endpoint.
         /// </summary>
-        [Input("securityConfiguration")]
+        [PolicyResourceProperty("securityConfiguration", "_mUnknown_SecurityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
-
-        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+        private string? _mValue_SecurityConfiguration;
+        private bool _mUnknown_SecurityConfiguration;
+        public string? SecurityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfiguration) return _mValue_SecurityConfiguration;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.SecurityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Security group IDs for the security groups to be used by this endpoint.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet ID for the new endpoint to use.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         /// </summary>
-        [Input("workerType")]
+        [PolicyResourceProperty("workerType", "_mUnknown_WorkerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkerType;
-
-        public string? WorkerType => _mWorkerType.GetValue("workerType");
+        private string? _mValue_WorkerType;
+        private bool _mUnknown_WorkerType;
+        public string? WorkerType
+        {
+            get
+            {
+                if (!_mUnknown_WorkerType) return _mValue_WorkerType;
+                throw new UndeferrableValueException("Value 'DevEndpointArgs.WorkerType' is not present");
+            }
+        }
     }
 }

@@ -12,142 +12,282 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class SpotFleetRequestLaunchSpecification
     {
-        [Input("ami")]
+        [PolicyResourceProperty("ami", "_mUnknown_Ami")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmi;
+        private string? _mValue_Ami;
+        private bool _mUnknown_Ami;
+        public string? Ami
+        {
+            get
+            {
+                if (!_mUnknown_Ami) return _mValue_Ami;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.Ami' is not present");
+            }
+        }
 
-        public string? Ami => _mAmi.GetValue("ami");
-
-        [Input("associatePublicIpAddress")]
+        [PolicyResourceProperty("associatePublicIpAddress", "_mUnknown_AssociatePublicIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
-
-        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
+        private bool? _mValue_AssociatePublicIpAddress;
+        private bool _mUnknown_AssociatePublicIpAddress;
+        public bool? AssociatePublicIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_AssociatePublicIpAddress) return _mValue_AssociatePublicIpAddress;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.AssociatePublicIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The availability zone in which to place the request.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.AvailabilityZone' is not present");
+            }
+        }
 
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
-
-        [Input("ebsBlockDevices")]
+        [PolicyResourceProperty("ebsBlockDevices", "_mUnknown_EbsBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SpotFleetRequestLaunchSpecificationEbsBlockDevice>> _mEbsBlockDevices;
+        private List<Outputs.SpotFleetRequestLaunchSpecificationEbsBlockDevice>? _mValue_EbsBlockDevices;
+        private bool _mUnknown_EbsBlockDevices;
+        public List<Outputs.SpotFleetRequestLaunchSpecificationEbsBlockDevice>? EbsBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EbsBlockDevices) return _mValue_EbsBlockDevices;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.EbsBlockDevices' is not present");
+            }
+        }
 
-        public List<Outputs.SpotFleetRequestLaunchSpecificationEbsBlockDevice>? EbsBlockDevices => _mEbsBlockDevices.GetValue("ebsBlockDevices");
-
-        [Input("ebsOptimized")]
+        [PolicyResourceProperty("ebsOptimized", "_mUnknown_EbsOptimized")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEbsOptimized;
+        private bool? _mValue_EbsOptimized;
+        private bool _mUnknown_EbsOptimized;
+        public bool? EbsOptimized
+        {
+            get
+            {
+                if (!_mUnknown_EbsOptimized) return _mValue_EbsOptimized;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.EbsOptimized' is not present");
+            }
+        }
 
-        public bool? EbsOptimized => _mEbsOptimized.GetValue("ebsOptimized");
-
-        [Input("ephemeralBlockDevices")]
+        [PolicyResourceProperty("ephemeralBlockDevices", "_mUnknown_EphemeralBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice>> _mEphemeralBlockDevices;
+        private List<Outputs.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice>? _mValue_EphemeralBlockDevices;
+        private bool _mUnknown_EphemeralBlockDevices;
+        public List<Outputs.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice>? EphemeralBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_EphemeralBlockDevices) return _mValue_EphemeralBlockDevices;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.EphemeralBlockDevices' is not present");
+            }
+        }
 
-        public List<Outputs.SpotFleetRequestLaunchSpecificationEphemeralBlockDevice>? EphemeralBlockDevices => _mEphemeralBlockDevices.GetValue("ephemeralBlockDevices");
-
-        [Input("iamInstanceProfile")]
+        [PolicyResourceProperty("iamInstanceProfile", "_mUnknown_IamInstanceProfile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfile;
+        private string? _mValue_IamInstanceProfile;
+        private bool _mUnknown_IamInstanceProfile;
+        public string? IamInstanceProfile
+        {
+            get
+            {
+                if (!_mUnknown_IamInstanceProfile) return _mValue_IamInstanceProfile;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.IamInstanceProfile' is not present");
+            }
+        }
 
-        public string? IamInstanceProfile => _mIamInstanceProfile.GetValue("iamInstanceProfile");
-
-        [Input("iamInstanceProfileArn")]
+        [PolicyResourceProperty("iamInstanceProfileArn", "_mUnknown_IamInstanceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamInstanceProfileArn;
-
-        public string? IamInstanceProfileArn => _mIamInstanceProfileArn.GetValue("iamInstanceProfileArn");
+        private string? _mValue_IamInstanceProfileArn;
+        private bool _mUnknown_IamInstanceProfileArn;
+        public string? IamInstanceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_IamInstanceProfileArn) return _mValue_IamInstanceProfileArn;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.IamInstanceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of instance to request.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.InstanceType' is not present");
+            }
+        }
 
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
-
-        [Input("keyName")]
+        [PolicyResourceProperty("keyName", "_mUnknown_KeyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyName;
+        private string? _mValue_KeyName;
+        private bool _mUnknown_KeyName;
+        public string? KeyName
+        {
+            get
+            {
+                if (!_mUnknown_KeyName) return _mValue_KeyName;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.KeyName' is not present");
+            }
+        }
 
-        public string? KeyName => _mKeyName.GetValue("keyName");
-
-        [Input("monitoring")]
+        [PolicyResourceProperty("monitoring", "_mUnknown_Monitoring")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMonitoring;
+        private bool? _mValue_Monitoring;
+        private bool _mUnknown_Monitoring;
+        public bool? Monitoring
+        {
+            get
+            {
+                if (!_mUnknown_Monitoring) return _mValue_Monitoring;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.Monitoring' is not present");
+            }
+        }
 
-        public bool? Monitoring => _mMonitoring.GetValue("monitoring");
-
-        [Input("placementGroup")]
+        [PolicyResourceProperty("placementGroup", "_mUnknown_PlacementGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
+        private string? _mValue_PlacementGroup;
+        private bool _mUnknown_PlacementGroup;
+        public string? PlacementGroup
+        {
+            get
+            {
+                if (!_mUnknown_PlacementGroup) return _mValue_PlacementGroup;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.PlacementGroup' is not present");
+            }
+        }
 
-        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
-
-        [Input("placementTenancy")]
+        [PolicyResourceProperty("placementTenancy", "_mUnknown_PlacementTenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementTenancy;
+        private string? _mValue_PlacementTenancy;
+        private bool _mUnknown_PlacementTenancy;
+        public string? PlacementTenancy
+        {
+            get
+            {
+                if (!_mUnknown_PlacementTenancy) return _mValue_PlacementTenancy;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.PlacementTenancy' is not present");
+            }
+        }
 
-        public string? PlacementTenancy => _mPlacementTenancy.GetValue("placementTenancy");
-
-        [Input("rootBlockDevices")]
+        [PolicyResourceProperty("rootBlockDevices", "_mUnknown_RootBlockDevices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SpotFleetRequestLaunchSpecificationRootBlockDevice>> _mRootBlockDevices;
-
-        public List<Outputs.SpotFleetRequestLaunchSpecificationRootBlockDevice>? RootBlockDevices => _mRootBlockDevices.GetValue("rootBlockDevices");
+        private List<Outputs.SpotFleetRequestLaunchSpecificationRootBlockDevice>? _mValue_RootBlockDevices;
+        private bool _mUnknown_RootBlockDevices;
+        public List<Outputs.SpotFleetRequestLaunchSpecificationRootBlockDevice>? RootBlockDevices
+        {
+            get
+            {
+                if (!_mUnknown_RootBlockDevices) return _mValue_RootBlockDevices;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.RootBlockDevices' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum bid price per unit hour.
         /// </summary>
-        [Input("spotPrice")]
+        [PolicyResourceProperty("spotPrice", "_mUnknown_SpotPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotPrice;
-
-        public string? SpotPrice => _mSpotPrice.GetValue("spotPrice");
+        private string? _mValue_SpotPrice;
+        private bool _mUnknown_SpotPrice;
+        public string? SpotPrice
+        {
+            get
+            {
+                if (!_mUnknown_SpotPrice) return _mValue_SpotPrice;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.SpotPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet in which to launch the requested instance.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("userData")]
+        [PolicyResourceProperty("userData", "_mUnknown_UserData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserData;
+        private string? _mValue_UserData;
+        private bool _mUnknown_UserData;
+        public string? UserData
+        {
+            get
+            {
+                if (!_mUnknown_UserData) return _mValue_UserData;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.UserData' is not present");
+            }
+        }
 
-        public string? UserData => _mUserData.GetValue("userData");
-
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The capacity added to the fleet by a fulfilled request.
         /// </summary>
-        [Input("weightedCapacity")]
+        [PolicyResourceProperty("weightedCapacity", "_mUnknown_WeightedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeightedCapacity;
-
-        public string? WeightedCapacity => _mWeightedCapacity.GetValue("weightedCapacity");
+        private string? _mValue_WeightedCapacity;
+        private bool _mUnknown_WeightedCapacity;
+        public string? WeightedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WeightedCapacity) return _mValue_WeightedCapacity;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecification.WeightedCapacity' is not present");
+            }
+        }
     }
 }

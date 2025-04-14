@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Inputs
         /// <summary>
         /// The delimiter of the selection criteria being used.
         /// </summary>
-        [Input("delimiter")]
+        [PolicyResourceProperty("delimiter", "_mUnknown_Delimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelimiter;
-
-        public string? Delimiter => _mDelimiter.GetValue("delimiter");
+        private string? _mValue_Delimiter;
+        private bool _mUnknown_Delimiter;
+        public string? Delimiter
+        {
+            get
+            {
+                if (!_mUnknown_Delimiter) return _mValue_Delimiter;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.Delimiter' is not present");
+            }
+        }
 
         /// <summary>
         /// The max depth of the selection criteria.
         /// </summary>
-        [Input("maxDepth")]
+        [PolicyResourceProperty("maxDepth", "_mUnknown_MaxDepth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxDepth;
-
-        public int? MaxDepth => _mMaxDepth.GetValue("maxDepth");
+        private int? _mValue_MaxDepth;
+        private bool _mUnknown_MaxDepth;
+        public int? MaxDepth
+        {
+            get
+            {
+                if (!_mUnknown_MaxDepth) return _mValue_MaxDepth;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.MaxDepth' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of storage bytes percentage whose metrics will be selected.
         /// </summary>
-        [Input("minStorageBytesPercentage")]
+        [PolicyResourceProperty("minStorageBytesPercentage", "_mUnknown_MinStorageBytesPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMinStorageBytesPercentage;
-
-        public double? MinStorageBytesPercentage => _mMinStorageBytesPercentage.GetValue("minStorageBytesPercentage");
+        private double? _mValue_MinStorageBytesPercentage;
+        private bool _mUnknown_MinStorageBytesPercentage;
+        public double? MinStorageBytesPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MinStorageBytesPercentage) return _mValue_MinStorageBytesPercentage;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.MinStorageBytesPercentage' is not present");
+            }
+        }
     }
 }

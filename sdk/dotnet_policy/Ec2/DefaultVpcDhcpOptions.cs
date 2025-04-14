@@ -16,77 +16,147 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the DHCP Options Set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.DomainName' is not present");
+            }
+        }
 
-        public string? DomainName => _mDomainName.GetValue("domainName");
-
-        [Input("domainNameServers")]
+        [PolicyResourceProperty("domainNameServers", "_mUnknown_DomainNameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainNameServers;
+        private string? _mValue_DomainNameServers;
+        private bool _mUnknown_DomainNameServers;
+        public string? DomainNameServers
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameServers) return _mValue_DomainNameServers;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.DomainNameServers' is not present");
+            }
+        }
 
-        public string? DomainNameServers => _mDomainNameServers.GetValue("domainNameServers");
-
-        [Input("ipv6AddressPreferredLeaseTime")]
+        [PolicyResourceProperty("ipv6AddressPreferredLeaseTime", "_mUnknown_Ipv6AddressPreferredLeaseTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6AddressPreferredLeaseTime;
-
-        public string? Ipv6AddressPreferredLeaseTime => _mIpv6AddressPreferredLeaseTime.GetValue("ipv6AddressPreferredLeaseTime");
+        private string? _mValue_Ipv6AddressPreferredLeaseTime;
+        private bool _mUnknown_Ipv6AddressPreferredLeaseTime;
+        public string? Ipv6AddressPreferredLeaseTime
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressPreferredLeaseTime) return _mValue_Ipv6AddressPreferredLeaseTime;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.Ipv6AddressPreferredLeaseTime' is not present");
+            }
+        }
 
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
-        [Input("netbiosNameServers")]
+        [PolicyResourceProperty("netbiosNameServers", "_mUnknown_NetbiosNameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetbiosNameServers;
-
-        public string? NetbiosNameServers => _mNetbiosNameServers.GetValue("netbiosNameServers");
+        private string? _mValue_NetbiosNameServers;
+        private bool _mUnknown_NetbiosNameServers;
+        public string? NetbiosNameServers
+        {
+            get
+            {
+                if (!_mUnknown_NetbiosNameServers) return _mValue_NetbiosNameServers;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.NetbiosNameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         /// </summary>
-        [Input("netbiosNodeType")]
+        [PolicyResourceProperty("netbiosNodeType", "_mUnknown_NetbiosNodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetbiosNodeType;
+        private string? _mValue_NetbiosNodeType;
+        private bool _mUnknown_NetbiosNodeType;
+        public string? NetbiosNodeType
+        {
+            get
+            {
+                if (!_mUnknown_NetbiosNodeType) return _mValue_NetbiosNodeType;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.NetbiosNodeType' is not present");
+            }
+        }
 
-        public string? NetbiosNodeType => _mNetbiosNodeType.GetValue("netbiosNodeType");
-
-        [Input("ntpServers")]
+        [PolicyResourceProperty("ntpServers", "_mUnknown_NtpServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNtpServers;
-
-        public string? NtpServers => _mNtpServers.GetValue("ntpServers");
+        private string? _mValue_NtpServers;
+        private bool _mUnknown_NtpServers;
+        public string? NtpServers
+        {
+            get
+            {
+                if (!_mUnknown_NtpServers) return _mValue_NtpServers;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.NtpServers' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the DHCP options set.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions")]
@@ -95,19 +165,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the AWS account that owns the DHCP options set.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptionsArgs.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptionsArgs.Tags' is not present");
+            }
+        }
     }
 }

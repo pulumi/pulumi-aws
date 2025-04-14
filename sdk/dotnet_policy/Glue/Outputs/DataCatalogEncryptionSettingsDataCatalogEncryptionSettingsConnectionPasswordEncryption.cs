@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
         /// </summary>
-        [Input("awsKmsKeyId")]
+        [PolicyResourceProperty("awsKmsKeyId", "_mUnknown_AwsKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsKmsKeyId;
-
-        public string? AwsKmsKeyId => _mAwsKmsKeyId.GetValue("awsKmsKeyId");
+        private string? _mValue_AwsKmsKeyId;
+        private bool _mUnknown_AwsKmsKeyId;
+        public string? AwsKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_AwsKmsKeyId) return _mValue_AwsKmsKeyId;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption.AwsKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
         /// </summary>
-        [Input("returnConnectionPasswordEncrypted")]
+        [PolicyResourceProperty("returnConnectionPasswordEncrypted", "_mUnknown_ReturnConnectionPasswordEncrypted")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReturnConnectionPasswordEncrypted;
-
-        public bool? ReturnConnectionPasswordEncrypted => _mReturnConnectionPasswordEncrypted.GetValue("returnConnectionPasswordEncrypted");
+        private bool? _mValue_ReturnConnectionPasswordEncrypted;
+        private bool _mUnknown_ReturnConnectionPasswordEncrypted;
+        public bool? ReturnConnectionPasswordEncrypted
+        {
+            get
+            {
+                if (!_mUnknown_ReturnConnectionPasswordEncrypted) return _mValue_ReturnConnectionPasswordEncrypted;
+                throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption.ReturnConnectionPasswordEncrypted' is not present");
+            }
+        }
     }
 }

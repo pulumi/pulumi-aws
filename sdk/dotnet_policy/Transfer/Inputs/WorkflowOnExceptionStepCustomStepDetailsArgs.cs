@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// <summary>
         /// The name of the step, used as an identifier.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
         /// </summary>
-        [Input("sourceFileLocation")]
+        [PolicyResourceProperty("sourceFileLocation", "_mUnknown_SourceFileLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFileLocation;
-
-        public string? SourceFileLocation => _mSourceFileLocation.GetValue("sourceFileLocation");
+        private string? _mValue_SourceFileLocation;
+        private bool _mUnknown_SourceFileLocation;
+        public string? SourceFileLocation
+        {
+            get
+            {
+                if (!_mUnknown_SourceFileLocation) return _mValue_SourceFileLocation;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.SourceFileLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the lambda function that is being called.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.Target' is not present");
+            }
+        }
 
         /// <summary>
         /// Timeout, in seconds, for the step.
         /// </summary>
-        [Input("timeoutSeconds")]
+        [PolicyResourceProperty("timeoutSeconds", "_mUnknown_TimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutSeconds;
-
-        public int? TimeoutSeconds => _mTimeoutSeconds.GetValue("timeoutSeconds");
+        private int? _mValue_TimeoutSeconds;
+        private bool _mUnknown_TimeoutSeconds;
+        public int? TimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutSeconds) return _mValue_TimeoutSeconds;
+                throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.TimeoutSeconds' is not present");
+            }
+        }
     }
 }

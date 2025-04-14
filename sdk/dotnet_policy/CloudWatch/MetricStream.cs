@@ -16,139 +16,244 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// ARN of the metric stream.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'MetricStream.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'MetricStream.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         /// </summary>
-        [Input("excludeFilters")]
+        [PolicyResourceProperty("excludeFilters", "_mUnknown_ExcludeFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MetricStreamExcludeFilter>> _mExcludeFilters;
-
-        public List<Outputs.MetricStreamExcludeFilter>? ExcludeFilters => _mExcludeFilters.GetValue("excludeFilters");
+        private List<Outputs.MetricStreamExcludeFilter>? _mValue_ExcludeFilters;
+        private bool _mUnknown_ExcludeFilters;
+        public List<Outputs.MetricStreamExcludeFilter>? ExcludeFilters
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeFilters) return _mValue_ExcludeFilters;
+                throw new UndeferrableValueException("Value 'MetricStream.ExcludeFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         /// </summary>
-        [Input("firehoseArn")]
+        [PolicyResourceProperty("firehoseArn", "_mUnknown_FirehoseArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseArn;
-
-        public string? FirehoseArn => _mFirehoseArn.GetValue("firehoseArn");
+        private string? _mValue_FirehoseArn;
+        private bool _mUnknown_FirehoseArn;
+        public string? FirehoseArn
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseArn) return _mValue_FirehoseArn;
+                throw new UndeferrableValueException("Value 'MetricStream.FirehoseArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         /// </summary>
-        [Input("includeFilters")]
+        [PolicyResourceProperty("includeFilters", "_mUnknown_IncludeFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MetricStreamIncludeFilter>> _mIncludeFilters;
-
-        public List<Outputs.MetricStreamIncludeFilter>? IncludeFilters => _mIncludeFilters.GetValue("includeFilters");
+        private List<Outputs.MetricStreamIncludeFilter>? _mValue_IncludeFilters;
+        private bool _mUnknown_IncludeFilters;
+        public List<Outputs.MetricStreamIncludeFilter>? IncludeFilters
+        {
+            get
+            {
+                if (!_mUnknown_IncludeFilters) return _mValue_IncludeFilters;
+                throw new UndeferrableValueException("Value 'MetricStream.IncludeFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         /// </summary>
-        [Input("includeLinkedAccountsMetrics")]
+        [PolicyResourceProperty("includeLinkedAccountsMetrics", "_mUnknown_IncludeLinkedAccountsMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeLinkedAccountsMetrics;
-
-        public bool? IncludeLinkedAccountsMetrics => _mIncludeLinkedAccountsMetrics.GetValue("includeLinkedAccountsMetrics");
+        private bool? _mValue_IncludeLinkedAccountsMetrics;
+        private bool _mUnknown_IncludeLinkedAccountsMetrics;
+        public bool? IncludeLinkedAccountsMetrics
+        {
+            get
+            {
+                if (!_mUnknown_IncludeLinkedAccountsMetrics) return _mValue_IncludeLinkedAccountsMetrics;
+                throw new UndeferrableValueException("Value 'MetricStream.IncludeLinkedAccountsMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
         /// </summary>
-        [Input("lastUpdateDate")]
+        [PolicyResourceProperty("lastUpdateDate", "_mUnknown_LastUpdateDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdateDate;
-
-        public string? LastUpdateDate => _mLastUpdateDate.GetValue("lastUpdateDate");
+        private string? _mValue_LastUpdateDate;
+        private bool _mUnknown_LastUpdateDate;
+        public string? LastUpdateDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdateDate) return _mValue_LastUpdateDate;
+                throw new UndeferrableValueException("Value 'MetricStream.LastUpdateDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MetricStream.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'MetricStream.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("outputFormat")]
+        [PolicyResourceProperty("outputFormat", "_mUnknown_OutputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputFormat;
-
-        public string? OutputFormat => _mOutputFormat.GetValue("outputFormat");
+        private string? _mValue_OutputFormat;
+        private bool _mUnknown_OutputFormat;
+        public string? OutputFormat
+        {
+            get
+            {
+                if (!_mUnknown_OutputFormat) return _mValue_OutputFormat;
+                throw new UndeferrableValueException("Value 'MetricStream.OutputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'MetricStream.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// State of the metric stream. Possible values are `running` and `stopped`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'MetricStream.State' is not present");
+            }
+        }
 
         /// <summary>
         /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         /// </summary>
-        [Input("statisticsConfigurations")]
+        [PolicyResourceProperty("statisticsConfigurations", "_mUnknown_StatisticsConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.MetricStreamStatisticsConfiguration>> _mStatisticsConfigurations;
-
-        public List<Outputs.MetricStreamStatisticsConfiguration>? StatisticsConfigurations => _mStatisticsConfigurations.GetValue("statisticsConfigurations");
+        private List<Outputs.MetricStreamStatisticsConfiguration>? _mValue_StatisticsConfigurations;
+        private bool _mUnknown_StatisticsConfigurations;
+        public List<Outputs.MetricStreamStatisticsConfiguration>? StatisticsConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_StatisticsConfigurations) return _mValue_StatisticsConfigurations;
+                throw new UndeferrableValueException("Value 'MetricStream.StatisticsConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MetricStream.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'MetricStream.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/metricStream:MetricStream")]
@@ -157,93 +262,163 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
         /// </summary>
-        [Input("excludeFilters")]
+        [PolicyResourceProperty("excludeFilters", "_mUnknown_ExcludeFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MetricStreamExcludeFilterArgs>> _mExcludeFilters;
-
-        public List<Inputs.MetricStreamExcludeFilterArgs>? ExcludeFilters => _mExcludeFilters.GetValue("excludeFilters");
+        private List<Inputs.MetricStreamExcludeFilterArgs>? _mValue_ExcludeFilters;
+        private bool _mUnknown_ExcludeFilters;
+        public List<Inputs.MetricStreamExcludeFilterArgs>? ExcludeFilters
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeFilters) return _mValue_ExcludeFilters;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.ExcludeFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
         /// </summary>
-        [Input("firehoseArn")]
+        [PolicyResourceProperty("firehoseArn", "_mUnknown_FirehoseArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehoseArn;
-
-        public string? FirehoseArn => _mFirehoseArn.GetValue("firehoseArn");
+        private string? _mValue_FirehoseArn;
+        private bool _mUnknown_FirehoseArn;
+        public string? FirehoseArn
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseArn) return _mValue_FirehoseArn;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.FirehoseArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don't specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
         /// </summary>
-        [Input("includeFilters")]
+        [PolicyResourceProperty("includeFilters", "_mUnknown_IncludeFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MetricStreamIncludeFilterArgs>> _mIncludeFilters;
-
-        public List<Inputs.MetricStreamIncludeFilterArgs>? IncludeFilters => _mIncludeFilters.GetValue("includeFilters");
+        private List<Inputs.MetricStreamIncludeFilterArgs>? _mValue_IncludeFilters;
+        private bool _mUnknown_IncludeFilters;
+        public List<Inputs.MetricStreamIncludeFilterArgs>? IncludeFilters
+        {
+            get
+            {
+                if (!_mUnknown_IncludeFilters) return _mValue_IncludeFilters;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.IncludeFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
         /// </summary>
-        [Input("includeLinkedAccountsMetrics")]
+        [PolicyResourceProperty("includeLinkedAccountsMetrics", "_mUnknown_IncludeLinkedAccountsMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeLinkedAccountsMetrics;
-
-        public bool? IncludeLinkedAccountsMetrics => _mIncludeLinkedAccountsMetrics.GetValue("includeLinkedAccountsMetrics");
+        private bool? _mValue_IncludeLinkedAccountsMetrics;
+        private bool _mUnknown_IncludeLinkedAccountsMetrics;
+        public bool? IncludeLinkedAccountsMetrics
+        {
+            get
+            {
+                if (!_mUnknown_IncludeLinkedAccountsMetrics) return _mValue_IncludeLinkedAccountsMetrics;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.IncludeLinkedAccountsMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Output format for the stream. Possible values are `json`, `opentelemetry0.7`, and `opentelemetry1.0`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("outputFormat")]
+        [PolicyResourceProperty("outputFormat", "_mUnknown_OutputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputFormat;
-
-        public string? OutputFormat => _mOutputFormat.GetValue("outputFormat");
+        private string? _mValue_OutputFormat;
+        private bool _mUnknown_OutputFormat;
+        public string? OutputFormat
+        {
+            get
+            {
+                if (!_mUnknown_OutputFormat) return _mValue_OutputFormat;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.OutputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
         /// </summary>
-        [Input("statisticsConfigurations")]
+        [PolicyResourceProperty("statisticsConfigurations", "_mUnknown_StatisticsConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MetricStreamStatisticsConfigurationArgs>> _mStatisticsConfigurations;
-
-        public List<Inputs.MetricStreamStatisticsConfigurationArgs>? StatisticsConfigurations => _mStatisticsConfigurations.GetValue("statisticsConfigurations");
+        private List<Inputs.MetricStreamStatisticsConfigurationArgs>? _mValue_StatisticsConfigurations;
+        private bool _mUnknown_StatisticsConfigurations;
+        public List<Inputs.MetricStreamStatisticsConfigurationArgs>? StatisticsConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_StatisticsConfigurations) return _mValue_StatisticsConfigurations;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.StatisticsConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MetricStreamArgs.Tags' is not present");
+            }
+        }
     }
 }

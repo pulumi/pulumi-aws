@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         /// </summary>
-        [Input("capacityProviders")]
+        [PolicyResourceProperty("capacityProviders", "_mUnknown_CapacityProviders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapacityProviders;
-
-        public List<string>? CapacityProviders => _mCapacityProviders.GetValue("capacityProviders");
+        private List<string>? _mValue_CapacityProviders;
+        private bool _mUnknown_CapacityProviders;
+        public List<string>? CapacityProviders
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProviders) return _mValue_CapacityProviders;
+                throw new UndeferrableValueException("Value 'ClusterCapacityProviders.CapacityProviders' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the ECS cluster to manage capacity providers for.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'ClusterCapacityProviders.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of capacity provider strategies to use by default for the cluster. Detailed below.
         /// </summary>
-        [Input("defaultCapacityProviderStrategies")]
+        [PolicyResourceProperty("defaultCapacityProviderStrategies", "_mUnknown_DefaultCapacityProviderStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>> _mDefaultCapacityProviderStrategies;
-
-        public List<Outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>? DefaultCapacityProviderStrategies => _mDefaultCapacityProviderStrategies.GetValue("defaultCapacityProviderStrategies");
+        private List<Outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>? _mValue_DefaultCapacityProviderStrategies;
+        private bool _mUnknown_DefaultCapacityProviderStrategies;
+        public List<Outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy>? DefaultCapacityProviderStrategies
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCapacityProviderStrategies) return _mValue_DefaultCapacityProviderStrategies;
+                throw new UndeferrableValueException("Value 'ClusterCapacityProviders.DefaultCapacityProviderStrategies' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ecs
         /// <summary>
         /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         /// </summary>
-        [Input("capacityProviders")]
+        [PolicyResourceProperty("capacityProviders", "_mUnknown_CapacityProviders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCapacityProviders;
-
-        public List<string>? CapacityProviders => _mCapacityProviders.GetValue("capacityProviders");
+        private List<string>? _mValue_CapacityProviders;
+        private bool _mUnknown_CapacityProviders;
+        public List<string>? CapacityProviders
+        {
+            get
+            {
+                if (!_mUnknown_CapacityProviders) return _mValue_CapacityProviders;
+                throw new UndeferrableValueException("Value 'ClusterCapacityProvidersArgs.CapacityProviders' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the ECS cluster to manage capacity providers for.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'ClusterCapacityProvidersArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of capacity provider strategies to use by default for the cluster. Detailed below.
         /// </summary>
-        [Input("defaultCapacityProviderStrategies")]
+        [PolicyResourceProperty("defaultCapacityProviderStrategies", "_mUnknown_DefaultCapacityProviderStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>> _mDefaultCapacityProviderStrategies;
-
-        public List<Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>? DefaultCapacityProviderStrategies => _mDefaultCapacityProviderStrategies.GetValue("defaultCapacityProviderStrategies");
+        private List<Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>? _mValue_DefaultCapacityProviderStrategies;
+        private bool _mUnknown_DefaultCapacityProviderStrategies;
+        public List<Inputs.ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>? DefaultCapacityProviderStrategies
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCapacityProviderStrategies) return _mValue_DefaultCapacityProviderStrategies;
+                throw new UndeferrableValueException("Value 'ClusterCapacityProvidersArgs.DefaultCapacityProviderStrategies' is not present");
+            }
+        }
     }
 }

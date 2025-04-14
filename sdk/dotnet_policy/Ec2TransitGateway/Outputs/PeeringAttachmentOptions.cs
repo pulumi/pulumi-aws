@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway.Outputs
         /// <summary>
         /// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
         /// </summary>
-        [Input("dynamicRouting")]
+        [PolicyResourceProperty("dynamicRouting", "_mUnknown_DynamicRouting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDynamicRouting;
-
-        public string? DynamicRouting => _mDynamicRouting.GetValue("dynamicRouting");
+        private string? _mValue_DynamicRouting;
+        private bool _mUnknown_DynamicRouting;
+        public string? DynamicRouting
+        {
+            get
+            {
+                if (!_mUnknown_DynamicRouting) return _mValue_DynamicRouting;
+                throw new UndeferrableValueException("Value 'PeeringAttachmentOptions.DynamicRouting' is not present");
+            }
+        }
     }
 }

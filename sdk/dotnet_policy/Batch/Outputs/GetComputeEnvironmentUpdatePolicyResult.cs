@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
 {
     public sealed class GetComputeEnvironmentUpdatePolicyResult
     {
-        [Input("jobExecutionTimeoutMinutes")]
+        [PolicyResourceProperty("jobExecutionTimeoutMinutes", "_mUnknown_JobExecutionTimeoutMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mJobExecutionTimeoutMinutes;
+        private int? _mValue_JobExecutionTimeoutMinutes;
+        private bool _mUnknown_JobExecutionTimeoutMinutes;
+        public int? JobExecutionTimeoutMinutes
+        {
+            get
+            {
+                if (!_mUnknown_JobExecutionTimeoutMinutes) return _mValue_JobExecutionTimeoutMinutes;
+                throw new UndeferrableValueException("Value 'GetComputeEnvironmentUpdatePolicyResult.JobExecutionTimeoutMinutes' is not present");
+            }
+        }
 
-        public int? JobExecutionTimeoutMinutes => _mJobExecutionTimeoutMinutes.GetValue("jobExecutionTimeoutMinutes");
-
-        [Input("terminateJobsOnUpdate")]
+        [PolicyResourceProperty("terminateJobsOnUpdate", "_mUnknown_TerminateJobsOnUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTerminateJobsOnUpdate;
-
-        public bool? TerminateJobsOnUpdate => _mTerminateJobsOnUpdate.GetValue("terminateJobsOnUpdate");
+        private bool? _mValue_TerminateJobsOnUpdate;
+        private bool _mUnknown_TerminateJobsOnUpdate;
+        public bool? TerminateJobsOnUpdate
+        {
+            get
+            {
+                if (!_mUnknown_TerminateJobsOnUpdate) return _mValue_TerminateJobsOnUpdate;
+                throw new UndeferrableValueException("Value 'GetComputeEnvironmentUpdatePolicyResult.TerminateJobsOnUpdate' is not present");
+            }
+        }
     }
 }

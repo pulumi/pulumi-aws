@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling.Outputs
         /// <summary>
         /// Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
         /// </summary>
-        [Input("dynamicScalingInSuspended")]
+        [PolicyResourceProperty("dynamicScalingInSuspended", "_mUnknown_DynamicScalingInSuspended")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDynamicScalingInSuspended;
-
-        public bool? DynamicScalingInSuspended => _mDynamicScalingInSuspended.GetValue("dynamicScalingInSuspended");
+        private bool? _mValue_DynamicScalingInSuspended;
+        private bool _mUnknown_DynamicScalingInSuspended;
+        public bool? DynamicScalingInSuspended
+        {
+            get
+            {
+                if (!_mUnknown_DynamicScalingInSuspended) return _mValue_DynamicScalingInSuspended;
+                throw new UndeferrableValueException("Value 'TargetSuspendedState.DynamicScalingInSuspended' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
         /// </summary>
-        [Input("dynamicScalingOutSuspended")]
+        [PolicyResourceProperty("dynamicScalingOutSuspended", "_mUnknown_DynamicScalingOutSuspended")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDynamicScalingOutSuspended;
-
-        public bool? DynamicScalingOutSuspended => _mDynamicScalingOutSuspended.GetValue("dynamicScalingOutSuspended");
+        private bool? _mValue_DynamicScalingOutSuspended;
+        private bool _mUnknown_DynamicScalingOutSuspended;
+        public bool? DynamicScalingOutSuspended
+        {
+            get
+            {
+                if (!_mUnknown_DynamicScalingOutSuspended) return _mValue_DynamicScalingOutSuspended;
+                throw new UndeferrableValueException("Value 'TargetSuspendedState.DynamicScalingOutSuspended' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether scheduled scaling is suspended. Default is `false`.
         /// </summary>
-        [Input("scheduledScalingSuspended")]
+        [PolicyResourceProperty("scheduledScalingSuspended", "_mUnknown_ScheduledScalingSuspended")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mScheduledScalingSuspended;
-
-        public bool? ScheduledScalingSuspended => _mScheduledScalingSuspended.GetValue("scheduledScalingSuspended");
+        private bool? _mValue_ScheduledScalingSuspended;
+        private bool _mUnknown_ScheduledScalingSuspended;
+        public bool? ScheduledScalingSuspended
+        {
+            get
+            {
+                if (!_mUnknown_ScheduledScalingSuspended) return _mValue_ScheduledScalingSuspended;
+                throw new UndeferrableValueException("Value 'TargetSuspendedState.ScheduledScalingSuspended' is not present");
+            }
+        }
     }
 }

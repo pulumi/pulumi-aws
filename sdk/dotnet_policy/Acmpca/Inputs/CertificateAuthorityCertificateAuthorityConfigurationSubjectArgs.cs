@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca.Inputs
         /// <summary>
         /// Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("commonName")]
+        [PolicyResourceProperty("commonName", "_mUnknown_CommonName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCommonName;
-
-        public string? CommonName => _mCommonName.GetValue("commonName");
+        private string? _mValue_CommonName;
+        private bool _mUnknown_CommonName;
+        public string? CommonName
+        {
+            get
+            {
+                if (!_mUnknown_CommonName) return _mValue_CommonName;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.CommonName' is not present");
+            }
+        }
 
         /// <summary>
         /// Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
         /// </summary>
-        [Input("country")]
+        [PolicyResourceProperty("country", "_mUnknown_Country")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCountry;
-
-        public string? Country => _mCountry.GetValue("country");
+        private string? _mValue_Country;
+        private bool _mUnknown_Country;
+        public string? Country
+        {
+            get
+            {
+                if (!_mUnknown_Country) return _mValue_Country;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.Country' is not present");
+            }
+        }
 
         /// <summary>
         /// Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("distinguishedNameQualifier")]
+        [PolicyResourceProperty("distinguishedNameQualifier", "_mUnknown_DistinguishedNameQualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDistinguishedNameQualifier;
-
-        public string? DistinguishedNameQualifier => _mDistinguishedNameQualifier.GetValue("distinguishedNameQualifier");
+        private string? _mValue_DistinguishedNameQualifier;
+        private bool _mUnknown_DistinguishedNameQualifier;
+        public string? DistinguishedNameQualifier
+        {
+            get
+            {
+                if (!_mUnknown_DistinguishedNameQualifier) return _mValue_DistinguishedNameQualifier;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.DistinguishedNameQualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
         /// </summary>
-        [Input("generationQualifier")]
+        [PolicyResourceProperty("generationQualifier", "_mUnknown_GenerationQualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGenerationQualifier;
-
-        public string? GenerationQualifier => _mGenerationQualifier.GetValue("generationQualifier");
+        private string? _mValue_GenerationQualifier;
+        private bool _mUnknown_GenerationQualifier;
+        public string? GenerationQualifier
+        {
+            get
+            {
+                if (!_mUnknown_GenerationQualifier) return _mValue_GenerationQualifier;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.GenerationQualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// First name. Must be less than or equal to 16 characters in length.
         /// </summary>
-        [Input("givenName")]
+        [PolicyResourceProperty("givenName", "_mUnknown_GivenName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGivenName;
-
-        public string? GivenName => _mGivenName.GetValue("givenName");
+        private string? _mValue_GivenName;
+        private bool _mUnknown_GivenName;
+        public string? GivenName
+        {
+            get
+            {
+                if (!_mUnknown_GivenName) return _mValue_GivenName;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.GivenName' is not present");
+            }
+        }
 
         /// <summary>
         /// Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
         /// </summary>
-        [Input("initials")]
+        [PolicyResourceProperty("initials", "_mUnknown_Initials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInitials;
-
-        public string? Initials => _mInitials.GetValue("initials");
+        private string? _mValue_Initials;
+        private bool _mUnknown_Initials;
+        public string? Initials
+        {
+            get
+            {
+                if (!_mUnknown_Initials) return _mValue_Initials;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.Initials' is not present");
+            }
+        }
 
         /// <summary>
         /// Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
         /// </summary>
-        [Input("locality")]
+        [PolicyResourceProperty("locality", "_mUnknown_Locality")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocality;
-
-        public string? Locality => _mLocality.GetValue("locality");
+        private string? _mValue_Locality;
+        private bool _mUnknown_Locality;
+        public string? Locality
+        {
+            get
+            {
+                if (!_mUnknown_Locality) return _mValue_Locality;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.Locality' is not present");
+            }
+        }
 
         /// <summary>
         /// Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("organization")]
+        [PolicyResourceProperty("organization", "_mUnknown_Organization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganization;
-
-        public string? Organization => _mOrganization.GetValue("organization");
+        private string? _mValue_Organization;
+        private bool _mUnknown_Organization;
+        public string? Organization
+        {
+            get
+            {
+                if (!_mUnknown_Organization) return _mValue_Organization;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.Organization' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("organizationalUnit")]
+        [PolicyResourceProperty("organizationalUnit", "_mUnknown_OrganizationalUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnit;
-
-        public string? OrganizationalUnit => _mOrganizationalUnit.GetValue("organizationalUnit");
+        private string? _mValue_OrganizationalUnit;
+        private bool _mUnknown_OrganizationalUnit;
+        public string? OrganizationalUnit
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnit) return _mValue_OrganizationalUnit;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.OrganizationalUnit' is not present");
+            }
+        }
 
         /// <summary>
         /// Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
         /// </summary>
-        [Input("pseudonym")]
+        [PolicyResourceProperty("pseudonym", "_mUnknown_Pseudonym")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPseudonym;
-
-        public string? Pseudonym => _mPseudonym.GetValue("pseudonym");
+        private string? _mValue_Pseudonym;
+        private bool _mUnknown_Pseudonym;
+        public string? Pseudonym
+        {
+            get
+            {
+                if (!_mUnknown_Pseudonym) return _mValue_Pseudonym;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.Pseudonym' is not present");
+            }
+        }
 
         /// <summary>
         /// State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
         /// </summary>
-        [Input("surname")]
+        [PolicyResourceProperty("surname", "_mUnknown_Surname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSurname;
-
-        public string? Surname => _mSurname.GetValue("surname");
+        private string? _mValue_Surname;
+        private bool _mUnknown_Surname;
+        public string? Surname
+        {
+            get
+            {
+                if (!_mUnknown_Surname) return _mValue_Surname;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.Surname' is not present");
+            }
+        }
 
         /// <summary>
         /// Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
         /// </summary>
-        [Input("title")]
+        [PolicyResourceProperty("title", "_mUnknown_Title")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTitle;
-
-        public string? Title => _mTitle.GetValue("title");
+        private string? _mValue_Title;
+        private bool _mUnknown_Title;
+        public string? Title
+        {
+            get
+            {
+                if (!_mUnknown_Title) return _mValue_Title;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.Title' is not present");
+            }
+        }
     }
 }

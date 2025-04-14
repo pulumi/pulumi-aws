@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Workspaces.Outputs
         /// <summary>
         /// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
         /// </summary>
-        [Input("changeComputeType")]
+        [PolicyResourceProperty("changeComputeType", "_mUnknown_ChangeComputeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mChangeComputeType;
-
-        public bool? ChangeComputeType => _mChangeComputeType.GetValue("changeComputeType");
+        private bool? _mValue_ChangeComputeType;
+        private bool _mUnknown_ChangeComputeType;
+        public bool? ChangeComputeType
+        {
+            get
+            {
+                if (!_mUnknown_ChangeComputeType) return _mValue_ChangeComputeType;
+                throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.ChangeComputeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
         /// </summary>
-        [Input("increaseVolumeSize")]
+        [PolicyResourceProperty("increaseVolumeSize", "_mUnknown_IncreaseVolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncreaseVolumeSize;
-
-        public bool? IncreaseVolumeSize => _mIncreaseVolumeSize.GetValue("increaseVolumeSize");
+        private bool? _mValue_IncreaseVolumeSize;
+        private bool _mUnknown_IncreaseVolumeSize;
+        public bool? IncreaseVolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_IncreaseVolumeSize) return _mValue_IncreaseVolumeSize;
+                throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.IncreaseVolumeSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
         /// </summary>
-        [Input("rebuildWorkspace")]
+        [PolicyResourceProperty("rebuildWorkspace", "_mUnknown_RebuildWorkspace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRebuildWorkspace;
-
-        public bool? RebuildWorkspace => _mRebuildWorkspace.GetValue("rebuildWorkspace");
+        private bool? _mValue_RebuildWorkspace;
+        private bool _mUnknown_RebuildWorkspace;
+        public bool? RebuildWorkspace
+        {
+            get
+            {
+                if (!_mUnknown_RebuildWorkspace) return _mValue_RebuildWorkspace;
+                throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.RebuildWorkspace' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether WorkSpaces directory users can restart their workspace. Default `true`.
         /// </summary>
-        [Input("restartWorkspace")]
+        [PolicyResourceProperty("restartWorkspace", "_mUnknown_RestartWorkspace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRestartWorkspace;
-
-        public bool? RestartWorkspace => _mRestartWorkspace.GetValue("restartWorkspace");
+        private bool? _mValue_RestartWorkspace;
+        private bool _mUnknown_RestartWorkspace;
+        public bool? RestartWorkspace
+        {
+            get
+            {
+                if (!_mUnknown_RestartWorkspace) return _mValue_RestartWorkspace;
+                throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.RestartWorkspace' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
         /// </summary>
-        [Input("switchRunningMode")]
+        [PolicyResourceProperty("switchRunningMode", "_mUnknown_SwitchRunningMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSwitchRunningMode;
-
-        public bool? SwitchRunningMode => _mSwitchRunningMode.GetValue("switchRunningMode");
+        private bool? _mValue_SwitchRunningMode;
+        private bool _mUnknown_SwitchRunningMode;
+        public bool? SwitchRunningMode
+        {
+            get
+            {
+                if (!_mUnknown_SwitchRunningMode) return _mValue_SwitchRunningMode;
+                throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.SwitchRunningMode' is not present");
+            }
+        }
     }
 }

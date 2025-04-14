@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Outputs
         /// <summary>
         /// The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
         /// </summary>
-        [Input("mcuCount")]
+        [PolicyResourceProperty("mcuCount", "_mUnknown_McuCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMcuCount;
-
-        public int? McuCount => _mMcuCount.GetValue("mcuCount");
+        private int? _mValue_McuCount;
+        private bool _mUnknown_McuCount;
+        public int? McuCount
+        {
+            get
+            {
+                if (!_mUnknown_McuCount) return _mValue_McuCount;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityProvisionedCapacity.McuCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of workers that are allocated to the connector.
         /// </summary>
-        [Input("workerCount")]
+        [PolicyResourceProperty("workerCount", "_mUnknown_WorkerCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWorkerCount;
-
-        public int? WorkerCount => _mWorkerCount.GetValue("workerCount");
+        private int? _mValue_WorkerCount;
+        private bool _mUnknown_WorkerCount;
+        public int? WorkerCount
+        {
+            get
+            {
+                if (!_mUnknown_WorkerCount) return _mValue_WorkerCount;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityProvisionedCapacity.WorkerCount' is not present");
+            }
+        }
     }
 }

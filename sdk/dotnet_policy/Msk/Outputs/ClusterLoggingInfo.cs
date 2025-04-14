@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Msk.Outputs
         /// <summary>
         /// Configuration block for Broker Logs settings for logging info. See below.
         /// </summary>
-        [Input("brokerLogs")]
+        [PolicyResourceProperty("brokerLogs", "_mUnknown_BrokerLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterLoggingInfoBrokerLogs> _mBrokerLogs;
-
-        public Outputs.ClusterLoggingInfoBrokerLogs? BrokerLogs => _mBrokerLogs.GetValue("brokerLogs");
+        private Outputs.ClusterLoggingInfoBrokerLogs? _mValue_BrokerLogs;
+        private bool _mUnknown_BrokerLogs;
+        public Outputs.ClusterLoggingInfoBrokerLogs? BrokerLogs
+        {
+            get
+            {
+                if (!_mUnknown_BrokerLogs) return _mValue_BrokerLogs;
+                throw new UndeferrableValueException("Value 'ClusterLoggingInfo.BrokerLogs' is not present");
+            }
+        }
     }
 }

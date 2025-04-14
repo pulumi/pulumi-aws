@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
         /// </summary>
-        [Input("attemptDurationSeconds")]
+        [PolicyResourceProperty("attemptDurationSeconds", "_mUnknown_AttemptDurationSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAttemptDurationSeconds;
-
-        public int? AttemptDurationSeconds => _mAttemptDurationSeconds.GetValue("attemptDurationSeconds");
+        private int? _mValue_AttemptDurationSeconds;
+        private bool _mUnknown_AttemptDurationSeconds;
+        public int? AttemptDurationSeconds
+        {
+            get
+            {
+                if (!_mUnknown_AttemptDurationSeconds) return _mValue_AttemptDurationSeconds;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionTimeoutResult.AttemptDurationSeconds' is not present");
+            }
+        }
     }
 }

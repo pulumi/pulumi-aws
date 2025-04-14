@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Details of the execute command configuration. See `execute_command_configuration` Block for details.
         /// </summary>
-        [Input("executeCommandConfiguration")]
+        [PolicyResourceProperty("executeCommandConfiguration", "_mUnknown_ExecuteCommandConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterConfigurationExecuteCommandConfiguration> _mExecuteCommandConfiguration;
-
-        public Outputs.ClusterConfigurationExecuteCommandConfiguration? ExecuteCommandConfiguration => _mExecuteCommandConfiguration.GetValue("executeCommandConfiguration");
+        private Outputs.ClusterConfigurationExecuteCommandConfiguration? _mValue_ExecuteCommandConfiguration;
+        private bool _mUnknown_ExecuteCommandConfiguration;
+        public Outputs.ClusterConfigurationExecuteCommandConfiguration? ExecuteCommandConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ExecuteCommandConfiguration) return _mValue_ExecuteCommandConfiguration;
+                throw new UndeferrableValueException("Value 'ClusterConfiguration.ExecuteCommandConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
         /// </summary>
-        [Input("managedStorageConfiguration")]
+        [PolicyResourceProperty("managedStorageConfiguration", "_mUnknown_ManagedStorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterConfigurationManagedStorageConfiguration> _mManagedStorageConfiguration;
-
-        public Outputs.ClusterConfigurationManagedStorageConfiguration? ManagedStorageConfiguration => _mManagedStorageConfiguration.GetValue("managedStorageConfiguration");
+        private Outputs.ClusterConfigurationManagedStorageConfiguration? _mValue_ManagedStorageConfiguration;
+        private bool _mUnknown_ManagedStorageConfiguration;
+        public Outputs.ClusterConfigurationManagedStorageConfiguration? ManagedStorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ManagedStorageConfiguration) return _mValue_ManagedStorageConfiguration;
+                throw new UndeferrableValueException("Value 'ClusterConfiguration.ManagedStorageConfiguration' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Inputs
 {
     public sealed class GangliaLayerCloudwatchConfigurationArgs
     {
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'GangliaLayerCloudwatchConfigurationArgs.Enabled' is not present");
+            }
+        }
 
-        public bool? Enabled => _mEnabled.GetValue("enabled");
-
-        [Input("logStreams")]
+        [PolicyResourceProperty("logStreams", "_mUnknown_LogStreams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GangliaLayerCloudwatchConfigurationLogStreamArgs>> _mLogStreams;
-
-        public List<Inputs.GangliaLayerCloudwatchConfigurationLogStreamArgs>? LogStreams => _mLogStreams.GetValue("logStreams");
+        private List<Inputs.GangliaLayerCloudwatchConfigurationLogStreamArgs>? _mValue_LogStreams;
+        private bool _mUnknown_LogStreams;
+        public List<Inputs.GangliaLayerCloudwatchConfigurationLogStreamArgs>? LogStreams
+        {
+            get
+            {
+                if (!_mUnknown_LogStreams) return _mValue_LogStreams;
+                throw new UndeferrableValueException("Value 'GangliaLayerCloudwatchConfigurationArgs.LogStreams' is not present");
+            }
+        }
     }
 }

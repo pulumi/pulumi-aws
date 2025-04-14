@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
         /// </summary>
-        [Input("acm")]
+        [PolicyResourceProperty("acm", "_mUnknown_Acm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm> _mAcm;
-
-        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm? Acm => _mAcm.GetValue("acm");
+        private Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm? _mValue_Acm;
+        private bool _mUnknown_Acm;
+        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm? Acm
+        {
+            get
+            {
+                if (!_mUnknown_Acm) return _mValue_Acm;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust.Acm' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS validation context trust for a local file certificate.
         /// </summary>
-        [Input("file")]
+        [PolicyResourceProperty("file", "_mUnknown_File")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile> _mFile;
-
-        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile? File => _mFile.GetValue("file");
+        private Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile? _mValue_File;
+        private bool _mUnknown_File;
+        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile? File
+        {
+            get
+            {
+                if (!_mUnknown_File) return _mValue_File;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust.File' is not present");
+            }
+        }
 
         /// <summary>
         /// TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         /// </summary>
-        [Input("sds")]
+        [PolicyResourceProperty("sds", "_mUnknown_Sds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds> _mSds;
-
-        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds? Sds => _mSds.GetValue("sds");
+        private Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds? _mValue_Sds;
+        private bool _mUnknown_Sds;
+        public Outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds? Sds
+        {
+            get
+            {
+                if (!_mUnknown_Sds) return _mValue_Sds;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust.Sds' is not present");
+            }
+        }
     }
 }

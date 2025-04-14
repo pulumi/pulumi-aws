@@ -16,65 +16,121 @@ namespace Pulumi.PolicyPacks.Aws.CodeConnections
         /// <summary>
         /// The CodeConnections Host ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Host.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Host.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         /// </summary>
-        [Input("providerEndpoint")]
+        [PolicyResourceProperty("providerEndpoint", "_mUnknown_ProviderEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
-
-        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
+        private string? _mValue_ProviderEndpoint;
+        private bool _mUnknown_ProviderEndpoint;
+        public string? ProviderEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ProviderEndpoint) return _mValue_ProviderEndpoint;
+                throw new UndeferrableValueException("Value 'Host.ProviderEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'Host.ProviderType' is not present");
+            }
+        }
 
-        public string? ProviderType => _mProviderType.GetValue("providerType");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Host.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Host.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.HostTimeouts> _mTimeouts;
-
-        public Outputs.HostTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.HostTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.HostTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Host.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.HostVpcConfiguration> _mVpcConfiguration;
-
-        public Outputs.HostVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Outputs.HostVpcConfiguration? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Outputs.HostVpcConfiguration? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'Host.VpcConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codeconnections/host:Host")]
@@ -83,49 +139,91 @@ namespace Pulumi.PolicyPacks.Aws.CodeConnections
         /// <summary>
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HostArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         /// </summary>
-        [Input("providerEndpoint")]
+        [PolicyResourceProperty("providerEndpoint", "_mUnknown_ProviderEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
-
-        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
+        private string? _mValue_ProviderEndpoint;
+        private bool _mUnknown_ProviderEndpoint;
+        public string? ProviderEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ProviderEndpoint) return _mValue_ProviderEndpoint;
+                throw new UndeferrableValueException("Value 'HostArgs.ProviderEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'HostArgs.ProviderType' is not present");
+            }
+        }
 
-        public string? ProviderType => _mProviderType.GetValue("providerType");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HostArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.HostTimeoutsArgs> _mTimeouts;
-
-        public Inputs.HostTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.HostTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.HostTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'HostArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.HostVpcConfigurationArgs> _mVpcConfiguration;
-
-        public Inputs.HostVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Inputs.HostVpcConfigurationArgs? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Inputs.HostVpcConfigurationArgs? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'HostArgs.VpcConfiguration' is not present");
+            }
+        }
     }
 }

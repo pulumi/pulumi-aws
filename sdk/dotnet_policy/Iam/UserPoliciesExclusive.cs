@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'UserPoliciesExclusive.PolicyNames' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM user name.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserPoliciesExclusive.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/userPoliciesExclusive:UserPoliciesExclusive")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyNames")]
+        [PolicyResourceProperty("policyNames", "_mUnknown_PolicyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyNames;
-
-        public List<string>? PolicyNames => _mPolicyNames.GetValue("policyNames");
+        private List<string>? _mValue_PolicyNames;
+        private bool _mUnknown_PolicyNames;
+        public List<string>? PolicyNames
+        {
+            get
+            {
+                if (!_mUnknown_PolicyNames) return _mValue_PolicyNames;
+                throw new UndeferrableValueException("Value 'UserPoliciesExclusiveArgs.PolicyNames' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM user name.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserPoliciesExclusiveArgs.UserName' is not present");
+            }
+        }
     }
 }

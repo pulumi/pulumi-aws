@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway.Outputs
         /// <summary>
         /// The Internet Protocol version 4 (IPv4) address of the interface.
         /// </summary>
-        [Input("ipv4Address")]
+        [PolicyResourceProperty("ipv4Address", "_mUnknown_Ipv4Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv4Address;
-
-        public string? Ipv4Address => _mIpv4Address.GetValue("ipv4Address");
+        private string? _mValue_Ipv4Address;
+        private bool _mUnknown_Ipv4Address;
+        public string? Ipv4Address
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4Address) return _mValue_Ipv4Address;
+                throw new UndeferrableValueException("Value 'GatewayGatewayNetworkInterface.Ipv4Address' is not present");
+            }
+        }
     }
 }

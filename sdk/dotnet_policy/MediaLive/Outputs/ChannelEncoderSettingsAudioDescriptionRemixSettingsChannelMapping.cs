@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping
     {
-        [Input("inputChannelLevels")]
+        [PolicyResourceProperty("inputChannelLevels", "_mUnknown_InputChannelLevels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel>> _mInputChannelLevels;
+        private List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel>? _mValue_InputChannelLevels;
+        private bool _mUnknown_InputChannelLevels;
+        public List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel>? InputChannelLevels
+        {
+            get
+            {
+                if (!_mUnknown_InputChannelLevels) return _mValue_InputChannelLevels;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.InputChannelLevels' is not present");
+            }
+        }
 
-        public List<Outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel>? InputChannelLevels => _mInputChannelLevels.GetValue("inputChannelLevels");
-
-        [Input("outputChannel")]
+        [PolicyResourceProperty("outputChannel", "_mUnknown_OutputChannel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOutputChannel;
-
-        public int? OutputChannel => _mOutputChannel.GetValue("outputChannel");
+        private int? _mValue_OutputChannel;
+        private bool _mUnknown_OutputChannel;
+        public int? OutputChannel
+        {
+            get
+            {
+                if (!_mUnknown_OutputChannel) return _mValue_OutputChannel;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.OutputChannel' is not present");
+            }
+        }
     }
 }

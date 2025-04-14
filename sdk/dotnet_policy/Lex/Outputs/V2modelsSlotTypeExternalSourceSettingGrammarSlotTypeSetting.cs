@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// Source of the grammar used to create the slot type.
         /// See `source` argument reference below.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource> _mSource;
-
-        public Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource? Source => _mSource.GetValue("source");
+        private Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting.Source' is not present");
+            }
+        }
     }
 }

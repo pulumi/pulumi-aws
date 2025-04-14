@@ -15,29 +15,50 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Outputs
         /// <summary>
         /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
         /// </summary>
-        [Input("completed")]
+        [PolicyResourceProperty("completed", "_mUnknown_Completed")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompleted;
-
-        public string? Completed => _mCompleted.GetValue("completed");
+        private string? _mValue_Completed;
+        private bool _mUnknown_Completed;
+        public string? Completed
+        {
+            get
+            {
+                if (!_mUnknown_Completed) return _mValue_Completed;
+                throw new UndeferrableValueException("Value 'PipelineNotifications.Completed' is not present");
+            }
+        }
 
         /// <summary>
         /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
         /// </summary>
-        [Input("error")]
+        [PolicyResourceProperty("error", "_mUnknown_Error")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mError;
-
-        public string? Error => _mError.GetValue("error");
+        private string? _mValue_Error;
+        private bool _mUnknown_Error;
+        public string? Error
+        {
+            get
+            {
+                if (!_mUnknown_Error) return _mValue_Error;
+                throw new UndeferrableValueException("Value 'PipelineNotifications.Error' is not present");
+            }
+        }
 
         /// <summary>
         /// The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
         /// </summary>
-        [Input("progressing")]
+        [PolicyResourceProperty("progressing", "_mUnknown_Progressing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProgressing;
-
-        public string? Progressing => _mProgressing.GetValue("progressing");
+        private string? _mValue_Progressing;
+        private bool _mUnknown_Progressing;
+        public string? Progressing
+        {
+            get
+            {
+                if (!_mUnknown_Progressing) return _mValue_Progressing;
+                throw new UndeferrableValueException("Value 'PipelineNotifications.Progressing' is not present");
+            }
+        }
 
         /// <summary>
         /// The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition while processing a job in this pipeline.
@@ -52,10 +73,17 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Outputs
         /// ThumbnailPattern in the topic Create Job.) If you specify values for
         /// `content_config` and `thumbnail_config`, omit the OutputBucket object.
         /// </summary>
-        [Input("warning")]
+        [PolicyResourceProperty("warning", "_mUnknown_Warning")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarning;
-
-        public string? Warning => _mWarning.GetValue("warning");
+        private string? _mValue_Warning;
+        private bool _mUnknown_Warning;
+        public string? Warning
+        {
+            get
+            {
+                if (!_mUnknown_Warning) return _mValue_Warning;
+                throw new UndeferrableValueException("Value 'PipelineNotifications.Warning' is not present");
+            }
+        }
     }
 }

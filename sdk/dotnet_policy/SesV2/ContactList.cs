@@ -13,73 +13,129 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
     [PolicyResourceType("aws:sesv2/contactList:ContactList")]
     public sealed class ContactList : global::Pulumi.PolicyResourceOutput
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ContactList.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the contact list.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("contactListName")]
+        [PolicyResourceProperty("contactListName", "_mUnknown_ContactListName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactListName;
-
-        public string? ContactListName => _mContactListName.GetValue("contactListName");
+        private string? _mValue_ContactListName;
+        private bool _mUnknown_ContactListName;
+        public string? ContactListName
+        {
+            get
+            {
+                if (!_mUnknown_ContactListName) return _mValue_ContactListName;
+                throw new UndeferrableValueException("Value 'ContactList.ContactListName' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp noting when the contact list was created in ISO 8601 format.
         /// </summary>
-        [Input("createdTimestamp")]
+        [PolicyResourceProperty("createdTimestamp", "_mUnknown_CreatedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
-
-        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
+        private string? _mValue_CreatedTimestamp;
+        private bool _mUnknown_CreatedTimestamp;
+        public string? CreatedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTimestamp) return _mValue_CreatedTimestamp;
+                throw new UndeferrableValueException("Value 'ContactList.CreatedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of what the contact list is about.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ContactList.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp noting the last time the contact list was updated in ISO 8601 format.
         /// </summary>
-        [Input("lastUpdatedTimestamp")]
+        [PolicyResourceProperty("lastUpdatedTimestamp", "_mUnknown_LastUpdatedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTimestamp;
-
-        public string? LastUpdatedTimestamp => _mLastUpdatedTimestamp.GetValue("lastUpdatedTimestamp");
+        private string? _mValue_LastUpdatedTimestamp;
+        private bool _mUnknown_LastUpdatedTimestamp;
+        public string? LastUpdatedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTimestamp) return _mValue_LastUpdatedTimestamp;
+                throw new UndeferrableValueException("Value 'ContactList.LastUpdatedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContactList.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ContactList.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with topic for the contact list. Detailed below.
         /// </summary>
-        [Input("topics")]
+        [PolicyResourceProperty("topics", "_mUnknown_Topics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ContactListTopic>> _mTopics;
-
-        public List<Outputs.ContactListTopic>? Topics => _mTopics.GetValue("topics");
+        private List<Outputs.ContactListTopic>? _mValue_Topics;
+        private bool _mUnknown_Topics;
+        public List<Outputs.ContactListTopic>? Topics
+        {
+            get
+            {
+                if (!_mUnknown_Topics) return _mValue_Topics;
+                throw new UndeferrableValueException("Value 'ContactList.Topics' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/contactList:ContactList")]
@@ -90,37 +146,65 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("contactListName")]
+        [PolicyResourceProperty("contactListName", "_mUnknown_ContactListName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactListName;
-
-        public string? ContactListName => _mContactListName.GetValue("contactListName");
+        private string? _mValue_ContactListName;
+        private bool _mUnknown_ContactListName;
+        public string? ContactListName
+        {
+            get
+            {
+                if (!_mUnknown_ContactListName) return _mValue_ContactListName;
+                throw new UndeferrableValueException("Value 'ContactListArgs.ContactListName' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of what the contact list is about.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ContactListArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ContactListArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with topic for the contact list. Detailed below.
         /// </summary>
-        [Input("topics")]
+        [PolicyResourceProperty("topics", "_mUnknown_Topics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ContactListTopicArgs>> _mTopics;
-
-        public List<Inputs.ContactListTopicArgs>? Topics => _mTopics.GetValue("topics");
+        private List<Inputs.ContactListTopicArgs>? _mValue_Topics;
+        private bool _mUnknown_Topics;
+        public List<Inputs.ContactListTopicArgs>? Topics
+        {
+            get
+            {
+                if (!_mUnknown_Topics) return _mValue_Topics;
+                throw new UndeferrableValueException("Value 'ContactListArgs.Topics' is not present");
+            }
+        }
     }
 }

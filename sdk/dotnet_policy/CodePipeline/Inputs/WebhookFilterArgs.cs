@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
         /// </summary>
-        [Input("jsonPath")]
+        [PolicyResourceProperty("jsonPath", "_mUnknown_JsonPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJsonPath;
-
-        public string? JsonPath => _mJsonPath.GetValue("jsonPath");
+        private string? _mValue_JsonPath;
+        private bool _mUnknown_JsonPath;
+        public string? JsonPath
+        {
+            get
+            {
+                if (!_mUnknown_JsonPath) return _mValue_JsonPath;
+                throw new UndeferrableValueException("Value 'WebhookFilterArgs.JsonPath' is not present");
+            }
+        }
 
         /// <summary>
         /// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         /// </summary>
-        [Input("matchEquals")]
+        [PolicyResourceProperty("matchEquals", "_mUnknown_MatchEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMatchEquals;
-
-        public string? MatchEquals => _mMatchEquals.GetValue("matchEquals");
+        private string? _mValue_MatchEquals;
+        private bool _mUnknown_MatchEquals;
+        public string? MatchEquals
+        {
+            get
+            {
+                if (!_mUnknown_MatchEquals) return _mValue_MatchEquals;
+                throw new UndeferrableValueException("Value 'WebhookFilterArgs.MatchEquals' is not present");
+            }
+        }
     }
 }

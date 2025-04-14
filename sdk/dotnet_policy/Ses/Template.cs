@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The ARN of the SES template
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Template.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
-        [Input("html")]
+        [PolicyResourceProperty("html", "_mUnknown_Html")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHtml;
-
-        public string? Html => _mHtml.GetValue("html");
+        private string? _mValue_Html;
+        private bool _mUnknown_Html;
+        public string? Html
+        {
+            get
+            {
+                if (!_mUnknown_Html) return _mValue_Html;
+                throw new UndeferrableValueException("Value 'Template.Html' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Template.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The subject line of the email.
         /// </summary>
-        [Input("subject")]
+        [PolicyResourceProperty("subject", "_mUnknown_Subject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubject;
-
-        public string? Subject => _mSubject.GetValue("subject");
+        private string? _mValue_Subject;
+        private bool _mUnknown_Subject;
+        public string? Subject
+        {
+            get
+            {
+                if (!_mUnknown_Subject) return _mValue_Subject;
+                throw new UndeferrableValueException("Value 'Template.Subject' is not present");
+            }
+        }
 
         /// <summary>
         /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
-        [Input("text")]
+        [PolicyResourceProperty("text", "_mUnknown_Text")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mText;
-
-        public string? Text => _mText.GetValue("text");
+        private string? _mValue_Text;
+        private bool _mUnknown_Text;
+        public string? Text
+        {
+            get
+            {
+                if (!_mUnknown_Text) return _mValue_Text;
+                throw new UndeferrableValueException("Value 'Template.Text' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/template:Template")]
@@ -65,37 +100,65 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
-        [Input("html")]
+        [PolicyResourceProperty("html", "_mUnknown_Html")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHtml;
-
-        public string? Html => _mHtml.GetValue("html");
+        private string? _mValue_Html;
+        private bool _mUnknown_Html;
+        public string? Html
+        {
+            get
+            {
+                if (!_mUnknown_Html) return _mValue_Html;
+                throw new UndeferrableValueException("Value 'TemplateArgs.Html' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TemplateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The subject line of the email.
         /// </summary>
-        [Input("subject")]
+        [PolicyResourceProperty("subject", "_mUnknown_Subject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubject;
-
-        public string? Subject => _mSubject.GetValue("subject");
+        private string? _mValue_Subject;
+        private bool _mUnknown_Subject;
+        public string? Subject
+        {
+            get
+            {
+                if (!_mUnknown_Subject) return _mValue_Subject;
+                throw new UndeferrableValueException("Value 'TemplateArgs.Subject' is not present");
+            }
+        }
 
         /// <summary>
         /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
-        [Input("text")]
+        [PolicyResourceProperty("text", "_mUnknown_Text")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mText;
-
-        public string? Text => _mText.GetValue("text");
+        private string? _mValue_Text;
+        private bool _mUnknown_Text;
+        public string? Text
+        {
+            get
+            {
+                if (!_mUnknown_Text) return _mValue_Text;
+                throw new UndeferrableValueException("Value 'TemplateArgs.Text' is not present");
+            }
+        }
     }
 }

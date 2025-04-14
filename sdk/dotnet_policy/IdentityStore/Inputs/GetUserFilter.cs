@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.IdentityStore.Inputs
         /// <summary>
         /// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         /// </summary>
-        [Input("attributePath")]
+        [PolicyResourceProperty("attributePath", "_mUnknown_AttributePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttributePath;
-
-        public string? AttributePath => _mAttributePath.GetValue("attributePath");
+        private string? _mValue_AttributePath;
+        private bool _mUnknown_AttributePath;
+        public string? AttributePath
+        {
+            get
+            {
+                if (!_mUnknown_AttributePath) return _mValue_AttributePath;
+                throw new UndeferrableValueException("Value 'GetUserFilterArgs.AttributePath' is not present");
+            }
+        }
 
         /// <summary>
         /// Value for an attribute.
         /// </summary>
-        [Input("attributeValue")]
+        [PolicyResourceProperty("attributeValue", "_mUnknown_AttributeValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttributeValue;
-
-        public string? AttributeValue => _mAttributeValue.GetValue("attributeValue");
+        private string? _mValue_AttributeValue;
+        private bool _mUnknown_AttributeValue;
+        public string? AttributeValue
+        {
+            get
+            {
+                if (!_mUnknown_AttributeValue) return _mValue_AttributeValue;
+                throw new UndeferrableValueException("Value 'GetUserFilterArgs.AttributeValue' is not present");
+            }
+        }
     }
 }

@@ -16,19 +16,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
         /// See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
         /// </summary>
-        [Input("keyword")]
+        [PolicyResourceProperty("keyword", "_mUnknown_Keyword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyword;
-
-        public string? Keyword => _mKeyword.GetValue("keyword");
+        private string? _mValue_Keyword;
+        private bool _mUnknown_Keyword;
+        public string? Keyword
+        {
+            get
+            {
+                if (!_mUnknown_Keyword) return _mValue_Keyword;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.Keyword' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of strings for additional settings to use in stateful rule inspection.
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSettings;
-
-        public List<string>? Settings => _mSettings.GetValue("settings");
+        private List<string>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<string>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.Settings' is not present");
+            }
+        }
     }
 }

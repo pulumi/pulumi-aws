@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// Number of milliseconds a token is valid after being authenticated.
         /// </summary>
-        [Input("authTtl")]
+        [PolicyResourceProperty("authTtl", "_mUnknown_AuthTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAuthTtl;
-
-        public int? AuthTtl => _mAuthTtl.GetValue("authTtl");
+        private int? _mValue_AuthTtl;
+        private bool _mUnknown_AuthTtl;
+        public int? AuthTtl
+        {
+            get
+            {
+                if (!_mUnknown_AuthTtl) return _mValue_AuthTtl;
+                throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfigArgs.AuthTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfigArgs.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of milliseconds a token is valid after being issued to a user.
         /// </summary>
-        [Input("iatTtl")]
+        [PolicyResourceProperty("iatTtl", "_mUnknown_IatTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIatTtl;
-
-        public int? IatTtl => _mIatTtl.GetValue("iatTtl");
+        private int? _mValue_IatTtl;
+        private bool _mUnknown_IatTtl;
+        public int? IatTtl
+        {
+            get
+            {
+                if (!_mUnknown_IatTtl) return _mValue_IatTtl;
+                throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfigArgs.IatTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
         /// </summary>
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
-
-        public string? Issuer => _mIssuer.GetValue("issuer");
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfigArgs.Issuer' is not present");
+            }
+        }
     }
 }

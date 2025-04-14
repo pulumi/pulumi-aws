@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecHttp2RouteActionWeightedTargetResult
     {
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteActionWeightedTargetResult.Port' is not present");
+            }
+        }
 
-        public int? Port => _mPort.GetValue("port");
-
-        [Input("virtualNode")]
+        [PolicyResourceProperty("virtualNode", "_mUnknown_VirtualNode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualNode;
+        private string? _mValue_VirtualNode;
+        private bool _mUnknown_VirtualNode;
+        public string? VirtualNode
+        {
+            get
+            {
+                if (!_mUnknown_VirtualNode) return _mValue_VirtualNode;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteActionWeightedTargetResult.VirtualNode' is not present");
+            }
+        }
 
-        public string? VirtualNode => _mVirtualNode.GetValue("virtualNode");
-
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttp2RouteActionWeightedTargetResult.Weight' is not present");
+            }
+        }
     }
 }

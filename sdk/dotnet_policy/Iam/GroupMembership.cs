@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The IAM Group name to attach the list of `users` to
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'GroupMembership.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// The name to identify the Group Membership
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GroupMembership.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM User names to associate with the Group
         /// </summary>
-        [Input("users")]
+        [PolicyResourceProperty("users", "_mUnknown_Users")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
-
-        public List<string>? Users => _mUsers.GetValue("users");
+        private List<string>? _mValue_Users;
+        private bool _mUnknown_Users;
+        public List<string>? Users
+        {
+            get
+            {
+                if (!_mUnknown_Users) return _mValue_Users;
+                throw new UndeferrableValueException("Value 'GroupMembership.Users' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/groupMembership:GroupMembership")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The IAM Group name to attach the list of `users` to
         /// </summary>
-        [Input("group")]
+        [PolicyResourceProperty("group", "_mUnknown_Group")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroup;
-
-        public string? Group => _mGroup.GetValue("group");
+        private string? _mValue_Group;
+        private bool _mUnknown_Group;
+        public string? Group
+        {
+            get
+            {
+                if (!_mUnknown_Group) return _mValue_Group;
+                throw new UndeferrableValueException("Value 'GroupMembershipArgs.Group' is not present");
+            }
+        }
 
         /// <summary>
         /// The name to identify the Group Membership
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GroupMembershipArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of IAM User names to associate with the Group
         /// </summary>
-        [Input("users")]
+        [PolicyResourceProperty("users", "_mUnknown_Users")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
-
-        public List<string>? Users => _mUsers.GetValue("users");
+        private List<string>? _mValue_Users;
+        private bool _mUnknown_Users;
+        public List<string>? Users
+        {
+            get
+            {
+                if (!_mUnknown_Users) return _mValue_Users;
+                throw new UndeferrableValueException("Value 'GroupMembershipArgs.Users' is not present");
+            }
+        }
     }
 }

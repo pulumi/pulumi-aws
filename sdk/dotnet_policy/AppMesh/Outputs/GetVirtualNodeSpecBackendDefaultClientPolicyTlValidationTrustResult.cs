@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult
     {
-        [Input("acms")]
+        [PolicyResourceProperty("acms", "_mUnknown_Acms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult>> _mAcms;
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult>? _mValue_Acms;
+        private bool _mUnknown_Acms;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult>? Acms
+        {
+            get
+            {
+                if (!_mUnknown_Acms) return _mValue_Acms;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult.Acms' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult>? Acms => _mAcms.GetValue("acms");
-
-        [Input("files")]
+        [PolicyResourceProperty("files", "_mUnknown_Files")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult>> _mFiles;
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult>? _mValue_Files;
+        private bool _mUnknown_Files;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult>? Files
+        {
+            get
+            {
+                if (!_mUnknown_Files) return _mValue_Files;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult.Files' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult>? Files => _mFiles.GetValue("files");
-
-        [Input("sds")]
+        [PolicyResourceProperty("sds", "_mUnknown_Sds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult>> _mSds;
-
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult>? Sds => _mSds.GetValue("sds");
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult>? _mValue_Sds;
+        private bool _mUnknown_Sds;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult>? Sds
+        {
+            get
+            {
+                if (!_mUnknown_Sds) return _mValue_Sds;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult.Sds' is not present");
+            }
+        }
     }
 }

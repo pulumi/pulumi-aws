@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Enables or disables the logging. Defaults to `false`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch group name for logging. This value is required if `enabled` is true.
         /// </summary>
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
-
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs.LogGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudWatch log stream name for logging. This value is required if `enabled` is true.
         /// </summary>
-        [Input("logStreamName")]
+        [PolicyResourceProperty("logStreamName", "_mUnknown_LogStreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogStreamName;
-
-        public string? LogStreamName => _mLogStreamName.GetValue("logStreamName");
+        private string? _mValue_LogStreamName;
+        private bool _mUnknown_LogStreamName;
+        public string? LogStreamName
+        {
+            get
+            {
+                if (!_mUnknown_LogStreamName) return _mValue_LogStreamName;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs.LogStreamName' is not present");
+            }
+        }
     }
 }

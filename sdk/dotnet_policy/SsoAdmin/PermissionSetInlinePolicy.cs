@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// The IAM inline policy to attach to a Permission Set.
         /// </summary>
-        [Input("inlinePolicy")]
+        [PolicyResourceProperty("inlinePolicy", "_mUnknown_InlinePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInlinePolicy;
-
-        public string? InlinePolicy => _mInlinePolicy.GetValue("inlinePolicy");
+        private string? _mValue_InlinePolicy;
+        private bool _mUnknown_InlinePolicy;
+        public string? InlinePolicy
+        {
+            get
+            {
+                if (!_mUnknown_InlinePolicy) return _mValue_InlinePolicy;
+                throw new UndeferrableValueException("Value 'PermissionSetInlinePolicy.InlinePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'PermissionSetInlinePolicy.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'PermissionSetInlinePolicy.PermissionSetArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.SsoAdmin
         /// <summary>
         /// The IAM inline policy to attach to a Permission Set.
         /// </summary>
-        [Input("inlinePolicy")]
+        [PolicyResourceProperty("inlinePolicy", "_mUnknown_InlinePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInlinePolicy;
-
-        public string? InlinePolicy => _mInlinePolicy.GetValue("inlinePolicy");
+        private string? _mValue_InlinePolicy;
+        private bool _mUnknown_InlinePolicy;
+        public string? InlinePolicy
+        {
+            get
+            {
+                if (!_mUnknown_InlinePolicy) return _mValue_InlinePolicy;
+                throw new UndeferrableValueException("Value 'PermissionSetInlinePolicyArgs.InlinePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         /// </summary>
-        [Input("instanceArn")]
+        [PolicyResourceProperty("instanceArn", "_mUnknown_InstanceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceArn;
-
-        public string? InstanceArn => _mInstanceArn.GetValue("instanceArn");
+        private string? _mValue_InstanceArn;
+        private bool _mUnknown_InstanceArn;
+        public string? InstanceArn
+        {
+            get
+            {
+                if (!_mUnknown_InstanceArn) return _mValue_InstanceArn;
+                throw new UndeferrableValueException("Value 'PermissionSetInlinePolicyArgs.InstanceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Permission Set.
         /// </summary>
-        [Input("permissionSetArn")]
+        [PolicyResourceProperty("permissionSetArn", "_mUnknown_PermissionSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionSetArn;
-
-        public string? PermissionSetArn => _mPermissionSetArn.GetValue("permissionSetArn");
+        private string? _mValue_PermissionSetArn;
+        private bool _mUnknown_PermissionSetArn;
+        public string? PermissionSetArn
+        {
+            get
+            {
+                if (!_mUnknown_PermissionSetArn) return _mValue_PermissionSetArn;
+                throw new UndeferrableValueException("Value 'PermissionSetInlinePolicyArgs.PermissionSetArn' is not present");
+            }
+        }
     }
 }

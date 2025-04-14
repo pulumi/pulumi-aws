@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Account ID that owns the destination bucket.
         /// </summary>
-        [Input("bucketAccountId")]
+        [PolicyResourceProperty("bucketAccountId", "_mUnknown_BucketAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketAccountId;
-
-        public string? BucketAccountId => _mBucketAccountId.GetValue("bucketAccountId");
+        private string? _mValue_BucketAccountId;
+        private bool _mUnknown_BucketAccountId;
+        public string? BucketAccountId
+        {
+            get
+            {
+                if (!_mUnknown_BucketAccountId) return _mValue_BucketAccountId;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.BucketAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the destination bucket.
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
-
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
         /// </summary>
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
-
-        public string? Format => _mFormat.GetValue("format");
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.Format' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix to append to exported analytics data.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.Prefix' is not present");
+            }
+        }
     }
 }

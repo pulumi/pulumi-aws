@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         /// </summary>
-        [Input("fileFormat")]
+        [PolicyResourceProperty("fileFormat", "_mUnknown_FileFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileFormat;
-
-        public string? FileFormat => _mFileFormat.GetValue("fileFormat");
+        private string? _mValue_FileFormat;
+        private bool _mUnknown_FileFormat;
+        public string? FileFormat
+        {
+            get
+            {
+                if (!_mUnknown_FileFormat) return _mValue_FileFormat;
+                throw new UndeferrableValueException("Value 'FlowLogDestinationOptions.FileFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
         /// </summary>
-        [Input("hiveCompatiblePartitions")]
+        [PolicyResourceProperty("hiveCompatiblePartitions", "_mUnknown_HiveCompatiblePartitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHiveCompatiblePartitions;
-
-        public bool? HiveCompatiblePartitions => _mHiveCompatiblePartitions.GetValue("hiveCompatiblePartitions");
+        private bool? _mValue_HiveCompatiblePartitions;
+        private bool _mUnknown_HiveCompatiblePartitions;
+        public bool? HiveCompatiblePartitions
+        {
+            get
+            {
+                if (!_mUnknown_HiveCompatiblePartitions) return _mValue_HiveCompatiblePartitions;
+                throw new UndeferrableValueException("Value 'FlowLogDestinationOptions.HiveCompatiblePartitions' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         /// </summary>
-        [Input("perHourPartition")]
+        [PolicyResourceProperty("perHourPartition", "_mUnknown_PerHourPartition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPerHourPartition;
-
-        public bool? PerHourPartition => _mPerHourPartition.GetValue("perHourPartition");
+        private bool? _mValue_PerHourPartition;
+        private bool _mUnknown_PerHourPartition;
+        public bool? PerHourPartition
+        {
+            get
+            {
+                if (!_mUnknown_PerHourPartition) return _mValue_PerHourPartition;
+                throw new UndeferrableValueException("Value 'FlowLogDestinationOptions.PerHourPartition' is not present");
+            }
+        }
     }
 }

@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         /// </summary>
-        [Input("apiCachingBehavior")]
+        [PolicyResourceProperty("apiCachingBehavior", "_mUnknown_ApiCachingBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiCachingBehavior;
-
-        public string? ApiCachingBehavior => _mApiCachingBehavior.GetValue("apiCachingBehavior");
+        private string? _mValue_ApiCachingBehavior;
+        private bool _mUnknown_ApiCachingBehavior;
+        public string? ApiCachingBehavior
+        {
+            get
+            {
+                if (!_mUnknown_ApiCachingBehavior) return _mValue_ApiCachingBehavior;
+                throw new UndeferrableValueException("Value 'ApiCache.ApiCachingBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// GraphQL API ID.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'ApiCache.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// At-rest encryption flag for cache. You cannot update this setting after creation.
         /// </summary>
-        [Input("atRestEncryptionEnabled")]
+        [PolicyResourceProperty("atRestEncryptionEnabled", "_mUnknown_AtRestEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAtRestEncryptionEnabled;
-
-        public bool? AtRestEncryptionEnabled => _mAtRestEncryptionEnabled.GetValue("atRestEncryptionEnabled");
+        private bool? _mValue_AtRestEncryptionEnabled;
+        private bool _mUnknown_AtRestEncryptionEnabled;
+        public bool? AtRestEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AtRestEncryptionEnabled) return _mValue_AtRestEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'ApiCache.AtRestEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         /// </summary>
-        [Input("transitEncryptionEnabled")]
+        [PolicyResourceProperty("transitEncryptionEnabled", "_mUnknown_TransitEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
-
-        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
+        private bool? _mValue_TransitEncryptionEnabled;
+        private bool _mUnknown_TransitEncryptionEnabled;
+        public bool? TransitEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TransitEncryptionEnabled) return _mValue_TransitEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'ApiCache.TransitEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// TTL in seconds for cache entries.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'ApiCache.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ApiCache.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/apiCache:ApiCache")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         /// </summary>
-        [Input("apiCachingBehavior")]
+        [PolicyResourceProperty("apiCachingBehavior", "_mUnknown_ApiCachingBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiCachingBehavior;
-
-        public string? ApiCachingBehavior => _mApiCachingBehavior.GetValue("apiCachingBehavior");
+        private string? _mValue_ApiCachingBehavior;
+        private bool _mUnknown_ApiCachingBehavior;
+        public string? ApiCachingBehavior
+        {
+            get
+            {
+                if (!_mUnknown_ApiCachingBehavior) return _mValue_ApiCachingBehavior;
+                throw new UndeferrableValueException("Value 'ApiCacheArgs.ApiCachingBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// GraphQL API ID.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'ApiCacheArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// At-rest encryption flag for cache. You cannot update this setting after creation.
         /// </summary>
-        [Input("atRestEncryptionEnabled")]
+        [PolicyResourceProperty("atRestEncryptionEnabled", "_mUnknown_AtRestEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAtRestEncryptionEnabled;
-
-        public bool? AtRestEncryptionEnabled => _mAtRestEncryptionEnabled.GetValue("atRestEncryptionEnabled");
+        private bool? _mValue_AtRestEncryptionEnabled;
+        private bool _mUnknown_AtRestEncryptionEnabled;
+        public bool? AtRestEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AtRestEncryptionEnabled) return _mValue_AtRestEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'ApiCacheArgs.AtRestEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         /// </summary>
-        [Input("transitEncryptionEnabled")]
+        [PolicyResourceProperty("transitEncryptionEnabled", "_mUnknown_TransitEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
-
-        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
+        private bool? _mValue_TransitEncryptionEnabled;
+        private bool _mUnknown_TransitEncryptionEnabled;
+        public bool? TransitEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TransitEncryptionEnabled) return _mValue_TransitEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'ApiCacheArgs.TransitEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// TTL in seconds for cache entries.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTtl;
-
-        public int? Ttl => _mTtl.GetValue("ttl");
+        private int? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public int? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'ApiCacheArgs.Ttl' is not present");
+            }
+        }
 
         /// <summary>
         /// Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ApiCacheArgs.Type' is not present");
+            }
+        }
     }
 }

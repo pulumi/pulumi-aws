@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Outputs
         /// <summary>
         /// The access token aud claim values that you want to accept in your policy store.
         /// </summary>
-        [Input("audiences")]
+        [PolicyResourceProperty("audiences", "_mUnknown_Audiences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAudiences;
-
-        public List<string>? Audiences => _mAudiences.GetValue("audiences");
+        private List<string>? _mValue_Audiences;
+        private bool _mUnknown_Audiences;
+        public List<string>? Audiences
+        {
+            get
+            {
+                if (!_mUnknown_Audiences) return _mValue_Audiences;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly.Audiences' is not present");
+            }
+        }
 
         /// <summary>
         /// The claim that determines the principal in OIDC access tokens.
         /// </summary>
-        [Input("principalIdClaim")]
+        [PolicyResourceProperty("principalIdClaim", "_mUnknown_PrincipalIdClaim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrincipalIdClaim;
-
-        public string? PrincipalIdClaim => _mPrincipalIdClaim.GetValue("principalIdClaim");
+        private string? _mValue_PrincipalIdClaim;
+        private bool _mUnknown_PrincipalIdClaim;
+        public string? PrincipalIdClaim
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalIdClaim) return _mValue_PrincipalIdClaim;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly.PrincipalIdClaim' is not present");
+            }
+        }
     }
 }

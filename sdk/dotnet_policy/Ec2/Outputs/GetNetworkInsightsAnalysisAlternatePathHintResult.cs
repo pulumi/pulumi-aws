@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetNetworkInsightsAnalysisAlternatePathHintResult
     {
-        [Input("componentArn")]
+        [PolicyResourceProperty("componentArn", "_mUnknown_ComponentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComponentArn;
+        private string? _mValue_ComponentArn;
+        private bool _mUnknown_ComponentArn;
+        public string? ComponentArn
+        {
+            get
+            {
+                if (!_mUnknown_ComponentArn) return _mValue_ComponentArn;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisAlternatePathHintResult.ComponentArn' is not present");
+            }
+        }
 
-        public string? ComponentArn => _mComponentArn.GetValue("componentArn");
-
-        [Input("componentId")]
+        [PolicyResourceProperty("componentId", "_mUnknown_ComponentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComponentId;
-
-        public string? ComponentId => _mComponentId.GetValue("componentId");
+        private string? _mValue_ComponentId;
+        private bool _mUnknown_ComponentId;
+        public string? ComponentId
+        {
+            get
+            {
+                if (!_mUnknown_ComponentId) return _mValue_ComponentId;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisAlternatePathHintResult.ComponentId' is not present");
+            }
+        }
     }
 }

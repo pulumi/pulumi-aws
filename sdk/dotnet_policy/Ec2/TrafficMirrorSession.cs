@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the traffic mirror session.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS account ID of the session owner.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
         /// </summary>
-        [Input("packetLength")]
+        [PolicyResourceProperty("packetLength", "_mUnknown_PacketLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPacketLength;
-
-        public int? PacketLength => _mPacketLength.GetValue("packetLength");
+        private int? _mValue_PacketLength;
+        private bool _mUnknown_PacketLength;
+        public int? PacketLength
+        {
+            get
+            {
+                if (!_mUnknown_PacketLength) return _mValue_PacketLength;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.PacketLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         /// </summary>
-        [Input("sessionNumber")]
+        [PolicyResourceProperty("sessionNumber", "_mUnknown_SessionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSessionNumber;
-
-        public int? SessionNumber => _mSessionNumber.GetValue("sessionNumber");
+        private int? _mValue_SessionNumber;
+        private bool _mUnknown_SessionNumber;
+        public int? SessionNumber
+        {
+            get
+            {
+                if (!_mUnknown_SessionNumber) return _mValue_SessionNumber;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.SessionNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic mirror filter to be used
         /// </summary>
-        [Input("trafficMirrorFilterId")]
+        [PolicyResourceProperty("trafficMirrorFilterId", "_mUnknown_TrafficMirrorFilterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorFilterId;
-
-        public string? TrafficMirrorFilterId => _mTrafficMirrorFilterId.GetValue("trafficMirrorFilterId");
+        private string? _mValue_TrafficMirrorFilterId;
+        private bool _mUnknown_TrafficMirrorFilterId;
+        public string? TrafficMirrorFilterId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficMirrorFilterId) return _mValue_TrafficMirrorFilterId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.TrafficMirrorFilterId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic mirror target to be used
         /// </summary>
-        [Input("trafficMirrorTargetId")]
+        [PolicyResourceProperty("trafficMirrorTargetId", "_mUnknown_TrafficMirrorTargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorTargetId;
-
-        public string? TrafficMirrorTargetId => _mTrafficMirrorTargetId.GetValue("trafficMirrorTargetId");
+        private string? _mValue_TrafficMirrorTargetId;
+        private bool _mUnknown_TrafficMirrorTargetId;
+        public string? TrafficMirrorTargetId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficMirrorTargetId) return _mValue_TrafficMirrorTargetId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.TrafficMirrorTargetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         /// </summary>
-        [Input("virtualNetworkId")]
+        [PolicyResourceProperty("virtualNetworkId", "_mUnknown_VirtualNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVirtualNetworkId;
-
-        public int? VirtualNetworkId => _mVirtualNetworkId.GetValue("virtualNetworkId");
+        private int? _mValue_VirtualNetworkId;
+        private bool _mUnknown_VirtualNetworkId;
+        public int? VirtualNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_VirtualNetworkId) return _mValue_VirtualNetworkId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSession.VirtualNetworkId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/trafficMirrorSession:TrafficMirrorSession")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// A description of the traffic mirror session.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
         /// </summary>
-        [Input("packetLength")]
+        [PolicyResourceProperty("packetLength", "_mUnknown_PacketLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPacketLength;
-
-        public int? PacketLength => _mPacketLength.GetValue("packetLength");
+        private int? _mValue_PacketLength;
+        private bool _mUnknown_PacketLength;
+        public int? PacketLength
+        {
+            get
+            {
+                if (!_mUnknown_PacketLength) return _mValue_PacketLength;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.PacketLength' is not present");
+            }
+        }
 
         /// <summary>
         /// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         /// </summary>
-        [Input("sessionNumber")]
+        [PolicyResourceProperty("sessionNumber", "_mUnknown_SessionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSessionNumber;
-
-        public int? SessionNumber => _mSessionNumber.GetValue("sessionNumber");
+        private int? _mValue_SessionNumber;
+        private bool _mUnknown_SessionNumber;
+        public int? SessionNumber
+        {
+            get
+            {
+                if (!_mUnknown_SessionNumber) return _mValue_SessionNumber;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.SessionNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic mirror filter to be used
         /// </summary>
-        [Input("trafficMirrorFilterId")]
+        [PolicyResourceProperty("trafficMirrorFilterId", "_mUnknown_TrafficMirrorFilterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorFilterId;
-
-        public string? TrafficMirrorFilterId => _mTrafficMirrorFilterId.GetValue("trafficMirrorFilterId");
+        private string? _mValue_TrafficMirrorFilterId;
+        private bool _mUnknown_TrafficMirrorFilterId;
+        public string? TrafficMirrorFilterId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficMirrorFilterId) return _mValue_TrafficMirrorFilterId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.TrafficMirrorFilterId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic mirror target to be used
         /// </summary>
-        [Input("trafficMirrorTargetId")]
+        [PolicyResourceProperty("trafficMirrorTargetId", "_mUnknown_TrafficMirrorTargetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorTargetId;
-
-        public string? TrafficMirrorTargetId => _mTrafficMirrorTargetId.GetValue("trafficMirrorTargetId");
+        private string? _mValue_TrafficMirrorTargetId;
+        private bool _mUnknown_TrafficMirrorTargetId;
+        public string? TrafficMirrorTargetId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficMirrorTargetId) return _mValue_TrafficMirrorTargetId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.TrafficMirrorTargetId' is not present");
+            }
+        }
 
         /// <summary>
         /// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         /// </summary>
-        [Input("virtualNetworkId")]
+        [PolicyResourceProperty("virtualNetworkId", "_mUnknown_VirtualNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVirtualNetworkId;
-
-        public int? VirtualNetworkId => _mVirtualNetworkId.GetValue("virtualNetworkId");
+        private int? _mValue_VirtualNetworkId;
+        private bool _mUnknown_VirtualNetworkId;
+        public int? VirtualNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_VirtualNetworkId) return _mValue_VirtualNetworkId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorSessionArgs.VirtualNetworkId' is not present");
+            }
+        }
     }
 }

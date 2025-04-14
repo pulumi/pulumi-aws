@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the behavior graph.
         /// </summary>
-        [Input("graphArn")]
+        [PolicyResourceProperty("graphArn", "_mUnknown_GraphArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
-
-        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+        private string? _mValue_GraphArn;
+        private bool _mUnknown_GraphArn;
+        public string? GraphArn
+        {
+            get
+            {
+                if (!_mUnknown_GraphArn) return _mValue_GraphArn;
+                throw new UndeferrableValueException("Value 'OrganizationConfiguration.GraphArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:detective/organizationConfiguration:OrganizationConfiguration")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Detective
         /// <summary>
         /// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
         /// </summary>
-        [Input("autoEnable")]
+        [PolicyResourceProperty("autoEnable", "_mUnknown_AutoEnable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoEnable;
-
-        public bool? AutoEnable => _mAutoEnable.GetValue("autoEnable");
+        private bool? _mValue_AutoEnable;
+        private bool _mUnknown_AutoEnable;
+        public bool? AutoEnable
+        {
+            get
+            {
+                if (!_mUnknown_AutoEnable) return _mValue_AutoEnable;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.AutoEnable' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the behavior graph.
         /// </summary>
-        [Input("graphArn")]
+        [PolicyResourceProperty("graphArn", "_mUnknown_GraphArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGraphArn;
-
-        public string? GraphArn => _mGraphArn.GetValue("graphArn");
+        private string? _mValue_GraphArn;
+        private bool _mUnknown_GraphArn;
+        public string? GraphArn
+        {
+            get
+            {
+                if (!_mUnknown_GraphArn) return _mValue_GraphArn;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.GraphArn' is not present");
+            }
+        }
     }
 }

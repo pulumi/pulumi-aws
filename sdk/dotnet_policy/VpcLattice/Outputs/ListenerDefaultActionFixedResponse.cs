@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
         /// <summary>
         /// Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStatusCode;
-
-        public int? StatusCode => _mStatusCode.GetValue("statusCode");
+        private int? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public int? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'ListenerDefaultActionFixedResponse.StatusCode' is not present");
+            }
+        }
     }
 }

@@ -15,20 +15,34 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca.Outputs
         /// <summary>
         /// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
         /// </summary>
-        [Input("crlConfiguration")]
+        [PolicyResourceProperty("crlConfiguration", "_mUnknown_CrlConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration> _mCrlConfiguration;
-
-        public Outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration? CrlConfiguration => _mCrlConfiguration.GetValue("crlConfiguration");
+        private Outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration? _mValue_CrlConfiguration;
+        private bool _mUnknown_CrlConfiguration;
+        public Outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration? CrlConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CrlConfiguration) return _mValue_CrlConfiguration;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfiguration.CrlConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing configuration of
         /// the custom OCSP responder endpoint. Defined below.
         /// </summary>
-        [Input("ocspConfiguration")]
+        [PolicyResourceProperty("ocspConfiguration", "_mUnknown_OcspConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration> _mOcspConfiguration;
-
-        public Outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration? OcspConfiguration => _mOcspConfiguration.GetValue("ocspConfiguration");
+        private Outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration? _mValue_OcspConfiguration;
+        private bool _mUnknown_OcspConfiguration;
+        public Outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration? OcspConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OcspConfiguration) return _mValue_OcspConfiguration;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfiguration.OcspConfiguration' is not present");
+            }
+        }
     }
 }

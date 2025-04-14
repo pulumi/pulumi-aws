@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Inputs
         /// <summary>
         /// The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
         /// </summary>
-        [Input("kinesisDataStream")]
+        [PolicyResourceProperty("kinesisDataStream", "_mUnknown_KinesisDataStream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorOutputKinesisDataStreamArgs> _mKinesisDataStream;
-
-        public Inputs.StreamProcessorOutputKinesisDataStreamArgs? KinesisDataStream => _mKinesisDataStream.GetValue("kinesisDataStream");
+        private Inputs.StreamProcessorOutputKinesisDataStreamArgs? _mValue_KinesisDataStream;
+        private bool _mUnknown_KinesisDataStream;
+        public Inputs.StreamProcessorOutputKinesisDataStreamArgs? KinesisDataStream
+        {
+            get
+            {
+                if (!_mUnknown_KinesisDataStream) return _mValue_KinesisDataStream;
+                throw new UndeferrableValueException("Value 'StreamProcessorOutputArgs.KinesisDataStream' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
         /// </summary>
-        [Input("s3Destination")]
+        [PolicyResourceProperty("s3Destination", "_mUnknown_S3Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StreamProcessorOutputS3DestinationArgs> _mS3Destination;
-
-        public Inputs.StreamProcessorOutputS3DestinationArgs? S3Destination => _mS3Destination.GetValue("s3Destination");
+        private Inputs.StreamProcessorOutputS3DestinationArgs? _mValue_S3Destination;
+        private bool _mUnknown_S3Destination;
+        public Inputs.StreamProcessorOutputS3DestinationArgs? S3Destination
+        {
+            get
+            {
+                if (!_mUnknown_S3Destination) return _mValue_S3Destination;
+                throw new UndeferrableValueException("Value 'StreamProcessorOutputArgs.S3Destination' is not present");
+            }
+        }
     }
 }

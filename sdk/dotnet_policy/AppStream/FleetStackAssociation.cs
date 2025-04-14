@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Name of the fleet.
         /// </summary>
-        [Input("fleetName")]
+        [PolicyResourceProperty("fleetName", "_mUnknown_FleetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetName;
-
-        public string? FleetName => _mFleetName.GetValue("fleetName");
+        private string? _mValue_FleetName;
+        private bool _mUnknown_FleetName;
+        public string? FleetName
+        {
+            get
+            {
+                if (!_mUnknown_FleetName) return _mValue_FleetName;
+                throw new UndeferrableValueException("Value 'FleetStackAssociation.FleetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the stack.
         /// </summary>
-        [Input("stackName")]
+        [PolicyResourceProperty("stackName", "_mUnknown_StackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
-
-        public string? StackName => _mStackName.GetValue("stackName");
+        private string? _mValue_StackName;
+        private bool _mUnknown_StackName;
+        public string? StackName
+        {
+            get
+            {
+                if (!_mUnknown_StackName) return _mValue_StackName;
+                throw new UndeferrableValueException("Value 'FleetStackAssociation.StackName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Name of the fleet.
         /// </summary>
-        [Input("fleetName")]
+        [PolicyResourceProperty("fleetName", "_mUnknown_FleetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetName;
-
-        public string? FleetName => _mFleetName.GetValue("fleetName");
+        private string? _mValue_FleetName;
+        private bool _mUnknown_FleetName;
+        public string? FleetName
+        {
+            get
+            {
+                if (!_mUnknown_FleetName) return _mValue_FleetName;
+                throw new UndeferrableValueException("Value 'FleetStackAssociationArgs.FleetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the stack.
         /// </summary>
-        [Input("stackName")]
+        [PolicyResourceProperty("stackName", "_mUnknown_StackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
-
-        public string? StackName => _mStackName.GetValue("stackName");
+        private string? _mValue_StackName;
+        private bool _mUnknown_StackName;
+        public string? StackName
+        {
+            get
+            {
+                if (!_mUnknown_StackName) return _mValue_StackName;
+                throw new UndeferrableValueException("Value 'FleetStackAssociationArgs.StackName' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
         /// </summary>
-        [Input("credentialsParameter")]
+        [PolicyResourceProperty("credentialsParameter", "_mUnknown_CredentialsParameter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCredentialsParameter;
-
-        public string? CredentialsParameter => _mCredentialsParameter.GetValue("credentialsParameter");
+        private string? _mValue_CredentialsParameter;
+        private bool _mUnknown_CredentialsParameter;
+        public string? CredentialsParameter
+        {
+            get
+            {
+                if (!_mUnknown_CredentialsParameter) return _mValue_CredentialsParameter;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.CredentialsParameter' is not present");
+            }
+        }
 
         /// <summary>
         /// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.Domain' is not present");
+            }
+        }
     }
 }

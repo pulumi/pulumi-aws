@@ -16,183 +16,323 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         /// </summary>
-        [Input("acceleratorTypes")]
+        [PolicyResourceProperty("acceleratorTypes", "_mUnknown_AcceleratorTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorTypes;
-
-        public List<string>? AcceleratorTypes => _mAcceleratorTypes.GetValue("acceleratorTypes");
+        private List<string>? _mValue_AcceleratorTypes;
+        private bool _mUnknown_AcceleratorTypes;
+        public List<string>? AcceleratorTypes
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorTypes) return _mValue_AcceleratorTypes;
+                throw new UndeferrableValueException("Value 'NotebookInstance.AcceleratorTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of up to three Git repositories to associate with the notebook instance.
         /// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         /// </summary>
-        [Input("additionalCodeRepositories")]
+        [PolicyResourceProperty("additionalCodeRepositories", "_mUnknown_AdditionalCodeRepositories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalCodeRepositories;
-
-        public List<string>? AdditionalCodeRepositories => _mAdditionalCodeRepositories.GetValue("additionalCodeRepositories");
+        private List<string>? _mValue_AdditionalCodeRepositories;
+        private bool _mUnknown_AdditionalCodeRepositories;
+        public List<string>? AdditionalCodeRepositories
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalCodeRepositories) return _mValue_AdditionalCodeRepositories;
+                throw new UndeferrableValueException("Value 'NotebookInstance.AdditionalCodeRepositories' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NotebookInstance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         /// </summary>
-        [Input("defaultCodeRepository")]
+        [PolicyResourceProperty("defaultCodeRepository", "_mUnknown_DefaultCodeRepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultCodeRepository;
-
-        public string? DefaultCodeRepository => _mDefaultCodeRepository.GetValue("defaultCodeRepository");
+        private string? _mValue_DefaultCodeRepository;
+        private bool _mUnknown_DefaultCodeRepository;
+        public string? DefaultCodeRepository
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCodeRepository) return _mValue_DefaultCodeRepository;
+                throw new UndeferrableValueException("Value 'NotebookInstance.DefaultCodeRepository' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
-        [Input("directInternetAccess")]
+        [PolicyResourceProperty("directInternetAccess", "_mUnknown_DirectInternetAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectInternetAccess;
-
-        public string? DirectInternetAccess => _mDirectInternetAccess.GetValue("directInternetAccess");
+        private string? _mValue_DirectInternetAccess;
+        private bool _mUnknown_DirectInternetAccess;
+        public string? DirectInternetAccess
+        {
+            get
+            {
+                if (!_mUnknown_DirectInternetAccess) return _mValue_DirectInternetAccess;
+                throw new UndeferrableValueException("Value 'NotebookInstance.DirectInternetAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         /// </summary>
-        [Input("instanceMetadataServiceConfiguration")]
+        [PolicyResourceProperty("instanceMetadataServiceConfiguration", "_mUnknown_InstanceMetadataServiceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NotebookInstanceInstanceMetadataServiceConfiguration> _mInstanceMetadataServiceConfiguration;
-
-        public Outputs.NotebookInstanceInstanceMetadataServiceConfiguration? InstanceMetadataServiceConfiguration => _mInstanceMetadataServiceConfiguration.GetValue("instanceMetadataServiceConfiguration");
+        private Outputs.NotebookInstanceInstanceMetadataServiceConfiguration? _mValue_InstanceMetadataServiceConfiguration;
+        private bool _mUnknown_InstanceMetadataServiceConfiguration;
+        public Outputs.NotebookInstanceInstanceMetadataServiceConfiguration? InstanceMetadataServiceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataServiceConfiguration) return _mValue_InstanceMetadataServiceConfiguration;
+                throw new UndeferrableValueException("Value 'NotebookInstance.InstanceMetadataServiceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of ML compute instance type.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'NotebookInstance.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'NotebookInstance.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a lifecycle configuration to associate with the notebook instance.
         /// </summary>
-        [Input("lifecycleConfigName")]
+        [PolicyResourceProperty("lifecycleConfigName", "_mUnknown_LifecycleConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleConfigName;
-
-        public string? LifecycleConfigName => _mLifecycleConfigName.GetValue("lifecycleConfigName");
+        private string? _mValue_LifecycleConfigName;
+        private bool _mUnknown_LifecycleConfigName;
+        public string? LifecycleConfigName
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigName) return _mValue_LifecycleConfigName;
+                throw new UndeferrableValueException("Value 'NotebookInstance.LifecycleConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the notebook instance (must be unique).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NotebookInstance.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'NotebookInstance.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
         /// </summary>
-        [Input("platformIdentifier")]
+        [PolicyResourceProperty("platformIdentifier", "_mUnknown_PlatformIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformIdentifier;
-
-        public string? PlatformIdentifier => _mPlatformIdentifier.GetValue("platformIdentifier");
+        private string? _mValue_PlatformIdentifier;
+        private bool _mUnknown_PlatformIdentifier;
+        public string? PlatformIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_PlatformIdentifier) return _mValue_PlatformIdentifier;
+                throw new UndeferrableValueException("Value 'NotebookInstance.PlatformIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'NotebookInstance.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         /// </summary>
-        [Input("rootAccess")]
+        [PolicyResourceProperty("rootAccess", "_mUnknown_RootAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootAccess;
-
-        public string? RootAccess => _mRootAccess.GetValue("rootAccess");
+        private string? _mValue_RootAccess;
+        private bool _mUnknown_RootAccess;
+        public string? RootAccess
+        {
+            get
+            {
+                if (!_mUnknown_RootAccess) return _mValue_RootAccess;
+                throw new UndeferrableValueException("Value 'NotebookInstance.RootAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// The associated security groups.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'NotebookInstance.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC subnet ID.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NotebookInstance.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NotebookInstance.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NotebookInstance.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'NotebookInstance.Url' is not present");
+            }
+        }
 
         /// <summary>
         /// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         /// </summary>
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
-
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'NotebookInstance.VolumeSize' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/notebookInstance:NotebookInstance")]
@@ -201,146 +341,258 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         /// </summary>
-        [Input("acceleratorTypes")]
+        [PolicyResourceProperty("acceleratorTypes", "_mUnknown_AcceleratorTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAcceleratorTypes;
-
-        public List<string>? AcceleratorTypes => _mAcceleratorTypes.GetValue("acceleratorTypes");
+        private List<string>? _mValue_AcceleratorTypes;
+        private bool _mUnknown_AcceleratorTypes;
+        public List<string>? AcceleratorTypes
+        {
+            get
+            {
+                if (!_mUnknown_AcceleratorTypes) return _mValue_AcceleratorTypes;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.AcceleratorTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of up to three Git repositories to associate with the notebook instance.
         /// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         /// </summary>
-        [Input("additionalCodeRepositories")]
+        [PolicyResourceProperty("additionalCodeRepositories", "_mUnknown_AdditionalCodeRepositories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalCodeRepositories;
-
-        public List<string>? AdditionalCodeRepositories => _mAdditionalCodeRepositories.GetValue("additionalCodeRepositories");
+        private List<string>? _mValue_AdditionalCodeRepositories;
+        private bool _mUnknown_AdditionalCodeRepositories;
+        public List<string>? AdditionalCodeRepositories
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalCodeRepositories) return _mValue_AdditionalCodeRepositories;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.AdditionalCodeRepositories' is not present");
+            }
+        }
 
         /// <summary>
         /// The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         /// </summary>
-        [Input("defaultCodeRepository")]
+        [PolicyResourceProperty("defaultCodeRepository", "_mUnknown_DefaultCodeRepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultCodeRepository;
-
-        public string? DefaultCodeRepository => _mDefaultCodeRepository.GetValue("defaultCodeRepository");
+        private string? _mValue_DefaultCodeRepository;
+        private bool _mUnknown_DefaultCodeRepository;
+        public string? DefaultCodeRepository
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCodeRepository) return _mValue_DefaultCodeRepository;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.DefaultCodeRepository' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
         /// </summary>
-        [Input("directInternetAccess")]
+        [PolicyResourceProperty("directInternetAccess", "_mUnknown_DirectInternetAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectInternetAccess;
-
-        public string? DirectInternetAccess => _mDirectInternetAccess.GetValue("directInternetAccess");
+        private string? _mValue_DirectInternetAccess;
+        private bool _mUnknown_DirectInternetAccess;
+        public string? DirectInternetAccess
+        {
+            get
+            {
+                if (!_mUnknown_DirectInternetAccess) return _mValue_DirectInternetAccess;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.DirectInternetAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         /// </summary>
-        [Input("instanceMetadataServiceConfiguration")]
+        [PolicyResourceProperty("instanceMetadataServiceConfiguration", "_mUnknown_InstanceMetadataServiceConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs> _mInstanceMetadataServiceConfiguration;
-
-        public Inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs? InstanceMetadataServiceConfiguration => _mInstanceMetadataServiceConfiguration.GetValue("instanceMetadataServiceConfiguration");
+        private Inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs? _mValue_InstanceMetadataServiceConfiguration;
+        private bool _mUnknown_InstanceMetadataServiceConfiguration;
+        public Inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs? InstanceMetadataServiceConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMetadataServiceConfiguration) return _mValue_InstanceMetadataServiceConfiguration;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.InstanceMetadataServiceConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of ML compute instance type.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.KmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a lifecycle configuration to associate with the notebook instance.
         /// </summary>
-        [Input("lifecycleConfigName")]
+        [PolicyResourceProperty("lifecycleConfigName", "_mUnknown_LifecycleConfigName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleConfigName;
-
-        public string? LifecycleConfigName => _mLifecycleConfigName.GetValue("lifecycleConfigName");
+        private string? _mValue_LifecycleConfigName;
+        private bool _mUnknown_LifecycleConfigName;
+        public string? LifecycleConfigName
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigName) return _mValue_LifecycleConfigName;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.LifecycleConfigName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the notebook instance (must be unique).
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
         /// </summary>
-        [Input("platformIdentifier")]
+        [PolicyResourceProperty("platformIdentifier", "_mUnknown_PlatformIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformIdentifier;
-
-        public string? PlatformIdentifier => _mPlatformIdentifier.GetValue("platformIdentifier");
+        private string? _mValue_PlatformIdentifier;
+        private bool _mUnknown_PlatformIdentifier;
+        public string? PlatformIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_PlatformIdentifier) return _mValue_PlatformIdentifier;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.PlatformIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         /// </summary>
-        [Input("rootAccess")]
+        [PolicyResourceProperty("rootAccess", "_mUnknown_RootAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootAccess;
-
-        public string? RootAccess => _mRootAccess.GetValue("rootAccess");
+        private string? _mValue_RootAccess;
+        private bool _mUnknown_RootAccess;
+        public string? RootAccess
+        {
+            get
+            {
+                if (!_mUnknown_RootAccess) return _mValue_RootAccess;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.RootAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// The associated security groups.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC subnet ID.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         /// </summary>
-        [Input("volumeSize")]
+        [PolicyResourceProperty("volumeSize", "_mUnknown_VolumeSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumeSize;
-
-        public int? VolumeSize => _mVolumeSize.GetValue("volumeSize");
+        private int? _mValue_VolumeSize;
+        private bool _mUnknown_VolumeSize;
+        public int? VolumeSize
+        {
+            get
+            {
+                if (!_mUnknown_VolumeSize) return _mValue_VolumeSize;
+                throw new UndeferrableValueException("Value 'NotebookInstanceArgs.VolumeSize' is not present");
+            }
+        }
     }
 }

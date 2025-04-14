@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.RolesAnywhere.Outputs
         /// <summary>
         /// The data denoting the source of trust, documented below
         /// </summary>
-        [Input("sourceData")]
+        [PolicyResourceProperty("sourceData", "_mUnknown_SourceData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustAnchorSourceSourceData> _mSourceData;
-
-        public Outputs.TrustAnchorSourceSourceData? SourceData => _mSourceData.GetValue("sourceData");
+        private Outputs.TrustAnchorSourceSourceData? _mValue_SourceData;
+        private bool _mUnknown_SourceData;
+        public Outputs.TrustAnchorSourceSourceData? SourceData
+        {
+            get
+            {
+                if (!_mUnknown_SourceData) return _mValue_SourceData;
+                throw new UndeferrableValueException("Value 'TrustAnchorSource.SourceData' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
         /// </summary>
-        [Input("sourceType")]
+        [PolicyResourceProperty("sourceType", "_mUnknown_SourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
-
-        public string? SourceType => _mSourceType.GetValue("sourceType");
+        private string? _mValue_SourceType;
+        private bool _mUnknown_SourceType;
+        public string? SourceType
+        {
+            get
+            {
+                if (!_mUnknown_SourceType) return _mValue_SourceType;
+                throw new UndeferrableValueException("Value 'TrustAnchorSource.SourceType' is not present");
+            }
+        }
     }
 }

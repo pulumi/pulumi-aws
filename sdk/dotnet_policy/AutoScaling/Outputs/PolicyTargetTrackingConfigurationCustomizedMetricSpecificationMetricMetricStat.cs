@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
         /// <summary>
         /// Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         /// </summary>
-        [Input("metric")]
+        [PolicyResourceProperty("metric", "_mUnknown_Metric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric> _mMetric;
-
-        public Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric? Metric => _mMetric.GetValue("metric");
+        private Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric? _mValue_Metric;
+        private bool _mUnknown_Metric;
+        public Outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric? Metric
+        {
+            get
+            {
+                if (!_mUnknown_Metric) return _mValue_Metric;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat.Metric' is not present");
+            }
+        }
 
         /// <summary>
         /// The period of the metric in seconds.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPeriod;
-
-        public int? Period => _mPeriod.GetValue("period");
+        private int? _mValue_Period;
+        private bool _mUnknown_Period;
+        public int? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// Statistic of the metrics to return.
         /// </summary>
-        [Input("stat")]
+        [PolicyResourceProperty("stat", "_mUnknown_Stat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStat;
-
-        public string? Stat => _mStat.GetValue("stat");
+        private string? _mValue_Stat;
+        private bool _mUnknown_Stat;
+        public string? Stat
+        {
+            get
+            {
+                if (!_mUnknown_Stat) return _mValue_Stat;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat.Stat' is not present");
+            }
+        }
 
         /// <summary>
         /// Unit of the metrics to return.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat.Unit' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
 {
     public sealed class GetListenerDefaultActionForwardResult
     {
-        [Input("stickinesses")]
+        [PolicyResourceProperty("stickinesses", "_mUnknown_Stickinesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionForwardStickinessResult>> _mStickinesses;
+        private List<Outputs.GetListenerDefaultActionForwardStickinessResult>? _mValue_Stickinesses;
+        private bool _mUnknown_Stickinesses;
+        public List<Outputs.GetListenerDefaultActionForwardStickinessResult>? Stickinesses
+        {
+            get
+            {
+                if (!_mUnknown_Stickinesses) return _mValue_Stickinesses;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionForwardResult.Stickinesses' is not present");
+            }
+        }
 
-        public List<Outputs.GetListenerDefaultActionForwardStickinessResult>? Stickinesses => _mStickinesses.GetValue("stickinesses");
-
-        [Input("targetGroups")]
+        [PolicyResourceProperty("targetGroups", "_mUnknown_TargetGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>> _mTargetGroups;
-
-        public List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>? TargetGroups => _mTargetGroups.GetValue("targetGroups");
+        private List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>? _mValue_TargetGroups;
+        private bool _mUnknown_TargetGroups;
+        public List<Outputs.GetListenerDefaultActionForwardTargetGroupResult>? TargetGroups
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroups) return _mValue_TargetGroups;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionForwardResult.TargetGroups' is not present");
+            }
+        }
     }
 }

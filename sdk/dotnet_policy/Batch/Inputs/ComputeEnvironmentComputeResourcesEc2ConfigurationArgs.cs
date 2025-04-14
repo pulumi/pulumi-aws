@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
         /// </summary>
-        [Input("imageIdOverride")]
+        [PolicyResourceProperty("imageIdOverride", "_mUnknown_ImageIdOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageIdOverride;
-
-        public string? ImageIdOverride => _mImageIdOverride.GetValue("imageIdOverride");
+        private string? _mValue_ImageIdOverride;
+        private bool _mUnknown_ImageIdOverride;
+        public string? ImageIdOverride
+        {
+            get
+            {
+                if (!_mUnknown_ImageIdOverride) return _mValue_ImageIdOverride;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs.ImageIdOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
         /// </summary>
-        [Input("imageType")]
+        [PolicyResourceProperty("imageType", "_mUnknown_ImageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImageType;
-
-        public string? ImageType => _mImageType.GetValue("imageType");
+        private string? _mValue_ImageType;
+        private bool _mUnknown_ImageType;
+        public string? ImageType
+        {
+            get
+            {
+                if (!_mUnknown_ImageType) return _mValue_ImageType;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs.ImageType' is not present");
+            }
+        }
     }
 }

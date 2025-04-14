@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
         /// <summary>
         /// The contents of the certificate's domain.crt file.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'ApplicationSslConfiguration.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// Can be used to specify an intermediate certificate authority key or client authentication.
         /// </summary>
-        [Input("chain")]
+        [PolicyResourceProperty("chain", "_mUnknown_Chain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChain;
-
-        public string? Chain => _mChain.GetValue("chain");
+        private string? _mValue_Chain;
+        private bool _mUnknown_Chain;
+        public string? Chain
+        {
+            get
+            {
+                if (!_mUnknown_Chain) return _mValue_Chain;
+                throw new UndeferrableValueException("Value 'ApplicationSslConfiguration.Chain' is not present");
+            }
+        }
 
         /// <summary>
         /// The private key; the contents of the certificate's domain.key file.
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'ApplicationSslConfiguration.PrivateKey' is not present");
+            }
+        }
     }
 }

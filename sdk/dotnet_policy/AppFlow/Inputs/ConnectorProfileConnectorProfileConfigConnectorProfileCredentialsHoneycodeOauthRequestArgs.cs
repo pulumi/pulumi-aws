@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// The code provided by the connector when it has been authenticated via the connected app.
         /// </summary>
-        [Input("authCode")]
+        [PolicyResourceProperty("authCode", "_mUnknown_AuthCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthCode;
-
-        public string? AuthCode => _mAuthCode.GetValue("authCode");
+        private string? _mValue_AuthCode;
+        private bool _mUnknown_AuthCode;
+        public string? AuthCode
+        {
+            get
+            {
+                if (!_mUnknown_AuthCode) return _mValue_AuthCode;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs.AuthCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL to which the authentication server redirects the browser after authorization has been granted.
         /// </summary>
-        [Input("redirectUri")]
+        [PolicyResourceProperty("redirectUri", "_mUnknown_RedirectUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedirectUri;
-
-        public string? RedirectUri => _mRedirectUri.GetValue("redirectUri");
+        private string? _mValue_RedirectUri;
+        private bool _mUnknown_RedirectUri;
+        public string? RedirectUri
+        {
+            get
+            {
+                if (!_mUnknown_RedirectUri) return _mValue_RedirectUri;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs.RedirectUri' is not present");
+            }
+        }
     }
 }

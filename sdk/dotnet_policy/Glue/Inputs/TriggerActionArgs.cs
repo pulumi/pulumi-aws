@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
         /// </summary>
-        [Input("arguments")]
+        [PolicyResourceProperty("arguments", "_mUnknown_Arguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mArguments;
-
-        public Dictionary<string, string>? Arguments => _mArguments.GetValue("arguments");
+        private Dictionary<string, string>? _mValue_Arguments;
+        private bool _mUnknown_Arguments;
+        public Dictionary<string, string>? Arguments
+        {
+            get
+            {
+                if (!_mUnknown_Arguments) return _mValue_Arguments;
+                throw new UndeferrableValueException("Value 'TriggerActionArgs.Arguments' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the crawler to be executed. Conflicts with `job_name`.
         /// </summary>
-        [Input("crawlerName")]
+        [PolicyResourceProperty("crawlerName", "_mUnknown_CrawlerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCrawlerName;
-
-        public string? CrawlerName => _mCrawlerName.GetValue("crawlerName");
+        private string? _mValue_CrawlerName;
+        private bool _mUnknown_CrawlerName;
+        public string? CrawlerName
+        {
+            get
+            {
+                if (!_mUnknown_CrawlerName) return _mValue_CrawlerName;
+                throw new UndeferrableValueException("Value 'TriggerActionArgs.CrawlerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a job to be executed. Conflicts with `crawler_name`.
         /// </summary>
-        [Input("jobName")]
+        [PolicyResourceProperty("jobName", "_mUnknown_JobName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
-
-        public string? JobName => _mJobName.GetValue("jobName");
+        private string? _mValue_JobName;
+        private bool _mUnknown_JobName;
+        public string? JobName
+        {
+            get
+            {
+                if (!_mUnknown_JobName) return _mValue_JobName;
+                throw new UndeferrableValueException("Value 'TriggerActionArgs.JobName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies configuration properties of a job run notification. See Notification Property details below.
         /// </summary>
-        [Input("notificationProperty")]
+        [PolicyResourceProperty("notificationProperty", "_mUnknown_NotificationProperty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TriggerActionNotificationPropertyArgs> _mNotificationProperty;
-
-        public Inputs.TriggerActionNotificationPropertyArgs? NotificationProperty => _mNotificationProperty.GetValue("notificationProperty");
+        private Inputs.TriggerActionNotificationPropertyArgs? _mValue_NotificationProperty;
+        private bool _mUnknown_NotificationProperty;
+        public Inputs.TriggerActionNotificationPropertyArgs? NotificationProperty
+        {
+            get
+            {
+                if (!_mUnknown_NotificationProperty) return _mValue_NotificationProperty;
+                throw new UndeferrableValueException("Value 'TriggerActionArgs.NotificationProperty' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Security Configuration structure to be used with this action.
         /// </summary>
-        [Input("securityConfiguration")]
+        [PolicyResourceProperty("securityConfiguration", "_mUnknown_SecurityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityConfiguration;
-
-        public string? SecurityConfiguration => _mSecurityConfiguration.GetValue("securityConfiguration");
+        private string? _mValue_SecurityConfiguration;
+        private bool _mUnknown_SecurityConfiguration;
+        public string? SecurityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SecurityConfiguration) return _mValue_SecurityConfiguration;
+                throw new UndeferrableValueException("Value 'TriggerActionArgs.SecurityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The job run timeout in minutes. It overrides the timeout value of the job.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeout;
-
-        public int? Timeout => _mTimeout.GetValue("timeout");
+        private int? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public int? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'TriggerActionArgs.Timeout' is not present");
+            }
+        }
     }
 }

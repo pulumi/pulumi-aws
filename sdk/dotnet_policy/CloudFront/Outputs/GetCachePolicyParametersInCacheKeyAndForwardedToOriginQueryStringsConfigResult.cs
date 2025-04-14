@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
         /// </summary>
-        [Input("queryStringBehavior")]
+        [PolicyResourceProperty("queryStringBehavior", "_mUnknown_QueryStringBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStringBehavior;
-
-        public string? QueryStringBehavior => _mQueryStringBehavior.GetValue("queryStringBehavior");
+        private string? _mValue_QueryStringBehavior;
+        private bool _mUnknown_QueryStringBehavior;
+        public string? QueryStringBehavior
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringBehavior) return _mValue_QueryStringBehavior;
+                throw new UndeferrableValueException("Value 'GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult.QueryStringBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains a list of query string names. See Items for more information.
         /// </summary>
-        [Input("queryStrings")]
+        [PolicyResourceProperty("queryStrings", "_mUnknown_QueryStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult>> _mQueryStrings;
-
-        public List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult>? QueryStrings => _mQueryStrings.GetValue("queryStrings");
+        private List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult>? _mValue_QueryStrings;
+        private bool _mUnknown_QueryStrings;
+        public List<Outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult>? QueryStrings
+        {
+            get
+            {
+                if (!_mUnknown_QueryStrings) return _mValue_QueryStrings;
+                throw new UndeferrableValueException("Value 'GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult.QueryStrings' is not present");
+            }
+        }
     }
 }

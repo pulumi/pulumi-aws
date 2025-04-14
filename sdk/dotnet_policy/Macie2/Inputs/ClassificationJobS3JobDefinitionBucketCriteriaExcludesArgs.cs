@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Inputs
         /// <summary>
         /// An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
         /// </summary>
-        [Input("ands")]
+        [PolicyResourceProperty("ands", "_mUnknown_Ands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs>> _mAnds;
-
-        public List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs>? Ands => _mAnds.GetValue("ands");
+        private List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs>? _mValue_Ands;
+        private bool _mUnknown_Ands;
+        public List<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs>? Ands
+        {
+            get
+            {
+                if (!_mUnknown_Ands) return _mValue_Ands;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs.Ands' is not present");
+            }
+        }
     }
 }

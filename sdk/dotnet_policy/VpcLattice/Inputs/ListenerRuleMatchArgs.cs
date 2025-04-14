@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Inputs
         /// <summary>
         /// The HTTP criteria that a rule must match.
         /// </summary>
-        [Input("httpMatch")]
+        [PolicyResourceProperty("httpMatch", "_mUnknown_HttpMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleMatchHttpMatchArgs> _mHttpMatch;
-
-        public Inputs.ListenerRuleMatchHttpMatchArgs? HttpMatch => _mHttpMatch.GetValue("httpMatch");
+        private Inputs.ListenerRuleMatchHttpMatchArgs? _mValue_HttpMatch;
+        private bool _mUnknown_HttpMatch;
+        public Inputs.ListenerRuleMatchHttpMatchArgs? HttpMatch
+        {
+            get
+            {
+                if (!_mUnknown_HttpMatch) return _mValue_HttpMatch;
+                throw new UndeferrableValueException("Value 'ListenerRuleMatchArgs.HttpMatch' is not present");
+            }
+        }
     }
 }

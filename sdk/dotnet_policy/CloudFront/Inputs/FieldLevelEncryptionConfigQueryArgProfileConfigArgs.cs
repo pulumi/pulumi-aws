@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
         /// </summary>
-        [Input("forwardWhenQueryArgProfileIsUnknown")]
+        [PolicyResourceProperty("forwardWhenQueryArgProfileIsUnknown", "_mUnknown_ForwardWhenQueryArgProfileIsUnknown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForwardWhenQueryArgProfileIsUnknown;
-
-        public bool? ForwardWhenQueryArgProfileIsUnknown => _mForwardWhenQueryArgProfileIsUnknown.GetValue("forwardWhenQueryArgProfileIsUnknown");
+        private bool? _mValue_ForwardWhenQueryArgProfileIsUnknown;
+        private bool _mUnknown_ForwardWhenQueryArgProfileIsUnknown;
+        public bool? ForwardWhenQueryArgProfileIsUnknown
+        {
+            get
+            {
+                if (!_mUnknown_ForwardWhenQueryArgProfileIsUnknown) return _mValue_ForwardWhenQueryArgProfileIsUnknown;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfigArgs.ForwardWhenQueryArgProfileIsUnknown' is not present");
+            }
+        }
 
         /// <summary>
         /// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
         /// </summary>
-        [Input("queryArgProfiles")]
+        [PolicyResourceProperty("queryArgProfiles", "_mUnknown_QueryArgProfiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs> _mQueryArgProfiles;
-
-        public Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs? QueryArgProfiles => _mQueryArgProfiles.GetValue("queryArgProfiles");
+        private Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs? _mValue_QueryArgProfiles;
+        private bool _mUnknown_QueryArgProfiles;
+        public Inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs? QueryArgProfiles
+        {
+            get
+            {
+                if (!_mUnknown_QueryArgProfiles) return _mValue_QueryArgProfiles;
+                throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfigArgs.QueryArgProfiles' is not present");
+            }
+        }
     }
 }

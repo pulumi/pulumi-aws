@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
         /// </summary>
-        [Input("deviceName")]
+        [PolicyResourceProperty("deviceName", "_mUnknown_DeviceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceName;
-
-        public string? DeviceName => _mDeviceName.GetValue("deviceName");
+        private string? _mValue_DeviceName;
+        private bool _mUnknown_DeviceName;
+        public string? DeviceName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceName) return _mValue_DeviceName;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionInferenceAcceleratorResult.DeviceName' is not present");
+            }
+        }
 
         /// <summary>
         /// Elastic Inference accelerator type to use.
         /// </summary>
-        [Input("deviceType")]
+        [PolicyResourceProperty("deviceType", "_mUnknown_DeviceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceType;
-
-        public string? DeviceType => _mDeviceType.GetValue("deviceType");
+        private string? _mValue_DeviceType;
+        private bool _mUnknown_DeviceType;
+        public string? DeviceType
+        {
+            get
+            {
+                if (!_mUnknown_DeviceType) return _mValue_DeviceType;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionInferenceAcceleratorResult.DeviceType' is not present");
+            }
+        }
     }
 }

@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// <summary>
         /// ARN of the routing control.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RoutingControl.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the cluster in which this routing control will reside.
         /// </summary>
-        [Input("clusterArn")]
+        [PolicyResourceProperty("clusterArn", "_mUnknown_ClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
-
-        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+        private string? _mValue_ClusterArn;
+        private bool _mUnknown_ClusterArn;
+        public string? ClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_ClusterArn) return _mValue_ClusterArn;
+                throw new UndeferrableValueException("Value 'RoutingControl.ClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the control panel in which this routing control will reside.
         /// </summary>
-        [Input("controlPanelArn")]
+        [PolicyResourceProperty("controlPanelArn", "_mUnknown_ControlPanelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
-
-        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
+        private string? _mValue_ControlPanelArn;
+        private bool _mUnknown_ControlPanelArn;
+        public string? ControlPanelArn
+        {
+            get
+            {
+                if (!_mUnknown_ControlPanelArn) return _mValue_ControlPanelArn;
+                throw new UndeferrableValueException("Value 'RoutingControl.ControlPanelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name describing the routing control.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RoutingControl.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'RoutingControl.Status' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53recoverycontrol/routingControl:RoutingControl")]
@@ -67,30 +102,51 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryControl
         /// <summary>
         /// ARN of the cluster in which this routing control will reside.
         /// </summary>
-        [Input("clusterArn")]
+        [PolicyResourceProperty("clusterArn", "_mUnknown_ClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
-
-        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+        private string? _mValue_ClusterArn;
+        private bool _mUnknown_ClusterArn;
+        public string? ClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_ClusterArn) return _mValue_ClusterArn;
+                throw new UndeferrableValueException("Value 'RoutingControlArgs.ClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the control panel in which this routing control will reside.
         /// </summary>
-        [Input("controlPanelArn")]
+        [PolicyResourceProperty("controlPanelArn", "_mUnknown_ControlPanelArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlPanelArn;
-
-        public string? ControlPanelArn => _mControlPanelArn.GetValue("controlPanelArn");
+        private string? _mValue_ControlPanelArn;
+        private bool _mUnknown_ControlPanelArn;
+        public string? ControlPanelArn
+        {
+            get
+            {
+                if (!_mUnknown_ControlPanelArn) return _mValue_ControlPanelArn;
+                throw new UndeferrableValueException("Value 'RoutingControlArgs.ControlPanelArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name describing the routing control.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RoutingControlArgs.Name' is not present");
+            }
+        }
     }
 }

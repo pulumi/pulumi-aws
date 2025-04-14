@@ -16,186 +16,326 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
-        [Input("additionalAuthenticationProviders")]
+        [PolicyResourceProperty("additionalAuthenticationProviders", "_mUnknown_AdditionalAuthenticationProviders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GraphQLApiAdditionalAuthenticationProvider>> _mAdditionalAuthenticationProviders;
-
-        public List<Outputs.GraphQLApiAdditionalAuthenticationProvider>? AdditionalAuthenticationProviders => _mAdditionalAuthenticationProviders.GetValue("additionalAuthenticationProviders");
+        private List<Outputs.GraphQLApiAdditionalAuthenticationProvider>? _mValue_AdditionalAuthenticationProviders;
+        private bool _mUnknown_AdditionalAuthenticationProviders;
+        public List<Outputs.GraphQLApiAdditionalAuthenticationProvider>? AdditionalAuthenticationProviders
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalAuthenticationProviders) return _mValue_AdditionalAuthenticationProviders;
+                throw new UndeferrableValueException("Value 'GraphQLApi.AdditionalAuthenticationProviders' is not present");
+            }
+        }
 
         /// <summary>
         /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         /// </summary>
-        [Input("apiType")]
+        [PolicyResourceProperty("apiType", "_mUnknown_ApiType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiType;
-
-        public string? ApiType => _mApiType.GetValue("apiType");
+        private string? _mValue_ApiType;
+        private bool _mUnknown_ApiType;
+        public string? ApiType
+        {
+            get
+            {
+                if (!_mUnknown_ApiType) return _mValue_ApiType;
+                throw new UndeferrableValueException("Value 'GraphQLApi.ApiType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GraphQLApi.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'GraphQLApi.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         /// </summary>
-        [Input("enhancedMetricsConfig")]
+        [PolicyResourceProperty("enhancedMetricsConfig", "_mUnknown_EnhancedMetricsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiEnhancedMetricsConfig> _mEnhancedMetricsConfig;
-
-        public Outputs.GraphQLApiEnhancedMetricsConfig? EnhancedMetricsConfig => _mEnhancedMetricsConfig.GetValue("enhancedMetricsConfig");
+        private Outputs.GraphQLApiEnhancedMetricsConfig? _mValue_EnhancedMetricsConfig;
+        private bool _mUnknown_EnhancedMetricsConfig;
+        public Outputs.GraphQLApiEnhancedMetricsConfig? EnhancedMetricsConfig
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedMetricsConfig) return _mValue_EnhancedMetricsConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApi.EnhancedMetricsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         /// </summary>
-        [Input("introspectionConfig")]
+        [PolicyResourceProperty("introspectionConfig", "_mUnknown_IntrospectionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntrospectionConfig;
-
-        public string? IntrospectionConfig => _mIntrospectionConfig.GetValue("introspectionConfig");
+        private string? _mValue_IntrospectionConfig;
+        private bool _mUnknown_IntrospectionConfig;
+        public string? IntrospectionConfig
+        {
+            get
+            {
+                if (!_mUnknown_IntrospectionConfig) return _mValue_IntrospectionConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApi.IntrospectionConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
-        [Input("lambdaAuthorizerConfig")]
+        [PolicyResourceProperty("lambdaAuthorizerConfig", "_mUnknown_LambdaAuthorizerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiLambdaAuthorizerConfig> _mLambdaAuthorizerConfig;
-
-        public Outputs.GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig => _mLambdaAuthorizerConfig.GetValue("lambdaAuthorizerConfig");
+        private Outputs.GraphQLApiLambdaAuthorizerConfig? _mValue_LambdaAuthorizerConfig;
+        private bool _mUnknown_LambdaAuthorizerConfig;
+        public Outputs.GraphQLApiLambdaAuthorizerConfig? LambdaAuthorizerConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaAuthorizerConfig) return _mValue_LambdaAuthorizerConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApi.LambdaAuthorizerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing logging configuration. See `log_config` Block for details.
         /// </summary>
-        [Input("logConfig")]
+        [PolicyResourceProperty("logConfig", "_mUnknown_LogConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiLogConfig> _mLogConfig;
-
-        public Outputs.GraphQLApiLogConfig? LogConfig => _mLogConfig.GetValue("logConfig");
+        private Outputs.GraphQLApiLogConfig? _mValue_LogConfig;
+        private bool _mUnknown_LogConfig;
+        public Outputs.GraphQLApiLogConfig? LogConfig
+        {
+            get
+            {
+                if (!_mUnknown_LogConfig) return _mValue_LogConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApi.LogConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the execution role when `api_type` is set to `MERGED`.
         /// </summary>
-        [Input("mergedApiExecutionRoleArn")]
+        [PolicyResourceProperty("mergedApiExecutionRoleArn", "_mUnknown_MergedApiExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiExecutionRoleArn;
-
-        public string? MergedApiExecutionRoleArn => _mMergedApiExecutionRoleArn.GetValue("mergedApiExecutionRoleArn");
+        private string? _mValue_MergedApiExecutionRoleArn;
+        private bool _mUnknown_MergedApiExecutionRoleArn;
+        public string? MergedApiExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_MergedApiExecutionRoleArn) return _mValue_MergedApiExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'GraphQLApi.MergedApiExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// User-supplied name for the GraphQL API.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GraphQLApi.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
-        [Input("openidConnectConfig")]
+        [PolicyResourceProperty("openidConnectConfig", "_mUnknown_OpenidConnectConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiOpenidConnectConfig> _mOpenidConnectConfig;
-
-        public Outputs.GraphQLApiOpenidConnectConfig? OpenidConnectConfig => _mOpenidConnectConfig.GetValue("openidConnectConfig");
+        private Outputs.GraphQLApiOpenidConnectConfig? _mValue_OpenidConnectConfig;
+        private bool _mUnknown_OpenidConnectConfig;
+        public Outputs.GraphQLApiOpenidConnectConfig? OpenidConnectConfig
+        {
+            get
+            {
+                if (!_mUnknown_OpenidConnectConfig) return _mValue_OpenidConnectConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApi.OpenidConnectConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
         /// 
         /// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
         /// </summary>
-        [Input("queryDepthLimit")]
+        [PolicyResourceProperty("queryDepthLimit", "_mUnknown_QueryDepthLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQueryDepthLimit;
-
-        public int? QueryDepthLimit => _mQueryDepthLimit.GetValue("queryDepthLimit");
+        private int? _mValue_QueryDepthLimit;
+        private bool _mUnknown_QueryDepthLimit;
+        public int? QueryDepthLimit
+        {
+            get
+            {
+                if (!_mUnknown_QueryDepthLimit) return _mValue_QueryDepthLimit;
+                throw new UndeferrableValueException("Value 'GraphQLApi.QueryDepthLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         /// </summary>
-        [Input("resolverCountLimit")]
+        [PolicyResourceProperty("resolverCountLimit", "_mUnknown_ResolverCountLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mResolverCountLimit;
-
-        public int? ResolverCountLimit => _mResolverCountLimit.GetValue("resolverCountLimit");
+        private int? _mValue_ResolverCountLimit;
+        private bool _mUnknown_ResolverCountLimit;
+        public int? ResolverCountLimit
+        {
+            get
+            {
+                if (!_mUnknown_ResolverCountLimit) return _mValue_ResolverCountLimit;
+                throw new UndeferrableValueException("Value 'GraphQLApi.ResolverCountLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'GraphQLApi.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GraphQLApi.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'GraphQLApi.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of URIs associated with the API E.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         /// </summary>
-        [Input("uris")]
+        [PolicyResourceProperty("uris", "_mUnknown_Uris")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mUris;
-
-        public Dictionary<string, string>? Uris => _mUris.GetValue("uris");
+        private Dictionary<string, string>? _mValue_Uris;
+        private bool _mUnknown_Uris;
+        public Dictionary<string, string>? Uris
+        {
+            get
+            {
+                if (!_mUnknown_Uris) return _mValue_Uris;
+                throw new UndeferrableValueException("Value 'GraphQLApi.Uris' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
-        [Input("userPoolConfig")]
+        [PolicyResourceProperty("userPoolConfig", "_mUnknown_UserPoolConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GraphQLApiUserPoolConfig> _mUserPoolConfig;
-
-        public Outputs.GraphQLApiUserPoolConfig? UserPoolConfig => _mUserPoolConfig.GetValue("userPoolConfig");
+        private Outputs.GraphQLApiUserPoolConfig? _mValue_UserPoolConfig;
+        private bool _mUnknown_UserPoolConfig;
+        public Outputs.GraphQLApiUserPoolConfig? UserPoolConfig
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolConfig) return _mValue_UserPoolConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApi.UserPoolConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         /// </summary>
-        [Input("visibility")]
+        [PolicyResourceProperty("visibility", "_mUnknown_Visibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVisibility;
-
-        public string? Visibility => _mVisibility.GetValue("visibility");
+        private string? _mValue_Visibility;
+        private bool _mUnknown_Visibility;
+        public string? Visibility
+        {
+            get
+            {
+                if (!_mUnknown_Visibility) return _mValue_Visibility;
+                throw new UndeferrableValueException("Value 'GraphQLApi.Visibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.
         /// </summary>
-        [Input("xrayEnabled")]
+        [PolicyResourceProperty("xrayEnabled", "_mUnknown_XrayEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mXrayEnabled;
-
-        public bool? XrayEnabled => _mXrayEnabled.GetValue("xrayEnabled");
+        private bool? _mValue_XrayEnabled;
+        private bool _mUnknown_XrayEnabled;
+        public bool? XrayEnabled
+        {
+            get
+            {
+                if (!_mUnknown_XrayEnabled) return _mValue_XrayEnabled;
+                throw new UndeferrableValueException("Value 'GraphQLApi.XrayEnabled' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appsync/graphQLApi:GraphQLApi")]
@@ -204,158 +344,277 @@ namespace Pulumi.PolicyPacks.Aws.AppSync
         /// <summary>
         /// One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
-        [Input("additionalAuthenticationProviders")]
+        [PolicyResourceProperty("additionalAuthenticationProviders", "_mUnknown_AdditionalAuthenticationProviders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>> _mAdditionalAuthenticationProviders;
-
-        public List<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? AdditionalAuthenticationProviders => _mAdditionalAuthenticationProviders.GetValue("additionalAuthenticationProviders");
+        private List<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? _mValue_AdditionalAuthenticationProviders;
+        private bool _mUnknown_AdditionalAuthenticationProviders;
+        public List<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? AdditionalAuthenticationProviders
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalAuthenticationProviders) return _mValue_AdditionalAuthenticationProviders;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.AdditionalAuthenticationProviders' is not present");
+            }
+        }
 
         /// <summary>
         /// API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
         /// </summary>
-        [Input("apiType")]
+        [PolicyResourceProperty("apiType", "_mUnknown_ApiType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiType;
-
-        public string? ApiType => _mApiType.GetValue("apiType");
+        private string? _mValue_ApiType;
+        private bool _mUnknown_ApiType;
+        public string? ApiType
+        {
+            get
+            {
+                if (!_mUnknown_ApiType) return _mValue_ApiType;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.ApiType' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
         /// </summary>
-        [Input("enhancedMetricsConfig")]
+        [PolicyResourceProperty("enhancedMetricsConfig", "_mUnknown_EnhancedMetricsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiEnhancedMetricsConfigArgs> _mEnhancedMetricsConfig;
-
-        public Inputs.GraphQLApiEnhancedMetricsConfigArgs? EnhancedMetricsConfig => _mEnhancedMetricsConfig.GetValue("enhancedMetricsConfig");
+        private Inputs.GraphQLApiEnhancedMetricsConfigArgs? _mValue_EnhancedMetricsConfig;
+        private bool _mUnknown_EnhancedMetricsConfig;
+        public Inputs.GraphQLApiEnhancedMetricsConfigArgs? EnhancedMetricsConfig
+        {
+            get
+            {
+                if (!_mUnknown_EnhancedMetricsConfig) return _mValue_EnhancedMetricsConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.EnhancedMetricsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
         /// </summary>
-        [Input("introspectionConfig")]
+        [PolicyResourceProperty("introspectionConfig", "_mUnknown_IntrospectionConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntrospectionConfig;
-
-        public string? IntrospectionConfig => _mIntrospectionConfig.GetValue("introspectionConfig");
+        private string? _mValue_IntrospectionConfig;
+        private bool _mUnknown_IntrospectionConfig;
+        public string? IntrospectionConfig
+        {
+            get
+            {
+                if (!_mUnknown_IntrospectionConfig) return _mValue_IntrospectionConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.IntrospectionConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
-        [Input("lambdaAuthorizerConfig")]
+        [PolicyResourceProperty("lambdaAuthorizerConfig", "_mUnknown_LambdaAuthorizerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiLambdaAuthorizerConfigArgs> _mLambdaAuthorizerConfig;
-
-        public Inputs.GraphQLApiLambdaAuthorizerConfigArgs? LambdaAuthorizerConfig => _mLambdaAuthorizerConfig.GetValue("lambdaAuthorizerConfig");
+        private Inputs.GraphQLApiLambdaAuthorizerConfigArgs? _mValue_LambdaAuthorizerConfig;
+        private bool _mUnknown_LambdaAuthorizerConfig;
+        public Inputs.GraphQLApiLambdaAuthorizerConfigArgs? LambdaAuthorizerConfig
+        {
+            get
+            {
+                if (!_mUnknown_LambdaAuthorizerConfig) return _mValue_LambdaAuthorizerConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.LambdaAuthorizerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing logging configuration. See `log_config` Block for details.
         /// </summary>
-        [Input("logConfig")]
+        [PolicyResourceProperty("logConfig", "_mUnknown_LogConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiLogConfigArgs> _mLogConfig;
-
-        public Inputs.GraphQLApiLogConfigArgs? LogConfig => _mLogConfig.GetValue("logConfig");
+        private Inputs.GraphQLApiLogConfigArgs? _mValue_LogConfig;
+        private bool _mUnknown_LogConfig;
+        public Inputs.GraphQLApiLogConfigArgs? LogConfig
+        {
+            get
+            {
+                if (!_mUnknown_LogConfig) return _mValue_LogConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.LogConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the execution role when `api_type` is set to `MERGED`.
         /// </summary>
-        [Input("mergedApiExecutionRoleArn")]
+        [PolicyResourceProperty("mergedApiExecutionRoleArn", "_mUnknown_MergedApiExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMergedApiExecutionRoleArn;
-
-        public string? MergedApiExecutionRoleArn => _mMergedApiExecutionRoleArn.GetValue("mergedApiExecutionRoleArn");
+        private string? _mValue_MergedApiExecutionRoleArn;
+        private bool _mUnknown_MergedApiExecutionRoleArn;
+        public string? MergedApiExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_MergedApiExecutionRoleArn) return _mValue_MergedApiExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.MergedApiExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// User-supplied name for the GraphQL API.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
-        [Input("openidConnectConfig")]
+        [PolicyResourceProperty("openidConnectConfig", "_mUnknown_OpenidConnectConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiOpenidConnectConfigArgs> _mOpenidConnectConfig;
-
-        public Inputs.GraphQLApiOpenidConnectConfigArgs? OpenidConnectConfig => _mOpenidConnectConfig.GetValue("openidConnectConfig");
+        private Inputs.GraphQLApiOpenidConnectConfigArgs? _mValue_OpenidConnectConfig;
+        private bool _mUnknown_OpenidConnectConfig;
+        public Inputs.GraphQLApiOpenidConnectConfigArgs? OpenidConnectConfig
+        {
+            get
+            {
+                if (!_mUnknown_OpenidConnectConfig) return _mValue_OpenidConnectConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.OpenidConnectConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
         /// 
         /// Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
         /// </summary>
-        [Input("queryDepthLimit")]
+        [PolicyResourceProperty("queryDepthLimit", "_mUnknown_QueryDepthLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mQueryDepthLimit;
-
-        public int? QueryDepthLimit => _mQueryDepthLimit.GetValue("queryDepthLimit");
+        private int? _mValue_QueryDepthLimit;
+        private bool _mUnknown_QueryDepthLimit;
+        public int? QueryDepthLimit
+        {
+            get
+            {
+                if (!_mUnknown_QueryDepthLimit) return _mValue_QueryDepthLimit;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.QueryDepthLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         /// </summary>
-        [Input("resolverCountLimit")]
+        [PolicyResourceProperty("resolverCountLimit", "_mUnknown_ResolverCountLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mResolverCountLimit;
-
-        public int? ResolverCountLimit => _mResolverCountLimit.GetValue("resolverCountLimit");
+        private int? _mValue_ResolverCountLimit;
+        private bool _mUnknown_ResolverCountLimit;
+        public int? ResolverCountLimit
+        {
+            get
+            {
+                if (!_mUnknown_ResolverCountLimit) return _mValue_ResolverCountLimit;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.ResolverCountLimit' is not present");
+            }
+        }
 
         /// <summary>
         /// Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.Schema' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
-        [Input("userPoolConfig")]
+        [PolicyResourceProperty("userPoolConfig", "_mUnknown_UserPoolConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GraphQLApiUserPoolConfigArgs> _mUserPoolConfig;
-
-        public Inputs.GraphQLApiUserPoolConfigArgs? UserPoolConfig => _mUserPoolConfig.GetValue("userPoolConfig");
+        private Inputs.GraphQLApiUserPoolConfigArgs? _mValue_UserPoolConfig;
+        private bool _mUnknown_UserPoolConfig;
+        public Inputs.GraphQLApiUserPoolConfigArgs? UserPoolConfig
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolConfig) return _mValue_UserPoolConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.UserPoolConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         /// </summary>
-        [Input("visibility")]
+        [PolicyResourceProperty("visibility", "_mUnknown_Visibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVisibility;
-
-        public string? Visibility => _mVisibility.GetValue("visibility");
+        private string? _mValue_Visibility;
+        private bool _mUnknown_Visibility;
+        public string? Visibility
+        {
+            get
+            {
+                if (!_mUnknown_Visibility) return _mValue_Visibility;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.Visibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.
         /// </summary>
-        [Input("xrayEnabled")]
+        [PolicyResourceProperty("xrayEnabled", "_mUnknown_XrayEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mXrayEnabled;
-
-        public bool? XrayEnabled => _mXrayEnabled.GetValue("xrayEnabled");
+        private bool? _mValue_XrayEnabled;
+        private bool _mUnknown_XrayEnabled;
+        public bool? XrayEnabled
+        {
+            get
+            {
+                if (!_mUnknown_XrayEnabled) return _mValue_XrayEnabled;
+                throw new UndeferrableValueException("Value 'GraphQLApiArgs.XrayEnabled' is not present");
+            }
+        }
     }
 }

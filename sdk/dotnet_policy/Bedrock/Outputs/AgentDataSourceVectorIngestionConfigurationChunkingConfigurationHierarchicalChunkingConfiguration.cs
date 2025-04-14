@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
         /// </summary>
-        [Input("levelConfigurations")]
+        [PolicyResourceProperty("levelConfigurations", "_mUnknown_LevelConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration>> _mLevelConfigurations;
-
-        public List<Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration>? LevelConfigurations => _mLevelConfigurations.GetValue("levelConfigurations");
+        private List<Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration>? _mValue_LevelConfigurations;
+        private bool _mUnknown_LevelConfigurations;
+        public List<Outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration>? LevelConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_LevelConfigurations) return _mValue_LevelConfigurations;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration.LevelConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of tokens to repeat across chunks in the same layer.
         /// </summary>
-        [Input("overlapTokens")]
+        [PolicyResourceProperty("overlapTokens", "_mUnknown_OverlapTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOverlapTokens;
-
-        public int? OverlapTokens => _mOverlapTokens.GetValue("overlapTokens");
+        private int? _mValue_OverlapTokens;
+        private bool _mUnknown_OverlapTokens;
+        public int? OverlapTokens
+        {
+            get
+            {
+                if (!_mUnknown_OverlapTokens) return _mValue_OverlapTokens;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration.OverlapTokens' is not present");
+            }
+        }
     }
 }

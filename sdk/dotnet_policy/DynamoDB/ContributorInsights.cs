@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// The global secondary index name
         /// </summary>
-        [Input("indexName")]
+        [PolicyResourceProperty("indexName", "_mUnknown_IndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
-
-        public string? IndexName => _mIndexName.GetValue("indexName");
+        private string? _mValue_IndexName;
+        private bool _mUnknown_IndexName;
+        public string? IndexName
+        {
+            get
+            {
+                if (!_mUnknown_IndexName) return _mValue_IndexName;
+                throw new UndeferrableValueException("Value 'ContributorInsights.IndexName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the table to enable contributor insights
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'ContributorInsights.TableName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:dynamodb/contributorInsights:ContributorInsights")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB
         /// <summary>
         /// The global secondary index name
         /// </summary>
-        [Input("indexName")]
+        [PolicyResourceProperty("indexName", "_mUnknown_IndexName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexName;
-
-        public string? IndexName => _mIndexName.GetValue("indexName");
+        private string? _mValue_IndexName;
+        private bool _mUnknown_IndexName;
+        public string? IndexName
+        {
+            get
+            {
+                if (!_mUnknown_IndexName) return _mValue_IndexName;
+                throw new UndeferrableValueException("Value 'ContributorInsightsArgs.IndexName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the table to enable contributor insights
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'ContributorInsightsArgs.TableName' is not present");
+            }
+        }
     }
 }

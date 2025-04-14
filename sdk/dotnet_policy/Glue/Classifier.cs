@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// A classifier for CSV content. Defined below.
         /// </summary>
-        [Input("csvClassifier")]
+        [PolicyResourceProperty("csvClassifier", "_mUnknown_CsvClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierCsvClassifier> _mCsvClassifier;
-
-        public Outputs.ClassifierCsvClassifier? CsvClassifier => _mCsvClassifier.GetValue("csvClassifier");
+        private Outputs.ClassifierCsvClassifier? _mValue_CsvClassifier;
+        private bool _mUnknown_CsvClassifier;
+        public Outputs.ClassifierCsvClassifier? CsvClassifier
+        {
+            get
+            {
+                if (!_mUnknown_CsvClassifier) return _mValue_CsvClassifier;
+                throw new UndeferrableValueException("Value 'Classifier.CsvClassifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A classifier that uses grok patterns. Defined below.
         /// </summary>
-        [Input("grokClassifier")]
+        [PolicyResourceProperty("grokClassifier", "_mUnknown_GrokClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierGrokClassifier> _mGrokClassifier;
-
-        public Outputs.ClassifierGrokClassifier? GrokClassifier => _mGrokClassifier.GetValue("grokClassifier");
+        private Outputs.ClassifierGrokClassifier? _mValue_GrokClassifier;
+        private bool _mUnknown_GrokClassifier;
+        public Outputs.ClassifierGrokClassifier? GrokClassifier
+        {
+            get
+            {
+                if (!_mUnknown_GrokClassifier) return _mValue_GrokClassifier;
+                throw new UndeferrableValueException("Value 'Classifier.GrokClassifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A classifier for JSON content. Defined below.
         /// </summary>
-        [Input("jsonClassifier")]
+        [PolicyResourceProperty("jsonClassifier", "_mUnknown_JsonClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierJsonClassifier> _mJsonClassifier;
-
-        public Outputs.ClassifierJsonClassifier? JsonClassifier => _mJsonClassifier.GetValue("jsonClassifier");
+        private Outputs.ClassifierJsonClassifier? _mValue_JsonClassifier;
+        private bool _mUnknown_JsonClassifier;
+        public Outputs.ClassifierJsonClassifier? JsonClassifier
+        {
+            get
+            {
+                if (!_mUnknown_JsonClassifier) return _mValue_JsonClassifier;
+                throw new UndeferrableValueException("Value 'Classifier.JsonClassifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the classifier.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Classifier.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A classifier for XML content. Defined below.
         /// </summary>
-        [Input("xmlClassifier")]
+        [PolicyResourceProperty("xmlClassifier", "_mUnknown_XmlClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClassifierXmlClassifier> _mXmlClassifier;
-
-        public Outputs.ClassifierXmlClassifier? XmlClassifier => _mXmlClassifier.GetValue("xmlClassifier");
+        private Outputs.ClassifierXmlClassifier? _mValue_XmlClassifier;
+        private bool _mUnknown_XmlClassifier;
+        public Outputs.ClassifierXmlClassifier? XmlClassifier
+        {
+            get
+            {
+                if (!_mUnknown_XmlClassifier) return _mValue_XmlClassifier;
+                throw new UndeferrableValueException("Value 'Classifier.XmlClassifier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/classifier:Classifier")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// A classifier for CSV content. Defined below.
         /// </summary>
-        [Input("csvClassifier")]
+        [PolicyResourceProperty("csvClassifier", "_mUnknown_CsvClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierCsvClassifierArgs> _mCsvClassifier;
-
-        public Inputs.ClassifierCsvClassifierArgs? CsvClassifier => _mCsvClassifier.GetValue("csvClassifier");
+        private Inputs.ClassifierCsvClassifierArgs? _mValue_CsvClassifier;
+        private bool _mUnknown_CsvClassifier;
+        public Inputs.ClassifierCsvClassifierArgs? CsvClassifier
+        {
+            get
+            {
+                if (!_mUnknown_CsvClassifier) return _mValue_CsvClassifier;
+                throw new UndeferrableValueException("Value 'ClassifierArgs.CsvClassifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A classifier that uses grok patterns. Defined below.
         /// </summary>
-        [Input("grokClassifier")]
+        [PolicyResourceProperty("grokClassifier", "_mUnknown_GrokClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierGrokClassifierArgs> _mGrokClassifier;
-
-        public Inputs.ClassifierGrokClassifierArgs? GrokClassifier => _mGrokClassifier.GetValue("grokClassifier");
+        private Inputs.ClassifierGrokClassifierArgs? _mValue_GrokClassifier;
+        private bool _mUnknown_GrokClassifier;
+        public Inputs.ClassifierGrokClassifierArgs? GrokClassifier
+        {
+            get
+            {
+                if (!_mUnknown_GrokClassifier) return _mValue_GrokClassifier;
+                throw new UndeferrableValueException("Value 'ClassifierArgs.GrokClassifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A classifier for JSON content. Defined below.
         /// </summary>
-        [Input("jsonClassifier")]
+        [PolicyResourceProperty("jsonClassifier", "_mUnknown_JsonClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierJsonClassifierArgs> _mJsonClassifier;
-
-        public Inputs.ClassifierJsonClassifierArgs? JsonClassifier => _mJsonClassifier.GetValue("jsonClassifier");
+        private Inputs.ClassifierJsonClassifierArgs? _mValue_JsonClassifier;
+        private bool _mUnknown_JsonClassifier;
+        public Inputs.ClassifierJsonClassifierArgs? JsonClassifier
+        {
+            get
+            {
+                if (!_mUnknown_JsonClassifier) return _mValue_JsonClassifier;
+                throw new UndeferrableValueException("Value 'ClassifierArgs.JsonClassifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the classifier.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClassifierArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A classifier for XML content. Defined below.
         /// </summary>
-        [Input("xmlClassifier")]
+        [PolicyResourceProperty("xmlClassifier", "_mUnknown_XmlClassifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassifierXmlClassifierArgs> _mXmlClassifier;
-
-        public Inputs.ClassifierXmlClassifierArgs? XmlClassifier => _mXmlClassifier.GetValue("xmlClassifier");
+        private Inputs.ClassifierXmlClassifierArgs? _mValue_XmlClassifier;
+        private bool _mUnknown_XmlClassifier;
+        public Inputs.ClassifierXmlClassifierArgs? XmlClassifier
+        {
+            get
+            {
+                if (!_mUnknown_XmlClassifier) return _mValue_XmlClassifier;
+                throw new UndeferrableValueException("Value 'ClassifierArgs.XmlClassifier' is not present");
+            }
+        }
     }
 }

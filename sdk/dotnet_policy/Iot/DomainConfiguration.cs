@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The ARN of the domain configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         /// </summary>
-        [Input("authorizerConfig")]
+        [PolicyResourceProperty("authorizerConfig", "_mUnknown_AuthorizerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainConfigurationAuthorizerConfig> _mAuthorizerConfig;
-
-        public Outputs.DomainConfigurationAuthorizerConfig? AuthorizerConfig => _mAuthorizerConfig.GetValue("authorizerConfig");
+        private Outputs.DomainConfigurationAuthorizerConfig? _mValue_AuthorizerConfig;
+        private bool _mUnknown_AuthorizerConfig;
+        public Outputs.DomainConfigurationAuthorizerConfig? AuthorizerConfig
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerConfig) return _mValue_AuthorizerConfig;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.AuthorizerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully-qualified domain name.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the domain.
         /// </summary>
-        [Input("domainType")]
+        [PolicyResourceProperty("domainType", "_mUnknown_DomainType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainType;
-
-        public string? DomainType => _mDomainType.GetValue("domainType");
+        private string? _mValue_DomainType;
+        private bool _mUnknown_DomainType;
+        public string? DomainType
+        {
+            get
+            {
+                if (!_mUnknown_DomainType) return _mValue_DomainType;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.DomainType' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the domain configuration. This value must be unique to a region.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         /// </summary>
-        [Input("serverCertificateArns")]
+        [PolicyResourceProperty("serverCertificateArns", "_mUnknown_ServerCertificateArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mServerCertificateArns;
-
-        public List<string>? ServerCertificateArns => _mServerCertificateArns.GetValue("serverCertificateArns");
+        private List<string>? _mValue_ServerCertificateArns;
+        private bool _mUnknown_ServerCertificateArns;
+        public List<string>? ServerCertificateArns
+        {
+            get
+            {
+                if (!_mUnknown_ServerCertificateArns) return _mValue_ServerCertificateArns;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.ServerCertificateArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         /// </summary>
-        [Input("serviceType")]
+        [PolicyResourceProperty("serviceType", "_mUnknown_ServiceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
-
-        public string? ServiceType => _mServiceType.GetValue("serviceType");
+        private string? _mValue_ServiceType;
+        private bool _mUnknown_ServiceType;
+        public string? ServiceType
+        {
+            get
+            {
+                if (!_mUnknown_ServiceType) return _mValue_ServiceType;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.ServiceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         /// </summary>
-        [Input("tlsConfig")]
+        [PolicyResourceProperty("tlsConfig", "_mUnknown_TlsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainConfigurationTlsConfig> _mTlsConfig;
-
-        public Outputs.DomainConfigurationTlsConfig? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
+        private Outputs.DomainConfigurationTlsConfig? _mValue_TlsConfig;
+        private bool _mUnknown_TlsConfig;
+        public Outputs.DomainConfigurationTlsConfig? TlsConfig
+        {
+            get
+            {
+                if (!_mUnknown_TlsConfig) return _mValue_TlsConfig;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.TlsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         /// </summary>
-        [Input("validationCertificateArn")]
+        [PolicyResourceProperty("validationCertificateArn", "_mUnknown_ValidationCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidationCertificateArn;
-
-        public string? ValidationCertificateArn => _mValidationCertificateArn.GetValue("validationCertificateArn");
+        private string? _mValue_ValidationCertificateArn;
+        private bool _mUnknown_ValidationCertificateArn;
+        public string? ValidationCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_ValidationCertificateArn) return _mValue_ValidationCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainConfiguration.ValidationCertificateArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/domainConfiguration:DomainConfiguration")]
@@ -128,82 +212,145 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         /// </summary>
-        [Input("authorizerConfig")]
+        [PolicyResourceProperty("authorizerConfig", "_mUnknown_AuthorizerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainConfigurationAuthorizerConfigArgs> _mAuthorizerConfig;
-
-        public Inputs.DomainConfigurationAuthorizerConfigArgs? AuthorizerConfig => _mAuthorizerConfig.GetValue("authorizerConfig");
+        private Inputs.DomainConfigurationAuthorizerConfigArgs? _mValue_AuthorizerConfig;
+        private bool _mUnknown_AuthorizerConfig;
+        public Inputs.DomainConfigurationAuthorizerConfigArgs? AuthorizerConfig
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizerConfig) return _mValue_AuthorizerConfig;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.AuthorizerConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully-qualified domain name.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the domain configuration. This value must be unique to a region.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         /// </summary>
-        [Input("serverCertificateArns")]
+        [PolicyResourceProperty("serverCertificateArns", "_mUnknown_ServerCertificateArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mServerCertificateArns;
-
-        public List<string>? ServerCertificateArns => _mServerCertificateArns.GetValue("serverCertificateArns");
+        private List<string>? _mValue_ServerCertificateArns;
+        private bool _mUnknown_ServerCertificateArns;
+        public List<string>? ServerCertificateArns
+        {
+            get
+            {
+                if (!_mUnknown_ServerCertificateArns) return _mValue_ServerCertificateArns;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.ServerCertificateArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         /// </summary>
-        [Input("serviceType")]
+        [PolicyResourceProperty("serviceType", "_mUnknown_ServiceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceType;
-
-        public string? ServiceType => _mServiceType.GetValue("serviceType");
+        private string? _mValue_ServiceType;
+        private bool _mUnknown_ServiceType;
+        public string? ServiceType
+        {
+            get
+            {
+                if (!_mUnknown_ServiceType) return _mValue_ServiceType;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.ServiceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         /// </summary>
-        [Input("tlsConfig")]
+        [PolicyResourceProperty("tlsConfig", "_mUnknown_TlsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainConfigurationTlsConfigArgs> _mTlsConfig;
-
-        public Inputs.DomainConfigurationTlsConfigArgs? TlsConfig => _mTlsConfig.GetValue("tlsConfig");
+        private Inputs.DomainConfigurationTlsConfigArgs? _mValue_TlsConfig;
+        private bool _mUnknown_TlsConfig;
+        public Inputs.DomainConfigurationTlsConfigArgs? TlsConfig
+        {
+            get
+            {
+                if (!_mUnknown_TlsConfig) return _mValue_TlsConfig;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.TlsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         /// </summary>
-        [Input("validationCertificateArn")]
+        [PolicyResourceProperty("validationCertificateArn", "_mUnknown_ValidationCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidationCertificateArn;
-
-        public string? ValidationCertificateArn => _mValidationCertificateArn.GetValue("validationCertificateArn");
+        private string? _mValue_ValidationCertificateArn;
+        private bool _mUnknown_ValidationCertificateArn;
+        public string? ValidationCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_ValidationCertificateArn) return _mValue_ValidationCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainConfigurationArgs.ValidationCertificateArn' is not present");
+            }
+        }
     }
 }

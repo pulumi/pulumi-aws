@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         /// </summary>
-        [Input("iscsis")]
+        [PolicyResourceProperty("iscsis", "_mUnknown_Iscsis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OntapStorageVirtualMachineEndpointIscsi>> _mIscsis;
-
-        public List<Outputs.OntapStorageVirtualMachineEndpointIscsi>? Iscsis => _mIscsis.GetValue("iscsis");
+        private List<Outputs.OntapStorageVirtualMachineEndpointIscsi>? _mValue_Iscsis;
+        private bool _mUnknown_Iscsis;
+        public List<Outputs.OntapStorageVirtualMachineEndpointIscsi>? Iscsis
+        {
+            get
+            {
+                if (!_mUnknown_Iscsis) return _mValue_Iscsis;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.Iscsis' is not present");
+            }
+        }
 
         /// <summary>
         /// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         /// </summary>
-        [Input("managements")]
+        [PolicyResourceProperty("managements", "_mUnknown_Managements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OntapStorageVirtualMachineEndpointManagement>> _mManagements;
-
-        public List<Outputs.OntapStorageVirtualMachineEndpointManagement>? Managements => _mManagements.GetValue("managements");
+        private List<Outputs.OntapStorageVirtualMachineEndpointManagement>? _mValue_Managements;
+        private bool _mUnknown_Managements;
+        public List<Outputs.OntapStorageVirtualMachineEndpointManagement>? Managements
+        {
+            get
+            {
+                if (!_mUnknown_Managements) return _mValue_Managements;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.Managements' is not present");
+            }
+        }
 
         /// <summary>
         /// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
         /// </summary>
-        [Input("nfs")]
+        [PolicyResourceProperty("nfs", "_mUnknown_Nfs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OntapStorageVirtualMachineEndpointNf>> _mNfs;
-
-        public List<Outputs.OntapStorageVirtualMachineEndpointNf>? Nfs => _mNfs.GetValue("nfs");
+        private List<Outputs.OntapStorageVirtualMachineEndpointNf>? _mValue_Nfs;
+        private bool _mUnknown_Nfs;
+        public List<Outputs.OntapStorageVirtualMachineEndpointNf>? Nfs
+        {
+            get
+            {
+                if (!_mUnknown_Nfs) return _mValue_Nfs;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.Nfs' is not present");
+            }
+        }
 
         /// <summary>
         /// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         /// </summary>
-        [Input("smbs")]
+        [PolicyResourceProperty("smbs", "_mUnknown_Smbs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OntapStorageVirtualMachineEndpointSmb>> _mSmbs;
-
-        public List<Outputs.OntapStorageVirtualMachineEndpointSmb>? Smbs => _mSmbs.GetValue("smbs");
+        private List<Outputs.OntapStorageVirtualMachineEndpointSmb>? _mValue_Smbs;
+        private bool _mUnknown_Smbs;
+        public List<Outputs.OntapStorageVirtualMachineEndpointSmb>? Smbs
+        {
+            get
+            {
+                if (!_mUnknown_Smbs) return _mValue_Smbs;
+                throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.Smbs' is not present");
+            }
+        }
     }
 }

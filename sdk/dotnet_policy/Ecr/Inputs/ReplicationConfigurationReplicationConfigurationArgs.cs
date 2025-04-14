@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ecr.Inputs
         /// <summary>
         /// The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs>> _mRules;
-
-        public List<Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationArgs.Rules' is not present");
+            }
+        }
     }
 }

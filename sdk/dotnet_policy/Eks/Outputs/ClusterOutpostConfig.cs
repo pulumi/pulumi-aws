@@ -23,29 +23,50 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// 
         /// For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
         /// </summary>
-        [Input("controlPlaneInstanceType")]
+        [PolicyResourceProperty("controlPlaneInstanceType", "_mUnknown_ControlPlaneInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlPlaneInstanceType;
-
-        public string? ControlPlaneInstanceType => _mControlPlaneInstanceType.GetValue("controlPlaneInstanceType");
+        private string? _mValue_ControlPlaneInstanceType;
+        private bool _mUnknown_ControlPlaneInstanceType;
+        public string? ControlPlaneInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_ControlPlaneInstanceType) return _mValue_ControlPlaneInstanceType;
+                throw new UndeferrableValueException("Value 'ClusterOutpostConfig.ControlPlaneInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         /// The `control_plane_placement` configuration block supports the following arguments:
         /// </summary>
-        [Input("controlPlanePlacement")]
+        [PolicyResourceProperty("controlPlanePlacement", "_mUnknown_ControlPlanePlacement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterOutpostConfigControlPlanePlacement> _mControlPlanePlacement;
-
-        public Outputs.ClusterOutpostConfigControlPlanePlacement? ControlPlanePlacement => _mControlPlanePlacement.GetValue("controlPlanePlacement");
+        private Outputs.ClusterOutpostConfigControlPlanePlacement? _mValue_ControlPlanePlacement;
+        private bool _mUnknown_ControlPlanePlacement;
+        public Outputs.ClusterOutpostConfigControlPlanePlacement? ControlPlanePlacement
+        {
+            get
+            {
+                if (!_mUnknown_ControlPlanePlacement) return _mValue_ControlPlanePlacement;
+                throw new UndeferrableValueException("Value 'ClusterOutpostConfig.ControlPlanePlacement' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
         /// </summary>
-        [Input("outpostArns")]
+        [PolicyResourceProperty("outpostArns", "_mUnknown_OutpostArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOutpostArns;
-
-        public List<string>? OutpostArns => _mOutpostArns.GetValue("outpostArns");
+        private List<string>? _mValue_OutpostArns;
+        private bool _mUnknown_OutpostArns;
+        public List<string>? OutpostArns
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArns) return _mValue_OutpostArns;
+                throw new UndeferrableValueException("Value 'ClusterOutpostConfig.OutpostArns' is not present");
+            }
+        }
     }
 }

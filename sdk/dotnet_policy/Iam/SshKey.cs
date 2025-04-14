@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
         /// </summary>
-        [Input("encoding")]
+        [PolicyResourceProperty("encoding", "_mUnknown_Encoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncoding;
-
-        public string? Encoding => _mEncoding.GetValue("encoding");
+        private string? _mValue_Encoding;
+        private bool _mUnknown_Encoding;
+        public string? Encoding
+        {
+            get
+            {
+                if (!_mUnknown_Encoding) return _mValue_Encoding;
+                throw new UndeferrableValueException("Value 'SshKey.Encoding' is not present");
+            }
+        }
 
         /// <summary>
         /// The MD5 message digest of the SSH public key.
         /// </summary>
-        [Input("fingerprint")]
+        [PolicyResourceProperty("fingerprint", "_mUnknown_Fingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFingerprint;
-
-        public string? Fingerprint => _mFingerprint.GetValue("fingerprint");
+        private string? _mValue_Fingerprint;
+        private bool _mUnknown_Fingerprint;
+        public string? Fingerprint
+        {
+            get
+            {
+                if (!_mUnknown_Fingerprint) return _mValue_Fingerprint;
+                throw new UndeferrableValueException("Value 'SshKey.Fingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'SshKey.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the SSH public key.
         /// </summary>
-        [Input("sshPublicKeyId")]
+        [PolicyResourceProperty("sshPublicKeyId", "_mUnknown_SshPublicKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSshPublicKeyId;
-
-        public string? SshPublicKeyId => _mSshPublicKeyId.GetValue("sshPublicKeyId");
+        private string? _mValue_SshPublicKeyId;
+        private bool _mUnknown_SshPublicKeyId;
+        public string? SshPublicKeyId
+        {
+            get
+            {
+                if (!_mUnknown_SshPublicKeyId) return _mValue_SshPublicKeyId;
+                throw new UndeferrableValueException("Value 'SshKey.SshPublicKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SshKey.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM user to associate the SSH public key with.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'SshKey.Username' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/sshKey:SshKey")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
         /// </summary>
-        [Input("encoding")]
+        [PolicyResourceProperty("encoding", "_mUnknown_Encoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncoding;
-
-        public string? Encoding => _mEncoding.GetValue("encoding");
+        private string? _mValue_Encoding;
+        private bool _mUnknown_Encoding;
+        public string? Encoding
+        {
+            get
+            {
+                if (!_mUnknown_Encoding) return _mValue_Encoding;
+                throw new UndeferrableValueException("Value 'SshKeyArgs.Encoding' is not present");
+            }
+        }
 
         /// <summary>
         /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'SshKeyArgs.PublicKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SshKeyArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM user to associate the SSH public key with.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'SshKeyArgs.Username' is not present");
+            }
+        }
     }
 }

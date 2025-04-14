@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Name of the S3 bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'PipelinePipelineDefinitionS3LocationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The object key (or key name) uniquely identifies the object in an S3 bucket.
         /// </summary>
-        [Input("objectKey")]
+        [PolicyResourceProperty("objectKey", "_mUnknown_ObjectKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectKey;
-
-        public string? ObjectKey => _mObjectKey.GetValue("objectKey");
+        private string? _mValue_ObjectKey;
+        private bool _mUnknown_ObjectKey;
+        public string? ObjectKey
+        {
+            get
+            {
+                if (!_mUnknown_ObjectKey) return _mValue_ObjectKey;
+                throw new UndeferrableValueException("Value 'PipelinePipelineDefinitionS3LocationArgs.ObjectKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'PipelinePipelineDefinitionS3LocationArgs.VersionId' is not present");
+            }
+        }
     }
 }

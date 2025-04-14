@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class OriginRequestPolicyQueryStringsConfig
     {
-        [Input("queryStringBehavior")]
+        [PolicyResourceProperty("queryStringBehavior", "_mUnknown_QueryStringBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryStringBehavior;
+        private string? _mValue_QueryStringBehavior;
+        private bool _mUnknown_QueryStringBehavior;
+        public string? QueryStringBehavior
+        {
+            get
+            {
+                if (!_mUnknown_QueryStringBehavior) return _mValue_QueryStringBehavior;
+                throw new UndeferrableValueException("Value 'OriginRequestPolicyQueryStringsConfig.QueryStringBehavior' is not present");
+            }
+        }
 
-        public string? QueryStringBehavior => _mQueryStringBehavior.GetValue("queryStringBehavior");
-
-        [Input("queryStrings")]
+        [PolicyResourceProperty("queryStrings", "_mUnknown_QueryStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.OriginRequestPolicyQueryStringsConfigQueryStrings> _mQueryStrings;
-
-        public Outputs.OriginRequestPolicyQueryStringsConfigQueryStrings? QueryStrings => _mQueryStrings.GetValue("queryStrings");
+        private Outputs.OriginRequestPolicyQueryStringsConfigQueryStrings? _mValue_QueryStrings;
+        private bool _mUnknown_QueryStrings;
+        public Outputs.OriginRequestPolicyQueryStringsConfigQueryStrings? QueryStrings
+        {
+            get
+            {
+                if (!_mUnknown_QueryStrings) return _mValue_QueryStrings;
+                throw new UndeferrableValueException("Value 'OriginRequestPolicyQueryStringsConfig.QueryStrings' is not present");
+            }
+        }
     }
 }

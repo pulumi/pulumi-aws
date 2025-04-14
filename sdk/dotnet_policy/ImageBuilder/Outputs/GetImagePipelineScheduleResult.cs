@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Condition when the pipeline should trigger a new image build.
         /// </summary>
-        [Input("pipelineExecutionStartCondition")]
+        [PolicyResourceProperty("pipelineExecutionStartCondition", "_mUnknown_PipelineExecutionStartCondition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipelineExecutionStartCondition;
-
-        public string? PipelineExecutionStartCondition => _mPipelineExecutionStartCondition.GetValue("pipelineExecutionStartCondition");
+        private string? _mValue_PipelineExecutionStartCondition;
+        private bool _mUnknown_PipelineExecutionStartCondition;
+        public string? PipelineExecutionStartCondition
+        {
+            get
+            {
+                if (!_mUnknown_PipelineExecutionStartCondition) return _mValue_PipelineExecutionStartCondition;
+                throw new UndeferrableValueException("Value 'GetImagePipelineScheduleResult.PipelineExecutionStartCondition' is not present");
+            }
+        }
 
         /// <summary>
         /// Cron expression of how often the pipeline start condition is evaluated.
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'GetImagePipelineScheduleResult.ScheduleExpression' is not present");
+            }
+        }
     }
 }

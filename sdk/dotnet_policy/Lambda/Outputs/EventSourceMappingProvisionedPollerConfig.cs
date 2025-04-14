@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
         /// </summary>
-        [Input("maximumPollers")]
+        [PolicyResourceProperty("maximumPollers", "_mUnknown_MaximumPollers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumPollers;
-
-        public int? MaximumPollers => _mMaximumPollers.GetValue("maximumPollers");
+        private int? _mValue_MaximumPollers;
+        private bool _mUnknown_MaximumPollers;
+        public int? MaximumPollers
+        {
+            get
+            {
+                if (!_mUnknown_MaximumPollers) return _mValue_MaximumPollers;
+                throw new UndeferrableValueException("Value 'EventSourceMappingProvisionedPollerConfig.MaximumPollers' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
         /// </summary>
-        [Input("minimumPollers")]
+        [PolicyResourceProperty("minimumPollers", "_mUnknown_MinimumPollers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumPollers;
-
-        public int? MinimumPollers => _mMinimumPollers.GetValue("minimumPollers");
+        private int? _mValue_MinimumPollers;
+        private bool _mUnknown_MinimumPollers;
+        public int? MinimumPollers
+        {
+            get
+            {
+                if (!_mUnknown_MinimumPollers) return _mValue_MinimumPollers;
+                throw new UndeferrableValueException("Value 'EventSourceMappingProvisionedPollerConfig.MinimumPollers' is not present");
+            }
+        }
     }
 }

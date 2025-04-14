@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The ARN of the thing.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Thing.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of attributes of the thing.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'Thing.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The default client ID.
         /// </summary>
-        [Input("defaultClientId")]
+        [PolicyResourceProperty("defaultClientId", "_mUnknown_DefaultClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultClientId;
-
-        public string? DefaultClientId => _mDefaultClientId.GetValue("defaultClientId");
+        private string? _mValue_DefaultClientId;
+        private bool _mUnknown_DefaultClientId;
+        public string? DefaultClientId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultClientId) return _mValue_DefaultClientId;
+                throw new UndeferrableValueException("Value 'Thing.DefaultClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Thing.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The thing type name.
         /// </summary>
-        [Input("thingTypeName")]
+        [PolicyResourceProperty("thingTypeName", "_mUnknown_ThingTypeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingTypeName;
-
-        public string? ThingTypeName => _mThingTypeName.GetValue("thingTypeName");
+        private string? _mValue_ThingTypeName;
+        private bool _mUnknown_ThingTypeName;
+        public string? ThingTypeName
+        {
+            get
+            {
+                if (!_mUnknown_ThingTypeName) return _mValue_ThingTypeName;
+                throw new UndeferrableValueException("Value 'Thing.ThingTypeName' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the thing record in the registry.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Thing.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/thing:Thing")]
@@ -74,28 +116,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Map of attributes of the thing.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'ThingArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ThingArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The thing type name.
         /// </summary>
-        [Input("thingTypeName")]
+        [PolicyResourceProperty("thingTypeName", "_mUnknown_ThingTypeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThingTypeName;
-
-        public string? ThingTypeName => _mThingTypeName.GetValue("thingTypeName");
+        private string? _mValue_ThingTypeName;
+        private bool _mUnknown_ThingTypeName;
+        public string? ThingTypeName
+        {
+            get
+            {
+                if (!_mUnknown_ThingTypeName) return _mValue_ThingTypeName;
+                throw new UndeferrableValueException("Value 'ThingArgs.ThingTypeName' is not present");
+            }
+        }
     }
 }

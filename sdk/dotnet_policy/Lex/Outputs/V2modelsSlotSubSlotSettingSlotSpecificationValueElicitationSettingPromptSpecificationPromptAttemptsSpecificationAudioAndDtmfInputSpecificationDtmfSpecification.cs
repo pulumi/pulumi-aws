@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
 {
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification
     {
-        [Input("deletionCharacter")]
+        [PolicyResourceProperty("deletionCharacter", "_mUnknown_DeletionCharacter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeletionCharacter;
+        private string? _mValue_DeletionCharacter;
+        private bool _mUnknown_DeletionCharacter;
+        public string? DeletionCharacter
+        {
+            get
+            {
+                if (!_mUnknown_DeletionCharacter) return _mValue_DeletionCharacter;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification.DeletionCharacter' is not present");
+            }
+        }
 
-        public string? DeletionCharacter => _mDeletionCharacter.GetValue("deletionCharacter");
-
-        [Input("endCharacter")]
+        [PolicyResourceProperty("endCharacter", "_mUnknown_EndCharacter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndCharacter;
+        private string? _mValue_EndCharacter;
+        private bool _mUnknown_EndCharacter;
+        public string? EndCharacter
+        {
+            get
+            {
+                if (!_mUnknown_EndCharacter) return _mValue_EndCharacter;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification.EndCharacter' is not present");
+            }
+        }
 
-        public string? EndCharacter => _mEndCharacter.GetValue("endCharacter");
-
-        [Input("endTimeoutMs")]
+        [PolicyResourceProperty("endTimeoutMs", "_mUnknown_EndTimeoutMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEndTimeoutMs;
+        private int? _mValue_EndTimeoutMs;
+        private bool _mUnknown_EndTimeoutMs;
+        public int? EndTimeoutMs
+        {
+            get
+            {
+                if (!_mUnknown_EndTimeoutMs) return _mValue_EndTimeoutMs;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification.EndTimeoutMs' is not present");
+            }
+        }
 
-        public int? EndTimeoutMs => _mEndTimeoutMs.GetValue("endTimeoutMs");
-
-        [Input("maxLength")]
+        [PolicyResourceProperty("maxLength", "_mUnknown_MaxLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxLength;
-
-        public int? MaxLength => _mMaxLength.GetValue("maxLength");
+        private int? _mValue_MaxLength;
+        private bool _mUnknown_MaxLength;
+        public int? MaxLength
+        {
+            get
+            {
+                if (!_mUnknown_MaxLength) return _mValue_MaxLength;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification.MaxLength' is not present");
+            }
+        }
     }
 }

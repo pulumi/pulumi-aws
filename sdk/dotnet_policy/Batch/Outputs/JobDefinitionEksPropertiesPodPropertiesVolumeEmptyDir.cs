@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Medium to store the volume. The default value is an empty string, which uses the storage of the node.
         /// </summary>
-        [Input("medium")]
+        [PolicyResourceProperty("medium", "_mUnknown_Medium")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMedium;
-
-        public string? Medium => _mMedium.GetValue("medium");
+        private string? _mValue_Medium;
+        private bool _mUnknown_Medium;
+        public string? Medium
+        {
+            get
+            {
+                if (!_mUnknown_Medium) return _mValue_Medium;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.Medium' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size of the volume. By default, there's no maximum size defined.
         /// </summary>
-        [Input("sizeLimit")]
+        [PolicyResourceProperty("sizeLimit", "_mUnknown_SizeLimit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSizeLimit;
-
-        public string? SizeLimit => _mSizeLimit.GetValue("sizeLimit");
+        private string? _mValue_SizeLimit;
+        private bool _mUnknown_SizeLimit;
+        public string? SizeLimit
+        {
+            get
+            {
+                if (!_mUnknown_SizeLimit) return _mValue_SizeLimit;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.SizeLimit' is not present");
+            }
+        }
     }
 }

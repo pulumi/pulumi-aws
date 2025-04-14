@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The host name of the Databricks data source.
         /// </summary>
-        [Input("host")]
+        [PolicyResourceProperty("host", "_mUnknown_Host")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
-
-        public string? Host => _mHost.GetValue("host");
+        private string? _mValue_Host;
+        private bool _mUnknown_Host;
+        public string? Host
+        {
+            get
+            {
+                if (!_mUnknown_Host) return _mValue_Host;
+                throw new UndeferrableValueException("Value 'DataSourceParametersDatabricksArgs.Host' is not present");
+            }
+        }
 
         /// <summary>
         /// The port for the Databricks data source.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'DataSourceParametersDatabricksArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP path of the Databricks data source.
         /// </summary>
-        [Input("sqlEndpointPath")]
+        [PolicyResourceProperty("sqlEndpointPath", "_mUnknown_SqlEndpointPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqlEndpointPath;
-
-        public string? SqlEndpointPath => _mSqlEndpointPath.GetValue("sqlEndpointPath");
+        private string? _mValue_SqlEndpointPath;
+        private bool _mUnknown_SqlEndpointPath;
+        public string? SqlEndpointPath
+        {
+            get
+            {
+                if (!_mUnknown_SqlEndpointPath) return _mValue_SqlEndpointPath;
+                throw new UndeferrableValueException("Value 'DataSourceParametersDatabricksArgs.SqlEndpointPath' is not present");
+            }
+        }
     }
 }

@@ -15,134 +15,246 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// The ARN of the S3 bucket
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.BucketArn' is not present");
+            }
+        }
 
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
-
-        [Input("bufferingInterval")]
+        [PolicyResourceProperty("bufferingInterval", "_mUnknown_BufferingInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingInterval;
+        private int? _mValue_BufferingInterval;
+        private bool _mUnknown_BufferingInterval;
+        public int? BufferingInterval
+        {
+            get
+            {
+                if (!_mUnknown_BufferingInterval) return _mValue_BufferingInterval;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.BufferingInterval' is not present");
+            }
+        }
 
-        public int? BufferingInterval => _mBufferingInterval.GetValue("bufferingInterval");
-
-        [Input("bufferingSize")]
+        [PolicyResourceProperty("bufferingSize", "_mUnknown_BufferingSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferingSize;
+        private int? _mValue_BufferingSize;
+        private bool _mUnknown_BufferingSize;
+        public int? BufferingSize
+        {
+            get
+            {
+                if (!_mUnknown_BufferingSize) return _mValue_BufferingSize;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.BufferingSize' is not present");
+            }
+        }
 
-        public int? BufferingSize => _mBufferingSize.GetValue("bufferingSize");
-
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
         /// </summary>
-        [Input("compressionFormat")]
+        [PolicyResourceProperty("compressionFormat", "_mUnknown_CompressionFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompressionFormat;
-
-        public string? CompressionFormat => _mCompressionFormat.GetValue("compressionFormat");
+        private string? _mValue_CompressionFormat;
+        private bool _mUnknown_CompressionFormat;
+        public string? CompressionFormat
+        {
+            get
+            {
+                if (!_mUnknown_CompressionFormat) return _mValue_CompressionFormat;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.CompressionFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
         /// </summary>
-        [Input("customTimeZone")]
+        [PolicyResourceProperty("customTimeZone", "_mUnknown_CustomTimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomTimeZone;
-
-        public string? CustomTimeZone => _mCustomTimeZone.GetValue("customTimeZone");
+        private string? _mValue_CustomTimeZone;
+        private bool _mUnknown_CustomTimeZone;
+        public string? CustomTimeZone
+        {
+            get
+            {
+                if (!_mUnknown_CustomTimeZone) return _mValue_CustomTimeZone;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.CustomTimeZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
         /// </summary>
-        [Input("dataFormatConversionConfiguration")]
+        [PolicyResourceProperty("dataFormatConversionConfiguration", "_mUnknown_DataFormatConversionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs> _mDataFormatConversionConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs? DataFormatConversionConfiguration => _mDataFormatConversionConfiguration.GetValue("dataFormatConversionConfiguration");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs? _mValue_DataFormatConversionConfiguration;
+        private bool _mUnknown_DataFormatConversionConfiguration;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs? DataFormatConversionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DataFormatConversionConfiguration) return _mValue_DataFormatConversionConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.DataFormatConversionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
         /// </summary>
-        [Input("dynamicPartitioningConfiguration")]
+        [PolicyResourceProperty("dynamicPartitioningConfiguration", "_mUnknown_DynamicPartitioningConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs> _mDynamicPartitioningConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs? DynamicPartitioningConfiguration => _mDynamicPartitioningConfiguration.GetValue("dynamicPartitioningConfiguration");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs? _mValue_DynamicPartitioningConfiguration;
+        private bool _mUnknown_DynamicPartitioningConfiguration;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs? DynamicPartitioningConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_DynamicPartitioningConfiguration) return _mValue_DynamicPartitioningConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.DynamicPartitioningConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
         /// </summary>
-        [Input("errorOutputPrefix")]
+        [PolicyResourceProperty("errorOutputPrefix", "_mUnknown_ErrorOutputPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorOutputPrefix;
-
-        public string? ErrorOutputPrefix => _mErrorOutputPrefix.GetValue("errorOutputPrefix");
+        private string? _mValue_ErrorOutputPrefix;
+        private bool _mUnknown_ErrorOutputPrefix;
+        public string? ErrorOutputPrefix
+        {
+            get
+            {
+                if (!_mUnknown_ErrorOutputPrefix) return _mValue_ErrorOutputPrefix;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.ErrorOutputPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The file extension to override the default file extension (for example, `.json`).
         /// </summary>
-        [Input("fileExtension")]
+        [PolicyResourceProperty("fileExtension", "_mUnknown_FileExtension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileExtension;
-
-        public string? FileExtension => _mFileExtension.GetValue("fileExtension");
+        private string? _mValue_FileExtension;
+        private bool _mUnknown_FileExtension;
+        public string? FileExtension
+        {
+            get
+            {
+                if (!_mUnknown_FileExtension) return _mValue_FileExtension;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.FileExtension' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
         /// be used.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.KmsKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The data processing configuration.  See `processing_configuration` block below for details.
         /// </summary>
-        [Input("processingConfiguration")]
+        [PolicyResourceProperty("processingConfiguration", "_mUnknown_ProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs> _mProcessingConfiguration;
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs? _mValue_ProcessingConfiguration;
+        private bool _mUnknown_ProcessingConfiguration;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs? ProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ProcessingConfiguration) return _mValue_ProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.ProcessingConfiguration' is not present");
+            }
+        }
 
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs? ProcessingConfiguration => _mProcessingConfiguration.GetValue("processingConfiguration");
-
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
         /// </summary>
-        [Input("s3BackupConfiguration")]
+        [PolicyResourceProperty("s3BackupConfiguration", "_mUnknown_S3BackupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs> _mS3BackupConfiguration;
-
-        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs? S3BackupConfiguration => _mS3BackupConfiguration.GetValue("s3BackupConfiguration");
+        private Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs? _mValue_S3BackupConfiguration;
+        private bool _mUnknown_S3BackupConfiguration;
+        public Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs? S3BackupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupConfiguration) return _mValue_S3BackupConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.S3BackupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
         /// </summary>
-        [Input("s3BackupMode")]
+        [PolicyResourceProperty("s3BackupMode", "_mUnknown_S3BackupMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BackupMode;
-
-        public string? S3BackupMode => _mS3BackupMode.GetValue("s3BackupMode");
+        private string? _mValue_S3BackupMode;
+        private bool _mUnknown_S3BackupMode;
+        public string? S3BackupMode
+        {
+            get
+            {
+                if (!_mUnknown_S3BackupMode) return _mValue_S3BackupMode;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.S3BackupMode' is not present");
+            }
+        }
     }
 }

@@ -16,58 +16,100 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// <summary>
         /// ARN of the cell
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Cell.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name describing the cell.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("cellName")]
+        [PolicyResourceProperty("cellName", "_mUnknown_CellName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCellName;
-
-        public string? CellName => _mCellName.GetValue("cellName");
+        private string? _mValue_CellName;
+        private bool _mUnknown_CellName;
+        public string? CellName
+        {
+            get
+            {
+                if (!_mUnknown_CellName) return _mValue_CellName;
+                throw new UndeferrableValueException("Value 'Cell.CellName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of cell arns to add as nested fault domains within this cell.
         /// </summary>
-        [Input("cells")]
+        [PolicyResourceProperty("cells", "_mUnknown_Cells")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
-
-        public List<string>? Cells => _mCells.GetValue("cells");
+        private List<string>? _mValue_Cells;
+        private bool _mUnknown_Cells;
+        public List<string>? Cells
+        {
+            get
+            {
+                if (!_mUnknown_Cells) return _mValue_Cells;
+                throw new UndeferrableValueException("Value 'Cell.Cells' is not present");
+            }
+        }
 
         /// <summary>
         /// List of readiness scopes (recovery groups or cells) that contain this cell.
         /// </summary>
-        [Input("parentReadinessScopes")]
+        [PolicyResourceProperty("parentReadinessScopes", "_mUnknown_ParentReadinessScopes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mParentReadinessScopes;
-
-        public List<string>? ParentReadinessScopes => _mParentReadinessScopes.GetValue("parentReadinessScopes");
+        private List<string>? _mValue_ParentReadinessScopes;
+        private bool _mUnknown_ParentReadinessScopes;
+        public List<string>? ParentReadinessScopes
+        {
+            get
+            {
+                if (!_mUnknown_ParentReadinessScopes) return _mValue_ParentReadinessScopes;
+                throw new UndeferrableValueException("Value 'Cell.ParentReadinessScopes' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Cell.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Cell.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53recoveryreadiness/cell:Cell")]
@@ -78,28 +120,49 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("cellName")]
+        [PolicyResourceProperty("cellName", "_mUnknown_CellName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCellName;
-
-        public string? CellName => _mCellName.GetValue("cellName");
+        private string? _mValue_CellName;
+        private bool _mUnknown_CellName;
+        public string? CellName
+        {
+            get
+            {
+                if (!_mUnknown_CellName) return _mValue_CellName;
+                throw new UndeferrableValueException("Value 'CellArgs.CellName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of cell arns to add as nested fault domains within this cell.
         /// </summary>
-        [Input("cells")]
+        [PolicyResourceProperty("cells", "_mUnknown_Cells")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCells;
-
-        public List<string>? Cells => _mCells.GetValue("cells");
+        private List<string>? _mValue_Cells;
+        private bool _mUnknown_Cells;
+        public List<string>? Cells
+        {
+            get
+            {
+                if (!_mUnknown_Cells) return _mValue_Cells;
+                throw new UndeferrableValueException("Value 'CellArgs.Cells' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CellArgs.Tags' is not present");
+            }
+        }
     }
 }

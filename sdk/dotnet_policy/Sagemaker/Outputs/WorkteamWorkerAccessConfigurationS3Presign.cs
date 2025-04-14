@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
         /// </summary>
-        [Input("iamPolicyConstraints")]
+        [PolicyResourceProperty("iamPolicyConstraints", "_mUnknown_IamPolicyConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints> _mIamPolicyConstraints;
-
-        public Outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints? IamPolicyConstraints => _mIamPolicyConstraints.GetValue("iamPolicyConstraints");
+        private Outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints? _mValue_IamPolicyConstraints;
+        private bool _mUnknown_IamPolicyConstraints;
+        public Outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints? IamPolicyConstraints
+        {
+            get
+            {
+                if (!_mUnknown_IamPolicyConstraints) return _mValue_IamPolicyConstraints;
+                throw new UndeferrableValueException("Value 'WorkteamWorkerAccessConfigurationS3Presign.IamPolicyConstraints' is not present");
+            }
+        }
     }
 }

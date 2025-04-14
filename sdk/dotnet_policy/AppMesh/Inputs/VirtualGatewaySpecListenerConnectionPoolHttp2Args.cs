@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
         /// </summary>
-        [Input("maxRequests")]
+        [PolicyResourceProperty("maxRequests", "_mUnknown_MaxRequests")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRequests;
-
-        public int? MaxRequests => _mMaxRequests.GetValue("maxRequests");
+        private int? _mValue_MaxRequests;
+        private bool _mUnknown_MaxRequests;
+        public int? MaxRequests
+        {
+            get
+            {
+                if (!_mUnknown_MaxRequests) return _mValue_MaxRequests;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPoolHttp2Args.MaxRequests' is not present");
+            }
+        }
     }
 }

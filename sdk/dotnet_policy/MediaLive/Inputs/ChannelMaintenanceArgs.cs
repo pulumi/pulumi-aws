@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The day of the week to use for maintenance.
         /// </summary>
-        [Input("maintenanceDay")]
+        [PolicyResourceProperty("maintenanceDay", "_mUnknown_MaintenanceDay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceDay;
-
-        public string? MaintenanceDay => _mMaintenanceDay.GetValue("maintenanceDay");
+        private string? _mValue_MaintenanceDay;
+        private bool _mUnknown_MaintenanceDay;
+        public string? MaintenanceDay
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceDay) return _mValue_MaintenanceDay;
+                throw new UndeferrableValueException("Value 'ChannelMaintenanceArgs.MaintenanceDay' is not present");
+            }
+        }
 
         /// <summary>
         /// The hour maintenance will start.
         /// </summary>
-        [Input("maintenanceStartTime")]
+        [PolicyResourceProperty("maintenanceStartTime", "_mUnknown_MaintenanceStartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaintenanceStartTime;
-
-        public string? MaintenanceStartTime => _mMaintenanceStartTime.GetValue("maintenanceStartTime");
+        private string? _mValue_MaintenanceStartTime;
+        private bool _mUnknown_MaintenanceStartTime;
+        public string? MaintenanceStartTime
+        {
+            get
+            {
+                if (!_mUnknown_MaintenanceStartTime) return _mValue_MaintenanceStartTime;
+                throw new UndeferrableValueException("Value 'ChannelMaintenanceArgs.MaintenanceStartTime' is not present");
+            }
+        }
     }
 }

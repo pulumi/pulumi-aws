@@ -16,217 +16,385 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamInfluxDB
         /// <summary>
         /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
         /// </summary>
-        [Input("allocatedStorage")]
+        [PolicyResourceProperty("allocatedStorage", "_mUnknown_AllocatedStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
-
-        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
+        private int? _mValue_AllocatedStorage;
+        private bool _mUnknown_AllocatedStorage;
+        public int? AllocatedStorage
+        {
+            get
+            {
+                if (!_mUnknown_AllocatedStorage) return _mValue_AllocatedStorage;
+                throw new UndeferrableValueException("Value 'DbInstance.AllocatedStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Timestream for InfluxDB Instance.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DbInstance.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Availability Zone in which the DB instance resides.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'DbInstance.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'DbInstance.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         /// </summary>
-        [Input("dbInstanceType")]
+        [PolicyResourceProperty("dbInstanceType", "_mUnknown_DbInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceType;
-
-        public string? DbInstanceType => _mDbInstanceType.GetValue("dbInstanceType");
+        private string? _mValue_DbInstanceType;
+        private bool _mUnknown_DbInstanceType;
+        public string? DbInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_DbInstanceType) return _mValue_DbInstanceType;
+                throw new UndeferrableValueException("Value 'DbInstance.DbInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
         /// </summary>
-        [Input("dbParameterGroupIdentifier")]
+        [PolicyResourceProperty("dbParameterGroupIdentifier", "_mUnknown_DbParameterGroupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbParameterGroupIdentifier;
-
-        public string? DbParameterGroupIdentifier => _mDbParameterGroupIdentifier.GetValue("dbParameterGroupIdentifier");
+        private string? _mValue_DbParameterGroupIdentifier;
+        private bool _mUnknown_DbParameterGroupIdentifier;
+        public string? DbParameterGroupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbParameterGroupIdentifier) return _mValue_DbParameterGroupIdentifier;
+                throw new UndeferrableValueException("Value 'DbInstance.DbParameterGroupIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
-        [Input("dbStorageType")]
+        [PolicyResourceProperty("dbStorageType", "_mUnknown_DbStorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbStorageType;
-
-        public string? DbStorageType => _mDbStorageType.GetValue("dbStorageType");
+        private string? _mValue_DbStorageType;
+        private bool _mUnknown_DbStorageType;
+        public string? DbStorageType
+        {
+            get
+            {
+                if (!_mUnknown_DbStorageType) return _mValue_DbStorageType;
+                throw new UndeferrableValueException("Value 'DbInstance.DbStorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'DbInstance.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'DbInstance.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password. This secret will be read by the `aws.timestreaminfluxdb.DbInstance` resource in order to support importing: deleting the secret or secret values can cause errors.
         /// </summary>
-        [Input("influxAuthParametersSecretArn")]
+        [PolicyResourceProperty("influxAuthParametersSecretArn", "_mUnknown_InfluxAuthParametersSecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInfluxAuthParametersSecretArn;
-
-        public string? InfluxAuthParametersSecretArn => _mInfluxAuthParametersSecretArn.GetValue("influxAuthParametersSecretArn");
+        private string? _mValue_InfluxAuthParametersSecretArn;
+        private bool _mUnknown_InfluxAuthParametersSecretArn;
+        public string? InfluxAuthParametersSecretArn
+        {
+            get
+            {
+                if (!_mUnknown_InfluxAuthParametersSecretArn) return _mValue_InfluxAuthParametersSecretArn;
+                throw new UndeferrableValueException("Value 'DbInstance.InfluxAuthParametersSecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         /// </summary>
-        [Input("logDeliveryConfiguration")]
+        [PolicyResourceProperty("logDeliveryConfiguration", "_mUnknown_LogDeliveryConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DbInstanceLogDeliveryConfiguration> _mLogDeliveryConfiguration;
-
-        public Outputs.DbInstanceLogDeliveryConfiguration? LogDeliveryConfiguration => _mLogDeliveryConfiguration.GetValue("logDeliveryConfiguration");
+        private Outputs.DbInstanceLogDeliveryConfiguration? _mValue_LogDeliveryConfiguration;
+        private bool _mUnknown_LogDeliveryConfiguration;
+        public Outputs.DbInstanceLogDeliveryConfiguration? LogDeliveryConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogDeliveryConfiguration) return _mValue_LogDeliveryConfiguration;
+                throw new UndeferrableValueException("Value 'DbInstance.LogDeliveryConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DbInstance.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         /// </summary>
-        [Input("networkType")]
+        [PolicyResourceProperty("networkType", "_mUnknown_NetworkType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
-
-        public string? NetworkType => _mNetworkType.GetValue("networkType");
+        private string? _mValue_NetworkType;
+        private bool _mUnknown_NetworkType;
+        public string? NetworkType
+        {
+            get
+            {
+                if (!_mUnknown_NetworkType) return _mValue_NetworkType;
+                throw new UndeferrableValueException("Value 'DbInstance.NetworkType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("organization")]
+        [PolicyResourceProperty("organization", "_mUnknown_Organization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganization;
-
-        public string? Organization => _mOrganization.GetValue("organization");
+        private string? _mValue_Organization;
+        private bool _mUnknown_Organization;
+        public string? Organization
+        {
+            get
+            {
+                if (!_mUnknown_Organization) return _mValue_Organization;
+                throw new UndeferrableValueException("Value 'DbInstance.Organization' is not present");
+            }
+        }
 
         /// <summary>
         /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'DbInstance.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'DbInstance.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'DbInstance.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
         /// </summary>
-        [Input("secondaryAvailabilityZone")]
+        [PolicyResourceProperty("secondaryAvailabilityZone", "_mUnknown_SecondaryAvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecondaryAvailabilityZone;
-
-        public string? SecondaryAvailabilityZone => _mSecondaryAvailabilityZone.GetValue("secondaryAvailabilityZone");
+        private string? _mValue_SecondaryAvailabilityZone;
+        private bool _mUnknown_SecondaryAvailabilityZone;
+        public string? SecondaryAvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryAvailabilityZone) return _mValue_SecondaryAvailabilityZone;
+                throw new UndeferrableValueException("Value 'DbInstance.SecondaryAvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DbInstance.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DbInstance.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DbInstanceTimeouts> _mTimeouts;
-
-        public Outputs.DbInstanceTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DbInstanceTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DbInstanceTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DbInstance.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'DbInstance.Username' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security group IDs to associate with the DB instance.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'DbInstance.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcSubnetIds")]
+        [PolicyResourceProperty("vpcSubnetIds", "_mUnknown_VpcSubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
-
-        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
+        private List<string>? _mValue_VpcSubnetIds;
+        private bool _mUnknown_VpcSubnetIds;
+        public List<string>? VpcSubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnetIds) return _mValue_VpcSubnetIds;
+                throw new UndeferrableValueException("Value 'DbInstance.VpcSubnetIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:timestreaminfluxdb/dbInstance:DbInstance")]
@@ -235,162 +403,288 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamInfluxDB
         /// <summary>
         /// Amount of storage in GiB (gibibytes). The minimum value is `20`, the maximum value is `16384`. This argument is updatable. The argument `db_storage_type` places restrictions on this argument's minimum value. The following is a list of `db_storage_type` values and the corresponding minimum value for `allocated_storage`: `"InfluxIOIncludedT1": `20`, `"InfluxIOIncludedT2" and `"InfluxIOIncludedT3": `400`.
         /// </summary>
-        [Input("allocatedStorage")]
+        [PolicyResourceProperty("allocatedStorage", "_mUnknown_AllocatedStorage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAllocatedStorage;
-
-        public int? AllocatedStorage => _mAllocatedStorage.GetValue("allocatedStorage");
+        private int? _mValue_AllocatedStorage;
+        private bool _mUnknown_AllocatedStorage;
+        public int? AllocatedStorage
+        {
+            get
+            {
+                if (!_mUnknown_AllocatedStorage) return _mValue_AllocatedStorage;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.AllocatedStorage' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`. This argument is updatable.
         /// </summary>
-        [Input("dbInstanceType")]
+        [PolicyResourceProperty("dbInstanceType", "_mUnknown_DbInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbInstanceType;
-
-        public string? DbInstanceType => _mDbInstanceType.GetValue("dbInstanceType");
+        private string? _mValue_DbInstanceType;
+        private bool _mUnknown_DbInstanceType;
+        public string? DbInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_DbInstanceType) return _mValue_DbInstanceType;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.DbInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the DB parameter group assigned to your DB instance. This argument is updatable. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
         /// </summary>
-        [Input("dbParameterGroupIdentifier")]
+        [PolicyResourceProperty("dbParameterGroupIdentifier", "_mUnknown_DbParameterGroupIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbParameterGroupIdentifier;
-
-        public string? DbParameterGroupIdentifier => _mDbParameterGroupIdentifier.GetValue("dbParameterGroupIdentifier");
+        private string? _mValue_DbParameterGroupIdentifier;
+        private bool _mUnknown_DbParameterGroupIdentifier;
+        public string? DbParameterGroupIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbParameterGroupIdentifier) return _mValue_DbParameterGroupIdentifier;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.DbParameterGroupIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT3"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400. This argument is updatable. For a single instance, after this argument has been updated once, it can only be updated again after 6 hours have passed.
         /// </summary>
-        [Input("dbStorageType")]
+        [PolicyResourceProperty("dbStorageType", "_mUnknown_DbStorageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbStorageType;
-
-        public string? DbStorageType => _mDbStorageType.GetValue("dbStorageType");
+        private string? _mValue_DbStorageType;
+        private bool _mUnknown_DbStorageType;
+        public string? DbStorageType
+        {
+            get
+            {
+                if (!_mUnknown_DbStorageType) return _mValue_DbStorageType;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.DbStorageType' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`. This argument is updatable.
         /// </summary>
-        [Input("deploymentType")]
+        [PolicyResourceProperty("deploymentType", "_mUnknown_DeploymentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploymentType;
-
-        public string? DeploymentType => _mDeploymentType.GetValue("deploymentType");
+        private string? _mValue_DeploymentType;
+        private bool _mUnknown_DeploymentType;
+        public string? DeploymentType
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentType) return _mValue_DeploymentType;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.DeploymentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for sending InfluxDB engine logs to a specified S3 bucket. This argument is updatable.
         /// </summary>
-        [Input("logDeliveryConfiguration")]
+        [PolicyResourceProperty("logDeliveryConfiguration", "_mUnknown_LogDeliveryConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DbInstanceLogDeliveryConfigurationArgs> _mLogDeliveryConfiguration;
-
-        public Inputs.DbInstanceLogDeliveryConfigurationArgs? LogDeliveryConfiguration => _mLogDeliveryConfiguration.GetValue("logDeliveryConfiguration");
+        private Inputs.DbInstanceLogDeliveryConfigurationArgs? _mValue_LogDeliveryConfiguration;
+        private bool _mUnknown_LogDeliveryConfiguration;
+        public Inputs.DbInstanceLogDeliveryConfigurationArgs? LogDeliveryConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogDeliveryConfiguration) return _mValue_LogDeliveryConfiguration;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.LogDeliveryConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
         /// </summary>
-        [Input("networkType")]
+        [PolicyResourceProperty("networkType", "_mUnknown_NetworkType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkType;
-
-        public string? NetworkType => _mNetworkType.GetValue("networkType");
+        private string? _mValue_NetworkType;
+        private bool _mUnknown_NetworkType;
+        public string? NetworkType
+        {
+            get
+            {
+                if (!_mUnknown_NetworkType) return _mValue_NetworkType;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.NetworkType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("organization")]
+        [PolicyResourceProperty("organization", "_mUnknown_Organization")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganization;
-
-        public string? Organization => _mOrganization.GetValue("organization");
+        private string? _mValue_Organization;
+        private bool _mUnknown_Organization;
+        public string? Organization
+        {
+            get
+            {
+                if (!_mUnknown_Organization) return _mValue_Organization;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Organization' is not present");
+            }
+        }
 
         /// <summary>
         /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DbInstanceTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DbInstanceTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DbInstanceTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DbInstanceTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.Username' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC security group IDs to associate with the DB instance.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcSubnetIds")]
+        [PolicyResourceProperty("vpcSubnetIds", "_mUnknown_VpcSubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
-
-        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
+        private List<string>? _mValue_VpcSubnetIds;
+        private bool _mUnknown_VpcSubnetIds;
+        public List<string>? VpcSubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnetIds) return _mValue_VpcSubnetIds;
+                throw new UndeferrableValueException("Value 'DbInstanceArgs.VpcSubnetIds' is not present");
+            }
+        }
     }
 }

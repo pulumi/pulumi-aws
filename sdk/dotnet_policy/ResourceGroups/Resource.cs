@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroups
         /// <summary>
         /// Name or ARN of the resource group to add resources to.
         /// </summary>
-        [Input("groupArn")]
+        [PolicyResourceProperty("groupArn", "_mUnknown_GroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupArn;
-
-        public string? GroupArn => _mGroupArn.GetValue("groupArn");
+        private string? _mValue_GroupArn;
+        private bool _mUnknown_GroupArn;
+        public string? GroupArn
+        {
+            get
+            {
+                if (!_mUnknown_GroupArn) return _mValue_GroupArn;
+                throw new UndeferrableValueException("Value 'Resource.GroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource to be added to the group.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'Resource.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource type of a resource, such as `AWS::EC2::Instance`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'Resource.ResourceType' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:resourcegroups/resource:Resource")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroups
         /// <summary>
         /// Name or ARN of the resource group to add resources to.
         /// </summary>
-        [Input("groupArn")]
+        [PolicyResourceProperty("groupArn", "_mUnknown_GroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupArn;
-
-        public string? GroupArn => _mGroupArn.GetValue("groupArn");
+        private string? _mValue_GroupArn;
+        private bool _mUnknown_GroupArn;
+        public string? GroupArn
+        {
+            get
+            {
+                if (!_mUnknown_GroupArn) return _mValue_GroupArn;
+                throw new UndeferrableValueException("Value 'ResourceArgs.GroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource to be added to the group.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ResourceArgs.ResourceArn' is not present");
+            }
+        }
     }
 }

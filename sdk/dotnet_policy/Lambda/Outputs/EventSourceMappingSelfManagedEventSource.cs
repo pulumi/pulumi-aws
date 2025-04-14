@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
         /// <summary>
         /// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
         /// </summary>
-        [Input("endpoints")]
+        [PolicyResourceProperty("endpoints", "_mUnknown_Endpoints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEndpoints;
-
-        public Dictionary<string, string>? Endpoints => _mEndpoints.GetValue("endpoints");
+        private Dictionary<string, string>? _mValue_Endpoints;
+        private bool _mUnknown_Endpoints;
+        public Dictionary<string, string>? Endpoints
+        {
+            get
+            {
+                if (!_mUnknown_Endpoints) return _mValue_Endpoints;
+                throw new UndeferrableValueException("Value 'EventSourceMappingSelfManagedEventSource.Endpoints' is not present");
+            }
+        }
     }
 }

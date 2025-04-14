@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.ResourceExplorer.Outputs
         /// <summary>
         /// Amazon resource name of resource.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SearchResourceResult.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the information about this resource property was last updated.
         /// </summary>
-        [Input("lastReportedAt")]
+        [PolicyResourceProperty("lastReportedAt", "_mUnknown_LastReportedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastReportedAt;
-
-        public string? LastReportedAt => _mLastReportedAt.GetValue("lastReportedAt");
+        private string? _mValue_LastReportedAt;
+        private bool _mUnknown_LastReportedAt;
+        public string? LastReportedAt
+        {
+            get
+            {
+                if (!_mUnknown_LastReportedAt) return _mValue_LastReportedAt;
+                throw new UndeferrableValueException("Value 'SearchResourceResult.LastReportedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services account that owns the resource.
         /// </summary>
-        [Input("owningAccountId")]
+        [PolicyResourceProperty("owningAccountId", "_mUnknown_OwningAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwningAccountId;
-
-        public string? OwningAccountId => _mOwningAccountId.GetValue("owningAccountId");
+        private string? _mValue_OwningAccountId;
+        private bool _mUnknown_OwningAccountId;
+        public string? OwningAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwningAccountId) return _mValue_OwningAccountId;
+                throw new UndeferrableValueException("Value 'SearchResourceResult.OwningAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure with additional type-specific details about the resource.  See `properties` below.
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SearchResourcePropertyResult>> _mProperties;
-
-        public List<Outputs.SearchResourcePropertyResult>? Properties => _mProperties.GetValue("properties");
+        private List<Outputs.SearchResourcePropertyResult>? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public List<Outputs.SearchResourcePropertyResult>? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'SearchResourceResult.Properties' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services Region in which the resource was created and exists.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'SearchResourceResult.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the resource.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'SearchResourceResult.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Service that owns the resource and is responsible for creating and updating it.
         /// </summary>
-        [Input("service")]
+        [PolicyResourceProperty("service", "_mUnknown_Service")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mService;
-
-        public string? Service => _mService.GetValue("service");
+        private string? _mValue_Service;
+        private bool _mUnknown_Service;
+        public string? Service
+        {
+            get
+            {
+                if (!_mUnknown_Service) return _mValue_Service;
+                throw new UndeferrableValueException("Value 'SearchResourceResult.Service' is not present");
+            }
+        }
     }
 }

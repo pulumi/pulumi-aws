@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts.Outputs
 {
     public sealed class GetContactChannelDeliveryAddressResult
     {
-        [Input("simpleAddress")]
+        [PolicyResourceProperty("simpleAddress", "_mUnknown_SimpleAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSimpleAddress;
-
-        public string? SimpleAddress => _mSimpleAddress.GetValue("simpleAddress");
+        private string? _mValue_SimpleAddress;
+        private bool _mUnknown_SimpleAddress;
+        public string? SimpleAddress
+        {
+            get
+            {
+                if (!_mUnknown_SimpleAddress) return _mValue_SimpleAddress;
+                throw new UndeferrableValueException("Value 'GetContactChannelDeliveryAddressResult.SimpleAddress' is not present");
+            }
+        }
     }
 }

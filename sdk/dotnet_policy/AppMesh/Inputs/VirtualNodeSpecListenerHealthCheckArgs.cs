@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Number of consecutive successful health checks that must occur before declaring listener healthy.
         /// </summary>
-        [Input("healthyThreshold")]
+        [PolicyResourceProperty("healthyThreshold", "_mUnknown_HealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthyThreshold;
-
-        public int? HealthyThreshold => _mHealthyThreshold.GetValue("healthyThreshold");
+        private int? _mValue_HealthyThreshold;
+        private bool _mUnknown_HealthyThreshold;
+        public int? HealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_HealthyThreshold) return _mValue_HealthyThreshold;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerHealthCheckArgs.HealthyThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// Time period in milliseconds between each health check execution.
         /// </summary>
-        [Input("intervalMillis")]
+        [PolicyResourceProperty("intervalMillis", "_mUnknown_IntervalMillis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIntervalMillis;
-
-        public int? IntervalMillis => _mIntervalMillis.GetValue("intervalMillis");
+        private int? _mValue_IntervalMillis;
+        private bool _mUnknown_IntervalMillis;
+        public int? IntervalMillis
+        {
+            get
+            {
+                if (!_mUnknown_IntervalMillis) return _mValue_IntervalMillis;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerHealthCheckArgs.IntervalMillis' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerHealthCheckArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerHealthCheckArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerHealthCheckArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time to wait when receiving a response from the health check, in milliseconds.
         /// </summary>
-        [Input("timeoutMillis")]
+        [PolicyResourceProperty("timeoutMillis", "_mUnknown_TimeoutMillis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMillis;
-
-        public int? TimeoutMillis => _mTimeoutMillis.GetValue("timeoutMillis");
+        private int? _mValue_TimeoutMillis;
+        private bool _mUnknown_TimeoutMillis;
+        public int? TimeoutMillis
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutMillis) return _mValue_TimeoutMillis;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerHealthCheckArgs.TimeoutMillis' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
         /// </summary>
-        [Input("unhealthyThreshold")]
+        [PolicyResourceProperty("unhealthyThreshold", "_mUnknown_UnhealthyThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnhealthyThreshold;
-
-        public int? UnhealthyThreshold => _mUnhealthyThreshold.GetValue("unhealthyThreshold");
+        private int? _mValue_UnhealthyThreshold;
+        private bool _mUnknown_UnhealthyThreshold;
+        public int? UnhealthyThreshold
+        {
+            get
+            {
+                if (!_mUnknown_UnhealthyThreshold) return _mValue_UnhealthyThreshold;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerHealthCheckArgs.UnhealthyThreshold' is not present");
+            }
+        }
     }
 }

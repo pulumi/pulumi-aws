@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
         /// </summary>
-        [Input("advancedSecurityMode")]
+        [PolicyResourceProperty("advancedSecurityMode", "_mUnknown_AdvancedSecurityMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdvancedSecurityMode;
-
-        public string? AdvancedSecurityMode => _mAdvancedSecurityMode.GetValue("advancedSecurityMode");
+        private string? _mValue_AdvancedSecurityMode;
+        private bool _mUnknown_AdvancedSecurityMode;
+        public string? AdvancedSecurityMode
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedSecurityMode) return _mValue_AdvancedSecurityMode;
+                throw new UndeferrableValueException("Value 'UserPoolUserPoolAddOns.AdvancedSecurityMode' is not present");
+            }
+        }
     }
 }

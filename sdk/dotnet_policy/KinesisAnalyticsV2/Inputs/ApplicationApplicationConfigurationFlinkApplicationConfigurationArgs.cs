@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// Describes an application's checkpointing configuration.
         /// </summary>
-        [Input("checkpointConfiguration")]
+        [PolicyResourceProperty("checkpointConfiguration", "_mUnknown_CheckpointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs> _mCheckpointConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs? CheckpointConfiguration => _mCheckpointConfiguration.GetValue("checkpointConfiguration");
+        private Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs? _mValue_CheckpointConfiguration;
+        private bool _mUnknown_CheckpointConfiguration;
+        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs? CheckpointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CheckpointConfiguration) return _mValue_CheckpointConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs.CheckpointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes configuration parameters for CloudWatch logging for an application.
         /// </summary>
-        [Input("monitoringConfiguration")]
+        [PolicyResourceProperty("monitoringConfiguration", "_mUnknown_MonitoringConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs> _mMonitoringConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs? MonitoringConfiguration => _mMonitoringConfiguration.GetValue("monitoringConfiguration");
+        private Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs? _mValue_MonitoringConfiguration;
+        private bool _mUnknown_MonitoringConfiguration;
+        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs? MonitoringConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_MonitoringConfiguration) return _mValue_MonitoringConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs.MonitoringConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes parameters for how an application executes multiple tasks simultaneously.
         /// </summary>
-        [Input("parallelismConfiguration")]
+        [PolicyResourceProperty("parallelismConfiguration", "_mUnknown_ParallelismConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs> _mParallelismConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs? ParallelismConfiguration => _mParallelismConfiguration.GetValue("parallelismConfiguration");
+        private Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs? _mValue_ParallelismConfiguration;
+        private bool _mUnknown_ParallelismConfiguration;
+        public Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs? ParallelismConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ParallelismConfiguration) return _mValue_ParallelismConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs.ParallelismConfiguration' is not present");
+            }
+        }
     }
 }

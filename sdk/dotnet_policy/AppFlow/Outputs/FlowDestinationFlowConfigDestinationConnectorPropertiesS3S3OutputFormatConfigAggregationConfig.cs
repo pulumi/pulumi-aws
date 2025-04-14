@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
         /// </summary>
-        [Input("aggregationType")]
+        [PolicyResourceProperty("aggregationType", "_mUnknown_AggregationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAggregationType;
-
-        public string? AggregationType => _mAggregationType.GetValue("aggregationType");
+        private string? _mValue_AggregationType;
+        private bool _mUnknown_AggregationType;
+        public string? AggregationType
+        {
+            get
+            {
+                if (!_mUnknown_AggregationType) return _mValue_AggregationType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig.AggregationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
         /// </summary>
-        [Input("targetFileSize")]
+        [PolicyResourceProperty("targetFileSize", "_mUnknown_TargetFileSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetFileSize;
-
-        public int? TargetFileSize => _mTargetFileSize.GetValue("targetFileSize");
+        private int? _mValue_TargetFileSize;
+        private bool _mUnknown_TargetFileSize;
+        public int? TargetFileSize
+        {
+            get
+            {
+                if (!_mUnknown_TargetFileSize) return _mValue_TargetFileSize;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig.TargetFileSize' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
         /// </summary>
-        [Input("retryMode")]
+        [PolicyResourceProperty("retryMode", "_mUnknown_RetryMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRetryMode;
-
-        public string? RetryMode => _mRetryMode.GetValue("retryMode");
+        private string? _mValue_RetryMode;
+        private bool _mUnknown_RetryMode;
+        public string? RetryMode
+        {
+            get
+            {
+                if (!_mUnknown_RetryMode) return _mValue_RetryMode;
+                throw new UndeferrableValueException("Value 'PipelineStageOnFailureRetryConfiguration.RetryMode' is not present");
+            }
+        }
     }
 }

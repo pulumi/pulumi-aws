@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'Certificate.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the created certificate.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Certificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate ID of the CA certificate used to sign the certificate.
         /// </summary>
-        [Input("caCertificateId")]
+        [PolicyResourceProperty("caCertificateId", "_mUnknown_CaCertificateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificateId;
-
-        public string? CaCertificateId => _mCaCertificateId.GetValue("caCertificateId");
+        private string? _mValue_CaCertificateId;
+        private bool _mUnknown_CaCertificateId;
+        public string? CaCertificateId
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificateId) return _mValue_CaCertificateId;
+                throw new UndeferrableValueException("Value 'Certificate.CaCertificateId' is not present");
+            }
+        }
 
         /// <summary>
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         /// </summary>
-        [Input("caPem")]
+        [PolicyResourceProperty("caPem", "_mUnknown_CaPem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaPem;
-
-        public string? CaPem => _mCaPem.GetValue("caPem");
+        private string? _mValue_CaPem;
+        private bool _mUnknown_CaPem;
+        public string? CaPem
+        {
+            get
+            {
+                if (!_mUnknown_CaPem) return _mValue_CaPem;
+                throw new UndeferrableValueException("Value 'Certificate.CaPem' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate to be registered. If `ca_pem` is unspecified, review
@@ -56,11 +84,18 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         /// </summary>
-        [Input("certificatePem")]
+        [PolicyResourceProperty("certificatePem", "_mUnknown_CertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
-
-        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
+        private string? _mValue_CertificatePem;
+        private bool _mUnknown_CertificatePem;
+        public string? CertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_CertificatePem) return _mValue_CertificatePem;
+                throw new UndeferrableValueException("Value 'Certificate.CertificatePem' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate signing request. Review
@@ -69,29 +104,50 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
         /// for more information on generating keys and a certificate.
         /// </summary>
-        [Input("csr")]
+        [PolicyResourceProperty("csr", "_mUnknown_Csr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsr;
-
-        public string? Csr => _mCsr.GetValue("csr");
+        private string? _mValue_Csr;
+        private bool _mUnknown_Csr;
+        public string? Csr
+        {
+            get
+            {
+                if (!_mUnknown_Csr) return _mValue_Csr;
+                throw new UndeferrableValueException("Value 'Certificate.Csr' is not present");
+            }
+        }
 
         /// <summary>
         /// When neither CSR nor certificate is provided, the private key.
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'Certificate.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// When neither CSR nor certificate is provided, the public key.
         /// </summary>
-        [Input("publicKey")]
+        [PolicyResourceProperty("publicKey", "_mUnknown_PublicKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicKey;
-
-        public string? PublicKey => _mPublicKey.GetValue("publicKey");
+        private string? _mValue_PublicKey;
+        private bool _mUnknown_PublicKey;
+        public string? PublicKey
+        {
+            get
+            {
+                if (!_mUnknown_PublicKey) return _mValue_PublicKey;
+                throw new UndeferrableValueException("Value 'Certificate.PublicKey' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/certificate:Certificate")]
@@ -100,20 +156,34 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Boolean flag to indicate if the certificate should be active
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         /// </summary>
-        [Input("caPem")]
+        [PolicyResourceProperty("caPem", "_mUnknown_CaPem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaPem;
-
-        public string? CaPem => _mCaPem.GetValue("caPem");
+        private string? _mValue_CaPem;
+        private bool _mUnknown_CaPem;
+        public string? CaPem
+        {
+            get
+            {
+                if (!_mUnknown_CaPem) return _mValue_CaPem;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CaPem' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate to be registered. If `ca_pem` is unspecified, review
@@ -122,11 +192,18 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         /// </summary>
-        [Input("certificatePem")]
+        [PolicyResourceProperty("certificatePem", "_mUnknown_CertificatePem")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificatePem;
-
-        public string? CertificatePem => _mCertificatePem.GetValue("certificatePem");
+        private string? _mValue_CertificatePem;
+        private bool _mUnknown_CertificatePem;
+        public string? CertificatePem
+        {
+            get
+            {
+                if (!_mUnknown_CertificatePem) return _mValue_CertificatePem;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificatePem' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate signing request. Review
@@ -135,10 +212,17 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
         /// for more information on generating keys and a certificate.
         /// </summary>
-        [Input("csr")]
+        [PolicyResourceProperty("csr", "_mUnknown_Csr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCsr;
-
-        public string? Csr => _mCsr.GetValue("csr");
+        private string? _mValue_Csr;
+        private bool _mUnknown_Csr;
+        public string? Csr
+        {
+            get
+            {
+                if (!_mUnknown_Csr) return _mValue_Csr;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Csr' is not present");
+            }
+        }
     }
 }

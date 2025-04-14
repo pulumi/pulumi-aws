@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
-        [Input("clientCertificateTlsAuth")]
+        [PolicyResourceProperty("clientCertificateTlsAuth", "_mUnknown_ClientCertificateTlsAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientCertificateTlsAuth;
-
-        public string? ClientCertificateTlsAuth => _mClientCertificateTlsAuth.GetValue("clientCertificateTlsAuth");
+        private string? _mValue_ClientCertificateTlsAuth;
+        private bool _mUnknown_ClientCertificateTlsAuth;
+        public string? ClientCertificateTlsAuth
+        {
+            get
+            {
+                if (!_mUnknown_ClientCertificateTlsAuth) return _mValue_ClientCertificateTlsAuth;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs.ClientCertificateTlsAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Secrets Manager secret containing the credentials.
         /// </summary>
-        [Input("saslScram512Auth")]
+        [PolicyResourceProperty("saslScram512Auth", "_mUnknown_SaslScram512Auth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslScram512Auth;
-
-        public string? SaslScram512Auth => _mSaslScram512Auth.GetValue("saslScram512Auth");
+        private string? _mValue_SaslScram512Auth;
+        private bool _mUnknown_SaslScram512Auth;
+        public string? SaslScram512Auth
+        {
+            get
+            {
+                if (!_mUnknown_SaslScram512Auth) return _mValue_SaslScram512Auth;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs.SaslScram512Auth' is not present");
+            }
+        }
     }
 }

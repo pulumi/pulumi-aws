@@ -16,85 +16,155 @@ namespace Pulumi.PolicyPacks.Aws.Amp
         /// <summary>
         /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'Scraper.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the new scraper.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Scraper.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the managed scraper to send metrics to. See `destination`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperDestination> _mDestination;
-
-        public Outputs.ScraperDestination? Destination => _mDestination.GetValue("destination");
+        private Outputs.ScraperDestination? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Outputs.ScraperDestination? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'Scraper.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Scraper.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         /// </summary>
-        [Input("roleConfiguration")]
+        [PolicyResourceProperty("roleConfiguration", "_mUnknown_RoleConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperRoleConfiguration> _mRoleConfiguration;
-
-        public Outputs.ScraperRoleConfiguration? RoleConfiguration => _mRoleConfiguration.GetValue("roleConfiguration");
+        private Outputs.ScraperRoleConfiguration? _mValue_RoleConfiguration;
+        private bool _mUnknown_RoleConfiguration;
+        public Outputs.ScraperRoleConfiguration? RoleConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RoleConfiguration) return _mValue_RoleConfiguration;
+                throw new UndeferrableValueException("Value 'Scraper.RoleConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         /// </summary>
-        [Input("scrapeConfiguration")]
+        [PolicyResourceProperty("scrapeConfiguration", "_mUnknown_ScrapeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScrapeConfiguration;
-
-        public string? ScrapeConfiguration => _mScrapeConfiguration.GetValue("scrapeConfiguration");
+        private string? _mValue_ScrapeConfiguration;
+        private bool _mUnknown_ScrapeConfiguration;
+        public string? ScrapeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScrapeConfiguration) return _mValue_ScrapeConfiguration;
+                throw new UndeferrableValueException("Value 'Scraper.ScrapeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperSource> _mSource;
+        private Outputs.ScraperSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.ScraperSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'Scraper.Source' is not present");
+            }
+        }
 
-        public Outputs.ScraperSource? Source => _mSource.GetValue("source");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Scraper.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Scraper.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScraperTimeouts> _mTimeouts;
-
-        public Outputs.ScraperTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.ScraperTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.ScraperTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Scraper.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amp/scraper:Scraper")]
@@ -103,60 +173,109 @@ namespace Pulumi.PolicyPacks.Aws.Amp
         /// <summary>
         /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         /// </summary>
-        [Input("alias")]
+        [PolicyResourceProperty("alias", "_mUnknown_Alias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlias;
-
-        public string? Alias => _mAlias.GetValue("alias");
+        private string? _mValue_Alias;
+        private bool _mUnknown_Alias;
+        public string? Alias
+        {
+            get
+            {
+                if (!_mUnknown_Alias) return _mValue_Alias;
+                throw new UndeferrableValueException("Value 'ScraperArgs.Alias' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the managed scraper to send metrics to. See `destination`.
         /// </summary>
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperDestinationArgs> _mDestination;
-
-        public Inputs.ScraperDestinationArgs? Destination => _mDestination.GetValue("destination");
+        private Inputs.ScraperDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.ScraperDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ScraperArgs.Destination' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
         /// </summary>
-        [Input("roleConfiguration")]
+        [PolicyResourceProperty("roleConfiguration", "_mUnknown_RoleConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperRoleConfigurationArgs> _mRoleConfiguration;
-
-        public Inputs.ScraperRoleConfigurationArgs? RoleConfiguration => _mRoleConfiguration.GetValue("roleConfiguration");
+        private Inputs.ScraperRoleConfigurationArgs? _mValue_RoleConfiguration;
+        private bool _mUnknown_RoleConfiguration;
+        public Inputs.ScraperRoleConfigurationArgs? RoleConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RoleConfiguration) return _mValue_RoleConfiguration;
+                throw new UndeferrableValueException("Value 'ScraperArgs.RoleConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         /// </summary>
-        [Input("scrapeConfiguration")]
+        [PolicyResourceProperty("scrapeConfiguration", "_mUnknown_ScrapeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScrapeConfiguration;
-
-        public string? ScrapeConfiguration => _mScrapeConfiguration.GetValue("scrapeConfiguration");
+        private string? _mValue_ScrapeConfiguration;
+        private bool _mUnknown_ScrapeConfiguration;
+        public string? ScrapeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScrapeConfiguration) return _mValue_ScrapeConfiguration;
+                throw new UndeferrableValueException("Value 'ScraperArgs.ScrapeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperSourceArgs> _mSource;
+        private Inputs.ScraperSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.ScraperSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'ScraperArgs.Source' is not present");
+            }
+        }
 
-        public Inputs.ScraperSourceArgs? Source => _mSource.GetValue("source");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ScraperArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperTimeoutsArgs> _mTimeouts;
-
-        public Inputs.ScraperTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.ScraperTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.ScraperTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'ScraperArgs.Timeouts' is not present");
+            }
+        }
     }
 }

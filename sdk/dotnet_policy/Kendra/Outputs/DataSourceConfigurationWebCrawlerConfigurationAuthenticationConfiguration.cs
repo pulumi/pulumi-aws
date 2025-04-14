@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
         /// </summary>
-        [Input("basicAuthentications")]
+        [PolicyResourceProperty("basicAuthentications", "_mUnknown_BasicAuthentications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication>> _mBasicAuthentications;
-
-        public List<Outputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication>? BasicAuthentications => _mBasicAuthentications.GetValue("basicAuthentications");
+        private List<Outputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication>? _mValue_BasicAuthentications;
+        private bool _mUnknown_BasicAuthentications;
+        public List<Outputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication>? BasicAuthentications
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthentications) return _mValue_BasicAuthentications;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration.BasicAuthentications' is not present");
+            }
+        }
     }
 }

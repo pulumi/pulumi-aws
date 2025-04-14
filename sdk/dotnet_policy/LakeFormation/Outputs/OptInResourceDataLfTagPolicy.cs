@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
         /// </summary>
-        [Input("expressionName")]
+        [PolicyResourceProperty("expressionName", "_mUnknown_ExpressionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpressionName;
-
-        public string? ExpressionName => _mExpressionName.GetValue("expressionName");
+        private string? _mValue_ExpressionName;
+        private bool _mUnknown_ExpressionName;
+        public string? ExpressionName
+        {
+            get
+            {
+                if (!_mUnknown_ExpressionName) return _mValue_ExpressionName;
+                throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.ExpressionName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
         /// </summary>
-        [Input("expressions")]
+        [PolicyResourceProperty("expressions", "_mUnknown_Expressions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExpressions;
-
-        public List<string>? Expressions => _mExpressions.GetValue("expressions");
+        private List<string>? _mValue_Expressions;
+        private bool _mUnknown_Expressions;
+        public List<string>? Expressions
+        {
+            get
+            {
+                if (!_mUnknown_Expressions) return _mValue_Expressions;
+                throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.Expressions' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource type for which the LF-tag policy applies.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.ResourceType' is not present");
+            }
+        }
     }
 }

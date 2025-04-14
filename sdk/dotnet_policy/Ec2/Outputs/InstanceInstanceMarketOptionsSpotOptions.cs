@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
         /// </summary>
-        [Input("instanceInterruptionBehavior")]
+        [PolicyResourceProperty("instanceInterruptionBehavior", "_mUnknown_InstanceInterruptionBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceInterruptionBehavior;
-
-        public string? InstanceInterruptionBehavior => _mInstanceInterruptionBehavior.GetValue("instanceInterruptionBehavior");
+        private string? _mValue_InstanceInterruptionBehavior;
+        private bool _mUnknown_InstanceInterruptionBehavior;
+        public string? InstanceInterruptionBehavior
+        {
+            get
+            {
+                if (!_mUnknown_InstanceInterruptionBehavior) return _mValue_InstanceInterruptionBehavior;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptions.InstanceInterruptionBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum hourly price that you're willing to pay for a Spot Instance.
         /// </summary>
-        [Input("maxPrice")]
+        [PolicyResourceProperty("maxPrice", "_mUnknown_MaxPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxPrice;
-
-        public string? MaxPrice => _mMaxPrice.GetValue("maxPrice");
+        private string? _mValue_MaxPrice;
+        private bool _mUnknown_MaxPrice;
+        public string? MaxPrice
+        {
+            get
+            {
+                if (!_mUnknown_MaxPrice) return _mValue_MaxPrice;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptions.MaxPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
         /// </summary>
-        [Input("spotInstanceType")]
+        [PolicyResourceProperty("spotInstanceType", "_mUnknown_SpotInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpotInstanceType;
-
-        public string? SpotInstanceType => _mSpotInstanceType.GetValue("spotInstanceType");
+        private string? _mValue_SpotInstanceType;
+        private bool _mUnknown_SpotInstanceType;
+        public string? SpotInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_SpotInstanceType) return _mValue_SpotInstanceType;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptions.SpotInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
         /// </summary>
-        [Input("validUntil")]
+        [PolicyResourceProperty("validUntil", "_mUnknown_ValidUntil")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidUntil;
-
-        public string? ValidUntil => _mValidUntil.GetValue("validUntil");
+        private string? _mValue_ValidUntil;
+        private bool _mUnknown_ValidUntil;
+        public string? ValidUntil
+        {
+            get
+            {
+                if (!_mUnknown_ValidUntil) return _mValue_ValidUntil;
+                throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptions.ValidUntil' is not present");
+            }
+        }
     }
 }

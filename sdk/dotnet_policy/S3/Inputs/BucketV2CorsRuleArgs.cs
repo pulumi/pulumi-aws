@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// List of headers allowed.
         /// </summary>
-        [Input("allowedHeaders")]
+        [PolicyResourceProperty("allowedHeaders", "_mUnknown_AllowedHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedHeaders;
-
-        public List<string>? AllowedHeaders => _mAllowedHeaders.GetValue("allowedHeaders");
+        private List<string>? _mValue_AllowedHeaders;
+        private bool _mUnknown_AllowedHeaders;
+        public List<string>? AllowedHeaders
+        {
+            get
+            {
+                if (!_mUnknown_AllowedHeaders) return _mValue_AllowedHeaders;
+                throw new UndeferrableValueException("Value 'BucketV2CorsRuleArgs.AllowedHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
         /// </summary>
-        [Input("allowedMethods")]
+        [PolicyResourceProperty("allowedMethods", "_mUnknown_AllowedMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedMethods;
-
-        public List<string>? AllowedMethods => _mAllowedMethods.GetValue("allowedMethods");
+        private List<string>? _mValue_AllowedMethods;
+        private bool _mUnknown_AllowedMethods;
+        public List<string>? AllowedMethods
+        {
+            get
+            {
+                if (!_mUnknown_AllowedMethods) return _mValue_AllowedMethods;
+                throw new UndeferrableValueException("Value 'BucketV2CorsRuleArgs.AllowedMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more origins you want customers to be able to access the bucket from.
         /// </summary>
-        [Input("allowedOrigins")]
+        [PolicyResourceProperty("allowedOrigins", "_mUnknown_AllowedOrigins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowedOrigins;
-
-        public List<string>? AllowedOrigins => _mAllowedOrigins.GetValue("allowedOrigins");
+        private List<string>? _mValue_AllowedOrigins;
+        private bool _mUnknown_AllowedOrigins;
+        public List<string>? AllowedOrigins
+        {
+            get
+            {
+                if (!_mUnknown_AllowedOrigins) return _mValue_AllowedOrigins;
+                throw new UndeferrableValueException("Value 'BucketV2CorsRuleArgs.AllowedOrigins' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
         /// </summary>
-        [Input("exposeHeaders")]
+        [PolicyResourceProperty("exposeHeaders", "_mUnknown_ExposeHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExposeHeaders;
-
-        public List<string>? ExposeHeaders => _mExposeHeaders.GetValue("exposeHeaders");
+        private List<string>? _mValue_ExposeHeaders;
+        private bool _mUnknown_ExposeHeaders;
+        public List<string>? ExposeHeaders
+        {
+            get
+            {
+                if (!_mUnknown_ExposeHeaders) return _mValue_ExposeHeaders;
+                throw new UndeferrableValueException("Value 'BucketV2CorsRuleArgs.ExposeHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies time in seconds that browser can cache the response for a preflight request.
         /// </summary>
-        [Input("maxAgeSeconds")]
+        [PolicyResourceProperty("maxAgeSeconds", "_mUnknown_MaxAgeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAgeSeconds;
-
-        public int? MaxAgeSeconds => _mMaxAgeSeconds.GetValue("maxAgeSeconds");
+        private int? _mValue_MaxAgeSeconds;
+        private bool _mUnknown_MaxAgeSeconds;
+        public int? MaxAgeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_MaxAgeSeconds) return _mValue_MaxAgeSeconds;
+                throw new UndeferrableValueException("Value 'BucketV2CorsRuleArgs.MaxAgeSeconds' is not present");
+            }
+        }
     }
 }

@@ -18,16 +18,30 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Inputs
         /// Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
         /// because it avoids prematurely starting new instances. Defaults to `60`.
         /// </summary>
-        [Input("estimatedInstanceWarmup")]
+        [PolicyResourceProperty("estimatedInstanceWarmup", "_mUnknown_EstimatedInstanceWarmup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEstimatedInstanceWarmup;
+        private int? _mValue_EstimatedInstanceWarmup;
+        private bool _mUnknown_EstimatedInstanceWarmup;
+        public int? EstimatedInstanceWarmup
+        {
+            get
+            {
+                if (!_mUnknown_EstimatedInstanceWarmup) return _mValue_EstimatedInstanceWarmup;
+                throw new UndeferrableValueException("Value 'GameServerGroupAutoScalingPolicyArgs.EstimatedInstanceWarmup' is not present");
+            }
+        }
 
-        public int? EstimatedInstanceWarmup => _mEstimatedInstanceWarmup.GetValue("estimatedInstanceWarmup");
-
-        [Input("targetTrackingConfiguration")]
+        [PolicyResourceProperty("targetTrackingConfiguration", "_mUnknown_TargetTrackingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs> _mTargetTrackingConfiguration;
-
-        public Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs? TargetTrackingConfiguration => _mTargetTrackingConfiguration.GetValue("targetTrackingConfiguration");
+        private Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs? _mValue_TargetTrackingConfiguration;
+        private bool _mUnknown_TargetTrackingConfiguration;
+        public Inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs? TargetTrackingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TargetTrackingConfiguration) return _mValue_TargetTrackingConfiguration;
+                throw new UndeferrableValueException("Value 'GameServerGroupAutoScalingPolicyArgs.TargetTrackingConfiguration' is not present");
+            }
+        }
     }
 }

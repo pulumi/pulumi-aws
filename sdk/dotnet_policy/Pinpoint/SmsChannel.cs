@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// ID of the application.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'SmsChannel.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. By default, it is set to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'SmsChannel.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of promotional messages that can be sent per second.
         /// </summary>
-        [Input("promotionalMessagesPerSecond")]
+        [PolicyResourceProperty("promotionalMessagesPerSecond", "_mUnknown_PromotionalMessagesPerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPromotionalMessagesPerSecond;
-
-        public int? PromotionalMessagesPerSecond => _mPromotionalMessagesPerSecond.GetValue("promotionalMessagesPerSecond");
+        private int? _mValue_PromotionalMessagesPerSecond;
+        private bool _mUnknown_PromotionalMessagesPerSecond;
+        public int? PromotionalMessagesPerSecond
+        {
+            get
+            {
+                if (!_mUnknown_PromotionalMessagesPerSecond) return _mValue_PromotionalMessagesPerSecond;
+                throw new UndeferrableValueException("Value 'SmsChannel.PromotionalMessagesPerSecond' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the sender for your messages.
         /// </summary>
-        [Input("senderId")]
+        [PolicyResourceProperty("senderId", "_mUnknown_SenderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSenderId;
-
-        public string? SenderId => _mSenderId.GetValue("senderId");
+        private string? _mValue_SenderId;
+        private bool _mUnknown_SenderId;
+        public string? SenderId
+        {
+            get
+            {
+                if (!_mUnknown_SenderId) return _mValue_SenderId;
+                throw new UndeferrableValueException("Value 'SmsChannel.SenderId' is not present");
+            }
+        }
 
         /// <summary>
         /// Short Code registered with the phone provider.
         /// </summary>
-        [Input("shortCode")]
+        [PolicyResourceProperty("shortCode", "_mUnknown_ShortCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortCode;
-
-        public string? ShortCode => _mShortCode.GetValue("shortCode");
+        private string? _mValue_ShortCode;
+        private bool _mUnknown_ShortCode;
+        public string? ShortCode
+        {
+            get
+            {
+                if (!_mUnknown_ShortCode) return _mValue_ShortCode;
+                throw new UndeferrableValueException("Value 'SmsChannel.ShortCode' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of transactional messages per second that can be sent.
         /// </summary>
-        [Input("transactionalMessagesPerSecond")]
+        [PolicyResourceProperty("transactionalMessagesPerSecond", "_mUnknown_TransactionalMessagesPerSecond")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTransactionalMessagesPerSecond;
-
-        public int? TransactionalMessagesPerSecond => _mTransactionalMessagesPerSecond.GetValue("transactionalMessagesPerSecond");
+        private int? _mValue_TransactionalMessagesPerSecond;
+        private bool _mUnknown_TransactionalMessagesPerSecond;
+        public int? TransactionalMessagesPerSecond
+        {
+            get
+            {
+                if (!_mUnknown_TransactionalMessagesPerSecond) return _mValue_TransactionalMessagesPerSecond;
+                throw new UndeferrableValueException("Value 'SmsChannel.TransactionalMessagesPerSecond' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/smsChannel:SmsChannel")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// ID of the application.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'SmsChannelArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the channel is enabled or disabled. By default, it is set to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'SmsChannelArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the sender for your messages.
         /// </summary>
-        [Input("senderId")]
+        [PolicyResourceProperty("senderId", "_mUnknown_SenderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSenderId;
-
-        public string? SenderId => _mSenderId.GetValue("senderId");
+        private string? _mValue_SenderId;
+        private bool _mUnknown_SenderId;
+        public string? SenderId
+        {
+            get
+            {
+                if (!_mUnknown_SenderId) return _mValue_SenderId;
+                throw new UndeferrableValueException("Value 'SmsChannelArgs.SenderId' is not present");
+            }
+        }
 
         /// <summary>
         /// Short Code registered with the phone provider.
         /// </summary>
-        [Input("shortCode")]
+        [PolicyResourceProperty("shortCode", "_mUnknown_ShortCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShortCode;
-
-        public string? ShortCode => _mShortCode.GetValue("shortCode");
+        private string? _mValue_ShortCode;
+        private bool _mUnknown_ShortCode;
+        public string? ShortCode
+        {
+            get
+            {
+                if (!_mUnknown_ShortCode) return _mValue_ShortCode;
+                throw new UndeferrableValueException("Value 'SmsChannelArgs.ShortCode' is not present");
+            }
+        }
     }
 }

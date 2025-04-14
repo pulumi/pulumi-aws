@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
 {
     public sealed class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification
     {
-        [Input("allowInterrupt")]
+        [PolicyResourceProperty("allowInterrupt", "_mUnknown_AllowInterrupt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowInterrupt;
+        private bool? _mValue_AllowInterrupt;
+        private bool _mUnknown_AllowInterrupt;
+        public bool? AllowInterrupt
+        {
+            get
+            {
+                if (!_mUnknown_AllowInterrupt) return _mValue_AllowInterrupt;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification.AllowInterrupt' is not present");
+            }
+        }
 
-        public bool? AllowInterrupt => _mAllowInterrupt.GetValue("allowInterrupt");
-
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification.MaxRetries' is not present");
+            }
+        }
 
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
-
-        [Input("messageGroups")]
+        [PolicyResourceProperty("messageGroups", "_mUnknown_MessageGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup>> _mMessageGroups;
+        private List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup>? _mValue_MessageGroups;
+        private bool _mUnknown_MessageGroups;
+        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup>? MessageGroups
+        {
+            get
+            {
+                if (!_mUnknown_MessageGroups) return _mValue_MessageGroups;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification.MessageGroups' is not present");
+            }
+        }
 
-        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup>? MessageGroups => _mMessageGroups.GetValue("messageGroups");
-
-        [Input("messageSelectionStrategy")]
+        [PolicyResourceProperty("messageSelectionStrategy", "_mUnknown_MessageSelectionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageSelectionStrategy;
+        private string? _mValue_MessageSelectionStrategy;
+        private bool _mUnknown_MessageSelectionStrategy;
+        public string? MessageSelectionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_MessageSelectionStrategy) return _mValue_MessageSelectionStrategy;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification.MessageSelectionStrategy' is not present");
+            }
+        }
 
-        public string? MessageSelectionStrategy => _mMessageSelectionStrategy.GetValue("messageSelectionStrategy");
-
-        [Input("promptAttemptsSpecifications")]
+        [PolicyResourceProperty("promptAttemptsSpecifications", "_mUnknown_PromptAttemptsSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification>> _mPromptAttemptsSpecifications;
-
-        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification>? PromptAttemptsSpecifications => _mPromptAttemptsSpecifications.GetValue("promptAttemptsSpecifications");
+        private List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification>? _mValue_PromptAttemptsSpecifications;
+        private bool _mUnknown_PromptAttemptsSpecifications;
+        public List<Outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification>? PromptAttemptsSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_PromptAttemptsSpecifications) return _mValue_PromptAttemptsSpecifications;
+                throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification.PromptAttemptsSpecifications' is not present");
+            }
+        }
     }
 }

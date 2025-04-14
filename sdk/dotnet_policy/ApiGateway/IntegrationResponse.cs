@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
-        [Input("contentHandling")]
+        [PolicyResourceProperty("contentHandling", "_mUnknown_ContentHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
-
-        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
+        private string? _mValue_ContentHandling;
+        private bool _mUnknown_ContentHandling;
+        public string? ContentHandling
+        {
+            get
+            {
+                if (!_mUnknown_ContentHandling) return _mValue_ContentHandling;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.ContentHandling' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// API resource ID.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
-        [Input("responseParameters")]
+        [PolicyResourceProperty("responseParameters", "_mUnknown_ResponseParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
-
-        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+        private Dictionary<string, string>? _mValue_ResponseParameters;
+        private bool _mUnknown_ResponseParameters;
+        public Dictionary<string, string>? ResponseParameters
+        {
+            get
+            {
+                if (!_mUnknown_ResponseParameters) return _mValue_ResponseParameters;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.ResponseParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of templates used to transform the integration response body.
         /// </summary>
-        [Input("responseTemplates")]
+        [PolicyResourceProperty("responseTemplates", "_mUnknown_ResponseTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
-
-        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+        private Dictionary<string, string>? _mValue_ResponseTemplates;
+        private bool _mUnknown_ResponseTemplates;
+        public Dictionary<string, string>? ResponseTemplates
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplates) return _mValue_ResponseTemplates;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.ResponseTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         /// </summary>
-        [Input("selectionPattern")]
+        [PolicyResourceProperty("selectionPattern", "_mUnknown_SelectionPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionPattern;
-
-        public string? SelectionPattern => _mSelectionPattern.GetValue("selectionPattern");
+        private string? _mValue_SelectionPattern;
+        private bool _mUnknown_SelectionPattern;
+        public string? SelectionPattern
+        {
+            get
+            {
+                if (!_mUnknown_SelectionPattern) return _mValue_SelectionPattern;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.SelectionPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP status code.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'IntegrationResponse.StatusCode' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/integrationResponse:IntegrationResponse")]
@@ -94,75 +150,131 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         /// </summary>
-        [Input("contentHandling")]
+        [PolicyResourceProperty("contentHandling", "_mUnknown_ContentHandling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContentHandling;
-
-        public string? ContentHandling => _mContentHandling.GetValue("contentHandling");
+        private string? _mValue_ContentHandling;
+        private bool _mUnknown_ContentHandling;
+        public string? ContentHandling
+        {
+            get
+            {
+                if (!_mUnknown_ContentHandling) return _mValue_ContentHandling;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.ContentHandling' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         /// </summary>
-        [Input("httpMethod")]
+        [PolicyResourceProperty("httpMethod", "_mUnknown_HttpMethod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpMethod;
-
-        public string? HttpMethod => _mHttpMethod.GetValue("httpMethod");
+        private string? _mValue_HttpMethod;
+        private bool _mUnknown_HttpMethod;
+        public string? HttpMethod
+        {
+            get
+            {
+                if (!_mUnknown_HttpMethod) return _mValue_HttpMethod;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.HttpMethod' is not present");
+            }
+        }
 
         /// <summary>
         /// API resource ID.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         /// </summary>
-        [Input("responseParameters")]
+        [PolicyResourceProperty("responseParameters", "_mUnknown_ResponseParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
-
-        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+        private Dictionary<string, string>? _mValue_ResponseParameters;
+        private bool _mUnknown_ResponseParameters;
+        public Dictionary<string, string>? ResponseParameters
+        {
+            get
+            {
+                if (!_mUnknown_ResponseParameters) return _mValue_ResponseParameters;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.ResponseParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of templates used to transform the integration response body.
         /// </summary>
-        [Input("responseTemplates")]
+        [PolicyResourceProperty("responseTemplates", "_mUnknown_ResponseTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
-
-        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+        private Dictionary<string, string>? _mValue_ResponseTemplates;
+        private bool _mUnknown_ResponseTemplates;
+        public Dictionary<string, string>? ResponseTemplates
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplates) return _mValue_ResponseTemplates;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.ResponseTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the associated REST API.
         /// </summary>
-        [Input("restApi")]
+        [PolicyResourceProperty("restApi", "_mUnknown_RestApi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApi;
-
-        public string? RestApi => _mRestApi.GetValue("restApi");
+        private string? _mValue_RestApi;
+        private bool _mUnknown_RestApi;
+        public string? RestApi
+        {
+            get
+            {
+                if (!_mUnknown_RestApi) return _mValue_RestApi;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.RestApi' is not present");
+            }
+        }
 
         /// <summary>
         /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         /// </summary>
-        [Input("selectionPattern")]
+        [PolicyResourceProperty("selectionPattern", "_mUnknown_SelectionPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSelectionPattern;
-
-        public string? SelectionPattern => _mSelectionPattern.GetValue("selectionPattern");
+        private string? _mValue_SelectionPattern;
+        private bool _mUnknown_SelectionPattern;
+        public string? SelectionPattern
+        {
+            get
+            {
+                if (!_mUnknown_SelectionPattern) return _mValue_SelectionPattern;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.SelectionPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP status code.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'IntegrationResponseArgs.StatusCode' is not present");
+            }
+        }
     }
 }

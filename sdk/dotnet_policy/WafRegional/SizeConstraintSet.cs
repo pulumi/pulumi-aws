@@ -13,29 +13,50 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
     [PolicyResourceType("aws:wafregional/sizeConstraintSet:SizeConstraintSet")]
     public sealed class SizeConstraintSet : global::Pulumi.PolicyResourceOutput
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SizeConstraintSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the Size Constraint Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SizeConstraintSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the parts of web requests that you want to inspect the size of.
         /// </summary>
-        [Input("sizeConstraints")]
+        [PolicyResourceProperty("sizeConstraints", "_mUnknown_SizeConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SizeConstraintSetSizeConstraint>> _mSizeConstraints;
-
-        public List<Outputs.SizeConstraintSetSizeConstraint>? SizeConstraints => _mSizeConstraints.GetValue("sizeConstraints");
+        private List<Outputs.SizeConstraintSetSizeConstraint>? _mValue_SizeConstraints;
+        private bool _mUnknown_SizeConstraints;
+        public List<Outputs.SizeConstraintSetSizeConstraint>? SizeConstraints
+        {
+            get
+            {
+                if (!_mUnknown_SizeConstraints) return _mValue_SizeConstraints;
+                throw new UndeferrableValueException("Value 'SizeConstraintSet.SizeConstraints' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafregional/sizeConstraintSet:SizeConstraintSet")]
@@ -44,19 +65,33 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// The name or description of the Size Constraint Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SizeConstraintSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the parts of web requests that you want to inspect the size of.
         /// </summary>
-        [Input("sizeConstraints")]
+        [PolicyResourceProperty("sizeConstraints", "_mUnknown_SizeConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SizeConstraintSetSizeConstraintArgs>> _mSizeConstraints;
-
-        public List<Inputs.SizeConstraintSetSizeConstraintArgs>? SizeConstraints => _mSizeConstraints.GetValue("sizeConstraints");
+        private List<Inputs.SizeConstraintSetSizeConstraintArgs>? _mValue_SizeConstraints;
+        private bool _mUnknown_SizeConstraints;
+        public List<Inputs.SizeConstraintSetSizeConstraintArgs>? SizeConstraints
+        {
+            get
+            {
+                if (!_mUnknown_SizeConstraints) return _mValue_SizeConstraints;
+                throw new UndeferrableValueException("Value 'SizeConstraintSetArgs.SizeConstraints' is not present");
+            }
+        }
     }
 }

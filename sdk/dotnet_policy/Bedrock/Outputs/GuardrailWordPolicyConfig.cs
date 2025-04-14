@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// A config for the list of managed words. See Managed Word Lists Config for more information.
         /// </summary>
-        [Input("managedWordListsConfigs")]
+        [PolicyResourceProperty("managedWordListsConfigs", "_mUnknown_ManagedWordListsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GuardrailWordPolicyConfigManagedWordListsConfig>> _mManagedWordListsConfigs;
-
-        public List<Outputs.GuardrailWordPolicyConfigManagedWordListsConfig>? ManagedWordListsConfigs => _mManagedWordListsConfigs.GetValue("managedWordListsConfigs");
+        private List<Outputs.GuardrailWordPolicyConfigManagedWordListsConfig>? _mValue_ManagedWordListsConfigs;
+        private bool _mUnknown_ManagedWordListsConfigs;
+        public List<Outputs.GuardrailWordPolicyConfigManagedWordListsConfig>? ManagedWordListsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_ManagedWordListsConfigs) return _mValue_ManagedWordListsConfigs;
+                throw new UndeferrableValueException("Value 'GuardrailWordPolicyConfig.ManagedWordListsConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// List of custom word configs. See Words Config for more information.
         /// </summary>
-        [Input("wordsConfigs")]
+        [PolicyResourceProperty("wordsConfigs", "_mUnknown_WordsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GuardrailWordPolicyConfigWordsConfig>> _mWordsConfigs;
-
-        public List<Outputs.GuardrailWordPolicyConfigWordsConfig>? WordsConfigs => _mWordsConfigs.GetValue("wordsConfigs");
+        private List<Outputs.GuardrailWordPolicyConfigWordsConfig>? _mValue_WordsConfigs;
+        private bool _mUnknown_WordsConfigs;
+        public List<Outputs.GuardrailWordPolicyConfigWordsConfig>? WordsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_WordsConfigs) return _mValue_WordsConfigs;
+                throw new UndeferrableValueException("Value 'GuardrailWordPolicyConfig.WordsConfigs' is not present");
+            }
+        }
     }
 }

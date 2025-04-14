@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// The OIDC configuration for processing access tokens. See Access Token Only below.
         /// </summary>
-        [Input("accessTokenOnly")]
+        [PolicyResourceProperty("accessTokenOnly", "_mUnknown_AccessTokenOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs> _mAccessTokenOnly;
-
-        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs? AccessTokenOnly => _mAccessTokenOnly.GetValue("accessTokenOnly");
+        private Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs? _mValue_AccessTokenOnly;
+        private bool _mUnknown_AccessTokenOnly;
+        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs? AccessTokenOnly
+        {
+            get
+            {
+                if (!_mUnknown_AccessTokenOnly) return _mValue_AccessTokenOnly;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs.AccessTokenOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
         /// </summary>
-        [Input("identityTokenOnly")]
+        [PolicyResourceProperty("identityTokenOnly", "_mUnknown_IdentityTokenOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs> _mIdentityTokenOnly;
-
-        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs? IdentityTokenOnly => _mIdentityTokenOnly.GetValue("identityTokenOnly");
+        private Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs? _mValue_IdentityTokenOnly;
+        private bool _mUnknown_IdentityTokenOnly;
+        public Inputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs? IdentityTokenOnly
+        {
+            get
+            {
+                if (!_mUnknown_IdentityTokenOnly) return _mValue_IdentityTokenOnly;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs.IdentityTokenOnly' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.M2.Inputs
         /// <summary>
         /// JSON application definition. Either this or `s3_location` must be specified.
         /// </summary>
-        [Input("content")]
+        [PolicyResourceProperty("content", "_mUnknown_Content")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContent;
-
-        public string? Content => _mContent.GetValue("content");
+        private string? _mValue_Content;
+        private bool _mUnknown_Content;
+        public string? Content
+        {
+            get
+            {
+                if (!_mUnknown_Content) return _mValue_Content;
+                throw new UndeferrableValueException("Value 'ApplicationDefinitionArgs.Content' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of the application definition in S3. Either this or `content` must be specified.
         /// </summary>
-        [Input("s3Location")]
+        [PolicyResourceProperty("s3Location", "_mUnknown_S3Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Location;
-
-        public string? S3Location => _mS3Location.GetValue("s3Location");
+        private string? _mValue_S3Location;
+        private bool _mUnknown_S3Location;
+        public string? S3Location
+        {
+            get
+            {
+                if (!_mUnknown_S3Location) return _mValue_S3Location;
+                throw new UndeferrableValueException("Value 'ApplicationDefinitionArgs.S3Location' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// ARN of the bucket that contains the data source.
         /// </summary>
-        [Input("bucketArn")]
+        [PolicyResourceProperty("bucketArn", "_mUnknown_BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketArn;
-
-        public string? BucketArn => _mBucketArn.GetValue("bucketArn");
+        private string? _mValue_BucketArn;
+        private bool _mUnknown_BucketArn;
+        public string? BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketArn) return _mValue_BucketArn;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationS3Configuration.BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Bucket account owner ID for the S3 bucket.
         /// </summary>
-        [Input("bucketOwnerAccountId")]
+        [PolicyResourceProperty("bucketOwnerAccountId", "_mUnknown_BucketOwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketOwnerAccountId;
-
-        public string? BucketOwnerAccountId => _mBucketOwnerAccountId.GetValue("bucketOwnerAccountId");
+        private string? _mValue_BucketOwnerAccountId;
+        private bool _mUnknown_BucketOwnerAccountId;
+        public string? BucketOwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_BucketOwnerAccountId) return _mValue_BucketOwnerAccountId;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationS3Configuration.BucketOwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
         /// </summary>
-        [Input("inclusionPrefixes")]
+        [PolicyResourceProperty("inclusionPrefixes", "_mUnknown_InclusionPrefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInclusionPrefixes;
-
-        public List<string>? InclusionPrefixes => _mInclusionPrefixes.GetValue("inclusionPrefixes");
+        private List<string>? _mValue_InclusionPrefixes;
+        private bool _mUnknown_InclusionPrefixes;
+        public List<string>? InclusionPrefixes
+        {
+            get
+            {
+                if (!_mUnknown_InclusionPrefixes) return _mValue_InclusionPrefixes;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationS3Configuration.InclusionPrefixes' is not present");
+            }
+        }
     }
 }

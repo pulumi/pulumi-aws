@@ -16,21 +16,35 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// Configuration block for the primary message that Amazon Lex should send to the user.
         /// See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs> _mMessage;
-
-        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs? Message => _mMessage.GetValue("message");
+        private Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs? _mValue_Message;
+        private bool _mUnknown_Message;
+        public Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs.Message' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for message variations to send to the user.
         /// When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
         /// See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         /// </summary>
-        [Input("variations")]
+        [PolicyResourceProperty("variations", "_mUnknown_Variations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs>> _mVariations;
-
-        public List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs>? Variations => _mVariations.GetValue("variations");
+        private List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs>? _mValue_Variations;
+        private bool _mUnknown_Variations;
+        public List<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs>? Variations
+        {
+            get
+            {
+                if (!_mUnknown_Variations) return _mValue_Variations;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs.Variations' is not present");
+            }
+        }
     }
 }

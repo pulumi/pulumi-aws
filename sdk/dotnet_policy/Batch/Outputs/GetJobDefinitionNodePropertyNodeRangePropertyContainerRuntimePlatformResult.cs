@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
         /// </summary>
-        [Input("cpuArchitecture")]
+        [PolicyResourceProperty("cpuArchitecture", "_mUnknown_CpuArchitecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpuArchitecture;
-
-        public string? CpuArchitecture => _mCpuArchitecture.GetValue("cpuArchitecture");
+        private string? _mValue_CpuArchitecture;
+        private bool _mUnknown_CpuArchitecture;
+        public string? CpuArchitecture
+        {
+            get
+            {
+                if (!_mUnknown_CpuArchitecture) return _mValue_CpuArchitecture;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult.CpuArchitecture' is not present");
+            }
+        }
 
         /// <summary>
         /// The operating system for the compute environment. V
         /// </summary>
-        [Input("operatingSystemFamily")]
+        [PolicyResourceProperty("operatingSystemFamily", "_mUnknown_OperatingSystemFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperatingSystemFamily;
-
-        public string? OperatingSystemFamily => _mOperatingSystemFamily.GetValue("operatingSystemFamily");
+        private string? _mValue_OperatingSystemFamily;
+        private bool _mUnknown_OperatingSystemFamily;
+        public string? OperatingSystemFamily
+        {
+            get
+            {
+                if (!_mUnknown_OperatingSystemFamily) return _mValue_OperatingSystemFamily;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult.OperatingSystemFamily' is not present");
+            }
+        }
     }
 }

@@ -16,46 +16,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         /// </summary>
-        [Input("blackhole")]
+        [PolicyResourceProperty("blackhole", "_mUnknown_Blackhole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
-
-        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
+        private bool? _mValue_Blackhole;
+        private bool _mUnknown_Blackhole;
+        public bool? Blackhole
+        {
+            get
+            {
+                if (!_mUnknown_Blackhole) return _mValue_Blackhole;
+                throw new UndeferrableValueException("Value 'PrefixListReference.Blackhole' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Prefix List.
         /// </summary>
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'PrefixListReference.PrefixListId' is not present");
+            }
+        }
 
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
-
-        [Input("prefixListOwnerId")]
+        [PolicyResourceProperty("prefixListOwnerId", "_mUnknown_PrefixListOwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListOwnerId;
-
-        public string? PrefixListOwnerId => _mPrefixListOwnerId.GetValue("prefixListOwnerId");
+        private string? _mValue_PrefixListOwnerId;
+        private bool _mUnknown_PrefixListOwnerId;
+        public string? PrefixListOwnerId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListOwnerId) return _mValue_PrefixListOwnerId;
+                throw new UndeferrableValueException("Value 'PrefixListReference.PrefixListOwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'PrefixListReference.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'PrefixListReference.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/prefixListReference:PrefixListReference")]
@@ -64,39 +99,67 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         /// </summary>
-        [Input("blackhole")]
+        [PolicyResourceProperty("blackhole", "_mUnknown_Blackhole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlackhole;
-
-        public bool? Blackhole => _mBlackhole.GetValue("blackhole");
+        private bool? _mValue_Blackhole;
+        private bool _mUnknown_Blackhole;
+        public bool? Blackhole
+        {
+            get
+            {
+                if (!_mUnknown_Blackhole) return _mValue_Blackhole;
+                throw new UndeferrableValueException("Value 'PrefixListReferenceArgs.Blackhole' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Prefix List.
         /// </summary>
-        [Input("prefixListId")]
+        [PolicyResourceProperty("prefixListId", "_mUnknown_PrefixListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefixListId;
-
-        public string? PrefixListId => _mPrefixListId.GetValue("prefixListId");
+        private string? _mValue_PrefixListId;
+        private bool _mUnknown_PrefixListId;
+        public string? PrefixListId
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListId) return _mValue_PrefixListId;
+                throw new UndeferrableValueException("Value 'PrefixListReferenceArgs.PrefixListId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'PrefixListReferenceArgs.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'PrefixListReferenceArgs.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 }

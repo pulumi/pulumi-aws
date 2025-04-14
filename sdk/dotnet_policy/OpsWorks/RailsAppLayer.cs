@@ -16,233 +16,429 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// Keyword for the app server to use. Defaults to "apache_passenger".
         /// </summary>
-        [Input("appServer")]
+        [PolicyResourceProperty("appServer", "_mUnknown_AppServer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppServer;
-
-        public string? AppServer => _mAppServer.GetValue("appServer");
+        private string? _mValue_AppServer;
+        private bool _mUnknown_AppServer;
+        public string? AppServer
+        {
+            get
+            {
+                if (!_mUnknown_AppServer) return _mValue_AppServer;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.AppServer' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name(ARN) of the layer.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
         /// </summary>
-        [Input("autoAssignElasticIps")]
+        [PolicyResourceProperty("autoAssignElasticIps", "_mUnknown_AutoAssignElasticIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignElasticIps;
-
-        public bool? AutoAssignElasticIps => _mAutoAssignElasticIps.GetValue("autoAssignElasticIps");
+        private bool? _mValue_AutoAssignElasticIps;
+        private bool _mUnknown_AutoAssignElasticIps;
+        public bool? AutoAssignElasticIps
+        {
+            get
+            {
+                if (!_mUnknown_AutoAssignElasticIps) return _mValue_AutoAssignElasticIps;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.AutoAssignElasticIps' is not present");
+            }
+        }
 
         /// <summary>
         /// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         /// </summary>
-        [Input("autoAssignPublicIps")]
+        [PolicyResourceProperty("autoAssignPublicIps", "_mUnknown_AutoAssignPublicIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignPublicIps;
-
-        public bool? AutoAssignPublicIps => _mAutoAssignPublicIps.GetValue("autoAssignPublicIps");
+        private bool? _mValue_AutoAssignPublicIps;
+        private bool _mUnknown_AutoAssignPublicIps;
+        public bool? AutoAssignPublicIps
+        {
+            get
+            {
+                if (!_mUnknown_AutoAssignPublicIps) return _mValue_AutoAssignPublicIps;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.AutoAssignPublicIps' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable auto-healing for the layer.
         /// </summary>
-        [Input("autoHealing")]
+        [PolicyResourceProperty("autoHealing", "_mUnknown_AutoHealing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoHealing;
-
-        public bool? AutoHealing => _mAutoHealing.GetValue("autoHealing");
+        private bool? _mValue_AutoHealing;
+        private bool _mUnknown_AutoHealing;
+        public bool? AutoHealing
+        {
+            get
+            {
+                if (!_mUnknown_AutoHealing) return _mValue_AutoHealing;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.AutoHealing' is not present");
+            }
+        }
 
         /// <summary>
         /// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
         /// </summary>
-        [Input("bundlerVersion")]
+        [PolicyResourceProperty("bundlerVersion", "_mUnknown_BundlerVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundlerVersion;
+        private string? _mValue_BundlerVersion;
+        private bool _mUnknown_BundlerVersion;
+        public string? BundlerVersion
+        {
+            get
+            {
+                if (!_mUnknown_BundlerVersion) return _mValue_BundlerVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.BundlerVersion' is not present");
+            }
+        }
 
-        public string? BundlerVersion => _mBundlerVersion.GetValue("bundlerVersion");
-
-        [Input("cloudwatchConfiguration")]
+        [PolicyResourceProperty("cloudwatchConfiguration", "_mUnknown_CloudwatchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RailsAppLayerCloudwatchConfiguration> _mCloudwatchConfiguration;
+        private Outputs.RailsAppLayerCloudwatchConfiguration? _mValue_CloudwatchConfiguration;
+        private bool _mUnknown_CloudwatchConfiguration;
+        public Outputs.RailsAppLayerCloudwatchConfiguration? CloudwatchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchConfiguration) return _mValue_CloudwatchConfiguration;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CloudwatchConfiguration' is not present");
+            }
+        }
 
-        public Outputs.RailsAppLayerCloudwatchConfiguration? CloudwatchConfiguration => _mCloudwatchConfiguration.GetValue("cloudwatchConfiguration");
-
-        [Input("customConfigureRecipes")]
+        [PolicyResourceProperty("customConfigureRecipes", "_mUnknown_CustomConfigureRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomConfigureRecipes;
+        private List<string>? _mValue_CustomConfigureRecipes;
+        private bool _mUnknown_CustomConfigureRecipes;
+        public List<string>? CustomConfigureRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomConfigureRecipes) return _mValue_CustomConfigureRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomConfigureRecipes' is not present");
+            }
+        }
 
-        public List<string>? CustomConfigureRecipes => _mCustomConfigureRecipes.GetValue("customConfigureRecipes");
-
-        [Input("customDeployRecipes")]
+        [PolicyResourceProperty("customDeployRecipes", "_mUnknown_CustomDeployRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDeployRecipes;
-
-        public List<string>? CustomDeployRecipes => _mCustomDeployRecipes.GetValue("customDeployRecipes");
+        private List<string>? _mValue_CustomDeployRecipes;
+        private bool _mUnknown_CustomDeployRecipes;
+        public List<string>? CustomDeployRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomDeployRecipes) return _mValue_CustomDeployRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomDeployRecipes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM profile that will be used for the layer's instances.
         /// </summary>
-        [Input("customInstanceProfileArn")]
+        [PolicyResourceProperty("customInstanceProfileArn", "_mUnknown_CustomInstanceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomInstanceProfileArn;
-
-        public string? CustomInstanceProfileArn => _mCustomInstanceProfileArn.GetValue("customInstanceProfileArn");
+        private string? _mValue_CustomInstanceProfileArn;
+        private bool _mUnknown_CustomInstanceProfileArn;
+        public string? CustomInstanceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomInstanceProfileArn) return _mValue_CustomInstanceProfileArn;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomInstanceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom JSON attributes to apply to the layer.
         /// </summary>
-        [Input("customJson")]
+        [PolicyResourceProperty("customJson", "_mUnknown_CustomJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
-
-        public string? CustomJson => _mCustomJson.GetValue("customJson");
+        private string? _mValue_CustomJson;
+        private bool _mUnknown_CustomJson;
+        public string? CustomJson
+        {
+            get
+            {
+                if (!_mUnknown_CustomJson) return _mValue_CustomJson;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Ids for a set of security groups to apply to the layer's instances.
         /// </summary>
-        [Input("customSecurityGroupIds")]
+        [PolicyResourceProperty("customSecurityGroupIds", "_mUnknown_CustomSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSecurityGroupIds;
+        private List<string>? _mValue_CustomSecurityGroupIds;
+        private bool _mUnknown_CustomSecurityGroupIds;
+        public List<string>? CustomSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_CustomSecurityGroupIds) return _mValue_CustomSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomSecurityGroupIds' is not present");
+            }
+        }
 
-        public List<string>? CustomSecurityGroupIds => _mCustomSecurityGroupIds.GetValue("customSecurityGroupIds");
-
-        [Input("customSetupRecipes")]
+        [PolicyResourceProperty("customSetupRecipes", "_mUnknown_CustomSetupRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSetupRecipes;
+        private List<string>? _mValue_CustomSetupRecipes;
+        private bool _mUnknown_CustomSetupRecipes;
+        public List<string>? CustomSetupRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomSetupRecipes) return _mValue_CustomSetupRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomSetupRecipes' is not present");
+            }
+        }
 
-        public List<string>? CustomSetupRecipes => _mCustomSetupRecipes.GetValue("customSetupRecipes");
-
-        [Input("customShutdownRecipes")]
+        [PolicyResourceProperty("customShutdownRecipes", "_mUnknown_CustomShutdownRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomShutdownRecipes;
+        private List<string>? _mValue_CustomShutdownRecipes;
+        private bool _mUnknown_CustomShutdownRecipes;
+        public List<string>? CustomShutdownRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomShutdownRecipes) return _mValue_CustomShutdownRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomShutdownRecipes' is not present");
+            }
+        }
 
-        public List<string>? CustomShutdownRecipes => _mCustomShutdownRecipes.GetValue("customShutdownRecipes");
-
-        [Input("customUndeployRecipes")]
+        [PolicyResourceProperty("customUndeployRecipes", "_mUnknown_CustomUndeployRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomUndeployRecipes;
-
-        public List<string>? CustomUndeployRecipes => _mCustomUndeployRecipes.GetValue("customUndeployRecipes");
+        private List<string>? _mValue_CustomUndeployRecipes;
+        private bool _mUnknown_CustomUndeployRecipes;
+        public List<string>? CustomUndeployRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomUndeployRecipes) return _mValue_CustomUndeployRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.CustomUndeployRecipes' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Elastic Load Balancing connection draining.
         /// </summary>
-        [Input("drainElbOnShutdown")]
+        [PolicyResourceProperty("drainElbOnShutdown", "_mUnknown_DrainElbOnShutdown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDrainElbOnShutdown;
-
-        public bool? DrainElbOnShutdown => _mDrainElbOnShutdown.GetValue("drainElbOnShutdown");
+        private bool? _mValue_DrainElbOnShutdown;
+        private bool _mUnknown_DrainElbOnShutdown;
+        public bool? DrainElbOnShutdown
+        {
+            get
+            {
+                if (!_mUnknown_DrainElbOnShutdown) return _mValue_DrainElbOnShutdown;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.DrainElbOnShutdown' is not present");
+            }
+        }
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        [Input("ebsVolumes")]
+        [PolicyResourceProperty("ebsVolumes", "_mUnknown_EbsVolumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RailsAppLayerEbsVolume>> _mEbsVolumes;
-
-        public List<Outputs.RailsAppLayerEbsVolume>? EbsVolumes => _mEbsVolumes.GetValue("ebsVolumes");
+        private List<Outputs.RailsAppLayerEbsVolume>? _mValue_EbsVolumes;
+        private bool _mUnknown_EbsVolumes;
+        public List<Outputs.RailsAppLayerEbsVolume>? EbsVolumes
+        {
+            get
+            {
+                if (!_mUnknown_EbsVolumes) return _mValue_EbsVolumes;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.EbsVolumes' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
         /// </summary>
-        [Input("elasticLoadBalancer")]
+        [PolicyResourceProperty("elasticLoadBalancer", "_mUnknown_ElasticLoadBalancer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticLoadBalancer;
-
-        public string? ElasticLoadBalancer => _mElasticLoadBalancer.GetValue("elasticLoadBalancer");
+        private string? _mValue_ElasticLoadBalancer;
+        private bool _mUnknown_ElasticLoadBalancer;
+        public string? ElasticLoadBalancer
+        {
+            get
+            {
+                if (!_mUnknown_ElasticLoadBalancer) return _mValue_ElasticLoadBalancer;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.ElasticLoadBalancer' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to install OS and package updates on each instance when it boots.
         /// </summary>
-        [Input("installUpdatesOnBoot")]
+        [PolicyResourceProperty("installUpdatesOnBoot", "_mUnknown_InstallUpdatesOnBoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
-
-        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
+        private bool? _mValue_InstallUpdatesOnBoot;
+        private bool _mUnknown_InstallUpdatesOnBoot;
+        public bool? InstallUpdatesOnBoot
+        {
+            get
+            {
+                if (!_mUnknown_InstallUpdatesOnBoot) return _mValue_InstallUpdatesOnBoot;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.InstallUpdatesOnBoot' is not present");
+            }
+        }
 
         /// <summary>
         /// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         /// </summary>
-        [Input("instanceShutdownTimeout")]
+        [PolicyResourceProperty("instanceShutdownTimeout", "_mUnknown_InstanceShutdownTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceShutdownTimeout;
+        private int? _mValue_InstanceShutdownTimeout;
+        private bool _mUnknown_InstanceShutdownTimeout;
+        public int? InstanceShutdownTimeout
+        {
+            get
+            {
+                if (!_mUnknown_InstanceShutdownTimeout) return _mValue_InstanceShutdownTimeout;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.InstanceShutdownTimeout' is not present");
+            }
+        }
 
-        public int? InstanceShutdownTimeout => _mInstanceShutdownTimeout.GetValue("instanceShutdownTimeout");
-
-        [Input("loadBasedAutoScaling")]
+        [PolicyResourceProperty("loadBasedAutoScaling", "_mUnknown_LoadBasedAutoScaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RailsAppLayerLoadBasedAutoScaling> _mLoadBasedAutoScaling;
-
-        public Outputs.RailsAppLayerLoadBasedAutoScaling? LoadBasedAutoScaling => _mLoadBasedAutoScaling.GetValue("loadBasedAutoScaling");
+        private Outputs.RailsAppLayerLoadBasedAutoScaling? _mValue_LoadBasedAutoScaling;
+        private bool _mUnknown_LoadBasedAutoScaling;
+        public Outputs.RailsAppLayerLoadBasedAutoScaling? LoadBasedAutoScaling
+        {
+            get
+            {
+                if (!_mUnknown_LoadBasedAutoScaling) return _mValue_LoadBasedAutoScaling;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.LoadBasedAutoScaling' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether OpsWorks should manage bundler. On by default.
         /// </summary>
-        [Input("manageBundler")]
+        [PolicyResourceProperty("manageBundler", "_mUnknown_ManageBundler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageBundler;
-
-        public bool? ManageBundler => _mManageBundler.GetValue("manageBundler");
+        private bool? _mValue_ManageBundler;
+        private bool _mUnknown_ManageBundler;
+        public bool? ManageBundler
+        {
+            get
+            {
+                if (!_mUnknown_ManageBundler) return _mValue_ManageBundler;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.ManageBundler' is not present");
+            }
+        }
 
         /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of Passenger to use. Defaults to "4.0.46".
         /// </summary>
-        [Input("passengerVersion")]
+        [PolicyResourceProperty("passengerVersion", "_mUnknown_PassengerVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassengerVersion;
-
-        public string? PassengerVersion => _mPassengerVersion.GetValue("passengerVersion");
+        private string? _mValue_PassengerVersion;
+        private bool _mUnknown_PassengerVersion;
+        public string? PassengerVersion
+        {
+            get
+            {
+                if (!_mUnknown_PassengerVersion) return _mValue_PassengerVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.PassengerVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of Ruby to use. Defaults to "2.0.0".
         /// </summary>
-        [Input("rubyVersion")]
+        [PolicyResourceProperty("rubyVersion", "_mUnknown_RubyVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRubyVersion;
-
-        public string? RubyVersion => _mRubyVersion.GetValue("rubyVersion");
+        private string? _mValue_RubyVersion;
+        private bool _mUnknown_RubyVersion;
+        public string? RubyVersion
+        {
+            get
+            {
+                if (!_mUnknown_RubyVersion) return _mValue_RubyVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.RubyVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of RubyGems to use. Defaults to "2.2.2".
         /// </summary>
-        [Input("rubygemsVersion")]
+        [PolicyResourceProperty("rubygemsVersion", "_mUnknown_RubygemsVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRubygemsVersion;
-
-        public string? RubygemsVersion => _mRubygemsVersion.GetValue("rubygemsVersion");
+        private string? _mValue_RubygemsVersion;
+        private bool _mUnknown_RubygemsVersion;
+        public string? RubygemsVersion
+        {
+            get
+            {
+                if (!_mUnknown_RubygemsVersion) return _mValue_RubygemsVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.RubygemsVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the stack the layer will belong to.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// Names of a set of system packages to install on the layer's instances.
         /// </summary>
-        [Input("systemPackages")]
+        [PolicyResourceProperty("systemPackages", "_mUnknown_SystemPackages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSystemPackages;
-
-        public List<string>? SystemPackages => _mSystemPackages.GetValue("systemPackages");
+        private List<string>? _mValue_SystemPackages;
+        private bool _mUnknown_SystemPackages;
+        public List<string>? SystemPackages
+        {
+            get
+            {
+                if (!_mUnknown_SystemPackages) return _mValue_SystemPackages;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.SystemPackages' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -251,29 +447,50 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// custom Chef recipes to be applied to layer instances at the five different
         /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use EBS-optimized instances.
         /// </summary>
-        [Input("useEbsOptimizedInstances")]
+        [PolicyResourceProperty("useEbsOptimizedInstances", "_mUnknown_UseEbsOptimizedInstances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseEbsOptimizedInstances;
-
-        public bool? UseEbsOptimizedInstances => _mUseEbsOptimizedInstances.GetValue("useEbsOptimizedInstances");
+        private bool? _mValue_UseEbsOptimizedInstances;
+        private bool _mUnknown_UseEbsOptimizedInstances;
+        public bool? UseEbsOptimizedInstances
+        {
+            get
+            {
+                if (!_mUnknown_UseEbsOptimizedInstances) return _mValue_UseEbsOptimizedInstances;
+                throw new UndeferrableValueException("Value 'RailsAppLayer.UseEbsOptimizedInstances' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opsworks/railsAppLayer:RailsAppLayer")]
@@ -282,224 +499,413 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// <summary>
         /// Keyword for the app server to use. Defaults to "apache_passenger".
         /// </summary>
-        [Input("appServer")]
+        [PolicyResourceProperty("appServer", "_mUnknown_AppServer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppServer;
-
-        public string? AppServer => _mAppServer.GetValue("appServer");
+        private string? _mValue_AppServer;
+        private bool _mUnknown_AppServer;
+        public string? AppServer
+        {
+            get
+            {
+                if (!_mUnknown_AppServer) return _mValue_AppServer;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.AppServer' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to automatically assign an elastic IP address to the layer's instances.
         /// </summary>
-        [Input("autoAssignElasticIps")]
+        [PolicyResourceProperty("autoAssignElasticIps", "_mUnknown_AutoAssignElasticIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignElasticIps;
-
-        public bool? AutoAssignElasticIps => _mAutoAssignElasticIps.GetValue("autoAssignElasticIps");
+        private bool? _mValue_AutoAssignElasticIps;
+        private bool _mUnknown_AutoAssignElasticIps;
+        public bool? AutoAssignElasticIps
+        {
+            get
+            {
+                if (!_mUnknown_AutoAssignElasticIps) return _mValue_AutoAssignElasticIps;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.AutoAssignElasticIps' is not present");
+            }
+        }
 
         /// <summary>
         /// For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         /// </summary>
-        [Input("autoAssignPublicIps")]
+        [PolicyResourceProperty("autoAssignPublicIps", "_mUnknown_AutoAssignPublicIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoAssignPublicIps;
-
-        public bool? AutoAssignPublicIps => _mAutoAssignPublicIps.GetValue("autoAssignPublicIps");
+        private bool? _mValue_AutoAssignPublicIps;
+        private bool _mUnknown_AutoAssignPublicIps;
+        public bool? AutoAssignPublicIps
+        {
+            get
+            {
+                if (!_mUnknown_AutoAssignPublicIps) return _mValue_AutoAssignPublicIps;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.AutoAssignPublicIps' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable auto-healing for the layer.
         /// </summary>
-        [Input("autoHealing")]
+        [PolicyResourceProperty("autoHealing", "_mUnknown_AutoHealing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutoHealing;
-
-        public bool? AutoHealing => _mAutoHealing.GetValue("autoHealing");
+        private bool? _mValue_AutoHealing;
+        private bool _mUnknown_AutoHealing;
+        public bool? AutoHealing
+        {
+            get
+            {
+                if (!_mUnknown_AutoHealing) return _mValue_AutoHealing;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.AutoHealing' is not present");
+            }
+        }
 
         /// <summary>
         /// When OpsWorks is managing Bundler, which version to use. Defaults to "1.5.3".
         /// </summary>
-        [Input("bundlerVersion")]
+        [PolicyResourceProperty("bundlerVersion", "_mUnknown_BundlerVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundlerVersion;
+        private string? _mValue_BundlerVersion;
+        private bool _mUnknown_BundlerVersion;
+        public string? BundlerVersion
+        {
+            get
+            {
+                if (!_mUnknown_BundlerVersion) return _mValue_BundlerVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.BundlerVersion' is not present");
+            }
+        }
 
-        public string? BundlerVersion => _mBundlerVersion.GetValue("bundlerVersion");
-
-        [Input("cloudwatchConfiguration")]
+        [PolicyResourceProperty("cloudwatchConfiguration", "_mUnknown_CloudwatchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RailsAppLayerCloudwatchConfigurationArgs> _mCloudwatchConfiguration;
+        private Inputs.RailsAppLayerCloudwatchConfigurationArgs? _mValue_CloudwatchConfiguration;
+        private bool _mUnknown_CloudwatchConfiguration;
+        public Inputs.RailsAppLayerCloudwatchConfigurationArgs? CloudwatchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchConfiguration) return _mValue_CloudwatchConfiguration;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CloudwatchConfiguration' is not present");
+            }
+        }
 
-        public Inputs.RailsAppLayerCloudwatchConfigurationArgs? CloudwatchConfiguration => _mCloudwatchConfiguration.GetValue("cloudwatchConfiguration");
-
-        [Input("customConfigureRecipes")]
+        [PolicyResourceProperty("customConfigureRecipes", "_mUnknown_CustomConfigureRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomConfigureRecipes;
+        private List<string>? _mValue_CustomConfigureRecipes;
+        private bool _mUnknown_CustomConfigureRecipes;
+        public List<string>? CustomConfigureRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomConfigureRecipes) return _mValue_CustomConfigureRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomConfigureRecipes' is not present");
+            }
+        }
 
-        public List<string>? CustomConfigureRecipes => _mCustomConfigureRecipes.GetValue("customConfigureRecipes");
-
-        [Input("customDeployRecipes")]
+        [PolicyResourceProperty("customDeployRecipes", "_mUnknown_CustomDeployRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDeployRecipes;
-
-        public List<string>? CustomDeployRecipes => _mCustomDeployRecipes.GetValue("customDeployRecipes");
+        private List<string>? _mValue_CustomDeployRecipes;
+        private bool _mUnknown_CustomDeployRecipes;
+        public List<string>? CustomDeployRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomDeployRecipes) return _mValue_CustomDeployRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomDeployRecipes' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an IAM profile that will be used for the layer's instances.
         /// </summary>
-        [Input("customInstanceProfileArn")]
+        [PolicyResourceProperty("customInstanceProfileArn", "_mUnknown_CustomInstanceProfileArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomInstanceProfileArn;
-
-        public string? CustomInstanceProfileArn => _mCustomInstanceProfileArn.GetValue("customInstanceProfileArn");
+        private string? _mValue_CustomInstanceProfileArn;
+        private bool _mUnknown_CustomInstanceProfileArn;
+        public string? CustomInstanceProfileArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomInstanceProfileArn) return _mValue_CustomInstanceProfileArn;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomInstanceProfileArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom JSON attributes to apply to the layer.
         /// </summary>
-        [Input("customJson")]
+        [PolicyResourceProperty("customJson", "_mUnknown_CustomJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomJson;
-
-        public string? CustomJson => _mCustomJson.GetValue("customJson");
+        private string? _mValue_CustomJson;
+        private bool _mUnknown_CustomJson;
+        public string? CustomJson
+        {
+            get
+            {
+                if (!_mUnknown_CustomJson) return _mValue_CustomJson;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Ids for a set of security groups to apply to the layer's instances.
         /// </summary>
-        [Input("customSecurityGroupIds")]
+        [PolicyResourceProperty("customSecurityGroupIds", "_mUnknown_CustomSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSecurityGroupIds;
+        private List<string>? _mValue_CustomSecurityGroupIds;
+        private bool _mUnknown_CustomSecurityGroupIds;
+        public List<string>? CustomSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_CustomSecurityGroupIds) return _mValue_CustomSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomSecurityGroupIds' is not present");
+            }
+        }
 
-        public List<string>? CustomSecurityGroupIds => _mCustomSecurityGroupIds.GetValue("customSecurityGroupIds");
-
-        [Input("customSetupRecipes")]
+        [PolicyResourceProperty("customSetupRecipes", "_mUnknown_CustomSetupRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomSetupRecipes;
+        private List<string>? _mValue_CustomSetupRecipes;
+        private bool _mUnknown_CustomSetupRecipes;
+        public List<string>? CustomSetupRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomSetupRecipes) return _mValue_CustomSetupRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomSetupRecipes' is not present");
+            }
+        }
 
-        public List<string>? CustomSetupRecipes => _mCustomSetupRecipes.GetValue("customSetupRecipes");
-
-        [Input("customShutdownRecipes")]
+        [PolicyResourceProperty("customShutdownRecipes", "_mUnknown_CustomShutdownRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomShutdownRecipes;
+        private List<string>? _mValue_CustomShutdownRecipes;
+        private bool _mUnknown_CustomShutdownRecipes;
+        public List<string>? CustomShutdownRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomShutdownRecipes) return _mValue_CustomShutdownRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomShutdownRecipes' is not present");
+            }
+        }
 
-        public List<string>? CustomShutdownRecipes => _mCustomShutdownRecipes.GetValue("customShutdownRecipes");
-
-        [Input("customUndeployRecipes")]
+        [PolicyResourceProperty("customUndeployRecipes", "_mUnknown_CustomUndeployRecipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomUndeployRecipes;
-
-        public List<string>? CustomUndeployRecipes => _mCustomUndeployRecipes.GetValue("customUndeployRecipes");
+        private List<string>? _mValue_CustomUndeployRecipes;
+        private bool _mUnknown_CustomUndeployRecipes;
+        public List<string>? CustomUndeployRecipes
+        {
+            get
+            {
+                if (!_mUnknown_CustomUndeployRecipes) return _mValue_CustomUndeployRecipes;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.CustomUndeployRecipes' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable Elastic Load Balancing connection draining.
         /// </summary>
-        [Input("drainElbOnShutdown")]
+        [PolicyResourceProperty("drainElbOnShutdown", "_mUnknown_DrainElbOnShutdown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDrainElbOnShutdown;
-
-        public bool? DrainElbOnShutdown => _mDrainElbOnShutdown.GetValue("drainElbOnShutdown");
+        private bool? _mValue_DrainElbOnShutdown;
+        private bool _mUnknown_DrainElbOnShutdown;
+        public bool? DrainElbOnShutdown
+        {
+            get
+            {
+                if (!_mUnknown_DrainElbOnShutdown) return _mValue_DrainElbOnShutdown;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.DrainElbOnShutdown' is not present");
+            }
+        }
 
         /// <summary>
         /// `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         /// </summary>
-        [Input("ebsVolumes")]
+        [PolicyResourceProperty("ebsVolumes", "_mUnknown_EbsVolumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RailsAppLayerEbsVolumeArgs>> _mEbsVolumes;
-
-        public List<Inputs.RailsAppLayerEbsVolumeArgs>? EbsVolumes => _mEbsVolumes.GetValue("ebsVolumes");
+        private List<Inputs.RailsAppLayerEbsVolumeArgs>? _mValue_EbsVolumes;
+        private bool _mUnknown_EbsVolumes;
+        public List<Inputs.RailsAppLayerEbsVolumeArgs>? EbsVolumes
+        {
+            get
+            {
+                if (!_mUnknown_EbsVolumes) return _mValue_EbsVolumes;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.EbsVolumes' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of an Elastic Load Balancer to attach to this layer
         /// </summary>
-        [Input("elasticLoadBalancer")]
+        [PolicyResourceProperty("elasticLoadBalancer", "_mUnknown_ElasticLoadBalancer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticLoadBalancer;
-
-        public string? ElasticLoadBalancer => _mElasticLoadBalancer.GetValue("elasticLoadBalancer");
+        private string? _mValue_ElasticLoadBalancer;
+        private bool _mUnknown_ElasticLoadBalancer;
+        public string? ElasticLoadBalancer
+        {
+            get
+            {
+                if (!_mUnknown_ElasticLoadBalancer) return _mValue_ElasticLoadBalancer;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.ElasticLoadBalancer' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to install OS and package updates on each instance when it boots.
         /// </summary>
-        [Input("installUpdatesOnBoot")]
+        [PolicyResourceProperty("installUpdatesOnBoot", "_mUnknown_InstallUpdatesOnBoot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInstallUpdatesOnBoot;
-
-        public bool? InstallUpdatesOnBoot => _mInstallUpdatesOnBoot.GetValue("installUpdatesOnBoot");
+        private bool? _mValue_InstallUpdatesOnBoot;
+        private bool _mUnknown_InstallUpdatesOnBoot;
+        public bool? InstallUpdatesOnBoot
+        {
+            get
+            {
+                if (!_mUnknown_InstallUpdatesOnBoot) return _mValue_InstallUpdatesOnBoot;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.InstallUpdatesOnBoot' is not present");
+            }
+        }
 
         /// <summary>
         /// The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
         /// </summary>
-        [Input("instanceShutdownTimeout")]
+        [PolicyResourceProperty("instanceShutdownTimeout", "_mUnknown_InstanceShutdownTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceShutdownTimeout;
+        private int? _mValue_InstanceShutdownTimeout;
+        private bool _mUnknown_InstanceShutdownTimeout;
+        public int? InstanceShutdownTimeout
+        {
+            get
+            {
+                if (!_mUnknown_InstanceShutdownTimeout) return _mValue_InstanceShutdownTimeout;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.InstanceShutdownTimeout' is not present");
+            }
+        }
 
-        public int? InstanceShutdownTimeout => _mInstanceShutdownTimeout.GetValue("instanceShutdownTimeout");
-
-        [Input("loadBasedAutoScaling")]
+        [PolicyResourceProperty("loadBasedAutoScaling", "_mUnknown_LoadBasedAutoScaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RailsAppLayerLoadBasedAutoScalingArgs> _mLoadBasedAutoScaling;
-
-        public Inputs.RailsAppLayerLoadBasedAutoScalingArgs? LoadBasedAutoScaling => _mLoadBasedAutoScaling.GetValue("loadBasedAutoScaling");
+        private Inputs.RailsAppLayerLoadBasedAutoScalingArgs? _mValue_LoadBasedAutoScaling;
+        private bool _mUnknown_LoadBasedAutoScaling;
+        public Inputs.RailsAppLayerLoadBasedAutoScalingArgs? LoadBasedAutoScaling
+        {
+            get
+            {
+                if (!_mUnknown_LoadBasedAutoScaling) return _mValue_LoadBasedAutoScaling;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.LoadBasedAutoScaling' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether OpsWorks should manage bundler. On by default.
         /// </summary>
-        [Input("manageBundler")]
+        [PolicyResourceProperty("manageBundler", "_mUnknown_ManageBundler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mManageBundler;
-
-        public bool? ManageBundler => _mManageBundler.GetValue("manageBundler");
+        private bool? _mValue_ManageBundler;
+        private bool _mUnknown_ManageBundler;
+        public bool? ManageBundler
+        {
+            get
+            {
+                if (!_mUnknown_ManageBundler) return _mValue_ManageBundler;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.ManageBundler' is not present");
+            }
+        }
 
         /// <summary>
         /// A human-readable name for the layer.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of Passenger to use. Defaults to "4.0.46".
         /// </summary>
-        [Input("passengerVersion")]
+        [PolicyResourceProperty("passengerVersion", "_mUnknown_PassengerVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassengerVersion;
-
-        public string? PassengerVersion => _mPassengerVersion.GetValue("passengerVersion");
+        private string? _mValue_PassengerVersion;
+        private bool _mUnknown_PassengerVersion;
+        public string? PassengerVersion
+        {
+            get
+            {
+                if (!_mUnknown_PassengerVersion) return _mValue_PassengerVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.PassengerVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of Ruby to use. Defaults to "2.0.0".
         /// </summary>
-        [Input("rubyVersion")]
+        [PolicyResourceProperty("rubyVersion", "_mUnknown_RubyVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRubyVersion;
-
-        public string? RubyVersion => _mRubyVersion.GetValue("rubyVersion");
+        private string? _mValue_RubyVersion;
+        private bool _mUnknown_RubyVersion;
+        public string? RubyVersion
+        {
+            get
+            {
+                if (!_mUnknown_RubyVersion) return _mValue_RubyVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.RubyVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The version of RubyGems to use. Defaults to "2.2.2".
         /// </summary>
-        [Input("rubygemsVersion")]
+        [PolicyResourceProperty("rubygemsVersion", "_mUnknown_RubygemsVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRubygemsVersion;
-
-        public string? RubygemsVersion => _mRubygemsVersion.GetValue("rubygemsVersion");
+        private string? _mValue_RubygemsVersion;
+        private bool _mUnknown_RubygemsVersion;
+        public string? RubygemsVersion
+        {
+            get
+            {
+                if (!_mUnknown_RubygemsVersion) return _mValue_RubygemsVersion;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.RubygemsVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the stack the layer will belong to.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.StackId' is not present");
+            }
+        }
 
         /// <summary>
         /// Names of a set of system packages to install on the layer's instances.
         /// </summary>
-        [Input("systemPackages")]
+        [PolicyResourceProperty("systemPackages", "_mUnknown_SystemPackages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSystemPackages;
-
-        public List<string>? SystemPackages => _mSystemPackages.GetValue("systemPackages");
+        private List<string>? _mValue_SystemPackages;
+        private bool _mUnknown_SystemPackages;
+        public List<string>? SystemPackages
+        {
+            get
+            {
+                if (!_mUnknown_SystemPackages) return _mValue_SystemPackages;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.SystemPackages' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -508,19 +914,33 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks
         /// custom Chef recipes to be applied to layer instances at the five different
         /// lifecycle events, if custom cookbooks are enabled on the layer's stack:
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use EBS-optimized instances.
         /// </summary>
-        [Input("useEbsOptimizedInstances")]
+        [PolicyResourceProperty("useEbsOptimizedInstances", "_mUnknown_UseEbsOptimizedInstances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseEbsOptimizedInstances;
-
-        public bool? UseEbsOptimizedInstances => _mUseEbsOptimizedInstances.GetValue("useEbsOptimizedInstances");
+        private bool? _mValue_UseEbsOptimizedInstances;
+        private bool _mUnknown_UseEbsOptimizedInstances;
+        public bool? UseEbsOptimizedInstances
+        {
+            get
+            {
+                if (!_mUnknown_UseEbsOptimizedInstances) return _mValue_UseEbsOptimizedInstances;
+                throw new UndeferrableValueException("Value 'RailsAppLayerArgs.UseEbsOptimizedInstances' is not present");
+            }
+        }
     }
 }

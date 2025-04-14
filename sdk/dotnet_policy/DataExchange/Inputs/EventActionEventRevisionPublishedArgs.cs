@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange.Inputs
         /// The ID of the data set to monitor for revision publications.
         /// Changing this value will recreate the resource.
         /// </summary>
-        [Input("dataSetId")]
+        [PolicyResourceProperty("dataSetId", "_mUnknown_DataSetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetId;
-
-        public string? DataSetId => _mDataSetId.GetValue("dataSetId");
+        private string? _mValue_DataSetId;
+        private bool _mUnknown_DataSetId;
+        public string? DataSetId
+        {
+            get
+            {
+                if (!_mUnknown_DataSetId) return _mValue_DataSetId;
+                throw new UndeferrableValueException("Value 'EventActionEventRevisionPublishedArgs.DataSetId' is not present");
+            }
+        }
     }
 }

@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Evidently
         /// <summary>
         /// The number of ongoing experiments currently in the project.
         /// </summary>
-        [Input("activeExperimentCount")]
+        [PolicyResourceProperty("activeExperimentCount", "_mUnknown_ActiveExperimentCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mActiveExperimentCount;
-
-        public int? ActiveExperimentCount => _mActiveExperimentCount.GetValue("activeExperimentCount");
+        private int? _mValue_ActiveExperimentCount;
+        private bool _mUnknown_ActiveExperimentCount;
+        public int? ActiveExperimentCount
+        {
+            get
+            {
+                if (!_mUnknown_ActiveExperimentCount) return _mValue_ActiveExperimentCount;
+                throw new UndeferrableValueException("Value 'Project.ActiveExperimentCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of ongoing launches currently in the project.
         /// </summary>
-        [Input("activeLaunchCount")]
+        [PolicyResourceProperty("activeLaunchCount", "_mUnknown_ActiveLaunchCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mActiveLaunchCount;
-
-        public int? ActiveLaunchCount => _mActiveLaunchCount.GetValue("activeLaunchCount");
+        private int? _mValue_ActiveLaunchCount;
+        private bool _mUnknown_ActiveLaunchCount;
+        public int? ActiveLaunchCount
+        {
+            get
+            {
+                if (!_mUnknown_ActiveLaunchCount) return _mValue_ActiveLaunchCount;
+                throw new UndeferrableValueException("Value 'Project.ActiveLaunchCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the project.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Project.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the project is created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Project.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         /// </summary>
-        [Input("dataDelivery")]
+        [PolicyResourceProperty("dataDelivery", "_mUnknown_DataDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProjectDataDelivery> _mDataDelivery;
-
-        public Outputs.ProjectDataDelivery? DataDelivery => _mDataDelivery.GetValue("dataDelivery");
+        private Outputs.ProjectDataDelivery? _mValue_DataDelivery;
+        private bool _mUnknown_DataDelivery;
+        public Outputs.ProjectDataDelivery? DataDelivery
+        {
+            get
+            {
+                if (!_mUnknown_DataDelivery) return _mValue_DataDelivery;
+                throw new UndeferrableValueException("Value 'Project.DataDelivery' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the project.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Project.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         /// </summary>
-        [Input("experimentCount")]
+        [PolicyResourceProperty("experimentCount", "_mUnknown_ExperimentCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mExperimentCount;
-
-        public int? ExperimentCount => _mExperimentCount.GetValue("experimentCount");
+        private int? _mValue_ExperimentCount;
+        private bool _mUnknown_ExperimentCount;
+        public int? ExperimentCount
+        {
+            get
+            {
+                if (!_mUnknown_ExperimentCount) return _mValue_ExperimentCount;
+                throw new UndeferrableValueException("Value 'Project.ExperimentCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of features currently in the project.
         /// </summary>
-        [Input("featureCount")]
+        [PolicyResourceProperty("featureCount", "_mUnknown_FeatureCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFeatureCount;
-
-        public int? FeatureCount => _mFeatureCount.GetValue("featureCount");
+        private int? _mValue_FeatureCount;
+        private bool _mUnknown_FeatureCount;
+        public int? FeatureCount
+        {
+            get
+            {
+                if (!_mUnknown_FeatureCount) return _mValue_FeatureCount;
+                throw new UndeferrableValueException("Value 'Project.FeatureCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the project was most recently updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Project.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
         /// </summary>
-        [Input("launchCount")]
+        [PolicyResourceProperty("launchCount", "_mUnknown_LaunchCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLaunchCount;
-
-        public int? LaunchCount => _mLaunchCount.GetValue("launchCount");
+        private int? _mValue_LaunchCount;
+        private bool _mUnknown_LaunchCount;
+        public int? LaunchCount
+        {
+            get
+            {
+                if (!_mUnknown_LaunchCount) return _mValue_LaunchCount;
+                throw new UndeferrableValueException("Value 'Project.LaunchCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the project.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Project.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Project.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Project.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Project.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:evidently/project:Project")]
@@ -146,37 +244,65 @@ namespace Pulumi.PolicyPacks.Aws.Evidently
         /// <summary>
         /// A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         /// </summary>
-        [Input("dataDelivery")]
+        [PolicyResourceProperty("dataDelivery", "_mUnknown_DataDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProjectDataDeliveryArgs> _mDataDelivery;
-
-        public Inputs.ProjectDataDeliveryArgs? DataDelivery => _mDataDelivery.GetValue("dataDelivery");
+        private Inputs.ProjectDataDeliveryArgs? _mValue_DataDelivery;
+        private bool _mUnknown_DataDelivery;
+        public Inputs.ProjectDataDeliveryArgs? DataDelivery
+        {
+            get
+            {
+                if (!_mUnknown_DataDelivery) return _mValue_DataDelivery;
+                throw new UndeferrableValueException("Value 'ProjectArgs.DataDelivery' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the description of the project.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the project.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Tags' is not present");
+            }
+        }
     }
 }

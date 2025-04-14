@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The additional statistics to stream for the metrics listed in `include_metrics`.
         /// </summary>
-        [Input("additionalStatistics")]
+        [PolicyResourceProperty("additionalStatistics", "_mUnknown_AdditionalStatistics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdditionalStatistics;
-
-        public List<string>? AdditionalStatistics => _mAdditionalStatistics.GetValue("additionalStatistics");
+        private List<string>? _mValue_AdditionalStatistics;
+        private bool _mUnknown_AdditionalStatistics;
+        public List<string>? AdditionalStatistics
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalStatistics) return _mValue_AdditionalStatistics;
+                throw new UndeferrableValueException("Value 'MetricStreamStatisticsConfigurationArgs.AdditionalStatistics' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that defines the metrics that are to have additional statistics streamed. See details below.
         /// </summary>
-        [Input("includeMetrics")]
+        [PolicyResourceProperty("includeMetrics", "_mUnknown_IncludeMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs>> _mIncludeMetrics;
-
-        public List<Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs>? IncludeMetrics => _mIncludeMetrics.GetValue("includeMetrics");
+        private List<Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs>? _mValue_IncludeMetrics;
+        private bool _mUnknown_IncludeMetrics;
+        public List<Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs>? IncludeMetrics
+        {
+            get
+            {
+                if (!_mUnknown_IncludeMetrics) return _mValue_IncludeMetrics;
+                throw new UndeferrableValueException("Value 'MetricStreamStatisticsConfigurationArgs.IncludeMetrics' is not present");
+            }
+        }
     }
 }

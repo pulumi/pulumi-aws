@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// Configures destinations to send audit findings to.
         /// </summary>
-        [Input("findingsDestination")]
+        [PolicyResourceProperty("findingsDestination", "_mUnknown_FindingsDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult> _mFindingsDestination;
-
-        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult? FindingsDestination => _mFindingsDestination.GetValue("findingsDestination");
+        private Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult? _mValue_FindingsDestination;
+        private bool _mUnknown_FindingsDestination;
+        public Outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult? FindingsDestination
+        {
+            get
+            {
+                if (!_mUnknown_FindingsDestination) return _mValue_FindingsDestination;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationAuditResult.FindingsDestination' is not present");
+            }
+        }
     }
 }

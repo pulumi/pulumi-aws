@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
         /// <summary>
         /// Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
         /// </summary>
-        [Input("approveAfterDays")]
+        [PolicyResourceProperty("approveAfterDays", "_mUnknown_ApproveAfterDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mApproveAfterDays;
-
-        public int? ApproveAfterDays => _mApproveAfterDays.GetValue("approveAfterDays");
+        private int? _mValue_ApproveAfterDays;
+        private bool _mUnknown_ApproveAfterDays;
+        public int? ApproveAfterDays
+        {
+            get
+            {
+                if (!_mUnknown_ApproveAfterDays) return _mValue_ApproveAfterDays;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineApprovalRuleResult.ApproveAfterDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         /// </summary>
-        [Input("approveUntilDate")]
+        [PolicyResourceProperty("approveUntilDate", "_mUnknown_ApproveUntilDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApproveUntilDate;
-
-        public string? ApproveUntilDate => _mApproveUntilDate.GetValue("approveUntilDate");
+        private string? _mValue_ApproveUntilDate;
+        private bool _mUnknown_ApproveUntilDate;
+        public string? ApproveUntilDate
+        {
+            get
+            {
+                if (!_mUnknown_ApproveUntilDate) return _mValue_ApproveUntilDate;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineApprovalRuleResult.ApproveUntilDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Compliance level for patches approved by this rule.
         /// </summary>
-        [Input("complianceLevel")]
+        [PolicyResourceProperty("complianceLevel", "_mUnknown_ComplianceLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComplianceLevel;
-
-        public string? ComplianceLevel => _mComplianceLevel.GetValue("complianceLevel");
+        private string? _mValue_ComplianceLevel;
+        private bool _mUnknown_ComplianceLevel;
+        public string? ComplianceLevel
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceLevel) return _mValue_ComplianceLevel;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineApprovalRuleResult.ComplianceLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean enabling the application of non-security updates.
         /// </summary>
-        [Input("enableNonSecurity")]
+        [PolicyResourceProperty("enableNonSecurity", "_mUnknown_EnableNonSecurity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNonSecurity;
-
-        public bool? EnableNonSecurity => _mEnableNonSecurity.GetValue("enableNonSecurity");
+        private bool? _mValue_EnableNonSecurity;
+        private bool _mUnknown_EnableNonSecurity;
+        public bool? EnableNonSecurity
+        {
+            get
+            {
+                if (!_mUnknown_EnableNonSecurity) return _mValue_EnableNonSecurity;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineApprovalRuleResult.EnableNonSecurity' is not present");
+            }
+        }
 
         /// <summary>
         /// Patch filter group that defines the criteria for the rule.
         /// </summary>
-        [Input("patchFilters")]
+        [PolicyResourceProperty("patchFilters", "_mUnknown_PatchFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetPatchBaselineApprovalRulePatchFilterResult>> _mPatchFilters;
-
-        public List<Outputs.GetPatchBaselineApprovalRulePatchFilterResult>? PatchFilters => _mPatchFilters.GetValue("patchFilters");
+        private List<Outputs.GetPatchBaselineApprovalRulePatchFilterResult>? _mValue_PatchFilters;
+        private bool _mUnknown_PatchFilters;
+        public List<Outputs.GetPatchBaselineApprovalRulePatchFilterResult>? PatchFilters
+        {
+            get
+            {
+                if (!_mUnknown_PatchFilters) return _mValue_PatchFilters;
+                throw new UndeferrableValueException("Value 'GetPatchBaselineApprovalRuleResult.PatchFilters' is not present");
+            }
+        }
     }
 }

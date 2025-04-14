@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Specific log groups to use with the query.
         /// </summary>
-        [Input("logGroupNames")]
+        [PolicyResourceProperty("logGroupNames", "_mUnknown_LogGroupNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogGroupNames;
-
-        public List<string>? LogGroupNames => _mLogGroupNames.GetValue("logGroupNames");
+        private List<string>? _mValue_LogGroupNames;
+        private bool _mUnknown_LogGroupNames;
+        public List<string>? LogGroupNames
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupNames) return _mValue_LogGroupNames;
+                throw new UndeferrableValueException("Value 'QueryDefinition.LogGroupNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the query.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QueryDefinition.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The query definition ID.
         /// </summary>
-        [Input("queryDefinitionId")]
+        [PolicyResourceProperty("queryDefinitionId", "_mUnknown_QueryDefinitionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryDefinitionId;
-
-        public string? QueryDefinitionId => _mQueryDefinitionId.GetValue("queryDefinitionId");
+        private string? _mValue_QueryDefinitionId;
+        private bool _mUnknown_QueryDefinitionId;
+        public string? QueryDefinitionId
+        {
+            get
+            {
+                if (!_mUnknown_QueryDefinitionId) return _mValue_QueryDefinitionId;
+                throw new UndeferrableValueException("Value 'QueryDefinition.QueryDefinitionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryString;
-
-        public string? QueryString => _mQueryString.GetValue("queryString");
+        private string? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public string? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'QueryDefinition.QueryString' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/queryDefinition:QueryDefinition")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// Specific log groups to use with the query.
         /// </summary>
-        [Input("logGroupNames")]
+        [PolicyResourceProperty("logGroupNames", "_mUnknown_LogGroupNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLogGroupNames;
-
-        public List<string>? LogGroupNames => _mLogGroupNames.GetValue("logGroupNames");
+        private List<string>? _mValue_LogGroupNames;
+        private bool _mUnknown_LogGroupNames;
+        public List<string>? LogGroupNames
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupNames) return _mValue_LogGroupNames;
+                throw new UndeferrableValueException("Value 'QueryDefinitionArgs.LogGroupNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the query.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'QueryDefinitionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         /// </summary>
-        [Input("queryString")]
+        [PolicyResourceProperty("queryString", "_mUnknown_QueryString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueryString;
-
-        public string? QueryString => _mQueryString.GetValue("queryString");
+        private string? _mValue_QueryString;
+        private bool _mUnknown_QueryString;
+        public string? QueryString
+        {
+            get
+            {
+                if (!_mUnknown_QueryString) return _mValue_QueryString;
+                throw new UndeferrableValueException("Value 'QueryDefinitionArgs.QueryString' is not present");
+            }
+        }
     }
 }

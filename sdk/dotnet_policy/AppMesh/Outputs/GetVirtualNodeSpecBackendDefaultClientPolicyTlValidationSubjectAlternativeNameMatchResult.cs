@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult
     {
-        [Input("exacts")]
+        [PolicyResourceProperty("exacts", "_mUnknown_Exacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExacts;
-
-        public List<string>? Exacts => _mExacts.GetValue("exacts");
+        private List<string>? _mValue_Exacts;
+        private bool _mUnknown_Exacts;
+        public List<string>? Exacts
+        {
+            get
+            {
+                if (!_mUnknown_Exacts) return _mValue_Exacts;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult.Exacts' is not present");
+            }
+        }
     }
 }

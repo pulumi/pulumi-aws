@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Inputs
         /// <summary>
         /// Specifies whether the task's elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
         /// </summary>
-        [Input("assignPublicIp")]
+        [PolicyResourceProperty("assignPublicIp", "_mUnknown_AssignPublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignPublicIp;
-
-        public bool? AssignPublicIp => _mAssignPublicIp.GetValue("assignPublicIp");
+        private bool? _mValue_AssignPublicIp;
+        private bool _mUnknown_AssignPublicIp;
+        public bool? AssignPublicIp
+        {
+            get
+            {
+                if (!_mUnknown_AssignPublicIp) return _mValue_AssignPublicIp;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersNetworkConfigurationArgs.AssignPublicIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersNetworkConfigurationArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
         /// </summary>
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersNetworkConfigurationArgs.Subnets' is not present");
+            }
+        }
     }
 }

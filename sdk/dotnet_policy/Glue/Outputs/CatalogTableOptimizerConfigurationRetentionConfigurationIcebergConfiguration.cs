@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
         /// </summary>
-        [Input("cleanExpiredFiles")]
+        [PolicyResourceProperty("cleanExpiredFiles", "_mUnknown_CleanExpiredFiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCleanExpiredFiles;
-
-        public bool? CleanExpiredFiles => _mCleanExpiredFiles.GetValue("cleanExpiredFiles");
+        private bool? _mValue_CleanExpiredFiles;
+        private bool _mUnknown_CleanExpiredFiles;
+        public bool? CleanExpiredFiles
+        {
+            get
+            {
+                if (!_mUnknown_CleanExpiredFiles) return _mValue_CleanExpiredFiles;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.CleanExpiredFiles' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
-        [Input("numberOfSnapshotsToRetain")]
+        [PolicyResourceProperty("numberOfSnapshotsToRetain", "_mUnknown_NumberOfSnapshotsToRetain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumberOfSnapshotsToRetain;
-
-        public int? NumberOfSnapshotsToRetain => _mNumberOfSnapshotsToRetain.GetValue("numberOfSnapshotsToRetain");
+        private int? _mValue_NumberOfSnapshotsToRetain;
+        private bool _mUnknown_NumberOfSnapshotsToRetain;
+        public int? NumberOfSnapshotsToRetain
+        {
+            get
+            {
+                if (!_mUnknown_NumberOfSnapshotsToRetain) return _mValue_NumberOfSnapshotsToRetain;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.NumberOfSnapshotsToRetain' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
         /// </summary>
-        [Input("snapshotRetentionPeriodInDays")]
+        [PolicyResourceProperty("snapshotRetentionPeriodInDays", "_mUnknown_SnapshotRetentionPeriodInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSnapshotRetentionPeriodInDays;
-
-        public int? SnapshotRetentionPeriodInDays => _mSnapshotRetentionPeriodInDays.GetValue("snapshotRetentionPeriodInDays");
+        private int? _mValue_SnapshotRetentionPeriodInDays;
+        private bool _mUnknown_SnapshotRetentionPeriodInDays;
+        public int? SnapshotRetentionPeriodInDays
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotRetentionPeriodInDays) return _mValue_SnapshotRetentionPeriodInDays;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.SnapshotRetentionPeriodInDays' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Amp.Inputs
         /// <summary>
         /// Configuration block for an EKS cluster source. See `eks`.
         /// </summary>
-        [Input("eks")]
+        [PolicyResourceProperty("eks", "_mUnknown_Eks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScraperSourceEksArgs> _mEks;
-
-        public Inputs.ScraperSourceEksArgs? Eks => _mEks.GetValue("eks");
+        private Inputs.ScraperSourceEksArgs? _mValue_Eks;
+        private bool _mUnknown_Eks;
+        public Inputs.ScraperSourceEksArgs? Eks
+        {
+            get
+            {
+                if (!_mUnknown_Eks) return _mValue_Eks;
+                throw new UndeferrableValueException("Value 'ScraperSourceArgs.Eks' is not present");
+            }
+        }
     }
 }

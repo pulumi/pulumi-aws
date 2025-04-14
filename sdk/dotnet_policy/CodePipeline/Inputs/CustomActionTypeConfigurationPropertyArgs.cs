@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The description of the action configuration property.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the configuration property is a key.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mKey;
-
-        public bool? Key => _mKey.GetValue("key");
+        private bool? _mValue_Key;
+        private bool _mUnknown_Key;
+        public bool? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the action configuration property.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates that the property will be used in conjunction with PollForJobs.
         /// </summary>
-        [Input("queryable")]
+        [PolicyResourceProperty("queryable", "_mUnknown_Queryable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mQueryable;
-
-        public bool? Queryable => _mQueryable.GetValue("queryable");
+        private bool? _mValue_Queryable;
+        private bool _mUnknown_Queryable;
+        public bool? Queryable
+        {
+            get
+            {
+                if (!_mUnknown_Queryable) return _mValue_Queryable;
+                throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.Queryable' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the configuration property is a required value.
         /// </summary>
-        [Input("required")]
+        [PolicyResourceProperty("required", "_mUnknown_Required")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequired;
-
-        public bool? Required => _mRequired.GetValue("required");
+        private bool? _mValue_Required;
+        private bool _mUnknown_Required;
+        public bool? Required
+        {
+            get
+            {
+                if (!_mUnknown_Required) return _mValue_Required;
+                throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.Required' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the configuration property is secret.
         /// </summary>
-        [Input("secret")]
+        [PolicyResourceProperty("secret", "_mUnknown_Secret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSecret;
-
-        public bool? Secret => _mSecret.GetValue("secret");
+        private bool? _mValue_Secret;
+        private bool _mUnknown_Secret;
+        public bool? Secret
+        {
+            get
+            {
+                if (!_mUnknown_Secret) return _mValue_Secret;
+                throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.Secret' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.Type' is not present");
+            }
+        }
     }
 }

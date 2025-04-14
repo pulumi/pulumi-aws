@@ -12,52 +12,108 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Inputs
 {
     public sealed class GetControlControlMappingSourceArgs
     {
-        [Input("sourceDescription")]
+        [PolicyResourceProperty("sourceDescription", "_mUnknown_SourceDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDescription;
+        private string? _mValue_SourceDescription;
+        private bool _mUnknown_SourceDescription;
+        public string? SourceDescription
+        {
+            get
+            {
+                if (!_mUnknown_SourceDescription) return _mValue_SourceDescription;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.SourceDescription' is not present");
+            }
+        }
 
-        public string? SourceDescription => _mSourceDescription.GetValue("sourceDescription");
-
-        [Input("sourceFrequency")]
+        [PolicyResourceProperty("sourceFrequency", "_mUnknown_SourceFrequency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceFrequency;
+        private string? _mValue_SourceFrequency;
+        private bool _mUnknown_SourceFrequency;
+        public string? SourceFrequency
+        {
+            get
+            {
+                if (!_mUnknown_SourceFrequency) return _mValue_SourceFrequency;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.SourceFrequency' is not present");
+            }
+        }
 
-        public string? SourceFrequency => _mSourceFrequency.GetValue("sourceFrequency");
-
-        [Input("sourceId")]
+        [PolicyResourceProperty("sourceId", "_mUnknown_SourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceId;
+        private string? _mValue_SourceId;
+        private bool _mUnknown_SourceId;
+        public string? SourceId
+        {
+            get
+            {
+                if (!_mUnknown_SourceId) return _mValue_SourceId;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.SourceId' is not present");
+            }
+        }
 
-        public string? SourceId => _mSourceId.GetValue("sourceId");
-
-        [Input("sourceKeyword")]
+        [PolicyResourceProperty("sourceKeyword", "_mUnknown_SourceKeyword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetControlControlMappingSourceSourceKeywordArgs> _mSourceKeyword;
+        private Inputs.GetControlControlMappingSourceSourceKeywordArgs? _mValue_SourceKeyword;
+        private bool _mUnknown_SourceKeyword;
+        public Inputs.GetControlControlMappingSourceSourceKeywordArgs? SourceKeyword
+        {
+            get
+            {
+                if (!_mUnknown_SourceKeyword) return _mValue_SourceKeyword;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.SourceKeyword' is not present");
+            }
+        }
 
-        public Inputs.GetControlControlMappingSourceSourceKeywordArgs? SourceKeyword => _mSourceKeyword.GetValue("sourceKeyword");
-
-        [Input("sourceName")]
+        [PolicyResourceProperty("sourceName", "_mUnknown_SourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceName;
+        private string? _mValue_SourceName;
+        private bool _mUnknown_SourceName;
+        public string? SourceName
+        {
+            get
+            {
+                if (!_mUnknown_SourceName) return _mValue_SourceName;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.SourceName' is not present");
+            }
+        }
 
-        public string? SourceName => _mSourceName.GetValue("sourceName");
-
-        [Input("sourceSetUpOption")]
+        [PolicyResourceProperty("sourceSetUpOption", "_mUnknown_SourceSetUpOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceSetUpOption;
+        private string? _mValue_SourceSetUpOption;
+        private bool _mUnknown_SourceSetUpOption;
+        public string? SourceSetUpOption
+        {
+            get
+            {
+                if (!_mUnknown_SourceSetUpOption) return _mValue_SourceSetUpOption;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.SourceSetUpOption' is not present");
+            }
+        }
 
-        public string? SourceSetUpOption => _mSourceSetUpOption.GetValue("sourceSetUpOption");
-
-        [Input("sourceType")]
+        [PolicyResourceProperty("sourceType", "_mUnknown_SourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceType;
+        private string? _mValue_SourceType;
+        private bool _mUnknown_SourceType;
+        public string? SourceType
+        {
+            get
+            {
+                if (!_mUnknown_SourceType) return _mValue_SourceType;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.SourceType' is not present");
+            }
+        }
 
-        public string? SourceType => _mSourceType.GetValue("sourceType");
-
-        [Input("troubleshootingText")]
+        [PolicyResourceProperty("troubleshootingText", "_mUnknown_TroubleshootingText")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTroubleshootingText;
-
-        public string? TroubleshootingText => _mTroubleshootingText.GetValue("troubleshootingText");
+        private string? _mValue_TroubleshootingText;
+        private bool _mUnknown_TroubleshootingText;
+        public string? TroubleshootingText
+        {
+            get
+            {
+                if (!_mUnknown_TroubleshootingText) return _mValue_TroubleshootingText;
+                throw new UndeferrableValueException("Value 'GetControlControlMappingSourceArgs.TroubleshootingText' is not present");
+            }
+        }
     }
 }

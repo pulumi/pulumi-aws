@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Inputs
         /// <summary>
         /// Whether SAML authentication is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Information from your identity provider.
         /// </summary>
-        [Input("idp")]
+        [PolicyResourceProperty("idp", "_mUnknown_Idp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainSamlOptionsSamlOptionsIdpArgs> _mIdp;
-
-        public Inputs.DomainSamlOptionsSamlOptionsIdpArgs? Idp => _mIdp.GetValue("idp");
+        private Inputs.DomainSamlOptionsSamlOptionsIdpArgs? _mValue_Idp;
+        private bool _mUnknown_Idp;
+        public Inputs.DomainSamlOptionsSamlOptionsIdpArgs? Idp
+        {
+            get
+            {
+                if (!_mUnknown_Idp) return _mValue_Idp;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.Idp' is not present");
+            }
+        }
 
         /// <summary>
         /// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         /// </summary>
-        [Input("masterBackendRole")]
+        [PolicyResourceProperty("masterBackendRole", "_mUnknown_MasterBackendRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterBackendRole;
-
-        public string? MasterBackendRole => _mMasterBackendRole.GetValue("masterBackendRole");
+        private string? _mValue_MasterBackendRole;
+        private bool _mUnknown_MasterBackendRole;
+        public string? MasterBackendRole
+        {
+            get
+            {
+                if (!_mUnknown_MasterBackendRole) return _mValue_MasterBackendRole;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.MasterBackendRole' is not present");
+            }
+        }
 
         /// <summary>
         /// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         /// </summary>
-        [Input("masterUserName")]
+        [PolicyResourceProperty("masterUserName", "_mUnknown_MasterUserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUserName;
-
-        public string? MasterUserName => _mMasterUserName.GetValue("masterUserName");
+        private string? _mValue_MasterUserName;
+        private bool _mUnknown_MasterUserName;
+        public string? MasterUserName
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserName) return _mValue_MasterUserName;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.MasterUserName' is not present");
+            }
+        }
 
         /// <summary>
         /// Element of the SAML assertion to use for backend roles. Default is roles.
         /// </summary>
-        [Input("rolesKey")]
+        [PolicyResourceProperty("rolesKey", "_mUnknown_RolesKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRolesKey;
-
-        public string? RolesKey => _mRolesKey.GetValue("rolesKey");
+        private string? _mValue_RolesKey;
+        private bool _mUnknown_RolesKey;
+        public string? RolesKey
+        {
+            get
+            {
+                if (!_mUnknown_RolesKey) return _mValue_RolesKey;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.RolesKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
         /// </summary>
-        [Input("sessionTimeoutMinutes")]
+        [PolicyResourceProperty("sessionTimeoutMinutes", "_mUnknown_SessionTimeoutMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSessionTimeoutMinutes;
-
-        public int? SessionTimeoutMinutes => _mSessionTimeoutMinutes.GetValue("sessionTimeoutMinutes");
+        private int? _mValue_SessionTimeoutMinutes;
+        private bool _mUnknown_SessionTimeoutMinutes;
+        public int? SessionTimeoutMinutes
+        {
+            get
+            {
+                if (!_mUnknown_SessionTimeoutMinutes) return _mValue_SessionTimeoutMinutes;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.SessionTimeoutMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
         /// </summary>
-        [Input("subjectKey")]
+        [PolicyResourceProperty("subjectKey", "_mUnknown_SubjectKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubjectKey;
-
-        public string? SubjectKey => _mSubjectKey.GetValue("subjectKey");
+        private string? _mValue_SubjectKey;
+        private bool _mUnknown_SubjectKey;
+        public string? SubjectKey
+        {
+            get
+            {
+                if (!_mUnknown_SubjectKey) return _mValue_SubjectKey;
+                throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.SubjectKey' is not present");
+            }
+        }
     }
 }

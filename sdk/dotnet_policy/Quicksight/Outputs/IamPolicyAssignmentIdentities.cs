@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Array of Quicksight group names to assign the policy to.
         /// </summary>
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
-
-        public List<string>? Groups => _mGroups.GetValue("groups");
+        private List<string>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<string>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentIdentities.Groups' is not present");
+            }
+        }
 
         /// <summary>
         /// Array of Quicksight user names to assign the policy to.
         /// </summary>
-        [Input("users")]
+        [PolicyResourceProperty("users", "_mUnknown_Users")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUsers;
-
-        public List<string>? Users => _mUsers.GetValue("users");
+        private List<string>? _mValue_Users;
+        private bool _mUnknown_Users;
+        public List<string>? Users
+        {
+            get
+            {
+                if (!_mUnknown_Users) return _mValue_Users;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentIdentities.Users' is not present");
+            }
+        }
     }
 }

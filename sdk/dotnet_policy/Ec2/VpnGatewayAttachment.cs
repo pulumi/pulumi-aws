@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpnGatewayAttachment.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Virtual Private Gateway.
         /// </summary>
-        [Input("vpnGatewayId")]
+        [PolicyResourceProperty("vpnGatewayId", "_mUnknown_VpnGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
-
-        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+        private string? _mValue_VpnGatewayId;
+        private bool _mUnknown_VpnGatewayId;
+        public string? VpnGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_VpnGatewayId) return _mValue_VpnGatewayId;
+                throw new UndeferrableValueException("Value 'VpnGatewayAttachment.VpnGatewayId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'VpnGatewayAttachmentArgs.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Virtual Private Gateway.
         /// </summary>
-        [Input("vpnGatewayId")]
+        [PolicyResourceProperty("vpnGatewayId", "_mUnknown_VpnGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
-
-        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+        private string? _mValue_VpnGatewayId;
+        private bool _mUnknown_VpnGatewayId;
+        public string? VpnGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_VpnGatewayId) return _mValue_VpnGatewayId;
+                throw new UndeferrableValueException("Value 'VpnGatewayAttachmentArgs.VpnGatewayId' is not present");
+            }
+        }
     }
 }

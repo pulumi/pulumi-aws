@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// List of topic configs in topic policy. See Topics Config for more information.
         /// </summary>
-        [Input("topicsConfigs")]
+        [PolicyResourceProperty("topicsConfigs", "_mUnknown_TopicsConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs>> _mTopicsConfigs;
-
-        public List<Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs>? TopicsConfigs => _mTopicsConfigs.GetValue("topicsConfigs");
+        private List<Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs>? _mValue_TopicsConfigs;
+        private bool _mUnknown_TopicsConfigs;
+        public List<Inputs.GuardrailTopicPolicyConfigTopicsConfigArgs>? TopicsConfigs
+        {
+            get
+            {
+                if (!_mUnknown_TopicsConfigs) return _mValue_TopicsConfigs;
+                throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigArgs.TopicsConfigs' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Outputs
         /// <summary>
         /// Number of server processes using this configuration to run concurrently on an instance.
         /// </summary>
-        [Input("concurrentExecutions")]
+        [PolicyResourceProperty("concurrentExecutions", "_mUnknown_ConcurrentExecutions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConcurrentExecutions;
-
-        public int? ConcurrentExecutions => _mConcurrentExecutions.GetValue("concurrentExecutions");
+        private int? _mValue_ConcurrentExecutions;
+        private bool _mUnknown_ConcurrentExecutions;
+        public int? ConcurrentExecutions
+        {
+            get
+            {
+                if (!_mUnknown_ConcurrentExecutions) return _mValue_ConcurrentExecutions;
+                throw new UndeferrableValueException("Value 'FleetRuntimeConfigurationServerProcess.ConcurrentExecutions' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
         /// </summary>
-        [Input("launchPath")]
+        [PolicyResourceProperty("launchPath", "_mUnknown_LaunchPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchPath;
-
-        public string? LaunchPath => _mLaunchPath.GetValue("launchPath");
+        private string? _mValue_LaunchPath;
+        private bool _mUnknown_LaunchPath;
+        public string? LaunchPath
+        {
+            get
+            {
+                if (!_mUnknown_LaunchPath) return _mValue_LaunchPath;
+                throw new UndeferrableValueException("Value 'FleetRuntimeConfigurationServerProcess.LaunchPath' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional list of parameters to pass to the server executable on launch.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameters;
-
-        public string? Parameters => _mParameters.GetValue("parameters");
+        private string? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public string? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'FleetRuntimeConfigurationServerProcess.Parameters' is not present");
+            }
+        }
     }
 }

@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Query Logging Config.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'QueryLog.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudWatch log group ARN to send query logs.
         /// </summary>
-        [Input("cloudwatchLogGroupArn")]
+        [PolicyResourceProperty("cloudwatchLogGroupArn", "_mUnknown_CloudwatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
-
-        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+        private string? _mValue_CloudwatchLogGroupArn;
+        private bool _mUnknown_CloudwatchLogGroupArn;
+        public string? CloudwatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupArn) return _mValue_CloudwatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'QueryLog.CloudwatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Route53 hosted zone ID to enable query logs.
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'QueryLog.ZoneId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/queryLog:QueryLog")]
@@ -47,19 +68,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// CloudWatch log group ARN to send query logs.
         /// </summary>
-        [Input("cloudwatchLogGroupArn")]
+        [PolicyResourceProperty("cloudwatchLogGroupArn", "_mUnknown_CloudwatchLogGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchLogGroupArn;
-
-        public string? CloudwatchLogGroupArn => _mCloudwatchLogGroupArn.GetValue("cloudwatchLogGroupArn");
+        private string? _mValue_CloudwatchLogGroupArn;
+        private bool _mUnknown_CloudwatchLogGroupArn;
+        public string? CloudwatchLogGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogGroupArn) return _mValue_CloudwatchLogGroupArn;
+                throw new UndeferrableValueException("Value 'QueryLogArgs.CloudwatchLogGroupArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Route53 hosted zone ID to enable query logs.
         /// </summary>
-        [Input("zoneId")]
+        [PolicyResourceProperty("zoneId", "_mUnknown_ZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mZoneId;
-
-        public string? ZoneId => _mZoneId.GetValue("zoneId");
+        private string? _mValue_ZoneId;
+        private bool _mUnknown_ZoneId;
+        public string? ZoneId
+        {
+            get
+            {
+                if (!_mUnknown_ZoneId) return _mValue_ZoneId;
+                throw new UndeferrableValueException("Value 'QueryLogArgs.ZoneId' is not present");
+            }
+        }
     }
 }

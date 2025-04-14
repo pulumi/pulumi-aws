@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Inputs
         /// <summary>
         /// List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mActions;
-
-        public List<string>? Actions => _mActions.GetValue("actions");
+        private List<string>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<string>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a condition. Detailed below.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetPolicyDocumentStatementConditionInputArgs>> _mConditions;
-
-        public List<Inputs.GetPolicyDocumentStatementConditionInputArgs>? Conditions => _mConditions.GetValue("conditions");
+        private List<Inputs.GetPolicyDocumentStatementConditionInputArgs>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Inputs.GetPolicyDocumentStatementConditionInputArgs>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
-        [Input("effect")]
+        [PolicyResourceProperty("effect", "_mUnknown_Effect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEffect;
-
-        public string? Effect => _mEffect.GetValue("effect");
+        private string? _mValue_Effect;
+        private bool _mUnknown_Effect;
+        public string? Effect
+        {
+            get
+            {
+                if (!_mUnknown_Effect) return _mValue_Effect;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.Effect' is not present");
+            }
+        }
 
         /// <summary>
         /// List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
         /// </summary>
-        [Input("notActions")]
+        [PolicyResourceProperty("notActions", "_mUnknown_NotActions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotActions;
-
-        public List<string>? NotActions => _mNotActions.GetValue("notActions");
+        private List<string>? _mValue_NotActions;
+        private bool _mUnknown_NotActions;
+        public List<string>? NotActions
+        {
+            get
+            {
+                if (!_mUnknown_NotActions) return _mValue_NotActions;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.NotActions' is not present");
+            }
+        }
 
         /// <summary>
         /// Like `principals` except these are principals that the statement does *not* apply to.
         /// </summary>
-        [Input("notPrincipals")]
+        [PolicyResourceProperty("notPrincipals", "_mUnknown_NotPrincipals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetPolicyDocumentStatementNotPrincipalInputArgs>> _mNotPrincipals;
-
-        public List<Inputs.GetPolicyDocumentStatementNotPrincipalInputArgs>? NotPrincipals => _mNotPrincipals.GetValue("notPrincipals");
+        private List<Inputs.GetPolicyDocumentStatementNotPrincipalInputArgs>? _mValue_NotPrincipals;
+        private bool _mUnknown_NotPrincipals;
+        public List<Inputs.GetPolicyDocumentStatementNotPrincipalInputArgs>? NotPrincipals
+        {
+            get
+            {
+                if (!_mUnknown_NotPrincipals) return _mValue_NotPrincipals;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.NotPrincipals' is not present");
+            }
+        }
 
         /// <summary>
         /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
         /// </summary>
-        [Input("notResources")]
+        [PolicyResourceProperty("notResources", "_mUnknown_NotResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotResources;
-
-        public List<string>? NotResources => _mNotResources.GetValue("notResources");
+        private List<string>? _mValue_NotResources;
+        private bool _mUnknown_NotResources;
+        public List<string>? NotResources
+        {
+            get
+            {
+                if (!_mUnknown_NotResources) return _mValue_NotResources;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.NotResources' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for principals. Detailed below.
         /// </summary>
-        [Input("principals")]
+        [PolicyResourceProperty("principals", "_mUnknown_Principals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetPolicyDocumentStatementPrincipalInputArgs>> _mPrincipals;
-
-        public List<Inputs.GetPolicyDocumentStatementPrincipalInputArgs>? Principals => _mPrincipals.GetValue("principals");
+        private List<Inputs.GetPolicyDocumentStatementPrincipalInputArgs>? _mValue_Principals;
+        private bool _mUnknown_Principals;
+        public List<Inputs.GetPolicyDocumentStatementPrincipalInputArgs>? Principals
+        {
+            get
+            {
+                if (!_mUnknown_Principals) return _mValue_Principals;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.Principals' is not present");
+            }
+        }
 
         /// <summary>
         /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
-
-        public List<string>? Resources => _mResources.GetValue("resources");
+        private List<string>? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public List<string>? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.Resources' is not present");
+            }
+        }
 
         /// <summary>
         /// Sid (statement ID) is an identifier for a policy statement.
         /// </summary>
-        [Input("sid")]
+        [PolicyResourceProperty("sid", "_mUnknown_Sid")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSid;
-
-        public string? Sid => _mSid.GetValue("sid");
+        private string? _mValue_Sid;
+        private bool _mUnknown_Sid;
+        public string? Sid
+        {
+            get
+            {
+                if (!_mUnknown_Sid) return _mValue_Sid;
+                throw new UndeferrableValueException("Value 'GetPolicyDocumentStatementInputArgs.Sid' is not present");
+            }
+        }
     }
 }

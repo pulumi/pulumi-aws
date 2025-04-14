@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetMeshSpecResult
     {
-        [Input("egressFilters")]
+        [PolicyResourceProperty("egressFilters", "_mUnknown_EgressFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetMeshSpecEgressFilterResult>> _mEgressFilters;
+        private List<Outputs.GetMeshSpecEgressFilterResult>? _mValue_EgressFilters;
+        private bool _mUnknown_EgressFilters;
+        public List<Outputs.GetMeshSpecEgressFilterResult>? EgressFilters
+        {
+            get
+            {
+                if (!_mUnknown_EgressFilters) return _mValue_EgressFilters;
+                throw new UndeferrableValueException("Value 'GetMeshSpecResult.EgressFilters' is not present");
+            }
+        }
 
-        public List<Outputs.GetMeshSpecEgressFilterResult>? EgressFilters => _mEgressFilters.GetValue("egressFilters");
-
-        [Input("serviceDiscoveries")]
+        [PolicyResourceProperty("serviceDiscoveries", "_mUnknown_ServiceDiscoveries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetMeshSpecServiceDiscoveryResult>> _mServiceDiscoveries;
-
-        public List<Outputs.GetMeshSpecServiceDiscoveryResult>? ServiceDiscoveries => _mServiceDiscoveries.GetValue("serviceDiscoveries");
+        private List<Outputs.GetMeshSpecServiceDiscoveryResult>? _mValue_ServiceDiscoveries;
+        private bool _mUnknown_ServiceDiscoveries;
+        public List<Outputs.GetMeshSpecServiceDiscoveryResult>? ServiceDiscoveries
+        {
+            get
+            {
+                if (!_mUnknown_ServiceDiscoveries) return _mValue_ServiceDiscoveries;
+                throw new UndeferrableValueException("Value 'GetMeshSpecResult.ServiceDiscoveries' is not present");
+            }
+        }
     }
 }

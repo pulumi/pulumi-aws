@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Indicates whether the job has a public IP address.
         /// </summary>
-        [Input("assignPublicIp")]
+        [PolicyResourceProperty("assignPublicIp", "_mUnknown_AssignPublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignPublicIp;
-
-        public bool? AssignPublicIp => _mAssignPublicIp.GetValue("assignPublicIp");
+        private bool? _mValue_AssignPublicIp;
+        private bool _mUnknown_AssignPublicIp;
+        public bool? AssignPublicIp
+        {
+            get
+            {
+                if (!_mUnknown_AssignPublicIp) return _mValue_AssignPublicIp;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationResult.AssignPublicIp' is not present");
+            }
+        }
     }
 }

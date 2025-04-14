@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling
         /// <summary>
         /// ARN of the scheduled action.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
-
-        public string? EndTime => _mEndTime.GetValue("endTime");
+        private string? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public string? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'ScheduledAction.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the scheduled action.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ScheduledAction.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
         /// </summary>
-        [Input("scalableDimension")]
+        [PolicyResourceProperty("scalableDimension", "_mUnknown_ScalableDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
-
-        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+        private string? _mValue_ScalableDimension;
+        private bool _mUnknown_ScalableDimension;
+        public string? ScalableDimension
+        {
+            get
+            {
+                if (!_mUnknown_ScalableDimension) return _mValue_ScalableDimension;
+                throw new UndeferrableValueException("Value 'ScheduledAction.ScalableDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// New minimum and maximum capacity. You can set both values or just one. See below
         /// </summary>
-        [Input("scalableTargetAction")]
+        [PolicyResourceProperty("scalableTargetAction", "_mUnknown_ScalableTargetAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledActionScalableTargetAction> _mScalableTargetAction;
-
-        public Outputs.ScheduledActionScalableTargetAction? ScalableTargetAction => _mScalableTargetAction.GetValue("scalableTargetAction");
+        private Outputs.ScheduledActionScalableTargetAction? _mValue_ScalableTargetAction;
+        private bool _mUnknown_ScalableTargetAction;
+        public Outputs.ScheduledActionScalableTargetAction? ScalableTargetAction
+        {
+            get
+            {
+                if (!_mUnknown_ScalableTargetAction) return _mValue_ScalableTargetAction;
+                throw new UndeferrableValueException("Value 'ScheduledAction.ScalableTargetAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
         /// </summary>
-        [Input("serviceNamespace")]
+        [PolicyResourceProperty("serviceNamespace", "_mUnknown_ServiceNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
-
-        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+        private string? _mValue_ServiceNamespace;
+        private bool _mUnknown_ServiceNamespace;
+        public string? ServiceNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNamespace) return _mValue_ServiceNamespace;
+                throw new UndeferrableValueException("Value 'ScheduledAction.ServiceNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ScheduledAction.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'ScheduledAction.Timezone' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appautoscaling/scheduledAction:ScheduledAction")]
@@ -110,82 +180,145 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling
         /// <summary>
         /// Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndTime;
-
-        public string? EndTime => _mEndTime.GetValue("endTime");
+        private string? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public string? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the scheduled action.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
         /// </summary>
-        [Input("scalableDimension")]
+        [PolicyResourceProperty("scalableDimension", "_mUnknown_ScalableDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScalableDimension;
-
-        public string? ScalableDimension => _mScalableDimension.GetValue("scalableDimension");
+        private string? _mValue_ScalableDimension;
+        private bool _mUnknown_ScalableDimension;
+        public string? ScalableDimension
+        {
+            get
+            {
+                if (!_mUnknown_ScalableDimension) return _mValue_ScalableDimension;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.ScalableDimension' is not present");
+            }
+        }
 
         /// <summary>
         /// New minimum and maximum capacity. You can set both values or just one. See below
         /// </summary>
-        [Input("scalableTargetAction")]
+        [PolicyResourceProperty("scalableTargetAction", "_mUnknown_ScalableTargetAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ScheduledActionScalableTargetActionArgs> _mScalableTargetAction;
-
-        public Inputs.ScheduledActionScalableTargetActionArgs? ScalableTargetAction => _mScalableTargetAction.GetValue("scalableTargetAction");
+        private Inputs.ScheduledActionScalableTargetActionArgs? _mValue_ScalableTargetAction;
+        private bool _mUnknown_ScalableTargetAction;
+        public Inputs.ScheduledActionScalableTargetActionArgs? ScalableTargetAction
+        {
+            get
+            {
+                if (!_mUnknown_ScalableTargetAction) return _mValue_ScalableTargetAction;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.ScalableTargetAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Schedule for this action. The following formats are supported: At expressions - at(yyyy-mm-ddThh:mm:ss), Rate expressions - rate(valueunit), Cron expressions - cron(fields). Times for at expressions and cron expressions are evaluated using the time zone configured in `timezone`. Documentation can be found in the `Timezone` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         /// </summary>
-        [Input("schedule")]
+        [PolicyResourceProperty("schedule", "_mUnknown_Schedule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchedule;
-
-        public string? Schedule => _mSchedule.GetValue("schedule");
+        private string? _mValue_Schedule;
+        private bool _mUnknown_Schedule;
+        public string? Schedule
+        {
+            get
+            {
+                if (!_mUnknown_Schedule) return _mValue_Schedule;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.Schedule' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
         /// </summary>
-        [Input("serviceNamespace")]
+        [PolicyResourceProperty("serviceNamespace", "_mUnknown_ServiceNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceNamespace;
-
-        public string? ServiceNamespace => _mServiceNamespace.GetValue("serviceNamespace");
+        private string? _mValue_ServiceNamespace;
+        private bool _mUnknown_ServiceNamespace;
+        public string? ServiceNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ServiceNamespace) return _mValue_ServiceNamespace;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.ServiceNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStartTime;
-
-        public string? StartTime => _mStartTime.GetValue("startTime");
+        private string? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public string? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.StartTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         /// </summary>
-        [Input("timezone")]
+        [PolicyResourceProperty("timezone", "_mUnknown_Timezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimezone;
-
-        public string? Timezone => _mTimezone.GetValue("timezone");
+        private string? _mValue_Timezone;
+        private bool _mUnknown_Timezone;
+        public string? Timezone
+        {
+            get
+            {
+                if (!_mUnknown_Timezone) return _mValue_Timezone;
+                throw new UndeferrableValueException("Value 'ScheduledActionArgs.Timezone' is not present");
+            }
+        }
     }
 }

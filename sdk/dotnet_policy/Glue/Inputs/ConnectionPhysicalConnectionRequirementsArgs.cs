@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'ConnectionPhysicalConnectionRequirementsArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The security group ID list used by the connection.
         /// </summary>
-        [Input("securityGroupIdLists")]
+        [PolicyResourceProperty("securityGroupIdLists", "_mUnknown_SecurityGroupIdLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIdLists;
-
-        public List<string>? SecurityGroupIdLists => _mSecurityGroupIdLists.GetValue("securityGroupIdLists");
+        private List<string>? _mValue_SecurityGroupIdLists;
+        private bool _mUnknown_SecurityGroupIdLists;
+        public List<string>? SecurityGroupIdLists
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIdLists) return _mValue_SecurityGroupIdLists;
+                throw new UndeferrableValueException("Value 'ConnectionPhysicalConnectionRequirementsArgs.SecurityGroupIdLists' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet ID used by the connection.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'ConnectionPhysicalConnectionRequirementsArgs.SubnetId' is not present");
+            }
+        }
     }
 }

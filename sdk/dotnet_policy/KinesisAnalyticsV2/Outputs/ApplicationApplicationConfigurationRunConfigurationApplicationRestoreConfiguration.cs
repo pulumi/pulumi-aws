@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
         /// </summary>
-        [Input("applicationRestoreType")]
+        [PolicyResourceProperty("applicationRestoreType", "_mUnknown_ApplicationRestoreType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationRestoreType;
-
-        public string? ApplicationRestoreType => _mApplicationRestoreType.GetValue("applicationRestoreType");
+        private string? _mValue_ApplicationRestoreType;
+        private bool _mUnknown_ApplicationRestoreType;
+        public string? ApplicationRestoreType
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationRestoreType) return _mValue_ApplicationRestoreType;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration.ApplicationRestoreType' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
         /// </summary>
-        [Input("snapshotName")]
+        [PolicyResourceProperty("snapshotName", "_mUnknown_SnapshotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotName;
-
-        public string? SnapshotName => _mSnapshotName.GetValue("snapshotName");
+        private string? _mValue_SnapshotName;
+        private bool _mUnknown_SnapshotName;
+        public string? SnapshotName
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotName) return _mValue_SnapshotName;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration.SnapshotName' is not present");
+            }
+        }
     }
 }

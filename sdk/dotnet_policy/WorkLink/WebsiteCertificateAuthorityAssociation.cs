@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink
         /// <summary>
         /// The root certificate of the Certificate Authority.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociation.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate name to display.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociation.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the fleet.
         /// </summary>
-        [Input("fleetArn")]
+        [PolicyResourceProperty("fleetArn", "_mUnknown_FleetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetArn;
-
-        public string? FleetArn => _mFleetArn.GetValue("fleetArn");
+        private string? _mValue_FleetArn;
+        private bool _mUnknown_FleetArn;
+        public string? FleetArn
+        {
+            get
+            {
+                if (!_mUnknown_FleetArn) return _mValue_FleetArn;
+                throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociation.FleetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique identifier for the Certificate Authority.
         /// </summary>
-        [Input("websiteCaId")]
+        [PolicyResourceProperty("websiteCaId", "_mUnknown_WebsiteCaId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebsiteCaId;
-
-        public string? WebsiteCaId => _mWebsiteCaId.GetValue("websiteCaId");
+        private string? _mValue_WebsiteCaId;
+        private bool _mUnknown_WebsiteCaId;
+        public string? WebsiteCaId
+        {
+            get
+            {
+                if (!_mUnknown_WebsiteCaId) return _mValue_WebsiteCaId;
+                throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociation.WebsiteCaId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.WorkLink
         /// <summary>
         /// The root certificate of the Certificate Authority.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociationArgs.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate name to display.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociationArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the fleet.
         /// </summary>
-        [Input("fleetArn")]
+        [PolicyResourceProperty("fleetArn", "_mUnknown_FleetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetArn;
-
-        public string? FleetArn => _mFleetArn.GetValue("fleetArn");
+        private string? _mValue_FleetArn;
+        private bool _mUnknown_FleetArn;
+        public string? FleetArn
+        {
+            get
+            {
+                if (!_mUnknown_FleetArn) return _mValue_FleetArn;
+                throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociationArgs.FleetArn' is not present");
+            }
+        }
     }
 }

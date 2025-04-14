@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecLoggingResult
     {
-        [Input("accessLogs")]
+        [PolicyResourceProperty("accessLogs", "_mUnknown_AccessLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecLoggingAccessLogResult>> _mAccessLogs;
-
-        public List<Outputs.GetVirtualNodeSpecLoggingAccessLogResult>? AccessLogs => _mAccessLogs.GetValue("accessLogs");
+        private List<Outputs.GetVirtualNodeSpecLoggingAccessLogResult>? _mValue_AccessLogs;
+        private bool _mUnknown_AccessLogs;
+        public List<Outputs.GetVirtualNodeSpecLoggingAccessLogResult>? AccessLogs
+        {
+            get
+            {
+                if (!_mUnknown_AccessLogs) return _mValue_AccessLogs;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecLoggingResult.AccessLogs' is not present");
+            }
+        }
     }
 }

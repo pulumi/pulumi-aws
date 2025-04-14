@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// Number of days after which Amazon S3 aborts an incomplete multipart upload.
         /// </summary>
-        [Input("daysAfterInitiation")]
+        [PolicyResourceProperty("daysAfterInitiation", "_mUnknown_DaysAfterInitiation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDaysAfterInitiation;
-
-        public int? DaysAfterInitiation => _mDaysAfterInitiation.GetValue("daysAfterInitiation");
+        private int? _mValue_DaysAfterInitiation;
+        private bool _mUnknown_DaysAfterInitiation;
+        public int? DaysAfterInitiation
+        {
+            get
+            {
+                if (!_mUnknown_DaysAfterInitiation) return _mValue_DaysAfterInitiation;
+                throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload.DaysAfterInitiation' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// The name of the database. Required when authenticating using temporary credentials.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParameters.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// The database user name. Required when authenticating using temporary credentials.
         /// </summary>
-        [Input("dbUser")]
+        [PolicyResourceProperty("dbUser", "_mUnknown_DbUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbUser;
-
-        public string? DbUser => _mDbUser.GetValue("dbUser");
+        private string? _mValue_DbUser;
+        private bool _mUnknown_DbUser;
+        public string? DbUser
+        {
+            get
+            {
+                if (!_mUnknown_DbUser) return _mValue_DbUser;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParameters.DbUser' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
         /// </summary>
-        [Input("secretManagerArn")]
+        [PolicyResourceProperty("secretManagerArn", "_mUnknown_SecretManagerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretManagerArn;
-
-        public string? SecretManagerArn => _mSecretManagerArn.GetValue("secretManagerArn");
+        private string? _mValue_SecretManagerArn;
+        private bool _mUnknown_SecretManagerArn;
+        public string? SecretManagerArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretManagerArn) return _mValue_SecretManagerArn;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParameters.SecretManagerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of SQL statements text to run, each of maximum length of 100,000.
         /// </summary>
-        [Input("sqls")]
+        [PolicyResourceProperty("sqls", "_mUnknown_Sqls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSqls;
-
-        public List<string>? Sqls => _mSqls.GetValue("sqls");
+        private List<string>? _mValue_Sqls;
+        private bool _mUnknown_Sqls;
+        public List<string>? Sqls
+        {
+            get
+            {
+                if (!_mUnknown_Sqls) return _mValue_Sqls;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParameters.Sqls' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         /// </summary>
-        [Input("statementName")]
+        [PolicyResourceProperty("statementName", "_mUnknown_StatementName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatementName;
-
-        public string? StatementName => _mStatementName.GetValue("statementName");
+        private string? _mValue_StatementName;
+        private bool _mUnknown_StatementName;
+        public string? StatementName
+        {
+            get
+            {
+                if (!_mUnknown_StatementName) return _mValue_StatementName;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParameters.StatementName' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
         /// </summary>
-        [Input("withEvent")]
+        [PolicyResourceProperty("withEvent", "_mUnknown_WithEvent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mWithEvent;
-
-        public bool? WithEvent => _mWithEvent.GetValue("withEvent");
+        private bool? _mValue_WithEvent;
+        private bool _mUnknown_WithEvent;
+        public bool? WithEvent
+        {
+            get
+            {
+                if (!_mUnknown_WithEvent) return _mValue_WithEvent;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParameters.WithEvent' is not present");
+            }
+        }
     }
 }

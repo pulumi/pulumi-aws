@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Outputs
         /// <summary>
         /// The name of the header to add
         /// </summary>
-        [Input("headerName")]
+        [PolicyResourceProperty("headerName", "_mUnknown_HeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeaderName;
-
-        public string? HeaderName => _mHeaderName.GetValue("headerName");
+        private string? _mValue_HeaderName;
+        private bool _mUnknown_HeaderName;
+        public string? HeaderName
+        {
+            get
+            {
+                if (!_mUnknown_HeaderName) return _mValue_HeaderName;
+                throw new UndeferrableValueException("Value 'ReceiptRuleAddHeaderAction.HeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// The value of the header to add
         /// </summary>
-        [Input("headerValue")]
+        [PolicyResourceProperty("headerValue", "_mUnknown_HeaderValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeaderValue;
-
-        public string? HeaderValue => _mHeaderValue.GetValue("headerValue");
+        private string? _mValue_HeaderValue;
+        private bool _mUnknown_HeaderValue;
+        public string? HeaderValue
+        {
+            get
+            {
+                if (!_mUnknown_HeaderValue) return _mValue_HeaderValue;
+                throw new UndeferrableValueException("Value 'ReceiptRuleAddHeaderAction.HeaderValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The position of the action in the receipt rule
         /// </summary>
-        [Input("position")]
+        [PolicyResourceProperty("position", "_mUnknown_Position")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPosition;
-
-        public int? Position => _mPosition.GetValue("position");
+        private int? _mValue_Position;
+        private bool _mUnknown_Position;
+        public int? Position
+        {
+            get
+            {
+                if (!_mUnknown_Position) return _mValue_Position;
+                throw new UndeferrableValueException("Value 'ReceiptRuleAddHeaderAction.Position' is not present");
+            }
+        }
     }
 }

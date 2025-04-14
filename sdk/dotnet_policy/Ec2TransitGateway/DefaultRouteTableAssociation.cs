@@ -13,62 +13,111 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
     [PolicyResourceType("aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation")]
     public sealed class DefaultRouteTableAssociation : global::Pulumi.PolicyResourceOutput
     {
-        [Input("originalDefaultRouteTableId")]
+        [PolicyResourceProperty("originalDefaultRouteTableId", "_mUnknown_OriginalDefaultRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginalDefaultRouteTableId;
+        private string? _mValue_OriginalDefaultRouteTableId;
+        private bool _mUnknown_OriginalDefaultRouteTableId;
+        public string? OriginalDefaultRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_OriginalDefaultRouteTableId) return _mValue_OriginalDefaultRouteTableId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableAssociation.OriginalDefaultRouteTableId' is not present");
+            }
+        }
 
-        public string? OriginalDefaultRouteTableId => _mOriginalDefaultRouteTableId.GetValue("originalDefaultRouteTableId");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DefaultRouteTableAssociationTimeouts> _mTimeouts;
-
-        public Outputs.DefaultRouteTableAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DefaultRouteTableAssociationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DefaultRouteTableAssociationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableAssociation.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Transit Gateway to change the default association route table on.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableAssociation.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Transit Gateway Route Table to be made the default association route table.
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableAssociation.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation")]
     public sealed class DefaultRouteTableAssociationArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DefaultRouteTableAssociationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DefaultRouteTableAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DefaultRouteTableAssociationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DefaultRouteTableAssociationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableAssociationArgs.Timeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Transit Gateway to change the default association route table on.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableAssociationArgs.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Transit Gateway Route Table to be made the default association route table.
         /// </summary>
-        [Input("transitGatewayRouteTableId")]
+        [PolicyResourceProperty("transitGatewayRouteTableId", "_mUnknown_TransitGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayRouteTableId;
-
-        public string? TransitGatewayRouteTableId => _mTransitGatewayRouteTableId.GetValue("transitGatewayRouteTableId");
+        private string? _mValue_TransitGatewayRouteTableId;
+        private bool _mUnknown_TransitGatewayRouteTableId;
+        public string? TransitGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayRouteTableId) return _mValue_TransitGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'DefaultRouteTableAssociationArgs.TransitGatewayRouteTableId' is not present");
+            }
+        }
     }
 }

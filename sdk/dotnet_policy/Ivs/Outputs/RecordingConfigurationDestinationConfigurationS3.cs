@@ -17,10 +17,17 @@ namespace Pulumi.PolicyPacks.Aws.Ivs.Outputs
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'RecordingConfigurationDestinationConfigurationS3.BucketName' is not present");
+            }
+        }
     }
 }

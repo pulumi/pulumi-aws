@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless
         /// <summary>
         /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         /// </summary>
-        [Input("architecture")]
+        [PolicyResourceProperty("architecture", "_mUnknown_Architecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
-
-        public string? Architecture => _mArchitecture.GetValue("architecture");
+        private string? _mValue_Architecture;
+        private bool _mUnknown_Architecture;
+        public string? Architecture
+        {
+            get
+            {
+                if (!_mUnknown_Architecture) return _mValue_Architecture;
+                throw new UndeferrableValueException("Value 'Application.Architecture' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the cluster.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Application.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for an application to automatically start on job submission.
         /// </summary>
-        [Input("autoStartConfiguration")]
+        [PolicyResourceProperty("autoStartConfiguration", "_mUnknown_AutoStartConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationAutoStartConfiguration> _mAutoStartConfiguration;
-
-        public Outputs.ApplicationAutoStartConfiguration? AutoStartConfiguration => _mAutoStartConfiguration.GetValue("autoStartConfiguration");
+        private Outputs.ApplicationAutoStartConfiguration? _mValue_AutoStartConfiguration;
+        private bool _mUnknown_AutoStartConfiguration;
+        public Outputs.ApplicationAutoStartConfiguration? AutoStartConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoStartConfiguration) return _mValue_AutoStartConfiguration;
+                throw new UndeferrableValueException("Value 'Application.AutoStartConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for an application to automatically stop after a certain amount of time being idle.
         /// </summary>
-        [Input("autoStopConfiguration")]
+        [PolicyResourceProperty("autoStopConfiguration", "_mUnknown_AutoStopConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationAutoStopConfiguration> _mAutoStopConfiguration;
-
-        public Outputs.ApplicationAutoStopConfiguration? AutoStopConfiguration => _mAutoStopConfiguration.GetValue("autoStopConfiguration");
+        private Outputs.ApplicationAutoStopConfiguration? _mValue_AutoStopConfiguration;
+        private bool _mUnknown_AutoStopConfiguration;
+        public Outputs.ApplicationAutoStopConfiguration? AutoStopConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoStopConfiguration) return _mValue_AutoStopConfiguration;
+                throw new UndeferrableValueException("Value 'Application.AutoStopConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The image configuration applied to all worker types.
         /// </summary>
-        [Input("imageConfiguration")]
+        [PolicyResourceProperty("imageConfiguration", "_mUnknown_ImageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationImageConfiguration> _mImageConfiguration;
-
-        public Outputs.ApplicationImageConfiguration? ImageConfiguration => _mImageConfiguration.GetValue("imageConfiguration");
+        private Outputs.ApplicationImageConfiguration? _mValue_ImageConfiguration;
+        private bool _mUnknown_ImageConfiguration;
+        public Outputs.ApplicationImageConfiguration? ImageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageConfiguration) return _mValue_ImageConfiguration;
+                throw new UndeferrableValueException("Value 'Application.ImageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The capacity to initialize when the application is created.
         /// </summary>
-        [Input("initialCapacities")]
+        [PolicyResourceProperty("initialCapacities", "_mUnknown_InitialCapacities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ApplicationInitialCapacity>> _mInitialCapacities;
-
-        public List<Outputs.ApplicationInitialCapacity>? InitialCapacities => _mInitialCapacities.GetValue("initialCapacities");
+        private List<Outputs.ApplicationInitialCapacity>? _mValue_InitialCapacities;
+        private bool _mUnknown_InitialCapacities;
+        public List<Outputs.ApplicationInitialCapacity>? InitialCapacities
+        {
+            get
+            {
+                if (!_mUnknown_InitialCapacities) return _mValue_InitialCapacities;
+                throw new UndeferrableValueException("Value 'Application.InitialCapacities' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables the interactive use cases to use when running an application.
         /// </summary>
-        [Input("interactiveConfiguration")]
+        [PolicyResourceProperty("interactiveConfiguration", "_mUnknown_InteractiveConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationInteractiveConfiguration> _mInteractiveConfiguration;
-
-        public Outputs.ApplicationInteractiveConfiguration? InteractiveConfiguration => _mInteractiveConfiguration.GetValue("interactiveConfiguration");
+        private Outputs.ApplicationInteractiveConfiguration? _mValue_InteractiveConfiguration;
+        private bool _mUnknown_InteractiveConfiguration;
+        public Outputs.ApplicationInteractiveConfiguration? InteractiveConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InteractiveConfiguration) return _mValue_InteractiveConfiguration;
+                throw new UndeferrableValueException("Value 'Application.InteractiveConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
-        [Input("maximumCapacity")]
+        [PolicyResourceProperty("maximumCapacity", "_mUnknown_MaximumCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationMaximumCapacity> _mMaximumCapacity;
-
-        public Outputs.ApplicationMaximumCapacity? MaximumCapacity => _mMaximumCapacity.GetValue("maximumCapacity");
+        private Outputs.ApplicationMaximumCapacity? _mValue_MaximumCapacity;
+        private bool _mUnknown_MaximumCapacity;
+        public Outputs.ApplicationMaximumCapacity? MaximumCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaximumCapacity) return _mValue_MaximumCapacity;
+                throw new UndeferrableValueException("Value 'Application.MaximumCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Application.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The network configuration for customer VPC connectivity.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationNetworkConfiguration> _mNetworkConfiguration;
-
-        public Outputs.ApplicationNetworkConfiguration? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Outputs.ApplicationNetworkConfiguration? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Outputs.ApplicationNetworkConfiguration? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'Application.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
-        [Input("releaseLabel")]
+        [PolicyResourceProperty("releaseLabel", "_mUnknown_ReleaseLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
-
-        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+        private string? _mValue_ReleaseLabel;
+        private bool _mUnknown_ReleaseLabel;
+        public string? ReleaseLabel
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseLabel) return _mValue_ReleaseLabel;
+                throw new UndeferrableValueException("Value 'Application.ReleaseLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Application.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Application.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of application you want to start, such as `spark` or `hive`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'Application.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:emrserverless/application:Application")]
@@ -146,109 +244,193 @@ namespace Pulumi.PolicyPacks.Aws.EmrServerless
         /// <summary>
         /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         /// </summary>
-        [Input("architecture")]
+        [PolicyResourceProperty("architecture", "_mUnknown_Architecture")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArchitecture;
-
-        public string? Architecture => _mArchitecture.GetValue("architecture");
+        private string? _mValue_Architecture;
+        private bool _mUnknown_Architecture;
+        public string? Architecture
+        {
+            get
+            {
+                if (!_mUnknown_Architecture) return _mValue_Architecture;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Architecture' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for an application to automatically start on job submission.
         /// </summary>
-        [Input("autoStartConfiguration")]
+        [PolicyResourceProperty("autoStartConfiguration", "_mUnknown_AutoStartConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationAutoStartConfigurationArgs> _mAutoStartConfiguration;
-
-        public Inputs.ApplicationAutoStartConfigurationArgs? AutoStartConfiguration => _mAutoStartConfiguration.GetValue("autoStartConfiguration");
+        private Inputs.ApplicationAutoStartConfigurationArgs? _mValue_AutoStartConfiguration;
+        private bool _mUnknown_AutoStartConfiguration;
+        public Inputs.ApplicationAutoStartConfigurationArgs? AutoStartConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoStartConfiguration) return _mValue_AutoStartConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AutoStartConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for an application to automatically stop after a certain amount of time being idle.
         /// </summary>
-        [Input("autoStopConfiguration")]
+        [PolicyResourceProperty("autoStopConfiguration", "_mUnknown_AutoStopConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationAutoStopConfigurationArgs> _mAutoStopConfiguration;
-
-        public Inputs.ApplicationAutoStopConfigurationArgs? AutoStopConfiguration => _mAutoStopConfiguration.GetValue("autoStopConfiguration");
+        private Inputs.ApplicationAutoStopConfigurationArgs? _mValue_AutoStopConfiguration;
+        private bool _mUnknown_AutoStopConfiguration;
+        public Inputs.ApplicationAutoStopConfigurationArgs? AutoStopConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoStopConfiguration) return _mValue_AutoStopConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.AutoStopConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The image configuration applied to all worker types.
         /// </summary>
-        [Input("imageConfiguration")]
+        [PolicyResourceProperty("imageConfiguration", "_mUnknown_ImageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationImageConfigurationArgs> _mImageConfiguration;
-
-        public Inputs.ApplicationImageConfigurationArgs? ImageConfiguration => _mImageConfiguration.GetValue("imageConfiguration");
+        private Inputs.ApplicationImageConfigurationArgs? _mValue_ImageConfiguration;
+        private bool _mUnknown_ImageConfiguration;
+        public Inputs.ApplicationImageConfigurationArgs? ImageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ImageConfiguration) return _mValue_ImageConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ImageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The capacity to initialize when the application is created.
         /// </summary>
-        [Input("initialCapacities")]
+        [PolicyResourceProperty("initialCapacities", "_mUnknown_InitialCapacities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationInitialCapacityArgs>> _mInitialCapacities;
-
-        public List<Inputs.ApplicationInitialCapacityArgs>? InitialCapacities => _mInitialCapacities.GetValue("initialCapacities");
+        private List<Inputs.ApplicationInitialCapacityArgs>? _mValue_InitialCapacities;
+        private bool _mUnknown_InitialCapacities;
+        public List<Inputs.ApplicationInitialCapacityArgs>? InitialCapacities
+        {
+            get
+            {
+                if (!_mUnknown_InitialCapacities) return _mValue_InitialCapacities;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.InitialCapacities' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables the interactive use cases to use when running an application.
         /// </summary>
-        [Input("interactiveConfiguration")]
+        [PolicyResourceProperty("interactiveConfiguration", "_mUnknown_InteractiveConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationInteractiveConfigurationArgs> _mInteractiveConfiguration;
-
-        public Inputs.ApplicationInteractiveConfigurationArgs? InteractiveConfiguration => _mInteractiveConfiguration.GetValue("interactiveConfiguration");
+        private Inputs.ApplicationInteractiveConfigurationArgs? _mValue_InteractiveConfiguration;
+        private bool _mUnknown_InteractiveConfiguration;
+        public Inputs.ApplicationInteractiveConfigurationArgs? InteractiveConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InteractiveConfiguration) return _mValue_InteractiveConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.InteractiveConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         /// </summary>
-        [Input("maximumCapacity")]
+        [PolicyResourceProperty("maximumCapacity", "_mUnknown_MaximumCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationMaximumCapacityArgs> _mMaximumCapacity;
-
-        public Inputs.ApplicationMaximumCapacityArgs? MaximumCapacity => _mMaximumCapacity.GetValue("maximumCapacity");
+        private Inputs.ApplicationMaximumCapacityArgs? _mValue_MaximumCapacity;
+        private bool _mUnknown_MaximumCapacity;
+        public Inputs.ApplicationMaximumCapacityArgs? MaximumCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaximumCapacity) return _mValue_MaximumCapacity;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.MaximumCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The network configuration for customer VPC connectivity.
         /// </summary>
-        [Input("networkConfiguration")]
+        [PolicyResourceProperty("networkConfiguration", "_mUnknown_NetworkConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationNetworkConfigurationArgs> _mNetworkConfiguration;
-
-        public Inputs.ApplicationNetworkConfigurationArgs? NetworkConfiguration => _mNetworkConfiguration.GetValue("networkConfiguration");
+        private Inputs.ApplicationNetworkConfigurationArgs? _mValue_NetworkConfiguration;
+        private bool _mUnknown_NetworkConfiguration;
+        public Inputs.ApplicationNetworkConfigurationArgs? NetworkConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_NetworkConfiguration) return _mValue_NetworkConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.NetworkConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
-        [Input("releaseLabel")]
+        [PolicyResourceProperty("releaseLabel", "_mUnknown_ReleaseLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
-
-        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+        private string? _mValue_ReleaseLabel;
+        private bool _mUnknown_ReleaseLabel;
+        public string? ReleaseLabel
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseLabel) return _mValue_ReleaseLabel;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ReleaseLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of application you want to start, such as `spark` or `hive`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Type' is not present");
+            }
+        }
     }
 }

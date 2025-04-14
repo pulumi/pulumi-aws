@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Budgets.Outputs
 {
     public sealed class GetBudgetCalculatedSpendResult
     {
-        [Input("actualSpends")]
+        [PolicyResourceProperty("actualSpends", "_mUnknown_ActualSpends")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetBudgetCalculatedSpendActualSpendResult>> _mActualSpends;
-
-        public List<Outputs.GetBudgetCalculatedSpendActualSpendResult>? ActualSpends => _mActualSpends.GetValue("actualSpends");
+        private List<Outputs.GetBudgetCalculatedSpendActualSpendResult>? _mValue_ActualSpends;
+        private bool _mUnknown_ActualSpends;
+        public List<Outputs.GetBudgetCalculatedSpendActualSpendResult>? ActualSpends
+        {
+            get
+            {
+                if (!_mUnknown_ActualSpends) return _mValue_ActualSpends;
+                throw new UndeferrableValueException("Value 'GetBudgetCalculatedSpendResult.ActualSpends' is not present");
+            }
+        }
     }
 }

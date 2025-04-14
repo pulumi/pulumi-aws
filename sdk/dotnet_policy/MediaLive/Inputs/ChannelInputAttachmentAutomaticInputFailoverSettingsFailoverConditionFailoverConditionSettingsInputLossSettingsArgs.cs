@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
         /// </summary>
-        [Input("inputLossThresholdMsec")]
+        [PolicyResourceProperty("inputLossThresholdMsec", "_mUnknown_InputLossThresholdMsec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInputLossThresholdMsec;
-
-        public int? InputLossThresholdMsec => _mInputLossThresholdMsec.GetValue("inputLossThresholdMsec");
+        private int? _mValue_InputLossThresholdMsec;
+        private bool _mUnknown_InputLossThresholdMsec;
+        public int? InputLossThresholdMsec
+        {
+            get
+            {
+                if (!_mUnknown_InputLossThresholdMsec) return _mValue_InputLossThresholdMsec;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs.InputLossThresholdMsec' is not present");
+            }
+        }
     }
 }

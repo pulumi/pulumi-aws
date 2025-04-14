@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Strings in the body of the response that indicate a failed login attempt.
         /// </summary>
-        [Input("failureStrings")]
+        [PolicyResourceProperty("failureStrings", "_mUnknown_FailureStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFailureStrings;
-
-        public List<string>? FailureStrings => _mFailureStrings.GetValue("failureStrings");
+        private List<string>? _mValue_FailureStrings;
+        private bool _mUnknown_FailureStrings;
+        public List<string>? FailureStrings
+        {
+            get
+            {
+                if (!_mUnknown_FailureStrings) return _mValue_FailureStrings;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains.FailureStrings' is not present");
+            }
+        }
 
         /// <summary>
         /// Strings in the body of the response that indicate a successful login attempt.
         /// </summary>
-        [Input("successStrings")]
+        [PolicyResourceProperty("successStrings", "_mUnknown_SuccessStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuccessStrings;
-
-        public List<string>? SuccessStrings => _mSuccessStrings.GetValue("successStrings");
+        private List<string>? _mValue_SuccessStrings;
+        private bool _mUnknown_SuccessStrings;
+        public List<string>? SuccessStrings
+        {
+            get
+            {
+                if (!_mUnknown_SuccessStrings) return _mValue_SuccessStrings;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains.SuccessStrings' is not present");
+            }
+        }
     }
 }

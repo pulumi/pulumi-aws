@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iam.Outputs
         /// <summary>
         /// Access key ID.
         /// </summary>
-        [Input("accessKeyId")]
+        [PolicyResourceProperty("accessKeyId", "_mUnknown_AccessKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessKeyId;
-
-        public string? AccessKeyId => _mAccessKeyId.GetValue("accessKeyId");
+        private string? _mValue_AccessKeyId;
+        private bool _mUnknown_AccessKeyId;
+        public string? AccessKeyId
+        {
+            get
+            {
+                if (!_mUnknown_AccessKeyId) return _mValue_AccessKeyId;
+                throw new UndeferrableValueException("Value 'GetAccessKeysAccessKeyResult.AccessKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
         /// </summary>
-        [Input("createDate")]
+        [PolicyResourceProperty("createDate", "_mUnknown_CreateDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateDate;
-
-        public string? CreateDate => _mCreateDate.GetValue("createDate");
+        private string? _mValue_CreateDate;
+        private bool _mUnknown_CreateDate;
+        public string? CreateDate
+        {
+            get
+            {
+                if (!_mUnknown_CreateDate) return _mValue_CreateDate;
+                throw new UndeferrableValueException("Value 'GetAccessKeysAccessKeyResult.CreateDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Access key status. Possible values are `Active` and `Inactive`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetAccessKeysAccessKeyResult.Status' is not present");
+            }
+        }
     }
 }

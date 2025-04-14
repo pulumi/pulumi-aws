@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
 {
     public sealed class GetLoadBalancerSubnetMappingResult
     {
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerSubnetMappingResult.AllocationId' is not present");
+            }
+        }
 
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
-
-        [Input("ipv6Address")]
+        [PolicyResourceProperty("ipv6Address", "_mUnknown_Ipv6Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6Address;
+        private string? _mValue_Ipv6Address;
+        private bool _mUnknown_Ipv6Address;
+        public string? Ipv6Address
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Address) return _mValue_Ipv6Address;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerSubnetMappingResult.Ipv6Address' is not present");
+            }
+        }
 
-        public string? Ipv6Address => _mIpv6Address.GetValue("ipv6Address");
-
-        [Input("outpostId")]
+        [PolicyResourceProperty("outpostId", "_mUnknown_OutpostId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutpostId;
+        private string? _mValue_OutpostId;
+        private bool _mUnknown_OutpostId;
+        public string? OutpostId
+        {
+            get
+            {
+                if (!_mUnknown_OutpostId) return _mValue_OutpostId;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerSubnetMappingResult.OutpostId' is not present");
+            }
+        }
 
-        public string? OutpostId => _mOutpostId.GetValue("outpostId");
-
-        [Input("privateIpv4Address")]
+        [PolicyResourceProperty("privateIpv4Address", "_mUnknown_PrivateIpv4Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpv4Address;
+        private string? _mValue_PrivateIpv4Address;
+        private bool _mUnknown_PrivateIpv4Address;
+        public string? PrivateIpv4Address
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpv4Address) return _mValue_PrivateIpv4Address;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerSubnetMappingResult.PrivateIpv4Address' is not present");
+            }
+        }
 
-        public string? PrivateIpv4Address => _mPrivateIpv4Address.GetValue("privateIpv4Address");
-
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'GetLoadBalancerSubnetMappingResult.SubnetId' is not present");
+            }
+        }
     }
 }

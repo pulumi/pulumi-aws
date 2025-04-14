@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         /// </summary>
-        [Input("keyArn")]
+        [PolicyResourceProperty("keyArn", "_mUnknown_KeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
-
-        public string? KeyArn => _mKeyArn.GetValue("keyArn");
+        private string? _mValue_KeyArn;
+        private bool _mUnknown_KeyArn;
+        public string? KeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyArn) return _mValue_KeyArn;
+                throw new UndeferrableValueException("Value 'DefaultKmsKey.KeyArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ebs/defaultKmsKey:DefaultKmsKey")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Ebs
         /// <summary>
         /// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         /// </summary>
-        [Input("keyArn")]
+        [PolicyResourceProperty("keyArn", "_mUnknown_KeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyArn;
-
-        public string? KeyArn => _mKeyArn.GetValue("keyArn");
+        private string? _mValue_KeyArn;
+        private bool _mUnknown_KeyArn;
+        public string? KeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KeyArn) return _mValue_KeyArn;
+                throw new UndeferrableValueException("Value 'DefaultKmsKeyArgs.KeyArn' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Scheduler.Outputs
         /// <summary>
         /// Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
         /// </summary>
-        [Input("detailType")]
+        [PolicyResourceProperty("detailType", "_mUnknown_DetailType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetailType;
-
-        public string? DetailType => _mDetailType.GetValue("detailType");
+        private string? _mValue_DetailType;
+        private bool _mUnknown_DetailType;
+        public string? DetailType
+        {
+            get
+            {
+                if (!_mUnknown_DetailType) return _mValue_DetailType;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEventbridgeParameters.DetailType' is not present");
+            }
+        }
 
         /// <summary>
         /// Source of the event.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'ScheduleTargetEventbridgeParameters.Source' is not present");
+            }
+        }
     }
 }

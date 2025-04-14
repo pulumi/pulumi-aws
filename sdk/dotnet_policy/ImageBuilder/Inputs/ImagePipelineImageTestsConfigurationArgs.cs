@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Whether image tests are enabled. Defaults to `true`.
         /// </summary>
-        [Input("imageTestsEnabled")]
+        [PolicyResourceProperty("imageTestsEnabled", "_mUnknown_ImageTestsEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mImageTestsEnabled;
-
-        public bool? ImageTestsEnabled => _mImageTestsEnabled.GetValue("imageTestsEnabled");
+        private bool? _mValue_ImageTestsEnabled;
+        private bool _mUnknown_ImageTestsEnabled;
+        public bool? ImageTestsEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ImageTestsEnabled) return _mValue_ImageTestsEnabled;
+                throw new UndeferrableValueException("Value 'ImagePipelineImageTestsConfigurationArgs.ImageTestsEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
         /// </summary>
-        [Input("timeoutMinutes")]
+        [PolicyResourceProperty("timeoutMinutes", "_mUnknown_TimeoutMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutMinutes;
-
-        public int? TimeoutMinutes => _mTimeoutMinutes.GetValue("timeoutMinutes");
+        private int? _mValue_TimeoutMinutes;
+        private bool _mUnknown_TimeoutMinutes;
+        public int? TimeoutMinutes
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutMinutes) return _mValue_TimeoutMinutes;
+                throw new UndeferrableValueException("Value 'ImagePipelineImageTestsConfigurationArgs.TimeoutMinutes' is not present");
+            }
+        }
     }
 }

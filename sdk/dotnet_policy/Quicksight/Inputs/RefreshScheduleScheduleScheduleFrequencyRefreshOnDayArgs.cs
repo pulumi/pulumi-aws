@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The day of the month that you want to schedule refresh on.
         /// </summary>
-        [Input("dayOfMonth")]
+        [PolicyResourceProperty("dayOfMonth", "_mUnknown_DayOfMonth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfMonth;
-
-        public string? DayOfMonth => _mDayOfMonth.GetValue("dayOfMonth");
+        private string? _mValue_DayOfMonth;
+        private bool _mUnknown_DayOfMonth;
+        public string? DayOfMonth
+        {
+            get
+            {
+                if (!_mUnknown_DayOfMonth) return _mValue_DayOfMonth;
+                throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.DayOfMonth' is not present");
+            }
+        }
 
         /// <summary>
         /// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
         /// </summary>
-        [Input("dayOfWeek")]
+        [PolicyResourceProperty("dayOfWeek", "_mUnknown_DayOfWeek")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfWeek;
-
-        public string? DayOfWeek => _mDayOfWeek.GetValue("dayOfWeek");
+        private string? _mValue_DayOfWeek;
+        private bool _mUnknown_DayOfWeek;
+        public string? DayOfWeek
+        {
+            get
+            {
+                if (!_mUnknown_DayOfWeek) return _mValue_DayOfWeek;
+                throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.DayOfWeek' is not present");
+            }
+        }
     }
 }

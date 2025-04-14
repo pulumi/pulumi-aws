@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// Key-value pairs used to identify, sort, and organize cube resources.
         /// </summary>
-        [Input("labels")]
+        [PolicyResourceProperty("labels", "_mUnknown_Labels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLabels;
-
-        public Dictionary<string, string>? Labels => _mLabels.GetValue("labels");
+        private Dictionary<string, string>? _mValue_Labels;
+        private bool _mUnknown_Labels;
+        public Dictionary<string, string>? Labels
+        {
+            get
+            {
+                if (!_mUnknown_Labels) return _mValue_Labels;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesMetadata.Labels' is not present");
+            }
+        }
     }
 }

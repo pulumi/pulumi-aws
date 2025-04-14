@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// The Amazon Kinesis data stream configuration.
         /// </summary>
-        [Input("kinesisStreamConfig")]
+        [PolicyResourceProperty("kinesisStreamConfig", "_mUnknown_KinesisStreamConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RealtimeLogConfigEndpointKinesisStreamConfig> _mKinesisStreamConfig;
-
-        public Outputs.RealtimeLogConfigEndpointKinesisStreamConfig? KinesisStreamConfig => _mKinesisStreamConfig.GetValue("kinesisStreamConfig");
+        private Outputs.RealtimeLogConfigEndpointKinesisStreamConfig? _mValue_KinesisStreamConfig;
+        private bool _mUnknown_KinesisStreamConfig;
+        public Outputs.RealtimeLogConfigEndpointKinesisStreamConfig? KinesisStreamConfig
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamConfig) return _mValue_KinesisStreamConfig;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigEndpoint.KinesisStreamConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         /// </summary>
-        [Input("streamType")]
+        [PolicyResourceProperty("streamType", "_mUnknown_StreamType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamType;
-
-        public string? StreamType => _mStreamType.GetValue("streamType");
+        private string? _mValue_StreamType;
+        private bool _mUnknown_StreamType;
+        public string? StreamType
+        {
+            get
+            {
+                if (!_mUnknown_StreamType) return _mValue_StreamType;
+                throw new UndeferrableValueException("Value 'RealtimeLogConfigEndpoint.StreamType' is not present");
+            }
+        }
     }
 }

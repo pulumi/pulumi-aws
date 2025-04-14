@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Outputs
         /// <summary>
         /// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
         /// </summary>
-        [Input("sizeInGib")]
+        [PolicyResourceProperty("sizeInGib", "_mUnknown_SizeInGib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSizeInGib;
-
-        public int? SizeInGib => _mSizeInGib.GetValue("sizeInGib");
+        private int? _mValue_SizeInGib;
+        private bool _mUnknown_SizeInGib;
+        public int? SizeInGib
+        {
+            get
+            {
+                if (!_mUnknown_SizeInGib) return _mValue_SizeInGib;
+                throw new UndeferrableValueException("Value 'GetTaskDefinitionEphemeralStorageResult.SizeInGib' is not present");
+            }
+        }
     }
 }

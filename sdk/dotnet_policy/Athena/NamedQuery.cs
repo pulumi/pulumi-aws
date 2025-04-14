@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// Database to which the query belongs.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'NamedQuery.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// Brief explanation of the query. Maximum length of 1024.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'NamedQuery.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Plain language name for the query. Maximum length of 128.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NamedQuery.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
         /// </summary>
-        [Input("query")]
+        [PolicyResourceProperty("query", "_mUnknown_Query")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuery;
-
-        public string? Query => _mQuery.GetValue("query");
+        private string? _mValue_Query;
+        private bool _mUnknown_Query;
+        public string? Query
+        {
+            get
+            {
+                if (!_mUnknown_Query) return _mValue_Query;
+                throw new UndeferrableValueException("Value 'NamedQuery.Query' is not present");
+            }
+        }
 
         /// <summary>
         /// Workgroup to which the query belongs. Defaults to `primary`
         /// </summary>
-        [Input("workgroup")]
+        [PolicyResourceProperty("workgroup", "_mUnknown_Workgroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
-
-        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
+        private string? _mValue_Workgroup;
+        private bool _mUnknown_Workgroup;
+        public string? Workgroup
+        {
+            get
+            {
+                if (!_mUnknown_Workgroup) return _mValue_Workgroup;
+                throw new UndeferrableValueException("Value 'NamedQuery.Workgroup' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:athena/namedQuery:NamedQuery")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// Database to which the query belongs.
         /// </summary>
-        [Input("database")]
+        [PolicyResourceProperty("database", "_mUnknown_Database")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabase;
-
-        public string? Database => _mDatabase.GetValue("database");
+        private string? _mValue_Database;
+        private bool _mUnknown_Database;
+        public string? Database
+        {
+            get
+            {
+                if (!_mUnknown_Database) return _mValue_Database;
+                throw new UndeferrableValueException("Value 'NamedQueryArgs.Database' is not present");
+            }
+        }
 
         /// <summary>
         /// Brief explanation of the query. Maximum length of 1024.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'NamedQueryArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Plain language name for the query. Maximum length of 128.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'NamedQueryArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Text of the query itself. In other words, all query statements. Maximum length of 262144.
         /// </summary>
-        [Input("query")]
+        [PolicyResourceProperty("query", "_mUnknown_Query")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuery;
-
-        public string? Query => _mQuery.GetValue("query");
+        private string? _mValue_Query;
+        private bool _mUnknown_Query;
+        public string? Query
+        {
+            get
+            {
+                if (!_mUnknown_Query) return _mValue_Query;
+                throw new UndeferrableValueException("Value 'NamedQueryArgs.Query' is not present");
+            }
+        }
 
         /// <summary>
         /// Workgroup to which the query belongs. Defaults to `primary`
         /// </summary>
-        [Input("workgroup")]
+        [PolicyResourceProperty("workgroup", "_mUnknown_Workgroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkgroup;
-
-        public string? Workgroup => _mWorkgroup.GetValue("workgroup");
+        private string? _mValue_Workgroup;
+        private bool _mUnknown_Workgroup;
+        public string? Workgroup
+        {
+            get
+            {
+                if (!_mUnknown_Workgroup) return _mValue_Workgroup;
+                throw new UndeferrableValueException("Value 'NamedQueryArgs.Workgroup' is not present");
+            }
+        }
     }
 }

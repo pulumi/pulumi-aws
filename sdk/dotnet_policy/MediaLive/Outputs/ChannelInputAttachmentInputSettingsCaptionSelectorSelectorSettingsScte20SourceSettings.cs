@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings
     {
-        [Input("convert608To708")]
+        [PolicyResourceProperty("convert608To708", "_mUnknown_Convert608To708")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConvert608To708;
+        private string? _mValue_Convert608To708;
+        private bool _mUnknown_Convert608To708;
+        public string? Convert608To708
+        {
+            get
+            {
+                if (!_mUnknown_Convert608To708) return _mValue_Convert608To708;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.Convert608To708' is not present");
+            }
+        }
 
-        public string? Convert608To708 => _mConvert608To708.GetValue("convert608To708");
-
-        [Input("source608ChannelNumber")]
+        [PolicyResourceProperty("source608ChannelNumber", "_mUnknown_Source608ChannelNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSource608ChannelNumber;
-
-        public int? Source608ChannelNumber => _mSource608ChannelNumber.GetValue("source608ChannelNumber");
+        private int? _mValue_Source608ChannelNumber;
+        private bool _mUnknown_Source608ChannelNumber;
+        public int? Source608ChannelNumber
+        {
+            get
+            {
+                if (!_mUnknown_Source608ChannelNumber) return _mValue_Source608ChannelNumber;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.Source608ChannelNumber' is not present");
+            }
+        }
     }
 }

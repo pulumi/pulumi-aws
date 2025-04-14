@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class GetInputSourceResult
     {
-        [Input("passwordParam")]
+        [PolicyResourceProperty("passwordParam", "_mUnknown_PasswordParam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPasswordParam;
+        private string? _mValue_PasswordParam;
+        private bool _mUnknown_PasswordParam;
+        public string? PasswordParam
+        {
+            get
+            {
+                if (!_mUnknown_PasswordParam) return _mValue_PasswordParam;
+                throw new UndeferrableValueException("Value 'GetInputSourceResult.PasswordParam' is not present");
+            }
+        }
 
-        public string? PasswordParam => _mPasswordParam.GetValue("passwordParam");
-
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'GetInputSourceResult.Url' is not present");
+            }
+        }
 
-        public string? Url => _mUrl.GetValue("url");
-
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'GetInputSourceResult.Username' is not present");
+            }
+        }
     }
 }

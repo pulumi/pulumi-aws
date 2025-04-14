@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// ARN of the AppConfig Extension Association.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ExtensionAssociation.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the extension defined in the association.
         /// </summary>
-        [Input("extensionArn")]
+        [PolicyResourceProperty("extensionArn", "_mUnknown_ExtensionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtensionArn;
-
-        public string? ExtensionArn => _mExtensionArn.GetValue("extensionArn");
+        private string? _mValue_ExtensionArn;
+        private bool _mUnknown_ExtensionArn;
+        public string? ExtensionArn
+        {
+            get
+            {
+                if (!_mUnknown_ExtensionArn) return _mValue_ExtensionArn;
+                throw new UndeferrableValueException("Value 'ExtensionAssociation.ExtensionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The version number for the extension defined in the association.
         /// </summary>
-        [Input("extensionVersion")]
+        [PolicyResourceProperty("extensionVersion", "_mUnknown_ExtensionVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mExtensionVersion;
-
-        public int? ExtensionVersion => _mExtensionVersion.GetValue("extensionVersion");
+        private int? _mValue_ExtensionVersion;
+        private bool _mUnknown_ExtensionVersion;
+        public int? ExtensionVersion
+        {
+            get
+            {
+                if (!_mUnknown_ExtensionVersion) return _mValue_ExtensionVersion;
+                throw new UndeferrableValueException("Value 'ExtensionAssociation.ExtensionVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameter names and values defined for the association.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ExtensionAssociation.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the application, configuration profile, or environment to associate with the extension.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ExtensionAssociation.ResourceArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appconfig/extensionAssociation:ExtensionAssociation")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// The ARN of the extension defined in the association.
         /// </summary>
-        [Input("extensionArn")]
+        [PolicyResourceProperty("extensionArn", "_mUnknown_ExtensionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExtensionArn;
-
-        public string? ExtensionArn => _mExtensionArn.GetValue("extensionArn");
+        private string? _mValue_ExtensionArn;
+        private bool _mUnknown_ExtensionArn;
+        public string? ExtensionArn
+        {
+            get
+            {
+                if (!_mUnknown_ExtensionArn) return _mValue_ExtensionArn;
+                throw new UndeferrableValueException("Value 'ExtensionAssociationArgs.ExtensionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The parameter names and values defined for the association.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ExtensionAssociationArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the application, configuration profile, or environment to associate with the extension.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'ExtensionAssociationArgs.ResourceArn' is not present");
+            }
+        }
     }
 }

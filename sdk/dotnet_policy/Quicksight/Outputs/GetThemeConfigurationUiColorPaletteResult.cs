@@ -15,145 +15,257 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Color (hexadecimal) that applies to selected states and buttons.
         /// </summary>
-        [Input("accent")]
+        [PolicyResourceProperty("accent", "_mUnknown_Accent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccent;
-
-        public string? Accent => _mAccent.GetValue("accent");
+        private string? _mValue_Accent;
+        private bool _mUnknown_Accent;
+        public string? Accent
+        {
+            get
+            {
+                if (!_mUnknown_Accent) return _mValue_Accent;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.Accent' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
         /// </summary>
-        [Input("accentForeground")]
+        [PolicyResourceProperty("accentForeground", "_mUnknown_AccentForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccentForeground;
-
-        public string? AccentForeground => _mAccentForeground.GetValue("accentForeground");
+        private string? _mValue_AccentForeground;
+        private bool _mUnknown_AccentForeground;
+        public string? AccentForeground
+        {
+            get
+            {
+                if (!_mUnknown_AccentForeground) return _mValue_AccentForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.AccentForeground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to error messages.
         /// </summary>
-        [Input("danger")]
+        [PolicyResourceProperty("danger", "_mUnknown_Danger")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDanger;
-
-        public string? Danger => _mDanger.GetValue("danger");
+        private string? _mValue_Danger;
+        private bool _mUnknown_Danger;
+        public string? Danger
+        {
+            get
+            {
+                if (!_mUnknown_Danger) return _mValue_Danger;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.Danger' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
         /// </summary>
-        [Input("dangerForeground")]
+        [PolicyResourceProperty("dangerForeground", "_mUnknown_DangerForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDangerForeground;
-
-        public string? DangerForeground => _mDangerForeground.GetValue("dangerForeground");
+        private string? _mValue_DangerForeground;
+        private bool _mUnknown_DangerForeground;
+        public string? DangerForeground
+        {
+            get
+            {
+                if (!_mUnknown_DangerForeground) return _mValue_DangerForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.DangerForeground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
         /// </summary>
-        [Input("dimension")]
+        [PolicyResourceProperty("dimension", "_mUnknown_Dimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimension;
-
-        public string? Dimension => _mDimension.GetValue("dimension");
+        private string? _mValue_Dimension;
+        private bool _mUnknown_Dimension;
+        public string? Dimension
+        {
+            get
+            {
+                if (!_mUnknown_Dimension) return _mValue_Dimension;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.Dimension' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
         /// </summary>
-        [Input("dimensionForeground")]
+        [PolicyResourceProperty("dimensionForeground", "_mUnknown_DimensionForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimensionForeground;
-
-        public string? DimensionForeground => _mDimensionForeground.GetValue("dimensionForeground");
+        private string? _mValue_DimensionForeground;
+        private bool _mUnknown_DimensionForeground;
+        public string? DimensionForeground
+        {
+            get
+            {
+                if (!_mUnknown_DimensionForeground) return _mValue_DimensionForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.DimensionForeground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to the names of fields that are identified as measures.
         /// </summary>
-        [Input("measure")]
+        [PolicyResourceProperty("measure", "_mUnknown_Measure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeasure;
-
-        public string? Measure => _mMeasure.GetValue("measure");
+        private string? _mValue_Measure;
+        private bool _mUnknown_Measure;
+        public string? Measure
+        {
+            get
+            {
+                if (!_mUnknown_Measure) return _mValue_Measure;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.Measure' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
         /// </summary>
-        [Input("measureForeground")]
+        [PolicyResourceProperty("measureForeground", "_mUnknown_MeasureForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeasureForeground;
-
-        public string? MeasureForeground => _mMeasureForeground.GetValue("measureForeground");
+        private string? _mValue_MeasureForeground;
+        private bool _mUnknown_MeasureForeground;
+        public string? MeasureForeground
+        {
+            get
+            {
+                if (!_mUnknown_MeasureForeground) return _mValue_MeasureForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.MeasureForeground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to visuals and other high emphasis UI.
         /// </summary>
-        [Input("primaryBackground")]
+        [PolicyResourceProperty("primaryBackground", "_mUnknown_PrimaryBackground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryBackground;
-
-        public string? PrimaryBackground => _mPrimaryBackground.GetValue("primaryBackground");
+        private string? _mValue_PrimaryBackground;
+        private bool _mUnknown_PrimaryBackground;
+        public string? PrimaryBackground
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryBackground) return _mValue_PrimaryBackground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.PrimaryBackground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
         /// </summary>
-        [Input("primaryForeground")]
+        [PolicyResourceProperty("primaryForeground", "_mUnknown_PrimaryForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryForeground;
-
-        public string? PrimaryForeground => _mPrimaryForeground.GetValue("primaryForeground");
+        private string? _mValue_PrimaryForeground;
+        private bool _mUnknown_PrimaryForeground;
+        public string? PrimaryForeground
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryForeground) return _mValue_PrimaryForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.PrimaryForeground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to the sheet background and sheet controls.
         /// </summary>
-        [Input("secondaryBackground")]
+        [PolicyResourceProperty("secondaryBackground", "_mUnknown_SecondaryBackground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecondaryBackground;
-
-        public string? SecondaryBackground => _mSecondaryBackground.GetValue("secondaryBackground");
+        private string? _mValue_SecondaryBackground;
+        private bool _mUnknown_SecondaryBackground;
+        public string? SecondaryBackground
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryBackground) return _mValue_SecondaryBackground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.SecondaryBackground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
         /// </summary>
-        [Input("secondaryForeground")]
+        [PolicyResourceProperty("secondaryForeground", "_mUnknown_SecondaryForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecondaryForeground;
-
-        public string? SecondaryForeground => _mSecondaryForeground.GetValue("secondaryForeground");
+        private string? _mValue_SecondaryForeground;
+        private bool _mUnknown_SecondaryForeground;
+        public string? SecondaryForeground
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryForeground) return _mValue_SecondaryForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.SecondaryForeground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
         /// </summary>
-        [Input("success")]
+        [PolicyResourceProperty("success", "_mUnknown_Success")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccess;
-
-        public string? Success => _mSuccess.GetValue("success");
+        private string? _mValue_Success;
+        private bool _mUnknown_Success;
+        public string? Success
+        {
+            get
+            {
+                if (!_mUnknown_Success) return _mValue_Success;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.Success' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
         /// </summary>
-        [Input("successForeground")]
+        [PolicyResourceProperty("successForeground", "_mUnknown_SuccessForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSuccessForeground;
-
-        public string? SuccessForeground => _mSuccessForeground.GetValue("successForeground");
+        private string? _mValue_SuccessForeground;
+        private bool _mUnknown_SuccessForeground;
+        public string? SuccessForeground
+        {
+            get
+            {
+                if (!_mUnknown_SuccessForeground) return _mValue_SuccessForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.SuccessForeground' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to warning and informational messages.
         /// </summary>
-        [Input("warning")]
+        [PolicyResourceProperty("warning", "_mUnknown_Warning")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarning;
-
-        public string? Warning => _mWarning.GetValue("warning");
+        private string? _mValue_Warning;
+        private bool _mUnknown_Warning;
+        public string? Warning
+        {
+            get
+            {
+                if (!_mUnknown_Warning) return _mValue_Warning;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.Warning' is not present");
+            }
+        }
 
         /// <summary>
         /// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
         /// </summary>
-        [Input("warningForeground")]
+        [PolicyResourceProperty("warningForeground", "_mUnknown_WarningForeground")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarningForeground;
-
-        public string? WarningForeground => _mWarningForeground.GetValue("warningForeground");
+        private string? _mValue_WarningForeground;
+        private bool _mUnknown_WarningForeground;
+        public string? WarningForeground
+        {
+            get
+            {
+                if (!_mUnknown_WarningForeground) return _mValue_WarningForeground;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationUiColorPaletteResult.WarningForeground' is not present");
+            }
+        }
     }
 }

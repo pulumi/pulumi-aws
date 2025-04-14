@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
         /// </summary>
-        [Input("dataSourceLevelMetricsBehavior")]
+        [PolicyResourceProperty("dataSourceLevelMetricsBehavior", "_mUnknown_DataSourceLevelMetricsBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceLevelMetricsBehavior;
-
-        public string? DataSourceLevelMetricsBehavior => _mDataSourceLevelMetricsBehavior.GetValue("dataSourceLevelMetricsBehavior");
+        private string? _mValue_DataSourceLevelMetricsBehavior;
+        private bool _mUnknown_DataSourceLevelMetricsBehavior;
+        public string? DataSourceLevelMetricsBehavior
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceLevelMetricsBehavior) return _mValue_DataSourceLevelMetricsBehavior;
+                throw new UndeferrableValueException("Value 'GraphQLApiEnhancedMetricsConfigArgs.DataSourceLevelMetricsBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
         /// </summary>
-        [Input("operationLevelMetricsConfig")]
+        [PolicyResourceProperty("operationLevelMetricsConfig", "_mUnknown_OperationLevelMetricsConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperationLevelMetricsConfig;
-
-        public string? OperationLevelMetricsConfig => _mOperationLevelMetricsConfig.GetValue("operationLevelMetricsConfig");
+        private string? _mValue_OperationLevelMetricsConfig;
+        private bool _mUnknown_OperationLevelMetricsConfig;
+        public string? OperationLevelMetricsConfig
+        {
+            get
+            {
+                if (!_mUnknown_OperationLevelMetricsConfig) return _mValue_OperationLevelMetricsConfig;
+                throw new UndeferrableValueException("Value 'GraphQLApiEnhancedMetricsConfigArgs.OperationLevelMetricsConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
         /// </summary>
-        [Input("resolverLevelMetricsBehavior")]
+        [PolicyResourceProperty("resolverLevelMetricsBehavior", "_mUnknown_ResolverLevelMetricsBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverLevelMetricsBehavior;
-
-        public string? ResolverLevelMetricsBehavior => _mResolverLevelMetricsBehavior.GetValue("resolverLevelMetricsBehavior");
+        private string? _mValue_ResolverLevelMetricsBehavior;
+        private bool _mUnknown_ResolverLevelMetricsBehavior;
+        public string? ResolverLevelMetricsBehavior
+        {
+            get
+            {
+                if (!_mUnknown_ResolverLevelMetricsBehavior) return _mValue_ResolverLevelMetricsBehavior;
+                throw new UndeferrableValueException("Value 'GraphQLApiEnhancedMetricsConfigArgs.ResolverLevelMetricsBehavior' is not present");
+            }
+        }
     }
 }

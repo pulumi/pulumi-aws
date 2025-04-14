@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
         /// </summary>
-        [Input("aggregationConfig")]
+        [PolicyResourceProperty("aggregationConfig", "_mUnknown_AggregationConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs> _mAggregationConfig;
-
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs? AggregationConfig => _mAggregationConfig.GetValue("aggregationConfig");
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs? _mValue_AggregationConfig;
+        private bool _mUnknown_AggregationConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs? AggregationConfig
+        {
+            get
+            {
+                if (!_mUnknown_AggregationConfig) return _mValue_AggregationConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs.AggregationConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
         /// </summary>
-        [Input("fileType")]
+        [PolicyResourceProperty("fileType", "_mUnknown_FileType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileType;
-
-        public string? FileType => _mFileType.GetValue("fileType");
+        private string? _mValue_FileType;
+        private bool _mUnknown_FileType;
+        public string? FileType
+        {
+            get
+            {
+                if (!_mUnknown_FileType) return _mValue_FileType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs.FileType' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
         /// </summary>
-        [Input("prefixConfig")]
+        [PolicyResourceProperty("prefixConfig", "_mUnknown_PrefixConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs> _mPrefixConfig;
-
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs? PrefixConfig => _mPrefixConfig.GetValue("prefixConfig");
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs? _mValue_PrefixConfig;
+        private bool _mUnknown_PrefixConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs? PrefixConfig
+        {
+            get
+            {
+                if (!_mUnknown_PrefixConfig) return _mValue_PrefixConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs.PrefixConfig' is not present");
+            }
+        }
     }
 }

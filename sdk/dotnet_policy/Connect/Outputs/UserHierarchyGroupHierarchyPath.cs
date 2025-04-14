@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// A block that defines the details of level five. The level block is documented below.
         /// </summary>
-        [Input("levelFives")]
+        [PolicyResourceProperty("levelFives", "_mUnknown_LevelFives")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHierarchyGroupHierarchyPathLevelFife>> _mLevelFives;
-
-        public List<Outputs.UserHierarchyGroupHierarchyPathLevelFife>? LevelFives => _mLevelFives.GetValue("levelFives");
+        private List<Outputs.UserHierarchyGroupHierarchyPathLevelFife>? _mValue_LevelFives;
+        private bool _mUnknown_LevelFives;
+        public List<Outputs.UserHierarchyGroupHierarchyPathLevelFife>? LevelFives
+        {
+            get
+            {
+                if (!_mUnknown_LevelFives) return _mValue_LevelFives;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.LevelFives' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level four. The level block is documented below.
         /// </summary>
-        [Input("levelFours")]
+        [PolicyResourceProperty("levelFours", "_mUnknown_LevelFours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHierarchyGroupHierarchyPathLevelFour>> _mLevelFours;
-
-        public List<Outputs.UserHierarchyGroupHierarchyPathLevelFour>? LevelFours => _mLevelFours.GetValue("levelFours");
+        private List<Outputs.UserHierarchyGroupHierarchyPathLevelFour>? _mValue_LevelFours;
+        private bool _mUnknown_LevelFours;
+        public List<Outputs.UserHierarchyGroupHierarchyPathLevelFour>? LevelFours
+        {
+            get
+            {
+                if (!_mUnknown_LevelFours) return _mValue_LevelFours;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.LevelFours' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level one. The level block is documented below.
         /// </summary>
-        [Input("levelOnes")]
+        [PolicyResourceProperty("levelOnes", "_mUnknown_LevelOnes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHierarchyGroupHierarchyPathLevelOne>> _mLevelOnes;
-
-        public List<Outputs.UserHierarchyGroupHierarchyPathLevelOne>? LevelOnes => _mLevelOnes.GetValue("levelOnes");
+        private List<Outputs.UserHierarchyGroupHierarchyPathLevelOne>? _mValue_LevelOnes;
+        private bool _mUnknown_LevelOnes;
+        public List<Outputs.UserHierarchyGroupHierarchyPathLevelOne>? LevelOnes
+        {
+            get
+            {
+                if (!_mUnknown_LevelOnes) return _mValue_LevelOnes;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.LevelOnes' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level three. The level block is documented below.
         /// </summary>
-        [Input("levelThrees")]
+        [PolicyResourceProperty("levelThrees", "_mUnknown_LevelThrees")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHierarchyGroupHierarchyPathLevelThree>> _mLevelThrees;
-
-        public List<Outputs.UserHierarchyGroupHierarchyPathLevelThree>? LevelThrees => _mLevelThrees.GetValue("levelThrees");
+        private List<Outputs.UserHierarchyGroupHierarchyPathLevelThree>? _mValue_LevelThrees;
+        private bool _mUnknown_LevelThrees;
+        public List<Outputs.UserHierarchyGroupHierarchyPathLevelThree>? LevelThrees
+        {
+            get
+            {
+                if (!_mUnknown_LevelThrees) return _mValue_LevelThrees;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.LevelThrees' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that defines the details of level two. The level block is documented below.
         /// </summary>
-        [Input("levelTwos")]
+        [PolicyResourceProperty("levelTwos", "_mUnknown_LevelTwos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserHierarchyGroupHierarchyPathLevelTwo>> _mLevelTwos;
-
-        public List<Outputs.UserHierarchyGroupHierarchyPathLevelTwo>? LevelTwos => _mLevelTwos.GetValue("levelTwos");
+        private List<Outputs.UserHierarchyGroupHierarchyPathLevelTwo>? _mValue_LevelTwos;
+        private bool _mUnknown_LevelTwos;
+        public List<Outputs.UserHierarchyGroupHierarchyPathLevelTwo>? LevelTwos
+        {
+            get
+            {
+                if (!_mUnknown_LevelTwos) return _mValue_LevelTwos;
+                throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.LevelTwos' is not present");
+            }
+        }
     }
 }

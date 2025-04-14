@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// A unique name for the location the RTMP stream is being pushed to.
         /// </summary>
-        [Input("streamName")]
+        [PolicyResourceProperty("streamName", "_mUnknown_StreamName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamName;
-
-        public string? StreamName => _mStreamName.GetValue("streamName");
+        private string? _mValue_StreamName;
+        private bool _mUnknown_StreamName;
+        public string? StreamName
+        {
+            get
+            {
+                if (!_mUnknown_StreamName) return _mValue_StreamName;
+                throw new UndeferrableValueException("Value 'InputDestination.StreamName' is not present");
+            }
+        }
     }
 }

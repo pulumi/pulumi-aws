@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// <summary>
         /// ARN of the readiness_check
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReadinessCheck.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name describing the readiness check.
         /// </summary>
-        [Input("readinessCheckName")]
+        [PolicyResourceProperty("readinessCheckName", "_mUnknown_ReadinessCheckName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReadinessCheckName;
-
-        public string? ReadinessCheckName => _mReadinessCheckName.GetValue("readinessCheckName");
+        private string? _mValue_ReadinessCheckName;
+        private bool _mUnknown_ReadinessCheckName;
+        public string? ReadinessCheckName
+        {
+            get
+            {
+                if (!_mUnknown_ReadinessCheckName) return _mValue_ReadinessCheckName;
+                throw new UndeferrableValueException("Value 'ReadinessCheck.ReadinessCheckName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name describing the resource set that will be monitored for readiness.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceSetName")]
+        [PolicyResourceProperty("resourceSetName", "_mUnknown_ResourceSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceSetName;
-
-        public string? ResourceSetName => _mResourceSetName.GetValue("resourceSetName");
+        private string? _mValue_ResourceSetName;
+        private bool _mUnknown_ResourceSetName;
+        public string? ResourceSetName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceSetName) return _mValue_ResourceSetName;
+                throw new UndeferrableValueException("Value 'ReadinessCheck.ResourceSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReadinessCheck.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReadinessCheck.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck")]
@@ -67,30 +102,51 @@ namespace Pulumi.PolicyPacks.Aws.Route53RecoveryReadiness
         /// <summary>
         /// Unique name describing the readiness check.
         /// </summary>
-        [Input("readinessCheckName")]
+        [PolicyResourceProperty("readinessCheckName", "_mUnknown_ReadinessCheckName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReadinessCheckName;
-
-        public string? ReadinessCheckName => _mReadinessCheckName.GetValue("readinessCheckName");
+        private string? _mValue_ReadinessCheckName;
+        private bool _mUnknown_ReadinessCheckName;
+        public string? ReadinessCheckName
+        {
+            get
+            {
+                if (!_mUnknown_ReadinessCheckName) return _mValue_ReadinessCheckName;
+                throw new UndeferrableValueException("Value 'ReadinessCheckArgs.ReadinessCheckName' is not present");
+            }
+        }
 
         /// <summary>
         /// Name describing the resource set that will be monitored for readiness.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceSetName")]
+        [PolicyResourceProperty("resourceSetName", "_mUnknown_ResourceSetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceSetName;
-
-        public string? ResourceSetName => _mResourceSetName.GetValue("resourceSetName");
+        private string? _mValue_ResourceSetName;
+        private bool _mUnknown_ResourceSetName;
+        public string? ResourceSetName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceSetName) return _mValue_ResourceSetName;
+                throw new UndeferrableValueException("Value 'ReadinessCheckArgs.ResourceSetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReadinessCheckArgs.Tags' is not present");
+            }
+        }
     }
 }

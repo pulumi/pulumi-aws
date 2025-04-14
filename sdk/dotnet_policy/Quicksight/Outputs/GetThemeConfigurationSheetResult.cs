@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The layout options for tiles. See tile_layout.
         /// </summary>
-        [Input("tileLayouts")]
+        [PolicyResourceProperty("tileLayouts", "_mUnknown_TileLayouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationSheetTileLayoutResult>> _mTileLayouts;
-
-        public List<Outputs.GetThemeConfigurationSheetTileLayoutResult>? TileLayouts => _mTileLayouts.GetValue("tileLayouts");
+        private List<Outputs.GetThemeConfigurationSheetTileLayoutResult>? _mValue_TileLayouts;
+        private bool _mUnknown_TileLayouts;
+        public List<Outputs.GetThemeConfigurationSheetTileLayoutResult>? TileLayouts
+        {
+            get
+            {
+                if (!_mUnknown_TileLayouts) return _mValue_TileLayouts;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationSheetResult.TileLayouts' is not present");
+            }
+        }
 
         /// <summary>
         /// The display options for tiles. See tile.
         /// </summary>
-        [Input("tiles")]
+        [PolicyResourceProperty("tiles", "_mUnknown_Tiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetThemeConfigurationSheetTileResult>> _mTiles;
-
-        public List<Outputs.GetThemeConfigurationSheetTileResult>? Tiles => _mTiles.GetValue("tiles");
+        private List<Outputs.GetThemeConfigurationSheetTileResult>? _mValue_Tiles;
+        private bool _mUnknown_Tiles;
+        public List<Outputs.GetThemeConfigurationSheetTileResult>? Tiles
+        {
+            get
+            {
+                if (!_mUnknown_Tiles) return _mValue_Tiles;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationSheetResult.Tiles' is not present");
+            }
+        }
     }
 }

@@ -16,41 +16,76 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// Amazon Resource Name (ARN) of the message template.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EmailTemplate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         /// </summary>
-        [Input("emailTemplates")]
+        [PolicyResourceProperty("emailTemplates", "_mUnknown_EmailTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EmailTemplateEmailTemplate>> _mEmailTemplates;
+        private List<Outputs.EmailTemplateEmailTemplate>? _mValue_EmailTemplates;
+        private bool _mUnknown_EmailTemplates;
+        public List<Outputs.EmailTemplateEmailTemplate>? EmailTemplates
+        {
+            get
+            {
+                if (!_mUnknown_EmailTemplates) return _mValue_EmailTemplates;
+                throw new UndeferrableValueException("Value 'EmailTemplate.EmailTemplates' is not present");
+            }
+        }
 
-        public List<Outputs.EmailTemplateEmailTemplate>? EmailTemplates => _mEmailTemplates.GetValue("emailTemplates");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EmailTemplate.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EmailTemplate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         /// </summary>
-        [Input("templateName")]
+        [PolicyResourceProperty("templateName", "_mUnknown_TemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
-
-        public string? TemplateName => _mTemplateName.GetValue("templateName");
+        private string? _mValue_TemplateName;
+        private bool _mUnknown_TemplateName;
+        public string? TemplateName
+        {
+            get
+            {
+                if (!_mUnknown_TemplateName) return _mValue_TemplateName;
+                throw new UndeferrableValueException("Value 'EmailTemplate.TemplateName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/emailTemplate:EmailTemplate")]
@@ -59,25 +94,46 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         /// </summary>
-        [Input("emailTemplates")]
+        [PolicyResourceProperty("emailTemplates", "_mUnknown_EmailTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EmailTemplateEmailTemplateArgs>> _mEmailTemplates;
+        private List<Inputs.EmailTemplateEmailTemplateArgs>? _mValue_EmailTemplates;
+        private bool _mUnknown_EmailTemplates;
+        public List<Inputs.EmailTemplateEmailTemplateArgs>? EmailTemplates
+        {
+            get
+            {
+                if (!_mUnknown_EmailTemplates) return _mValue_EmailTemplates;
+                throw new UndeferrableValueException("Value 'EmailTemplateArgs.EmailTemplates' is not present");
+            }
+        }
 
-        public List<Inputs.EmailTemplateEmailTemplateArgs>? EmailTemplates => _mEmailTemplates.GetValue("emailTemplates");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EmailTemplateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         /// </summary>
-        [Input("templateName")]
+        [PolicyResourceProperty("templateName", "_mUnknown_TemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
-
-        public string? TemplateName => _mTemplateName.GetValue("templateName");
+        private string? _mValue_TemplateName;
+        private bool _mUnknown_TemplateName;
+        public string? TemplateName
+        {
+            get
+            {
+                if (!_mUnknown_TemplateName) return _mValue_TemplateName;
+                throw new UndeferrableValueException("Value 'EmailTemplateArgs.TemplateName' is not present");
+            }
+        }
     }
 }

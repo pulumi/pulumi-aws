@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
 {
     public sealed class GetEndpointRedshiftSettingResult
     {
-        [Input("bucketFolder")]
+        [PolicyResourceProperty("bucketFolder", "_mUnknown_BucketFolder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketFolder;
+        private string? _mValue_BucketFolder;
+        private bool _mUnknown_BucketFolder;
+        public string? BucketFolder
+        {
+            get
+            {
+                if (!_mUnknown_BucketFolder) return _mValue_BucketFolder;
+                throw new UndeferrableValueException("Value 'GetEndpointRedshiftSettingResult.BucketFolder' is not present");
+            }
+        }
 
-        public string? BucketFolder => _mBucketFolder.GetValue("bucketFolder");
-
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'GetEndpointRedshiftSettingResult.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("encryptionMode")]
+        [PolicyResourceProperty("encryptionMode", "_mUnknown_EncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionMode;
+        private string? _mValue_EncryptionMode;
+        private bool _mUnknown_EncryptionMode;
+        public string? EncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionMode) return _mValue_EncryptionMode;
+                throw new UndeferrableValueException("Value 'GetEndpointRedshiftSettingResult.EncryptionMode' is not present");
+            }
+        }
 
-        public string? EncryptionMode => _mEncryptionMode.GetValue("encryptionMode");
-
-        [Input("serverSideEncryptionKmsKeyId")]
+        [PolicyResourceProperty("serverSideEncryptionKmsKeyId", "_mUnknown_ServerSideEncryptionKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerSideEncryptionKmsKeyId;
+        private string? _mValue_ServerSideEncryptionKmsKeyId;
+        private bool _mUnknown_ServerSideEncryptionKmsKeyId;
+        public string? ServerSideEncryptionKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionKmsKeyId) return _mValue_ServerSideEncryptionKmsKeyId;
+                throw new UndeferrableValueException("Value 'GetEndpointRedshiftSettingResult.ServerSideEncryptionKmsKeyId' is not present");
+            }
+        }
 
-        public string? ServerSideEncryptionKmsKeyId => _mServerSideEncryptionKmsKeyId.GetValue("serverSideEncryptionKmsKeyId");
-
-        [Input("serviceAccessRoleArn")]
+        [PolicyResourceProperty("serviceAccessRoleArn", "_mUnknown_ServiceAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccessRoleArn;
-
-        public string? ServiceAccessRoleArn => _mServiceAccessRoleArn.GetValue("serviceAccessRoleArn");
+        private string? _mValue_ServiceAccessRoleArn;
+        private bool _mUnknown_ServiceAccessRoleArn;
+        public string? ServiceAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccessRoleArn) return _mValue_ServiceAccessRoleArn;
+                throw new UndeferrableValueException("Value 'GetEndpointRedshiftSettingResult.ServiceAccessRoleArn' is not present");
+            }
+        }
     }
 }

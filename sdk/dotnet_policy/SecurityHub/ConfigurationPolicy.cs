@@ -13,38 +13,66 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
     [PolicyResourceType("aws:securityhub/configurationPolicy:ConfigurationPolicy")]
     public sealed class ConfigurationPolicy : global::Pulumi.PolicyResourceOutput
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines how Security Hub is configured. See below.
         /// </summary>
-        [Input("configurationPolicy")]
+        [PolicyResourceProperty("configurationPolicy", "_mUnknown_ConfigurationPolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConfigurationPolicyConfigurationPolicy> _mConfigurationPolicyDetails;
-
-        public Outputs.ConfigurationPolicyConfigurationPolicy? ConfigurationPolicyDetails => _mConfigurationPolicyDetails.GetValue("configurationPolicy");
+        private Outputs.ConfigurationPolicyConfigurationPolicy? _mValue_ConfigurationPolicyDetails;
+        private bool _mUnknown_ConfigurationPolicyDetails;
+        public Outputs.ConfigurationPolicyConfigurationPolicy? ConfigurationPolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationPolicyDetails) return _mValue_ConfigurationPolicyDetails;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicy.ConfigurationPolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the configuration policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicy.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicy.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securityhub/configurationPolicy:ConfigurationPolicy")]
@@ -53,28 +81,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub
         /// <summary>
         /// Defines how Security Hub is configured. See below.
         /// </summary>
-        [Input("configurationPolicy")]
+        [PolicyResourceProperty("configurationPolicy", "_mUnknown_ConfigurationPolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConfigurationPolicyConfigurationPolicyArgs> _mConfigurationPolicyDetails;
-
-        public Inputs.ConfigurationPolicyConfigurationPolicyArgs? ConfigurationPolicyDetails => _mConfigurationPolicyDetails.GetValue("configurationPolicy");
+        private Inputs.ConfigurationPolicyConfigurationPolicyArgs? _mValue_ConfigurationPolicyDetails;
+        private bool _mUnknown_ConfigurationPolicyDetails;
+        public Inputs.ConfigurationPolicyConfigurationPolicyArgs? ConfigurationPolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationPolicyDetails) return _mValue_ConfigurationPolicyDetails;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyArgs.ConfigurationPolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the configuration policy.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationPolicyArgs.Name' is not present");
+            }
+        }
     }
 }

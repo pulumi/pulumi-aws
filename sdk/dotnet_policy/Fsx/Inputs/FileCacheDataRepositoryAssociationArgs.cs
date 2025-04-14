@@ -12,88 +12,165 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
 {
     public sealed class FileCacheDataRepositoryAssociationArgs
     {
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The path to the S3 or NFS data repository that links to the cache.
         /// </summary>
-        [Input("dataRepositoryPath")]
+        [PolicyResourceProperty("dataRepositoryPath", "_mUnknown_DataRepositoryPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataRepositoryPath;
-
-        public string? DataRepositoryPath => _mDataRepositoryPath.GetValue("dataRepositoryPath");
+        private string? _mValue_DataRepositoryPath;
+        private bool _mUnknown_DataRepositoryPath;
+        public string? DataRepositoryPath
+        {
+            get
+            {
+                if (!_mUnknown_DataRepositoryPath) return _mValue_DataRepositoryPath;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.DataRepositoryPath' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
         /// </summary>
-        [Input("dataRepositorySubdirectories")]
+        [PolicyResourceProperty("dataRepositorySubdirectories", "_mUnknown_DataRepositorySubdirectories")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDataRepositorySubdirectories;
-
-        public List<string>? DataRepositorySubdirectories => _mDataRepositorySubdirectories.GetValue("dataRepositorySubdirectories");
+        private List<string>? _mValue_DataRepositorySubdirectories;
+        private bool _mUnknown_DataRepositorySubdirectories;
+        public List<string>? DataRepositorySubdirectories
+        {
+            get
+            {
+                if (!_mUnknown_DataRepositorySubdirectories) return _mValue_DataRepositorySubdirectories;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.DataRepositorySubdirectories' is not present");
+            }
+        }
 
         /// <summary>
         /// The system-generated, unique ID of the cache.
         /// </summary>
-        [Input("fileCacheId")]
+        [PolicyResourceProperty("fileCacheId", "_mUnknown_FileCacheId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileCacheId;
-
-        public string? FileCacheId => _mFileCacheId.GetValue("fileCacheId");
+        private string? _mValue_FileCacheId;
+        private bool _mUnknown_FileCacheId;
+        public string? FileCacheId
+        {
+            get
+            {
+                if (!_mUnknown_FileCacheId) return _mValue_FileCacheId;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.FileCacheId' is not present");
+            }
+        }
 
         /// <summary>
         /// A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
         /// </summary>
-        [Input("fileCachePath")]
+        [PolicyResourceProperty("fileCachePath", "_mUnknown_FileCachePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileCachePath;
+        private string? _mValue_FileCachePath;
+        private bool _mUnknown_FileCachePath;
+        public string? FileCachePath
+        {
+            get
+            {
+                if (!_mUnknown_FileCachePath) return _mValue_FileCachePath;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.FileCachePath' is not present");
+            }
+        }
 
-        public string? FileCachePath => _mFileCachePath.GetValue("fileCachePath");
-
-        [Input("fileSystemId")]
+        [PolicyResourceProperty("fileSystemId", "_mUnknown_FileSystemId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemId;
+        private string? _mValue_FileSystemId;
+        private bool _mUnknown_FileSystemId;
+        public string? FileSystemId
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemId) return _mValue_FileSystemId;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.FileSystemId' is not present");
+            }
+        }
 
-        public string? FileSystemId => _mFileSystemId.GetValue("fileSystemId");
-
-        [Input("fileSystemPath")]
+        [PolicyResourceProperty("fileSystemPath", "_mUnknown_FileSystemPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileSystemPath;
+        private string? _mValue_FileSystemPath;
+        private bool _mUnknown_FileSystemPath;
+        public string? FileSystemPath
+        {
+            get
+            {
+                if (!_mUnknown_FileSystemPath) return _mValue_FileSystemPath;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.FileSystemPath' is not present");
+            }
+        }
 
-        public string? FileSystemPath => _mFileSystemPath.GetValue("fileSystemPath");
-
-        [Input("importedFileChunkSize")]
+        [PolicyResourceProperty("importedFileChunkSize", "_mUnknown_ImportedFileChunkSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mImportedFileChunkSize;
-
-        public int? ImportedFileChunkSize => _mImportedFileChunkSize.GetValue("importedFileChunkSize");
+        private int? _mValue_ImportedFileChunkSize;
+        private bool _mUnknown_ImportedFileChunkSize;
+        public int? ImportedFileChunkSize
+        {
+            get
+            {
+                if (!_mUnknown_ImportedFileChunkSize) return _mValue_ImportedFileChunkSize;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.ImportedFileChunkSize' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) See the `nfs` configuration block.
         /// </summary>
-        [Input("nfs")]
+        [PolicyResourceProperty("nfs", "_mUnknown_Nfs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FileCacheDataRepositoryAssociationNfArgs>> _mNfs;
+        private List<Inputs.FileCacheDataRepositoryAssociationNfArgs>? _mValue_Nfs;
+        private bool _mUnknown_Nfs;
+        public List<Inputs.FileCacheDataRepositoryAssociationNfArgs>? Nfs
+        {
+            get
+            {
+                if (!_mUnknown_Nfs) return _mValue_Nfs;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.Nfs' is not present");
+            }
+        }
 
-        public List<Inputs.FileCacheDataRepositoryAssociationNfArgs>? Nfs => _mNfs.GetValue("nfs");
-
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationArgs.Tags' is not present");
+            }
+        }
     }
 }

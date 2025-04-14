@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite.Outputs
         /// <summary>
         /// Object containing the following attributes to describe the configuration of an s3 location to write error reports for records rejected.
         /// </summary>
-        [Input("s3Configurations")]
+        [PolicyResourceProperty("s3Configurations", "_mUnknown_S3Configurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult>> _mS3Configurations;
-
-        public List<Outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult>? S3Configurations => _mS3Configurations.GetValue("s3Configurations");
+        private List<Outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult>? _mValue_S3Configurations;
+        private bool _mUnknown_S3Configurations;
+        public List<Outputs.GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationResult>? S3Configurations
+        {
+            get
+            {
+                if (!_mUnknown_S3Configurations) return _mValue_S3Configurations;
+                throw new UndeferrableValueException("Value 'GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationResult.S3Configurations' is not present");
+            }
+        }
     }
 }

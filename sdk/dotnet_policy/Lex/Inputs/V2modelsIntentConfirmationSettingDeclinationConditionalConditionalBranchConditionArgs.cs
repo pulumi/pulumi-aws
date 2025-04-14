@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Expression string that is evaluated.
         /// </summary>
-        [Input("expressionString")]
+        [PolicyResourceProperty("expressionString", "_mUnknown_ExpressionString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpressionString;
-
-        public string? ExpressionString => _mExpressionString.GetValue("expressionString");
+        private string? _mValue_ExpressionString;
+        private bool _mUnknown_ExpressionString;
+        public string? ExpressionString
+        {
+            get
+            {
+                if (!_mUnknown_ExpressionString) return _mValue_ExpressionString;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchConditionArgs.ExpressionString' is not present");
+            }
+        }
     }
 }

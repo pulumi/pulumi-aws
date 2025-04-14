@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces.Inputs
         /// <summary>
         /// Valid values: `ENABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'TableTtlArgs.Status' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
         /// </summary>
-        [Input("enabledMemoryTypes")]
+        [PolicyResourceProperty("enabledMemoryTypes", "_mUnknown_EnabledMemoryTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledMemoryTypes;
-
-        public List<string>? EnabledMemoryTypes => _mEnabledMemoryTypes.GetValue("enabledMemoryTypes");
+        private List<string>? _mValue_EnabledMemoryTypes;
+        private bool _mUnknown_EnabledMemoryTypes;
+        public List<string>? EnabledMemoryTypes
+        {
+            get
+            {
+                if (!_mUnknown_EnabledMemoryTypes) return _mValue_EnabledMemoryTypes;
+                throw new UndeferrableValueException("Value 'AgentAgentMemoryConfiguration.EnabledMemoryTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
         /// </summary>
-        [Input("storageDays")]
+        [PolicyResourceProperty("storageDays", "_mUnknown_StorageDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageDays;
-
-        public int? StorageDays => _mStorageDays.GetValue("storageDays");
+        private int? _mValue_StorageDays;
+        private bool _mUnknown_StorageDays;
+        public int? StorageDays
+        {
+            get
+            {
+                if (!_mUnknown_StorageDays) return _mValue_StorageDays;
+                throw new UndeferrableValueException("Value 'AgentAgentMemoryConfiguration.StorageDays' is not present");
+            }
+        }
     }
 }

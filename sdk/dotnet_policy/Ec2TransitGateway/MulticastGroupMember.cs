@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
-        [Input("groupIpAddress")]
+        [PolicyResourceProperty("groupIpAddress", "_mUnknown_GroupIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupIpAddress;
-
-        public string? GroupIpAddress => _mGroupIpAddress.GetValue("groupIpAddress");
+        private string? _mValue_GroupIpAddress;
+        private bool _mUnknown_GroupIpAddress;
+        public string? GroupIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_GroupIpAddress) return _mValue_GroupIpAddress;
+                throw new UndeferrableValueException("Value 'MulticastGroupMember.GroupIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The group members' network interface ID to register with the transit gateway multicast group.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'MulticastGroupMember.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
+        [PolicyResourceProperty("transitGatewayMulticastDomainId", "_mUnknown_TransitGatewayMulticastDomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayMulticastDomainId;
-
-        public string? TransitGatewayMulticastDomainId => _mTransitGatewayMulticastDomainId.GetValue("transitGatewayMulticastDomainId");
+        private string? _mValue_TransitGatewayMulticastDomainId;
+        private bool _mUnknown_TransitGatewayMulticastDomainId;
+        public string? TransitGatewayMulticastDomainId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayMulticastDomainId) return _mValue_TransitGatewayMulticastDomainId;
+                throw new UndeferrableValueException("Value 'MulticastGroupMember.TransitGatewayMulticastDomainId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
-        [Input("groupIpAddress")]
+        [PolicyResourceProperty("groupIpAddress", "_mUnknown_GroupIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupIpAddress;
-
-        public string? GroupIpAddress => _mGroupIpAddress.GetValue("groupIpAddress");
+        private string? _mValue_GroupIpAddress;
+        private bool _mUnknown_GroupIpAddress;
+        public string? GroupIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_GroupIpAddress) return _mValue_GroupIpAddress;
+                throw new UndeferrableValueException("Value 'MulticastGroupMemberArgs.GroupIpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The group members' network interface ID to register with the transit gateway multicast group.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'MulticastGroupMemberArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the transit gateway multicast domain.
         /// </summary>
-        [Input("transitGatewayMulticastDomainId")]
+        [PolicyResourceProperty("transitGatewayMulticastDomainId", "_mUnknown_TransitGatewayMulticastDomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayMulticastDomainId;
-
-        public string? TransitGatewayMulticastDomainId => _mTransitGatewayMulticastDomainId.GetValue("transitGatewayMulticastDomainId");
+        private string? _mValue_TransitGatewayMulticastDomainId;
+        private bool _mUnknown_TransitGatewayMulticastDomainId;
+        public string? TransitGatewayMulticastDomainId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayMulticastDomainId) return _mValue_TransitGatewayMulticastDomainId;
+                throw new UndeferrableValueException("Value 'MulticastGroupMemberArgs.TransitGatewayMulticastDomainId' is not present");
+            }
+        }
     }
 }

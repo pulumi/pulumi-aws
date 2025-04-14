@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
         /// </summary>
-        [Input("dataSourceName")]
+        [PolicyResourceProperty("dataSourceName", "_mUnknown_DataSourceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceName;
-
-        public string? DataSourceName => _mDataSourceName.GetValue("dataSourceName");
+        private string? _mValue_DataSourceName;
+        private bool _mUnknown_DataSourceName;
+        public string? DataSourceName
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceName) return _mValue_DataSourceName;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.DataSourceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
         /// </summary>
-        [Input("secretArn")]
+        [PolicyResourceProperty("secretArn", "_mUnknown_SecretArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretArn;
-
-        public string? SecretArn => _mSecretArn.GetValue("secretArn");
+        private string? _mValue_SecretArn;
+        private bool _mUnknown_SecretArn;
+        public string? SecretArn
+        {
+            get
+            {
+                if (!_mUnknown_SecretArn) return _mValue_SecretArn;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.SecretArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.Status' is not present");
+            }
+        }
     }
 }

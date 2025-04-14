@@ -15,343 +15,609 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// The AWS account ID in which a finding was generated. Documented below.
         /// </summary>
-        [Input("awsAccountIds")]
+        [PolicyResourceProperty("awsAccountIds", "_mUnknown_AwsAccountIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaAwsAccountIdArgs>> _mAwsAccountIds;
-
-        public List<Inputs.AutomationRuleCriteriaAwsAccountIdArgs>? AwsAccountIds => _mAwsAccountIds.GetValue("awsAccountIds");
+        private List<Inputs.AutomationRuleCriteriaAwsAccountIdArgs>? _mValue_AwsAccountIds;
+        private bool _mUnknown_AwsAccountIds;
+        public List<Inputs.AutomationRuleCriteriaAwsAccountIdArgs>? AwsAccountIds
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountIds) return _mValue_AwsAccountIds;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.AwsAccountIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS account in which a finding was generated. Documented below.
         /// </summary>
-        [Input("awsAccountNames")]
+        [PolicyResourceProperty("awsAccountNames", "_mUnknown_AwsAccountNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaAwsAccountNameArgs>> _mAwsAccountNames;
-
-        public List<Inputs.AutomationRuleCriteriaAwsAccountNameArgs>? AwsAccountNames => _mAwsAccountNames.GetValue("awsAccountNames");
+        private List<Inputs.AutomationRuleCriteriaAwsAccountNameArgs>? _mValue_AwsAccountNames;
+        private bool _mUnknown_AwsAccountNames;
+        public List<Inputs.AutomationRuleCriteriaAwsAccountNameArgs>? AwsAccountNames
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountNames) return _mValue_AwsAccountNames;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.AwsAccountNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
         /// </summary>
-        [Input("companyNames")]
+        [PolicyResourceProperty("companyNames", "_mUnknown_CompanyNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaCompanyNameArgs>> _mCompanyNames;
-
-        public List<Inputs.AutomationRuleCriteriaCompanyNameArgs>? CompanyNames => _mCompanyNames.GetValue("companyNames");
+        private List<Inputs.AutomationRuleCriteriaCompanyNameArgs>? _mValue_CompanyNames;
+        private bool _mUnknown_CompanyNames;
+        public List<Inputs.AutomationRuleCriteriaCompanyNameArgs>? CompanyNames
+        {
+            get
+            {
+                if (!_mUnknown_CompanyNames) return _mValue_CompanyNames;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.CompanyNames' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of a standard in which a control is enabled. Documented below.
         /// </summary>
-        [Input("complianceAssociatedStandardsIds")]
+        [PolicyResourceProperty("complianceAssociatedStandardsIds", "_mUnknown_ComplianceAssociatedStandardsIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs>> _mComplianceAssociatedStandardsIds;
-
-        public List<Inputs.AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs>? ComplianceAssociatedStandardsIds => _mComplianceAssociatedStandardsIds.GetValue("complianceAssociatedStandardsIds");
+        private List<Inputs.AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs>? _mValue_ComplianceAssociatedStandardsIds;
+        private bool _mUnknown_ComplianceAssociatedStandardsIds;
+        public List<Inputs.AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs>? ComplianceAssociatedStandardsIds
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceAssociatedStandardsIds) return _mValue_ComplianceAssociatedStandardsIds;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ComplianceAssociatedStandardsIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
         /// </summary>
-        [Input("complianceSecurityControlIds")]
+        [PolicyResourceProperty("complianceSecurityControlIds", "_mUnknown_ComplianceSecurityControlIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaComplianceSecurityControlIdArgs>> _mComplianceSecurityControlIds;
-
-        public List<Inputs.AutomationRuleCriteriaComplianceSecurityControlIdArgs>? ComplianceSecurityControlIds => _mComplianceSecurityControlIds.GetValue("complianceSecurityControlIds");
+        private List<Inputs.AutomationRuleCriteriaComplianceSecurityControlIdArgs>? _mValue_ComplianceSecurityControlIds;
+        private bool _mUnknown_ComplianceSecurityControlIds;
+        public List<Inputs.AutomationRuleCriteriaComplianceSecurityControlIdArgs>? ComplianceSecurityControlIds
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceSecurityControlIds) return _mValue_ComplianceSecurityControlIds;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ComplianceSecurityControlIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The result of a security check. This field is only used for findings generated from controls. Documented below.
         /// </summary>
-        [Input("complianceStatuses")]
+        [PolicyResourceProperty("complianceStatuses", "_mUnknown_ComplianceStatuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaComplianceStatusArgs>> _mComplianceStatuses;
-
-        public List<Inputs.AutomationRuleCriteriaComplianceStatusArgs>? ComplianceStatuses => _mComplianceStatuses.GetValue("complianceStatuses");
+        private List<Inputs.AutomationRuleCriteriaComplianceStatusArgs>? _mValue_ComplianceStatuses;
+        private bool _mUnknown_ComplianceStatuses;
+        public List<Inputs.AutomationRuleCriteriaComplianceStatusArgs>? ComplianceStatuses
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceStatuses) return _mValue_ComplianceStatuses;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ComplianceStatuses' is not present");
+            }
+        }
 
         /// <summary>
         /// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
         /// </summary>
-        [Input("confidences")]
+        [PolicyResourceProperty("confidences", "_mUnknown_Confidences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaConfidenceArgs>> _mConfidences;
-
-        public List<Inputs.AutomationRuleCriteriaConfidenceArgs>? Confidences => _mConfidences.GetValue("confidences");
+        private List<Inputs.AutomationRuleCriteriaConfidenceArgs>? _mValue_Confidences;
+        private bool _mUnknown_Confidences;
+        public List<Inputs.AutomationRuleCriteriaConfidenceArgs>? Confidences
+        {
+            get
+            {
+                if (!_mUnknown_Confidences) return _mValue_Confidences;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.Confidences' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp that indicates when this finding record was created. Documented below.
         /// </summary>
-        [Input("createdAts")]
+        [PolicyResourceProperty("createdAts", "_mUnknown_CreatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaCreatedAtArgs>> _mCreatedAts;
-
-        public List<Inputs.AutomationRuleCriteriaCreatedAtArgs>? CreatedAts => _mCreatedAts.GetValue("createdAts");
+        private List<Inputs.AutomationRuleCriteriaCreatedAtArgs>? _mValue_CreatedAts;
+        private bool _mUnknown_CreatedAts;
+        public List<Inputs.AutomationRuleCriteriaCreatedAtArgs>? CreatedAts
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAts) return _mValue_CreatedAts;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.CreatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The level of importance that is assigned to the resources that are associated with a finding. Documented below.
         /// </summary>
-        [Input("criticalities")]
+        [PolicyResourceProperty("criticalities", "_mUnknown_Criticalities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaCriticalityArgs>> _mCriticalities;
-
-        public List<Inputs.AutomationRuleCriteriaCriticalityArgs>? Criticalities => _mCriticalities.GetValue("criticalities");
+        private List<Inputs.AutomationRuleCriteriaCriticalityArgs>? _mValue_Criticalities;
+        private bool _mUnknown_Criticalities;
+        public List<Inputs.AutomationRuleCriteriaCriticalityArgs>? Criticalities
+        {
+            get
+            {
+                if (!_mUnknown_Criticalities) return _mValue_Criticalities;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.Criticalities' is not present");
+            }
+        }
 
         /// <summary>
         /// A finding's description. Documented below.
         /// </summary>
-        [Input("descriptions")]
+        [PolicyResourceProperty("descriptions", "_mUnknown_Descriptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaDescriptionArgs>> _mDescriptions;
-
-        public List<Inputs.AutomationRuleCriteriaDescriptionArgs>? Descriptions => _mDescriptions.GetValue("descriptions");
+        private List<Inputs.AutomationRuleCriteriaDescriptionArgs>? _mValue_Descriptions;
+        private bool _mUnknown_Descriptions;
+        public List<Inputs.AutomationRuleCriteriaDescriptionArgs>? Descriptions
+        {
+            get
+            {
+                if (!_mUnknown_Descriptions) return _mValue_Descriptions;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.Descriptions' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
         /// </summary>
-        [Input("firstObservedAts")]
+        [PolicyResourceProperty("firstObservedAts", "_mUnknown_FirstObservedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaFirstObservedAtArgs>> _mFirstObservedAts;
-
-        public List<Inputs.AutomationRuleCriteriaFirstObservedAtArgs>? FirstObservedAts => _mFirstObservedAts.GetValue("firstObservedAts");
+        private List<Inputs.AutomationRuleCriteriaFirstObservedAtArgs>? _mValue_FirstObservedAts;
+        private bool _mUnknown_FirstObservedAts;
+        public List<Inputs.AutomationRuleCriteriaFirstObservedAtArgs>? FirstObservedAts
+        {
+            get
+            {
+                if (!_mUnknown_FirstObservedAts) return _mValue_FirstObservedAts;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.FirstObservedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the solution-specific component that generated a finding. Documented below.
         /// </summary>
-        [Input("generatorIds")]
+        [PolicyResourceProperty("generatorIds", "_mUnknown_GeneratorIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaGeneratorIdArgs>> _mGeneratorIds;
-
-        public List<Inputs.AutomationRuleCriteriaGeneratorIdArgs>? GeneratorIds => _mGeneratorIds.GetValue("generatorIds");
+        private List<Inputs.AutomationRuleCriteriaGeneratorIdArgs>? _mValue_GeneratorIds;
+        private bool _mUnknown_GeneratorIds;
+        public List<Inputs.AutomationRuleCriteriaGeneratorIdArgs>? GeneratorIds
+        {
+            get
+            {
+                if (!_mUnknown_GeneratorIds) return _mValue_GeneratorIds;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.GeneratorIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The product-specific identifier for a finding. Documented below.
         /// </summary>
-        [Input("ids")]
+        [PolicyResourceProperty("ids", "_mUnknown_Ids")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaIdArgs>> _mIds;
-
-        public List<Inputs.AutomationRuleCriteriaIdArgs>? Ids => _mIds.GetValue("ids");
+        private List<Inputs.AutomationRuleCriteriaIdArgs>? _mValue_Ids;
+        private bool _mUnknown_Ids;
+        public List<Inputs.AutomationRuleCriteriaIdArgs>? Ids
+        {
+            get
+            {
+                if (!_mUnknown_Ids) return _mValue_Ids;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.Ids' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
         /// </summary>
-        [Input("lastObservedAts")]
+        [PolicyResourceProperty("lastObservedAts", "_mUnknown_LastObservedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaLastObservedAtArgs>> _mLastObservedAts;
-
-        public List<Inputs.AutomationRuleCriteriaLastObservedAtArgs>? LastObservedAts => _mLastObservedAts.GetValue("lastObservedAts");
+        private List<Inputs.AutomationRuleCriteriaLastObservedAtArgs>? _mValue_LastObservedAts;
+        private bool _mUnknown_LastObservedAts;
+        public List<Inputs.AutomationRuleCriteriaLastObservedAtArgs>? LastObservedAts
+        {
+            get
+            {
+                if (!_mUnknown_LastObservedAts) return _mValue_LastObservedAts;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.LastObservedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The text of a user-defined note that's added to a finding. Documented below.
         /// </summary>
-        [Input("noteTexts")]
+        [PolicyResourceProperty("noteTexts", "_mUnknown_NoteTexts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaNoteTextArgs>> _mNoteTexts;
-
-        public List<Inputs.AutomationRuleCriteriaNoteTextArgs>? NoteTexts => _mNoteTexts.GetValue("noteTexts");
+        private List<Inputs.AutomationRuleCriteriaNoteTextArgs>? _mValue_NoteTexts;
+        private bool _mUnknown_NoteTexts;
+        public List<Inputs.AutomationRuleCriteriaNoteTextArgs>? NoteTexts
+        {
+            get
+            {
+                if (!_mUnknown_NoteTexts) return _mValue_NoteTexts;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.NoteTexts' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp of when the note was updated. Documented below.
         /// </summary>
-        [Input("noteUpdatedAts")]
+        [PolicyResourceProperty("noteUpdatedAts", "_mUnknown_NoteUpdatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaNoteUpdatedAtArgs>> _mNoteUpdatedAts;
-
-        public List<Inputs.AutomationRuleCriteriaNoteUpdatedAtArgs>? NoteUpdatedAts => _mNoteUpdatedAts.GetValue("noteUpdatedAts");
+        private List<Inputs.AutomationRuleCriteriaNoteUpdatedAtArgs>? _mValue_NoteUpdatedAts;
+        private bool _mUnknown_NoteUpdatedAts;
+        public List<Inputs.AutomationRuleCriteriaNoteUpdatedAtArgs>? NoteUpdatedAts
+        {
+            get
+            {
+                if (!_mUnknown_NoteUpdatedAts) return _mValue_NoteUpdatedAts;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.NoteUpdatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal that created a note. Documented below.
         /// </summary>
-        [Input("noteUpdatedBies")]
+        [PolicyResourceProperty("noteUpdatedBies", "_mUnknown_NoteUpdatedBies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaNoteUpdatedByArgs>> _mNoteUpdatedBies;
-
-        public List<Inputs.AutomationRuleCriteriaNoteUpdatedByArgs>? NoteUpdatedBies => _mNoteUpdatedBies.GetValue("noteUpdatedBies");
+        private List<Inputs.AutomationRuleCriteriaNoteUpdatedByArgs>? _mValue_NoteUpdatedBies;
+        private bool _mUnknown_NoteUpdatedBies;
+        public List<Inputs.AutomationRuleCriteriaNoteUpdatedByArgs>? NoteUpdatedBies
+        {
+            get
+            {
+                if (!_mUnknown_NoteUpdatedBies) return _mValue_NoteUpdatedBies;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.NoteUpdatedBies' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
         /// </summary>
-        [Input("productArns")]
+        [PolicyResourceProperty("productArns", "_mUnknown_ProductArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaProductArnArgs>> _mProductArns;
-
-        public List<Inputs.AutomationRuleCriteriaProductArnArgs>? ProductArns => _mProductArns.GetValue("productArns");
+        private List<Inputs.AutomationRuleCriteriaProductArnArgs>? _mValue_ProductArns;
+        private bool _mUnknown_ProductArns;
+        public List<Inputs.AutomationRuleCriteriaProductArnArgs>? ProductArns
+        {
+            get
+            {
+                if (!_mUnknown_ProductArns) return _mValue_ProductArns;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ProductArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
         /// </summary>
-        [Input("productNames")]
+        [PolicyResourceProperty("productNames", "_mUnknown_ProductNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaProductNameArgs>> _mProductNames;
-
-        public List<Inputs.AutomationRuleCriteriaProductNameArgs>? ProductNames => _mProductNames.GetValue("productNames");
+        private List<Inputs.AutomationRuleCriteriaProductNameArgs>? _mValue_ProductNames;
+        private bool _mUnknown_ProductNames;
+        public List<Inputs.AutomationRuleCriteriaProductNameArgs>? ProductNames
+        {
+            get
+            {
+                if (!_mUnknown_ProductNames) return _mValue_ProductNames;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ProductNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides the current state of a finding. Documented below.
         /// </summary>
-        [Input("recordStates")]
+        [PolicyResourceProperty("recordStates", "_mUnknown_RecordStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaRecordStateArgs>> _mRecordStates;
-
-        public List<Inputs.AutomationRuleCriteriaRecordStateArgs>? RecordStates => _mRecordStates.GetValue("recordStates");
+        private List<Inputs.AutomationRuleCriteriaRecordStateArgs>? _mValue_RecordStates;
+        private bool _mUnknown_RecordStates;
+        public List<Inputs.AutomationRuleCriteriaRecordStateArgs>? RecordStates
+        {
+            get
+            {
+                if (!_mUnknown_RecordStates) return _mValue_RecordStates;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.RecordStates' is not present");
+            }
+        }
 
         /// <summary>
         /// The product-generated identifier for a related finding.  Documented below.
         /// </summary>
-        [Input("relatedFindingsIds")]
+        [PolicyResourceProperty("relatedFindingsIds", "_mUnknown_RelatedFindingsIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaRelatedFindingsIdArgs>> _mRelatedFindingsIds;
-
-        public List<Inputs.AutomationRuleCriteriaRelatedFindingsIdArgs>? RelatedFindingsIds => _mRelatedFindingsIds.GetValue("relatedFindingsIds");
+        private List<Inputs.AutomationRuleCriteriaRelatedFindingsIdArgs>? _mValue_RelatedFindingsIds;
+        private bool _mUnknown_RelatedFindingsIds;
+        public List<Inputs.AutomationRuleCriteriaRelatedFindingsIdArgs>? RelatedFindingsIds
+        {
+            get
+            {
+                if (!_mUnknown_RelatedFindingsIds) return _mValue_RelatedFindingsIds;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.RelatedFindingsIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the product that generated a related finding. Documented below.
         /// </summary>
-        [Input("relatedFindingsProductArns")]
+        [PolicyResourceProperty("relatedFindingsProductArns", "_mUnknown_RelatedFindingsProductArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaRelatedFindingsProductArnArgs>> _mRelatedFindingsProductArns;
-
-        public List<Inputs.AutomationRuleCriteriaRelatedFindingsProductArnArgs>? RelatedFindingsProductArns => _mRelatedFindingsProductArns.GetValue("relatedFindingsProductArns");
+        private List<Inputs.AutomationRuleCriteriaRelatedFindingsProductArnArgs>? _mValue_RelatedFindingsProductArns;
+        private bool _mUnknown_RelatedFindingsProductArns;
+        public List<Inputs.AutomationRuleCriteriaRelatedFindingsProductArnArgs>? RelatedFindingsProductArns
+        {
+            get
+            {
+                if (!_mUnknown_RelatedFindingsProductArns) return _mValue_RelatedFindingsProductArns;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.RelatedFindingsProductArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
         /// </summary>
-        [Input("resourceApplicationArns")]
+        [PolicyResourceProperty("resourceApplicationArns", "_mUnknown_ResourceApplicationArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourceApplicationArnArgs>> _mResourceApplicationArns;
-
-        public List<Inputs.AutomationRuleCriteriaResourceApplicationArnArgs>? ResourceApplicationArns => _mResourceApplicationArns.GetValue("resourceApplicationArns");
+        private List<Inputs.AutomationRuleCriteriaResourceApplicationArnArgs>? _mValue_ResourceApplicationArns;
+        private bool _mUnknown_ResourceApplicationArns;
+        public List<Inputs.AutomationRuleCriteriaResourceApplicationArnArgs>? ResourceApplicationArns
+        {
+            get
+            {
+                if (!_mUnknown_ResourceApplicationArns) return _mValue_ResourceApplicationArns;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourceApplicationArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application that is related to a finding. Documented below.
         /// </summary>
-        [Input("resourceApplicationNames")]
+        [PolicyResourceProperty("resourceApplicationNames", "_mUnknown_ResourceApplicationNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourceApplicationNameArgs>> _mResourceApplicationNames;
-
-        public List<Inputs.AutomationRuleCriteriaResourceApplicationNameArgs>? ResourceApplicationNames => _mResourceApplicationNames.GetValue("resourceApplicationNames");
+        private List<Inputs.AutomationRuleCriteriaResourceApplicationNameArgs>? _mValue_ResourceApplicationNames;
+        private bool _mUnknown_ResourceApplicationNames;
+        public List<Inputs.AutomationRuleCriteriaResourceApplicationNameArgs>? ResourceApplicationNames
+        {
+            get
+            {
+                if (!_mUnknown_ResourceApplicationNames) return _mValue_ResourceApplicationNames;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourceApplicationNames' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom fields and values about the resource that a finding pertains to. Documented below.
         /// </summary>
-        [Input("resourceDetailsOthers")]
+        [PolicyResourceProperty("resourceDetailsOthers", "_mUnknown_ResourceDetailsOthers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourceDetailsOtherArgs>> _mResourceDetailsOthers;
-
-        public List<Inputs.AutomationRuleCriteriaResourceDetailsOtherArgs>? ResourceDetailsOthers => _mResourceDetailsOthers.GetValue("resourceDetailsOthers");
+        private List<Inputs.AutomationRuleCriteriaResourceDetailsOtherArgs>? _mValue_ResourceDetailsOthers;
+        private bool _mUnknown_ResourceDetailsOthers;
+        public List<Inputs.AutomationRuleCriteriaResourceDetailsOtherArgs>? ResourceDetailsOthers
+        {
+            get
+            {
+                if (!_mUnknown_ResourceDetailsOthers) return _mValue_ResourceDetailsOthers;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourceDetailsOthers' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
         /// </summary>
-        [Input("resourceIds")]
+        [PolicyResourceProperty("resourceIds", "_mUnknown_ResourceIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourceIdArgs>> _mResourceIds;
-
-        public List<Inputs.AutomationRuleCriteriaResourceIdArgs>? ResourceIds => _mResourceIds.GetValue("resourceIds");
+        private List<Inputs.AutomationRuleCriteriaResourceIdArgs>? _mValue_ResourceIds;
+        private bool _mUnknown_ResourceIds;
+        public List<Inputs.AutomationRuleCriteriaResourceIdArgs>? ResourceIds
+        {
+            get
+            {
+                if (!_mUnknown_ResourceIds) return _mValue_ResourceIds;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourceIds' is not present");
+            }
+        }
 
         /// <summary>
         /// The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
         /// </summary>
-        [Input("resourcePartitions")]
+        [PolicyResourceProperty("resourcePartitions", "_mUnknown_ResourcePartitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourcePartitionArgs>> _mResourcePartitions;
-
-        public List<Inputs.AutomationRuleCriteriaResourcePartitionArgs>? ResourcePartitions => _mResourcePartitions.GetValue("resourcePartitions");
+        private List<Inputs.AutomationRuleCriteriaResourcePartitionArgs>? _mValue_ResourcePartitions;
+        private bool _mUnknown_ResourcePartitions;
+        public List<Inputs.AutomationRuleCriteriaResourcePartitionArgs>? ResourcePartitions
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePartitions) return _mValue_ResourcePartitions;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourcePartitions' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region where the resource that a finding pertains to is located. Documented below.
         /// </summary>
-        [Input("resourceRegions")]
+        [PolicyResourceProperty("resourceRegions", "_mUnknown_ResourceRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourceRegionArgs>> _mResourceRegions;
-
-        public List<Inputs.AutomationRuleCriteriaResourceRegionArgs>? ResourceRegions => _mResourceRegions.GetValue("resourceRegions");
+        private List<Inputs.AutomationRuleCriteriaResourceRegionArgs>? _mValue_ResourceRegions;
+        private bool _mUnknown_ResourceRegions;
+        public List<Inputs.AutomationRuleCriteriaResourceRegionArgs>? ResourceRegions
+        {
+            get
+            {
+                if (!_mUnknown_ResourceRegions) return _mValue_ResourceRegions;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourceRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
         /// </summary>
-        [Input("resourceTags")]
+        [PolicyResourceProperty("resourceTags", "_mUnknown_ResourceTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourceTagArgs>> _mResourceTags;
-
-        public List<Inputs.AutomationRuleCriteriaResourceTagArgs>? ResourceTags => _mResourceTags.GetValue("resourceTags");
+        private List<Inputs.AutomationRuleCriteriaResourceTagArgs>? _mValue_ResourceTags;
+        private bool _mUnknown_ResourceTags;
+        public List<Inputs.AutomationRuleCriteriaResourceTagArgs>? ResourceTags
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTags) return _mValue_ResourceTags;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourceTags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of resource that the finding pertains to. Documented below.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaResourceTypeArgs>> _mResourceTypes;
-
-        public List<Inputs.AutomationRuleCriteriaResourceTypeArgs>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<Inputs.AutomationRuleCriteriaResourceTypeArgs>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<Inputs.AutomationRuleCriteriaResourceTypeArgs>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.ResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// The severity value of the finding. Documented below.
         /// </summary>
-        [Input("severityLabels")]
+        [PolicyResourceProperty("severityLabels", "_mUnknown_SeverityLabels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaSeverityLabelArgs>> _mSeverityLabels;
-
-        public List<Inputs.AutomationRuleCriteriaSeverityLabelArgs>? SeverityLabels => _mSeverityLabels.GetValue("severityLabels");
+        private List<Inputs.AutomationRuleCriteriaSeverityLabelArgs>? _mValue_SeverityLabels;
+        private bool _mUnknown_SeverityLabels;
+        public List<Inputs.AutomationRuleCriteriaSeverityLabelArgs>? SeverityLabels
+        {
+            get
+            {
+                if (!_mUnknown_SeverityLabels) return _mValue_SeverityLabels;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.SeverityLabels' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides a URL that links to a page about the current finding in the finding product. Documented below.
         /// </summary>
-        [Input("sourceUrls")]
+        [PolicyResourceProperty("sourceUrls", "_mUnknown_SourceUrls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaSourceUrlArgs>> _mSourceUrls;
-
-        public List<Inputs.AutomationRuleCriteriaSourceUrlArgs>? SourceUrls => _mSourceUrls.GetValue("sourceUrls");
+        private List<Inputs.AutomationRuleCriteriaSourceUrlArgs>? _mValue_SourceUrls;
+        private bool _mUnknown_SourceUrls;
+        public List<Inputs.AutomationRuleCriteriaSourceUrlArgs>? SourceUrls
+        {
+            get
+            {
+                if (!_mUnknown_SourceUrls) return _mValue_SourceUrls;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.SourceUrls' is not present");
+            }
+        }
 
         /// <summary>
         /// A finding's title. Documented below.
         /// </summary>
-        [Input("titles")]
+        [PolicyResourceProperty("titles", "_mUnknown_Titles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaTitleArgs>> _mTitles;
-
-        public List<Inputs.AutomationRuleCriteriaTitleArgs>? Titles => _mTitles.GetValue("titles");
+        private List<Inputs.AutomationRuleCriteriaTitleArgs>? _mValue_Titles;
+        private bool _mUnknown_Titles;
+        public List<Inputs.AutomationRuleCriteriaTitleArgs>? Titles
+        {
+            get
+            {
+                if (!_mUnknown_Titles) return _mValue_Titles;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.Titles' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
         /// </summary>
-        [Input("types")]
+        [PolicyResourceProperty("types", "_mUnknown_Types")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaTypeArgs>> _mTypes;
-
-        public List<Inputs.AutomationRuleCriteriaTypeArgs>? Types => _mTypes.GetValue("types");
+        private List<Inputs.AutomationRuleCriteriaTypeArgs>? _mValue_Types;
+        private bool _mUnknown_Types;
+        public List<Inputs.AutomationRuleCriteriaTypeArgs>? Types
+        {
+            get
+            {
+                if (!_mUnknown_Types) return _mValue_Types;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.Types' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp that indicates when the finding record was most recently updated. Documented below.
         /// </summary>
-        [Input("updatedAts")]
+        [PolicyResourceProperty("updatedAts", "_mUnknown_UpdatedAts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaUpdatedAtArgs>> _mUpdatedAts;
-
-        public List<Inputs.AutomationRuleCriteriaUpdatedAtArgs>? UpdatedAts => _mUpdatedAts.GetValue("updatedAts");
+        private List<Inputs.AutomationRuleCriteriaUpdatedAtArgs>? _mValue_UpdatedAts;
+        private bool _mUnknown_UpdatedAts;
+        public List<Inputs.AutomationRuleCriteriaUpdatedAtArgs>? UpdatedAts
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAts) return _mValue_UpdatedAts;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.UpdatedAts' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of user-defined name and value string pairs added to a finding. Documented below.
         /// </summary>
-        [Input("userDefinedFields")]
+        [PolicyResourceProperty("userDefinedFields", "_mUnknown_UserDefinedFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaUserDefinedFieldArgs>> _mUserDefinedFields;
-
-        public List<Inputs.AutomationRuleCriteriaUserDefinedFieldArgs>? UserDefinedFields => _mUserDefinedFields.GetValue("userDefinedFields");
+        private List<Inputs.AutomationRuleCriteriaUserDefinedFieldArgs>? _mValue_UserDefinedFields;
+        private bool _mUnknown_UserDefinedFields;
+        public List<Inputs.AutomationRuleCriteriaUserDefinedFieldArgs>? UserDefinedFields
+        {
+            get
+            {
+                if (!_mUnknown_UserDefinedFields) return _mValue_UserDefinedFields;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.UserDefinedFields' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides the veracity of a finding. Documented below.
         /// </summary>
-        [Input("verificationStates")]
+        [PolicyResourceProperty("verificationStates", "_mUnknown_VerificationStates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaVerificationStateArgs>> _mVerificationStates;
-
-        public List<Inputs.AutomationRuleCriteriaVerificationStateArgs>? VerificationStates => _mVerificationStates.GetValue("verificationStates");
+        private List<Inputs.AutomationRuleCriteriaVerificationStateArgs>? _mValue_VerificationStates;
+        private bool _mUnknown_VerificationStates;
+        public List<Inputs.AutomationRuleCriteriaVerificationStateArgs>? VerificationStates
+        {
+            get
+            {
+                if (!_mUnknown_VerificationStates) return _mValue_VerificationStates;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.VerificationStates' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides information about the status of the investigation into a finding. Documented below.
         /// </summary>
-        [Input("workflowStatuses")]
+        [PolicyResourceProperty("workflowStatuses", "_mUnknown_WorkflowStatuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AutomationRuleCriteriaWorkflowStatusArgs>> _mWorkflowStatuses;
-
-        public List<Inputs.AutomationRuleCriteriaWorkflowStatusArgs>? WorkflowStatuses => _mWorkflowStatuses.GetValue("workflowStatuses");
+        private List<Inputs.AutomationRuleCriteriaWorkflowStatusArgs>? _mValue_WorkflowStatuses;
+        private bool _mUnknown_WorkflowStatuses;
+        public List<Inputs.AutomationRuleCriteriaWorkflowStatusArgs>? WorkflowStatuses
+        {
+            get
+            {
+                if (!_mUnknown_WorkflowStatuses) return _mValue_WorkflowStatuses;
+                throw new UndeferrableValueException("Value 'AutomationRuleCriteriaArgs.WorkflowStatuses' is not present");
+            }
+        }
     }
 }

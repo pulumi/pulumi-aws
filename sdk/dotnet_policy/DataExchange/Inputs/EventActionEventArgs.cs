@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange.Inputs
         /// Configuration for a Revision Published event.
         /// Described in `revision_published` Configuration Block below.
         /// </summary>
-        [Input("revisionPublished")]
+        [PolicyResourceProperty("revisionPublished", "_mUnknown_RevisionPublished")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventActionEventRevisionPublishedArgs> _mRevisionPublished;
-
-        public Inputs.EventActionEventRevisionPublishedArgs? RevisionPublished => _mRevisionPublished.GetValue("revisionPublished");
+        private Inputs.EventActionEventRevisionPublishedArgs? _mValue_RevisionPublished;
+        private bool _mUnknown_RevisionPublished;
+        public Inputs.EventActionEventRevisionPublishedArgs? RevisionPublished
+        {
+            get
+            {
+                if (!_mUnknown_RevisionPublished) return _mValue_RevisionPublished;
+                throw new UndeferrableValueException("Value 'EventActionEventArgs.RevisionPublished' is not present");
+            }
+        }
     }
 }

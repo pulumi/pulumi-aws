@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The contents of the signing certificate in PEM-encoded format.
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'SigningCertificate.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID for the signing certificate.
         /// </summary>
-        [Input("certificateId")]
+        [PolicyResourceProperty("certificateId", "_mUnknown_CertificateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
-
-        public string? CertificateId => _mCertificateId.GetValue("certificateId");
+        private string? _mValue_CertificateId;
+        private bool _mUnknown_CertificateId;
+        public string? CertificateId
+        {
+            get
+            {
+                if (!_mUnknown_CertificateId) return _mValue_CertificateId;
+                throw new UndeferrableValueException("Value 'SigningCertificate.CertificateId' is not present");
+            }
+        }
 
         /// <summary>
         /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SigningCertificate.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user the signing certificate is for.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'SigningCertificate.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/signingCertificate:SigningCertificate")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The contents of the signing certificate in PEM-encoded format.
         /// </summary>
-        [Input("certificateBody")]
+        [PolicyResourceProperty("certificateBody", "_mUnknown_CertificateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateBody;
-
-        public string? CertificateBody => _mCertificateBody.GetValue("certificateBody");
+        private string? _mValue_CertificateBody;
+        private bool _mUnknown_CertificateBody;
+        public string? CertificateBody
+        {
+            get
+            {
+                if (!_mUnknown_CertificateBody) return _mValue_CertificateBody;
+                throw new UndeferrableValueException("Value 'SigningCertificateArgs.CertificateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SigningCertificateArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the user the signing certificate is for.
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'SigningCertificateArgs.UserName' is not present");
+            }
+        }
     }
 }

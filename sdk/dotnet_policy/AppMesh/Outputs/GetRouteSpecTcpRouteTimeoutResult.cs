@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecTcpRouteTimeoutResult
     {
-        [Input("idles")]
+        [PolicyResourceProperty("idles", "_mUnknown_Idles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecTcpRouteTimeoutIdleResult>> _mIdles;
-
-        public List<Outputs.GetRouteSpecTcpRouteTimeoutIdleResult>? Idles => _mIdles.GetValue("idles");
+        private List<Outputs.GetRouteSpecTcpRouteTimeoutIdleResult>? _mValue_Idles;
+        private bool _mUnknown_Idles;
+        public List<Outputs.GetRouteSpecTcpRouteTimeoutIdleResult>? Idles
+        {
+            get
+            {
+                if (!_mUnknown_Idles) return _mValue_Idles;
+                throw new UndeferrableValueException("Value 'GetRouteSpecTcpRouteTimeoutResult.Idles' is not present");
+            }
+        }
     }
 }

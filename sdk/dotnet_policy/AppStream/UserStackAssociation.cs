@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Authentication type for the user.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'UserStackAssociation.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
-        [Input("sendEmailNotification")]
+        [PolicyResourceProperty("sendEmailNotification", "_mUnknown_SendEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
-
-        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
+        private bool? _mValue_SendEmailNotification;
+        private bool _mUnknown_SendEmailNotification;
+        public bool? SendEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_SendEmailNotification) return _mValue_SendEmailNotification;
+                throw new UndeferrableValueException("Value 'UserStackAssociation.SendEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the stack that is associated with the user.
         /// </summary>
-        [Input("stackName")]
+        [PolicyResourceProperty("stackName", "_mUnknown_StackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
-
-        public string? StackName => _mStackName.GetValue("stackName");
+        private string? _mValue_StackName;
+        private bool _mUnknown_StackName;
+        public string? StackName
+        {
+            get
+            {
+                if (!_mUnknown_StackName) return _mValue_StackName;
+                throw new UndeferrableValueException("Value 'UserStackAssociation.StackName' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the user who is associated with the stack.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserStackAssociation.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appstream/userStackAssociation:UserStackAssociation")]
@@ -58,39 +86,67 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Authentication type for the user.
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'UserStackAssociationArgs.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
         /// </summary>
-        [Input("sendEmailNotification")]
+        [PolicyResourceProperty("sendEmailNotification", "_mUnknown_SendEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
-
-        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
+        private bool? _mValue_SendEmailNotification;
+        private bool _mUnknown_SendEmailNotification;
+        public bool? SendEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_SendEmailNotification) return _mValue_SendEmailNotification;
+                throw new UndeferrableValueException("Value 'UserStackAssociationArgs.SendEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the stack that is associated with the user.
         /// </summary>
-        [Input("stackName")]
+        [PolicyResourceProperty("stackName", "_mUnknown_StackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackName;
-
-        public string? StackName => _mStackName.GetValue("stackName");
+        private string? _mValue_StackName;
+        private bool _mUnknown_StackName;
+        public string? StackName
+        {
+            get
+            {
+                if (!_mUnknown_StackName) return _mValue_StackName;
+                throw new UndeferrableValueException("Value 'UserStackAssociationArgs.StackName' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the user who is associated with the stack.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserStackAssociationArgs.UserName' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// AWS secret store ARN for database credentials.
         /// </summary>
-        [Input("awsSecretStoreArn")]
+        [PolicyResourceProperty("awsSecretStoreArn", "_mUnknown_AwsSecretStoreArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsSecretStoreArn;
-
-        public string? AwsSecretStoreArn => _mAwsSecretStoreArn.GetValue("awsSecretStoreArn");
+        private string? _mValue_AwsSecretStoreArn;
+        private bool _mUnknown_AwsSecretStoreArn;
+        public string? AwsSecretStoreArn
+        {
+            get
+            {
+                if (!_mUnknown_AwsSecretStoreArn) return _mValue_AwsSecretStoreArn;
+                throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfig.AwsSecretStoreArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical database name.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfig.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon RDS cluster identifier.
         /// </summary>
-        [Input("dbClusterIdentifier")]
+        [PolicyResourceProperty("dbClusterIdentifier", "_mUnknown_DbClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
-
-        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+        private string? _mValue_DbClusterIdentifier;
+        private bool _mUnknown_DbClusterIdentifier;
+        public string? DbClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterIdentifier) return _mValue_DbClusterIdentifier;
+                throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfig.DbClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region for RDS HTTP endpoint. Defaults to current region.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfig.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Logical schema name.
         /// </summary>
-        [Input("schema")]
+        [PolicyResourceProperty("schema", "_mUnknown_Schema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchema;
-
-        public string? Schema => _mSchema.GetValue("schema");
+        private string? _mValue_Schema;
+        private bool _mUnknown_Schema;
+        public string? Schema
+        {
+            get
+            {
+                if (!_mUnknown_Schema) return _mValue_Schema;
+                throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfig.Schema' is not present");
+            }
+        }
     }
 }

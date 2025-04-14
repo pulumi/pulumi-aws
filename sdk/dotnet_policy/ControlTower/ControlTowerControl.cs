@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.ControlTower
         /// <summary>
         /// The ARN of the EnabledControl resource.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ControlTowerControl.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         /// </summary>
-        [Input("controlIdentifier")]
+        [PolicyResourceProperty("controlIdentifier", "_mUnknown_ControlIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlIdentifier;
-
-        public string? ControlIdentifier => _mControlIdentifier.GetValue("controlIdentifier");
+        private string? _mValue_ControlIdentifier;
+        private bool _mUnknown_ControlIdentifier;
+        public string? ControlIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ControlIdentifier) return _mValue_ControlIdentifier;
+                throw new UndeferrableValueException("Value 'ControlTowerControl.ControlIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ControlTowerControlParameter>> _mParameters;
-
-        public List<Outputs.ControlTowerControlParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.ControlTowerControlParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.ControlTowerControlParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ControlTowerControl.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the organizational unit.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetIdentifier")]
+        [PolicyResourceProperty("targetIdentifier", "_mUnknown_TargetIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetIdentifier;
-
-        public string? TargetIdentifier => _mTargetIdentifier.GetValue("targetIdentifier");
+        private string? _mValue_TargetIdentifier;
+        private bool _mUnknown_TargetIdentifier;
+        public string? TargetIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TargetIdentifier) return _mValue_TargetIdentifier;
+                throw new UndeferrableValueException("Value 'ControlTowerControl.TargetIdentifier' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:controltower/controlTowerControl:ControlTowerControl")]
@@ -58,30 +86,51 @@ namespace Pulumi.PolicyPacks.Aws.ControlTower
         /// <summary>
         /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         /// </summary>
-        [Input("controlIdentifier")]
+        [PolicyResourceProperty("controlIdentifier", "_mUnknown_ControlIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlIdentifier;
-
-        public string? ControlIdentifier => _mControlIdentifier.GetValue("controlIdentifier");
+        private string? _mValue_ControlIdentifier;
+        private bool _mUnknown_ControlIdentifier;
+        public string? ControlIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ControlIdentifier) return _mValue_ControlIdentifier;
+                throw new UndeferrableValueException("Value 'ControlTowerControlArgs.ControlIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ControlTowerControlParameterArgs>> _mParameters;
-
-        public List<Inputs.ControlTowerControlParameterArgs>? Parameters => _mParameters.GetValue("parameters");
+        private List<Inputs.ControlTowerControlParameterArgs>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Inputs.ControlTowerControlParameterArgs>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'ControlTowerControlArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the organizational unit.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetIdentifier")]
+        [PolicyResourceProperty("targetIdentifier", "_mUnknown_TargetIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetIdentifier;
-
-        public string? TargetIdentifier => _mTargetIdentifier.GetValue("targetIdentifier");
+        private string? _mValue_TargetIdentifier;
+        private bool _mUnknown_TargetIdentifier;
+        public string? TargetIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TargetIdentifier) return _mValue_TargetIdentifier;
+                throw new UndeferrableValueException("Value 'ControlTowerControlArgs.TargetIdentifier' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
         /// </summary>
-        [Input("userGroupResolutionMode")]
+        [PolicyResourceProperty("userGroupResolutionMode", "_mUnknown_UserGroupResolutionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserGroupResolutionMode;
-
-        public string? UserGroupResolutionMode => _mUserGroupResolutionMode.GetValue("userGroupResolutionMode");
+        private string? _mValue_UserGroupResolutionMode;
+        private bool _mUnknown_UserGroupResolutionMode;
+        public string? UserGroupResolutionMode
+        {
+            get
+            {
+                if (!_mUnknown_UserGroupResolutionMode) return _mValue_UserGroupResolutionMode;
+                throw new UndeferrableValueException("Value 'IndexUserGroupResolutionConfiguration.UserGroupResolutionMode' is not present");
+            }
+        }
     }
 }

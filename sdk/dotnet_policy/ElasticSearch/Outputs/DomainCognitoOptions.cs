@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Whether Amazon Cognito authentication with Kibana is enabled or not.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainCognitoOptions.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Cognito Identity Pool to use.
         /// </summary>
-        [Input("identityPoolId")]
+        [PolicyResourceProperty("identityPoolId", "_mUnknown_IdentityPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
-
-        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
+        private string? _mValue_IdentityPoolId;
+        private bool _mUnknown_IdentityPoolId;
+        public string? IdentityPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityPoolId) return _mValue_IdentityPoolId;
+                throw new UndeferrableValueException("Value 'DomainCognitoOptions.IdentityPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DomainCognitoOptions.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Cognito User Pool to use.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'DomainCognitoOptions.UserPoolId' is not present");
+            }
+        }
     }
 }

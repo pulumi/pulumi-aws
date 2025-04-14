@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The client ID for your Amazon Cognito user pool.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'WorkforceCognitoConfigArgs.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID for your Amazon Cognito user pool.
         /// </summary>
-        [Input("userPool")]
+        [PolicyResourceProperty("userPool", "_mUnknown_UserPool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPool;
-
-        public string? UserPool => _mUserPool.GetValue("userPool");
+        private string? _mValue_UserPool;
+        private bool _mUnknown_UserPool;
+        public string? UserPool
+        {
+            get
+            {
+                if (!_mUnknown_UserPool) return _mValue_UserPool;
+                throw new UndeferrableValueException("Value 'WorkforceCognitoConfigArgs.UserPool' is not present");
+            }
+        }
     }
 }

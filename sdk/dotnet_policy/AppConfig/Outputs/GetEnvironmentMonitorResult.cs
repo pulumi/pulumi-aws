@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig.Outputs
         /// <summary>
         /// ARN of the Amazon CloudWatch alarm.
         /// </summary>
-        [Input("alarmArn")]
+        [PolicyResourceProperty("alarmArn", "_mUnknown_AlarmArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmArn;
-
-        public string? AlarmArn => _mAlarmArn.GetValue("alarmArn");
+        private string? _mValue_AlarmArn;
+        private bool _mUnknown_AlarmArn;
+        public string? AlarmArn
+        {
+            get
+            {
+                if (!_mUnknown_AlarmArn) return _mValue_AlarmArn;
+                throw new UndeferrableValueException("Value 'GetEnvironmentMonitorResult.AlarmArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role for AWS AppConfig to monitor.
         /// </summary>
-        [Input("alarmRoleArn")]
+        [PolicyResourceProperty("alarmRoleArn", "_mUnknown_AlarmRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAlarmRoleArn;
-
-        public string? AlarmRoleArn => _mAlarmRoleArn.GetValue("alarmRoleArn");
+        private string? _mValue_AlarmRoleArn;
+        private bool _mUnknown_AlarmRoleArn;
+        public string? AlarmRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AlarmRoleArn) return _mValue_AlarmRoleArn;
+                throw new UndeferrableValueException("Value 'GetEnvironmentMonitorResult.AlarmRoleArn' is not present");
+            }
+        }
     }
 }

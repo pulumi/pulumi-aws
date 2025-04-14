@@ -12,52 +12,108 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplatePlacementResult
     {
-        [Input("affinity")]
+        [PolicyResourceProperty("affinity", "_mUnknown_Affinity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAffinity;
+        private string? _mValue_Affinity;
+        private bool _mUnknown_Affinity;
+        public string? Affinity
+        {
+            get
+            {
+                if (!_mUnknown_Affinity) return _mValue_Affinity;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.Affinity' is not present");
+            }
+        }
 
-        public string? Affinity => _mAffinity.GetValue("affinity");
-
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.AvailabilityZone' is not present");
+            }
+        }
 
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
-
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.GroupName' is not present");
+            }
+        }
 
-        public string? GroupName => _mGroupName.GetValue("groupName");
-
-        [Input("hostId")]
+        [PolicyResourceProperty("hostId", "_mUnknown_HostId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostId;
+        private string? _mValue_HostId;
+        private bool _mUnknown_HostId;
+        public string? HostId
+        {
+            get
+            {
+                if (!_mUnknown_HostId) return _mValue_HostId;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.HostId' is not present");
+            }
+        }
 
-        public string? HostId => _mHostId.GetValue("hostId");
-
-        [Input("hostResourceGroupArn")]
+        [PolicyResourceProperty("hostResourceGroupArn", "_mUnknown_HostResourceGroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostResourceGroupArn;
+        private string? _mValue_HostResourceGroupArn;
+        private bool _mUnknown_HostResourceGroupArn;
+        public string? HostResourceGroupArn
+        {
+            get
+            {
+                if (!_mUnknown_HostResourceGroupArn) return _mValue_HostResourceGroupArn;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.HostResourceGroupArn' is not present");
+            }
+        }
 
-        public string? HostResourceGroupArn => _mHostResourceGroupArn.GetValue("hostResourceGroupArn");
-
-        [Input("partitionNumber")]
+        [PolicyResourceProperty("partitionNumber", "_mUnknown_PartitionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPartitionNumber;
+        private int? _mValue_PartitionNumber;
+        private bool _mUnknown_PartitionNumber;
+        public int? PartitionNumber
+        {
+            get
+            {
+                if (!_mUnknown_PartitionNumber) return _mValue_PartitionNumber;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.PartitionNumber' is not present");
+            }
+        }
 
-        public int? PartitionNumber => _mPartitionNumber.GetValue("partitionNumber");
-
-        [Input("spreadDomain")]
+        [PolicyResourceProperty("spreadDomain", "_mUnknown_SpreadDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpreadDomain;
+        private string? _mValue_SpreadDomain;
+        private bool _mUnknown_SpreadDomain;
+        public string? SpreadDomain
+        {
+            get
+            {
+                if (!_mUnknown_SpreadDomain) return _mValue_SpreadDomain;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.SpreadDomain' is not present");
+            }
+        }
 
-        public string? SpreadDomain => _mSpreadDomain.GetValue("spreadDomain");
-
-        [Input("tenancy")]
+        [PolicyResourceProperty("tenancy", "_mUnknown_Tenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTenancy;
-
-        public string? Tenancy => _mTenancy.GetValue("tenancy");
+        private string? _mValue_Tenancy;
+        private bool _mUnknown_Tenancy;
+        public string? Tenancy
+        {
+            get
+            {
+                if (!_mUnknown_Tenancy) return _mValue_Tenancy;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplatePlacementResult.Tenancy' is not present");
+            }
+        }
     }
 }

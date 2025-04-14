@@ -15,54 +15,96 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Identifier of the constraint.
         /// </summary>
-        [Input("constraintId")]
+        [PolicyResourceProperty("constraintId", "_mUnknown_ConstraintId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConstraintId;
-
-        public string? ConstraintId => _mConstraintId.GetValue("constraintId");
+        private string? _mValue_ConstraintId;
+        private bool _mUnknown_ConstraintId;
+        public string? ConstraintId
+        {
+            get
+            {
+                if (!_mUnknown_ConstraintId) return _mValue_ConstraintId;
+                throw new UndeferrableValueException("Value 'GetPortfolioConstraintsDetailResult.ConstraintId' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the constraint.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetPortfolioConstraintsDetailResult.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'GetPortfolioConstraintsDetailResult.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// Portfolio identifier.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("portfolioId")]
+        [PolicyResourceProperty("portfolioId", "_mUnknown_PortfolioId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortfolioId;
-
-        public string? PortfolioId => _mPortfolioId.GetValue("portfolioId");
+        private string? _mValue_PortfolioId;
+        private bool _mUnknown_PortfolioId;
+        public string? PortfolioId
+        {
+            get
+            {
+                if (!_mUnknown_PortfolioId) return _mValue_PortfolioId;
+                throw new UndeferrableValueException("Value 'GetPortfolioConstraintsDetailResult.PortfolioId' is not present");
+            }
+        }
 
         /// <summary>
         /// Product identifier.
         /// </summary>
-        [Input("productId")]
+        [PolicyResourceProperty("productId", "_mUnknown_ProductId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
-
-        public string? ProductId => _mProductId.GetValue("productId");
+        private string? _mValue_ProductId;
+        private bool _mUnknown_ProductId;
+        public string? ProductId
+        {
+            get
+            {
+                if (!_mUnknown_ProductId) return _mValue_ProductId;
+                throw new UndeferrableValueException("Value 'GetPortfolioConstraintsDetailResult.ProductId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetPortfolioConstraintsDetailResult.Type' is not present");
+            }
+        }
     }
 }

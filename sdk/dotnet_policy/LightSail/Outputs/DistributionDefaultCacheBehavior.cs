@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Outputs
         /// <summary>
         /// The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
         /// </summary>
-        [Input("behavior")]
+        [PolicyResourceProperty("behavior", "_mUnknown_Behavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBehavior;
-
-        public string? Behavior => _mBehavior.GetValue("behavior");
+        private string? _mValue_Behavior;
+        private bool _mUnknown_Behavior;
+        public string? Behavior
+        {
+            get
+            {
+                if (!_mUnknown_Behavior) return _mValue_Behavior;
+                throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.Behavior' is not present");
+            }
+        }
     }
 }

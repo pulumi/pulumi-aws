@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         /// </summary>
-        [Input("clientAlias")]
+        [PolicyResourceProperty("clientAlias", "_mUnknown_ClientAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>> _mClientAlias;
-
-        public List<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>? ClientAlias => _mClientAlias.GetValue("clientAlias");
+        private List<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>? _mValue_ClientAlias;
+        private bool _mUnknown_ClientAlias;
+        public List<Inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs>? ClientAlias
+        {
+            get
+            {
+                if (!_mUnknown_ClientAlias) return _mValue_ClientAlias;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceArgs.ClientAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         /// </summary>
-        [Input("discoveryName")]
+        [PolicyResourceProperty("discoveryName", "_mUnknown_DiscoveryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiscoveryName;
-
-        public string? DiscoveryName => _mDiscoveryName.GetValue("discoveryName");
+        private string? _mValue_DiscoveryName;
+        private bool _mUnknown_DiscoveryName;
+        public string? DiscoveryName
+        {
+            get
+            {
+                if (!_mUnknown_DiscoveryName) return _mValue_DiscoveryName;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceArgs.DiscoveryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Port number for the Service Connect proxy to listen on.
         /// </summary>
-        [Input("ingressPortOverride")]
+        [PolicyResourceProperty("ingressPortOverride", "_mUnknown_IngressPortOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIngressPortOverride;
-
-        public int? IngressPortOverride => _mIngressPortOverride.GetValue("ingressPortOverride");
+        private int? _mValue_IngressPortOverride;
+        private bool _mUnknown_IngressPortOverride;
+        public int? IngressPortOverride
+        {
+            get
+            {
+                if (!_mUnknown_IngressPortOverride) return _mValue_IngressPortOverride;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceArgs.IngressPortOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
         /// </summary>
-        [Input("portName")]
+        [PolicyResourceProperty("portName", "_mUnknown_PortName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPortName;
-
-        public string? PortName => _mPortName.GetValue("portName");
+        private string? _mValue_PortName;
+        private bool _mUnknown_PortName;
+        public string? PortName
+        {
+            get
+            {
+                if (!_mUnknown_PortName) return _mValue_PortName;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceArgs.PortName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration timeouts for Service Connect
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs> _mTimeout;
-
-        public Inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs? Timeout => _mTimeout.GetValue("timeout");
+        private Inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public Inputs.ServiceServiceConnectConfigurationServiceTimeoutArgs? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceArgs.Timeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for enabling Transport Layer Security (TLS)
         /// </summary>
-        [Input("tls")]
+        [PolicyResourceProperty("tls", "_mUnknown_Tls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServiceServiceConnectConfigurationServiceTlsArgs> _mTls;
-
-        public Inputs.ServiceServiceConnectConfigurationServiceTlsArgs? Tls => _mTls.GetValue("tls");
+        private Inputs.ServiceServiceConnectConfigurationServiceTlsArgs? _mValue_Tls;
+        private bool _mUnknown_Tls;
+        public Inputs.ServiceServiceConnectConfigurationServiceTlsArgs? Tls
+        {
+            get
+            {
+                if (!_mUnknown_Tls) return _mValue_Tls;
+                throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceArgs.Tls' is not present");
+            }
+        }
     }
 }

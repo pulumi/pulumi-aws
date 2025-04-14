@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
 {
     public sealed class GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult
     {
-        [Input("ends")]
+        [PolicyResourceProperty("ends", "_mUnknown_Ends")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult>> _mEnds;
+        private List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult>? _mValue_Ends;
+        private bool _mUnknown_Ends;
+        public List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult>? Ends
+        {
+            get
+            {
+                if (!_mUnknown_Ends) return _mValue_Ends;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult.Ends' is not present");
+            }
+        }
 
-        public List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeEndResult>? Ends => _mEnds.GetValue("ends");
-
-        [Input("starts")]
+        [PolicyResourceProperty("starts", "_mUnknown_Starts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult>> _mStarts;
-
-        public List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult>? Starts => _mStarts.GetValue("starts");
+        private List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult>? _mValue_Starts;
+        private bool _mUnknown_Starts;
+        public List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeStartResult>? Starts
+        {
+            get
+            {
+                if (!_mUnknown_Starts) return _mValue_Starts;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult.Starts' is not present");
+            }
+        }
     }
 }

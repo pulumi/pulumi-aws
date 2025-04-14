@@ -16,134 +16,239 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake
         /// <summary>
         /// The Amazon S3 or Lake Formation access type.
         /// </summary>
-        [Input("accessType")]
+        [PolicyResourceProperty("accessType", "_mUnknown_AccessType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
-
-        public string? AccessType => _mAccessType.GetValue("accessType");
+        private string? _mValue_AccessType;
+        private bool _mUnknown_AccessType;
+        public string? AccessType
+        {
+            get
+            {
+                if (!_mUnknown_AccessType) return _mValue_AccessType;
+                throw new UndeferrableValueException("Value 'Subscriber.AccessType' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Data Lake.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Subscriber.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         /// </summary>
-        [Input("resourceShareArn")]
+        [PolicyResourceProperty("resourceShareArn", "_mUnknown_ResourceShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareArn;
-
-        public string? ResourceShareArn => _mResourceShareArn.GetValue("resourceShareArn");
+        private string? _mValue_ResourceShareArn;
+        private bool _mUnknown_ResourceShareArn;
+        public string? ResourceShareArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceShareArn) return _mValue_ResourceShareArn;
+                throw new UndeferrableValueException("Value 'Subscriber.ResourceShareArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the resource share.
         /// </summary>
-        [Input("resourceShareName")]
+        [PolicyResourceProperty("resourceShareName", "_mUnknown_ResourceShareName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceShareName;
-
-        public string? ResourceShareName => _mResourceShareName.GetValue("resourceShareName");
+        private string? _mValue_ResourceShareName;
+        private bool _mUnknown_ResourceShareName;
+        public string? ResourceShareName
+        {
+            get
+            {
+                if (!_mUnknown_ResourceShareName) return _mValue_ResourceShareName;
+                throw new UndeferrableValueException("Value 'Subscriber.ResourceShareName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Subscriber.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the Amazon Security Lake Amazon S3 bucket.
         /// </summary>
-        [Input("s3BucketArn")]
+        [PolicyResourceProperty("s3BucketArn", "_mUnknown_S3BucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketArn;
-
-        public string? S3BucketArn => _mS3BucketArn.GetValue("s3BucketArn");
+        private string? _mValue_S3BucketArn;
+        private bool _mUnknown_S3BucketArn;
+        public string? S3BucketArn
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketArn) return _mValue_S3BucketArn;
+                throw new UndeferrableValueException("Value 'Subscriber.S3BucketArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SubscriberSource> _mSource;
-
-        public Outputs.SubscriberSource? Source => _mSource.GetValue("source");
+        private Outputs.SubscriberSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.SubscriberSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'Subscriber.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for your subscriber account in Security Lake.
         /// </summary>
-        [Input("subscriberDescription")]
+        [PolicyResourceProperty("subscriberDescription", "_mUnknown_SubscriberDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberDescription;
-
-        public string? SubscriberDescription => _mSubscriberDescription.GetValue("subscriberDescription");
+        private string? _mValue_SubscriberDescription;
+        private bool _mUnknown_SubscriberDescription;
+        public string? SubscriberDescription
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberDescription) return _mValue_SubscriberDescription;
+                throw new UndeferrableValueException("Value 'Subscriber.SubscriberDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The subscriber endpoint to which exception messages are posted.
         /// </summary>
-        [Input("subscriberEndpoint")]
+        [PolicyResourceProperty("subscriberEndpoint", "_mUnknown_SubscriberEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberEndpoint;
-
-        public string? SubscriberEndpoint => _mSubscriberEndpoint.GetValue("subscriberEndpoint");
+        private string? _mValue_SubscriberEndpoint;
+        private bool _mUnknown_SubscriberEndpoint;
+        public string? SubscriberEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberEndpoint) return _mValue_SubscriberEndpoint;
+                throw new UndeferrableValueException("Value 'Subscriber.SubscriberEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS identity used to access your data. See `subscriber_identity` Block below.
         /// </summary>
-        [Input("subscriberIdentity")]
+        [PolicyResourceProperty("subscriberIdentity", "_mUnknown_SubscriberIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SubscriberSubscriberIdentity> _mSubscriberIdentity;
-
-        public Outputs.SubscriberSubscriberIdentity? SubscriberIdentity => _mSubscriberIdentity.GetValue("subscriberIdentity");
+        private Outputs.SubscriberSubscriberIdentity? _mValue_SubscriberIdentity;
+        private bool _mUnknown_SubscriberIdentity;
+        public Outputs.SubscriberSubscriberIdentity? SubscriberIdentity
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberIdentity) return _mValue_SubscriberIdentity;
+                throw new UndeferrableValueException("Value 'Subscriber.SubscriberIdentity' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your Security Lake subscriber account.
         /// </summary>
-        [Input("subscriberName")]
+        [PolicyResourceProperty("subscriberName", "_mUnknown_SubscriberName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberName;
-
-        public string? SubscriberName => _mSubscriberName.GetValue("subscriberName");
+        private string? _mValue_SubscriberName;
+        private bool _mUnknown_SubscriberName;
+        public string? SubscriberName
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberName) return _mValue_SubscriberName;
+                throw new UndeferrableValueException("Value 'Subscriber.SubscriberName' is not present");
+            }
+        }
 
         /// <summary>
         /// The subscriber status of the Amazon Security Lake subscriber account.
         /// </summary>
-        [Input("subscriberStatus")]
+        [PolicyResourceProperty("subscriberStatus", "_mUnknown_SubscriberStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberStatus;
-
-        public string? SubscriberStatus => _mSubscriberStatus.GetValue("subscriberStatus");
+        private string? _mValue_SubscriberStatus;
+        private bool _mUnknown_SubscriberStatus;
+        public string? SubscriberStatus
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberStatus) return _mValue_SubscriberStatus;
+                throw new UndeferrableValueException("Value 'Subscriber.SubscriberStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Subscriber.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Subscriber.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SubscriberTimeouts> _mTimeouts;
-
-        public Outputs.SubscriberTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.SubscriberTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.SubscriberTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'Subscriber.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:securitylake/subscriber:Subscriber")]
@@ -152,61 +257,110 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake
         /// <summary>
         /// The Amazon S3 or Lake Formation access type.
         /// </summary>
-        [Input("accessType")]
+        [PolicyResourceProperty("accessType", "_mUnknown_AccessType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessType;
-
-        public string? AccessType => _mAccessType.GetValue("accessType");
+        private string? _mValue_AccessType;
+        private bool _mUnknown_AccessType;
+        public string? AccessType
+        {
+            get
+            {
+                if (!_mUnknown_AccessType) return _mValue_AccessType;
+                throw new UndeferrableValueException("Value 'SubscriberArgs.AccessType' is not present");
+            }
+        }
 
         /// <summary>
         /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberSourceArgs> _mSource;
-
-        public Inputs.SubscriberSourceArgs? Source => _mSource.GetValue("source");
+        private Inputs.SubscriberSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.SubscriberSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'SubscriberArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// The description for your subscriber account in Security Lake.
         /// </summary>
-        [Input("subscriberDescription")]
+        [PolicyResourceProperty("subscriberDescription", "_mUnknown_SubscriberDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberDescription;
-
-        public string? SubscriberDescription => _mSubscriberDescription.GetValue("subscriberDescription");
+        private string? _mValue_SubscriberDescription;
+        private bool _mUnknown_SubscriberDescription;
+        public string? SubscriberDescription
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberDescription) return _mValue_SubscriberDescription;
+                throw new UndeferrableValueException("Value 'SubscriberArgs.SubscriberDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS identity used to access your data. See `subscriber_identity` Block below.
         /// </summary>
-        [Input("subscriberIdentity")]
+        [PolicyResourceProperty("subscriberIdentity", "_mUnknown_SubscriberIdentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberSubscriberIdentityArgs> _mSubscriberIdentity;
-
-        public Inputs.SubscriberSubscriberIdentityArgs? SubscriberIdentity => _mSubscriberIdentity.GetValue("subscriberIdentity");
+        private Inputs.SubscriberSubscriberIdentityArgs? _mValue_SubscriberIdentity;
+        private bool _mUnknown_SubscriberIdentity;
+        public Inputs.SubscriberSubscriberIdentityArgs? SubscriberIdentity
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberIdentity) return _mValue_SubscriberIdentity;
+                throw new UndeferrableValueException("Value 'SubscriberArgs.SubscriberIdentity' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your Security Lake subscriber account.
         /// </summary>
-        [Input("subscriberName")]
+        [PolicyResourceProperty("subscriberName", "_mUnknown_SubscriberName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriberName;
-
-        public string? SubscriberName => _mSubscriberName.GetValue("subscriberName");
+        private string? _mValue_SubscriberName;
+        private bool _mUnknown_SubscriberName;
+        public string? SubscriberName
+        {
+            get
+            {
+                if (!_mUnknown_SubscriberName) return _mValue_SubscriberName;
+                throw new UndeferrableValueException("Value 'SubscriberArgs.SubscriberName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SubscriberArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SubscriberTimeoutsArgs> _mTimeouts;
-
-        public Inputs.SubscriberTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.SubscriberTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.SubscriberTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'SubscriberArgs.Timeouts' is not present");
+            }
+        }
     }
 }

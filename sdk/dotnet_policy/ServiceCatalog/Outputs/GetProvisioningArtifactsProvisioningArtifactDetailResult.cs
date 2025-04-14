@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog.Outputs
         /// <summary>
         /// Indicates whether the product version is active.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'GetProvisioningArtifactsProvisioningArtifactDetailResult.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// The UTC time stamp of the creation time.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'GetProvisioningArtifactsProvisioningArtifactDetailResult.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the provisioning artifact.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetProvisioningArtifactsProvisioningArtifactDetailResult.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
         /// </summary>
-        [Input("guidance")]
+        [PolicyResourceProperty("guidance", "_mUnknown_Guidance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuidance;
-
-        public string? Guidance => _mGuidance.GetValue("guidance");
+        private string? _mValue_Guidance;
+        private bool _mUnknown_Guidance;
+        public string? Guidance
+        {
+            get
+            {
+                if (!_mUnknown_Guidance) return _mValue_Guidance;
+                throw new UndeferrableValueException("Value 'GetProvisioningArtifactsProvisioningArtifactDetailResult.Guidance' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the provisioning artifact.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'GetProvisioningArtifactsProvisioningArtifactDetailResult.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the provisioning artifact.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetProvisioningArtifactsProvisioningArtifactDetailResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of provisioning artifact.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'GetProvisioningArtifactsProvisioningArtifactDetailResult.Type' is not present");
+            }
+        }
     }
 }

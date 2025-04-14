@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// The email address.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'GetUserIdentityInfoResult.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// The first name.
         /// </summary>
-        [Input("firstName")]
+        [PolicyResourceProperty("firstName", "_mUnknown_FirstName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
-
-        public string? FirstName => _mFirstName.GetValue("firstName");
+        private string? _mValue_FirstName;
+        private bool _mUnknown_FirstName;
+        public string? FirstName
+        {
+            get
+            {
+                if (!_mUnknown_FirstName) return _mValue_FirstName;
+                throw new UndeferrableValueException("Value 'GetUserIdentityInfoResult.FirstName' is not present");
+            }
+        }
 
         /// <summary>
         /// The last name.
         /// </summary>
-        [Input("lastName")]
+        [PolicyResourceProperty("lastName", "_mUnknown_LastName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
-
-        public string? LastName => _mLastName.GetValue("lastName");
+        private string? _mValue_LastName;
+        private bool _mUnknown_LastName;
+        public string? LastName
+        {
+            get
+            {
+                if (!_mUnknown_LastName) return _mValue_LastName;
+                throw new UndeferrableValueException("Value 'GetUserIdentityInfoResult.LastName' is not present");
+            }
+        }
 
         /// <summary>
         /// The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
         /// </summary>
-        [Input("secondaryEmail")]
+        [PolicyResourceProperty("secondaryEmail", "_mUnknown_SecondaryEmail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecondaryEmail;
-
-        public string? SecondaryEmail => _mSecondaryEmail.GetValue("secondaryEmail");
+        private string? _mValue_SecondaryEmail;
+        private bool _mUnknown_SecondaryEmail;
+        public string? SecondaryEmail
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryEmail) return _mValue_SecondaryEmail;
+                throw new UndeferrableValueException("Value 'GetUserIdentityInfoResult.SecondaryEmail' is not present");
+            }
+        }
     }
 }

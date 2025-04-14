@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// Maximum number of tokens to include in a chunk.
         /// </summary>
-        [Input("maxTokens")]
+        [PolicyResourceProperty("maxTokens", "_mUnknown_MaxTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTokens;
-
-        public int? MaxTokens => _mMaxTokens.GetValue("maxTokens");
+        private int? _mValue_MaxTokens;
+        private bool _mUnknown_MaxTokens;
+        public int? MaxTokens
+        {
+            get
+            {
+                if (!_mUnknown_MaxTokens) return _mValue_MaxTokens;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration.MaxTokens' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of overlap between adjacent chunks of a data source.
         /// </summary>
-        [Input("overlapPercentage")]
+        [PolicyResourceProperty("overlapPercentage", "_mUnknown_OverlapPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mOverlapPercentage;
-
-        public int? OverlapPercentage => _mOverlapPercentage.GetValue("overlapPercentage");
+        private int? _mValue_OverlapPercentage;
+        private bool _mUnknown_OverlapPercentage;
+        public int? OverlapPercentage
+        {
+            get
+            {
+                if (!_mUnknown_OverlapPercentage) return _mValue_OverlapPercentage;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfiguration.OverlapPercentage' is not present");
+            }
+        }
     }
 }

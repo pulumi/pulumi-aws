@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
         /// </summary>
-        [Input("customImages")]
+        [PolicyResourceProperty("customImages", "_mUnknown_CustomImages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs>> _mCustomImages;
-
-        public List<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs>? CustomImages => _mCustomImages.GetValue("customImages");
+        private List<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs>? _mValue_CustomImages;
+        private bool _mUnknown_CustomImages;
+        public List<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs>? CustomImages
+        {
+            get
+            {
+                if (!_mUnknown_CustomImages) return _mValue_CustomImages;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.CustomImages' is not present");
+            }
+        }
 
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
         /// </summary>
-        [Input("defaultResourceSpec")]
+        [PolicyResourceProperty("defaultResourceSpec", "_mUnknown_DefaultResourceSpec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> _mDefaultResourceSpec;
-
-        public Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec => _mDefaultResourceSpec.GetValue("defaultResourceSpec");
+        private Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs? _mValue_DefaultResourceSpec;
+        private bool _mUnknown_DefaultResourceSpec;
+        public Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs? DefaultResourceSpec
+        {
+            get
+            {
+                if (!_mUnknown_DefaultResourceSpec) return _mValue_DefaultResourceSpec;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.DefaultResourceSpec' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         /// </summary>
-        [Input("lifecycleConfigArns")]
+        [PolicyResourceProperty("lifecycleConfigArns", "_mUnknown_LifecycleConfigArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLifecycleConfigArns;
-
-        public List<string>? LifecycleConfigArns => _mLifecycleConfigArns.GetValue("lifecycleConfigArns");
+        private List<string>? _mValue_LifecycleConfigArns;
+        private bool _mUnknown_LifecycleConfigArns;
+        public List<string>? LifecycleConfigArns
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleConfigArns) return _mValue_LifecycleConfigArns;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.LifecycleConfigArns' is not present");
+            }
+        }
     }
 }

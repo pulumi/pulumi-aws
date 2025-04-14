@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Any AWS Cloud Map information for the virtual node.
         /// </summary>
-        [Input("awsCloudMap")]
+        [PolicyResourceProperty("awsCloudMap", "_mUnknown_AwsCloudMap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs> _mAwsCloudMap;
-
-        public Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs? AwsCloudMap => _mAwsCloudMap.GetValue("awsCloudMap");
+        private Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs? _mValue_AwsCloudMap;
+        private bool _mUnknown_AwsCloudMap;
+        public Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs? AwsCloudMap
+        {
+            get
+            {
+                if (!_mUnknown_AwsCloudMap) return _mValue_AwsCloudMap;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryArgs.AwsCloudMap' is not present");
+            }
+        }
 
         /// <summary>
         /// DNS service name for the virtual node.
         /// </summary>
-        [Input("dns")]
+        [PolicyResourceProperty("dns", "_mUnknown_Dns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs> _mDns;
-
-        public Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs? Dns => _mDns.GetValue("dns");
+        private Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs? _mValue_Dns;
+        private bool _mUnknown_Dns;
+        public Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs? Dns
+        {
+            get
+            {
+                if (!_mUnknown_Dns) return _mValue_Dns;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryArgs.Dns' is not present");
+            }
+        }
     }
 }

@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of the resource
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'PolicyTableAssociation.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the resource
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'PolicyTableAssociation.ResourceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'PolicyTableAssociation.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Policy Table.
         /// </summary>
-        [Input("transitGatewayPolicyTableId")]
+        [PolicyResourceProperty("transitGatewayPolicyTableId", "_mUnknown_TransitGatewayPolicyTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayPolicyTableId;
-
-        public string? TransitGatewayPolicyTableId => _mTransitGatewayPolicyTableId.GetValue("transitGatewayPolicyTableId");
+        private string? _mValue_TransitGatewayPolicyTableId;
+        private bool _mUnknown_TransitGatewayPolicyTableId;
+        public string? TransitGatewayPolicyTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayPolicyTableId) return _mValue_TransitGatewayPolicyTableId;
+                throw new UndeferrableValueException("Value 'PolicyTableAssociation.TransitGatewayPolicyTableId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation")]
@@ -56,19 +84,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2TransitGateway
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'PolicyTableAssociationArgs.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Policy Table.
         /// </summary>
-        [Input("transitGatewayPolicyTableId")]
+        [PolicyResourceProperty("transitGatewayPolicyTableId", "_mUnknown_TransitGatewayPolicyTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayPolicyTableId;
-
-        public string? TransitGatewayPolicyTableId => _mTransitGatewayPolicyTableId.GetValue("transitGatewayPolicyTableId");
+        private string? _mValue_TransitGatewayPolicyTableId;
+        private bool _mUnknown_TransitGatewayPolicyTableId;
+        public string? TransitGatewayPolicyTableId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayPolicyTableId) return _mValue_TransitGatewayPolicyTableId;
+                throw new UndeferrableValueException("Value 'PolicyTableAssociationArgs.TransitGatewayPolicyTableId' is not present");
+            }
+        }
     }
 }

@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog.Inputs
         /// <summary>
         /// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
         /// </summary>
-        [Input("accounts")]
+        [PolicyResourceProperty("accounts", "_mUnknown_Accounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccounts;
-
-        public List<string>? Accounts => _mAccounts.GetValue("accounts");
+        private List<string>? _mValue_Accounts;
+        private bool _mUnknown_Accounts;
+        public List<string>? Accounts
+        {
+            get
+            {
+                if (!_mUnknown_Accounts) return _mValue_Accounts;
+                throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.Accounts' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both. The default value is 0 if no value is specified.
         /// </summary>
-        [Input("failureToleranceCount")]
+        [PolicyResourceProperty("failureToleranceCount", "_mUnknown_FailureToleranceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureToleranceCount;
-
-        public int? FailureToleranceCount => _mFailureToleranceCount.GetValue("failureToleranceCount");
+        private int? _mValue_FailureToleranceCount;
+        private bool _mUnknown_FailureToleranceCount;
+        public int? FailureToleranceCount
+        {
+            get
+            {
+                if (!_mUnknown_FailureToleranceCount) return _mValue_FailureToleranceCount;
+                throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.FailureToleranceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both.
         /// </summary>
-        [Input("failureTolerancePercentage")]
+        [PolicyResourceProperty("failureTolerancePercentage", "_mUnknown_FailureTolerancePercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureTolerancePercentage;
-
-        public int? FailureTolerancePercentage => _mFailureTolerancePercentage.GetValue("failureTolerancePercentage");
+        private int? _mValue_FailureTolerancePercentage;
+        private bool _mUnknown_FailureTolerancePercentage;
+        public int? FailureTolerancePercentage
+        {
+            get
+            {
+                if (!_mUnknown_FailureTolerancePercentage) return _mValue_FailureTolerancePercentage;
+                throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.FailureTolerancePercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failure_tolerance_count`. `max_concurrency_count` is at most one more than the `failure_tolerance_count`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
         /// </summary>
-        [Input("maxConcurrencyCount")]
+        [PolicyResourceProperty("maxConcurrencyCount", "_mUnknown_MaxConcurrencyCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrencyCount;
-
-        public int? MaxConcurrencyCount => _mMaxConcurrencyCount.GetValue("maxConcurrencyCount");
+        private int? _mValue_MaxConcurrencyCount;
+        private bool _mUnknown_MaxConcurrencyCount;
+        public int? MaxConcurrencyCount
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrencyCount) return _mValue_MaxConcurrencyCount;
+                throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.MaxConcurrencyCount' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
         /// </summary>
-        [Input("maxConcurrencyPercentage")]
+        [PolicyResourceProperty("maxConcurrencyPercentage", "_mUnknown_MaxConcurrencyPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrencyPercentage;
-
-        public int? MaxConcurrencyPercentage => _mMaxConcurrencyPercentage.GetValue("maxConcurrencyPercentage");
+        private int? _mValue_MaxConcurrencyPercentage;
+        private bool _mUnknown_MaxConcurrencyPercentage;
+        public int? MaxConcurrencyPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrencyPercentage) return _mValue_MaxConcurrencyPercentage;
+                throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.MaxConcurrencyPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.Regions' is not present");
+            }
+        }
     }
 }

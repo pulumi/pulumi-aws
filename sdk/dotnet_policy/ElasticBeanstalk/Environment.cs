@@ -18,120 +18,211 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// are a combination of default settings and their overrides from `setting` in
         /// the configuration.
         /// </summary>
-        [Input("allSettings")]
+        [PolicyResourceProperty("allSettings", "_mUnknown_AllSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentAllSetting>> _mAllSettings;
-
-        public List<Outputs.EnvironmentAllSetting>? AllSettings => _mAllSettings.GetValue("allSettings");
+        private List<Outputs.EnvironmentAllSetting>? _mValue_AllSettings;
+        private bool _mUnknown_AllSettings;
+        public List<Outputs.EnvironmentAllSetting>? AllSettings
+        {
+            get
+            {
+                if (!_mUnknown_AllSettings) return _mValue_AllSettings;
+                throw new UndeferrableValueException("Value 'Environment.AllSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the application that contains the version
         /// to be deployed
         /// </summary>
-        [Input("application")]
+        [PolicyResourceProperty("application", "_mUnknown_Application")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
+        private string? _mValue_Application;
+        private bool _mUnknown_Application;
+        public string? Application
+        {
+            get
+            {
+                if (!_mUnknown_Application) return _mValue_Application;
+                throw new UndeferrableValueException("Value 'Environment.Application' is not present");
+            }
+        }
 
-        public string? Application => _mApplication.GetValue("application");
-
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Environment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The autoscaling groups used by this Environment.
         /// </summary>
-        [Input("autoscalingGroups")]
+        [PolicyResourceProperty("autoscalingGroups", "_mUnknown_AutoscalingGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAutoscalingGroups;
-
-        public List<string>? AutoscalingGroups => _mAutoscalingGroups.GetValue("autoscalingGroups");
+        private List<string>? _mValue_AutoscalingGroups;
+        private bool _mUnknown_AutoscalingGroups;
+        public List<string>? AutoscalingGroups
+        {
+            get
+            {
+                if (!_mUnknown_AutoscalingGroups) return _mValue_AutoscalingGroups;
+                throw new UndeferrableValueException("Value 'Environment.AutoscalingGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Fully qualified DNS name for this Environment.
         /// </summary>
-        [Input("cname")]
+        [PolicyResourceProperty("cname", "_mUnknown_Cname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCname;
-
-        public string? Cname => _mCname.GetValue("cname");
+        private string? _mValue_Cname;
+        private bool _mUnknown_Cname;
+        public string? Cname
+        {
+            get
+            {
+                if (!_mUnknown_Cname) return _mValue_Cname;
+                throw new UndeferrableValueException("Value 'Environment.Cname' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix to use for the fully qualified DNS name of
         /// the Environment.
         /// </summary>
-        [Input("cnamePrefix")]
+        [PolicyResourceProperty("cnamePrefix", "_mUnknown_CnamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCnamePrefix;
-
-        public string? CnamePrefix => _mCnamePrefix.GetValue("cnamePrefix");
+        private string? _mValue_CnamePrefix;
+        private bool _mUnknown_CnamePrefix;
+        public string? CnamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_CnamePrefix) return _mValue_CnamePrefix;
+                throw new UndeferrableValueException("Value 'Environment.CnamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the Environment
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Environment.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL to the Load Balancer for this Environment
         /// </summary>
-        [Input("endpointUrl")]
+        [PolicyResourceProperty("endpointUrl", "_mUnknown_EndpointUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointUrl;
-
-        public string? EndpointUrl => _mEndpointUrl.GetValue("endpointUrl");
+        private string? _mValue_EndpointUrl;
+        private bool _mUnknown_EndpointUrl;
+        public string? EndpointUrl
+        {
+            get
+            {
+                if (!_mUnknown_EndpointUrl) return _mValue_EndpointUrl;
+                throw new UndeferrableValueException("Value 'Environment.EndpointUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Instances used by this Environment.
         /// </summary>
-        [Input("instances")]
+        [PolicyResourceProperty("instances", "_mUnknown_Instances")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstances;
-
-        public List<string>? Instances => _mInstances.GetValue("instances");
+        private List<string>? _mValue_Instances;
+        private bool _mUnknown_Instances;
+        public List<string>? Instances
+        {
+            get
+            {
+                if (!_mUnknown_Instances) return _mValue_Instances;
+                throw new UndeferrableValueException("Value 'Environment.Instances' is not present");
+            }
+        }
 
         /// <summary>
         /// Launch configurations in use by this Environment.
         /// </summary>
-        [Input("launchConfigurations")]
+        [PolicyResourceProperty("launchConfigurations", "_mUnknown_LaunchConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLaunchConfigurations;
-
-        public List<string>? LaunchConfigurations => _mLaunchConfigurations.GetValue("launchConfigurations");
+        private List<string>? _mValue_LaunchConfigurations;
+        private bool _mUnknown_LaunchConfigurations;
+        public List<string>? LaunchConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_LaunchConfigurations) return _mValue_LaunchConfigurations;
+                throw new UndeferrableValueException("Value 'Environment.LaunchConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Elastic load balancers in use by this Environment.
         /// </summary>
-        [Input("loadBalancers")]
+        [PolicyResourceProperty("loadBalancers", "_mUnknown_LoadBalancers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
-
-        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+        private List<string>? _mValue_LoadBalancers;
+        private bool _mUnknown_LoadBalancers;
+        public List<string>? LoadBalancers
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancers) return _mValue_LoadBalancers;
+                throw new UndeferrableValueException("Value 'Environment.LoadBalancers' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name for this Environment. This name is used
         /// in the application URL
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Environment.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         /// </summary>
-        [Input("platformArn")]
+        [PolicyResourceProperty("platformArn", "_mUnknown_PlatformArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformArn;
-
-        public string? PlatformArn => _mPlatformArn.GetValue("platformArn");
+        private string? _mValue_PlatformArn;
+        private bool _mUnknown_PlatformArn;
+        public string? PlatformArn
+        {
+            get
+            {
+                if (!_mUnknown_PlatformArn) return _mValue_PlatformArn;
+                throw new UndeferrableValueException("Value 'Environment.PlatformArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The time between polling the AWS API to
@@ -139,98 +230,168 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
         /// </summary>
-        [Input("pollInterval")]
+        [PolicyResourceProperty("pollInterval", "_mUnknown_PollInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPollInterval;
-
-        public string? PollInterval => _mPollInterval.GetValue("pollInterval");
+        private string? _mValue_PollInterval;
+        private bool _mUnknown_PollInterval;
+        public string? PollInterval
+        {
+            get
+            {
+                if (!_mUnknown_PollInterval) return _mValue_PollInterval;
+                throw new UndeferrableValueException("Value 'Environment.PollInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// SQS queues in use by this Environment.
         /// </summary>
-        [Input("queues")]
+        [PolicyResourceProperty("queues", "_mUnknown_Queues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mQueues;
-
-        public List<string>? Queues => _mQueues.GetValue("queues");
+        private List<string>? _mValue_Queues;
+        private bool _mUnknown_Queues;
+        public List<string>? Queues
+        {
+            get
+            {
+                if (!_mUnknown_Queues) return _mValue_Queues;
+                throw new UndeferrableValueException("Value 'Environment.Queues' is not present");
+            }
+        }
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EnvironmentSetting>> _mSettings;
-
-        public List<Outputs.EnvironmentSetting>? Settings => _mSettings.GetValue("settings");
+        private List<Outputs.EnvironmentSetting>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<Outputs.EnvironmentSetting>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'Environment.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// A solution stack to base your environment
         /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
-        [Input("solutionStackName")]
+        [PolicyResourceProperty("solutionStackName", "_mUnknown_SolutionStackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
-
-        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
+        private string? _mValue_SolutionStackName;
+        private bool _mUnknown_SolutionStackName;
+        public string? SolutionStackName
+        {
+            get
+            {
+                if (!_mUnknown_SolutionStackName) return _mValue_SolutionStackName;
+                throw new UndeferrableValueException("Value 'Environment.SolutionStackName' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Environment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Environment.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Elastic Beanstalk Configuration
         /// template to use in deployment
         /// </summary>
-        [Input("templateName")]
+        [PolicyResourceProperty("templateName", "_mUnknown_TemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
-
-        public string? TemplateName => _mTemplateName.GetValue("templateName");
+        private string? _mValue_TemplateName;
+        private bool _mUnknown_TemplateName;
+        public string? TemplateName
+        {
+            get
+            {
+                if (!_mUnknown_TemplateName) return _mValue_TemplateName;
+                throw new UndeferrableValueException("Value 'Environment.TemplateName' is not present");
+            }
+        }
 
         /// <summary>
         /// Elastic Beanstalk Environment tier. Valid values are `Worker`
         /// or `WebServer`. If tier is left blank `WebServer` will be used.
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
-
-        public string? Tier => _mTier.GetValue("tier");
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'Environment.Tier' is not present");
+            }
+        }
 
         /// <summary>
         /// Autoscaling triggers in use by this Environment.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTriggers;
-
-        public List<string>? Triggers => _mTriggers.GetValue("triggers");
+        private List<string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public List<string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'Environment.Triggers' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Environment.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum
@@ -238,11 +399,18 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.
         /// </summary>
-        [Input("waitForReadyTimeout")]
+        [PolicyResourceProperty("waitForReadyTimeout", "_mUnknown_WaitForReadyTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForReadyTimeout;
-
-        public string? WaitForReadyTimeout => _mWaitForReadyTimeout.GetValue("waitForReadyTimeout");
+        private string? _mValue_WaitForReadyTimeout;
+        private bool _mUnknown_WaitForReadyTimeout;
+        public string? WaitForReadyTimeout
+        {
+            get
+            {
+                if (!_mUnknown_WaitForReadyTimeout) return _mValue_WaitForReadyTimeout;
+                throw new UndeferrableValueException("Value 'Environment.WaitForReadyTimeout' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticbeanstalk/environment:Environment")]
@@ -252,50 +420,85 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// Name of the application that contains the version
         /// to be deployed
         /// </summary>
-        [Input("application")]
+        [PolicyResourceProperty("application", "_mUnknown_Application")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
-
-        public string? Application => _mApplication.GetValue("application");
+        private string? _mValue_Application;
+        private bool _mUnknown_Application;
+        public string? Application
+        {
+            get
+            {
+                if (!_mUnknown_Application) return _mValue_Application;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Application' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefix to use for the fully qualified DNS name of
         /// the Environment.
         /// </summary>
-        [Input("cnamePrefix")]
+        [PolicyResourceProperty("cnamePrefix", "_mUnknown_CnamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCnamePrefix;
-
-        public string? CnamePrefix => _mCnamePrefix.GetValue("cnamePrefix");
+        private string? _mValue_CnamePrefix;
+        private bool _mUnknown_CnamePrefix;
+        public string? CnamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_CnamePrefix) return _mValue_CnamePrefix;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.CnamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Short description of the Environment
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique name for this Environment. This name is used
         /// in the application URL
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         /// </summary>
-        [Input("platformArn")]
+        [PolicyResourceProperty("platformArn", "_mUnknown_PlatformArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformArn;
-
-        public string? PlatformArn => _mPlatformArn.GetValue("platformArn");
+        private string? _mValue_PlatformArn;
+        private bool _mUnknown_PlatformArn;
+        public string? PlatformArn
+        {
+            get
+            {
+                if (!_mUnknown_PlatformArn) return _mValue_PlatformArn;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.PlatformArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The time between polling the AWS API to
@@ -303,71 +506,120 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
         /// </summary>
-        [Input("pollInterval")]
+        [PolicyResourceProperty("pollInterval", "_mUnknown_PollInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPollInterval;
-
-        public string? PollInterval => _mPollInterval.GetValue("pollInterval");
+        private string? _mValue_PollInterval;
+        private bool _mUnknown_PollInterval;
+        public string? PollInterval
+        {
+            get
+            {
+                if (!_mUnknown_PollInterval) return _mValue_PollInterval;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.PollInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         /// </summary>
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.EnvironmentSettingArgs>> _mSettings;
-
-        public List<Inputs.EnvironmentSettingArgs>? Settings => _mSettings.GetValue("settings");
+        private List<Inputs.EnvironmentSettingArgs>? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public List<Inputs.EnvironmentSettingArgs>? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Settings' is not present");
+            }
+        }
 
         /// <summary>
         /// A solution stack to base your environment
         /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
-        [Input("solutionStackName")]
+        [PolicyResourceProperty("solutionStackName", "_mUnknown_SolutionStackName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSolutionStackName;
-
-        public string? SolutionStackName => _mSolutionStackName.GetValue("solutionStackName");
+        private string? _mValue_SolutionStackName;
+        private bool _mUnknown_SolutionStackName;
+        public string? SolutionStackName
+        {
+            get
+            {
+                if (!_mUnknown_SolutionStackName) return _mValue_SolutionStackName;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.SolutionStackName' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Elastic Beanstalk Configuration
         /// template to use in deployment
         /// </summary>
-        [Input("templateName")]
+        [PolicyResourceProperty("templateName", "_mUnknown_TemplateName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateName;
-
-        public string? TemplateName => _mTemplateName.GetValue("templateName");
+        private string? _mValue_TemplateName;
+        private bool _mUnknown_TemplateName;
+        public string? TemplateName
+        {
+            get
+            {
+                if (!_mUnknown_TemplateName) return _mValue_TemplateName;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.TemplateName' is not present");
+            }
+        }
 
         /// <summary>
         /// Elastic Beanstalk Environment tier. Valid values are `Worker`
         /// or `WebServer`. If tier is left blank `WebServer` will be used.
         /// </summary>
-        [Input("tier")]
+        [PolicyResourceProperty("tier", "_mUnknown_Tier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTier;
-
-        public string? Tier => _mTier.GetValue("tier");
+        private string? _mValue_Tier;
+        private bool _mUnknown_Tier;
+        public string? Tier
+        {
+            get
+            {
+                if (!_mUnknown_Tier) return _mValue_Tier;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Tier' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum
@@ -375,10 +627,17 @@ namespace Pulumi.PolicyPacks.Aws.ElasticBeanstalk
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.
         /// </summary>
-        [Input("waitForReadyTimeout")]
+        [PolicyResourceProperty("waitForReadyTimeout", "_mUnknown_WaitForReadyTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForReadyTimeout;
-
-        public string? WaitForReadyTimeout => _mWaitForReadyTimeout.GetValue("waitForReadyTimeout");
+        private string? _mValue_WaitForReadyTimeout;
+        private bool _mUnknown_WaitForReadyTimeout;
+        public string? WaitForReadyTimeout
+        {
+            get
+            {
+                if (!_mUnknown_WaitForReadyTimeout) return _mValue_WaitForReadyTimeout;
+                throw new UndeferrableValueException("Value 'EnvironmentArgs.WaitForReadyTimeout' is not present");
+            }
+        }
     }
 }

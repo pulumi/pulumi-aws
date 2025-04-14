@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// <summary>
         /// ARN of the Entity Recognizer version.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         /// </summary>
-        [Input("dataAccessRoleArn")]
+        [PolicyResourceProperty("dataAccessRoleArn", "_mUnknown_DataAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
-
-        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
+        private string? _mValue_DataAccessRoleArn;
+        private bool _mUnknown_DataAccessRoleArn;
+        public string? DataAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DataAccessRoleArn) return _mValue_DataAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.DataAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
         /// </summary>
-        [Input("inputDataConfig")]
+        [PolicyResourceProperty("inputDataConfig", "_mUnknown_InputDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EntityRecognizerInputDataConfig> _mInputDataConfig;
-
-        public Outputs.EntityRecognizerInputDataConfig? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
+        private Outputs.EntityRecognizerInputDataConfig? _mValue_InputDataConfig;
+        private bool _mUnknown_InputDataConfig;
+        public Outputs.EntityRecognizerInputDataConfig? InputDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_InputDataConfig) return _mValue_InputDataConfig;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.InputDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
         /// </summary>
-        [Input("modelKmsKeyId")]
+        [PolicyResourceProperty("modelKmsKeyId", "_mUnknown_ModelKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelKmsKeyId;
-
-        public string? ModelKmsKeyId => _mModelKmsKeyId.GetValue("modelKmsKeyId");
+        private string? _mValue_ModelKmsKeyId;
+        private bool _mUnknown_ModelKmsKeyId;
+        public string? ModelKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ModelKmsKeyId) return _mValue_ModelKmsKeyId;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.ModelKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the Entity Recognizer.
@@ -67,29 +102,50 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the version of the Entity Recognizer.
@@ -100,11 +156,18 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name_prefix`.
         /// </summary>
-        [Input("versionName")]
+        [PolicyResourceProperty("versionName", "_mUnknown_VersionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
-
-        public string? VersionName => _mVersionName.GetValue("versionName");
+        private string? _mValue_VersionName;
+        private bool _mUnknown_VersionName;
+        public string? VersionName
+        {
+            get
+            {
+                if (!_mUnknown_VersionName) return _mValue_VersionName;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.VersionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
@@ -112,30 +175,51 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name`.
         /// </summary>
-        [Input("versionNamePrefix")]
+        [PolicyResourceProperty("versionNamePrefix", "_mUnknown_VersionNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionNamePrefix;
-
-        public string? VersionNamePrefix => _mVersionNamePrefix.GetValue("versionNamePrefix");
+        private string? _mValue_VersionNamePrefix;
+        private bool _mUnknown_VersionNamePrefix;
+        public string? VersionNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_VersionNamePrefix) return _mValue_VersionNamePrefix;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.VersionNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
         /// </summary>
-        [Input("volumeKmsKeyId")]
+        [PolicyResourceProperty("volumeKmsKeyId", "_mUnknown_VolumeKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeKmsKeyId;
-
-        public string? VolumeKmsKeyId => _mVolumeKmsKeyId.GetValue("volumeKmsKeyId");
+        private string? _mValue_VolumeKmsKeyId;
+        private bool _mUnknown_VolumeKmsKeyId;
+        public string? VolumeKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_VolumeKmsKeyId) return _mValue_VolumeKmsKeyId;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.VolumeKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration parameters for VPC to contain Entity Recognizer resources.
         /// See the `vpc_config` Configuration Block section below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.EntityRecognizerVpcConfig> _mVpcConfig;
-
-        public Outputs.EntityRecognizerVpcConfig? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Outputs.EntityRecognizerVpcConfig? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Outputs.EntityRecognizerVpcConfig? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'EntityRecognizer.VpcConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:comprehend/entityRecognizer:EntityRecognizer")]
@@ -144,40 +228,68 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// <summary>
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         /// </summary>
-        [Input("dataAccessRoleArn")]
+        [PolicyResourceProperty("dataAccessRoleArn", "_mUnknown_DataAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataAccessRoleArn;
-
-        public string? DataAccessRoleArn => _mDataAccessRoleArn.GetValue("dataAccessRoleArn");
+        private string? _mValue_DataAccessRoleArn;
+        private bool _mUnknown_DataAccessRoleArn;
+        public string? DataAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_DataAccessRoleArn) return _mValue_DataAccessRoleArn;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.DataAccessRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
         /// </summary>
-        [Input("inputDataConfig")]
+        [PolicyResourceProperty("inputDataConfig", "_mUnknown_InputDataConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EntityRecognizerInputDataConfigArgs> _mInputDataConfig;
-
-        public Inputs.EntityRecognizerInputDataConfigArgs? InputDataConfig => _mInputDataConfig.GetValue("inputDataConfig");
+        private Inputs.EntityRecognizerInputDataConfigArgs? _mValue_InputDataConfig;
+        private bool _mUnknown_InputDataConfig;
+        public Inputs.EntityRecognizerInputDataConfigArgs? InputDataConfig
+        {
+            get
+            {
+                if (!_mUnknown_InputDataConfig) return _mValue_InputDataConfig;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.InputDataConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
         /// </summary>
-        [Input("modelKmsKeyId")]
+        [PolicyResourceProperty("modelKmsKeyId", "_mUnknown_ModelKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelKmsKeyId;
-
-        public string? ModelKmsKeyId => _mModelKmsKeyId.GetValue("modelKmsKeyId");
+        private string? _mValue_ModelKmsKeyId;
+        private bool _mUnknown_ModelKmsKeyId;
+        public string? ModelKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_ModelKmsKeyId) return _mValue_ModelKmsKeyId;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.ModelKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the Entity Recognizer.
@@ -186,20 +298,34 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the version of the Entity Recognizer.
@@ -210,11 +336,18 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name_prefix`.
         /// </summary>
-        [Input("versionName")]
+        [PolicyResourceProperty("versionName", "_mUnknown_VersionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionName;
-
-        public string? VersionName => _mVersionName.GetValue("versionName");
+        private string? _mValue_VersionName;
+        private bool _mUnknown_VersionName;
+        public string? VersionName
+        {
+            get
+            {
+                if (!_mUnknown_VersionName) return _mValue_VersionName;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.VersionName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
@@ -222,29 +355,50 @@ namespace Pulumi.PolicyPacks.Aws.Comprehend
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name`.
         /// </summary>
-        [Input("versionNamePrefix")]
+        [PolicyResourceProperty("versionNamePrefix", "_mUnknown_VersionNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionNamePrefix;
-
-        public string? VersionNamePrefix => _mVersionNamePrefix.GetValue("versionNamePrefix");
+        private string? _mValue_VersionNamePrefix;
+        private bool _mUnknown_VersionNamePrefix;
+        public string? VersionNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_VersionNamePrefix) return _mValue_VersionNamePrefix;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.VersionNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
         /// </summary>
-        [Input("volumeKmsKeyId")]
+        [PolicyResourceProperty("volumeKmsKeyId", "_mUnknown_VolumeKmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVolumeKmsKeyId;
-
-        public string? VolumeKmsKeyId => _mVolumeKmsKeyId.GetValue("volumeKmsKeyId");
+        private string? _mValue_VolumeKmsKeyId;
+        private bool _mUnknown_VolumeKmsKeyId;
+        public string? VolumeKmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_VolumeKmsKeyId) return _mValue_VolumeKmsKeyId;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.VolumeKmsKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration parameters for VPC to contain Entity Recognizer resources.
         /// See the `vpc_config` Configuration Block section below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EntityRecognizerVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.EntityRecognizerVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.EntityRecognizerVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.EntityRecognizerVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'EntityRecognizerArgs.VpcConfig' is not present");
+            }
+        }
     }
 }

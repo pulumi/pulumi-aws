@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh
         /// <summary>
         /// ARN of the virtual node.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VirtualNode.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Creation date of the virtual node.
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'VirtualNode.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Last update date of the virtual node.
         /// </summary>
-        [Input("lastUpdatedDate")]
+        [PolicyResourceProperty("lastUpdatedDate", "_mUnknown_LastUpdatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedDate;
-
-        public string? LastUpdatedDate => _mLastUpdatedDate.GetValue("lastUpdatedDate");
+        private string? _mValue_LastUpdatedDate;
+        private bool _mUnknown_LastUpdatedDate;
+        public string? LastUpdatedDate
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedDate) return _mValue_LastUpdatedDate;
+                throw new UndeferrableValueException("Value 'VirtualNode.LastUpdatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("meshName")]
+        [PolicyResourceProperty("meshName", "_mUnknown_MeshName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeshName;
-
-        public string? MeshName => _mMeshName.GetValue("meshName");
+        private string? _mValue_MeshName;
+        private bool _mUnknown_MeshName;
+        public string? MeshName
+        {
+            get
+            {
+                if (!_mUnknown_MeshName) return _mValue_MeshName;
+                throw new UndeferrableValueException("Value 'VirtualNode.MeshName' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
-        [Input("meshOwner")]
+        [PolicyResourceProperty("meshOwner", "_mUnknown_MeshOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeshOwner;
-
-        public string? MeshOwner => _mMeshOwner.GetValue("meshOwner");
+        private string? _mValue_MeshOwner;
+        private bool _mUnknown_MeshOwner;
+        public string? MeshOwner
+        {
+            get
+            {
+                if (!_mUnknown_MeshOwner) return _mValue_MeshOwner;
+                throw new UndeferrableValueException("Value 'VirtualNode.MeshOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Name to use for the virtual node. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VirtualNode.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource owner's AWS account ID.
         /// </summary>
-        [Input("resourceOwner")]
+        [PolicyResourceProperty("resourceOwner", "_mUnknown_ResourceOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceOwner;
-
-        public string? ResourceOwner => _mResourceOwner.GetValue("resourceOwner");
+        private string? _mValue_ResourceOwner;
+        private bool _mUnknown_ResourceOwner;
+        public string? ResourceOwner
+        {
+            get
+            {
+                if (!_mUnknown_ResourceOwner) return _mValue_ResourceOwner;
+                throw new UndeferrableValueException("Value 'VirtualNode.ResourceOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual node specification to apply.
         /// </summary>
-        [Input("spec")]
+        [PolicyResourceProperty("spec", "_mUnknown_Spec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpec> _mSpec;
-
-        public Outputs.VirtualNodeSpec? Spec => _mSpec.GetValue("spec");
+        private Outputs.VirtualNodeSpec? _mValue_Spec;
+        private bool _mUnknown_Spec;
+        public Outputs.VirtualNodeSpec? Spec
+        {
+            get
+            {
+                if (!_mUnknown_Spec) return _mValue_Spec;
+                throw new UndeferrableValueException("Value 'VirtualNode.Spec' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VirtualNode.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VirtualNode.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appmesh/virtualNode:VirtualNode")]
@@ -110,46 +180,81 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh
         /// <summary>
         /// Name of the service mesh in which to create the virtual node. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("meshName")]
+        [PolicyResourceProperty("meshName", "_mUnknown_MeshName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeshName;
-
-        public string? MeshName => _mMeshName.GetValue("meshName");
+        private string? _mValue_MeshName;
+        private bool _mUnknown_MeshName;
+        public string? MeshName
+        {
+            get
+            {
+                if (!_mUnknown_MeshName) return _mValue_MeshName;
+                throw new UndeferrableValueException("Value 'VirtualNodeArgs.MeshName' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
-        [Input("meshOwner")]
+        [PolicyResourceProperty("meshOwner", "_mUnknown_MeshOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeshOwner;
-
-        public string? MeshOwner => _mMeshOwner.GetValue("meshOwner");
+        private string? _mValue_MeshOwner;
+        private bool _mUnknown_MeshOwner;
+        public string? MeshOwner
+        {
+            get
+            {
+                if (!_mUnknown_MeshOwner) return _mValue_MeshOwner;
+                throw new UndeferrableValueException("Value 'VirtualNodeArgs.MeshOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Name to use for the virtual node. Must be between 1 and 255 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VirtualNodeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Virtual node specification to apply.
         /// </summary>
-        [Input("spec")]
+        [PolicyResourceProperty("spec", "_mUnknown_Spec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecArgs> _mSpec;
-
-        public Inputs.VirtualNodeSpecArgs? Spec => _mSpec.GetValue("spec");
+        private Inputs.VirtualNodeSpecArgs? _mValue_Spec;
+        private bool _mUnknown_Spec;
+        public Inputs.VirtualNodeSpecArgs? Spec
+        {
+            get
+            {
+                if (!_mUnknown_Spec) return _mValue_Spec;
+                throw new UndeferrableValueException("Value 'VirtualNodeArgs.Spec' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VirtualNodeArgs.Tags' is not present");
+            }
+        }
     }
 }

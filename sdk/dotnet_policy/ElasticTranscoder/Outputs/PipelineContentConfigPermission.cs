@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Outputs
         /// <summary>
         /// The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
         /// </summary>
-        [Input("accesses")]
+        [PolicyResourceProperty("accesses", "_mUnknown_Accesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAccesses;
-
-        public List<string>? Accesses => _mAccesses.GetValue("accesses");
+        private List<string>? _mValue_Accesses;
+        private bool _mUnknown_Accesses;
+        public List<string>? Accesses
+        {
+            get
+            {
+                if (!_mUnknown_Accesses) return _mValue_Accesses;
+                throw new UndeferrableValueException("Value 'PipelineContentConfigPermission.Accesses' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS user or group that you want to have access to transcoded files and playlists.
         /// </summary>
-        [Input("grantee")]
+        [PolicyResourceProperty("grantee", "_mUnknown_Grantee")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrantee;
-
-        public string? Grantee => _mGrantee.GetValue("grantee");
+        private string? _mValue_Grantee;
+        private bool _mUnknown_Grantee;
+        public string? Grantee
+        {
+            get
+            {
+                if (!_mUnknown_Grantee) return _mValue_Grantee;
+                throw new UndeferrableValueException("Value 'PipelineContentConfigPermission.Grantee' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
         /// </summary>
-        [Input("granteeType")]
+        [PolicyResourceProperty("granteeType", "_mUnknown_GranteeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGranteeType;
-
-        public string? GranteeType => _mGranteeType.GetValue("granteeType");
+        private string? _mValue_GranteeType;
+        private bool _mUnknown_GranteeType;
+        public string? GranteeType
+        {
+            get
+            {
+                if (!_mUnknown_GranteeType) return _mValue_GranteeType;
+                throw new UndeferrableValueException("Value 'PipelineContentConfigPermission.GranteeType' is not present");
+            }
+        }
     }
 }

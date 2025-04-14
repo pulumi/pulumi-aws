@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.Kms.Outputs
 {
     public sealed class GetSecretSecretResult
     {
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mContext;
+        private Dictionary<string, string>? _mValue_Context;
+        private bool _mUnknown_Context;
+        public Dictionary<string, string>? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'GetSecretSecretResult.Context' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Context => _mContext.GetValue("context");
-
-        [Input("grantTokens")]
+        [PolicyResourceProperty("grantTokens", "_mUnknown_GrantTokens")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGrantTokens;
+        private List<string>? _mValue_GrantTokens;
+        private bool _mUnknown_GrantTokens;
+        public List<string>? GrantTokens
+        {
+            get
+            {
+                if (!_mUnknown_GrantTokens) return _mValue_GrantTokens;
+                throw new UndeferrableValueException("Value 'GetSecretSecretResult.GrantTokens' is not present");
+            }
+        }
 
-        public List<string>? GrantTokens => _mGrantTokens.GetValue("grantTokens");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetSecretSecretResult.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("payload")]
+        [PolicyResourceProperty("payload", "_mUnknown_Payload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayload;
-
-        public string? Payload => _mPayload.GetValue("payload");
+        private string? _mValue_Payload;
+        private bool _mUnknown_Payload;
+        public string? Payload
+        {
+            get
+            {
+                if (!_mUnknown_Payload) return _mValue_Payload;
+                throw new UndeferrableValueException("Value 'GetSecretSecretResult.Payload' is not present");
+            }
+        }
     }
 }

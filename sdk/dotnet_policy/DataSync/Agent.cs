@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
         /// </summary>
-        [Input("activationKey")]
+        [PolicyResourceProperty("activationKey", "_mUnknown_ActivationKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActivationKey;
-
-        public string? ActivationKey => _mActivationKey.GetValue("activationKey");
+        private string? _mValue_ActivationKey;
+        private bool _mUnknown_ActivationKey;
+        public string? ActivationKey
+        {
+            get
+            {
+                if (!_mUnknown_ActivationKey) return _mValue_ActivationKey;
+                throw new UndeferrableValueException("Value 'Agent.ActivationKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Agent.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Agent.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'Agent.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DataSync Agent.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Agent.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         /// </summary>
-        [Input("privateLinkEndpoint")]
+        [PolicyResourceProperty("privateLinkEndpoint", "_mUnknown_PrivateLinkEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateLinkEndpoint;
-
-        public string? PrivateLinkEndpoint => _mPrivateLinkEndpoint.GetValue("privateLinkEndpoint");
+        private string? _mValue_PrivateLinkEndpoint;
+        private bool _mUnknown_PrivateLinkEndpoint;
+        public string? PrivateLinkEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_PrivateLinkEndpoint) return _mValue_PrivateLinkEndpoint;
+                throw new UndeferrableValueException("Value 'Agent.PrivateLinkEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARNs of the security groups used to protect your data transfer task subnets.
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'Agent.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
-        [Input("subnetArns")]
+        [PolicyResourceProperty("subnetArns", "_mUnknown_SubnetArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetArns;
-
-        public List<string>? SubnetArns => _mSubnetArns.GetValue("subnetArns");
+        private List<string>? _mValue_SubnetArns;
+        private bool _mUnknown_SubnetArns;
+        public List<string>? SubnetArns
+        {
+            get
+            {
+                if (!_mUnknown_SubnetArns) return _mValue_SubnetArns;
+                throw new UndeferrableValueException("Value 'Agent.SubnetArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Agent.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Agent.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'Agent.VpcEndpointId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/agent:Agent")]
@@ -110,73 +180,129 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
         /// </summary>
-        [Input("activationKey")]
+        [PolicyResourceProperty("activationKey", "_mUnknown_ActivationKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActivationKey;
-
-        public string? ActivationKey => _mActivationKey.GetValue("activationKey");
+        private string? _mValue_ActivationKey;
+        private bool _mUnknown_ActivationKey;
+        public string? ActivationKey
+        {
+            get
+            {
+                if (!_mUnknown_ActivationKey) return _mValue_ActivationKey;
+                throw new UndeferrableValueException("Value 'AgentArgs.ActivationKey' is not present");
+            }
+        }
 
         /// <summary>
         /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'AgentArgs.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DataSync Agent.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'AgentArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         /// </summary>
-        [Input("privateLinkEndpoint")]
+        [PolicyResourceProperty("privateLinkEndpoint", "_mUnknown_PrivateLinkEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateLinkEndpoint;
-
-        public string? PrivateLinkEndpoint => _mPrivateLinkEndpoint.GetValue("privateLinkEndpoint");
+        private string? _mValue_PrivateLinkEndpoint;
+        private bool _mUnknown_PrivateLinkEndpoint;
+        public string? PrivateLinkEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_PrivateLinkEndpoint) return _mValue_PrivateLinkEndpoint;
+                throw new UndeferrableValueException("Value 'AgentArgs.PrivateLinkEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARNs of the security groups used to protect your data transfer task subnets.
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'AgentArgs.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
-        [Input("subnetArns")]
+        [PolicyResourceProperty("subnetArns", "_mUnknown_SubnetArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetArns;
-
-        public List<string>? SubnetArns => _mSubnetArns.GetValue("subnetArns");
+        private List<string>? _mValue_SubnetArns;
+        private bool _mUnknown_SubnetArns;
+        public List<string>? SubnetArns
+        {
+            get
+            {
+                if (!_mUnknown_SubnetArns) return _mValue_SubnetArns;
+                throw new UndeferrableValueException("Value 'AgentArgs.SubnetArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
         /// </summary>
-        [Input("vpcEndpointId")]
+        [PolicyResourceProperty("vpcEndpointId", "_mUnknown_VpcEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointId;
-
-        public string? VpcEndpointId => _mVpcEndpointId.GetValue("vpcEndpointId");
+        private string? _mValue_VpcEndpointId;
+        private bool _mUnknown_VpcEndpointId;
+        public string? VpcEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointId) return _mValue_VpcEndpointId;
+                throw new UndeferrableValueException("Value 'AgentArgs.VpcEndpointId' is not present");
+            }
+        }
     }
 }

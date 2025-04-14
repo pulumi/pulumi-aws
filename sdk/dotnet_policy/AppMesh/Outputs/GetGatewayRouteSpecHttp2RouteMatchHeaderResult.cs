@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecHttp2RouteMatchHeaderResult
     {
-        [Input("invert")]
+        [PolicyResourceProperty("invert", "_mUnknown_Invert")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvert;
+        private bool? _mValue_Invert;
+        private bool _mUnknown_Invert;
+        public bool? Invert
+        {
+            get
+            {
+                if (!_mUnknown_Invert) return _mValue_Invert;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttp2RouteMatchHeaderResult.Invert' is not present");
+            }
+        }
 
-        public bool? Invert => _mInvert.GetValue("invert");
-
-        [Input("matches")]
+        [PolicyResourceProperty("matches", "_mUnknown_Matches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult>> _mMatches;
-
-        public List<Outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult>? Matches => _mMatches.GetValue("matches");
+        private List<Outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult>? _mValue_Matches;
+        private bool _mUnknown_Matches;
+        public List<Outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult>? Matches
+        {
+            get
+            {
+                if (!_mUnknown_Matches) return _mValue_Matches;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttp2RouteMatchHeaderResult.Matches' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the gateway route.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecHttp2RouteMatchHeaderResult.Name' is not present");
+            }
+        }
     }
 }

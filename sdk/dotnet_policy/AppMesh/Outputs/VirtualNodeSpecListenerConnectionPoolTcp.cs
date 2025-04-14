@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
         /// </summary>
-        [Input("maxConnections")]
+        [PolicyResourceProperty("maxConnections", "_mUnknown_MaxConnections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConnections;
-
-        public int? MaxConnections => _mMaxConnections.GetValue("maxConnections");
+        private int? _mValue_MaxConnections;
+        private bool _mUnknown_MaxConnections;
+        public int? MaxConnections
+        {
+            get
+            {
+                if (!_mUnknown_MaxConnections) return _mValue_MaxConnections;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPoolTcp.MaxConnections' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Outputs
         /// <summary>
         /// The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
         /// </summary>
-        [Input("firstEntries")]
+        [PolicyResourceProperty("firstEntries", "_mUnknown_FirstEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry>> _mFirstEntries;
-
-        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry>? FirstEntries => _mFirstEntries.GetValue("firstEntries");
+        private List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry>? _mValue_FirstEntries;
+        private bool _mUnknown_FirstEntries;
+        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry>? FirstEntries
+        {
+            get
+            {
+                if (!_mUnknown_FirstEntries) return _mValue_FirstEntries;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.FirstEntries' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
         /// </summary>
-        [Input("forceRemediateForFirstEntries")]
+        [PolicyResourceProperty("forceRemediateForFirstEntries", "_mUnknown_ForceRemediateForFirstEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceRemediateForFirstEntries;
-
-        public bool? ForceRemediateForFirstEntries => _mForceRemediateForFirstEntries.GetValue("forceRemediateForFirstEntries");
+        private bool? _mValue_ForceRemediateForFirstEntries;
+        private bool _mUnknown_ForceRemediateForFirstEntries;
+        public bool? ForceRemediateForFirstEntries
+        {
+            get
+            {
+                if (!_mUnknown_ForceRemediateForFirstEntries) return _mValue_ForceRemediateForFirstEntries;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.ForceRemediateForFirstEntries' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
         /// </summary>
-        [Input("forceRemediateForLastEntries")]
+        [PolicyResourceProperty("forceRemediateForLastEntries", "_mUnknown_ForceRemediateForLastEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceRemediateForLastEntries;
-
-        public bool? ForceRemediateForLastEntries => _mForceRemediateForLastEntries.GetValue("forceRemediateForLastEntries");
+        private bool? _mValue_ForceRemediateForLastEntries;
+        private bool _mUnknown_ForceRemediateForLastEntries;
+        public bool? ForceRemediateForLastEntries
+        {
+            get
+            {
+                if (!_mUnknown_ForceRemediateForLastEntries) return _mValue_ForceRemediateForLastEntries;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.ForceRemediateForLastEntries' is not present");
+            }
+        }
 
         /// <summary>
         /// The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
         /// </summary>
-        [Input("lastEntries")]
+        [PolicyResourceProperty("lastEntries", "_mUnknown_LastEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry>> _mLastEntries;
-
-        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry>? LastEntries => _mLastEntries.GetValue("lastEntries");
+        private List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry>? _mValue_LastEntries;
+        private bool _mUnknown_LastEntries;
+        public List<Outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry>? LastEntries
+        {
+            get
+            {
+                if (!_mUnknown_LastEntries) return _mValue_LastEntries;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.LastEntries' is not present");
+            }
+        }
     }
 }

@@ -16,50 +16,92 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// ARN of the Voice Profile Domain.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomain.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of Voice Profile Domain.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomain.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of Voice Profile Domain.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomain.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for server side encryption.
         /// </summary>
-        [Input("serverSideEncryptionConfiguration")]
+        [PolicyResourceProperty("serverSideEncryptionConfiguration", "_mUnknown_ServerSideEncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration> _mServerSideEncryptionConfiguration;
+        private Outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration? _mValue_ServerSideEncryptionConfiguration;
+        private bool _mUnknown_ServerSideEncryptionConfiguration;
+        public Outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfiguration) return _mValue_ServerSideEncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomain.ServerSideEncryptionConfiguration' is not present");
+            }
+        }
 
-        public Outputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomain.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomain.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain")]
@@ -68,34 +110,62 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// Description of Voice Profile Domain.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of Voice Profile Domain.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for server side encryption.
         /// </summary>
-        [Input("serverSideEncryptionConfiguration")]
+        [PolicyResourceProperty("serverSideEncryptionConfiguration", "_mUnknown_ServerSideEncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs> _mServerSideEncryptionConfiguration;
+        private Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs? _mValue_ServerSideEncryptionConfiguration;
+        private bool _mUnknown_ServerSideEncryptionConfiguration;
+        public Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ServerSideEncryptionConfiguration) return _mValue_ServerSideEncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.ServerSideEncryptionConfiguration' is not present");
+            }
+        }
 
-        public Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs? ServerSideEncryptionConfiguration => _mServerSideEncryptionConfiguration.GetValue("serverSideEncryptionConfiguration");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.Tags' is not present");
+            }
+        }
     }
 }

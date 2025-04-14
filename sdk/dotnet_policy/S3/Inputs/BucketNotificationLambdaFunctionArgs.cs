@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
         /// </summary>
-        [Input("events")]
+        [PolicyResourceProperty("events", "_mUnknown_Events")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEvents;
-
-        public List<string>? Events => _mEvents.GetValue("events");
+        private List<string>? _mValue_Events;
+        private bool _mUnknown_Events;
+        public List<string>? Events
+        {
+            get
+            {
+                if (!_mUnknown_Events) return _mValue_Events;
+                throw new UndeferrableValueException("Value 'BucketNotificationLambdaFunctionArgs.Events' is not present");
+            }
+        }
 
         /// <summary>
         /// Object key name prefix.
         /// </summary>
-        [Input("filterPrefix")]
+        [PolicyResourceProperty("filterPrefix", "_mUnknown_FilterPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPrefix;
-
-        public string? FilterPrefix => _mFilterPrefix.GetValue("filterPrefix");
+        private string? _mValue_FilterPrefix;
+        private bool _mUnknown_FilterPrefix;
+        public string? FilterPrefix
+        {
+            get
+            {
+                if (!_mUnknown_FilterPrefix) return _mValue_FilterPrefix;
+                throw new UndeferrableValueException("Value 'BucketNotificationLambdaFunctionArgs.FilterPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Object key name suffix.
         /// </summary>
-        [Input("filterSuffix")]
+        [PolicyResourceProperty("filterSuffix", "_mUnknown_FilterSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterSuffix;
-
-        public string? FilterSuffix => _mFilterSuffix.GetValue("filterSuffix");
+        private string? _mValue_FilterSuffix;
+        private bool _mUnknown_FilterSuffix;
+        public string? FilterSuffix
+        {
+            get
+            {
+                if (!_mUnknown_FilterSuffix) return _mValue_FilterSuffix;
+                throw new UndeferrableValueException("Value 'BucketNotificationLambdaFunctionArgs.FilterSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for each of the notification configurations.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'BucketNotificationLambdaFunctionArgs.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Lambda function ARN.
         /// </summary>
-        [Input("lambdaFunctionArn")]
+        [PolicyResourceProperty("lambdaFunctionArn", "_mUnknown_LambdaFunctionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaFunctionArn;
-
-        public string? LambdaFunctionArn => _mLambdaFunctionArn.GetValue("lambdaFunctionArn");
+        private string? _mValue_LambdaFunctionArn;
+        private bool _mUnknown_LambdaFunctionArn;
+        public string? LambdaFunctionArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaFunctionArn) return _mValue_LambdaFunctionArn;
+                throw new UndeferrableValueException("Value 'BucketNotificationLambdaFunctionArgs.LambdaFunctionArn' is not present");
+            }
+        }
     }
 }

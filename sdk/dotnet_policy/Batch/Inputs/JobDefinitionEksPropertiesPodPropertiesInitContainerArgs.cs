@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Inputs
         /// <summary>
         /// Array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
         /// </summary>
-        [Input("args")]
+        [PolicyResourceProperty("args", "_mUnknown_Args")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mArgs;
-
-        public List<string>? Args => _mArgs.GetValue("args");
+        private List<string>? _mValue_Args;
+        private bool _mUnknown_Args;
+        public List<string>? Args
+        {
+            get
+            {
+                if (!_mUnknown_Args) return _mValue_Args;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.Args' is not present");
+            }
+        }
 
         /// <summary>
         /// Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
         /// </summary>
-        [Input("commands")]
+        [PolicyResourceProperty("commands", "_mUnknown_Commands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCommands;
-
-        public List<string>? Commands => _mCommands.GetValue("commands");
+        private List<string>? _mValue_Commands;
+        private bool _mUnknown_Commands;
+        public List<string>? Commands
+        {
+            get
+            {
+                if (!_mUnknown_Commands) return _mValue_Commands;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.Commands' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables to pass to a container. See EKS Environment below.
         /// </summary>
-        [Input("envs")]
+        [PolicyResourceProperty("envs", "_mUnknown_Envs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>> _mEnvs;
-
-        public List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>? Envs => _mEnvs.GetValue("envs");
+        private List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>? _mValue_Envs;
+        private bool _mUnknown_Envs;
+        public List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>? Envs
+        {
+            get
+            {
+                if (!_mUnknown_Envs) return _mValue_Envs;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.Envs' is not present");
+            }
+        }
 
         /// <summary>
         /// Docker image used to start the container.
         /// </summary>
-        [Input("image")]
+        [PolicyResourceProperty("image", "_mUnknown_Image")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImage;
-
-        public string? Image => _mImage.GetValue("image");
+        private string? _mValue_Image;
+        private bool _mUnknown_Image;
+        public string? Image
+        {
+            get
+            {
+                if (!_mUnknown_Image) return _mValue_Image;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.Image' is not present");
+            }
+        }
 
         /// <summary>
         /// Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         /// </summary>
-        [Input("imagePullPolicy")]
+        [PolicyResourceProperty("imagePullPolicy", "_mUnknown_ImagePullPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImagePullPolicy;
-
-        public string? ImagePullPolicy => _mImagePullPolicy.GetValue("imagePullPolicy");
+        private string? _mValue_ImagePullPolicy;
+        private bool _mUnknown_ImagePullPolicy;
+        public string? ImagePullPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ImagePullPolicy) return _mValue_ImagePullPolicy;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.ImagePullPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the job definition.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs> _mResources;
-
-        public Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs? Resources => _mResources.GetValue("resources");
+        private Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.Resources' is not present");
+            }
+        }
 
         /// <summary>
         /// Security context for a job.
         /// </summary>
-        [Input("securityContext")]
+        [PolicyResourceProperty("securityContext", "_mUnknown_SecurityContext")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs> _mSecurityContext;
-
-        public Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs? SecurityContext => _mSecurityContext.GetValue("securityContext");
+        private Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs? _mValue_SecurityContext;
+        private bool _mUnknown_SecurityContext;
+        public Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs? SecurityContext
+        {
+            get
+            {
+                if (!_mUnknown_SecurityContext) return _mValue_SecurityContext;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.SecurityContext' is not present");
+            }
+        }
 
         /// <summary>
         /// Volume mounts for the container.
         /// </summary>
-        [Input("volumeMounts")]
+        [PolicyResourceProperty("volumeMounts", "_mUnknown_VolumeMounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>> _mVolumeMounts;
-
-        public List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>? VolumeMounts => _mVolumeMounts.GetValue("volumeMounts");
+        private List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>? _mValue_VolumeMounts;
+        private bool _mUnknown_VolumeMounts;
+        public List<Inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>? VolumeMounts
+        {
+            get
+            {
+                if (!_mUnknown_VolumeMounts) return _mValue_VolumeMounts;
+                throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.VolumeMounts' is not present");
+            }
+        }
     }
 }

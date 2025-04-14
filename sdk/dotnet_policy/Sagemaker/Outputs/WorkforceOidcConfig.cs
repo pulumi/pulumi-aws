@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
         /// </summary>
-        [Input("authenticationRequestExtraParams")]
+        [PolicyResourceProperty("authenticationRequestExtraParams", "_mUnknown_AuthenticationRequestExtraParams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAuthenticationRequestExtraParams;
-
-        public Dictionary<string, string>? AuthenticationRequestExtraParams => _mAuthenticationRequestExtraParams.GetValue("authenticationRequestExtraParams");
+        private Dictionary<string, string>? _mValue_AuthenticationRequestExtraParams;
+        private bool _mUnknown_AuthenticationRequestExtraParams;
+        public Dictionary<string, string>? AuthenticationRequestExtraParams
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationRequestExtraParams) return _mValue_AuthenticationRequestExtraParams;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.AuthenticationRequestExtraParams' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP authorization endpoint used to configure your private workforce.
         /// </summary>
-        [Input("authorizationEndpoint")]
+        [PolicyResourceProperty("authorizationEndpoint", "_mUnknown_AuthorizationEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthorizationEndpoint;
-
-        public string? AuthorizationEndpoint => _mAuthorizationEndpoint.GetValue("authorizationEndpoint");
+        private string? _mValue_AuthorizationEndpoint;
+        private bool _mUnknown_AuthorizationEndpoint;
+        public string? AuthorizationEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizationEndpoint) return _mValue_AuthorizationEndpoint;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.AuthorizationEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP client ID used to configure your private workforce.
         /// </summary>
-        [Input("clientId")]
+        [PolicyResourceProperty("clientId", "_mUnknown_ClientId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientId;
-
-        public string? ClientId => _mClientId.GetValue("clientId");
+        private string? _mValue_ClientId;
+        private bool _mUnknown_ClientId;
+        public string? ClientId
+        {
+            get
+            {
+                if (!_mUnknown_ClientId) return _mValue_ClientId;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.ClientId' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP client secret used to configure your private workforce.
         /// </summary>
-        [Input("clientSecret")]
+        [PolicyResourceProperty("clientSecret", "_mUnknown_ClientSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientSecret;
-
-        public string? ClientSecret => _mClientSecret.GetValue("clientSecret");
+        private string? _mValue_ClientSecret;
+        private bool _mUnknown_ClientSecret;
+        public string? ClientSecret
+        {
+            get
+            {
+                if (!_mUnknown_ClientSecret) return _mValue_ClientSecret;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.ClientSecret' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP issuer used to configure your private workforce.
         /// </summary>
-        [Input("issuer")]
+        [PolicyResourceProperty("issuer", "_mUnknown_Issuer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIssuer;
-
-        public string? Issuer => _mIssuer.GetValue("issuer");
+        private string? _mValue_Issuer;
+        private bool _mUnknown_Issuer;
+        public string? Issuer
+        {
+            get
+            {
+                if (!_mUnknown_Issuer) return _mValue_Issuer;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.Issuer' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
         /// </summary>
-        [Input("jwksUri")]
+        [PolicyResourceProperty("jwksUri", "_mUnknown_JwksUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJwksUri;
-
-        public string? JwksUri => _mJwksUri.GetValue("jwksUri");
+        private string? _mValue_JwksUri;
+        private bool _mUnknown_JwksUri;
+        public string? JwksUri
+        {
+            get
+            {
+                if (!_mUnknown_JwksUri) return _mValue_JwksUri;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.JwksUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP logout endpoint used to configure your private workforce.
         /// </summary>
-        [Input("logoutEndpoint")]
+        [PolicyResourceProperty("logoutEndpoint", "_mUnknown_LogoutEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogoutEndpoint;
-
-        public string? LogoutEndpoint => _mLogoutEndpoint.GetValue("logoutEndpoint");
+        private string? _mValue_LogoutEndpoint;
+        private bool _mUnknown_LogoutEndpoint;
+        public string? LogoutEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_LogoutEndpoint) return _mValue_LogoutEndpoint;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.LogoutEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
         /// </summary>
-        [Input("scope")]
+        [PolicyResourceProperty("scope", "_mUnknown_Scope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScope;
-
-        public string? Scope => _mScope.GetValue("scope");
+        private string? _mValue_Scope;
+        private bool _mUnknown_Scope;
+        public string? Scope
+        {
+            get
+            {
+                if (!_mUnknown_Scope) return _mValue_Scope;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.Scope' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP token endpoint used to configure your private workforce.
         /// </summary>
-        [Input("tokenEndpoint")]
+        [PolicyResourceProperty("tokenEndpoint", "_mUnknown_TokenEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTokenEndpoint;
-
-        public string? TokenEndpoint => _mTokenEndpoint.GetValue("tokenEndpoint");
+        private string? _mValue_TokenEndpoint;
+        private bool _mUnknown_TokenEndpoint;
+        public string? TokenEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_TokenEndpoint) return _mValue_TokenEndpoint;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.TokenEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The OIDC IdP user information endpoint used to configure your private workforce.
         /// </summary>
-        [Input("userInfoEndpoint")]
+        [PolicyResourceProperty("userInfoEndpoint", "_mUnknown_UserInfoEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserInfoEndpoint;
-
-        public string? UserInfoEndpoint => _mUserInfoEndpoint.GetValue("userInfoEndpoint");
+        private string? _mValue_UserInfoEndpoint;
+        private bool _mUnknown_UserInfoEndpoint;
+        public string? UserInfoEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_UserInfoEndpoint) return _mValue_UserInfoEndpoint;
+                throw new UndeferrableValueException("Value 'WorkforceOidcConfig.UserInfoEndpoint' is not present");
+            }
+        }
     }
 }

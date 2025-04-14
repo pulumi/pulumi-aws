@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
         /// </summary>
-        [Input("childDirected")]
+        [PolicyResourceProperty("childDirected", "_mUnknown_ChildDirected")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mChildDirected;
-
-        public bool? ChildDirected => _mChildDirected.GetValue("childDirected");
+        private bool? _mValue_ChildDirected;
+        private bool _mUnknown_ChildDirected;
+        public bool? ChildDirected
+        {
+            get
+            {
+                if (!_mUnknown_ChildDirected) return _mValue_ChildDirected;
+                throw new UndeferrableValueException("Value 'V2modelsBotDataPrivacyArgs.ChildDirected' is not present");
+            }
+        }
     }
 }

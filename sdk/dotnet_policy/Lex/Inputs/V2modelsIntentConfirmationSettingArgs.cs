@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// Whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
         /// </summary>
-        [Input("codeHook")]
+        [PolicyResourceProperty("codeHook", "_mUnknown_CodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingCodeHookArgs> _mCodeHook;
-
-        public Inputs.V2modelsIntentConfirmationSettingCodeHookArgs? CodeHook => _mCodeHook.GetValue("codeHook");
+        private Inputs.V2modelsIntentConfirmationSettingCodeHookArgs? _mValue_CodeHook;
+        private bool _mUnknown_CodeHook;
+        public Inputs.V2modelsIntentConfirmationSettingCodeHookArgs? CodeHook
+        {
+            get
+            {
+                if (!_mUnknown_CodeHook) return _mValue_CodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.CodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
         /// </summary>
-        [Input("confirmationConditional")]
+        [PolicyResourceProperty("confirmationConditional", "_mUnknown_ConfirmationConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingConfirmationConditionalArgs> _mConfirmationConditional;
-
-        public Inputs.V2modelsIntentConfirmationSettingConfirmationConditionalArgs? ConfirmationConditional => _mConfirmationConditional.GetValue("confirmationConditional");
+        private Inputs.V2modelsIntentConfirmationSettingConfirmationConditionalArgs? _mValue_ConfirmationConditional;
+        private bool _mUnknown_ConfirmationConditional;
+        public Inputs.V2modelsIntentConfirmationSettingConfirmationConditionalArgs? ConfirmationConditional
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationConditional) return _mValue_ConfirmationConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.ConfirmationConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
         /// </summary>
-        [Input("confirmationNextStep")]
+        [PolicyResourceProperty("confirmationNextStep", "_mUnknown_ConfirmationNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingConfirmationNextStepArgs> _mConfirmationNextStep;
-
-        public Inputs.V2modelsIntentConfirmationSettingConfirmationNextStepArgs? ConfirmationNextStep => _mConfirmationNextStep.GetValue("confirmationNextStep");
+        private Inputs.V2modelsIntentConfirmationSettingConfirmationNextStepArgs? _mValue_ConfirmationNextStep;
+        private bool _mUnknown_ConfirmationNextStep;
+        public Inputs.V2modelsIntentConfirmationSettingConfirmationNextStepArgs? ConfirmationNextStep
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationNextStep) return _mValue_ConfirmationNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.ConfirmationNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
         /// </summary>
-        [Input("confirmationResponse")]
+        [PolicyResourceProperty("confirmationResponse", "_mUnknown_ConfirmationResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingConfirmationResponseArgs> _mConfirmationResponse;
-
-        public Inputs.V2modelsIntentConfirmationSettingConfirmationResponseArgs? ConfirmationResponse => _mConfirmationResponse.GetValue("confirmationResponse");
+        private Inputs.V2modelsIntentConfirmationSettingConfirmationResponseArgs? _mValue_ConfirmationResponse;
+        private bool _mUnknown_ConfirmationResponse;
+        public Inputs.V2modelsIntentConfirmationSettingConfirmationResponseArgs? ConfirmationResponse
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationResponse) return _mValue_ConfirmationResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.ConfirmationResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
         /// </summary>
-        [Input("declinationConditional")]
+        [PolicyResourceProperty("declinationConditional", "_mUnknown_DeclinationConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalArgs> _mDeclinationConditional;
-
-        public Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalArgs? DeclinationConditional => _mDeclinationConditional.GetValue("declinationConditional");
+        private Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalArgs? _mValue_DeclinationConditional;
+        private bool _mUnknown_DeclinationConditional;
+        public Inputs.V2modelsIntentConfirmationSettingDeclinationConditionalArgs? DeclinationConditional
+        {
+            get
+            {
+                if (!_mUnknown_DeclinationConditional) return _mValue_DeclinationConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.DeclinationConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
         /// </summary>
-        [Input("declinationNextStep")]
+        [PolicyResourceProperty("declinationNextStep", "_mUnknown_DeclinationNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingDeclinationNextStepArgs> _mDeclinationNextStep;
-
-        public Inputs.V2modelsIntentConfirmationSettingDeclinationNextStepArgs? DeclinationNextStep => _mDeclinationNextStep.GetValue("declinationNextStep");
+        private Inputs.V2modelsIntentConfirmationSettingDeclinationNextStepArgs? _mValue_DeclinationNextStep;
+        private bool _mUnknown_DeclinationNextStep;
+        public Inputs.V2modelsIntentConfirmationSettingDeclinationNextStepArgs? DeclinationNextStep
+        {
+            get
+            {
+                if (!_mUnknown_DeclinationNextStep) return _mValue_DeclinationNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.DeclinationNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for when the user answers "no" to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
         /// </summary>
-        [Input("declinationResponse")]
+        [PolicyResourceProperty("declinationResponse", "_mUnknown_DeclinationResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingDeclinationResponseArgs> _mDeclinationResponse;
-
-        public Inputs.V2modelsIntentConfirmationSettingDeclinationResponseArgs? DeclinationResponse => _mDeclinationResponse.GetValue("declinationResponse");
+        private Inputs.V2modelsIntentConfirmationSettingDeclinationResponseArgs? _mValue_DeclinationResponse;
+        private bool _mUnknown_DeclinationResponse;
+        public Inputs.V2modelsIntentConfirmationSettingDeclinationResponseArgs? DeclinationResponse
+        {
+            get
+            {
+                if (!_mUnknown_DeclinationResponse) return _mValue_DeclinationResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.DeclinationResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
         /// </summary>
-        [Input("elicitationCodeHook")]
+        [PolicyResourceProperty("elicitationCodeHook", "_mUnknown_ElicitationCodeHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingElicitationCodeHookArgs> _mElicitationCodeHook;
-
-        public Inputs.V2modelsIntentConfirmationSettingElicitationCodeHookArgs? ElicitationCodeHook => _mElicitationCodeHook.GetValue("elicitationCodeHook");
+        private Inputs.V2modelsIntentConfirmationSettingElicitationCodeHookArgs? _mValue_ElicitationCodeHook;
+        private bool _mUnknown_ElicitationCodeHook;
+        public Inputs.V2modelsIntentConfirmationSettingElicitationCodeHookArgs? ElicitationCodeHook
+        {
+            get
+            {
+                if (!_mUnknown_ElicitationCodeHook) return _mValue_ElicitationCodeHook;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.ElicitationCodeHook' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
         /// </summary>
-        [Input("failureConditional")]
+        [PolicyResourceProperty("failureConditional", "_mUnknown_FailureConditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingFailureConditionalArgs> _mFailureConditional;
-
-        public Inputs.V2modelsIntentConfirmationSettingFailureConditionalArgs? FailureConditional => _mFailureConditional.GetValue("failureConditional");
+        private Inputs.V2modelsIntentConfirmationSettingFailureConditionalArgs? _mValue_FailureConditional;
+        private bool _mUnknown_FailureConditional;
+        public Inputs.V2modelsIntentConfirmationSettingFailureConditionalArgs? FailureConditional
+        {
+            get
+            {
+                if (!_mUnknown_FailureConditional) return _mValue_FailureConditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.FailureConditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
         /// </summary>
-        [Input("failureNextStep")]
+        [PolicyResourceProperty("failureNextStep", "_mUnknown_FailureNextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingFailureNextStepArgs> _mFailureNextStep;
-
-        public Inputs.V2modelsIntentConfirmationSettingFailureNextStepArgs? FailureNextStep => _mFailureNextStep.GetValue("failureNextStep");
+        private Inputs.V2modelsIntentConfirmationSettingFailureNextStepArgs? _mValue_FailureNextStep;
+        private bool _mUnknown_FailureNextStep;
+        public Inputs.V2modelsIntentConfirmationSettingFailureNextStepArgs? FailureNextStep
+        {
+            get
+            {
+                if (!_mUnknown_FailureNextStep) return _mValue_FailureNextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.FailureNextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
         /// </summary>
-        [Input("failureResponse")]
+        [PolicyResourceProperty("failureResponse", "_mUnknown_FailureResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingFailureResponseArgs> _mFailureResponse;
-
-        public Inputs.V2modelsIntentConfirmationSettingFailureResponseArgs? FailureResponse => _mFailureResponse.GetValue("failureResponse");
+        private Inputs.V2modelsIntentConfirmationSettingFailureResponseArgs? _mValue_FailureResponse;
+        private bool _mUnknown_FailureResponse;
+        public Inputs.V2modelsIntentConfirmationSettingFailureResponseArgs? FailureResponse
+        {
+            get
+            {
+                if (!_mUnknown_FailureResponse) return _mValue_FailureResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.FailureResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
         /// </summary>
-        [Input("promptSpecification")]
+        [PolicyResourceProperty("promptSpecification", "_mUnknown_PromptSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs> _mPromptSpecification;
-
-        public Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs? PromptSpecification => _mPromptSpecification.GetValue("promptSpecification");
+        private Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs? _mValue_PromptSpecification;
+        private bool _mUnknown_PromptSpecification;
+        public Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs? PromptSpecification
+        {
+            get
+            {
+                if (!_mUnknown_PromptSpecification) return _mValue_PromptSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.PromptSpecification' is not present");
+            }
+        }
     }
 }

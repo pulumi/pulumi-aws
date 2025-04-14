@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Location.Inputs
         /// <summary>
         /// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
         /// </summary>
-        [Input("intendedUse")]
+        [PolicyResourceProperty("intendedUse", "_mUnknown_IntendedUse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIntendedUse;
-
-        public string? IntendedUse => _mIntendedUse.GetValue("intendedUse");
+        private string? _mValue_IntendedUse;
+        private bool _mUnknown_IntendedUse;
+        public string? IntendedUse
+        {
+            get
+            {
+                if (!_mUnknown_IntendedUse) return _mValue_IntendedUse;
+                throw new UndeferrableValueException("Value 'PlaceIndexDataSourceConfigurationArgs.IntendedUse' is not present");
+            }
+        }
     }
 }

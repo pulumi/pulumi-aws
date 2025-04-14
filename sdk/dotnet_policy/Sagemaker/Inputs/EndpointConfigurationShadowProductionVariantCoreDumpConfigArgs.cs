@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The Amazon S3 bucket to send the core dump to.
         /// </summary>
-        [Input("destinationS3Uri")]
+        [PolicyResourceProperty("destinationS3Uri", "_mUnknown_DestinationS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationS3Uri;
-
-        public string? DestinationS3Uri => _mDestinationS3Uri.GetValue("destinationS3Uri");
+        private string? _mValue_DestinationS3Uri;
+        private bool _mUnknown_DestinationS3Uri;
+        public string? DestinationS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_DestinationS3Uri) return _mValue_DestinationS3Uri;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs.DestinationS3Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
         /// </summary>
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
-
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs.KmsKeyId' is not present");
+            }
+        }
     }
 }

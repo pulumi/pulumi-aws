@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the FSx for openzfs location was created.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         /// </summary>
-        [Input("fsxFilesystemArn")]
+        [PolicyResourceProperty("fsxFilesystemArn", "_mUnknown_FsxFilesystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFsxFilesystemArn;
-
-        public string? FsxFilesystemArn => _mFsxFilesystemArn.GetValue("fsxFilesystemArn");
+        private string? _mValue_FsxFilesystemArn;
+        private bool _mUnknown_FsxFilesystemArn;
+        public string? FsxFilesystemArn
+        {
+            get
+            {
+                if (!_mUnknown_FsxFilesystemArn) return _mValue_FsxFilesystemArn;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.FsxFilesystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of protocol that DataSync uses to access your file system. See below.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FsxOpenZfsFileSystemProtocol> _mProtocol;
-
-        public Outputs.FsxOpenZfsFileSystemProtocol? Protocol => _mProtocol.GetValue("protocol");
+        private Outputs.FsxOpenZfsFileSystemProtocol? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public Outputs.FsxOpenZfsFileSystemProtocol? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the FSx for openzfs location that was described.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystem.Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem")]
@@ -101,46 +164,81 @@ namespace Pulumi.PolicyPacks.Aws.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         /// </summary>
-        [Input("fsxFilesystemArn")]
+        [PolicyResourceProperty("fsxFilesystemArn", "_mUnknown_FsxFilesystemArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFsxFilesystemArn;
-
-        public string? FsxFilesystemArn => _mFsxFilesystemArn.GetValue("fsxFilesystemArn");
+        private string? _mValue_FsxFilesystemArn;
+        private bool _mUnknown_FsxFilesystemArn;
+        public string? FsxFilesystemArn
+        {
+            get
+            {
+                if (!_mUnknown_FsxFilesystemArn) return _mValue_FsxFilesystemArn;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemArgs.FsxFilesystemArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of protocol that DataSync uses to access your file system. See below.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FsxOpenZfsFileSystemProtocolArgs> _mProtocol;
-
-        public Inputs.FsxOpenZfsFileSystemProtocolArgs? Protocol => _mProtocol.GetValue("protocol");
+        private Inputs.FsxOpenZfsFileSystemProtocolArgs? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public Inputs.FsxOpenZfsFileSystemProtocolArgs? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         /// </summary>
-        [Input("securityGroupArns")]
+        [PolicyResourceProperty("securityGroupArns", "_mUnknown_SecurityGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupArns;
-
-        public List<string>? SecurityGroupArns => _mSecurityGroupArns.GetValue("securityGroupArns");
+        private List<string>? _mValue_SecurityGroupArns;
+        private bool _mUnknown_SecurityGroupArns;
+        public List<string>? SecurityGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupArns) return _mValue_SecurityGroupArns;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemArgs.SecurityGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         /// </summary>
-        [Input("subdirectory")]
+        [PolicyResourceProperty("subdirectory", "_mUnknown_Subdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubdirectory;
-
-        public string? Subdirectory => _mSubdirectory.GetValue("subdirectory");
+        private string? _mValue_Subdirectory;
+        private bool _mUnknown_Subdirectory;
+        public string? Subdirectory
+        {
+            get
+            {
+                if (!_mUnknown_Subdirectory) return _mValue_Subdirectory;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemArgs.Subdirectory' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemArgs.Tags' is not present");
+            }
+        }
     }
 }

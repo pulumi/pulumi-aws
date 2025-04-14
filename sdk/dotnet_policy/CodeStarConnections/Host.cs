@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.CodeStarConnections
         /// <summary>
         /// The CodeStar Host ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Host.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Host.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         /// </summary>
-        [Input("providerEndpoint")]
+        [PolicyResourceProperty("providerEndpoint", "_mUnknown_ProviderEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
-
-        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
+        private string? _mValue_ProviderEndpoint;
+        private bool _mUnknown_ProviderEndpoint;
+        public string? ProviderEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ProviderEndpoint) return _mValue_ProviderEndpoint;
+                throw new UndeferrableValueException("Value 'Host.ProviderEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'Host.ProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Host.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.HostVpcConfiguration> _mVpcConfiguration;
-
-        public Outputs.HostVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Outputs.HostVpcConfiguration? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Outputs.HostVpcConfiguration? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'Host.VpcConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codestarconnections/host:Host")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.CodeStarConnections
         /// <summary>
         /// The name of the host to be created. The name must be unique in the calling AWS account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HostArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint of the infrastructure to be represented by the host after it is created.
         /// </summary>
-        [Input("providerEndpoint")]
+        [PolicyResourceProperty("providerEndpoint", "_mUnknown_ProviderEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderEndpoint;
-
-        public string? ProviderEndpoint => _mProviderEndpoint.GetValue("providerEndpoint");
+        private string? _mValue_ProviderEndpoint;
+        private bool _mUnknown_ProviderEndpoint;
+        public string? ProviderEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_ProviderEndpoint) return _mValue_ProviderEndpoint;
+                throw new UndeferrableValueException("Value 'HostArgs.ProviderEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured.
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'HostArgs.ProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.HostVpcConfigurationArgs> _mVpcConfiguration;
-
-        public Inputs.HostVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Inputs.HostVpcConfigurationArgs? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Inputs.HostVpcConfigurationArgs? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'HostArgs.VpcConfiguration' is not present");
+            }
+        }
     }
 }

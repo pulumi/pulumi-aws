@@ -16,84 +16,154 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents
         /// <summary>
         /// The ARN of the replication set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ReplicationSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the user who created the replication set.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'ReplicationSet.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, the last region in a replication set cannot be deleted.
         /// </summary>
-        [Input("deletionProtected")]
+        [PolicyResourceProperty("deletionProtected", "_mUnknown_DeletionProtected")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeletionProtected;
-
-        public bool? DeletionProtected => _mDeletionProtected.GetValue("deletionProtected");
+        private bool? _mValue_DeletionProtected;
+        private bool _mUnknown_DeletionProtected;
+        public bool? DeletionProtected
+        {
+            get
+            {
+                if (!_mUnknown_DeletionProtected) return _mValue_DeletionProtected;
+                throw new UndeferrableValueException("Value 'ReplicationSet.DeletionProtected' is not present");
+            }
+        }
 
         /// <summary>
         /// A timestamp showing when the replication set was last modified.
         /// </summary>
-        [Input("lastModifiedBy")]
+        [PolicyResourceProperty("lastModifiedBy", "_mUnknown_LastModifiedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedBy;
+        private string? _mValue_LastModifiedBy;
+        private bool _mUnknown_LastModifiedBy;
+        public string? LastModifiedBy
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedBy) return _mValue_LastModifiedBy;
+                throw new UndeferrableValueException("Value 'ReplicationSet.LastModifiedBy' is not present");
+            }
+        }
 
-        public string? LastModifiedBy => _mLastModifiedBy.GetValue("lastModifiedBy");
-
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ReplicationSetRegion>> _mRegions;
-
-        public List<Outputs.ReplicationSetRegion>? Regions => _mRegions.GetValue("regions");
+        private List<Outputs.ReplicationSetRegion>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<Outputs.ReplicationSetRegion>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'ReplicationSet.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the Region.
         /// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ReplicationSet.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReplicationSet.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ReplicationSet.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssmincidents/replicationSet:ReplicationSet")]
     public sealed class ReplicationSetArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ReplicationSetRegionArgs>> _mRegions;
+        private List<Inputs.ReplicationSetRegionArgs>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<Inputs.ReplicationSetRegionArgs>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'ReplicationSetArgs.Regions' is not present");
+            }
+        }
 
-        public List<Inputs.ReplicationSetRegionArgs>? Regions => _mRegions.GetValue("regions");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ReplicationSetArgs.Tags' is not present");
+            }
+        }
     }
 }

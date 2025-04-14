@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// List of one or more seed URLs to crawl. See `seed_urls` block for details.
         /// </summary>
-        [Input("seedUrls")]
+        [PolicyResourceProperty("seedUrls", "_mUnknown_SeedUrls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl>> _mSeedUrls;
-
-        public List<Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl>? SeedUrls => _mSeedUrls.GetValue("seedUrls");
+        private List<Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl>? _mValue_SeedUrls;
+        private bool _mUnknown_SeedUrls;
+        public List<Outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl>? SeedUrls
+        {
+            get
+            {
+                if (!_mUnknown_SeedUrls) return _mValue_SeedUrls;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration.SeedUrls' is not present");
+            }
+        }
     }
 }

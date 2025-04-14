@@ -16,64 +16,113 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Name of the lambda function.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'Invocation.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON payload to the lambda function.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("input")]
+        [PolicyResourceProperty("input", "_mUnknown_Input")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInput;
-
-        public string? Input => _mInput.GetValue("input");
+        private string? _mValue_Input;
+        private bool _mUnknown_Input;
+        public string? Input
+        {
+            get
+            {
+                if (!_mUnknown_Input) return _mValue_Input;
+                throw new UndeferrableValueException("Value 'Invocation.Input' is not present");
+            }
+        }
 
         /// <summary>
         /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         /// </summary>
-        [Input("lifecycleScope")]
+        [PolicyResourceProperty("lifecycleScope", "_mUnknown_LifecycleScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleScope;
-
-        public string? LifecycleScope => _mLifecycleScope.GetValue("lifecycleScope");
+        private string? _mValue_LifecycleScope;
+        private bool _mUnknown_LifecycleScope;
+        public string? LifecycleScope
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleScope) return _mValue_LifecycleScope;
+                throw new UndeferrableValueException("Value 'Invocation.LifecycleScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
-
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'Invocation.Qualifier' is not present");
+            }
+        }
 
         /// <summary>
         /// String result of the lambda function invocation.
         /// </summary>
-        [Input("result")]
+        [PolicyResourceProperty("result", "_mUnknown_Result")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResult;
+        private string? _mValue_Result;
+        private bool _mUnknown_Result;
+        public string? Result
+        {
+            get
+            {
+                if (!_mUnknown_Result) return _mValue_Result;
+                throw new UndeferrableValueException("Value 'Invocation.Result' is not present");
+            }
+        }
 
-        public string? Result => _mResult.GetValue("result");
-
-        [Input("terraformKey")]
+        [PolicyResourceProperty("terraformKey", "_mUnknown_TerraformKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTerraformKey;
-
-        public string? TerraformKey => _mTerraformKey.GetValue("terraformKey");
+        private string? _mValue_TerraformKey;
+        private bool _mUnknown_TerraformKey;
+        public string? TerraformKey
+        {
+            get
+            {
+                if (!_mUnknown_TerraformKey) return _mValue_TerraformKey;
+                throw new UndeferrableValueException("Value 'Invocation.TerraformKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'Invocation.Triggers' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lambda/invocation:Invocation")]
@@ -82,54 +131,96 @@ namespace Pulumi.PolicyPacks.Aws.Lambda
         /// <summary>
         /// Name of the lambda function.
         /// </summary>
-        [Input("functionName")]
+        [PolicyResourceProperty("functionName", "_mUnknown_FunctionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFunctionName;
-
-        public string? FunctionName => _mFunctionName.GetValue("functionName");
+        private string? _mValue_FunctionName;
+        private bool _mUnknown_FunctionName;
+        public string? FunctionName
+        {
+            get
+            {
+                if (!_mUnknown_FunctionName) return _mValue_FunctionName;
+                throw new UndeferrableValueException("Value 'InvocationArgs.FunctionName' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON payload to the lambda function.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("input")]
+        [PolicyResourceProperty("input", "_mUnknown_Input")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInput;
-
-        public string? Input => _mInput.GetValue("input");
+        private string? _mValue_Input;
+        private bool _mUnknown_Input;
+        public string? Input
+        {
+            get
+            {
+                if (!_mUnknown_Input) return _mValue_Input;
+                throw new UndeferrableValueException("Value 'InvocationArgs.Input' is not present");
+            }
+        }
 
         /// <summary>
         /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         /// </summary>
-        [Input("lifecycleScope")]
+        [PolicyResourceProperty("lifecycleScope", "_mUnknown_LifecycleScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLifecycleScope;
-
-        public string? LifecycleScope => _mLifecycleScope.GetValue("lifecycleScope");
+        private string? _mValue_LifecycleScope;
+        private bool _mUnknown_LifecycleScope;
+        public string? LifecycleScope
+        {
+            get
+            {
+                if (!_mUnknown_LifecycleScope) return _mValue_LifecycleScope;
+                throw new UndeferrableValueException("Value 'InvocationArgs.LifecycleScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         /// </summary>
-        [Input("qualifier")]
+        [PolicyResourceProperty("qualifier", "_mUnknown_Qualifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQualifier;
+        private string? _mValue_Qualifier;
+        private bool _mUnknown_Qualifier;
+        public string? Qualifier
+        {
+            get
+            {
+                if (!_mUnknown_Qualifier) return _mValue_Qualifier;
+                throw new UndeferrableValueException("Value 'InvocationArgs.Qualifier' is not present");
+            }
+        }
 
-        public string? Qualifier => _mQualifier.GetValue("qualifier");
-
-        [Input("terraformKey")]
+        [PolicyResourceProperty("terraformKey", "_mUnknown_TerraformKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTerraformKey;
-
-        public string? TerraformKey => _mTerraformKey.GetValue("terraformKey");
+        private string? _mValue_TerraformKey;
+        private bool _mUnknown_TerraformKey;
+        public string? TerraformKey
+        {
+            get
+            {
+                if (!_mUnknown_TerraformKey) return _mValue_TerraformKey;
+                throw new UndeferrableValueException("Value 'InvocationArgs.TerraformKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'InvocationArgs.Triggers' is not present");
+            }
+        }
     }
 }

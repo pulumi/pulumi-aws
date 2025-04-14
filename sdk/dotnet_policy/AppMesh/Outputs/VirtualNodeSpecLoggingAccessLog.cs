@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// File object to send virtual node access logs to.
         /// </summary>
-        [Input("file")]
+        [PolicyResourceProperty("file", "_mUnknown_File")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecLoggingAccessLogFile> _mFile;
-
-        public Outputs.VirtualNodeSpecLoggingAccessLogFile? File => _mFile.GetValue("file");
+        private Outputs.VirtualNodeSpecLoggingAccessLogFile? _mValue_File;
+        private bool _mUnknown_File;
+        public Outputs.VirtualNodeSpecLoggingAccessLogFile? File
+        {
+            get
+            {
+                if (!_mUnknown_File) return _mValue_File;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecLoggingAccessLog.File' is not present");
+            }
+        }
     }
 }

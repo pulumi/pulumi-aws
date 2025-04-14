@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
 {
     public sealed class ThingGroupMetadataRootToParentGroup
     {
-        [Input("groupArn")]
+        [PolicyResourceProperty("groupArn", "_mUnknown_GroupArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupArn;
+        private string? _mValue_GroupArn;
+        private bool _mUnknown_GroupArn;
+        public string? GroupArn
+        {
+            get
+            {
+                if (!_mUnknown_GroupArn) return _mValue_GroupArn;
+                throw new UndeferrableValueException("Value 'ThingGroupMetadataRootToParentGroup.GroupArn' is not present");
+            }
+        }
 
-        public string? GroupArn => _mGroupArn.GetValue("groupArn");
-
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'ThingGroupMetadataRootToParentGroup.GroupName' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Key used to extract the password from EC2 Parameter store.
         /// </summary>
-        [Input("passwordParam")]
+        [PolicyResourceProperty("passwordParam", "_mUnknown_PasswordParam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPasswordParam;
-
-        public string? PasswordParam => _mPasswordParam.GetValue("passwordParam");
+        private string? _mValue_PasswordParam;
+        private bool _mUnknown_PasswordParam;
+        public string? PasswordParam
+        {
+            get
+            {
+                if (!_mUnknown_PasswordParam) return _mValue_PasswordParam;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingAvailBlankingImage.PasswordParam' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to a file accessible to the live stream.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingAvailBlankingImage.Uri' is not present");
+            }
+        }
 
         /// <summary>
         /// . Username to be used.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingAvailBlankingImage.Username' is not present");
+            }
+        }
     }
 }

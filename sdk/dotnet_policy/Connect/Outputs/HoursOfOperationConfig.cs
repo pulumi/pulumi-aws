@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Connect.Outputs
         /// <summary>
         /// Specifies the day that the hours of operation applies to.
         /// </summary>
-        [Input("day")]
+        [PolicyResourceProperty("day", "_mUnknown_Day")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDay;
-
-        public string? Day => _mDay.GetValue("day");
+        private string? _mValue_Day;
+        private bool _mUnknown_Day;
+        public string? Day
+        {
+            get
+            {
+                if (!_mUnknown_Day) return _mValue_Day;
+                throw new UndeferrableValueException("Value 'HoursOfOperationConfig.Day' is not present");
+            }
+        }
 
         /// <summary>
         /// A end time block specifies the time that your contact center closes. The `end_time` is documented below.
         /// </summary>
-        [Input("endTime")]
+        [PolicyResourceProperty("endTime", "_mUnknown_EndTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.HoursOfOperationConfigEndTime> _mEndTime;
-
-        public Outputs.HoursOfOperationConfigEndTime? EndTime => _mEndTime.GetValue("endTime");
+        private Outputs.HoursOfOperationConfigEndTime? _mValue_EndTime;
+        private bool _mUnknown_EndTime;
+        public Outputs.HoursOfOperationConfigEndTime? EndTime
+        {
+            get
+            {
+                if (!_mUnknown_EndTime) return _mValue_EndTime;
+                throw new UndeferrableValueException("Value 'HoursOfOperationConfig.EndTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A start time block specifies the time that your contact center opens. The `start_time` is documented below.
         /// </summary>
-        [Input("startTime")]
+        [PolicyResourceProperty("startTime", "_mUnknown_StartTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.HoursOfOperationConfigStartTime> _mStartTime;
-
-        public Outputs.HoursOfOperationConfigStartTime? StartTime => _mStartTime.GetValue("startTime");
+        private Outputs.HoursOfOperationConfigStartTime? _mValue_StartTime;
+        private bool _mUnknown_StartTime;
+        public Outputs.HoursOfOperationConfigStartTime? StartTime
+        {
+            get
+            {
+                if (!_mUnknown_StartTime) return _mValue_StartTime;
+                throw new UndeferrableValueException("Value 'HoursOfOperationConfig.StartTime' is not present");
+            }
+        }
     }
 }

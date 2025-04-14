@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.BedrockModel
         /// <summary>
         /// The logging configuration values to set. See `logging_config` Block for details.
         /// </summary>
-        [Input("loggingConfig")]
+        [PolicyResourceProperty("loggingConfig", "_mUnknown_LoggingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.InvocationLoggingConfigurationLoggingConfig> _mLoggingConfig;
-
-        public Outputs.InvocationLoggingConfigurationLoggingConfig? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
+        private Outputs.InvocationLoggingConfigurationLoggingConfig? _mValue_LoggingConfig;
+        private bool _mUnknown_LoggingConfig;
+        public Outputs.InvocationLoggingConfigurationLoggingConfig? LoggingConfig
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfig) return _mValue_LoggingConfig;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfiguration.LoggingConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.BedrockModel
         /// <summary>
         /// The logging configuration values to set. See `logging_config` Block for details.
         /// </summary>
-        [Input("loggingConfig")]
+        [PolicyResourceProperty("loggingConfig", "_mUnknown_LoggingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.InvocationLoggingConfigurationLoggingConfigArgs> _mLoggingConfig;
-
-        public Inputs.InvocationLoggingConfigurationLoggingConfigArgs? LoggingConfig => _mLoggingConfig.GetValue("loggingConfig");
+        private Inputs.InvocationLoggingConfigurationLoggingConfigArgs? _mValue_LoggingConfig;
+        private bool _mUnknown_LoggingConfig;
+        public Inputs.InvocationLoggingConfigurationLoggingConfigArgs? LoggingConfig
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfig) return _mValue_LoggingConfig;
+                throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationArgs.LoggingConfig' is not present");
+            }
+        }
     }
 }

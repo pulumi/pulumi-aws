@@ -17,20 +17,34 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager.Outputs
         /// If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
         /// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         /// </summary>
-        [Input("applianceModeSupport")]
+        [PolicyResourceProperty("applianceModeSupport", "_mUnknown_ApplianceModeSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplianceModeSupport;
-
-        public bool? ApplianceModeSupport => _mApplianceModeSupport.GetValue("applianceModeSupport");
+        private bool? _mValue_ApplianceModeSupport;
+        private bool _mUnknown_ApplianceModeSupport;
+        public bool? ApplianceModeSupport
+        {
+            get
+            {
+                if (!_mUnknown_ApplianceModeSupport) return _mValue_ApplianceModeSupport;
+                throw new UndeferrableValueException("Value 'VpcAttachmentOptions.ApplianceModeSupport' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether IPv6 is supported.
         /// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         /// </summary>
-        [Input("ipv6Support")]
+        [PolicyResourceProperty("ipv6Support", "_mUnknown_Ipv6Support")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIpv6Support;
-
-        public bool? Ipv6Support => _mIpv6Support.GetValue("ipv6Support");
+        private bool? _mValue_Ipv6Support;
+        private bool _mUnknown_Ipv6Support;
+        public bool? Ipv6Support
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Support) return _mValue_Ipv6Support;
+                throw new UndeferrableValueException("Value 'VpcAttachmentOptions.Ipv6Support' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
     {
-        [Input("audioSpecification")]
+        [PolicyResourceProperty("audioSpecification", "_mUnknown_AudioSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs> _mAudioSpecification;
+        private Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs? _mValue_AudioSpecification;
+        private bool _mUnknown_AudioSpecification;
+        public Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs? AudioSpecification
+        {
+            get
+            {
+                if (!_mUnknown_AudioSpecification) return _mValue_AudioSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs.AudioSpecification' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs? AudioSpecification => _mAudioSpecification.GetValue("audioSpecification");
-
-        [Input("dtmfSpecification")]
+        [PolicyResourceProperty("dtmfSpecification", "_mUnknown_DtmfSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs> _mDtmfSpecification;
+        private Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs? _mValue_DtmfSpecification;
+        private bool _mUnknown_DtmfSpecification;
+        public Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs? DtmfSpecification
+        {
+            get
+            {
+                if (!_mUnknown_DtmfSpecification) return _mValue_DtmfSpecification;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs.DtmfSpecification' is not present");
+            }
+        }
 
-        public Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs? DtmfSpecification => _mDtmfSpecification.GetValue("dtmfSpecification");
-
-        [Input("startTimeoutMs")]
+        [PolicyResourceProperty("startTimeoutMs", "_mUnknown_StartTimeoutMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartTimeoutMs;
-
-        public int? StartTimeoutMs => _mStartTimeoutMs.GetValue("startTimeoutMs");
+        private int? _mValue_StartTimeoutMs;
+        private bool _mUnknown_StartTimeoutMs;
+        public int? StartTimeoutMs
+        {
+            get
+            {
+                if (!_mUnknown_StartTimeoutMs) return _mValue_StartTimeoutMs;
+                throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs.StartTimeoutMs' is not present");
+            }
+        }
     }
 }

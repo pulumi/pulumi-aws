@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         /// </summary>
-        [Input("grafanaRole")]
+        [PolicyResourceProperty("grafanaRole", "_mUnknown_GrafanaRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaRole;
-
-        public string? GrafanaRole => _mGrafanaRole.GetValue("grafanaRole");
+        private string? _mValue_GrafanaRole;
+        private bool _mUnknown_GrafanaRole;
+        public string? GrafanaRole
+        {
+            get
+            {
+                if (!_mUnknown_GrafanaRole) return _mValue_GrafanaRole;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccount.GrafanaRole' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccount.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the service account in the given Grafana workspace
         /// </summary>
-        [Input("serviceAccountId")]
+        [PolicyResourceProperty("serviceAccountId", "_mUnknown_ServiceAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountId;
-
-        public string? ServiceAccountId => _mServiceAccountId.GetValue("serviceAccountId");
+        private string? _mValue_ServiceAccountId;
+        private bool _mUnknown_ServiceAccountId;
+        public string? ServiceAccountId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountId) return _mValue_ServiceAccountId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccount.ServiceAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Grafana workspace with which the service account is associated.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccount.WorkspaceId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.Grafana
         /// <summary>
         /// The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
         /// </summary>
-        [Input("grafanaRole")]
+        [PolicyResourceProperty("grafanaRole", "_mUnknown_GrafanaRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrafanaRole;
-
-        public string? GrafanaRole => _mGrafanaRole.GetValue("grafanaRole");
+        private string? _mValue_GrafanaRole;
+        private bool _mUnknown_GrafanaRole;
+        public string? GrafanaRole
+        {
+            get
+            {
+                if (!_mUnknown_GrafanaRole) return _mValue_GrafanaRole;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountArgs.GrafanaRole' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Grafana workspace with which the service account is associated.
         /// </summary>
-        [Input("workspaceId")]
+        [PolicyResourceProperty("workspaceId", "_mUnknown_WorkspaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaceId;
-
-        public string? WorkspaceId => _mWorkspaceId.GetValue("workspaceId");
+        private string? _mValue_WorkspaceId;
+        private bool _mUnknown_WorkspaceId;
+        public string? WorkspaceId
+        {
+            get
+            {
+                if (!_mUnknown_WorkspaceId) return _mValue_WorkspaceId;
+                throw new UndeferrableValueException("Value 'WorkspaceServiceAccountArgs.WorkspaceId' is not present");
+            }
+        }
     }
 }

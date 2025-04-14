@@ -16,35 +16,63 @@ namespace Pulumi.PolicyPacks.Aws.Route53Domains
         /// <summary>
         /// An ID assigned to the created DS record.
         /// </summary>
-        [Input("dnssecKeyId")]
+        [PolicyResourceProperty("dnssecKeyId", "_mUnknown_DnssecKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnssecKeyId;
-
-        public string? DnssecKeyId => _mDnssecKeyId.GetValue("dnssecKeyId");
+        private string? _mValue_DnssecKeyId;
+        private bool _mUnknown_DnssecKeyId;
+        public string? DnssecKeyId
+        {
+            get
+            {
+                if (!_mUnknown_DnssecKeyId) return _mValue_DnssecKeyId;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecord.DnssecKeyId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecord.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The information about a key, including the algorithm, public key-value, and flags.
         /// </summary>
-        [Input("signingAttributes")]
+        [PolicyResourceProperty("signingAttributes", "_mUnknown_SigningAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DelegationSignerRecordSigningAttributes> _mSigningAttributes;
+        private Outputs.DelegationSignerRecordSigningAttributes? _mValue_SigningAttributes;
+        private bool _mUnknown_SigningAttributes;
+        public Outputs.DelegationSignerRecordSigningAttributes? SigningAttributes
+        {
+            get
+            {
+                if (!_mUnknown_SigningAttributes) return _mValue_SigningAttributes;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecord.SigningAttributes' is not present");
+            }
+        }
 
-        public Outputs.DelegationSignerRecordSigningAttributes? SigningAttributes => _mSigningAttributes.GetValue("signingAttributes");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DelegationSignerRecordTimeouts> _mTimeouts;
-
-        public Outputs.DelegationSignerRecordTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DelegationSignerRecordTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DelegationSignerRecordTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecord.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53domains/delegationSignerRecord:DelegationSignerRecord")]
@@ -53,25 +81,46 @@ namespace Pulumi.PolicyPacks.Aws.Route53Domains
         /// <summary>
         /// The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecordArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The information about a key, including the algorithm, public key-value, and flags.
         /// </summary>
-        [Input("signingAttributes")]
+        [PolicyResourceProperty("signingAttributes", "_mUnknown_SigningAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DelegationSignerRecordSigningAttributesArgs> _mSigningAttributes;
+        private Inputs.DelegationSignerRecordSigningAttributesArgs? _mValue_SigningAttributes;
+        private bool _mUnknown_SigningAttributes;
+        public Inputs.DelegationSignerRecordSigningAttributesArgs? SigningAttributes
+        {
+            get
+            {
+                if (!_mUnknown_SigningAttributes) return _mValue_SigningAttributes;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecordArgs.SigningAttributes' is not present");
+            }
+        }
 
-        public Inputs.DelegationSignerRecordSigningAttributesArgs? SigningAttributes => _mSigningAttributes.GetValue("signingAttributes");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DelegationSignerRecordTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DelegationSignerRecordTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DelegationSignerRecordTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DelegationSignerRecordTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DelegationSignerRecordArgs.Timeouts' is not present");
+            }
+        }
     }
 }

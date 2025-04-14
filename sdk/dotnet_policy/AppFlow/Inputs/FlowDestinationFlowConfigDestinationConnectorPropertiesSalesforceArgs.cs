@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
 {
     public sealed class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs
     {
-        [Input("errorHandlingConfig")]
+        [PolicyResourceProperty("errorHandlingConfig", "_mUnknown_ErrorHandlingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> _mErrorHandlingConfig;
+        private Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs? _mValue_ErrorHandlingConfig;
+        private bool _mUnknown_ErrorHandlingConfig;
+        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs? ErrorHandlingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ErrorHandlingConfig) return _mValue_ErrorHandlingConfig;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.ErrorHandlingConfig' is not present");
+            }
+        }
 
-        public Inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs? ErrorHandlingConfig => _mErrorHandlingConfig.GetValue("errorHandlingConfig");
-
-        [Input("idFieldNames")]
+        [PolicyResourceProperty("idFieldNames", "_mUnknown_IdFieldNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdFieldNames;
+        private List<string>? _mValue_IdFieldNames;
+        private bool _mUnknown_IdFieldNames;
+        public List<string>? IdFieldNames
+        {
+            get
+            {
+                if (!_mUnknown_IdFieldNames) return _mValue_IdFieldNames;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.IdFieldNames' is not present");
+            }
+        }
 
-        public List<string>? IdFieldNames => _mIdFieldNames.GetValue("idFieldNames");
-
-        [Input("object")]
+        [PolicyResourceProperty("object", "_mUnknown_Object")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObject;
+        private string? _mValue_Object;
+        private bool _mUnknown_Object;
+        public string? Object
+        {
+            get
+            {
+                if (!_mUnknown_Object) return _mValue_Object;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.Object' is not present");
+            }
+        }
 
-        public string? Object => _mObject.GetValue("object");
-
-        [Input("writeOperationType")]
+        [PolicyResourceProperty("writeOperationType", "_mUnknown_WriteOperationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWriteOperationType;
-
-        public string? WriteOperationType => _mWriteOperationType.GetValue("writeOperationType");
+        private string? _mValue_WriteOperationType;
+        private bool _mUnknown_WriteOperationType;
+        public string? WriteOperationType
+        {
+            get
+            {
+                if (!_mUnknown_WriteOperationType) return _mValue_WriteOperationType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.WriteOperationType' is not present");
+            }
+        }
     }
 }

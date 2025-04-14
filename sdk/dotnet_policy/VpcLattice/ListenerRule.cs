@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// The action for the listener rule.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleAction> _mAction;
-
-        public Outputs.ListenerRuleAction? Action => _mAction.GetValue("action");
+        private Outputs.ListenerRuleAction? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.ListenerRuleAction? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ListenerRule.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN for the listener rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ListenerRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the listener.
         /// </summary>
-        [Input("listenerIdentifier")]
+        [PolicyResourceProperty("listenerIdentifier", "_mUnknown_ListenerIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerIdentifier;
-
-        public string? ListenerIdentifier => _mListenerIdentifier.GetValue("listenerIdentifier");
+        private string? _mValue_ListenerIdentifier;
+        private bool _mUnknown_ListenerIdentifier;
+        public string? ListenerIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ListenerIdentifier) return _mValue_ListenerIdentifier;
+                throw new UndeferrableValueException("Value 'ListenerRule.ListenerIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule match.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleMatch> _mMatch;
-
-        public Outputs.ListenerRuleMatch? Match => _mMatch.GetValue("match");
+        private Outputs.ListenerRuleMatch? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Outputs.ListenerRuleMatch? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'ListenerRule.Match' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ListenerRule.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ListenerRule.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the listener rule.
         /// </summary>
-        [Input("ruleId")]
+        [PolicyResourceProperty("ruleId", "_mUnknown_RuleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleId;
-
-        public string? RuleId => _mRuleId.GetValue("ruleId");
+        private string? _mValue_RuleId;
+        private bool _mUnknown_RuleId;
+        public string? RuleId
+        {
+            get
+            {
+                if (!_mUnknown_RuleId) return _mValue_RuleId;
+                throw new UndeferrableValueException("Value 'ListenerRule.RuleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
-        [Input("serviceIdentifier")]
+        [PolicyResourceProperty("serviceIdentifier", "_mUnknown_ServiceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
-
-        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
+        private string? _mValue_ServiceIdentifier;
+        private bool _mUnknown_ServiceIdentifier;
+        public string? ServiceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIdentifier) return _mValue_ServiceIdentifier;
+                throw new UndeferrableValueException("Value 'ListenerRule.ServiceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ListenerRule.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ListenerRule.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/listenerRule:ListenerRule")]
@@ -112,66 +182,115 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// The action for the listener rule.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleActionArgs> _mAction;
-
-        public Inputs.ListenerRuleActionArgs? Action => _mAction.GetValue("action");
+        private Inputs.ListenerRuleActionArgs? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Inputs.ListenerRuleActionArgs? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the listener.
         /// </summary>
-        [Input("listenerIdentifier")]
+        [PolicyResourceProperty("listenerIdentifier", "_mUnknown_ListenerIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerIdentifier;
-
-        public string? ListenerIdentifier => _mListenerIdentifier.GetValue("listenerIdentifier");
+        private string? _mValue_ListenerIdentifier;
+        private bool _mUnknown_ListenerIdentifier;
+        public string? ListenerIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ListenerIdentifier) return _mValue_ListenerIdentifier;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.ListenerIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule match.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleMatchArgs> _mMatch;
-
-        public Inputs.ListenerRuleMatchArgs? Match => _mMatch.GetValue("match");
+        private Inputs.ListenerRuleMatchArgs? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Inputs.ListenerRuleMatchArgs? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Match' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
-        [Input("serviceIdentifier")]
+        [PolicyResourceProperty("serviceIdentifier", "_mUnknown_ServiceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
-
-        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
+        private string? _mValue_ServiceIdentifier;
+        private bool _mUnknown_ServiceIdentifier;
+        public string? ServiceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIdentifier) return _mValue_ServiceIdentifier;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.ServiceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ListenerRuleArgs.Tags' is not present");
+            }
+        }
     }
 }

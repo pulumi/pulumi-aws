@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Data export configuration (documented below).
         /// </summary>
-        [Input("dataExport")]
+        [PolicyResourceProperty("dataExport", "_mUnknown_DataExport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs> _mDataExport;
-
-        public Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs? DataExport => _mDataExport.GetValue("dataExport");
+        private Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs? _mValue_DataExport;
+        private bool _mUnknown_DataExport;
+        public Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs? DataExport
+        {
+            get
+            {
+                if (!_mUnknown_DataExport) return _mValue_DataExport;
+                throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisArgs.DataExport' is not present");
+            }
+        }
     }
 }

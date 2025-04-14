@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `input_format_configuration` block below for details.
         /// </summary>
-        [Input("inputFormatConfiguration")]
+        [PolicyResourceProperty("inputFormatConfiguration", "_mUnknown_InputFormatConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration> _mInputFormatConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration? InputFormatConfiguration => _mInputFormatConfiguration.GetValue("inputFormatConfiguration");
+        private Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration? _mValue_InputFormatConfiguration;
+        private bool _mUnknown_InputFormatConfiguration;
+        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration? InputFormatConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InputFormatConfiguration) return _mValue_InputFormatConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.InputFormatConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `output_format_configuration` block below for details.
         /// </summary>
-        [Input("outputFormatConfiguration")]
+        [PolicyResourceProperty("outputFormatConfiguration", "_mUnknown_OutputFormatConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration> _mOutputFormatConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration? OutputFormatConfiguration => _mOutputFormatConfiguration.GetValue("outputFormatConfiguration");
+        private Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration? _mValue_OutputFormatConfiguration;
+        private bool _mUnknown_OutputFormatConfiguration;
+        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration? OutputFormatConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OutputFormatConfiguration) return _mValue_OutputFormatConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.OutputFormatConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the AWS Glue Data Catalog table that contains the column information. See `schema_configuration` block below for details.
         /// </summary>
-        [Input("schemaConfiguration")]
+        [PolicyResourceProperty("schemaConfiguration", "_mUnknown_SchemaConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration> _mSchemaConfiguration;
-
-        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration? SchemaConfiguration => _mSchemaConfiguration.GetValue("schemaConfiguration");
+        private Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration? _mValue_SchemaConfiguration;
+        private bool _mUnknown_SchemaConfiguration;
+        public Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration? SchemaConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SchemaConfiguration) return _mValue_SchemaConfiguration;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.SchemaConfiguration' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
         /// </summary>
-        [Input("targetResourceCount")]
+        [PolicyResourceProperty("targetResourceCount", "_mUnknown_TargetResourceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetResourceCount;
-
-        public int? TargetResourceCount => _mTargetResourceCount.GetValue("targetResourceCount");
+        private int? _mValue_TargetResourceCount;
+        private bool _mUnknown_TargetResourceCount;
+        public int? TargetResourceCount
+        {
+            get
+            {
+                if (!_mUnknown_TargetResourceCount) return _mValue_TargetResourceCount;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration.TargetResourceCount' is not present");
+            }
+        }
     }
 }

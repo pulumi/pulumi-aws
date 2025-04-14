@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// Target group stickiness for the rule.
         /// Detailed below.
         /// </summary>
-        [Input("stickiness")]
+        [PolicyResourceProperty("stickiness", "_mUnknown_Stickiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GetListenerRuleActionForwardStickinessInputArgs> _mStickiness;
-
-        public Inputs.GetListenerRuleActionForwardStickinessInputArgs? Stickiness => _mStickiness.GetValue("stickiness");
+        private Inputs.GetListenerRuleActionForwardStickinessInputArgs? _mValue_Stickiness;
+        private bool _mUnknown_Stickiness;
+        public Inputs.GetListenerRuleActionForwardStickinessInputArgs? Stickiness
+        {
+            get
+            {
+                if (!_mUnknown_Stickiness) return _mValue_Stickiness;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionForwardInputArgs.Stickiness' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of target groups for the action.
         /// Detailed below.
         /// </summary>
-        [Input("targetGroups")]
+        [PolicyResourceProperty("targetGroups", "_mUnknown_TargetGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetListenerRuleActionForwardTargetGroupInputArgs>> _mTargetGroups;
-
-        public List<Inputs.GetListenerRuleActionForwardTargetGroupInputArgs>? TargetGroups => _mTargetGroups.GetValue("targetGroups");
+        private List<Inputs.GetListenerRuleActionForwardTargetGroupInputArgs>? _mValue_TargetGroups;
+        private bool _mUnknown_TargetGroups;
+        public List<Inputs.GetListenerRuleActionForwardTargetGroupInputArgs>? TargetGroups
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroups) return _mValue_TargetGroups;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionForwardInputArgs.TargetGroups' is not present");
+            }
+        }
     }
 }

@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         /// </summary>
-        [Input("suppressedReasons")]
+        [PolicyResourceProperty("suppressedReasons", "_mUnknown_SuppressedReasons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuppressedReasons;
-
-        public List<string>? SuppressedReasons => _mSuppressedReasons.GetValue("suppressedReasons");
+        private List<string>? _mValue_SuppressedReasons;
+        private bool _mUnknown_SuppressedReasons;
+        public List<string>? SuppressedReasons
+        {
+            get
+            {
+                if (!_mUnknown_SuppressedReasons) return _mValue_SuppressedReasons;
+                throw new UndeferrableValueException("Value 'AccountSuppressionAttributes.SuppressedReasons' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.SesV2
         /// <summary>
         /// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
         /// </summary>
-        [Input("suppressedReasons")]
+        [PolicyResourceProperty("suppressedReasons", "_mUnknown_SuppressedReasons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuppressedReasons;
-
-        public List<string>? SuppressedReasons => _mSuppressedReasons.GetValue("suppressedReasons");
+        private List<string>? _mValue_SuppressedReasons;
+        private bool _mUnknown_SuppressedReasons;
+        public List<string>? SuppressedReasons
+        {
+            get
+            {
+                if (!_mUnknown_SuppressedReasons) return _mValue_SuppressedReasons;
+                throw new UndeferrableValueException("Value 'AccountSuppressionAttributesArgs.SuppressedReasons' is not present");
+            }
+        }
     }
 }

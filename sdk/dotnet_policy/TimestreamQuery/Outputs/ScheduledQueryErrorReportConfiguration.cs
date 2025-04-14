@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// Configuration block for the S3 configuration for the error reports. See below.
         /// </summary>
-        [Input("s3Configuration")]
+        [PolicyResourceProperty("s3Configuration", "_mUnknown_S3Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryErrorReportConfigurationS3Configuration> _mS3Configuration;
-
-        public Outputs.ScheduledQueryErrorReportConfigurationS3Configuration? S3Configuration => _mS3Configuration.GetValue("s3Configuration");
+        private Outputs.ScheduledQueryErrorReportConfigurationS3Configuration? _mValue_S3Configuration;
+        private bool _mUnknown_S3Configuration;
+        public Outputs.ScheduledQueryErrorReportConfigurationS3Configuration? S3Configuration
+        {
+            get
+            {
+                if (!_mUnknown_S3Configuration) return _mValue_S3Configuration;
+                throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfiguration.S3Configuration' is not present");
+            }
+        }
     }
 }

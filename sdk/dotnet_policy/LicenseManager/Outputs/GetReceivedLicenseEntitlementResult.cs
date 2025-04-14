@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager.Outputs
         /// <summary>
         /// Indicates whether check-ins are allowed.
         /// </summary>
-        [Input("allowCheckIn")]
+        [PolicyResourceProperty("allowCheckIn", "_mUnknown_AllowCheckIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowCheckIn;
-
-        public bool? AllowCheckIn => _mAllowCheckIn.GetValue("allowCheckIn");
+        private bool? _mValue_AllowCheckIn;
+        private bool _mUnknown_AllowCheckIn;
+        public bool? AllowCheckIn
+        {
+            get
+            {
+                if (!_mUnknown_AllowCheckIn) return _mValue_AllowCheckIn;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseEntitlementResult.AllowCheckIn' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum entitlement count. Use if the unit is not None.
         /// </summary>
-        [Input("maxCount")]
+        [PolicyResourceProperty("maxCount", "_mUnknown_MaxCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCount;
-
-        public int? MaxCount => _mMaxCount.GetValue("maxCount");
+        private int? _mValue_MaxCount;
+        private bool _mUnknown_MaxCount;
+        public int? MaxCount
+        {
+            get
+            {
+                if (!_mUnknown_MaxCount) return _mValue_MaxCount;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseEntitlementResult.MaxCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The key name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseEntitlementResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether overages are allowed.
         /// </summary>
-        [Input("overage")]
+        [PolicyResourceProperty("overage", "_mUnknown_Overage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverage;
-
-        public bool? Overage => _mOverage.GetValue("overage");
+        private bool? _mValue_Overage;
+        private bool _mUnknown_Overage;
+        public bool? Overage
+        {
+            get
+            {
+                if (!_mUnknown_Overage) return _mValue_Overage;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseEntitlementResult.Overage' is not present");
+            }
+        }
 
         /// <summary>
         /// Entitlement unit.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseEntitlementResult.Unit' is not present");
+            }
+        }
 
         /// <summary>
         /// The value.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseEntitlementResult.Value' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
         /// </summary>
-        [Input("pathId")]
+        [PolicyResourceProperty("pathId", "_mUnknown_PathId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPathId;
-
-        public string? PathId => _mPathId.GetValue("pathId");
+        private string? _mValue_PathId;
+        private bool _mUnknown_PathId;
+        public string? PathId
+        {
+            get
+            {
+                if (!_mUnknown_PathId) return _mValue_PathId;
+                throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.PathId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the product to provision.
         /// </summary>
-        [Input("productId")]
+        [PolicyResourceProperty("productId", "_mUnknown_ProductId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProductId;
-
-        public string? ProductId => _mProductId.GetValue("productId");
+        private string? _mValue_ProductId;
+        private bool _mUnknown_ProductId;
+        public string? ProductId
+        {
+            get
+            {
+                if (!_mUnknown_ProductId) return _mValue_ProductId;
+                throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.ProductId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the provisioning artifact.
         /// </summary>
-        [Input("provisioningArtifactId")]
+        [PolicyResourceProperty("provisioningArtifactId", "_mUnknown_ProvisioningArtifactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningArtifactId;
-
-        public string? ProvisioningArtifactId => _mProvisioningArtifactId.GetValue("provisioningArtifactId");
+        private string? _mValue_ProvisioningArtifactId;
+        private bool _mUnknown_ProvisioningArtifactId;
+        public string? ProvisioningArtifactId
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningArtifactId) return _mValue_ProvisioningArtifactId;
+                throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.ProvisioningArtifactId' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
         /// </summary>
-        [Input("provisioningParameters")]
+        [PolicyResourceProperty("provisioningParameters", "_mUnknown_ProvisioningParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProjectServiceCatalogProvisioningDetailsProvisioningParameter>> _mProvisioningParameters;
-
-        public List<Outputs.ProjectServiceCatalogProvisioningDetailsProvisioningParameter>? ProvisioningParameters => _mProvisioningParameters.GetValue("provisioningParameters");
+        private List<Outputs.ProjectServiceCatalogProvisioningDetailsProvisioningParameter>? _mValue_ProvisioningParameters;
+        private bool _mUnknown_ProvisioningParameters;
+        public List<Outputs.ProjectServiceCatalogProvisioningDetailsProvisioningParameter>? ProvisioningParameters
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningParameters) return _mValue_ProvisioningParameters;
+                throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.ProvisioningParameters' is not present");
+            }
+        }
     }
 }

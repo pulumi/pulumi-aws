@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Inputs
         /// <summary>
         /// The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
         /// </summary>
-        [Input("bucketCriteria")]
+        [PolicyResourceProperty("bucketCriteria", "_mUnknown_BucketCriteria")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionBucketCriteriaArgs> _mBucketCriteria;
-
-        public Inputs.ClassificationJobS3JobDefinitionBucketCriteriaArgs? BucketCriteria => _mBucketCriteria.GetValue("bucketCriteria");
+        private Inputs.ClassificationJobS3JobDefinitionBucketCriteriaArgs? _mValue_BucketCriteria;
+        private bool _mUnknown_BucketCriteria;
+        public Inputs.ClassificationJobS3JobDefinitionBucketCriteriaArgs? BucketCriteria
+        {
+            get
+            {
+                if (!_mUnknown_BucketCriteria) return _mValue_BucketCriteria;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionArgs.BucketCriteria' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
         /// </summary>
-        [Input("bucketDefinitions")]
+        [PolicyResourceProperty("bucketDefinitions", "_mUnknown_BucketDefinitions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs>> _mBucketDefinitions;
-
-        public List<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs>? BucketDefinitions => _mBucketDefinitions.GetValue("bucketDefinitions");
+        private List<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs>? _mValue_BucketDefinitions;
+        private bool _mUnknown_BucketDefinitions;
+        public List<Inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs>? BucketDefinitions
+        {
+            get
+            {
+                if (!_mUnknown_BucketDefinitions) return _mValue_BucketDefinitions;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionArgs.BucketDefinitions' is not present");
+            }
+        }
 
         /// <summary>
         /// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
         /// </summary>
-        [Input("scoping")]
+        [PolicyResourceProperty("scoping", "_mUnknown_Scoping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ClassificationJobS3JobDefinitionScopingArgs> _mScoping;
-
-        public Inputs.ClassificationJobS3JobDefinitionScopingArgs? Scoping => _mScoping.GetValue("scoping");
+        private Inputs.ClassificationJobS3JobDefinitionScopingArgs? _mValue_Scoping;
+        private bool _mUnknown_Scoping;
+        public Inputs.ClassificationJobS3JobDefinitionScopingArgs? Scoping
+        {
+            get
+            {
+                if (!_mUnknown_Scoping) return _mValue_Scoping;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionArgs.Scoping' is not present");
+            }
+        }
     }
 }

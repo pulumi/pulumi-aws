@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Host name to rewrite.
         /// </summary>
-        [Input("hostname")]
+        [PolicyResourceProperty("hostname", "_mUnknown_Hostname")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecHttpRouteActionRewriteHostnameArgs> _mHostname;
-
-        public Inputs.GatewayRouteSpecHttpRouteActionRewriteHostnameArgs? Hostname => _mHostname.GetValue("hostname");
+        private Inputs.GatewayRouteSpecHttpRouteActionRewriteHostnameArgs? _mValue_Hostname;
+        private bool _mUnknown_Hostname;
+        public Inputs.GatewayRouteSpecHttpRouteActionRewriteHostnameArgs? Hostname
+        {
+            get
+            {
+                if (!_mUnknown_Hostname) return _mValue_Hostname;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewriteArgs.Hostname' is not present");
+            }
+        }
 
         /// <summary>
         /// Exact path to rewrite.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecHttpRouteActionRewritePathArgs> _mPath;
-
-        public Inputs.GatewayRouteSpecHttpRouteActionRewritePathArgs? Path => _mPath.GetValue("path");
+        private Inputs.GatewayRouteSpecHttpRouteActionRewritePathArgs? _mValue_Path;
+        private bool _mUnknown_Path;
+        public Inputs.GatewayRouteSpecHttpRouteActionRewritePathArgs? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewriteArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// Specified beginning characters to rewrite.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GatewayRouteSpecHttpRouteActionRewritePrefixArgs> _mPrefix;
-
-        public Inputs.GatewayRouteSpecHttpRouteActionRewritePrefixArgs? Prefix => _mPrefix.GetValue("prefix");
+        private Inputs.GatewayRouteSpecHttpRouteActionRewritePrefixArgs? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public Inputs.GatewayRouteSpecHttpRouteActionRewritePrefixArgs? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewriteArgs.Prefix' is not present");
+            }
+        }
     }
 }

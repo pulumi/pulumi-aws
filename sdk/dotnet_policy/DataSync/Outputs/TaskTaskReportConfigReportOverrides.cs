@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Outputs
         /// <summary>
         /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         /// </summary>
-        [Input("deletedOverride")]
+        [PolicyResourceProperty("deletedOverride", "_mUnknown_DeletedOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeletedOverride;
-
-        public string? DeletedOverride => _mDeletedOverride.GetValue("deletedOverride");
+        private string? _mValue_DeletedOverride;
+        private bool _mUnknown_DeletedOverride;
+        public string? DeletedOverride
+        {
+            get
+            {
+                if (!_mUnknown_DeletedOverride) return _mValue_DeletedOverride;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverrides.DeletedOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         /// </summary>
-        [Input("skippedOverride")]
+        [PolicyResourceProperty("skippedOverride", "_mUnknown_SkippedOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSkippedOverride;
-
-        public string? SkippedOverride => _mSkippedOverride.GetValue("skippedOverride");
+        private string? _mValue_SkippedOverride;
+        private bool _mUnknown_SkippedOverride;
+        public string? SkippedOverride
+        {
+            get
+            {
+                if (!_mUnknown_SkippedOverride) return _mValue_SkippedOverride;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverrides.SkippedOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         /// </summary>
-        [Input("transferredOverride")]
+        [PolicyResourceProperty("transferredOverride", "_mUnknown_TransferredOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransferredOverride;
-
-        public string? TransferredOverride => _mTransferredOverride.GetValue("transferredOverride");
+        private string? _mValue_TransferredOverride;
+        private bool _mUnknown_TransferredOverride;
+        public string? TransferredOverride
+        {
+            get
+            {
+                if (!_mUnknown_TransferredOverride) return _mValue_TransferredOverride;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverrides.TransferredOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
         /// 
         /// &gt; **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
         /// </summary>
-        [Input("verifiedOverride")]
+        [PolicyResourceProperty("verifiedOverride", "_mUnknown_VerifiedOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedOverride;
-
-        public string? VerifiedOverride => _mVerifiedOverride.GetValue("verifiedOverride");
+        private string? _mValue_VerifiedOverride;
+        private bool _mUnknown_VerifiedOverride;
+        public string? VerifiedOverride
+        {
+            get
+            {
+                if (!_mUnknown_VerifiedOverride) return _mValue_VerifiedOverride;
+                throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverrides.VerifiedOverride' is not present");
+            }
+        }
     }
 }

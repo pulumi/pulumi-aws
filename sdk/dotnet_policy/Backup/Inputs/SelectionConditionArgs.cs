@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Inputs
         /// <summary>
         /// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
         /// </summary>
-        [Input("stringEquals")]
+        [PolicyResourceProperty("stringEquals", "_mUnknown_StringEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SelectionConditionStringEqualArgs>> _mStringEquals;
-
-        public List<Inputs.SelectionConditionStringEqualArgs>? StringEquals => _mStringEquals.GetValue("stringEquals");
+        private List<Inputs.SelectionConditionStringEqualArgs>? _mValue_StringEquals;
+        private bool _mUnknown_StringEquals;
+        public List<Inputs.SelectionConditionStringEqualArgs>? StringEquals
+        {
+            get
+            {
+                if (!_mUnknown_StringEquals) return _mValue_StringEquals;
+                throw new UndeferrableValueException("Value 'SelectionConditionArgs.StringEquals' is not present");
+            }
+        }
 
         /// <summary>
         /// Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
         /// </summary>
-        [Input("stringLikes")]
+        [PolicyResourceProperty("stringLikes", "_mUnknown_StringLikes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SelectionConditionStringLikeArgs>> _mStringLikes;
-
-        public List<Inputs.SelectionConditionStringLikeArgs>? StringLikes => _mStringLikes.GetValue("stringLikes");
+        private List<Inputs.SelectionConditionStringLikeArgs>? _mValue_StringLikes;
+        private bool _mUnknown_StringLikes;
+        public List<Inputs.SelectionConditionStringLikeArgs>? StringLikes
+        {
+            get
+            {
+                if (!_mUnknown_StringLikes) return _mValue_StringLikes;
+                throw new UndeferrableValueException("Value 'SelectionConditionArgs.StringLikes' is not present");
+            }
+        }
 
         /// <summary>
         /// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
         /// </summary>
-        [Input("stringNotEquals")]
+        [PolicyResourceProperty("stringNotEquals", "_mUnknown_StringNotEquals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SelectionConditionStringNotEqualArgs>> _mStringNotEquals;
-
-        public List<Inputs.SelectionConditionStringNotEqualArgs>? StringNotEquals => _mStringNotEquals.GetValue("stringNotEquals");
+        private List<Inputs.SelectionConditionStringNotEqualArgs>? _mValue_StringNotEquals;
+        private bool _mUnknown_StringNotEquals;
+        public List<Inputs.SelectionConditionStringNotEqualArgs>? StringNotEquals
+        {
+            get
+            {
+                if (!_mUnknown_StringNotEquals) return _mValue_StringNotEquals;
+                throw new UndeferrableValueException("Value 'SelectionConditionArgs.StringNotEquals' is not present");
+            }
+        }
 
         /// <summary>
         /// Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
         /// </summary>
-        [Input("stringNotLikes")]
+        [PolicyResourceProperty("stringNotLikes", "_mUnknown_StringNotLikes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.SelectionConditionStringNotLikeArgs>> _mStringNotLikes;
-
-        public List<Inputs.SelectionConditionStringNotLikeArgs>? StringNotLikes => _mStringNotLikes.GetValue("stringNotLikes");
+        private List<Inputs.SelectionConditionStringNotLikeArgs>? _mValue_StringNotLikes;
+        private bool _mUnknown_StringNotLikes;
+        public List<Inputs.SelectionConditionStringNotLikeArgs>? StringNotLikes
+        {
+            get
+            {
+                if (!_mUnknown_StringNotLikes) return _mValue_StringNotLikes;
+                throw new UndeferrableValueException("Value 'SelectionConditionArgs.StringNotLikes' is not present");
+            }
+        }
     }
 }

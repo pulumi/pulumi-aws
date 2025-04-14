@@ -16,220 +16,388 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("amiType")]
+        [PolicyResourceProperty("amiType", "_mUnknown_AmiType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmiType;
-
-        public string? AmiType => _mAmiType.GetValue("amiType");
+        private string? _mValue_AmiType;
+        private bool _mUnknown_AmiType;
+        public string? AmiType
+        {
+            get
+            {
+                if (!_mUnknown_AmiType) return _mValue_AmiType;
+                throw new UndeferrableValueException("Value 'NodeGroup.AmiType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the EKS Node Group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'NodeGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("capacityType")]
+        [PolicyResourceProperty("capacityType", "_mUnknown_CapacityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityType;
-
-        public string? CapacityType => _mCapacityType.GetValue("capacityType");
+        private string? _mValue_CapacityType;
+        private bool _mUnknown_CapacityType;
+        public string? CapacityType
+        {
+            get
+            {
+                if (!_mUnknown_CapacityType) return _mValue_CapacityType;
+                throw new UndeferrableValueException("Value 'NodeGroup.CapacityType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'NodeGroup.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("diskSize")]
+        [PolicyResourceProperty("diskSize", "_mUnknown_DiskSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDiskSize;
-
-        public int? DiskSize => _mDiskSize.GetValue("diskSize");
+        private int? _mValue_DiskSize;
+        private bool _mUnknown_DiskSize;
+        public int? DiskSize
+        {
+            get
+            {
+                if (!_mUnknown_DiskSize) return _mValue_DiskSize;
+                throw new UndeferrableValueException("Value 'NodeGroup.DiskSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         /// </summary>
-        [Input("forceUpdateVersion")]
+        [PolicyResourceProperty("forceUpdateVersion", "_mUnknown_ForceUpdateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdateVersion;
-
-        public bool? ForceUpdateVersion => _mForceUpdateVersion.GetValue("forceUpdateVersion");
+        private bool? _mValue_ForceUpdateVersion;
+        private bool _mUnknown_ForceUpdateVersion;
+        public bool? ForceUpdateVersion
+        {
+            get
+            {
+                if (!_mUnknown_ForceUpdateVersion) return _mValue_ForceUpdateVersion;
+                throw new UndeferrableValueException("Value 'NodeGroup.ForceUpdateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("instanceTypes")]
+        [PolicyResourceProperty("instanceTypes", "_mUnknown_InstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
-
-        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
+        private List<string>? _mValue_InstanceTypes;
+        private bool _mUnknown_InstanceTypes;
+        public List<string>? InstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_InstanceTypes) return _mValue_InstanceTypes;
+                throw new UndeferrableValueException("Value 'NodeGroup.InstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
-        [Input("labels")]
+        [PolicyResourceProperty("labels", "_mUnknown_Labels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLabels;
-
-        public Dictionary<string, string>? Labels => _mLabels.GetValue("labels");
+        private Dictionary<string, string>? _mValue_Labels;
+        private bool _mUnknown_Labels;
+        public Dictionary<string, string>? Labels
+        {
+            get
+            {
+                if (!_mUnknown_Labels) return _mValue_Labels;
+                throw new UndeferrableValueException("Value 'NodeGroup.Labels' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupLaunchTemplate> _mLaunchTemplate;
-
-        public Outputs.NodeGroupLaunchTemplate? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Outputs.NodeGroupLaunchTemplate? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Outputs.NodeGroupLaunchTemplate? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'NodeGroup.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         /// </summary>
-        [Input("nodeGroupName")]
+        [PolicyResourceProperty("nodeGroupName", "_mUnknown_NodeGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupName;
-
-        public string? NodeGroupName => _mNodeGroupName.GetValue("nodeGroupName");
+        private string? _mValue_NodeGroupName;
+        private bool _mUnknown_NodeGroupName;
+        public string? NodeGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NodeGroupName) return _mValue_NodeGroupName;
+                throw new UndeferrableValueException("Value 'NodeGroup.NodeGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         /// </summary>
-        [Input("nodeGroupNamePrefix")]
+        [PolicyResourceProperty("nodeGroupNamePrefix", "_mUnknown_NodeGroupNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupNamePrefix;
-
-        public string? NodeGroupNamePrefix => _mNodeGroupNamePrefix.GetValue("nodeGroupNamePrefix");
+        private string? _mValue_NodeGroupNamePrefix;
+        private bool _mUnknown_NodeGroupNamePrefix;
+        public string? NodeGroupNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NodeGroupNamePrefix) return _mValue_NodeGroupNamePrefix;
+                throw new UndeferrableValueException("Value 'NodeGroup.NodeGroupNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
         /// </summary>
-        [Input("nodeRepairConfig")]
+        [PolicyResourceProperty("nodeRepairConfig", "_mUnknown_NodeRepairConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupNodeRepairConfig> _mNodeRepairConfig;
-
-        public Outputs.NodeGroupNodeRepairConfig? NodeRepairConfig => _mNodeRepairConfig.GetValue("nodeRepairConfig");
+        private Outputs.NodeGroupNodeRepairConfig? _mValue_NodeRepairConfig;
+        private bool _mUnknown_NodeRepairConfig;
+        public Outputs.NodeGroupNodeRepairConfig? NodeRepairConfig
+        {
+            get
+            {
+                if (!_mUnknown_NodeRepairConfig) return _mValue_NodeRepairConfig;
+                throw new UndeferrableValueException("Value 'NodeGroup.NodeRepairConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
-        [Input("nodeRoleArn")]
+        [PolicyResourceProperty("nodeRoleArn", "_mUnknown_NodeRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeRoleArn;
-
-        public string? NodeRoleArn => _mNodeRoleArn.GetValue("nodeRoleArn");
+        private string? _mValue_NodeRoleArn;
+        private bool _mUnknown_NodeRoleArn;
+        public string? NodeRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_NodeRoleArn) return _mValue_NodeRoleArn;
+                throw new UndeferrableValueException("Value 'NodeGroup.NodeRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
-        [Input("releaseVersion")]
+        [PolicyResourceProperty("releaseVersion", "_mUnknown_ReleaseVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseVersion;
-
-        public string? ReleaseVersion => _mReleaseVersion.GetValue("releaseVersion");
+        private string? _mValue_ReleaseVersion;
+        private bool _mUnknown_ReleaseVersion;
+        public string? ReleaseVersion
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseVersion) return _mValue_ReleaseVersion;
+                throw new UndeferrableValueException("Value 'NodeGroup.ReleaseVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
-        [Input("remoteAccess")]
+        [PolicyResourceProperty("remoteAccess", "_mUnknown_RemoteAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupRemoteAccess> _mRemoteAccess;
-
-        public Outputs.NodeGroupRemoteAccess? RemoteAccess => _mRemoteAccess.GetValue("remoteAccess");
+        private Outputs.NodeGroupRemoteAccess? _mValue_RemoteAccess;
+        private bool _mUnknown_RemoteAccess;
+        public Outputs.NodeGroupRemoteAccess? RemoteAccess
+        {
+            get
+            {
+                if (!_mUnknown_RemoteAccess) return _mValue_RemoteAccess;
+                throw new UndeferrableValueException("Value 'NodeGroup.RemoteAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// List of objects containing information about underlying resources.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NodeGroupResource>> _mResources;
-
-        public List<Outputs.NodeGroupResource>? Resources => _mResources.GetValue("resources");
+        private List<Outputs.NodeGroupResource>? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public List<Outputs.NodeGroupResource>? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'NodeGroup.Resources' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with scaling settings. See `scaling_config` below for details.
         /// </summary>
-        [Input("scalingConfig")]
+        [PolicyResourceProperty("scalingConfig", "_mUnknown_ScalingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupScalingConfig> _mScalingConfig;
-
-        public Outputs.NodeGroupScalingConfig? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
+        private Outputs.NodeGroupScalingConfig? _mValue_ScalingConfig;
+        private bool _mUnknown_ScalingConfig;
+        public Outputs.NodeGroupScalingConfig? ScalingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScalingConfig) return _mValue_ScalingConfig;
+                throw new UndeferrableValueException("Value 'NodeGroup.ScalingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the EKS Node Group.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'NodeGroup.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'NodeGroup.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NodeGroup.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NodeGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         /// </summary>
-        [Input("taints")]
+        [PolicyResourceProperty("taints", "_mUnknown_Taints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.NodeGroupTaint>> _mTaints;
-
-        public List<Outputs.NodeGroupTaint>? Taints => _mTaints.GetValue("taints");
+        private List<Outputs.NodeGroupTaint>? _mValue_Taints;
+        private bool _mUnknown_Taints;
+        public List<Outputs.NodeGroupTaint>? Taints
+        {
+            get
+            {
+                if (!_mUnknown_Taints) return _mValue_Taints;
+                throw new UndeferrableValueException("Value 'NodeGroup.Taints' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with update settings. See `update_config` below for details.
         /// </summary>
-        [Input("updateConfig")]
+        [PolicyResourceProperty("updateConfig", "_mUnknown_UpdateConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NodeGroupUpdateConfig> _mUpdateConfig;
-
-        public Outputs.NodeGroupUpdateConfig? UpdateConfig => _mUpdateConfig.GetValue("updateConfig");
+        private Outputs.NodeGroupUpdateConfig? _mValue_UpdateConfig;
+        private bool _mUnknown_UpdateConfig;
+        public Outputs.NodeGroupUpdateConfig? UpdateConfig
+        {
+            get
+            {
+                if (!_mUnknown_UpdateConfig) return _mValue_UpdateConfig;
+                throw new UndeferrableValueException("Value 'NodeGroup.UpdateConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'NodeGroup.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:eks/nodeGroup:NodeGroup")]
@@ -238,183 +406,323 @@ namespace Pulumi.PolicyPacks.Aws.Eks
         /// <summary>
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("amiType")]
+        [PolicyResourceProperty("amiType", "_mUnknown_AmiType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmiType;
-
-        public string? AmiType => _mAmiType.GetValue("amiType");
+        private string? _mValue_AmiType;
+        private bool _mUnknown_AmiType;
+        public string? AmiType
+        {
+            get
+            {
+                if (!_mUnknown_AmiType) return _mValue_AmiType;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.AmiType' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("capacityType")]
+        [PolicyResourceProperty("capacityType", "_mUnknown_CapacityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityType;
-
-        public string? CapacityType => _mCapacityType.GetValue("capacityType");
+        private string? _mValue_CapacityType;
+        private bool _mUnknown_CapacityType;
+        public string? CapacityType
+        {
+            get
+            {
+                if (!_mUnknown_CapacityType) return _mValue_CapacityType;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.CapacityType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Cluster.
         /// </summary>
-        [Input("clusterName")]
+        [PolicyResourceProperty("clusterName", "_mUnknown_ClusterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterName;
-
-        public string? ClusterName => _mClusterName.GetValue("clusterName");
+        private string? _mValue_ClusterName;
+        private bool _mUnknown_ClusterName;
+        public string? ClusterName
+        {
+            get
+            {
+                if (!_mUnknown_ClusterName) return _mValue_ClusterName;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.ClusterName' is not present");
+            }
+        }
 
         /// <summary>
         /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("diskSize")]
+        [PolicyResourceProperty("diskSize", "_mUnknown_DiskSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDiskSize;
-
-        public int? DiskSize => _mDiskSize.GetValue("diskSize");
+        private int? _mValue_DiskSize;
+        private bool _mUnknown_DiskSize;
+        public int? DiskSize
+        {
+            get
+            {
+                if (!_mUnknown_DiskSize) return _mValue_DiskSize;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.DiskSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         /// </summary>
-        [Input("forceUpdateVersion")]
+        [PolicyResourceProperty("forceUpdateVersion", "_mUnknown_ForceUpdateVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdateVersion;
-
-        public bool? ForceUpdateVersion => _mForceUpdateVersion.GetValue("forceUpdateVersion");
+        private bool? _mValue_ForceUpdateVersion;
+        private bool _mUnknown_ForceUpdateVersion;
+        public bool? ForceUpdateVersion
+        {
+            get
+            {
+                if (!_mUnknown_ForceUpdateVersion) return _mValue_ForceUpdateVersion;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.ForceUpdateVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("instanceTypes")]
+        [PolicyResourceProperty("instanceTypes", "_mUnknown_InstanceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInstanceTypes;
-
-        public List<string>? InstanceTypes => _mInstanceTypes.GetValue("instanceTypes");
+        private List<string>? _mValue_InstanceTypes;
+        private bool _mUnknown_InstanceTypes;
+        public List<string>? InstanceTypes
+        {
+            get
+            {
+                if (!_mUnknown_InstanceTypes) return _mValue_InstanceTypes;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.InstanceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         /// </summary>
-        [Input("labels")]
+        [PolicyResourceProperty("labels", "_mUnknown_Labels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mLabels;
-
-        public Dictionary<string, string>? Labels => _mLabels.GetValue("labels");
+        private Dictionary<string, string>? _mValue_Labels;
+        private bool _mUnknown_Labels;
+        public Dictionary<string, string>? Labels
+        {
+            get
+            {
+                if (!_mUnknown_Labels) return _mValue_Labels;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.Labels' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         /// </summary>
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupLaunchTemplateArgs> _mLaunchTemplate;
-
-        public Inputs.NodeGroupLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Inputs.NodeGroupLaunchTemplateArgs? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Inputs.NodeGroupLaunchTemplateArgs? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         /// </summary>
-        [Input("nodeGroupName")]
+        [PolicyResourceProperty("nodeGroupName", "_mUnknown_NodeGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupName;
-
-        public string? NodeGroupName => _mNodeGroupName.GetValue("nodeGroupName");
+        private string? _mValue_NodeGroupName;
+        private bool _mUnknown_NodeGroupName;
+        public string? NodeGroupName
+        {
+            get
+            {
+                if (!_mUnknown_NodeGroupName) return _mValue_NodeGroupName;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.NodeGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         /// </summary>
-        [Input("nodeGroupNamePrefix")]
+        [PolicyResourceProperty("nodeGroupNamePrefix", "_mUnknown_NodeGroupNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeGroupNamePrefix;
-
-        public string? NodeGroupNamePrefix => _mNodeGroupNamePrefix.GetValue("nodeGroupNamePrefix");
+        private string? _mValue_NodeGroupNamePrefix;
+        private bool _mUnknown_NodeGroupNamePrefix;
+        public string? NodeGroupNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NodeGroupNamePrefix) return _mValue_NodeGroupNamePrefix;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.NodeGroupNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The node auto repair configuration for the node group. See `node_repair_config` below for details.
         /// </summary>
-        [Input("nodeRepairConfig")]
+        [PolicyResourceProperty("nodeRepairConfig", "_mUnknown_NodeRepairConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupNodeRepairConfigArgs> _mNodeRepairConfig;
-
-        public Inputs.NodeGroupNodeRepairConfigArgs? NodeRepairConfig => _mNodeRepairConfig.GetValue("nodeRepairConfig");
+        private Inputs.NodeGroupNodeRepairConfigArgs? _mValue_NodeRepairConfig;
+        private bool _mUnknown_NodeRepairConfig;
+        public Inputs.NodeGroupNodeRepairConfigArgs? NodeRepairConfig
+        {
+            get
+            {
+                if (!_mUnknown_NodeRepairConfig) return _mValue_NodeRepairConfig;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.NodeRepairConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
-        [Input("nodeRoleArn")]
+        [PolicyResourceProperty("nodeRoleArn", "_mUnknown_NodeRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNodeRoleArn;
-
-        public string? NodeRoleArn => _mNodeRoleArn.GetValue("nodeRoleArn");
+        private string? _mValue_NodeRoleArn;
+        private bool _mUnknown_NodeRoleArn;
+        public string? NodeRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_NodeRoleArn) return _mValue_NodeRoleArn;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.NodeRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
-        [Input("releaseVersion")]
+        [PolicyResourceProperty("releaseVersion", "_mUnknown_ReleaseVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseVersion;
-
-        public string? ReleaseVersion => _mReleaseVersion.GetValue("releaseVersion");
+        private string? _mValue_ReleaseVersion;
+        private bool _mUnknown_ReleaseVersion;
+        public string? ReleaseVersion
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseVersion) return _mValue_ReleaseVersion;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.ReleaseVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         /// </summary>
-        [Input("remoteAccess")]
+        [PolicyResourceProperty("remoteAccess", "_mUnknown_RemoteAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupRemoteAccessArgs> _mRemoteAccess;
-
-        public Inputs.NodeGroupRemoteAccessArgs? RemoteAccess => _mRemoteAccess.GetValue("remoteAccess");
+        private Inputs.NodeGroupRemoteAccessArgs? _mValue_RemoteAccess;
+        private bool _mUnknown_RemoteAccess;
+        public Inputs.NodeGroupRemoteAccessArgs? RemoteAccess
+        {
+            get
+            {
+                if (!_mUnknown_RemoteAccess) return _mValue_RemoteAccess;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.RemoteAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with scaling settings. See `scaling_config` below for details.
         /// </summary>
-        [Input("scalingConfig")]
+        [PolicyResourceProperty("scalingConfig", "_mUnknown_ScalingConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupScalingConfigArgs> _mScalingConfig;
-
-        public Inputs.NodeGroupScalingConfigArgs? ScalingConfig => _mScalingConfig.GetValue("scalingConfig");
+        private Inputs.NodeGroupScalingConfigArgs? _mValue_ScalingConfig;
+        private bool _mUnknown_ScalingConfig;
+        public Inputs.NodeGroupScalingConfigArgs? ScalingConfig
+        {
+            get
+            {
+                if (!_mUnknown_ScalingConfig) return _mValue_ScalingConfig;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.ScalingConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         /// </summary>
-        [Input("taints")]
+        [PolicyResourceProperty("taints", "_mUnknown_Taints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.NodeGroupTaintArgs>> _mTaints;
-
-        public List<Inputs.NodeGroupTaintArgs>? Taints => _mTaints.GetValue("taints");
+        private List<Inputs.NodeGroupTaintArgs>? _mValue_Taints;
+        private bool _mUnknown_Taints;
+        public List<Inputs.NodeGroupTaintArgs>? Taints
+        {
+            get
+            {
+                if (!_mUnknown_Taints) return _mValue_Taints;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.Taints' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with update settings. See `update_config` below for details.
         /// </summary>
-        [Input("updateConfig")]
+        [PolicyResourceProperty("updateConfig", "_mUnknown_UpdateConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NodeGroupUpdateConfigArgs> _mUpdateConfig;
-
-        public Inputs.NodeGroupUpdateConfigArgs? UpdateConfig => _mUpdateConfig.GetValue("updateConfig");
+        private Inputs.NodeGroupUpdateConfigArgs? _mValue_UpdateConfig;
+        private bool _mUnknown_UpdateConfig;
+        public Inputs.NodeGroupUpdateConfigArgs? UpdateConfig
+        {
+            get
+            {
+                if (!_mUnknown_UpdateConfig) return _mValue_UpdateConfig;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.UpdateConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'NodeGroupArgs.Version' is not present");
+            }
+        }
     }
 }

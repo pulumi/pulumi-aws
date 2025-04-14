@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
 {
     public sealed class DistributionOriginGroupMember
     {
-        [Input("originId")]
+        [PolicyResourceProperty("originId", "_mUnknown_OriginId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginId;
-
-        public string? OriginId => _mOriginId.GetValue("originId");
+        private string? _mValue_OriginId;
+        private bool _mUnknown_OriginId;
+        public string? OriginId
+        {
+            get
+            {
+                if (!_mUnknown_OriginId) return _mValue_OriginId;
+                throw new UndeferrableValueException("Value 'DistributionOriginGroupMember.OriginId' is not present");
+            }
+        }
     }
 }

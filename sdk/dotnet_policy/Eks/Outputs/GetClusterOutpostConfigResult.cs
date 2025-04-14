@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// The Amazon EC2 instance type for all Kubernetes control plane instances.
         /// </summary>
-        [Input("controlPlaneInstanceType")]
+        [PolicyResourceProperty("controlPlaneInstanceType", "_mUnknown_ControlPlaneInstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControlPlaneInstanceType;
-
-        public string? ControlPlaneInstanceType => _mControlPlaneInstanceType.GetValue("controlPlaneInstanceType");
+        private string? _mValue_ControlPlaneInstanceType;
+        private bool _mUnknown_ControlPlaneInstanceType;
+        public string? ControlPlaneInstanceType
+        {
+            get
+            {
+                if (!_mUnknown_ControlPlaneInstanceType) return _mValue_ControlPlaneInstanceType;
+                throw new UndeferrableValueException("Value 'GetClusterOutpostConfigResult.ControlPlaneInstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         /// </summary>
-        [Input("controlPlanePlacements")]
+        [PolicyResourceProperty("controlPlanePlacements", "_mUnknown_ControlPlanePlacements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetClusterOutpostConfigControlPlanePlacementResult>> _mControlPlanePlacements;
-
-        public List<Outputs.GetClusterOutpostConfigControlPlanePlacementResult>? ControlPlanePlacements => _mControlPlanePlacements.GetValue("controlPlanePlacements");
+        private List<Outputs.GetClusterOutpostConfigControlPlanePlacementResult>? _mValue_ControlPlanePlacements;
+        private bool _mUnknown_ControlPlanePlacements;
+        public List<Outputs.GetClusterOutpostConfigControlPlanePlacementResult>? ControlPlanePlacements
+        {
+            get
+            {
+                if (!_mUnknown_ControlPlanePlacements) return _mValue_ControlPlanePlacements;
+                throw new UndeferrableValueException("Value 'GetClusterOutpostConfigResult.ControlPlanePlacements' is not present");
+            }
+        }
 
         /// <summary>
         /// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         /// </summary>
-        [Input("outpostArns")]
+        [PolicyResourceProperty("outpostArns", "_mUnknown_OutpostArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOutpostArns;
-
-        public List<string>? OutpostArns => _mOutpostArns.GetValue("outpostArns");
+        private List<string>? _mValue_OutpostArns;
+        private bool _mUnknown_OutpostArns;
+        public List<string>? OutpostArns
+        {
+            get
+            {
+                if (!_mUnknown_OutpostArns) return _mValue_OutpostArns;
+                throw new UndeferrableValueException("Value 'GetClusterOutpostConfigResult.OutpostArns' is not present");
+            }
+        }
     }
 }

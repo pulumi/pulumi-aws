@@ -16,254 +16,450 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'Database.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the Lightsail instance (matches `id`).
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Database.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Database.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         /// </summary>
-        [Input("backupRetentionEnabled")]
+        [PolicyResourceProperty("backupRetentionEnabled", "_mUnknown_BackupRetentionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBackupRetentionEnabled;
-
-        public bool? BackupRetentionEnabled => _mBackupRetentionEnabled.GetValue("backupRetentionEnabled");
+        private bool? _mValue_BackupRetentionEnabled;
+        private bool _mUnknown_BackupRetentionEnabled;
+        public bool? BackupRetentionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionEnabled) return _mValue_BackupRetentionEnabled;
+                throw new UndeferrableValueException("Value 'Database.BackupRetentionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         /// </summary>
-        [Input("blueprintId")]
+        [PolicyResourceProperty("blueprintId", "_mUnknown_BlueprintId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
-
-        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
+        private string? _mValue_BlueprintId;
+        private bool _mUnknown_BlueprintId;
+        public string? BlueprintId
+        {
+            get
+            {
+                if (!_mUnknown_BlueprintId) return _mValue_BlueprintId;
+                throw new UndeferrableValueException("Value 'Database.BlueprintId' is not present");
+            }
+        }
 
         /// <summary>
         /// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'Database.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate associated with the database.
         /// </summary>
-        [Input("caCertificateIdentifier")]
+        [PolicyResourceProperty("caCertificateIdentifier", "_mUnknown_CaCertificateIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaCertificateIdentifier;
-
-        public string? CaCertificateIdentifier => _mCaCertificateIdentifier.GetValue("caCertificateIdentifier");
+        private string? _mValue_CaCertificateIdentifier;
+        private bool _mUnknown_CaCertificateIdentifier;
+        public string? CaCertificateIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_CaCertificateIdentifier) return _mValue_CaCertificateIdentifier;
+                throw new UndeferrableValueException("Value 'Database.CaCertificateIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of vCPUs for the database.
         /// </summary>
-        [Input("cpuCount")]
+        [PolicyResourceProperty("cpuCount", "_mUnknown_CpuCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCpuCount;
-
-        public int? CpuCount => _mCpuCount.GetValue("cpuCount");
+        private int? _mValue_CpuCount;
+        private bool _mUnknown_CpuCount;
+        public int? CpuCount
+        {
+            get
+            {
+                if (!_mUnknown_CpuCount) return _mValue_CpuCount;
+                throw new UndeferrableValueException("Value 'Database.CpuCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The timestamp when the instance was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Database.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// The size of the disk for the database.
         /// </summary>
-        [Input("diskSize")]
+        [PolicyResourceProperty("diskSize", "_mUnknown_DiskSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mDiskSize;
-
-        public double? DiskSize => _mDiskSize.GetValue("diskSize");
+        private double? _mValue_DiskSize;
+        private bool _mUnknown_DiskSize;
+        public double? DiskSize
+        {
+            get
+            {
+                if (!_mUnknown_DiskSize) return _mValue_DiskSize;
+                throw new UndeferrableValueException("Value 'Database.DiskSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The database software (for example, MySQL).
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'Database.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// The database engine version (for example, 5.7.23).
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'Database.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         /// </summary>
-        [Input("finalSnapshotName")]
+        [PolicyResourceProperty("finalSnapshotName", "_mUnknown_FinalSnapshotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotName;
-
-        public string? FinalSnapshotName => _mFinalSnapshotName.GetValue("finalSnapshotName");
+        private string? _mValue_FinalSnapshotName;
+        private bool _mUnknown_FinalSnapshotName;
+        public string? FinalSnapshotName
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotName) return _mValue_FinalSnapshotName;
+                throw new UndeferrableValueException("Value 'Database.FinalSnapshotName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the master database created when the Lightsail database resource is created.
         /// </summary>
-        [Input("masterDatabaseName")]
+        [PolicyResourceProperty("masterDatabaseName", "_mUnknown_MasterDatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterDatabaseName;
-
-        public string? MasterDatabaseName => _mMasterDatabaseName.GetValue("masterDatabaseName");
+        private string? _mValue_MasterDatabaseName;
+        private bool _mUnknown_MasterDatabaseName;
+        public string? MasterDatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_MasterDatabaseName) return _mValue_MasterDatabaseName;
+                throw new UndeferrableValueException("Value 'Database.MasterDatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The master endpoint fqdn for the database.
         /// </summary>
-        [Input("masterEndpointAddress")]
+        [PolicyResourceProperty("masterEndpointAddress", "_mUnknown_MasterEndpointAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterEndpointAddress;
-
-        public string? MasterEndpointAddress => _mMasterEndpointAddress.GetValue("masterEndpointAddress");
+        private string? _mValue_MasterEndpointAddress;
+        private bool _mUnknown_MasterEndpointAddress;
+        public string? MasterEndpointAddress
+        {
+            get
+            {
+                if (!_mUnknown_MasterEndpointAddress) return _mValue_MasterEndpointAddress;
+                throw new UndeferrableValueException("Value 'Database.MasterEndpointAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The master endpoint network port for the database.
         /// </summary>
-        [Input("masterEndpointPort")]
+        [PolicyResourceProperty("masterEndpointPort", "_mUnknown_MasterEndpointPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMasterEndpointPort;
-
-        public int? MasterEndpointPort => _mMasterEndpointPort.GetValue("masterEndpointPort");
+        private int? _mValue_MasterEndpointPort;
+        private bool _mUnknown_MasterEndpointPort;
+        public int? MasterEndpointPort
+        {
+            get
+            {
+                if (!_mUnknown_MasterEndpointPort) return _mValue_MasterEndpointPort;
+                throw new UndeferrableValueException("Value 'Database.MasterEndpointPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
-        [Input("masterPassword")]
+        [PolicyResourceProperty("masterPassword", "_mUnknown_MasterPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
-
-        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
+        private string? _mValue_MasterPassword;
+        private bool _mUnknown_MasterPassword;
+        public string? MasterPassword
+        {
+            get
+            {
+                if (!_mUnknown_MasterPassword) return _mValue_MasterPassword;
+                throw new UndeferrableValueException("Value 'Database.MasterPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The master user name for your new database.
         /// </summary>
-        [Input("masterUsername")]
+        [PolicyResourceProperty("masterUsername", "_mUnknown_MasterUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
-
-        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
+        private string? _mValue_MasterUsername;
+        private bool _mUnknown_MasterUsername;
+        public string? MasterUsername
+        {
+            get
+            {
+                if (!_mUnknown_MasterUsername) return _mValue_MasterUsername;
+                throw new UndeferrableValueException("Value 'Database.MasterUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'Database.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'Database.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'Database.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of RAM in GB for the database.
         /// </summary>
-        [Input("ramSize")]
+        [PolicyResourceProperty("ramSize", "_mUnknown_RamSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mRamSize;
-
-        public double? RamSize => _mRamSize.GetValue("ramSize");
+        private double? _mValue_RamSize;
+        private bool _mUnknown_RamSize;
+        public double? RamSize
+        {
+            get
+            {
+                if (!_mUnknown_RamSize) return _mValue_RamSize;
+                throw new UndeferrableValueException("Value 'Database.RamSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
         /// </summary>
-        [Input("relationalDatabaseName")]
+        [PolicyResourceProperty("relationalDatabaseName", "_mUnknown_RelationalDatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelationalDatabaseName;
-
-        public string? RelationalDatabaseName => _mRelationalDatabaseName.GetValue("relationalDatabaseName");
+        private string? _mValue_RelationalDatabaseName;
+        private bool _mUnknown_RelationalDatabaseName;
+        public string? RelationalDatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_RelationalDatabaseName) return _mValue_RelationalDatabaseName;
+                throw new UndeferrableValueException("Value 'Database.RelationalDatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the secondary Availability Zone of a high availability database. The secondary database is used for failover support of a high availability database.
         /// </summary>
-        [Input("secondaryAvailabilityZone")]
+        [PolicyResourceProperty("secondaryAvailabilityZone", "_mUnknown_SecondaryAvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecondaryAvailabilityZone;
-
-        public string? SecondaryAvailabilityZone => _mSecondaryAvailabilityZone.GetValue("secondaryAvailabilityZone");
+        private string? _mValue_SecondaryAvailabilityZone;
+        private bool _mUnknown_SecondaryAvailabilityZone;
+        public string? SecondaryAvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryAvailabilityZone) return _mValue_SecondaryAvailabilityZone;
+                throw new UndeferrableValueException("Value 'Database.SecondaryAvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'Database.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         /// </summary>
-        [Input("supportCode")]
+        [PolicyResourceProperty("supportCode", "_mUnknown_SupportCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSupportCode;
-
-        public string? SupportCode => _mSupportCode.GetValue("supportCode");
+        private string? _mValue_SupportCode;
+        private bool _mUnknown_SupportCode;
+        public string? SupportCode
+        {
+            get
+            {
+                if (!_mUnknown_SupportCode) return _mValue_SupportCode;
+                throw new UndeferrableValueException("Value 'Database.SupportCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Database.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Database.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/database:Database")]
@@ -272,136 +468,241 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
         /// </summary>
-        [Input("applyImmediately")]
+        [PolicyResourceProperty("applyImmediately", "_mUnknown_ApplyImmediately")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mApplyImmediately;
-
-        public bool? ApplyImmediately => _mApplyImmediately.GetValue("applyImmediately");
+        private bool? _mValue_ApplyImmediately;
+        private bool _mUnknown_ApplyImmediately;
+        public bool? ApplyImmediately
+        {
+            get
+            {
+                if (!_mUnknown_ApplyImmediately) return _mValue_ApplyImmediately;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.ApplyImmediately' is not present");
+            }
+        }
 
         /// <summary>
         /// The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
         /// </summary>
-        [Input("backupRetentionEnabled")]
+        [PolicyResourceProperty("backupRetentionEnabled", "_mUnknown_BackupRetentionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBackupRetentionEnabled;
-
-        public bool? BackupRetentionEnabled => _mBackupRetentionEnabled.GetValue("backupRetentionEnabled");
+        private bool? _mValue_BackupRetentionEnabled;
+        private bool _mUnknown_BackupRetentionEnabled;
+        public bool? BackupRetentionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_BackupRetentionEnabled) return _mValue_BackupRetentionEnabled;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.BackupRetentionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
         /// </summary>
-        [Input("blueprintId")]
+        [PolicyResourceProperty("blueprintId", "_mUnknown_BlueprintId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlueprintId;
-
-        public string? BlueprintId => _mBlueprintId.GetValue("blueprintId");
+        private string? _mValue_BlueprintId;
+        private bool _mUnknown_BlueprintId;
+        public string? BlueprintId
+        {
+            get
+            {
+                if (!_mUnknown_BlueprintId) return _mValue_BlueprintId;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.BlueprintId' is not present");
+            }
+        }
 
         /// <summary>
         /// The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
         /// </summary>
-        [Input("bundleId")]
+        [PolicyResourceProperty("bundleId", "_mUnknown_BundleId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBundleId;
-
-        public string? BundleId => _mBundleId.GetValue("bundleId");
+        private string? _mValue_BundleId;
+        private bool _mUnknown_BundleId;
+        public string? BundleId
+        {
+            get
+            {
+                if (!_mUnknown_BundleId) return _mValue_BundleId;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.BundleId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
         /// </summary>
-        [Input("finalSnapshotName")]
+        [PolicyResourceProperty("finalSnapshotName", "_mUnknown_FinalSnapshotName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinalSnapshotName;
-
-        public string? FinalSnapshotName => _mFinalSnapshotName.GetValue("finalSnapshotName");
+        private string? _mValue_FinalSnapshotName;
+        private bool _mUnknown_FinalSnapshotName;
+        public string? FinalSnapshotName
+        {
+            get
+            {
+                if (!_mUnknown_FinalSnapshotName) return _mValue_FinalSnapshotName;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.FinalSnapshotName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the master database created when the Lightsail database resource is created.
         /// </summary>
-        [Input("masterDatabaseName")]
+        [PolicyResourceProperty("masterDatabaseName", "_mUnknown_MasterDatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterDatabaseName;
-
-        public string? MasterDatabaseName => _mMasterDatabaseName.GetValue("masterDatabaseName");
+        private string? _mValue_MasterDatabaseName;
+        private bool _mUnknown_MasterDatabaseName;
+        public string? MasterDatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_MasterDatabaseName) return _mValue_MasterDatabaseName;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.MasterDatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The password for the master user of your new database. The password can include any printable ASCII character except "/", """, or "@".
         /// </summary>
-        [Input("masterPassword")]
+        [PolicyResourceProperty("masterPassword", "_mUnknown_MasterPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterPassword;
-
-        public string? MasterPassword => _mMasterPassword.GetValue("masterPassword");
+        private string? _mValue_MasterPassword;
+        private bool _mUnknown_MasterPassword;
+        public string? MasterPassword
+        {
+            get
+            {
+                if (!_mUnknown_MasterPassword) return _mValue_MasterPassword;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.MasterPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The master user name for your new database.
         /// </summary>
-        [Input("masterUsername")]
+        [PolicyResourceProperty("masterUsername", "_mUnknown_MasterUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMasterUsername;
-
-        public string? MasterUsername => _mMasterUsername.GetValue("masterUsername");
+        private string? _mValue_MasterUsername;
+        private bool _mUnknown_MasterUsername;
+        public string? MasterUsername
+        {
+            get
+            {
+                if (!_mUnknown_MasterUsername) return _mValue_MasterUsername;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.MasterUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         /// </summary>
-        [Input("preferredBackupWindow")]
+        [PolicyResourceProperty("preferredBackupWindow", "_mUnknown_PreferredBackupWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredBackupWindow;
-
-        public string? PreferredBackupWindow => _mPreferredBackupWindow.GetValue("preferredBackupWindow");
+        private string? _mValue_PreferredBackupWindow;
+        private bool _mUnknown_PreferredBackupWindow;
+        public string? PreferredBackupWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredBackupWindow) return _mValue_PreferredBackupWindow;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.PreferredBackupWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         /// </summary>
-        [Input("preferredMaintenanceWindow")]
+        [PolicyResourceProperty("preferredMaintenanceWindow", "_mUnknown_PreferredMaintenanceWindow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPreferredMaintenanceWindow;
-
-        public string? PreferredMaintenanceWindow => _mPreferredMaintenanceWindow.GetValue("preferredMaintenanceWindow");
+        private string? _mValue_PreferredMaintenanceWindow;
+        private bool _mUnknown_PreferredMaintenanceWindow;
+        public string? PreferredMaintenanceWindow
+        {
+            get
+            {
+                if (!_mUnknown_PreferredMaintenanceWindow) return _mValue_PreferredMaintenanceWindow;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.PreferredMaintenanceWindow' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         /// </summary>
-        [Input("publiclyAccessible")]
+        [PolicyResourceProperty("publiclyAccessible", "_mUnknown_PubliclyAccessible")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPubliclyAccessible;
-
-        public bool? PubliclyAccessible => _mPubliclyAccessible.GetValue("publiclyAccessible");
+        private bool? _mValue_PubliclyAccessible;
+        private bool _mUnknown_PubliclyAccessible;
+        public bool? PubliclyAccessible
+        {
+            get
+            {
+                if (!_mUnknown_PubliclyAccessible) return _mValue_PubliclyAccessible;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.PubliclyAccessible' is not present");
+            }
+        }
 
         /// <summary>
         /// The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
         /// </summary>
-        [Input("relationalDatabaseName")]
+        [PolicyResourceProperty("relationalDatabaseName", "_mUnknown_RelationalDatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelationalDatabaseName;
-
-        public string? RelationalDatabaseName => _mRelationalDatabaseName.GetValue("relationalDatabaseName");
+        private string? _mValue_RelationalDatabaseName;
+        private bool _mUnknown_RelationalDatabaseName;
+        public string? RelationalDatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_RelationalDatabaseName) return _mValue_RelationalDatabaseName;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.RelationalDatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         /// </summary>
-        [Input("skipFinalSnapshot")]
+        [PolicyResourceProperty("skipFinalSnapshot", "_mUnknown_SkipFinalSnapshot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipFinalSnapshot;
-
-        public bool? SkipFinalSnapshot => _mSkipFinalSnapshot.GetValue("skipFinalSnapshot");
+        private bool? _mValue_SkipFinalSnapshot;
+        private bool _mUnknown_SkipFinalSnapshot;
+        public bool? SkipFinalSnapshot
+        {
+            get
+            {
+                if (!_mUnknown_SkipFinalSnapshot) return _mValue_SkipFinalSnapshot;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.SkipFinalSnapshot' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.Tags' is not present");
+            }
+        }
     }
 }

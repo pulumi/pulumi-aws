@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Instructs AWS WAF to allow the web request. See Allow below for details.
         /// </summary>
-        [Input("allow")]
+        [PolicyResourceProperty("allow", "_mUnknown_Allow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleActionAllow> _mAllow;
-
-        public Outputs.RuleGroupRuleActionAllow? Allow => _mAllow.GetValue("allow");
+        private Outputs.RuleGroupRuleActionAllow? _mValue_Allow;
+        private bool _mUnknown_Allow;
+        public Outputs.RuleGroupRuleActionAllow? Allow
+        {
+            get
+            {
+                if (!_mUnknown_Allow) return _mValue_Allow;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleAction.Allow' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to block the web request. See Block below for details.
         /// </summary>
-        [Input("block")]
+        [PolicyResourceProperty("block", "_mUnknown_Block")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleActionBlock> _mBlock;
-
-        public Outputs.RuleGroupRuleActionBlock? Block => _mBlock.GetValue("block");
+        private Outputs.RuleGroupRuleActionBlock? _mValue_Block;
+        private bool _mUnknown_Block;
+        public Outputs.RuleGroupRuleActionBlock? Block
+        {
+            get
+            {
+                if (!_mUnknown_Block) return _mValue_Block;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleAction.Block' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
         /// </summary>
-        [Input("captcha")]
+        [PolicyResourceProperty("captcha", "_mUnknown_Captcha")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleActionCaptcha> _mCaptcha;
-
-        public Outputs.RuleGroupRuleActionCaptcha? Captcha => _mCaptcha.GetValue("captcha");
+        private Outputs.RuleGroupRuleActionCaptcha? _mValue_Captcha;
+        private bool _mUnknown_Captcha;
+        public Outputs.RuleGroupRuleActionCaptcha? Captcha
+        {
+            get
+            {
+                if (!_mUnknown_Captcha) return _mValue_Captcha;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleAction.Captcha' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
         /// </summary>
-        [Input("challenge")]
+        [PolicyResourceProperty("challenge", "_mUnknown_Challenge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleActionChallenge> _mChallenge;
-
-        public Outputs.RuleGroupRuleActionChallenge? Challenge => _mChallenge.GetValue("challenge");
+        private Outputs.RuleGroupRuleActionChallenge? _mValue_Challenge;
+        private bool _mUnknown_Challenge;
+        public Outputs.RuleGroupRuleActionChallenge? Challenge
+        {
+            get
+            {
+                if (!_mUnknown_Challenge) return _mValue_Challenge;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleAction.Challenge' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructs AWS WAF to count the web request and allow it. See Count below for details.
         /// </summary>
-        [Input("count")]
+        [PolicyResourceProperty("count", "_mUnknown_Count")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleActionCount> _mCount;
-
-        public Outputs.RuleGroupRuleActionCount? Count => _mCount.GetValue("count");
+        private Outputs.RuleGroupRuleActionCount? _mValue_Count;
+        private bool _mUnknown_Count;
+        public Outputs.RuleGroupRuleActionCount? Count
+        {
+            get
+            {
+                if (!_mUnknown_Count) return _mValue_Count;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleAction.Count' is not present");
+            }
+        }
     }
 }

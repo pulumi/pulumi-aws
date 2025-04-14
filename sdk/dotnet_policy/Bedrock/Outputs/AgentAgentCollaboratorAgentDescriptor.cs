@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// ARN of the Alias of an Agent to use as the collaborator.
         /// </summary>
-        [Input("aliasArn")]
+        [PolicyResourceProperty("aliasArn", "_mUnknown_AliasArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAliasArn;
-
-        public string? AliasArn => _mAliasArn.GetValue("aliasArn");
+        private string? _mValue_AliasArn;
+        private bool _mUnknown_AliasArn;
+        public string? AliasArn
+        {
+            get
+            {
+                if (!_mUnknown_AliasArn) return _mValue_AliasArn;
+                throw new UndeferrableValueException("Value 'AgentAgentCollaboratorAgentDescriptor.AliasArn' is not present");
+            }
+        }
     }
 }

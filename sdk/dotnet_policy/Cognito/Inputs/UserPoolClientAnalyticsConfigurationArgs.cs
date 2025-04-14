@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Inputs
         /// <summary>
         /// Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
         /// </summary>
-        [Input("applicationArn")]
+        [PolicyResourceProperty("applicationArn", "_mUnknown_ApplicationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationArn;
-
-        public string? ApplicationArn => _mApplicationArn.GetValue("applicationArn");
+        private string? _mValue_ApplicationArn;
+        private bool _mUnknown_ApplicationArn;
+        public string? ApplicationArn
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationArn) return _mValue_ApplicationArn;
+                throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.ApplicationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Application ID for an Amazon Pinpoint application.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID for the Analytics Configuration. Conflicts with `application_arn`.
         /// </summary>
-        [Input("externalId")]
+        [PolicyResourceProperty("externalId", "_mUnknown_ExternalId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExternalId;
-
-        public string? ExternalId => _mExternalId.GetValue("externalId");
+        private string? _mValue_ExternalId;
+        private bool _mUnknown_ExternalId;
+        public string? ExternalId
+        {
+            get
+            {
+                if (!_mUnknown_ExternalId) return _mValue_ExternalId;
+                throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.ExternalId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         /// </summary>
-        [Input("userDataShared")]
+        [PolicyResourceProperty("userDataShared", "_mUnknown_UserDataShared")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUserDataShared;
-
-        public bool? UserDataShared => _mUserDataShared.GetValue("userDataShared");
+        private bool? _mValue_UserDataShared;
+        private bool _mUnknown_UserDataShared;
+        public bool? UserDataShared
+        {
+            get
+            {
+                if (!_mUnknown_UserDataShared) return _mValue_UserDataShared;
+                throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.UserDataShared' is not present");
+            }
+        }
     }
 }

@@ -16,164 +16,297 @@ namespace Pulumi.PolicyPacks.Aws.Signer
         /// <summary>
         /// The Amazon Resource Name (ARN) for the signing profile.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'SigningProfile.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SigningProfile.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'SigningProfile.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// A human-readable name for the signing platform associated with the signing profile.
         /// </summary>
-        [Input("platformDisplayName")]
+        [PolicyResourceProperty("platformDisplayName", "_mUnknown_PlatformDisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformDisplayName;
-
-        public string? PlatformDisplayName => _mPlatformDisplayName.GetValue("platformDisplayName");
+        private string? _mValue_PlatformDisplayName;
+        private bool _mUnknown_PlatformDisplayName;
+        public string? PlatformDisplayName
+        {
+            get
+            {
+                if (!_mUnknown_PlatformDisplayName) return _mValue_PlatformDisplayName;
+                throw new UndeferrableValueException("Value 'SigningProfile.PlatformDisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the platform that is used by the target signing profile.
         /// </summary>
-        [Input("platformId")]
+        [PolicyResourceProperty("platformId", "_mUnknown_PlatformId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformId;
-
-        public string? PlatformId => _mPlatformId.GetValue("platformId");
+        private string? _mValue_PlatformId;
+        private bool _mUnknown_PlatformId;
+        public string? PlatformId
+        {
+            get
+            {
+                if (!_mUnknown_PlatformId) return _mValue_PlatformId;
+                throw new UndeferrableValueException("Value 'SigningProfile.PlatformId' is not present");
+            }
+        }
 
         /// <summary>
         /// Revocation information for a signing profile. See `revocation_record` Block below for details.
         /// </summary>
-        [Input("revocationRecords")]
+        [PolicyResourceProperty("revocationRecords", "_mUnknown_RevocationRecords")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.SigningProfileRevocationRecord>> _mRevocationRecords;
-
-        public List<Outputs.SigningProfileRevocationRecord>? RevocationRecords => _mRevocationRecords.GetValue("revocationRecords");
+        private List<Outputs.SigningProfileRevocationRecord>? _mValue_RevocationRecords;
+        private bool _mUnknown_RevocationRecords;
+        public List<Outputs.SigningProfileRevocationRecord>? RevocationRecords
+        {
+            get
+            {
+                if (!_mUnknown_RevocationRecords) return _mValue_RevocationRecords;
+                throw new UndeferrableValueException("Value 'SigningProfile.RevocationRecords' is not present");
+            }
+        }
 
         /// <summary>
         /// The validity period for a signing job. See `signature_validity_period` Block below for details.
         /// </summary>
-        [Input("signatureValidityPeriod")]
+        [PolicyResourceProperty("signatureValidityPeriod", "_mUnknown_SignatureValidityPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningProfileSignatureValidityPeriod> _mSignatureValidityPeriod;
-
-        public Outputs.SigningProfileSignatureValidityPeriod? SignatureValidityPeriod => _mSignatureValidityPeriod.GetValue("signatureValidityPeriod");
+        private Outputs.SigningProfileSignatureValidityPeriod? _mValue_SignatureValidityPeriod;
+        private bool _mUnknown_SignatureValidityPeriod;
+        public Outputs.SigningProfileSignatureValidityPeriod? SignatureValidityPeriod
+        {
+            get
+            {
+                if (!_mUnknown_SignatureValidityPeriod) return _mValue_SignatureValidityPeriod;
+                throw new UndeferrableValueException("Value 'SigningProfile.SignatureValidityPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         /// </summary>
-        [Input("signingMaterial")]
+        [PolicyResourceProperty("signingMaterial", "_mUnknown_SigningMaterial")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SigningProfileSigningMaterial> _mSigningMaterial;
-
-        public Outputs.SigningProfileSigningMaterial? SigningMaterial => _mSigningMaterial.GetValue("signingMaterial");
+        private Outputs.SigningProfileSigningMaterial? _mValue_SigningMaterial;
+        private bool _mUnknown_SigningMaterial;
+        public Outputs.SigningProfileSigningMaterial? SigningMaterial
+        {
+            get
+            {
+                if (!_mUnknown_SigningMaterial) return _mValue_SigningMaterial;
+                throw new UndeferrableValueException("Value 'SigningProfile.SigningMaterial' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the target signing profile.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'SigningProfile.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SigningProfile.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'SigningProfile.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The current version of the signing profile.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'SigningProfile.Version' is not present");
+            }
+        }
 
         /// <summary>
         /// The signing profile ARN, including the profile version.
         /// </summary>
-        [Input("versionArn")]
+        [PolicyResourceProperty("versionArn", "_mUnknown_VersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionArn;
-
-        public string? VersionArn => _mVersionArn.GetValue("versionArn");
+        private string? _mValue_VersionArn;
+        private bool _mUnknown_VersionArn;
+        public string? VersionArn
+        {
+            get
+            {
+                if (!_mUnknown_VersionArn) return _mValue_VersionArn;
+                throw new UndeferrableValueException("Value 'SigningProfile.VersionArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:signer/signingProfile:SigningProfile")]
     public sealed class SigningProfileArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'SigningProfileArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'SigningProfileArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the platform that is used by the target signing profile.
         /// </summary>
-        [Input("platformId")]
+        [PolicyResourceProperty("platformId", "_mUnknown_PlatformId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlatformId;
-
-        public string? PlatformId => _mPlatformId.GetValue("platformId");
+        private string? _mValue_PlatformId;
+        private bool _mUnknown_PlatformId;
+        public string? PlatformId
+        {
+            get
+            {
+                if (!_mUnknown_PlatformId) return _mValue_PlatformId;
+                throw new UndeferrableValueException("Value 'SigningProfileArgs.PlatformId' is not present");
+            }
+        }
 
         /// <summary>
         /// The validity period for a signing job. See `signature_validity_period` Block below for details.
         /// </summary>
-        [Input("signatureValidityPeriod")]
+        [PolicyResourceProperty("signatureValidityPeriod", "_mUnknown_SignatureValidityPeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningProfileSignatureValidityPeriodArgs> _mSignatureValidityPeriod;
-
-        public Inputs.SigningProfileSignatureValidityPeriodArgs? SignatureValidityPeriod => _mSignatureValidityPeriod.GetValue("signatureValidityPeriod");
+        private Inputs.SigningProfileSignatureValidityPeriodArgs? _mValue_SignatureValidityPeriod;
+        private bool _mUnknown_SignatureValidityPeriod;
+        public Inputs.SigningProfileSignatureValidityPeriodArgs? SignatureValidityPeriod
+        {
+            get
+            {
+                if (!_mUnknown_SignatureValidityPeriod) return _mValue_SignatureValidityPeriod;
+                throw new UndeferrableValueException("Value 'SigningProfileArgs.SignatureValidityPeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         /// </summary>
-        [Input("signingMaterial")]
+        [PolicyResourceProperty("signingMaterial", "_mUnknown_SigningMaterial")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SigningProfileSigningMaterialArgs> _mSigningMaterial;
-
-        public Inputs.SigningProfileSigningMaterialArgs? SigningMaterial => _mSigningMaterial.GetValue("signingMaterial");
+        private Inputs.SigningProfileSigningMaterialArgs? _mValue_SigningMaterial;
+        private bool _mUnknown_SigningMaterial;
+        public Inputs.SigningProfileSigningMaterialArgs? SigningMaterial
+        {
+            get
+            {
+                if (!_mUnknown_SigningMaterial) return _mValue_SigningMaterial;
+                throw new UndeferrableValueException("Value 'SigningProfileArgs.SigningMaterial' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'SigningProfileArgs.Tags' is not present");
+            }
+        }
     }
 }

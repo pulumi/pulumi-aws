@@ -16,44 +16,79 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Amazon Web Services account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermission.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the network interface.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermission.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// ENI permission ID.
         /// </summary>
-        [Input("networkInterfacePermissionId")]
+        [PolicyResourceProperty("networkInterfacePermissionId", "_mUnknown_NetworkInterfacePermissionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfacePermissionId;
-
-        public string? NetworkInterfacePermissionId => _mNetworkInterfacePermissionId.GetValue("networkInterfacePermissionId");
+        private string? _mValue_NetworkInterfacePermissionId;
+        private bool _mUnknown_NetworkInterfacePermissionId;
+        public string? NetworkInterfacePermissionId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfacePermissionId) return _mValue_NetworkInterfacePermissionId;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermission.NetworkInterfacePermissionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
         /// </summary>
-        [Input("permission")]
+        [PolicyResourceProperty("permission", "_mUnknown_Permission")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
+        private string? _mValue_Permission;
+        private bool _mUnknown_Permission;
+        public string? Permission
+        {
+            get
+            {
+                if (!_mUnknown_Permission) return _mValue_Permission;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermission.Permission' is not present");
+            }
+        }
 
-        public string? Permission => _mPermission.GetValue("permission");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.NetworkInterfacePermissionTimeouts> _mTimeouts;
-
-        public Outputs.NetworkInterfacePermissionTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.NetworkInterfacePermissionTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.NetworkInterfacePermissionTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermission.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/networkInterfacePermission:NetworkInterfacePermission")]
@@ -62,34 +97,62 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Amazon Web Services account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the network interface.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
         /// </summary>
-        [Input("permission")]
+        [PolicyResourceProperty("permission", "_mUnknown_Permission")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermission;
+        private string? _mValue_Permission;
+        private bool _mUnknown_Permission;
+        public string? Permission
+        {
+            get
+            {
+                if (!_mUnknown_Permission) return _mValue_Permission;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.Permission' is not present");
+            }
+        }
 
-        public string? Permission => _mPermission.GetValue("permission");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.NetworkInterfacePermissionTimeoutsArgs> _mTimeouts;
-
-        public Inputs.NetworkInterfacePermissionTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.NetworkInterfacePermissionTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.NetworkInterfacePermissionTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.Timeouts' is not present");
+            }
+        }
     }
 }

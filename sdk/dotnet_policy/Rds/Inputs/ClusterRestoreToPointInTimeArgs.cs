@@ -15,47 +15,82 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Inputs
         /// <summary>
         /// Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
         /// </summary>
-        [Input("restoreToTime")]
+        [PolicyResourceProperty("restoreToTime", "_mUnknown_RestoreToTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreToTime;
-
-        public string? RestoreToTime => _mRestoreToTime.GetValue("restoreToTime");
+        private string? _mValue_RestoreToTime;
+        private bool _mUnknown_RestoreToTime;
+        public string? RestoreToTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToTime) return _mValue_RestoreToTime;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTimeArgs.RestoreToTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of restore to be performed.
         /// Valid options are `full-copy` (default) and `copy-on-write`.
         /// </summary>
-        [Input("restoreType")]
+        [PolicyResourceProperty("restoreType", "_mUnknown_RestoreType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreType;
-
-        public string? RestoreType => _mRestoreType.GetValue("restoreType");
+        private string? _mValue_RestoreType;
+        private bool _mUnknown_RestoreType;
+        public string? RestoreType
+        {
+            get
+            {
+                if (!_mUnknown_RestoreType) return _mValue_RestoreType;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTimeArgs.RestoreType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         /// </summary>
-        [Input("sourceClusterIdentifier")]
+        [PolicyResourceProperty("sourceClusterIdentifier", "_mUnknown_SourceClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceClusterIdentifier;
-
-        public string? SourceClusterIdentifier => _mSourceClusterIdentifier.GetValue("sourceClusterIdentifier");
+        private string? _mValue_SourceClusterIdentifier;
+        private bool _mUnknown_SourceClusterIdentifier;
+        public string? SourceClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceClusterIdentifier) return _mValue_SourceClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTimeArgs.SourceClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
         /// </summary>
-        [Input("sourceClusterResourceId")]
+        [PolicyResourceProperty("sourceClusterResourceId", "_mUnknown_SourceClusterResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceClusterResourceId;
-
-        public string? SourceClusterResourceId => _mSourceClusterResourceId.GetValue("sourceClusterResourceId");
+        private string? _mValue_SourceClusterResourceId;
+        private bool _mUnknown_SourceClusterResourceId;
+        public string? SourceClusterResourceId
+        {
+            get
+            {
+                if (!_mUnknown_SourceClusterResourceId) return _mValue_SourceClusterResourceId;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTimeArgs.SourceClusterResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
         /// </summary>
-        [Input("useLatestRestorableTime")]
+        [PolicyResourceProperty("useLatestRestorableTime", "_mUnknown_UseLatestRestorableTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseLatestRestorableTime;
-
-        public bool? UseLatestRestorableTime => _mUseLatestRestorableTime.GetValue("useLatestRestorableTime");
+        private bool? _mValue_UseLatestRestorableTime;
+        private bool _mUnknown_UseLatestRestorableTime;
+        public bool? UseLatestRestorableTime
+        {
+            get
+            {
+                if (!_mUnknown_UseLatestRestorableTime) return _mValue_UseLatestRestorableTime;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTimeArgs.UseLatestRestorableTime' is not present");
+            }
+        }
     }
 }

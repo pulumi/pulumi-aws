@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The ARN of the Kinesis Analytics Application.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationCloudwatchLoggingOptions.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the CloudWatch Log Stream.
         /// </summary>
-        [Input("logStreamArn")]
+        [PolicyResourceProperty("logStreamArn", "_mUnknown_LogStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogStreamArn;
-
-        public string? LogStreamArn => _mLogStreamArn.GetValue("logStreamArn");
+        private string? _mValue_LogStreamArn;
+        private bool _mUnknown_LogStreamArn;
+        public string? LogStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_LogStreamArn) return _mValue_LogStreamArn;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationCloudwatchLoggingOptions.LogStreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM Role used to send application messages.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationCloudwatchLoggingOptions.RoleArn' is not present");
+            }
+        }
     }
 }

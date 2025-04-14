@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector
     {
-        [Input("customProperties")]
+        [PolicyResourceProperty("customProperties", "_mUnknown_CustomProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mCustomProperties;
+        private Dictionary<string, string>? _mValue_CustomProperties;
+        private bool _mUnknown_CustomProperties;
+        public Dictionary<string, string>? CustomProperties
+        {
+            get
+            {
+                if (!_mUnknown_CustomProperties) return _mValue_CustomProperties;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector.CustomProperties' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? CustomProperties => _mCustomProperties.GetValue("customProperties");
-
-        [Input("entityName")]
+        [PolicyResourceProperty("entityName", "_mUnknown_EntityName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntityName;
-
-        public string? EntityName => _mEntityName.GetValue("entityName");
+        private string? _mValue_EntityName;
+        private bool _mUnknown_EntityName;
+        public string? EntityName
+        {
+            get
+            {
+                if (!_mUnknown_EntityName) return _mValue_EntityName;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector.EntityName' is not present");
+            }
+        }
     }
 }

@@ -16,76 +16,132 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// ARN of the appstream user.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'User.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'User.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time, in UTC and extended RFC 3339 format, when the user was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'User.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user in the user pool is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'User.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// First name, or given name, of the user.
         /// </summary>
-        [Input("firstName")]
+        [PolicyResourceProperty("firstName", "_mUnknown_FirstName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
-
-        public string? FirstName => _mFirstName.GetValue("firstName");
+        private string? _mValue_FirstName;
+        private bool _mUnknown_FirstName;
+        public string? FirstName
+        {
+            get
+            {
+                if (!_mUnknown_FirstName) return _mValue_FirstName;
+                throw new UndeferrableValueException("Value 'User.FirstName' is not present");
+            }
+        }
 
         /// <summary>
         /// Last name, or surname, of the user.
         /// </summary>
-        [Input("lastName")]
+        [PolicyResourceProperty("lastName", "_mUnknown_LastName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
-
-        public string? LastName => _mLastName.GetValue("lastName");
+        private string? _mValue_LastName;
+        private bool _mUnknown_LastName;
+        public string? LastName
+        {
+            get
+            {
+                if (!_mUnknown_LastName) return _mValue_LastName;
+                throw new UndeferrableValueException("Value 'User.LastName' is not present");
+            }
+        }
 
         /// <summary>
         /// Send an email notification.
         /// </summary>
-        [Input("sendEmailNotification")]
+        [PolicyResourceProperty("sendEmailNotification", "_mUnknown_SendEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
-
-        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
+        private bool? _mValue_SendEmailNotification;
+        private bool _mUnknown_SendEmailNotification;
+        public bool? SendEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_SendEmailNotification) return _mValue_SendEmailNotification;
+                throw new UndeferrableValueException("Value 'User.SendEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the user.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'User.UserName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appstream/user:User")]
@@ -94,57 +150,99 @@ namespace Pulumi.PolicyPacks.Aws.AppStream
         /// <summary>
         /// Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
         /// </summary>
-        [Input("authenticationType")]
+        [PolicyResourceProperty("authenticationType", "_mUnknown_AuthenticationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationType;
-
-        public string? AuthenticationType => _mAuthenticationType.GetValue("authenticationType");
+        private string? _mValue_AuthenticationType;
+        private bool _mUnknown_AuthenticationType;
+        public string? AuthenticationType
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationType) return _mValue_AuthenticationType;
+                throw new UndeferrableValueException("Value 'UserArgs.AuthenticationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user in the user pool is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'UserArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// First name, or given name, of the user.
         /// </summary>
-        [Input("firstName")]
+        [PolicyResourceProperty("firstName", "_mUnknown_FirstName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
-
-        public string? FirstName => _mFirstName.GetValue("firstName");
+        private string? _mValue_FirstName;
+        private bool _mUnknown_FirstName;
+        public string? FirstName
+        {
+            get
+            {
+                if (!_mUnknown_FirstName) return _mValue_FirstName;
+                throw new UndeferrableValueException("Value 'UserArgs.FirstName' is not present");
+            }
+        }
 
         /// <summary>
         /// Last name, or surname, of the user.
         /// </summary>
-        [Input("lastName")]
+        [PolicyResourceProperty("lastName", "_mUnknown_LastName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
-
-        public string? LastName => _mLastName.GetValue("lastName");
+        private string? _mValue_LastName;
+        private bool _mUnknown_LastName;
+        public string? LastName
+        {
+            get
+            {
+                if (!_mUnknown_LastName) return _mValue_LastName;
+                throw new UndeferrableValueException("Value 'UserArgs.LastName' is not present");
+            }
+        }
 
         /// <summary>
         /// Send an email notification.
         /// </summary>
-        [Input("sendEmailNotification")]
+        [PolicyResourceProperty("sendEmailNotification", "_mUnknown_SendEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSendEmailNotification;
-
-        public bool? SendEmailNotification => _mSendEmailNotification.GetValue("sendEmailNotification");
+        private bool? _mValue_SendEmailNotification;
+        private bool _mUnknown_SendEmailNotification;
+        public bool? SendEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_SendEmailNotification) return _mValue_SendEmailNotification;
+                throw new UndeferrableValueException("Value 'UserArgs.SendEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address of the user.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("userName")]
+        [PolicyResourceProperty("userName", "_mUnknown_UserName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserName;
-
-        public string? UserName => _mUserName.GetValue("userName");
+        private string? _mValue_UserName;
+        private bool _mUnknown_UserName;
+        public string? UserName
+        {
+            get
+            {
+                if (!_mUnknown_UserName) return _mValue_UserName;
+                throw new UndeferrableValueException("Value 'UserArgs.UserName' is not present");
+            }
+        }
     }
 }

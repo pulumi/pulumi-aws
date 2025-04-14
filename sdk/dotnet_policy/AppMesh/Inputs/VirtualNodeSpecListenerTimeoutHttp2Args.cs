@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         /// </summary>
-        [Input("idle")]
+        [PolicyResourceProperty("idle", "_mUnknown_Idle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecListenerTimeoutHttp2IdleArgs> _mIdle;
-
-        public Inputs.VirtualNodeSpecListenerTimeoutHttp2IdleArgs? Idle => _mIdle.GetValue("idle");
+        private Inputs.VirtualNodeSpecListenerTimeoutHttp2IdleArgs? _mValue_Idle;
+        private bool _mUnknown_Idle;
+        public Inputs.VirtualNodeSpecListenerTimeoutHttp2IdleArgs? Idle
+        {
+            get
+            {
+                if (!_mUnknown_Idle) return _mValue_Idle;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutHttp2Args.Idle' is not present");
+            }
+        }
 
         /// <summary>
         /// Per request timeout.
         /// </summary>
-        [Input("perRequest")]
+        [PolicyResourceProperty("perRequest", "_mUnknown_PerRequest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs> _mPerRequest;
-
-        public Inputs.VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs? PerRequest => _mPerRequest.GetValue("perRequest");
+        private Inputs.VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs? _mValue_PerRequest;
+        private bool _mUnknown_PerRequest;
+        public Inputs.VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs? PerRequest
+        {
+            get
+            {
+                if (!_mUnknown_PerRequest) return _mValue_PerRequest;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutHttp2Args.PerRequest' is not present");
+            }
+        }
     }
 }

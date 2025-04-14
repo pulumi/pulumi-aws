@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
         /// </summary>
-        [Input("capacityReservationPreference")]
+        [PolicyResourceProperty("capacityReservationPreference", "_mUnknown_CapacityReservationPreference")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCapacityReservationPreference;
-
-        public string? CapacityReservationPreference => _mCapacityReservationPreference.GetValue("capacityReservationPreference");
+        private string? _mValue_CapacityReservationPreference;
+        private bool _mUnknown_CapacityReservationPreference;
+        public string? CapacityReservationPreference
+        {
+            get
+            {
+                if (!_mUnknown_CapacityReservationPreference) return _mValue_CapacityReservationPreference;
+                throw new UndeferrableValueException("Value 'LaunchTemplateCapacityReservationSpecificationArgs.CapacityReservationPreference' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to target a specific Capacity Reservation:
         /// </summary>
-        [Input("capacityReservationTarget")]
+        [PolicyResourceProperty("capacityReservationTarget", "_mUnknown_CapacityReservationTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs> _mCapacityReservationTarget;
-
-        public Inputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs? CapacityReservationTarget => _mCapacityReservationTarget.GetValue("capacityReservationTarget");
+        private Inputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs? _mValue_CapacityReservationTarget;
+        private bool _mUnknown_CapacityReservationTarget;
+        public Inputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs? CapacityReservationTarget
+        {
+            get
+            {
+                if (!_mUnknown_CapacityReservationTarget) return _mValue_CapacityReservationTarget;
+                throw new UndeferrableValueException("Value 'LaunchTemplateCapacityReservationSpecificationArgs.CapacityReservationTarget' is not present");
+            }
+        }
     }
 }

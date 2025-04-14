@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
         /// </summary>
-        [Input("cloudwatchEncryptionMode")]
+        [PolicyResourceProperty("cloudwatchEncryptionMode", "_mUnknown_CloudwatchEncryptionMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchEncryptionMode;
-
-        public string? CloudwatchEncryptionMode => _mCloudwatchEncryptionMode.GetValue("cloudwatchEncryptionMode");
+        private string? _mValue_CloudwatchEncryptionMode;
+        private bool _mUnknown_CloudwatchEncryptionMode;
+        public string? CloudwatchEncryptionMode
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchEncryptionMode) return _mValue_CloudwatchEncryptionMode;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.CloudwatchEncryptionMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
         /// </summary>
-        [Input("kmsKeyArn")]
+        [PolicyResourceProperty("kmsKeyArn", "_mUnknown_KmsKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyArn;
-
-        public string? KmsKeyArn => _mKmsKeyArn.GetValue("kmsKeyArn");
+        private string? _mValue_KmsKeyArn;
+        private bool _mUnknown_KmsKeyArn;
+        public string? KmsKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyArn) return _mValue_KmsKeyArn;
+                throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.KmsKeyArn' is not present");
+            }
+        }
     }
 }

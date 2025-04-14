@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs> _mFieldToMatch;
-
-        public Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         /// </summary>
-        [Input("positionalConstraint")]
+        [PolicyResourceProperty("positionalConstraint", "_mUnknown_PositionalConstraint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPositionalConstraint;
-
-        public string? PositionalConstraint => _mPositionalConstraint.GetValue("positionalConstraint");
+        private string? _mValue_PositionalConstraint;
+        private bool _mUnknown_PositionalConstraint;
+        public string? PositionalConstraint
+        {
+            get
+            {
+                if (!_mUnknown_PositionalConstraint) return _mValue_PositionalConstraint;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs.PositionalConstraint' is not present");
+            }
+        }
 
         /// <summary>
         /// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
         /// </summary>
-        [Input("searchString")]
+        [PolicyResourceProperty("searchString", "_mUnknown_SearchString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSearchString;
-
-        public string? SearchString => _mSearchString.GetValue("searchString");
+        private string? _mValue_SearchString;
+        private bool _mUnknown_SearchString;
+        public string? SearchString
+        {
+            get
+            {
+                if (!_mUnknown_SearchString) return _mValue_SearchString;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs.SearchString' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         /// </summary>
-        [Input("textTransformations")]
+        [PolicyResourceProperty("textTransformations", "_mUnknown_TextTransformations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs>> _mTextTransformations;
-
-        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs>? TextTransformations => _mTextTransformations.GetValue("textTransformations");
+        private List<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs>? _mValue_TextTransformations;
+        private bool _mUnknown_TextTransformations;
+        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs>? TextTransformations
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformations) return _mValue_TextTransformations;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs.TextTransformations' is not present");
+            }
+        }
     }
 }

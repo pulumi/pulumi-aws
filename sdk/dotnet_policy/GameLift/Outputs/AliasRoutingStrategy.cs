@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Outputs
         /// <summary>
         /// ID of the GameLift Fleet to point the alias to.
         /// </summary>
-        [Input("fleetId")]
+        [PolicyResourceProperty("fleetId", "_mUnknown_FleetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFleetId;
-
-        public string? FleetId => _mFleetId.GetValue("fleetId");
+        private string? _mValue_FleetId;
+        private bool _mUnknown_FleetId;
+        public string? FleetId
+        {
+            get
+            {
+                if (!_mUnknown_FleetId) return _mValue_FleetId;
+                throw new UndeferrableValueException("Value 'AliasRoutingStrategy.FleetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Message text to be used with the `TERMINAL` routing strategy.
         /// </summary>
-        [Input("message")]
+        [PolicyResourceProperty("message", "_mUnknown_Message")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessage;
-
-        public string? Message => _mMessage.GetValue("message");
+        private string? _mValue_Message;
+        private bool _mUnknown_Message;
+        public string? Message
+        {
+            get
+            {
+                if (!_mUnknown_Message) return _mValue_Message;
+                throw new UndeferrableValueException("Value 'AliasRoutingStrategy.Message' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'AliasRoutingStrategy.Type' is not present");
+            }
+        }
     }
 }

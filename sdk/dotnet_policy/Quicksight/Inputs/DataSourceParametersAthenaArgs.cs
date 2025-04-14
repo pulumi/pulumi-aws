@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// The work-group to which to connect.
         /// </summary>
-        [Input("workGroup")]
+        [PolicyResourceProperty("workGroup", "_mUnknown_WorkGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkGroup;
-
-        public string? WorkGroup => _mWorkGroup.GetValue("workGroup");
+        private string? _mValue_WorkGroup;
+        private bool _mUnknown_WorkGroup;
+        public string? WorkGroup
+        {
+            get
+            {
+                if (!_mUnknown_WorkGroup) return _mValue_WorkGroup;
+                throw new UndeferrableValueException("Value 'DataSourceParametersAthenaArgs.WorkGroup' is not present");
+            }
+        }
     }
 }

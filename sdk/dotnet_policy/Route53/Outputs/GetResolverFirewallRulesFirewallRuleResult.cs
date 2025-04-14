@@ -15,109 +15,193 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Outputs
         /// <summary>
         /// The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS record's type.
         /// </summary>
-        [Input("blockOverrideDnsType")]
+        [PolicyResourceProperty("blockOverrideDnsType", "_mUnknown_BlockOverrideDnsType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDnsType;
-
-        public string? BlockOverrideDnsType => _mBlockOverrideDnsType.GetValue("blockOverrideDnsType");
+        private string? _mValue_BlockOverrideDnsType;
+        private bool _mUnknown_BlockOverrideDnsType;
+        public string? BlockOverrideDnsType
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideDnsType) return _mValue_BlockOverrideDnsType;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.BlockOverrideDnsType' is not present");
+            }
+        }
 
         /// <summary>
         /// The custom DNS record to send back in response to the query.
         /// </summary>
-        [Input("blockOverrideDomain")]
+        [PolicyResourceProperty("blockOverrideDomain", "_mUnknown_BlockOverrideDomain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockOverrideDomain;
-
-        public string? BlockOverrideDomain => _mBlockOverrideDomain.GetValue("blockOverrideDomain");
+        private string? _mValue_BlockOverrideDomain;
+        private bool _mUnknown_BlockOverrideDomain;
+        public string? BlockOverrideDomain
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideDomain) return _mValue_BlockOverrideDomain;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.BlockOverrideDomain' is not present");
+            }
+        }
 
         /// <summary>
         /// The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record.
         /// </summary>
-        [Input("blockOverrideTtl")]
+        [PolicyResourceProperty("blockOverrideTtl", "_mUnknown_BlockOverrideTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlockOverrideTtl;
-
-        public int? BlockOverrideTtl => _mBlockOverrideTtl.GetValue("blockOverrideTtl");
+        private int? _mValue_BlockOverrideTtl;
+        private bool _mUnknown_BlockOverrideTtl;
+        public int? BlockOverrideTtl
+        {
+            get
+            {
+                if (!_mUnknown_BlockOverrideTtl) return _mValue_BlockOverrideTtl;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.BlockOverrideTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// The way that you want DNS Firewall to block the request.
         /// </summary>
-        [Input("blockResponse")]
+        [PolicyResourceProperty("blockResponse", "_mUnknown_BlockResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBlockResponse;
-
-        public string? BlockResponse => _mBlockResponse.GetValue("blockResponse");
+        private string? _mValue_BlockResponse;
+        private bool _mUnknown_BlockResponse;
+        public string? BlockResponse
+        {
+            get
+            {
+                if (!_mUnknown_BlockResponse) return _mValue_BlockResponse;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.BlockResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the rule was created, in Unix time format and Coordinated Universal Time (UTC).
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// A unique string defined by you to identify the request.
         /// </summary>
-        [Input("creatorRequestId")]
+        [PolicyResourceProperty("creatorRequestId", "_mUnknown_CreatorRequestId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatorRequestId;
-
-        public string? CreatorRequestId => _mCreatorRequestId.GetValue("creatorRequestId");
+        private string? _mValue_CreatorRequestId;
+        private bool _mUnknown_CreatorRequestId;
+        public string? CreatorRequestId
+        {
+            get
+            {
+                if (!_mUnknown_CreatorRequestId) return _mValue_CreatorRequestId;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.CreatorRequestId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the domain list that's used in the rule.
         /// </summary>
-        [Input("firewallDomainListId")]
+        [PolicyResourceProperty("firewallDomainListId", "_mUnknown_FirewallDomainListId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDomainListId;
-
-        public string? FirewallDomainListId => _mFirewallDomainListId.GetValue("firewallDomainListId");
+        private string? _mValue_FirewallDomainListId;
+        private bool _mUnknown_FirewallDomainListId;
+        public string? FirewallDomainListId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallDomainListId) return _mValue_FirewallDomainListId;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.FirewallDomainListId' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier of the firewall rule group that you want to retrieve the rules for.
         /// </summary>
-        [Input("firewallRuleGroupId")]
+        [PolicyResourceProperty("firewallRuleGroupId", "_mUnknown_FirewallRuleGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallRuleGroupId;
-
-        public string? FirewallRuleGroupId => _mFirewallRuleGroupId.GetValue("firewallRuleGroupId");
+        private string? _mValue_FirewallRuleGroupId;
+        private bool _mUnknown_FirewallRuleGroupId;
+        public string? FirewallRuleGroupId
+        {
+            get
+            {
+                if (!_mUnknown_FirewallRuleGroupId) return _mValue_FirewallRuleGroupId;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.FirewallRuleGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).
         /// </summary>
-        [Input("modificationTime")]
+        [PolicyResourceProperty("modificationTime", "_mUnknown_ModificationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModificationTime;
-
-        public string? ModificationTime => _mModificationTime.GetValue("modificationTime");
+        private string? _mValue_ModificationTime;
+        private bool _mUnknown_ModificationTime;
+        public string? ModificationTime
+        {
+            get
+            {
+                if (!_mUnknown_ModificationTime) return _mValue_ModificationTime;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.ModificationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the rule.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The setting that determines the processing order of the rules in a rule group.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPriority;
-
-        public int? Priority => _mPriority.GetValue("priority");
+        private int? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public int? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'GetResolverFirewallRulesFirewallRuleResult.Priority' is not present");
+            }
+        }
     }
 }

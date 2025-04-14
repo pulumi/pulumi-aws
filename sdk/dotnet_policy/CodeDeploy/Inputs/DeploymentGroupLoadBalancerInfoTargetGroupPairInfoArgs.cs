@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// Configuration block for the production traffic route (documented below).
         /// </summary>
-        [Input("prodTrafficRoute")]
+        [PolicyResourceProperty("prodTrafficRoute", "_mUnknown_ProdTrafficRoute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs> _mProdTrafficRoute;
-
-        public Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs? ProdTrafficRoute => _mProdTrafficRoute.GetValue("prodTrafficRoute");
+        private Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs? _mValue_ProdTrafficRoute;
+        private bool _mUnknown_ProdTrafficRoute;
+        public Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs? ProdTrafficRoute
+        {
+            get
+            {
+                if (!_mUnknown_ProdTrafficRoute) return _mValue_ProdTrafficRoute;
+                throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs.ProdTrafficRoute' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration blocks for a target group within a target group pair (documented below).
         /// </summary>
-        [Input("targetGroups")]
+        [PolicyResourceProperty("targetGroups", "_mUnknown_TargetGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs>> _mTargetGroups;
-
-        public List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs>? TargetGroups => _mTargetGroups.GetValue("targetGroups");
+        private List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs>? _mValue_TargetGroups;
+        private bool _mUnknown_TargetGroups;
+        public List<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs>? TargetGroups
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroups) return _mValue_TargetGroups;
+                throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs.TargetGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the test traffic route (documented below).
         /// </summary>
-        [Input("testTrafficRoute")]
+        [PolicyResourceProperty("testTrafficRoute", "_mUnknown_TestTrafficRoute")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs> _mTestTrafficRoute;
-
-        public Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs? TestTrafficRoute => _mTestTrafficRoute.GetValue("testTrafficRoute");
+        private Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs? _mValue_TestTrafficRoute;
+        private bool _mUnknown_TestTrafficRoute;
+        public Inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs? TestTrafficRoute
+        {
+            get
+            {
+                if (!_mUnknown_TestTrafficRoute) return _mValue_TestTrafficRoute;
+                throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs.TestTrafficRoute' is not present");
+            }
+        }
     }
 }

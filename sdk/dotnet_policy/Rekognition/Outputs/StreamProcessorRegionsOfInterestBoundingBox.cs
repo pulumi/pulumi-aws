@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Rekognition.Outputs
         /// <summary>
         /// Height of the bounding box as a ratio of the overall image height.
         /// </summary>
-        [Input("height")]
+        [PolicyResourceProperty("height", "_mUnknown_Height")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mHeight;
-
-        public double? Height => _mHeight.GetValue("height");
+        private double? _mValue_Height;
+        private bool _mUnknown_Height;
+        public double? Height
+        {
+            get
+            {
+                if (!_mUnknown_Height) return _mValue_Height;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBox.Height' is not present");
+            }
+        }
 
         /// <summary>
         /// Left coordinate of the bounding box as a ratio of overall image width.
         /// </summary>
-        [Input("left")]
+        [PolicyResourceProperty("left", "_mUnknown_Left")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLeft;
-
-        public double? Left => _mLeft.GetValue("left");
+        private double? _mValue_Left;
+        private bool _mUnknown_Left;
+        public double? Left
+        {
+            get
+            {
+                if (!_mUnknown_Left) return _mValue_Left;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBox.Left' is not present");
+            }
+        }
 
         /// <summary>
         /// Top coordinate of the bounding box as a ratio of overall image height.
         /// </summary>
-        [Input("top")]
+        [PolicyResourceProperty("top", "_mUnknown_Top")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mTop;
-
-        public double? Top => _mTop.GetValue("top");
+        private double? _mValue_Top;
+        private bool _mUnknown_Top;
+        public double? Top
+        {
+            get
+            {
+                if (!_mUnknown_Top) return _mValue_Top;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBox.Top' is not present");
+            }
+        }
 
         /// <summary>
         /// Width of the bounding box as a ratio of the overall image width.
         /// </summary>
-        [Input("width")]
+        [PolicyResourceProperty("width", "_mUnknown_Width")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mWidth;
-
-        public double? Width => _mWidth.GetValue("width");
+        private double? _mValue_Width;
+        private bool _mUnknown_Width;
+        public double? Width
+        {
+            get
+            {
+                if (!_mUnknown_Width) return _mValue_Width;
+                throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBox.Width' is not present");
+            }
+        }
     }
 }

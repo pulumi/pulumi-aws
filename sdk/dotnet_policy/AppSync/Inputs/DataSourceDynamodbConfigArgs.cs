@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
         /// </summary>
-        [Input("deltaSyncConfig")]
+        [PolicyResourceProperty("deltaSyncConfig", "_mUnknown_DeltaSyncConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceDynamodbConfigDeltaSyncConfigArgs> _mDeltaSyncConfig;
-
-        public Inputs.DataSourceDynamodbConfigDeltaSyncConfigArgs? DeltaSyncConfig => _mDeltaSyncConfig.GetValue("deltaSyncConfig");
+        private Inputs.DataSourceDynamodbConfigDeltaSyncConfigArgs? _mValue_DeltaSyncConfig;
+        private bool _mUnknown_DeltaSyncConfig;
+        public Inputs.DataSourceDynamodbConfigDeltaSyncConfigArgs? DeltaSyncConfig
+        {
+            get
+            {
+                if (!_mUnknown_DeltaSyncConfig) return _mValue_DeltaSyncConfig;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.DeltaSyncConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS region of the DynamoDB table. Defaults to current region.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the DynamoDB table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to `true` to use Amazon Cognito credentials with this data source.
         /// </summary>
-        [Input("useCallerCredentials")]
+        [PolicyResourceProperty("useCallerCredentials", "_mUnknown_UseCallerCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseCallerCredentials;
-
-        public bool? UseCallerCredentials => _mUseCallerCredentials.GetValue("useCallerCredentials");
+        private bool? _mValue_UseCallerCredentials;
+        private bool _mUnknown_UseCallerCredentials;
+        public bool? UseCallerCredentials
+        {
+            get
+            {
+                if (!_mUnknown_UseCallerCredentials) return _mValue_UseCallerCredentials;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.UseCallerCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Detects Conflict Detection and Resolution with this data source.
         /// </summary>
-        [Input("versioned")]
+        [PolicyResourceProperty("versioned", "_mUnknown_Versioned")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVersioned;
-
-        public bool? Versioned => _mVersioned.GetValue("versioned");
+        private bool? _mValue_Versioned;
+        private bool _mUnknown_Versioned;
+        public bool? Versioned
+        {
+            get
+            {
+                if (!_mUnknown_Versioned) return _mValue_Versioned;
+                throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.Versioned' is not present");
+            }
+        }
     }
 }

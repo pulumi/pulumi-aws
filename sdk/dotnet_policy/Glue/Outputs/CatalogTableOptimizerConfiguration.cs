@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// Indicates whether the table optimizer is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfiguration.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
         /// </summary>
-        [Input("orphanFileDeletionConfiguration")]
+        [PolicyResourceProperty("orphanFileDeletionConfiguration", "_mUnknown_OrphanFileDeletionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration> _mOrphanFileDeletionConfiguration;
-
-        public Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? OrphanFileDeletionConfiguration => _mOrphanFileDeletionConfiguration.GetValue("orphanFileDeletionConfiguration");
+        private Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? _mValue_OrphanFileDeletionConfiguration;
+        private bool _mUnknown_OrphanFileDeletionConfiguration;
+        public Outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration? OrphanFileDeletionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_OrphanFileDeletionConfiguration) return _mValue_OrphanFileDeletionConfiguration;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfiguration.OrphanFileDeletionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
         /// </summary>
-        [Input("retentionConfiguration")]
+        [PolicyResourceProperty("retentionConfiguration", "_mUnknown_RetentionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration> _mRetentionConfiguration;
-
-        public Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration? RetentionConfiguration => _mRetentionConfiguration.GetValue("retentionConfiguration");
+        private Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration? _mValue_RetentionConfiguration;
+        private bool _mUnknown_RetentionConfiguration;
+        public Outputs.CatalogTableOptimizerConfigurationRetentionConfiguration? RetentionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_RetentionConfiguration) return _mValue_RetentionConfiguration;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfiguration.RetentionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role to use for the table optimizer.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfiguration.RoleArn' is not present");
+            }
+        }
     }
 }

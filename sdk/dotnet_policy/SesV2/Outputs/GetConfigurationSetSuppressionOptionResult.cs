@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Outputs
         /// <summary>
         /// A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         /// </summary>
-        [Input("suppressedReasons")]
+        [PolicyResourceProperty("suppressedReasons", "_mUnknown_SuppressedReasons")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuppressedReasons;
-
-        public List<string>? SuppressedReasons => _mSuppressedReasons.GetValue("suppressedReasons");
+        private List<string>? _mValue_SuppressedReasons;
+        private bool _mUnknown_SuppressedReasons;
+        public List<string>? SuppressedReasons
+        {
+            get
+            {
+                if (!_mUnknown_SuppressedReasons) return _mValue_SuppressedReasons;
+                throw new UndeferrableValueException("Value 'GetConfigurationSetSuppressionOptionResult.SuppressedReasons' is not present");
+            }
+        }
     }
 }

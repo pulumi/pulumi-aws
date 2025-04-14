@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Outputs
         /// <summary>
         /// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
         /// </summary>
-        [Input("ec2SshKey")]
+        [PolicyResourceProperty("ec2SshKey", "_mUnknown_Ec2SshKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEc2SshKey;
-
-        public string? Ec2SshKey => _mEc2SshKey.GetValue("ec2SshKey");
+        private string? _mValue_Ec2SshKey;
+        private bool _mUnknown_Ec2SshKey;
+        public string? Ec2SshKey
+        {
+            get
+            {
+                if (!_mUnknown_Ec2SshKey) return _mValue_Ec2SshKey;
+                throw new UndeferrableValueException("Value 'GetNodeGroupRemoteAccessResult.Ec2SshKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
         /// </summary>
-        [Input("sourceSecurityGroupIds")]
+        [PolicyResourceProperty("sourceSecurityGroupIds", "_mUnknown_SourceSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSourceSecurityGroupIds;
-
-        public List<string>? SourceSecurityGroupIds => _mSourceSecurityGroupIds.GetValue("sourceSecurityGroupIds");
+        private List<string>? _mValue_SourceSecurityGroupIds;
+        private bool _mUnknown_SourceSecurityGroupIds;
+        public List<string>? SourceSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SourceSecurityGroupIds) return _mValue_SourceSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'GetNodeGroupRemoteAccessResult.SourceSecurityGroupIds' is not present");
+            }
+        }
     }
 }

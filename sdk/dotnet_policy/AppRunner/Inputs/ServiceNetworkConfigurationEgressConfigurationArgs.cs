@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Inputs
         /// <summary>
         /// The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
         /// </summary>
-        [Input("egressType")]
+        [PolicyResourceProperty("egressType", "_mUnknown_EgressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEgressType;
-
-        public string? EgressType => _mEgressType.GetValue("egressType");
+        private string? _mValue_EgressType;
+        private bool _mUnknown_EgressType;
+        public string? EgressType
+        {
+            get
+            {
+                if (!_mUnknown_EgressType) return _mValue_EgressType;
+                throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationEgressConfigurationArgs.EgressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
         /// </summary>
-        [Input("vpcConnectorArn")]
+        [PolicyResourceProperty("vpcConnectorArn", "_mUnknown_VpcConnectorArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcConnectorArn;
-
-        public string? VpcConnectorArn => _mVpcConnectorArn.GetValue("vpcConnectorArn");
+        private string? _mValue_VpcConnectorArn;
+        private bool _mUnknown_VpcConnectorArn;
+        public string? VpcConnectorArn
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectorArn) return _mValue_VpcConnectorArn;
+                throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationEgressConfigurationArgs.VpcConnectorArn' is not present");
+            }
+        }
     }
 }

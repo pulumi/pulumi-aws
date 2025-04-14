@@ -15,16 +15,30 @@ namespace Pulumi.PolicyPacks.Aws.RolesAnywhere.Inputs
         /// <summary>
         /// The ARN of an ACM Private Certificate Authority.
         /// </summary>
-        [Input("acmPcaArn")]
+        [PolicyResourceProperty("acmPcaArn", "_mUnknown_AcmPcaArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcmPcaArn;
+        private string? _mValue_AcmPcaArn;
+        private bool _mUnknown_AcmPcaArn;
+        public string? AcmPcaArn
+        {
+            get
+            {
+                if (!_mUnknown_AcmPcaArn) return _mValue_AcmPcaArn;
+                throw new UndeferrableValueException("Value 'TrustAnchorSourceSourceDataArgs.AcmPcaArn' is not present");
+            }
+        }
 
-        public string? AcmPcaArn => _mAcmPcaArn.GetValue("acmPcaArn");
-
-        [Input("x509CertificateData")]
+        [PolicyResourceProperty("x509CertificateData", "_mUnknown_X509CertificateData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mX509CertificateData;
-
-        public string? X509CertificateData => _mX509CertificateData.GetValue("x509CertificateData");
+        private string? _mValue_X509CertificateData;
+        private bool _mUnknown_X509CertificateData;
+        public string? X509CertificateData
+        {
+            get
+            {
+                if (!_mUnknown_X509CertificateData) return _mValue_X509CertificateData;
+                throw new UndeferrableValueException("Value 'TrustAnchorSourceSourceDataArgs.X509CertificateData' is not present");
+            }
+        }
     }
 }

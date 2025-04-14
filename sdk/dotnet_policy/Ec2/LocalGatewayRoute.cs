@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'LocalGatewayRoute.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.
         /// </summary>
-        [Input("localGatewayRouteTableId")]
+        [PolicyResourceProperty("localGatewayRouteTableId", "_mUnknown_LocalGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
-
-        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
+        private string? _mValue_LocalGatewayRouteTableId;
+        private bool _mUnknown_LocalGatewayRouteTableId;
+        public string? LocalGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayRouteTableId) return _mValue_LocalGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRoute.LocalGatewayRouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Virtual Interface Group.
         /// </summary>
-        [Input("localGatewayVirtualInterfaceGroupId")]
+        [PolicyResourceProperty("localGatewayVirtualInterfaceGroupId", "_mUnknown_LocalGatewayVirtualInterfaceGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayVirtualInterfaceGroupId;
-
-        public string? LocalGatewayVirtualInterfaceGroupId => _mLocalGatewayVirtualInterfaceGroupId.GetValue("localGatewayVirtualInterfaceGroupId");
+        private string? _mValue_LocalGatewayVirtualInterfaceGroupId;
+        private bool _mUnknown_LocalGatewayVirtualInterfaceGroupId;
+        public string? LocalGatewayVirtualInterfaceGroupId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayVirtualInterfaceGroupId) return _mValue_LocalGatewayVirtualInterfaceGroupId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRoute.LocalGatewayVirtualInterfaceGroupId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/localGatewayRoute:LocalGatewayRoute")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteArgs.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Route Table.
         /// </summary>
-        [Input("localGatewayRouteTableId")]
+        [PolicyResourceProperty("localGatewayRouteTableId", "_mUnknown_LocalGatewayRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayRouteTableId;
-
-        public string? LocalGatewayRouteTableId => _mLocalGatewayRouteTableId.GetValue("localGatewayRouteTableId");
+        private string? _mValue_LocalGatewayRouteTableId;
+        private bool _mUnknown_LocalGatewayRouteTableId;
+        public string? LocalGatewayRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayRouteTableId) return _mValue_LocalGatewayRouteTableId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteArgs.LocalGatewayRouteTableId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of EC2 Local Gateway Virtual Interface Group.
         /// </summary>
-        [Input("localGatewayVirtualInterfaceGroupId")]
+        [PolicyResourceProperty("localGatewayVirtualInterfaceGroupId", "_mUnknown_LocalGatewayVirtualInterfaceGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalGatewayVirtualInterfaceGroupId;
-
-        public string? LocalGatewayVirtualInterfaceGroupId => _mLocalGatewayVirtualInterfaceGroupId.GetValue("localGatewayVirtualInterfaceGroupId");
+        private string? _mValue_LocalGatewayVirtualInterfaceGroupId;
+        private bool _mUnknown_LocalGatewayVirtualInterfaceGroupId;
+        public string? LocalGatewayVirtualInterfaceGroupId
+        {
+            get
+            {
+                if (!_mUnknown_LocalGatewayVirtualInterfaceGroupId) return _mValue_LocalGatewayVirtualInterfaceGroupId;
+                throw new UndeferrableValueException("Value 'LocalGatewayRouteArgs.LocalGatewayVirtualInterfaceGroupId' is not present");
+            }
+        }
     }
 }

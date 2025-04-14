@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// <summary>
         /// The Amazon Resource Name (ARN) of the key.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ExternalKey.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'ExternalKey.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         /// </summary>
-        [Input("deletionWindowInDays")]
+        [PolicyResourceProperty("deletionWindowInDays", "_mUnknown_DeletionWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
-
-        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+        private int? _mValue_DeletionWindowInDays;
+        private bool _mUnknown_DeletionWindowInDays;
+        public int? DeletionWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_DeletionWindowInDays) return _mValue_DeletionWindowInDays;
+                throw new UndeferrableValueException("Value 'ExternalKey.DeletionWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the key.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExternalKey.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ExternalKey.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
         /// </summary>
-        [Input("expirationModel")]
+        [PolicyResourceProperty("expirationModel", "_mUnknown_ExpirationModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpirationModel;
-
-        public string? ExpirationModel => _mExpirationModel.GetValue("expirationModel");
+        private string? _mValue_ExpirationModel;
+        private bool _mUnknown_ExpirationModel;
+        public string? ExpirationModel
+        {
+            get
+            {
+                if (!_mUnknown_ExpirationModel) return _mValue_ExpirationModel;
+                throw new UndeferrableValueException("Value 'ExternalKey.ExpirationModel' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         /// </summary>
-        [Input("keyMaterialBase64")]
+        [PolicyResourceProperty("keyMaterialBase64", "_mUnknown_KeyMaterialBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyMaterialBase64;
-
-        public string? KeyMaterialBase64 => _mKeyMaterialBase64.GetValue("keyMaterialBase64");
+        private string? _mValue_KeyMaterialBase64;
+        private bool _mUnknown_KeyMaterialBase64;
+        public string? KeyMaterialBase64
+        {
+            get
+            {
+                if (!_mUnknown_KeyMaterialBase64) return _mValue_KeyMaterialBase64;
+                throw new UndeferrableValueException("Value 'ExternalKey.KeyMaterialBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the CMK.
         /// </summary>
-        [Input("keyState")]
+        [PolicyResourceProperty("keyState", "_mUnknown_KeyState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyState;
-
-        public string? KeyState => _mKeyState.GetValue("keyState");
+        private string? _mValue_KeyState;
+        private bool _mUnknown_KeyState;
+        public string? KeyState
+        {
+            get
+            {
+                if (!_mUnknown_KeyState) return _mValue_KeyState;
+                throw new UndeferrableValueException("Value 'ExternalKey.KeyState' is not present");
+            }
+        }
 
         /// <summary>
         /// The cryptographic operations for which you can use the CMK.
         /// </summary>
-        [Input("keyUsage")]
+        [PolicyResourceProperty("keyUsage", "_mUnknown_KeyUsage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyUsage;
-
-        public string? KeyUsage => _mKeyUsage.GetValue("keyUsage");
+        private string? _mValue_KeyUsage;
+        private bool _mUnknown_KeyUsage;
+        public string? KeyUsage
+        {
+            get
+            {
+                if (!_mUnknown_KeyUsage) return _mValue_KeyUsage;
+                throw new UndeferrableValueException("Value 'ExternalKey.KeyUsage' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         /// </summary>
-        [Input("multiRegion")]
+        [PolicyResourceProperty("multiRegion", "_mUnknown_MultiRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegion;
-
-        public bool? MultiRegion => _mMultiRegion.GetValue("multiRegion");
+        private bool? _mValue_MultiRegion;
+        private bool _mUnknown_MultiRegion;
+        public bool? MultiRegion
+        {
+            get
+            {
+                if (!_mUnknown_MultiRegion) return _mValue_MultiRegion;
+                throw new UndeferrableValueException("Value 'ExternalKey.MultiRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ExternalKey.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ExternalKey.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ExternalKey.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
-        [Input("validTo")]
+        [PolicyResourceProperty("validTo", "_mUnknown_ValidTo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidTo;
-
-        public string? ValidTo => _mValidTo.GetValue("validTo");
+        private string? _mValue_ValidTo;
+        private bool _mUnknown_ValidTo;
+        public string? ValidTo
+        {
+            get
+            {
+                if (!_mUnknown_ValidTo) return _mValue_ValidTo;
+                throw new UndeferrableValueException("Value 'ExternalKey.ValidTo' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kms/externalKey:ExternalKey")]
@@ -146,82 +244,145 @@ namespace Pulumi.PolicyPacks.Aws.Kms
         /// <summary>
         /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         /// </summary>
-        [Input("bypassPolicyLockoutSafetyCheck")]
+        [PolicyResourceProperty("bypassPolicyLockoutSafetyCheck", "_mUnknown_BypassPolicyLockoutSafetyCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBypassPolicyLockoutSafetyCheck;
-
-        public bool? BypassPolicyLockoutSafetyCheck => _mBypassPolicyLockoutSafetyCheck.GetValue("bypassPolicyLockoutSafetyCheck");
+        private bool? _mValue_BypassPolicyLockoutSafetyCheck;
+        private bool _mUnknown_BypassPolicyLockoutSafetyCheck;
+        public bool? BypassPolicyLockoutSafetyCheck
+        {
+            get
+            {
+                if (!_mUnknown_BypassPolicyLockoutSafetyCheck) return _mValue_BypassPolicyLockoutSafetyCheck;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.BypassPolicyLockoutSafetyCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         /// </summary>
-        [Input("deletionWindowInDays")]
+        [PolicyResourceProperty("deletionWindowInDays", "_mUnknown_DeletionWindowInDays")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeletionWindowInDays;
-
-        public int? DeletionWindowInDays => _mDeletionWindowInDays.GetValue("deletionWindowInDays");
+        private int? _mValue_DeletionWindowInDays;
+        private bool _mUnknown_DeletionWindowInDays;
+        public int? DeletionWindowInDays
+        {
+            get
+            {
+                if (!_mUnknown_DeletionWindowInDays) return _mValue_DeletionWindowInDays;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.DeletionWindowInDays' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the key.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         /// </summary>
-        [Input("keyMaterialBase64")]
+        [PolicyResourceProperty("keyMaterialBase64", "_mUnknown_KeyMaterialBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyMaterialBase64;
-
-        public string? KeyMaterialBase64 => _mKeyMaterialBase64.GetValue("keyMaterialBase64");
+        private string? _mValue_KeyMaterialBase64;
+        private bool _mUnknown_KeyMaterialBase64;
+        public string? KeyMaterialBase64
+        {
+            get
+            {
+                if (!_mUnknown_KeyMaterialBase64) return _mValue_KeyMaterialBase64;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.KeyMaterialBase64' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         /// </summary>
-        [Input("multiRegion")]
+        [PolicyResourceProperty("multiRegion", "_mUnknown_MultiRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMultiRegion;
-
-        public bool? MultiRegion => _mMultiRegion.GetValue("multiRegion");
+        private bool? _mValue_MultiRegion;
+        private bool _mUnknown_MultiRegion;
+        public bool? MultiRegion
+        {
+            get
+            {
+                if (!_mUnknown_MultiRegion) return _mValue_MultiRegion;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.MultiRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         /// </summary>
-        [Input("validTo")]
+        [PolicyResourceProperty("validTo", "_mUnknown_ValidTo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidTo;
-
-        public string? ValidTo => _mValidTo.GetValue("validTo");
+        private string? _mValue_ValidTo;
+        private bool _mUnknown_ValidTo;
+        public string? ValidTo
+        {
+            get
+            {
+                if (!_mUnknown_ValidTo) return _mValue_ValidTo;
+                throw new UndeferrableValueException("Value 'ExternalKeyArgs.ValidTo' is not present");
+            }
+        }
     }
 }

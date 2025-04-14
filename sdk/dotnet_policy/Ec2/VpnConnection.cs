@@ -16,650 +16,1154 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPN Connection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpnConnection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the core network.
         /// </summary>
-        [Input("coreNetworkArn")]
+        [PolicyResourceProperty("coreNetworkArn", "_mUnknown_CoreNetworkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
-
-        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+        private string? _mValue_CoreNetworkArn;
+        private bool _mUnknown_CoreNetworkArn;
+        public string? CoreNetworkArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkArn) return _mValue_CoreNetworkArn;
+                throw new UndeferrableValueException("Value 'VpnConnection.CoreNetworkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the core network attachment.
         /// </summary>
-        [Input("coreNetworkAttachmentArn")]
+        [PolicyResourceProperty("coreNetworkAttachmentArn", "_mUnknown_CoreNetworkAttachmentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkAttachmentArn;
-
-        public string? CoreNetworkAttachmentArn => _mCoreNetworkAttachmentArn.GetValue("coreNetworkAttachmentArn");
+        private string? _mValue_CoreNetworkAttachmentArn;
+        private bool _mUnknown_CoreNetworkAttachmentArn;
+        public string? CoreNetworkAttachmentArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkAttachmentArn) return _mValue_CoreNetworkAttachmentArn;
+                throw new UndeferrableValueException("Value 'VpnConnection.CoreNetworkAttachmentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).
         /// </summary>
-        [Input("customerGatewayConfiguration")]
+        [PolicyResourceProperty("customerGatewayConfiguration", "_mUnknown_CustomerGatewayConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayConfiguration;
-
-        public string? CustomerGatewayConfiguration => _mCustomerGatewayConfiguration.GetValue("customerGatewayConfiguration");
+        private string? _mValue_CustomerGatewayConfiguration;
+        private bool _mUnknown_CustomerGatewayConfiguration;
+        public string? CustomerGatewayConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CustomerGatewayConfiguration) return _mValue_CustomerGatewayConfiguration;
+                throw new UndeferrableValueException("Value 'VpnConnection.CustomerGatewayConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the customer gateway.
         /// </summary>
-        [Input("customerGatewayId")]
+        [PolicyResourceProperty("customerGatewayId", "_mUnknown_CustomerGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayId;
-
-        public string? CustomerGatewayId => _mCustomerGatewayId.GetValue("customerGatewayId");
+        private string? _mValue_CustomerGatewayId;
+        private bool _mUnknown_CustomerGatewayId;
+        public string? CustomerGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_CustomerGatewayId) return _mValue_CustomerGatewayId;
+                throw new UndeferrableValueException("Value 'VpnConnection.CustomerGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         /// </summary>
-        [Input("enableAcceleration")]
+        [PolicyResourceProperty("enableAcceleration", "_mUnknown_EnableAcceleration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAcceleration;
-
-        public bool? EnableAcceleration => _mEnableAcceleration.GetValue("enableAcceleration");
+        private bool? _mValue_EnableAcceleration;
+        private bool _mUnknown_EnableAcceleration;
+        public bool? EnableAcceleration
+        {
+            get
+            {
+                if (!_mUnknown_EnableAcceleration) return _mValue_EnableAcceleration;
+                throw new UndeferrableValueException("Value 'VpnConnection.EnableAcceleration' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
-        [Input("localIpv4NetworkCidr")]
+        [PolicyResourceProperty("localIpv4NetworkCidr", "_mUnknown_LocalIpv4NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv4NetworkCidr;
-
-        public string? LocalIpv4NetworkCidr => _mLocalIpv4NetworkCidr.GetValue("localIpv4NetworkCidr");
+        private string? _mValue_LocalIpv4NetworkCidr;
+        private bool _mUnknown_LocalIpv4NetworkCidr;
+        public string? LocalIpv4NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_LocalIpv4NetworkCidr) return _mValue_LocalIpv4NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.LocalIpv4NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
-        [Input("localIpv6NetworkCidr")]
+        [PolicyResourceProperty("localIpv6NetworkCidr", "_mUnknown_LocalIpv6NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv6NetworkCidr;
-
-        public string? LocalIpv6NetworkCidr => _mLocalIpv6NetworkCidr.GetValue("localIpv6NetworkCidr");
+        private string? _mValue_LocalIpv6NetworkCidr;
+        private bool _mUnknown_LocalIpv6NetworkCidr;
+        public string? LocalIpv6NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_LocalIpv6NetworkCidr) return _mValue_LocalIpv6NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.LocalIpv6NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         /// </summary>
-        [Input("outsideIpAddressType")]
+        [PolicyResourceProperty("outsideIpAddressType", "_mUnknown_OutsideIpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutsideIpAddressType;
-
-        public string? OutsideIpAddressType => _mOutsideIpAddressType.GetValue("outsideIpAddressType");
+        private string? _mValue_OutsideIpAddressType;
+        private bool _mUnknown_OutsideIpAddressType;
+        public string? OutsideIpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_OutsideIpAddressType) return _mValue_OutsideIpAddressType;
+                throw new UndeferrableValueException("Value 'VpnConnection.OutsideIpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
-        [Input("remoteIpv4NetworkCidr")]
+        [PolicyResourceProperty("remoteIpv4NetworkCidr", "_mUnknown_RemoteIpv4NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv4NetworkCidr;
-
-        public string? RemoteIpv4NetworkCidr => _mRemoteIpv4NetworkCidr.GetValue("remoteIpv4NetworkCidr");
+        private string? _mValue_RemoteIpv4NetworkCidr;
+        private bool _mUnknown_RemoteIpv4NetworkCidr;
+        public string? RemoteIpv4NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_RemoteIpv4NetworkCidr) return _mValue_RemoteIpv4NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.RemoteIpv4NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR on the AWS side of the VPN connection.
         /// </summary>
-        [Input("remoteIpv6NetworkCidr")]
+        [PolicyResourceProperty("remoteIpv6NetworkCidr", "_mUnknown_RemoteIpv6NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv6NetworkCidr;
-
-        public string? RemoteIpv6NetworkCidr => _mRemoteIpv6NetworkCidr.GetValue("remoteIpv6NetworkCidr");
+        private string? _mValue_RemoteIpv6NetworkCidr;
+        private bool _mUnknown_RemoteIpv6NetworkCidr;
+        public string? RemoteIpv6NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_RemoteIpv6NetworkCidr) return _mValue_RemoteIpv6NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.RemoteIpv6NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The static routes associated with the VPN connection. Detailed below.
         /// </summary>
-        [Input("routes")]
+        [PolicyResourceProperty("routes", "_mUnknown_Routes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpnConnectionRoute>> _mRoutes;
-
-        public List<Outputs.VpnConnectionRoute>? Routes => _mRoutes.GetValue("routes");
+        private List<Outputs.VpnConnectionRoute>? _mValue_Routes;
+        private bool _mUnknown_Routes;
+        public List<Outputs.VpnConnectionRoute>? Routes
+        {
+            get
+            {
+                if (!_mUnknown_Routes) return _mValue_Routes;
+                throw new UndeferrableValueException("Value 'VpnConnection.Routes' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         /// </summary>
-        [Input("staticRoutesOnly")]
+        [PolicyResourceProperty("staticRoutesOnly", "_mUnknown_StaticRoutesOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStaticRoutesOnly;
-
-        public bool? StaticRoutesOnly => _mStaticRoutesOnly.GetValue("staticRoutesOnly");
+        private bool? _mValue_StaticRoutesOnly;
+        private bool _mUnknown_StaticRoutesOnly;
+        public bool? StaticRoutesOnly
+        {
+            get
+            {
+                if (!_mUnknown_StaticRoutesOnly) return _mValue_StaticRoutesOnly;
+                throw new UndeferrableValueException("Value 'VpnConnection.StaticRoutesOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpnConnection.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `aws.ec2.Tag` resource for tagging the EC2 Transit Gateway VPN Attachment.
         /// </summary>
-        [Input("transitGatewayAttachmentId")]
+        [PolicyResourceProperty("transitGatewayAttachmentId", "_mUnknown_TransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayAttachmentId;
-
-        public string? TransitGatewayAttachmentId => _mTransitGatewayAttachmentId.GetValue("transitGatewayAttachmentId");
+        private string? _mValue_TransitGatewayAttachmentId;
+        private bool _mUnknown_TransitGatewayAttachmentId;
+        public string? TransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayAttachmentId) return _mValue_TransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'VpnConnection.TransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'VpnConnection.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         /// </summary>
-        [Input("transportTransitGatewayAttachmentId")]
+        [PolicyResourceProperty("transportTransitGatewayAttachmentId", "_mUnknown_TransportTransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransportTransitGatewayAttachmentId;
-
-        public string? TransportTransitGatewayAttachmentId => _mTransportTransitGatewayAttachmentId.GetValue("transportTransitGatewayAttachmentId");
+        private string? _mValue_TransportTransitGatewayAttachmentId;
+        private bool _mUnknown_TransportTransitGatewayAttachmentId;
+        public string? TransportTransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransportTransitGatewayAttachmentId) return _mValue_TransportTransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'VpnConnection.TransportTransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The public IP address of the first VPN tunnel.
         /// </summary>
-        [Input("tunnel1Address")]
+        [PolicyResourceProperty("tunnel1Address", "_mUnknown_Tunnel1Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1Address;
-
-        public string? Tunnel1Address => _mTunnel1Address.GetValue("tunnel1Address");
+        private string? _mValue_Tunnel1Address;
+        private bool _mUnknown_Tunnel1Address;
+        public string? Tunnel1Address
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Address) return _mValue_Tunnel1Address;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The bgp asn number of the first VPN tunnel.
         /// </summary>
-        [Input("tunnel1BgpAsn")]
+        [PolicyResourceProperty("tunnel1BgpAsn", "_mUnknown_Tunnel1BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1BgpAsn;
-
-        public string? Tunnel1BgpAsn => _mTunnel1BgpAsn.GetValue("tunnel1BgpAsn");
+        private string? _mValue_Tunnel1BgpAsn;
+        private bool _mUnknown_Tunnel1BgpAsn;
+        public string? Tunnel1BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1BgpAsn) return _mValue_Tunnel1BgpAsn;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The bgp holdtime of the first VPN tunnel.
         /// </summary>
-        [Input("tunnel1BgpHoldtime")]
+        [PolicyResourceProperty("tunnel1BgpHoldtime", "_mUnknown_Tunnel1BgpHoldtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1BgpHoldtime;
-
-        public int? Tunnel1BgpHoldtime => _mTunnel1BgpHoldtime.GetValue("tunnel1BgpHoldtime");
+        private int? _mValue_Tunnel1BgpHoldtime;
+        private bool _mUnknown_Tunnel1BgpHoldtime;
+        public int? Tunnel1BgpHoldtime
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1BgpHoldtime) return _mValue_Tunnel1BgpHoldtime;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1BgpHoldtime' is not present");
+            }
+        }
 
         /// <summary>
         /// The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
         /// </summary>
-        [Input("tunnel1CgwInsideAddress")]
+        [PolicyResourceProperty("tunnel1CgwInsideAddress", "_mUnknown_Tunnel1CgwInsideAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1CgwInsideAddress;
-
-        public string? Tunnel1CgwInsideAddress => _mTunnel1CgwInsideAddress.GetValue("tunnel1CgwInsideAddress");
+        private string? _mValue_Tunnel1CgwInsideAddress;
+        private bool _mUnknown_Tunnel1CgwInsideAddress;
+        public string? Tunnel1CgwInsideAddress
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1CgwInsideAddress) return _mValue_Tunnel1CgwInsideAddress;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1CgwInsideAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         /// </summary>
-        [Input("tunnel1DpdTimeoutAction")]
+        [PolicyResourceProperty("tunnel1DpdTimeoutAction", "_mUnknown_Tunnel1DpdTimeoutAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1DpdTimeoutAction;
-
-        public string? Tunnel1DpdTimeoutAction => _mTunnel1DpdTimeoutAction.GetValue("tunnel1DpdTimeoutAction");
+        private string? _mValue_Tunnel1DpdTimeoutAction;
+        private bool _mUnknown_Tunnel1DpdTimeoutAction;
+        public string? Tunnel1DpdTimeoutAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1DpdTimeoutAction) return _mValue_Tunnel1DpdTimeoutAction;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1DpdTimeoutAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
         /// </summary>
-        [Input("tunnel1DpdTimeoutSeconds")]
+        [PolicyResourceProperty("tunnel1DpdTimeoutSeconds", "_mUnknown_Tunnel1DpdTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1DpdTimeoutSeconds;
-
-        public int? Tunnel1DpdTimeoutSeconds => _mTunnel1DpdTimeoutSeconds.GetValue("tunnel1DpdTimeoutSeconds");
+        private int? _mValue_Tunnel1DpdTimeoutSeconds;
+        private bool _mUnknown_Tunnel1DpdTimeoutSeconds;
+        public int? Tunnel1DpdTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1DpdTimeoutSeconds) return _mValue_Tunnel1DpdTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1DpdTimeoutSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
         /// </summary>
-        [Input("tunnel1EnableTunnelLifecycleControl")]
+        [PolicyResourceProperty("tunnel1EnableTunnelLifecycleControl", "_mUnknown_Tunnel1EnableTunnelLifecycleControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel1EnableTunnelLifecycleControl;
-
-        public bool? Tunnel1EnableTunnelLifecycleControl => _mTunnel1EnableTunnelLifecycleControl.GetValue("tunnel1EnableTunnelLifecycleControl");
+        private bool? _mValue_Tunnel1EnableTunnelLifecycleControl;
+        private bool _mUnknown_Tunnel1EnableTunnelLifecycleControl;
+        public bool? Tunnel1EnableTunnelLifecycleControl
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1EnableTunnelLifecycleControl) return _mValue_Tunnel1EnableTunnelLifecycleControl;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1EnableTunnelLifecycleControl' is not present");
+            }
+        }
 
         /// <summary>
         /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         /// </summary>
-        [Input("tunnel1IkeVersions")]
+        [PolicyResourceProperty("tunnel1IkeVersions", "_mUnknown_Tunnel1IkeVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1IkeVersions;
-
-        public List<string>? Tunnel1IkeVersions => _mTunnel1IkeVersions.GetValue("tunnel1IkeVersions");
+        private List<string>? _mValue_Tunnel1IkeVersions;
+        private bool _mUnknown_Tunnel1IkeVersions;
+        public List<string>? Tunnel1IkeVersions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1IkeVersions) return _mValue_Tunnel1IkeVersions;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1IkeVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
-        [Input("tunnel1InsideCidr")]
+        [PolicyResourceProperty("tunnel1InsideCidr", "_mUnknown_Tunnel1InsideCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideCidr;
-
-        public string? Tunnel1InsideCidr => _mTunnel1InsideCidr.GetValue("tunnel1InsideCidr");
+        private string? _mValue_Tunnel1InsideCidr;
+        private bool _mUnknown_Tunnel1InsideCidr;
+        public string? Tunnel1InsideCidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1InsideCidr) return _mValue_Tunnel1InsideCidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1InsideCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
-        [Input("tunnel1InsideIpv6Cidr")]
+        [PolicyResourceProperty("tunnel1InsideIpv6Cidr", "_mUnknown_Tunnel1InsideIpv6Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideIpv6Cidr;
-
-        public string? Tunnel1InsideIpv6Cidr => _mTunnel1InsideIpv6Cidr.GetValue("tunnel1InsideIpv6Cidr");
+        private string? _mValue_Tunnel1InsideIpv6Cidr;
+        private bool _mUnknown_Tunnel1InsideIpv6Cidr;
+        public string? Tunnel1InsideIpv6Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1InsideIpv6Cidr) return _mValue_Tunnel1InsideIpv6Cidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1InsideIpv6Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
-        [Input("tunnel1LogOptions")]
+        [PolicyResourceProperty("tunnel1LogOptions", "_mUnknown_Tunnel1LogOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpnConnectionTunnel1LogOptions> _mTunnel1LogOptions;
-
-        public Outputs.VpnConnectionTunnel1LogOptions? Tunnel1LogOptions => _mTunnel1LogOptions.GetValue("tunnel1LogOptions");
+        private Outputs.VpnConnectionTunnel1LogOptions? _mValue_Tunnel1LogOptions;
+        private bool _mUnknown_Tunnel1LogOptions;
+        public Outputs.VpnConnectionTunnel1LogOptions? Tunnel1LogOptions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1LogOptions) return _mValue_Tunnel1LogOptions;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1LogOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel1Phase1DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel1Phase1DhGroupNumbers", "_mUnknown_Tunnel1Phase1DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase1DhGroupNumbers;
-
-        public List<int>? Tunnel1Phase1DhGroupNumbers => _mTunnel1Phase1DhGroupNumbers.GetValue("tunnel1Phase1DhGroupNumbers");
+        private List<int>? _mValue_Tunnel1Phase1DhGroupNumbers;
+        private bool _mUnknown_Tunnel1Phase1DhGroupNumbers;
+        public List<int>? Tunnel1Phase1DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1DhGroupNumbers) return _mValue_Tunnel1Phase1DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase1DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel1Phase1EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase1EncryptionAlgorithms", "_mUnknown_Tunnel1Phase1EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1EncryptionAlgorithms;
-
-        public List<string>? Tunnel1Phase1EncryptionAlgorithms => _mTunnel1Phase1EncryptionAlgorithms.GetValue("tunnel1Phase1EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase1EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel1Phase1EncryptionAlgorithms;
+        public List<string>? Tunnel1Phase1EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1EncryptionAlgorithms) return _mValue_Tunnel1Phase1EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase1EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel1Phase1IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase1IntegrityAlgorithms", "_mUnknown_Tunnel1Phase1IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1IntegrityAlgorithms;
-
-        public List<string>? Tunnel1Phase1IntegrityAlgorithms => _mTunnel1Phase1IntegrityAlgorithms.GetValue("tunnel1Phase1IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase1IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel1Phase1IntegrityAlgorithms;
+        public List<string>? Tunnel1Phase1IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1IntegrityAlgorithms) return _mValue_Tunnel1Phase1IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase1IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
         /// </summary>
-        [Input("tunnel1Phase1LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel1Phase1LifetimeSeconds", "_mUnknown_Tunnel1Phase1LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase1LifetimeSeconds;
-
-        public int? Tunnel1Phase1LifetimeSeconds => _mTunnel1Phase1LifetimeSeconds.GetValue("tunnel1Phase1LifetimeSeconds");
+        private int? _mValue_Tunnel1Phase1LifetimeSeconds;
+        private bool _mUnknown_Tunnel1Phase1LifetimeSeconds;
+        public int? Tunnel1Phase1LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1LifetimeSeconds) return _mValue_Tunnel1Phase1LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase1LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel1Phase2DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel1Phase2DhGroupNumbers", "_mUnknown_Tunnel1Phase2DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase2DhGroupNumbers;
-
-        public List<int>? Tunnel1Phase2DhGroupNumbers => _mTunnel1Phase2DhGroupNumbers.GetValue("tunnel1Phase2DhGroupNumbers");
+        private List<int>? _mValue_Tunnel1Phase2DhGroupNumbers;
+        private bool _mUnknown_Tunnel1Phase2DhGroupNumbers;
+        public List<int>? Tunnel1Phase2DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2DhGroupNumbers) return _mValue_Tunnel1Phase2DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase2DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel1Phase2EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase2EncryptionAlgorithms", "_mUnknown_Tunnel1Phase2EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2EncryptionAlgorithms;
-
-        public List<string>? Tunnel1Phase2EncryptionAlgorithms => _mTunnel1Phase2EncryptionAlgorithms.GetValue("tunnel1Phase2EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase2EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel1Phase2EncryptionAlgorithms;
+        public List<string>? Tunnel1Phase2EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2EncryptionAlgorithms) return _mValue_Tunnel1Phase2EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase2EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel1Phase2IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase2IntegrityAlgorithms", "_mUnknown_Tunnel1Phase2IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2IntegrityAlgorithms;
-
-        public List<string>? Tunnel1Phase2IntegrityAlgorithms => _mTunnel1Phase2IntegrityAlgorithms.GetValue("tunnel1Phase2IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase2IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel1Phase2IntegrityAlgorithms;
+        public List<string>? Tunnel1Phase2IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2IntegrityAlgorithms) return _mValue_Tunnel1Phase2IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase2IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
         /// </summary>
-        [Input("tunnel1Phase2LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel1Phase2LifetimeSeconds", "_mUnknown_Tunnel1Phase2LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase2LifetimeSeconds;
-
-        public int? Tunnel1Phase2LifetimeSeconds => _mTunnel1Phase2LifetimeSeconds.GetValue("tunnel1Phase2LifetimeSeconds");
+        private int? _mValue_Tunnel1Phase2LifetimeSeconds;
+        private bool _mUnknown_Tunnel1Phase2LifetimeSeconds;
+        public int? Tunnel1Phase2LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2LifetimeSeconds) return _mValue_Tunnel1Phase2LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1Phase2LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel1PresharedKey")]
+        [PolicyResourceProperty("tunnel1PresharedKey", "_mUnknown_Tunnel1PresharedKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1PresharedKey;
-
-        public string? Tunnel1PresharedKey => _mTunnel1PresharedKey.GetValue("tunnel1PresharedKey");
+        private string? _mValue_Tunnel1PresharedKey;
+        private bool _mUnknown_Tunnel1PresharedKey;
+        public string? Tunnel1PresharedKey
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1PresharedKey) return _mValue_Tunnel1PresharedKey;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1PresharedKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
-        [Input("tunnel1RekeyFuzzPercentage")]
+        [PolicyResourceProperty("tunnel1RekeyFuzzPercentage", "_mUnknown_Tunnel1RekeyFuzzPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyFuzzPercentage;
-
-        public int? Tunnel1RekeyFuzzPercentage => _mTunnel1RekeyFuzzPercentage.GetValue("tunnel1RekeyFuzzPercentage");
+        private int? _mValue_Tunnel1RekeyFuzzPercentage;
+        private bool _mUnknown_Tunnel1RekeyFuzzPercentage;
+        public int? Tunnel1RekeyFuzzPercentage
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1RekeyFuzzPercentage) return _mValue_Tunnel1RekeyFuzzPercentage;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1RekeyFuzzPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
         /// </summary>
-        [Input("tunnel1RekeyMarginTimeSeconds")]
+        [PolicyResourceProperty("tunnel1RekeyMarginTimeSeconds", "_mUnknown_Tunnel1RekeyMarginTimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyMarginTimeSeconds;
-
-        public int? Tunnel1RekeyMarginTimeSeconds => _mTunnel1RekeyMarginTimeSeconds.GetValue("tunnel1RekeyMarginTimeSeconds");
+        private int? _mValue_Tunnel1RekeyMarginTimeSeconds;
+        private bool _mUnknown_Tunnel1RekeyMarginTimeSeconds;
+        public int? Tunnel1RekeyMarginTimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1RekeyMarginTimeSeconds) return _mValue_Tunnel1RekeyMarginTimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1RekeyMarginTimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
         /// </summary>
-        [Input("tunnel1ReplayWindowSize")]
+        [PolicyResourceProperty("tunnel1ReplayWindowSize", "_mUnknown_Tunnel1ReplayWindowSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1ReplayWindowSize;
-
-        public int? Tunnel1ReplayWindowSize => _mTunnel1ReplayWindowSize.GetValue("tunnel1ReplayWindowSize");
+        private int? _mValue_Tunnel1ReplayWindowSize;
+        private bool _mUnknown_Tunnel1ReplayWindowSize;
+        public int? Tunnel1ReplayWindowSize
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1ReplayWindowSize) return _mValue_Tunnel1ReplayWindowSize;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1ReplayWindowSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         /// </summary>
-        [Input("tunnel1StartupAction")]
+        [PolicyResourceProperty("tunnel1StartupAction", "_mUnknown_Tunnel1StartupAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1StartupAction;
-
-        public string? Tunnel1StartupAction => _mTunnel1StartupAction.GetValue("tunnel1StartupAction");
+        private string? _mValue_Tunnel1StartupAction;
+        private bool _mUnknown_Tunnel1StartupAction;
+        public string? Tunnel1StartupAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1StartupAction) return _mValue_Tunnel1StartupAction;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1StartupAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
         /// </summary>
-        [Input("tunnel1VgwInsideAddress")]
+        [PolicyResourceProperty("tunnel1VgwInsideAddress", "_mUnknown_Tunnel1VgwInsideAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1VgwInsideAddress;
-
-        public string? Tunnel1VgwInsideAddress => _mTunnel1VgwInsideAddress.GetValue("tunnel1VgwInsideAddress");
+        private string? _mValue_Tunnel1VgwInsideAddress;
+        private bool _mUnknown_Tunnel1VgwInsideAddress;
+        public string? Tunnel1VgwInsideAddress
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1VgwInsideAddress) return _mValue_Tunnel1VgwInsideAddress;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel1VgwInsideAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The public IP address of the second VPN tunnel.
         /// </summary>
-        [Input("tunnel2Address")]
+        [PolicyResourceProperty("tunnel2Address", "_mUnknown_Tunnel2Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2Address;
-
-        public string? Tunnel2Address => _mTunnel2Address.GetValue("tunnel2Address");
+        private string? _mValue_Tunnel2Address;
+        private bool _mUnknown_Tunnel2Address;
+        public string? Tunnel2Address
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Address) return _mValue_Tunnel2Address;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Address' is not present");
+            }
+        }
 
         /// <summary>
         /// The bgp asn number of the second VPN tunnel.
         /// </summary>
-        [Input("tunnel2BgpAsn")]
+        [PolicyResourceProperty("tunnel2BgpAsn", "_mUnknown_Tunnel2BgpAsn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2BgpAsn;
-
-        public string? Tunnel2BgpAsn => _mTunnel2BgpAsn.GetValue("tunnel2BgpAsn");
+        private string? _mValue_Tunnel2BgpAsn;
+        private bool _mUnknown_Tunnel2BgpAsn;
+        public string? Tunnel2BgpAsn
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2BgpAsn) return _mValue_Tunnel2BgpAsn;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2BgpAsn' is not present");
+            }
+        }
 
         /// <summary>
         /// The bgp holdtime of the second VPN tunnel.
         /// </summary>
-        [Input("tunnel2BgpHoldtime")]
+        [PolicyResourceProperty("tunnel2BgpHoldtime", "_mUnknown_Tunnel2BgpHoldtime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2BgpHoldtime;
-
-        public int? Tunnel2BgpHoldtime => _mTunnel2BgpHoldtime.GetValue("tunnel2BgpHoldtime");
+        private int? _mValue_Tunnel2BgpHoldtime;
+        private bool _mUnknown_Tunnel2BgpHoldtime;
+        public int? Tunnel2BgpHoldtime
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2BgpHoldtime) return _mValue_Tunnel2BgpHoldtime;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2BgpHoldtime' is not present");
+            }
+        }
 
         /// <summary>
         /// The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
         /// </summary>
-        [Input("tunnel2CgwInsideAddress")]
+        [PolicyResourceProperty("tunnel2CgwInsideAddress", "_mUnknown_Tunnel2CgwInsideAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2CgwInsideAddress;
-
-        public string? Tunnel2CgwInsideAddress => _mTunnel2CgwInsideAddress.GetValue("tunnel2CgwInsideAddress");
+        private string? _mValue_Tunnel2CgwInsideAddress;
+        private bool _mUnknown_Tunnel2CgwInsideAddress;
+        public string? Tunnel2CgwInsideAddress
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2CgwInsideAddress) return _mValue_Tunnel2CgwInsideAddress;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2CgwInsideAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         /// </summary>
-        [Input("tunnel2DpdTimeoutAction")]
+        [PolicyResourceProperty("tunnel2DpdTimeoutAction", "_mUnknown_Tunnel2DpdTimeoutAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2DpdTimeoutAction;
-
-        public string? Tunnel2DpdTimeoutAction => _mTunnel2DpdTimeoutAction.GetValue("tunnel2DpdTimeoutAction");
+        private string? _mValue_Tunnel2DpdTimeoutAction;
+        private bool _mUnknown_Tunnel2DpdTimeoutAction;
+        public string? Tunnel2DpdTimeoutAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2DpdTimeoutAction) return _mValue_Tunnel2DpdTimeoutAction;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2DpdTimeoutAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
         /// </summary>
-        [Input("tunnel2DpdTimeoutSeconds")]
+        [PolicyResourceProperty("tunnel2DpdTimeoutSeconds", "_mUnknown_Tunnel2DpdTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2DpdTimeoutSeconds;
-
-        public int? Tunnel2DpdTimeoutSeconds => _mTunnel2DpdTimeoutSeconds.GetValue("tunnel2DpdTimeoutSeconds");
+        private int? _mValue_Tunnel2DpdTimeoutSeconds;
+        private bool _mUnknown_Tunnel2DpdTimeoutSeconds;
+        public int? Tunnel2DpdTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2DpdTimeoutSeconds) return _mValue_Tunnel2DpdTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2DpdTimeoutSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
         /// </summary>
-        [Input("tunnel2EnableTunnelLifecycleControl")]
+        [PolicyResourceProperty("tunnel2EnableTunnelLifecycleControl", "_mUnknown_Tunnel2EnableTunnelLifecycleControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel2EnableTunnelLifecycleControl;
-
-        public bool? Tunnel2EnableTunnelLifecycleControl => _mTunnel2EnableTunnelLifecycleControl.GetValue("tunnel2EnableTunnelLifecycleControl");
+        private bool? _mValue_Tunnel2EnableTunnelLifecycleControl;
+        private bool _mUnknown_Tunnel2EnableTunnelLifecycleControl;
+        public bool? Tunnel2EnableTunnelLifecycleControl
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2EnableTunnelLifecycleControl) return _mValue_Tunnel2EnableTunnelLifecycleControl;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2EnableTunnelLifecycleControl' is not present");
+            }
+        }
 
         /// <summary>
         /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         /// </summary>
-        [Input("tunnel2IkeVersions")]
+        [PolicyResourceProperty("tunnel2IkeVersions", "_mUnknown_Tunnel2IkeVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2IkeVersions;
-
-        public List<string>? Tunnel2IkeVersions => _mTunnel2IkeVersions.GetValue("tunnel2IkeVersions");
+        private List<string>? _mValue_Tunnel2IkeVersions;
+        private bool _mUnknown_Tunnel2IkeVersions;
+        public List<string>? Tunnel2IkeVersions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2IkeVersions) return _mValue_Tunnel2IkeVersions;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2IkeVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
-        [Input("tunnel2InsideCidr")]
+        [PolicyResourceProperty("tunnel2InsideCidr", "_mUnknown_Tunnel2InsideCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideCidr;
-
-        public string? Tunnel2InsideCidr => _mTunnel2InsideCidr.GetValue("tunnel2InsideCidr");
+        private string? _mValue_Tunnel2InsideCidr;
+        private bool _mUnknown_Tunnel2InsideCidr;
+        public string? Tunnel2InsideCidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2InsideCidr) return _mValue_Tunnel2InsideCidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2InsideCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
-        [Input("tunnel2InsideIpv6Cidr")]
+        [PolicyResourceProperty("tunnel2InsideIpv6Cidr", "_mUnknown_Tunnel2InsideIpv6Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideIpv6Cidr;
-
-        public string? Tunnel2InsideIpv6Cidr => _mTunnel2InsideIpv6Cidr.GetValue("tunnel2InsideIpv6Cidr");
+        private string? _mValue_Tunnel2InsideIpv6Cidr;
+        private bool _mUnknown_Tunnel2InsideIpv6Cidr;
+        public string? Tunnel2InsideIpv6Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2InsideIpv6Cidr) return _mValue_Tunnel2InsideIpv6Cidr;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2InsideIpv6Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
-        [Input("tunnel2LogOptions")]
+        [PolicyResourceProperty("tunnel2LogOptions", "_mUnknown_Tunnel2LogOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpnConnectionTunnel2LogOptions> _mTunnel2LogOptions;
-
-        public Outputs.VpnConnectionTunnel2LogOptions? Tunnel2LogOptions => _mTunnel2LogOptions.GetValue("tunnel2LogOptions");
+        private Outputs.VpnConnectionTunnel2LogOptions? _mValue_Tunnel2LogOptions;
+        private bool _mUnknown_Tunnel2LogOptions;
+        public Outputs.VpnConnectionTunnel2LogOptions? Tunnel2LogOptions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2LogOptions) return _mValue_Tunnel2LogOptions;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2LogOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel2Phase1DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel2Phase1DhGroupNumbers", "_mUnknown_Tunnel2Phase1DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase1DhGroupNumbers;
-
-        public List<int>? Tunnel2Phase1DhGroupNumbers => _mTunnel2Phase1DhGroupNumbers.GetValue("tunnel2Phase1DhGroupNumbers");
+        private List<int>? _mValue_Tunnel2Phase1DhGroupNumbers;
+        private bool _mUnknown_Tunnel2Phase1DhGroupNumbers;
+        public List<int>? Tunnel2Phase1DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1DhGroupNumbers) return _mValue_Tunnel2Phase1DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase1DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel2Phase1EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase1EncryptionAlgorithms", "_mUnknown_Tunnel2Phase1EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1EncryptionAlgorithms;
-
-        public List<string>? Tunnel2Phase1EncryptionAlgorithms => _mTunnel2Phase1EncryptionAlgorithms.GetValue("tunnel2Phase1EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase1EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel2Phase1EncryptionAlgorithms;
+        public List<string>? Tunnel2Phase1EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1EncryptionAlgorithms) return _mValue_Tunnel2Phase1EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase1EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel2Phase1IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase1IntegrityAlgorithms", "_mUnknown_Tunnel2Phase1IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1IntegrityAlgorithms;
-
-        public List<string>? Tunnel2Phase1IntegrityAlgorithms => _mTunnel2Phase1IntegrityAlgorithms.GetValue("tunnel2Phase1IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase1IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel2Phase1IntegrityAlgorithms;
+        public List<string>? Tunnel2Phase1IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1IntegrityAlgorithms) return _mValue_Tunnel2Phase1IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase1IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
         /// </summary>
-        [Input("tunnel2Phase1LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel2Phase1LifetimeSeconds", "_mUnknown_Tunnel2Phase1LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase1LifetimeSeconds;
-
-        public int? Tunnel2Phase1LifetimeSeconds => _mTunnel2Phase1LifetimeSeconds.GetValue("tunnel2Phase1LifetimeSeconds");
+        private int? _mValue_Tunnel2Phase1LifetimeSeconds;
+        private bool _mUnknown_Tunnel2Phase1LifetimeSeconds;
+        public int? Tunnel2Phase1LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1LifetimeSeconds) return _mValue_Tunnel2Phase1LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase1LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel2Phase2DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel2Phase2DhGroupNumbers", "_mUnknown_Tunnel2Phase2DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase2DhGroupNumbers;
-
-        public List<int>? Tunnel2Phase2DhGroupNumbers => _mTunnel2Phase2DhGroupNumbers.GetValue("tunnel2Phase2DhGroupNumbers");
+        private List<int>? _mValue_Tunnel2Phase2DhGroupNumbers;
+        private bool _mUnknown_Tunnel2Phase2DhGroupNumbers;
+        public List<int>? Tunnel2Phase2DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2DhGroupNumbers) return _mValue_Tunnel2Phase2DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase2DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel2Phase2EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase2EncryptionAlgorithms", "_mUnknown_Tunnel2Phase2EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2EncryptionAlgorithms;
-
-        public List<string>? Tunnel2Phase2EncryptionAlgorithms => _mTunnel2Phase2EncryptionAlgorithms.GetValue("tunnel2Phase2EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase2EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel2Phase2EncryptionAlgorithms;
+        public List<string>? Tunnel2Phase2EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2EncryptionAlgorithms) return _mValue_Tunnel2Phase2EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase2EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel2Phase2IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase2IntegrityAlgorithms", "_mUnknown_Tunnel2Phase2IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2IntegrityAlgorithms;
-
-        public List<string>? Tunnel2Phase2IntegrityAlgorithms => _mTunnel2Phase2IntegrityAlgorithms.GetValue("tunnel2Phase2IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase2IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel2Phase2IntegrityAlgorithms;
+        public List<string>? Tunnel2Phase2IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2IntegrityAlgorithms) return _mValue_Tunnel2Phase2IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase2IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
         /// </summary>
-        [Input("tunnel2Phase2LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel2Phase2LifetimeSeconds", "_mUnknown_Tunnel2Phase2LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase2LifetimeSeconds;
-
-        public int? Tunnel2Phase2LifetimeSeconds => _mTunnel2Phase2LifetimeSeconds.GetValue("tunnel2Phase2LifetimeSeconds");
+        private int? _mValue_Tunnel2Phase2LifetimeSeconds;
+        private bool _mUnknown_Tunnel2Phase2LifetimeSeconds;
+        public int? Tunnel2Phase2LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2LifetimeSeconds) return _mValue_Tunnel2Phase2LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2Phase2LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel2PresharedKey")]
+        [PolicyResourceProperty("tunnel2PresharedKey", "_mUnknown_Tunnel2PresharedKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2PresharedKey;
-
-        public string? Tunnel2PresharedKey => _mTunnel2PresharedKey.GetValue("tunnel2PresharedKey");
+        private string? _mValue_Tunnel2PresharedKey;
+        private bool _mUnknown_Tunnel2PresharedKey;
+        public string? Tunnel2PresharedKey
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2PresharedKey) return _mValue_Tunnel2PresharedKey;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2PresharedKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
-        [Input("tunnel2RekeyFuzzPercentage")]
+        [PolicyResourceProperty("tunnel2RekeyFuzzPercentage", "_mUnknown_Tunnel2RekeyFuzzPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyFuzzPercentage;
-
-        public int? Tunnel2RekeyFuzzPercentage => _mTunnel2RekeyFuzzPercentage.GetValue("tunnel2RekeyFuzzPercentage");
+        private int? _mValue_Tunnel2RekeyFuzzPercentage;
+        private bool _mUnknown_Tunnel2RekeyFuzzPercentage;
+        public int? Tunnel2RekeyFuzzPercentage
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2RekeyFuzzPercentage) return _mValue_Tunnel2RekeyFuzzPercentage;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2RekeyFuzzPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
         /// </summary>
-        [Input("tunnel2RekeyMarginTimeSeconds")]
+        [PolicyResourceProperty("tunnel2RekeyMarginTimeSeconds", "_mUnknown_Tunnel2RekeyMarginTimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyMarginTimeSeconds;
-
-        public int? Tunnel2RekeyMarginTimeSeconds => _mTunnel2RekeyMarginTimeSeconds.GetValue("tunnel2RekeyMarginTimeSeconds");
+        private int? _mValue_Tunnel2RekeyMarginTimeSeconds;
+        private bool _mUnknown_Tunnel2RekeyMarginTimeSeconds;
+        public int? Tunnel2RekeyMarginTimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2RekeyMarginTimeSeconds) return _mValue_Tunnel2RekeyMarginTimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2RekeyMarginTimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
         /// </summary>
-        [Input("tunnel2ReplayWindowSize")]
+        [PolicyResourceProperty("tunnel2ReplayWindowSize", "_mUnknown_Tunnel2ReplayWindowSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2ReplayWindowSize;
-
-        public int? Tunnel2ReplayWindowSize => _mTunnel2ReplayWindowSize.GetValue("tunnel2ReplayWindowSize");
+        private int? _mValue_Tunnel2ReplayWindowSize;
+        private bool _mUnknown_Tunnel2ReplayWindowSize;
+        public int? Tunnel2ReplayWindowSize
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2ReplayWindowSize) return _mValue_Tunnel2ReplayWindowSize;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2ReplayWindowSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         /// </summary>
-        [Input("tunnel2StartupAction")]
+        [PolicyResourceProperty("tunnel2StartupAction", "_mUnknown_Tunnel2StartupAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2StartupAction;
-
-        public string? Tunnel2StartupAction => _mTunnel2StartupAction.GetValue("tunnel2StartupAction");
+        private string? _mValue_Tunnel2StartupAction;
+        private bool _mUnknown_Tunnel2StartupAction;
+        public string? Tunnel2StartupAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2StartupAction) return _mValue_Tunnel2StartupAction;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2StartupAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
         /// </summary>
-        [Input("tunnel2VgwInsideAddress")]
+        [PolicyResourceProperty("tunnel2VgwInsideAddress", "_mUnknown_Tunnel2VgwInsideAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2VgwInsideAddress;
-
-        public string? Tunnel2VgwInsideAddress => _mTunnel2VgwInsideAddress.GetValue("tunnel2VgwInsideAddress");
+        private string? _mValue_Tunnel2VgwInsideAddress;
+        private bool _mUnknown_Tunnel2VgwInsideAddress;
+        public string? Tunnel2VgwInsideAddress
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2VgwInsideAddress) return _mValue_Tunnel2VgwInsideAddress;
+                throw new UndeferrableValueException("Value 'VpnConnection.Tunnel2VgwInsideAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
-        [Input("tunnelInsideIpVersion")]
+        [PolicyResourceProperty("tunnelInsideIpVersion", "_mUnknown_TunnelInsideIpVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnelInsideIpVersion;
-
-        public string? TunnelInsideIpVersion => _mTunnelInsideIpVersion.GetValue("tunnelInsideIpVersion");
+        private string? _mValue_TunnelInsideIpVersion;
+        private bool _mUnknown_TunnelInsideIpVersion;
+        public string? TunnelInsideIpVersion
+        {
+            get
+            {
+                if (!_mUnknown_TunnelInsideIpVersion) return _mValue_TunnelInsideIpVersion;
+                throw new UndeferrableValueException("Value 'VpnConnection.TunnelInsideIpVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'VpnConnection.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Telemetry for the VPN tunnels. Detailed below.
         /// </summary>
-        [Input("vgwTelemetries")]
+        [PolicyResourceProperty("vgwTelemetries", "_mUnknown_VgwTelemetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VpnConnectionVgwTelemetry>> _mVgwTelemetries;
-
-        public List<Outputs.VpnConnectionVgwTelemetry>? VgwTelemetries => _mVgwTelemetries.GetValue("vgwTelemetries");
+        private List<Outputs.VpnConnectionVgwTelemetry>? _mValue_VgwTelemetries;
+        private bool _mUnknown_VgwTelemetries;
+        public List<Outputs.VpnConnectionVgwTelemetry>? VgwTelemetries
+        {
+            get
+            {
+                if (!_mUnknown_VgwTelemetries) return _mValue_VgwTelemetries;
+                throw new UndeferrableValueException("Value 'VpnConnection.VgwTelemetries' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Virtual Private Gateway.
         /// </summary>
-        [Input("vpnGatewayId")]
+        [PolicyResourceProperty("vpnGatewayId", "_mUnknown_VpnGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
-
-        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+        private string? _mValue_VpnGatewayId;
+        private bool _mUnknown_VpnGatewayId;
+        public string? VpnGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_VpnGatewayId) return _mValue_VpnGatewayId;
+                throw new UndeferrableValueException("Value 'VpnConnection.VpnGatewayId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpnConnection:VpnConnection")]
@@ -668,487 +1172,865 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ID of the customer gateway.
         /// </summary>
-        [Input("customerGatewayId")]
+        [PolicyResourceProperty("customerGatewayId", "_mUnknown_CustomerGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerGatewayId;
-
-        public string? CustomerGatewayId => _mCustomerGatewayId.GetValue("customerGatewayId");
+        private string? _mValue_CustomerGatewayId;
+        private bool _mUnknown_CustomerGatewayId;
+        public string? CustomerGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_CustomerGatewayId) return _mValue_CustomerGatewayId;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.CustomerGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         /// </summary>
-        [Input("enableAcceleration")]
+        [PolicyResourceProperty("enableAcceleration", "_mUnknown_EnableAcceleration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAcceleration;
-
-        public bool? EnableAcceleration => _mEnableAcceleration.GetValue("enableAcceleration");
+        private bool? _mValue_EnableAcceleration;
+        private bool _mUnknown_EnableAcceleration;
+        public bool? EnableAcceleration
+        {
+            get
+            {
+                if (!_mUnknown_EnableAcceleration) return _mValue_EnableAcceleration;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.EnableAcceleration' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
-        [Input("localIpv4NetworkCidr")]
+        [PolicyResourceProperty("localIpv4NetworkCidr", "_mUnknown_LocalIpv4NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv4NetworkCidr;
-
-        public string? LocalIpv4NetworkCidr => _mLocalIpv4NetworkCidr.GetValue("localIpv4NetworkCidr");
+        private string? _mValue_LocalIpv4NetworkCidr;
+        private bool _mUnknown_LocalIpv4NetworkCidr;
+        public string? LocalIpv4NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_LocalIpv4NetworkCidr) return _mValue_LocalIpv4NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.LocalIpv4NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         /// </summary>
-        [Input("localIpv6NetworkCidr")]
+        [PolicyResourceProperty("localIpv6NetworkCidr", "_mUnknown_LocalIpv6NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalIpv6NetworkCidr;
-
-        public string? LocalIpv6NetworkCidr => _mLocalIpv6NetworkCidr.GetValue("localIpv6NetworkCidr");
+        private string? _mValue_LocalIpv6NetworkCidr;
+        private bool _mUnknown_LocalIpv6NetworkCidr;
+        public string? LocalIpv6NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_LocalIpv6NetworkCidr) return _mValue_LocalIpv6NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.LocalIpv6NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         /// </summary>
-        [Input("outsideIpAddressType")]
+        [PolicyResourceProperty("outsideIpAddressType", "_mUnknown_OutsideIpAddressType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutsideIpAddressType;
-
-        public string? OutsideIpAddressType => _mOutsideIpAddressType.GetValue("outsideIpAddressType");
+        private string? _mValue_OutsideIpAddressType;
+        private bool _mUnknown_OutsideIpAddressType;
+        public string? OutsideIpAddressType
+        {
+            get
+            {
+                if (!_mUnknown_OutsideIpAddressType) return _mValue_OutsideIpAddressType;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.OutsideIpAddressType' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
-        [Input("remoteIpv4NetworkCidr")]
+        [PolicyResourceProperty("remoteIpv4NetworkCidr", "_mUnknown_RemoteIpv4NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv4NetworkCidr;
-
-        public string? RemoteIpv4NetworkCidr => _mRemoteIpv4NetworkCidr.GetValue("remoteIpv4NetworkCidr");
+        private string? _mValue_RemoteIpv4NetworkCidr;
+        private bool _mUnknown_RemoteIpv4NetworkCidr;
+        public string? RemoteIpv4NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_RemoteIpv4NetworkCidr) return _mValue_RemoteIpv4NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.RemoteIpv4NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv6 CIDR on the AWS side of the VPN connection.
         /// </summary>
-        [Input("remoteIpv6NetworkCidr")]
+        [PolicyResourceProperty("remoteIpv6NetworkCidr", "_mUnknown_RemoteIpv6NetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRemoteIpv6NetworkCidr;
-
-        public string? RemoteIpv6NetworkCidr => _mRemoteIpv6NetworkCidr.GetValue("remoteIpv6NetworkCidr");
+        private string? _mValue_RemoteIpv6NetworkCidr;
+        private bool _mUnknown_RemoteIpv6NetworkCidr;
+        public string? RemoteIpv6NetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_RemoteIpv6NetworkCidr) return _mValue_RemoteIpv6NetworkCidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.RemoteIpv6NetworkCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         /// </summary>
-        [Input("staticRoutesOnly")]
+        [PolicyResourceProperty("staticRoutesOnly", "_mUnknown_StaticRoutesOnly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStaticRoutesOnly;
-
-        public bool? StaticRoutesOnly => _mStaticRoutesOnly.GetValue("staticRoutesOnly");
+        private bool? _mValue_StaticRoutesOnly;
+        private bool _mUnknown_StaticRoutesOnly;
+        public bool? StaticRoutesOnly
+        {
+            get
+            {
+                if (!_mUnknown_StaticRoutesOnly) return _mValue_StaticRoutesOnly;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.StaticRoutesOnly' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the EC2 Transit Gateway.
         /// </summary>
-        [Input("transitGatewayId")]
+        [PolicyResourceProperty("transitGatewayId", "_mUnknown_TransitGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayId;
-
-        public string? TransitGatewayId => _mTransitGatewayId.GetValue("transitGatewayId");
+        private string? _mValue_TransitGatewayId;
+        private bool _mUnknown_TransitGatewayId;
+        public string? TransitGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayId) return _mValue_TransitGatewayId;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.TransitGatewayId' is not present");
+            }
+        }
 
         /// <summary>
         /// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         /// </summary>
-        [Input("transportTransitGatewayAttachmentId")]
+        [PolicyResourceProperty("transportTransitGatewayAttachmentId", "_mUnknown_TransportTransitGatewayAttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransportTransitGatewayAttachmentId;
-
-        public string? TransportTransitGatewayAttachmentId => _mTransportTransitGatewayAttachmentId.GetValue("transportTransitGatewayAttachmentId");
+        private string? _mValue_TransportTransitGatewayAttachmentId;
+        private bool _mUnknown_TransportTransitGatewayAttachmentId;
+        public string? TransportTransitGatewayAttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_TransportTransitGatewayAttachmentId) return _mValue_TransportTransitGatewayAttachmentId;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.TransportTransitGatewayAttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         /// </summary>
-        [Input("tunnel1DpdTimeoutAction")]
+        [PolicyResourceProperty("tunnel1DpdTimeoutAction", "_mUnknown_Tunnel1DpdTimeoutAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1DpdTimeoutAction;
-
-        public string? Tunnel1DpdTimeoutAction => _mTunnel1DpdTimeoutAction.GetValue("tunnel1DpdTimeoutAction");
+        private string? _mValue_Tunnel1DpdTimeoutAction;
+        private bool _mUnknown_Tunnel1DpdTimeoutAction;
+        public string? Tunnel1DpdTimeoutAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1DpdTimeoutAction) return _mValue_Tunnel1DpdTimeoutAction;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1DpdTimeoutAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
         /// </summary>
-        [Input("tunnel1DpdTimeoutSeconds")]
+        [PolicyResourceProperty("tunnel1DpdTimeoutSeconds", "_mUnknown_Tunnel1DpdTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1DpdTimeoutSeconds;
-
-        public int? Tunnel1DpdTimeoutSeconds => _mTunnel1DpdTimeoutSeconds.GetValue("tunnel1DpdTimeoutSeconds");
+        private int? _mValue_Tunnel1DpdTimeoutSeconds;
+        private bool _mUnknown_Tunnel1DpdTimeoutSeconds;
+        public int? Tunnel1DpdTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1DpdTimeoutSeconds) return _mValue_Tunnel1DpdTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1DpdTimeoutSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
         /// </summary>
-        [Input("tunnel1EnableTunnelLifecycleControl")]
+        [PolicyResourceProperty("tunnel1EnableTunnelLifecycleControl", "_mUnknown_Tunnel1EnableTunnelLifecycleControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel1EnableTunnelLifecycleControl;
-
-        public bool? Tunnel1EnableTunnelLifecycleControl => _mTunnel1EnableTunnelLifecycleControl.GetValue("tunnel1EnableTunnelLifecycleControl");
+        private bool? _mValue_Tunnel1EnableTunnelLifecycleControl;
+        private bool _mUnknown_Tunnel1EnableTunnelLifecycleControl;
+        public bool? Tunnel1EnableTunnelLifecycleControl
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1EnableTunnelLifecycleControl) return _mValue_Tunnel1EnableTunnelLifecycleControl;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1EnableTunnelLifecycleControl' is not present");
+            }
+        }
 
         /// <summary>
         /// The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
         /// </summary>
-        [Input("tunnel1IkeVersions")]
+        [PolicyResourceProperty("tunnel1IkeVersions", "_mUnknown_Tunnel1IkeVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1IkeVersions;
-
-        public List<string>? Tunnel1IkeVersions => _mTunnel1IkeVersions.GetValue("tunnel1IkeVersions");
+        private List<string>? _mValue_Tunnel1IkeVersions;
+        private bool _mUnknown_Tunnel1IkeVersions;
+        public List<string>? Tunnel1IkeVersions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1IkeVersions) return _mValue_Tunnel1IkeVersions;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1IkeVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
-        [Input("tunnel1InsideCidr")]
+        [PolicyResourceProperty("tunnel1InsideCidr", "_mUnknown_Tunnel1InsideCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideCidr;
-
-        public string? Tunnel1InsideCidr => _mTunnel1InsideCidr.GetValue("tunnel1InsideCidr");
+        private string? _mValue_Tunnel1InsideCidr;
+        private bool _mUnknown_Tunnel1InsideCidr;
+        public string? Tunnel1InsideCidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1InsideCidr) return _mValue_Tunnel1InsideCidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1InsideCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
-        [Input("tunnel1InsideIpv6Cidr")]
+        [PolicyResourceProperty("tunnel1InsideIpv6Cidr", "_mUnknown_Tunnel1InsideIpv6Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1InsideIpv6Cidr;
-
-        public string? Tunnel1InsideIpv6Cidr => _mTunnel1InsideIpv6Cidr.GetValue("tunnel1InsideIpv6Cidr");
+        private string? _mValue_Tunnel1InsideIpv6Cidr;
+        private bool _mUnknown_Tunnel1InsideIpv6Cidr;
+        public string? Tunnel1InsideIpv6Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1InsideIpv6Cidr) return _mValue_Tunnel1InsideIpv6Cidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1InsideIpv6Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
-        [Input("tunnel1LogOptions")]
+        [PolicyResourceProperty("tunnel1LogOptions", "_mUnknown_Tunnel1LogOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpnConnectionTunnel1LogOptionsArgs> _mTunnel1LogOptions;
-
-        public Inputs.VpnConnectionTunnel1LogOptionsArgs? Tunnel1LogOptions => _mTunnel1LogOptions.GetValue("tunnel1LogOptions");
+        private Inputs.VpnConnectionTunnel1LogOptionsArgs? _mValue_Tunnel1LogOptions;
+        private bool _mUnknown_Tunnel1LogOptions;
+        public Inputs.VpnConnectionTunnel1LogOptionsArgs? Tunnel1LogOptions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1LogOptions) return _mValue_Tunnel1LogOptions;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1LogOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel1Phase1DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel1Phase1DhGroupNumbers", "_mUnknown_Tunnel1Phase1DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase1DhGroupNumbers;
-
-        public List<int>? Tunnel1Phase1DhGroupNumbers => _mTunnel1Phase1DhGroupNumbers.GetValue("tunnel1Phase1DhGroupNumbers");
+        private List<int>? _mValue_Tunnel1Phase1DhGroupNumbers;
+        private bool _mUnknown_Tunnel1Phase1DhGroupNumbers;
+        public List<int>? Tunnel1Phase1DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1DhGroupNumbers) return _mValue_Tunnel1Phase1DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase1DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel1Phase1EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase1EncryptionAlgorithms", "_mUnknown_Tunnel1Phase1EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1EncryptionAlgorithms;
-
-        public List<string>? Tunnel1Phase1EncryptionAlgorithms => _mTunnel1Phase1EncryptionAlgorithms.GetValue("tunnel1Phase1EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase1EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel1Phase1EncryptionAlgorithms;
+        public List<string>? Tunnel1Phase1EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1EncryptionAlgorithms) return _mValue_Tunnel1Phase1EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase1EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel1Phase1IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase1IntegrityAlgorithms", "_mUnknown_Tunnel1Phase1IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase1IntegrityAlgorithms;
-
-        public List<string>? Tunnel1Phase1IntegrityAlgorithms => _mTunnel1Phase1IntegrityAlgorithms.GetValue("tunnel1Phase1IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase1IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel1Phase1IntegrityAlgorithms;
+        public List<string>? Tunnel1Phase1IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1IntegrityAlgorithms) return _mValue_Tunnel1Phase1IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase1IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
         /// </summary>
-        [Input("tunnel1Phase1LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel1Phase1LifetimeSeconds", "_mUnknown_Tunnel1Phase1LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase1LifetimeSeconds;
-
-        public int? Tunnel1Phase1LifetimeSeconds => _mTunnel1Phase1LifetimeSeconds.GetValue("tunnel1Phase1LifetimeSeconds");
+        private int? _mValue_Tunnel1Phase1LifetimeSeconds;
+        private bool _mUnknown_Tunnel1Phase1LifetimeSeconds;
+        public int? Tunnel1Phase1LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase1LifetimeSeconds) return _mValue_Tunnel1Phase1LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase1LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel1Phase2DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel1Phase2DhGroupNumbers", "_mUnknown_Tunnel1Phase2DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel1Phase2DhGroupNumbers;
-
-        public List<int>? Tunnel1Phase2DhGroupNumbers => _mTunnel1Phase2DhGroupNumbers.GetValue("tunnel1Phase2DhGroupNumbers");
+        private List<int>? _mValue_Tunnel1Phase2DhGroupNumbers;
+        private bool _mUnknown_Tunnel1Phase2DhGroupNumbers;
+        public List<int>? Tunnel1Phase2DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2DhGroupNumbers) return _mValue_Tunnel1Phase2DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase2DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel1Phase2EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase2EncryptionAlgorithms", "_mUnknown_Tunnel1Phase2EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2EncryptionAlgorithms;
-
-        public List<string>? Tunnel1Phase2EncryptionAlgorithms => _mTunnel1Phase2EncryptionAlgorithms.GetValue("tunnel1Phase2EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase2EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel1Phase2EncryptionAlgorithms;
+        public List<string>? Tunnel1Phase2EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2EncryptionAlgorithms) return _mValue_Tunnel1Phase2EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase2EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel1Phase2IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel1Phase2IntegrityAlgorithms", "_mUnknown_Tunnel1Phase2IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel1Phase2IntegrityAlgorithms;
-
-        public List<string>? Tunnel1Phase2IntegrityAlgorithms => _mTunnel1Phase2IntegrityAlgorithms.GetValue("tunnel1Phase2IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel1Phase2IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel1Phase2IntegrityAlgorithms;
+        public List<string>? Tunnel1Phase2IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2IntegrityAlgorithms) return _mValue_Tunnel1Phase2IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase2IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
         /// </summary>
-        [Input("tunnel1Phase2LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel1Phase2LifetimeSeconds", "_mUnknown_Tunnel1Phase2LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1Phase2LifetimeSeconds;
-
-        public int? Tunnel1Phase2LifetimeSeconds => _mTunnel1Phase2LifetimeSeconds.GetValue("tunnel1Phase2LifetimeSeconds");
+        private int? _mValue_Tunnel1Phase2LifetimeSeconds;
+        private bool _mUnknown_Tunnel1Phase2LifetimeSeconds;
+        public int? Tunnel1Phase2LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1Phase2LifetimeSeconds) return _mValue_Tunnel1Phase2LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1Phase2LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel1PresharedKey")]
+        [PolicyResourceProperty("tunnel1PresharedKey", "_mUnknown_Tunnel1PresharedKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1PresharedKey;
-
-        public string? Tunnel1PresharedKey => _mTunnel1PresharedKey.GetValue("tunnel1PresharedKey");
+        private string? _mValue_Tunnel1PresharedKey;
+        private bool _mUnknown_Tunnel1PresharedKey;
+        public string? Tunnel1PresharedKey
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1PresharedKey) return _mValue_Tunnel1PresharedKey;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1PresharedKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
-        [Input("tunnel1RekeyFuzzPercentage")]
+        [PolicyResourceProperty("tunnel1RekeyFuzzPercentage", "_mUnknown_Tunnel1RekeyFuzzPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyFuzzPercentage;
-
-        public int? Tunnel1RekeyFuzzPercentage => _mTunnel1RekeyFuzzPercentage.GetValue("tunnel1RekeyFuzzPercentage");
+        private int? _mValue_Tunnel1RekeyFuzzPercentage;
+        private bool _mUnknown_Tunnel1RekeyFuzzPercentage;
+        public int? Tunnel1RekeyFuzzPercentage
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1RekeyFuzzPercentage) return _mValue_Tunnel1RekeyFuzzPercentage;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1RekeyFuzzPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
         /// </summary>
-        [Input("tunnel1RekeyMarginTimeSeconds")]
+        [PolicyResourceProperty("tunnel1RekeyMarginTimeSeconds", "_mUnknown_Tunnel1RekeyMarginTimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1RekeyMarginTimeSeconds;
-
-        public int? Tunnel1RekeyMarginTimeSeconds => _mTunnel1RekeyMarginTimeSeconds.GetValue("tunnel1RekeyMarginTimeSeconds");
+        private int? _mValue_Tunnel1RekeyMarginTimeSeconds;
+        private bool _mUnknown_Tunnel1RekeyMarginTimeSeconds;
+        public int? Tunnel1RekeyMarginTimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1RekeyMarginTimeSeconds) return _mValue_Tunnel1RekeyMarginTimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1RekeyMarginTimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
         /// </summary>
-        [Input("tunnel1ReplayWindowSize")]
+        [PolicyResourceProperty("tunnel1ReplayWindowSize", "_mUnknown_Tunnel1ReplayWindowSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel1ReplayWindowSize;
-
-        public int? Tunnel1ReplayWindowSize => _mTunnel1ReplayWindowSize.GetValue("tunnel1ReplayWindowSize");
+        private int? _mValue_Tunnel1ReplayWindowSize;
+        private bool _mUnknown_Tunnel1ReplayWindowSize;
+        public int? Tunnel1ReplayWindowSize
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1ReplayWindowSize) return _mValue_Tunnel1ReplayWindowSize;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1ReplayWindowSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         /// </summary>
-        [Input("tunnel1StartupAction")]
+        [PolicyResourceProperty("tunnel1StartupAction", "_mUnknown_Tunnel1StartupAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel1StartupAction;
-
-        public string? Tunnel1StartupAction => _mTunnel1StartupAction.GetValue("tunnel1StartupAction");
+        private string? _mValue_Tunnel1StartupAction;
+        private bool _mUnknown_Tunnel1StartupAction;
+        public string? Tunnel1StartupAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel1StartupAction) return _mValue_Tunnel1StartupAction;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel1StartupAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         /// </summary>
-        [Input("tunnel2DpdTimeoutAction")]
+        [PolicyResourceProperty("tunnel2DpdTimeoutAction", "_mUnknown_Tunnel2DpdTimeoutAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2DpdTimeoutAction;
-
-        public string? Tunnel2DpdTimeoutAction => _mTunnel2DpdTimeoutAction.GetValue("tunnel2DpdTimeoutAction");
+        private string? _mValue_Tunnel2DpdTimeoutAction;
+        private bool _mUnknown_Tunnel2DpdTimeoutAction;
+        public string? Tunnel2DpdTimeoutAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2DpdTimeoutAction) return _mValue_Tunnel2DpdTimeoutAction;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2DpdTimeoutAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
         /// </summary>
-        [Input("tunnel2DpdTimeoutSeconds")]
+        [PolicyResourceProperty("tunnel2DpdTimeoutSeconds", "_mUnknown_Tunnel2DpdTimeoutSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2DpdTimeoutSeconds;
-
-        public int? Tunnel2DpdTimeoutSeconds => _mTunnel2DpdTimeoutSeconds.GetValue("tunnel2DpdTimeoutSeconds");
+        private int? _mValue_Tunnel2DpdTimeoutSeconds;
+        private bool _mUnknown_Tunnel2DpdTimeoutSeconds;
+        public int? Tunnel2DpdTimeoutSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2DpdTimeoutSeconds) return _mValue_Tunnel2DpdTimeoutSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2DpdTimeoutSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
         /// </summary>
-        [Input("tunnel2EnableTunnelLifecycleControl")]
+        [PolicyResourceProperty("tunnel2EnableTunnelLifecycleControl", "_mUnknown_Tunnel2EnableTunnelLifecycleControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTunnel2EnableTunnelLifecycleControl;
-
-        public bool? Tunnel2EnableTunnelLifecycleControl => _mTunnel2EnableTunnelLifecycleControl.GetValue("tunnel2EnableTunnelLifecycleControl");
+        private bool? _mValue_Tunnel2EnableTunnelLifecycleControl;
+        private bool _mUnknown_Tunnel2EnableTunnelLifecycleControl;
+        public bool? Tunnel2EnableTunnelLifecycleControl
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2EnableTunnelLifecycleControl) return _mValue_Tunnel2EnableTunnelLifecycleControl;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2EnableTunnelLifecycleControl' is not present");
+            }
+        }
 
         /// <summary>
         /// The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
         /// </summary>
-        [Input("tunnel2IkeVersions")]
+        [PolicyResourceProperty("tunnel2IkeVersions", "_mUnknown_Tunnel2IkeVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2IkeVersions;
-
-        public List<string>? Tunnel2IkeVersions => _mTunnel2IkeVersions.GetValue("tunnel2IkeVersions");
+        private List<string>? _mValue_Tunnel2IkeVersions;
+        private bool _mUnknown_Tunnel2IkeVersions;
+        public List<string>? Tunnel2IkeVersions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2IkeVersions) return _mValue_Tunnel2IkeVersions;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2IkeVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         /// </summary>
-        [Input("tunnel2InsideCidr")]
+        [PolicyResourceProperty("tunnel2InsideCidr", "_mUnknown_Tunnel2InsideCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideCidr;
-
-        public string? Tunnel2InsideCidr => _mTunnel2InsideCidr.GetValue("tunnel2InsideCidr");
+        private string? _mValue_Tunnel2InsideCidr;
+        private bool _mUnknown_Tunnel2InsideCidr;
+        public string? Tunnel2InsideCidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2InsideCidr) return _mValue_Tunnel2InsideCidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2InsideCidr' is not present");
+            }
+        }
 
         /// <summary>
         /// The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         /// </summary>
-        [Input("tunnel2InsideIpv6Cidr")]
+        [PolicyResourceProperty("tunnel2InsideIpv6Cidr", "_mUnknown_Tunnel2InsideIpv6Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2InsideIpv6Cidr;
-
-        public string? Tunnel2InsideIpv6Cidr => _mTunnel2InsideIpv6Cidr.GetValue("tunnel2InsideIpv6Cidr");
+        private string? _mValue_Tunnel2InsideIpv6Cidr;
+        private bool _mUnknown_Tunnel2InsideIpv6Cidr;
+        public string? Tunnel2InsideIpv6Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2InsideIpv6Cidr) return _mValue_Tunnel2InsideIpv6Cidr;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2InsideIpv6Cidr' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for logging VPN tunnel activity. See Log Options below for more details.
         /// </summary>
-        [Input("tunnel2LogOptions")]
+        [PolicyResourceProperty("tunnel2LogOptions", "_mUnknown_Tunnel2LogOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpnConnectionTunnel2LogOptionsArgs> _mTunnel2LogOptions;
-
-        public Inputs.VpnConnectionTunnel2LogOptionsArgs? Tunnel2LogOptions => _mTunnel2LogOptions.GetValue("tunnel2LogOptions");
+        private Inputs.VpnConnectionTunnel2LogOptionsArgs? _mValue_Tunnel2LogOptions;
+        private bool _mUnknown_Tunnel2LogOptions;
+        public Inputs.VpnConnectionTunnel2LogOptionsArgs? Tunnel2LogOptions
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2LogOptions) return _mValue_Tunnel2LogOptions;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2LogOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel2Phase1DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel2Phase1DhGroupNumbers", "_mUnknown_Tunnel2Phase1DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase1DhGroupNumbers;
-
-        public List<int>? Tunnel2Phase1DhGroupNumbers => _mTunnel2Phase1DhGroupNumbers.GetValue("tunnel2Phase1DhGroupNumbers");
+        private List<int>? _mValue_Tunnel2Phase1DhGroupNumbers;
+        private bool _mUnknown_Tunnel2Phase1DhGroupNumbers;
+        public List<int>? Tunnel2Phase1DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1DhGroupNumbers) return _mValue_Tunnel2Phase1DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase1DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel2Phase1EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase1EncryptionAlgorithms", "_mUnknown_Tunnel2Phase1EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1EncryptionAlgorithms;
-
-        public List<string>? Tunnel2Phase1EncryptionAlgorithms => _mTunnel2Phase1EncryptionAlgorithms.GetValue("tunnel2Phase1EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase1EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel2Phase1EncryptionAlgorithms;
+        public List<string>? Tunnel2Phase1EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1EncryptionAlgorithms) return _mValue_Tunnel2Phase1EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase1EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel2Phase1IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase1IntegrityAlgorithms", "_mUnknown_Tunnel2Phase1IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase1IntegrityAlgorithms;
-
-        public List<string>? Tunnel2Phase1IntegrityAlgorithms => _mTunnel2Phase1IntegrityAlgorithms.GetValue("tunnel2Phase1IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase1IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel2Phase1IntegrityAlgorithms;
+        public List<string>? Tunnel2Phase1IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1IntegrityAlgorithms) return _mValue_Tunnel2Phase1IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase1IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
         /// </summary>
-        [Input("tunnel2Phase1LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel2Phase1LifetimeSeconds", "_mUnknown_Tunnel2Phase1LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase1LifetimeSeconds;
-
-        public int? Tunnel2Phase1LifetimeSeconds => _mTunnel2Phase1LifetimeSeconds.GetValue("tunnel2Phase1LifetimeSeconds");
+        private int? _mValue_Tunnel2Phase1LifetimeSeconds;
+        private bool _mUnknown_Tunnel2Phase1LifetimeSeconds;
+        public int? Tunnel2Phase1LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase1LifetimeSeconds) return _mValue_Tunnel2Phase1LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase1LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
         /// </summary>
-        [Input("tunnel2Phase2DhGroupNumbers")]
+        [PolicyResourceProperty("tunnel2Phase2DhGroupNumbers", "_mUnknown_Tunnel2Phase2DhGroupNumbers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mTunnel2Phase2DhGroupNumbers;
-
-        public List<int>? Tunnel2Phase2DhGroupNumbers => _mTunnel2Phase2DhGroupNumbers.GetValue("tunnel2Phase2DhGroupNumbers");
+        private List<int>? _mValue_Tunnel2Phase2DhGroupNumbers;
+        private bool _mUnknown_Tunnel2Phase2DhGroupNumbers;
+        public List<int>? Tunnel2Phase2DhGroupNumbers
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2DhGroupNumbers) return _mValue_Tunnel2Phase2DhGroupNumbers;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase2DhGroupNumbers' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         /// </summary>
-        [Input("tunnel2Phase2EncryptionAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase2EncryptionAlgorithms", "_mUnknown_Tunnel2Phase2EncryptionAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2EncryptionAlgorithms;
-
-        public List<string>? Tunnel2Phase2EncryptionAlgorithms => _mTunnel2Phase2EncryptionAlgorithms.GetValue("tunnel2Phase2EncryptionAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase2EncryptionAlgorithms;
+        private bool _mUnknown_Tunnel2Phase2EncryptionAlgorithms;
+        public List<string>? Tunnel2Phase2EncryptionAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2EncryptionAlgorithms) return _mValue_Tunnel2Phase2EncryptionAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase2EncryptionAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         /// </summary>
-        [Input("tunnel2Phase2IntegrityAlgorithms")]
+        [PolicyResourceProperty("tunnel2Phase2IntegrityAlgorithms", "_mUnknown_Tunnel2Phase2IntegrityAlgorithms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTunnel2Phase2IntegrityAlgorithms;
-
-        public List<string>? Tunnel2Phase2IntegrityAlgorithms => _mTunnel2Phase2IntegrityAlgorithms.GetValue("tunnel2Phase2IntegrityAlgorithms");
+        private List<string>? _mValue_Tunnel2Phase2IntegrityAlgorithms;
+        private bool _mUnknown_Tunnel2Phase2IntegrityAlgorithms;
+        public List<string>? Tunnel2Phase2IntegrityAlgorithms
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2IntegrityAlgorithms) return _mValue_Tunnel2Phase2IntegrityAlgorithms;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase2IntegrityAlgorithms' is not present");
+            }
+        }
 
         /// <summary>
         /// The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
         /// </summary>
-        [Input("tunnel2Phase2LifetimeSeconds")]
+        [PolicyResourceProperty("tunnel2Phase2LifetimeSeconds", "_mUnknown_Tunnel2Phase2LifetimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2Phase2LifetimeSeconds;
-
-        public int? Tunnel2Phase2LifetimeSeconds => _mTunnel2Phase2LifetimeSeconds.GetValue("tunnel2Phase2LifetimeSeconds");
+        private int? _mValue_Tunnel2Phase2LifetimeSeconds;
+        private bool _mUnknown_Tunnel2Phase2LifetimeSeconds;
+        public int? Tunnel2Phase2LifetimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2Phase2LifetimeSeconds) return _mValue_Tunnel2Phase2LifetimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2Phase2LifetimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
         /// </summary>
-        [Input("tunnel2PresharedKey")]
+        [PolicyResourceProperty("tunnel2PresharedKey", "_mUnknown_Tunnel2PresharedKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2PresharedKey;
-
-        public string? Tunnel2PresharedKey => _mTunnel2PresharedKey.GetValue("tunnel2PresharedKey");
+        private string? _mValue_Tunnel2PresharedKey;
+        private bool _mUnknown_Tunnel2PresharedKey;
+        public string? Tunnel2PresharedKey
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2PresharedKey) return _mValue_Tunnel2PresharedKey;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2PresharedKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
         /// </summary>
-        [Input("tunnel2RekeyFuzzPercentage")]
+        [PolicyResourceProperty("tunnel2RekeyFuzzPercentage", "_mUnknown_Tunnel2RekeyFuzzPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyFuzzPercentage;
-
-        public int? Tunnel2RekeyFuzzPercentage => _mTunnel2RekeyFuzzPercentage.GetValue("tunnel2RekeyFuzzPercentage");
+        private int? _mValue_Tunnel2RekeyFuzzPercentage;
+        private bool _mUnknown_Tunnel2RekeyFuzzPercentage;
+        public int? Tunnel2RekeyFuzzPercentage
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2RekeyFuzzPercentage) return _mValue_Tunnel2RekeyFuzzPercentage;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2RekeyFuzzPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
         /// </summary>
-        [Input("tunnel2RekeyMarginTimeSeconds")]
+        [PolicyResourceProperty("tunnel2RekeyMarginTimeSeconds", "_mUnknown_Tunnel2RekeyMarginTimeSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2RekeyMarginTimeSeconds;
-
-        public int? Tunnel2RekeyMarginTimeSeconds => _mTunnel2RekeyMarginTimeSeconds.GetValue("tunnel2RekeyMarginTimeSeconds");
+        private int? _mValue_Tunnel2RekeyMarginTimeSeconds;
+        private bool _mUnknown_Tunnel2RekeyMarginTimeSeconds;
+        public int? Tunnel2RekeyMarginTimeSeconds
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2RekeyMarginTimeSeconds) return _mValue_Tunnel2RekeyMarginTimeSeconds;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2RekeyMarginTimeSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
         /// </summary>
-        [Input("tunnel2ReplayWindowSize")]
+        [PolicyResourceProperty("tunnel2ReplayWindowSize", "_mUnknown_Tunnel2ReplayWindowSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTunnel2ReplayWindowSize;
-
-        public int? Tunnel2ReplayWindowSize => _mTunnel2ReplayWindowSize.GetValue("tunnel2ReplayWindowSize");
+        private int? _mValue_Tunnel2ReplayWindowSize;
+        private bool _mUnknown_Tunnel2ReplayWindowSize;
+        public int? Tunnel2ReplayWindowSize
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2ReplayWindowSize) return _mValue_Tunnel2ReplayWindowSize;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2ReplayWindowSize' is not present");
+            }
+        }
 
         /// <summary>
         /// The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
         /// </summary>
-        [Input("tunnel2StartupAction")]
+        [PolicyResourceProperty("tunnel2StartupAction", "_mUnknown_Tunnel2StartupAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnel2StartupAction;
-
-        public string? Tunnel2StartupAction => _mTunnel2StartupAction.GetValue("tunnel2StartupAction");
+        private string? _mValue_Tunnel2StartupAction;
+        private bool _mUnknown_Tunnel2StartupAction;
+        public string? Tunnel2StartupAction
+        {
+            get
+            {
+                if (!_mUnknown_Tunnel2StartupAction) return _mValue_Tunnel2StartupAction;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Tunnel2StartupAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
         /// </summary>
-        [Input("tunnelInsideIpVersion")]
+        [PolicyResourceProperty("tunnelInsideIpVersion", "_mUnknown_TunnelInsideIpVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTunnelInsideIpVersion;
-
-        public string? TunnelInsideIpVersion => _mTunnelInsideIpVersion.GetValue("tunnelInsideIpVersion");
+        private string? _mValue_TunnelInsideIpVersion;
+        private bool _mUnknown_TunnelInsideIpVersion;
+        public string? TunnelInsideIpVersion
+        {
+            get
+            {
+                if (!_mUnknown_TunnelInsideIpVersion) return _mValue_TunnelInsideIpVersion;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.TunnelInsideIpVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Virtual Private Gateway.
         /// </summary>
-        [Input("vpnGatewayId")]
+        [PolicyResourceProperty("vpnGatewayId", "_mUnknown_VpnGatewayId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnGatewayId;
-
-        public string? VpnGatewayId => _mVpnGatewayId.GetValue("vpnGatewayId");
+        private string? _mValue_VpnGatewayId;
+        private bool _mUnknown_VpnGatewayId;
+        public string? VpnGatewayId
+        {
+            get
+            {
+                if (!_mUnknown_VpnGatewayId) return _mValue_VpnGatewayId;
+                throw new UndeferrableValueException("Value 'VpnConnectionArgs.VpnGatewayId' is not present");
+            }
+        }
     }
 }

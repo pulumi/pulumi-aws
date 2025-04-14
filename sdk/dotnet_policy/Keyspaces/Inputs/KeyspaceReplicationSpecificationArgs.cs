@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Keyspaces.Inputs
         /// <summary>
         /// Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
         /// </summary>
-        [Input("regionLists")]
+        [PolicyResourceProperty("regionLists", "_mUnknown_RegionLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegionLists;
-
-        public List<string>? RegionLists => _mRegionLists.GetValue("regionLists");
+        private List<string>? _mValue_RegionLists;
+        private bool _mUnknown_RegionLists;
+        public List<string>? RegionLists
+        {
+            get
+            {
+                if (!_mUnknown_RegionLists) return _mValue_RegionLists;
+                throw new UndeferrableValueException("Value 'KeyspaceReplicationSpecificationArgs.RegionLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
         /// </summary>
-        [Input("replicationStrategy")]
+        [PolicyResourceProperty("replicationStrategy", "_mUnknown_ReplicationStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationStrategy;
-
-        public string? ReplicationStrategy => _mReplicationStrategy.GetValue("replicationStrategy");
+        private string? _mValue_ReplicationStrategy;
+        private bool _mUnknown_ReplicationStrategy;
+        public string? ReplicationStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationStrategy) return _mValue_ReplicationStrategy;
+                throw new UndeferrableValueException("Value 'KeyspaceReplicationSpecificationArgs.ReplicationStrategy' is not present");
+            }
+        }
     }
 }

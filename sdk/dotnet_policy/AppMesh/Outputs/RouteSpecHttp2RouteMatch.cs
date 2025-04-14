@@ -15,65 +15,114 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Client request headers to match on.
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RouteSpecHttp2RouteMatchHeader>> _mHeaders;
-
-        public List<Outputs.RouteSpecHttp2RouteMatchHeader>? Headers => _mHeaders.GetValue("headers");
+        private List<Outputs.RouteSpecHttp2RouteMatchHeader>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Outputs.RouteSpecHttp2RouteMatchHeader>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
         /// </summary>
-        [Input("method")]
+        [PolicyResourceProperty("method", "_mUnknown_Method")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMethod;
-
-        public string? Method => _mMethod.GetValue("method");
+        private string? _mValue_Method;
+        private bool _mUnknown_Method;
+        public string? Method
+        {
+            get
+            {
+                if (!_mUnknown_Method) return _mValue_Method;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.Method' is not present");
+            }
+        }
 
         /// <summary>
         /// Client request path to match on.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RouteSpecHttp2RouteMatchPath> _mPath;
-
-        public Outputs.RouteSpecHttp2RouteMatchPath? Path => _mPath.GetValue("path");
+        private Outputs.RouteSpecHttp2RouteMatchPath? _mValue_Path;
+        private bool _mUnknown_Path;
+        public Outputs.RouteSpecHttp2RouteMatchPath? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The port number to match from the request.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Path with which to match requests.
         /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.Prefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Client request query parameters to match on.
         /// </summary>
-        [Input("queryParameters")]
+        [PolicyResourceProperty("queryParameters", "_mUnknown_QueryParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RouteSpecHttp2RouteMatchQueryParameter>> _mQueryParameters;
-
-        public List<Outputs.RouteSpecHttp2RouteMatchQueryParameter>? QueryParameters => _mQueryParameters.GetValue("queryParameters");
+        private List<Outputs.RouteSpecHttp2RouteMatchQueryParameter>? _mValue_QueryParameters;
+        private bool _mUnknown_QueryParameters;
+        public List<Outputs.RouteSpecHttp2RouteMatchQueryParameter>? QueryParameters
+        {
+            get
+            {
+                if (!_mUnknown_QueryParameters) return _mValue_QueryParameters;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.QueryParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Client request header scheme to match on. Valid values: `http`, `https`.
         /// </summary>
-        [Input("scheme")]
+        [PolicyResourceProperty("scheme", "_mUnknown_Scheme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheme;
-
-        public string? Scheme => _mScheme.GetValue("scheme");
+        private string? _mValue_Scheme;
+        private bool _mUnknown_Scheme;
+        public string? Scheme
+        {
+            get
+            {
+                if (!_mUnknown_Scheme) return _mValue_Scheme;
+                throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.Scheme' is not present");
+            }
+        }
     }
 }

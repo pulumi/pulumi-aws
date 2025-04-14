@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) for the VPC connection.
         /// </summary>
-        [Input("vpcConnectionArn")]
+        [PolicyResourceProperty("vpcConnectionArn", "_mUnknown_VpcConnectionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcConnectionArn;
-
-        public string? VpcConnectionArn => _mVpcConnectionArn.GetValue("vpcConnectionArn");
+        private string? _mValue_VpcConnectionArn;
+        private bool _mUnknown_VpcConnectionArn;
+        public string? VpcConnectionArn
+        {
+            get
+            {
+                if (!_mUnknown_VpcConnectionArn) return _mValue_VpcConnectionArn;
+                throw new UndeferrableValueException("Value 'DataSourceVpcConnectionProperties.VpcConnectionArn' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// An array of column names.
         /// </summary>
-        [Input("columnNames")]
+        [PolicyResourceProperty("columnNames", "_mUnknown_ColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColumnNames;
-
-        public List<string>? ColumnNames => _mColumnNames.GetValue("columnNames");
+        private List<string>? _mValue_ColumnNames;
+        private bool _mUnknown_ColumnNames;
+        public List<string>? ColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_ColumnNames) return _mValue_ColumnNames;
+                throw new UndeferrableValueException("Value 'DataSetColumnLevelPermissionRuleArgs.ColumnNames' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of ARNs for Amazon QuickSight users or groups.
         /// </summary>
-        [Input("principals")]
+        [PolicyResourceProperty("principals", "_mUnknown_Principals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrincipals;
-
-        public List<string>? Principals => _mPrincipals.GetValue("principals");
+        private List<string>? _mValue_Principals;
+        private bool _mUnknown_Principals;
+        public List<string>? Principals
+        {
+            get
+            {
+                if (!_mUnknown_Principals) return _mValue_Principals;
+                throw new UndeferrableValueException("Value 'DataSetColumnLevelPermissionRuleArgs.Principals' is not present");
+            }
+        }
     }
 }

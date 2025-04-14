@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// <summary>
         /// If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
         /// </summary>
-        [Input("excludeMatchedPattern")]
+        [PolicyResourceProperty("excludeMatchedPattern", "_mUnknown_ExcludeMatchedPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExcludeMatchedPattern;
-
-        public bool? ExcludeMatchedPattern => _mExcludeMatchedPattern.GetValue("excludeMatchedPattern");
+        private bool? _mValue_ExcludeMatchedPattern;
+        private bool _mUnknown_ExcludeMatchedPattern;
+        public bool? ExcludeMatchedPattern
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeMatchedPattern) return _mValue_ExcludeMatchedPattern;
+                throw new UndeferrableValueException("Value 'WebhookFilterGroupFilterArgs.ExcludeMatchedPattern' is not present");
+            }
+        }
 
         /// <summary>
         /// For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub &amp; GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
         /// </summary>
-        [Input("pattern")]
+        [PolicyResourceProperty("pattern", "_mUnknown_Pattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPattern;
-
-        public string? Pattern => _mPattern.GetValue("pattern");
+        private string? _mValue_Pattern;
+        private bool _mUnknown_Pattern;
+        public string? Pattern
+        {
+            get
+            {
+                if (!_mUnknown_Pattern) return _mValue_Pattern;
+                throw new UndeferrableValueException("Value 'WebhookFilterGroupFilterArgs.Pattern' is not present");
+            }
+        }
 
         /// <summary>
         /// The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`. At least one filter group must specify `EVENT` as its type.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WebhookFilterGroupFilterArgs.Type' is not present");
+            }
+        }
     }
 }

@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.ControlTower
         /// <summary>
         /// The ARN of the landing zone.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'LandingZone.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The drift status summary of the landing zone.
         /// </summary>
-        [Input("driftStatuses")]
+        [PolicyResourceProperty("driftStatuses", "_mUnknown_DriftStatuses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.LandingZoneDriftStatus>> _mDriftStatuses;
-
-        public List<Outputs.LandingZoneDriftStatus>? DriftStatuses => _mDriftStatuses.GetValue("driftStatuses");
+        private List<Outputs.LandingZoneDriftStatus>? _mValue_DriftStatuses;
+        private bool _mUnknown_DriftStatuses;
+        public List<Outputs.LandingZoneDriftStatus>? DriftStatuses
+        {
+            get
+            {
+                if (!_mUnknown_DriftStatuses) return _mValue_DriftStatuses;
+                throw new UndeferrableValueException("Value 'LandingZone.DriftStatuses' is not present");
+            }
+        }
 
         /// <summary>
         /// The latest available version of the landing zone.
         /// </summary>
-        [Input("latestAvailableVersion")]
+        [PolicyResourceProperty("latestAvailableVersion", "_mUnknown_LatestAvailableVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLatestAvailableVersion;
-
-        public string? LatestAvailableVersion => _mLatestAvailableVersion.GetValue("latestAvailableVersion");
+        private string? _mValue_LatestAvailableVersion;
+        private bool _mUnknown_LatestAvailableVersion;
+        public string? LatestAvailableVersion
+        {
+            get
+            {
+                if (!_mUnknown_LatestAvailableVersion) return _mValue_LatestAvailableVersion;
+                throw new UndeferrableValueException("Value 'LandingZone.LatestAvailableVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         /// </summary>
-        [Input("manifestJson")]
+        [PolicyResourceProperty("manifestJson", "_mUnknown_ManifestJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManifestJson;
-
-        public string? ManifestJson => _mManifestJson.GetValue("manifestJson");
+        private string? _mValue_ManifestJson;
+        private bool _mUnknown_ManifestJson;
+        public string? ManifestJson
+        {
+            get
+            {
+                if (!_mUnknown_ManifestJson) return _mValue_ManifestJson;
+                throw new UndeferrableValueException("Value 'LandingZone.ManifestJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LandingZone.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'LandingZone.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The landing zone version.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'LandingZone.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:controltower/landingZone:LandingZone")]
@@ -83,28 +132,49 @@ namespace Pulumi.PolicyPacks.Aws.ControlTower
         /// <summary>
         /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         /// </summary>
-        [Input("manifestJson")]
+        [PolicyResourceProperty("manifestJson", "_mUnknown_ManifestJson")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManifestJson;
-
-        public string? ManifestJson => _mManifestJson.GetValue("manifestJson");
+        private string? _mValue_ManifestJson;
+        private bool _mUnknown_ManifestJson;
+        public string? ManifestJson
+        {
+            get
+            {
+                if (!_mUnknown_ManifestJson) return _mValue_ManifestJson;
+                throw new UndeferrableValueException("Value 'LandingZoneArgs.ManifestJson' is not present");
+            }
+        }
 
         /// <summary>
         /// Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'LandingZoneArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The landing zone version.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'LandingZoneArgs.Version' is not present");
+            }
+        }
     }
 }

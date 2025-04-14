@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// JSON-formatted IAM policy to attach to the specified private CA resource.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_PolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDetails;
-
-        public string? PolicyDetails => _mPolicyDetails.GetValue("policy");
+        private string? _mValue_PolicyDetails;
+        private bool _mUnknown_PolicyDetails;
+        public string? PolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDetails) return _mValue_PolicyDetails;
+                throw new UndeferrableValueException("Value 'Policy.PolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the private CA to associate with the policy.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'Policy.ResourceArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:acmpca/policy:Policy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// JSON-formatted IAM policy to attach to the specified private CA resource.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_PolicyDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyDetails;
-
-        public string? PolicyDetails => _mPolicyDetails.GetValue("policy");
+        private string? _mValue_PolicyDetails;
+        private bool _mUnknown_PolicyDetails;
+        public string? PolicyDetails
+        {
+            get
+            {
+                if (!_mUnknown_PolicyDetails) return _mValue_PolicyDetails;
+                throw new UndeferrableValueException("Value 'PolicyArgs.PolicyDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the private CA to associate with the policy.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'PolicyArgs.ResourceArn' is not present");
+            }
+        }
     }
 }

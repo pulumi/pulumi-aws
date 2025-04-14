@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
-        [Input("geoMatchConstraints")]
+        [PolicyResourceProperty("geoMatchConstraints", "_mUnknown_GeoMatchConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GeoMatchSetGeoMatchConstraint>> _mGeoMatchConstraints;
-
-        public List<Outputs.GeoMatchSetGeoMatchConstraint>? GeoMatchConstraints => _mGeoMatchConstraints.GetValue("geoMatchConstraints");
+        private List<Outputs.GeoMatchSetGeoMatchConstraint>? _mValue_GeoMatchConstraints;
+        private bool _mUnknown_GeoMatchConstraints;
+        public List<Outputs.GeoMatchSetGeoMatchConstraint>? GeoMatchConstraints
+        {
+            get
+            {
+                if (!_mUnknown_GeoMatchConstraints) return _mValue_GeoMatchConstraints;
+                throw new UndeferrableValueException("Value 'GeoMatchSet.GeoMatchConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the Geo Match Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GeoMatchSet.Name' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:wafregional/geoMatchSet:GeoMatchSet")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.WafRegional
         /// <summary>
         /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
-        [Input("geoMatchConstraints")]
+        [PolicyResourceProperty("geoMatchConstraints", "_mUnknown_GeoMatchConstraints")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GeoMatchSetGeoMatchConstraintArgs>> _mGeoMatchConstraints;
-
-        public List<Inputs.GeoMatchSetGeoMatchConstraintArgs>? GeoMatchConstraints => _mGeoMatchConstraints.GetValue("geoMatchConstraints");
+        private List<Inputs.GeoMatchSetGeoMatchConstraintArgs>? _mValue_GeoMatchConstraints;
+        private bool _mUnknown_GeoMatchConstraints;
+        public List<Inputs.GeoMatchSetGeoMatchConstraintArgs>? GeoMatchConstraints
+        {
+            get
+            {
+                if (!_mUnknown_GeoMatchConstraints) return _mValue_GeoMatchConstraints;
+                throw new UndeferrableValueException("Value 'GeoMatchSetArgs.GeoMatchConstraints' is not present");
+            }
+        }
 
         /// <summary>
         /// The name or description of the Geo Match Set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GeoMatchSetArgs.Name' is not present");
+            }
+        }
     }
 }

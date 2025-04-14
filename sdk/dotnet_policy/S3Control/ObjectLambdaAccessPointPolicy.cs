@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.
         /// </summary>
-        [Input("hasPublicAccessPolicy")]
+        [PolicyResourceProperty("hasPublicAccessPolicy", "_mUnknown_HasPublicAccessPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHasPublicAccessPolicy;
-
-        public bool? HasPublicAccessPolicy => _mHasPublicAccessPolicy.GetValue("hasPublicAccessPolicy");
+        private bool? _mValue_HasPublicAccessPolicy;
+        private bool _mUnknown_HasPublicAccessPolicy;
+        public bool? HasPublicAccessPolicy
+        {
+            get
+            {
+                if (!_mUnknown_HasPublicAccessPolicy) return _mValue_HasPublicAccessPolicy;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.HasPublicAccessPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Object Lambda Access Point.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Object Lambda Access Point resource policy document.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy")]
@@ -56,28 +84,49 @@ namespace Pulumi.PolicyPacks.Aws.S3Control
         /// <summary>
         /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicyArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Object Lambda Access Point.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Object Lambda Access Point resource policy document.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The HTTPS URL used to verify ownership of `url`.
         /// </summary>
-        [Input("confirmationUrl")]
+        [PolicyResourceProperty("confirmationUrl", "_mUnknown_ConfirmationUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfirmationUrl;
-
-        public string? ConfirmationUrl => _mConfirmationUrl.GetValue("confirmationUrl");
+        private string? _mValue_ConfirmationUrl;
+        private bool _mUnknown_ConfirmationUrl;
+        public string? ConfirmationUrl
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationUrl) return _mValue_ConfirmationUrl;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionHttp.ConfirmationUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
         /// </summary>
-        [Input("httpHeaders")]
+        [PolicyResourceProperty("httpHeaders", "_mUnknown_HttpHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TopicRuleErrorActionHttpHttpHeader>> _mHttpHeaders;
-
-        public List<Outputs.TopicRuleErrorActionHttpHttpHeader>? HttpHeaders => _mHttpHeaders.GetValue("httpHeaders");
+        private List<Outputs.TopicRuleErrorActionHttpHttpHeader>? _mValue_HttpHeaders;
+        private bool _mUnknown_HttpHeaders;
+        public List<Outputs.TopicRuleErrorActionHttpHttpHeader>? HttpHeaders
+        {
+            get
+            {
+                if (!_mUnknown_HttpHeaders) return _mValue_HttpHeaders;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionHttp.HttpHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTPS URL.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionHttp.Url' is not present");
+            }
+        }
     }
 }

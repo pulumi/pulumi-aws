@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
         /// </summary>
-        [Input("diskImageFormat")]
+        [PolicyResourceProperty("diskImageFormat", "_mUnknown_DiskImageFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiskImageFormat;
-
-        public string? DiskImageFormat => _mDiskImageFormat.GetValue("diskImageFormat");
+        private string? _mValue_DiskImageFormat;
+        private bool _mUnknown_DiskImageFormat;
+        public string? DiskImageFormat
+        {
+            get
+            {
+                if (!_mUnknown_DiskImageFormat) return _mValue_DiskImageFormat;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.DiskImageFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the IAM role to use for exporting.
         /// </summary>
-        [Input("roleName")]
+        [PolicyResourceProperty("roleName", "_mUnknown_RoleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleName;
-
-        public string? RoleName => _mRoleName.GetValue("roleName");
+        private string? _mValue_RoleName;
+        private bool _mUnknown_RoleName;
+        public string? RoleName
+        {
+            get
+            {
+                if (!_mUnknown_RoleName) return _mValue_RoleName;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.RoleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Bucket;
-
-        public string? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private string? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public string? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.S3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix for the exported image.
         /// </summary>
-        [Input("s3Prefix")]
+        [PolicyResourceProperty("s3Prefix", "_mUnknown_S3Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3Prefix;
-
-        public string? S3Prefix => _mS3Prefix.GetValue("s3Prefix");
+        private string? _mValue_S3Prefix;
+        private bool _mUnknown_S3Prefix;
+        public string? S3Prefix
+        {
+            get
+            {
+                if (!_mUnknown_S3Prefix) return _mValue_S3Prefix;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.S3Prefix' is not present");
+            }
+        }
     }
 }

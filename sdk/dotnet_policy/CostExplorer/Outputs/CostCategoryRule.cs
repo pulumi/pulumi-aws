@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Outputs
         /// <summary>
         /// Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
         /// </summary>
-        [Input("inheritedValue")]
+        [PolicyResourceProperty("inheritedValue", "_mUnknown_InheritedValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CostCategoryRuleInheritedValue> _mInheritedValue;
-
-        public Outputs.CostCategoryRuleInheritedValue? InheritedValue => _mInheritedValue.GetValue("inheritedValue");
+        private Outputs.CostCategoryRuleInheritedValue? _mValue_InheritedValue;
+        private bool _mUnknown_InheritedValue;
+        public Outputs.CostCategoryRuleInheritedValue? InheritedValue
+        {
+            get
+            {
+                if (!_mUnknown_InheritedValue) return _mValue_InheritedValue;
+                throw new UndeferrableValueException("Value 'CostCategoryRule.InheritedValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the `Expression` object used to categorize costs. See below.
         /// </summary>
-        [Input("rule")]
+        [PolicyResourceProperty("rule", "_mUnknown_Rule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CostCategoryRuleRule> _mRule;
-
-        public Outputs.CostCategoryRuleRule? Rule => _mRule.GetValue("rule");
+        private Outputs.CostCategoryRuleRule? _mValue_Rule;
+        private bool _mUnknown_Rule;
+        public Outputs.CostCategoryRuleRule? Rule
+        {
+            get
+            {
+                if (!_mUnknown_Rule) return _mValue_Rule;
+                throw new UndeferrableValueException("Value 'CostCategoryRule.Rule' is not present");
+            }
+        }
 
         /// <summary>
         /// You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'CostCategoryRule.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Default value for the cost category.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'CostCategoryRule.Value' is not present");
+            }
+        }
     }
 }

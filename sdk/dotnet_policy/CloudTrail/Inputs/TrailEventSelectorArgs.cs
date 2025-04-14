@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudTrail.Inputs
         /// <summary>
         /// Configuration block for data events. See details below.
         /// </summary>
-        [Input("dataResources")]
+        [PolicyResourceProperty("dataResources", "_mUnknown_DataResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TrailEventSelectorDataResourceArgs>> _mDataResources;
-
-        public List<Inputs.TrailEventSelectorDataResourceArgs>? DataResources => _mDataResources.GetValue("dataResources");
+        private List<Inputs.TrailEventSelectorDataResourceArgs>? _mValue_DataResources;
+        private bool _mUnknown_DataResources;
+        public List<Inputs.TrailEventSelectorDataResourceArgs>? DataResources
+        {
+            get
+            {
+                if (!_mUnknown_DataResources) return _mValue_DataResources;
+                throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.DataResources' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
         /// </summary>
-        [Input("excludeManagementEventSources")]
+        [PolicyResourceProperty("excludeManagementEventSources", "_mUnknown_ExcludeManagementEventSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludeManagementEventSources;
-
-        public List<string>? ExcludeManagementEventSources => _mExcludeManagementEventSources.GetValue("excludeManagementEventSources");
+        private List<string>? _mValue_ExcludeManagementEventSources;
+        private bool _mUnknown_ExcludeManagementEventSources;
+        public List<string>? ExcludeManagementEventSources
+        {
+            get
+            {
+                if (!_mUnknown_ExcludeManagementEventSources) return _mValue_ExcludeManagementEventSources;
+                throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.ExcludeManagementEventSources' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to include management events for your trail. Defaults to `true`.
         /// </summary>
-        [Input("includeManagementEvents")]
+        [PolicyResourceProperty("includeManagementEvents", "_mUnknown_IncludeManagementEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeManagementEvents;
-
-        public bool? IncludeManagementEvents => _mIncludeManagementEvents.GetValue("includeManagementEvents");
+        private bool? _mValue_IncludeManagementEvents;
+        private bool _mUnknown_IncludeManagementEvents;
+        public bool? IncludeManagementEvents
+        {
+            get
+            {
+                if (!_mUnknown_IncludeManagementEvents) return _mValue_IncludeManagementEvents;
+                throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.IncludeManagementEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
         /// </summary>
-        [Input("readWriteType")]
+        [PolicyResourceProperty("readWriteType", "_mUnknown_ReadWriteType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReadWriteType;
-
-        public string? ReadWriteType => _mReadWriteType.GetValue("readWriteType");
+        private string? _mValue_ReadWriteType;
+        private bool _mUnknown_ReadWriteType;
+        public string? ReadWriteType
+        {
+            get
+            {
+                if (!_mUnknown_ReadWriteType) return _mValue_ReadWriteType;
+                throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.ReadWriteType' is not present");
+            }
+        }
     }
 }

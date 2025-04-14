@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ses.Inputs
         /// <summary>
         /// The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
         /// </summary>
-        [Input("encoding")]
+        [PolicyResourceProperty("encoding", "_mUnknown_Encoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncoding;
-
-        public string? Encoding => _mEncoding.GetValue("encoding");
+        private string? _mValue_Encoding;
+        private bool _mUnknown_Encoding;
+        public string? Encoding
+        {
+            get
+            {
+                if (!_mUnknown_Encoding) return _mValue_Encoding;
+                throw new UndeferrableValueException("Value 'ReceiptRuleSnsActionArgs.Encoding' is not present");
+            }
+        }
 
         /// <summary>
         /// The position of the action in the receipt rule
         /// </summary>
-        [Input("position")]
+        [PolicyResourceProperty("position", "_mUnknown_Position")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPosition;
-
-        public int? Position => _mPosition.GetValue("position");
+        private int? _mValue_Position;
+        private bool _mUnknown_Position;
+        public int? Position
+        {
+            get
+            {
+                if (!_mUnknown_Position) return _mValue_Position;
+                throw new UndeferrableValueException("Value 'ReceiptRuleSnsActionArgs.Position' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of an SNS topic to notify
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'ReceiptRuleSnsActionArgs.TopicArn' is not present");
+            }
+        }
     }
 }

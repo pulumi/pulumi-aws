@@ -16,44 +16,79 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInCondition>> _mConditions;
-
-        public List<Outputs.OptInCondition>? Conditions => _mConditions.GetValue("conditions");
+        private List<Outputs.OptInCondition>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Outputs.OptInCondition>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'OptIn.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Last modified date and time of the record.
         /// </summary>
-        [Input("lastModified")]
+        [PolicyResourceProperty("lastModified", "_mUnknown_LastModified")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModified;
+        private string? _mValue_LastModified;
+        private bool _mUnknown_LastModified;
+        public string? LastModified
+        {
+            get
+            {
+                if (!_mUnknown_LastModified) return _mValue_LastModified;
+                throw new UndeferrableValueException("Value 'OptIn.LastModified' is not present");
+            }
+        }
 
-        public string? LastModified => _mLastModified.GetValue("lastModified");
-
-        [Input("lastUpdatedBy")]
+        [PolicyResourceProperty("lastUpdatedBy", "_mUnknown_LastUpdatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedBy;
-
-        public string? LastUpdatedBy => _mLastUpdatedBy.GetValue("lastUpdatedBy");
+        private string? _mValue_LastUpdatedBy;
+        private bool _mUnknown_LastUpdatedBy;
+        public string? LastUpdatedBy
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedBy) return _mValue_LastUpdatedBy;
+                throw new UndeferrableValueException("Value 'OptIn.LastUpdatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
         /// </summary>
-        [Input("principals")]
+        [PolicyResourceProperty("principals", "_mUnknown_Principals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInPrincipal>> _mPrincipals;
-
-        public List<Outputs.OptInPrincipal>? Principals => _mPrincipals.GetValue("principals");
+        private List<Outputs.OptInPrincipal>? _mValue_Principals;
+        private bool _mUnknown_Principals;
+        public List<Outputs.OptInPrincipal>? Principals
+        {
+            get
+            {
+                if (!_mUnknown_Principals) return _mValue_Principals;
+                throw new UndeferrableValueException("Value 'OptIn.Principals' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure for the resource. See Resource for more details.
         /// </summary>
-        [Input("resourceDatas")]
+        [PolicyResourceProperty("resourceDatas", "_mUnknown_ResourceDatas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.OptInResourceData>> _mResourceDatas;
-
-        public List<Outputs.OptInResourceData>? ResourceDatas => _mResourceDatas.GetValue("resourceDatas");
+        private List<Outputs.OptInResourceData>? _mValue_ResourceDatas;
+        private bool _mUnknown_ResourceDatas;
+        public List<Outputs.OptInResourceData>? ResourceDatas
+        {
+            get
+            {
+                if (!_mUnknown_ResourceDatas) return _mValue_ResourceDatas;
+                throw new UndeferrableValueException("Value 'OptIn.ResourceDatas' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lakeformation/optIn:OptIn")]
@@ -62,28 +97,49 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptInConditionArgs>> _mConditions;
-
-        public List<Inputs.OptInConditionArgs>? Conditions => _mConditions.GetValue("conditions");
+        private List<Inputs.OptInConditionArgs>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Inputs.OptInConditionArgs>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'OptInArgs.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
         /// </summary>
-        [Input("principals")]
+        [PolicyResourceProperty("principals", "_mUnknown_Principals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptInPrincipalArgs>> _mPrincipals;
-
-        public List<Inputs.OptInPrincipalArgs>? Principals => _mPrincipals.GetValue("principals");
+        private List<Inputs.OptInPrincipalArgs>? _mValue_Principals;
+        private bool _mUnknown_Principals;
+        public List<Inputs.OptInPrincipalArgs>? Principals
+        {
+            get
+            {
+                if (!_mUnknown_Principals) return _mValue_Principals;
+                throw new UndeferrableValueException("Value 'OptInArgs.Principals' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure for the resource. See Resource for more details.
         /// </summary>
-        [Input("resourceDatas")]
+        [PolicyResourceProperty("resourceDatas", "_mUnknown_ResourceDatas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.OptInResourceDataArgs>> _mResourceDatas;
-
-        public List<Inputs.OptInResourceDataArgs>? ResourceDatas => _mResourceDatas.GetValue("resourceDatas");
+        private List<Inputs.OptInResourceDataArgs>? _mValue_ResourceDatas;
+        private bool _mUnknown_ResourceDatas;
+        public List<Inputs.OptInResourceDataArgs>? ResourceDatas
+        {
+            get
+            {
+                if (!_mUnknown_ResourceDatas) return _mValue_ResourceDatas;
+                throw new UndeferrableValueException("Value 'OptInArgs.ResourceDatas' is not present");
+            }
+        }
     }
 }

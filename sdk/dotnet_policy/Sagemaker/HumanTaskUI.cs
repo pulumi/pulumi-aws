@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'HumanTaskUI.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Human Task UI.
         /// </summary>
-        [Input("humanTaskUiName")]
+        [PolicyResourceProperty("humanTaskUiName", "_mUnknown_HumanTaskUiName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHumanTaskUiName;
-
-        public string? HumanTaskUiName => _mHumanTaskUiName.GetValue("humanTaskUiName");
+        private string? _mValue_HumanTaskUiName;
+        private bool _mUnknown_HumanTaskUiName;
+        public string? HumanTaskUiName
+        {
+            get
+            {
+                if (!_mUnknown_HumanTaskUiName) return _mValue_HumanTaskUiName;
+                throw new UndeferrableValueException("Value 'HumanTaskUI.HumanTaskUiName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HumanTaskUI.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'HumanTaskUI.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Liquid template for the worker user interface. See UI Template below.
         /// </summary>
-        [Input("uiTemplate")]
+        [PolicyResourceProperty("uiTemplate", "_mUnknown_UiTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.HumanTaskUIUiTemplate> _mUiTemplate;
-
-        public Outputs.HumanTaskUIUiTemplate? UiTemplate => _mUiTemplate.GetValue("uiTemplate");
+        private Outputs.HumanTaskUIUiTemplate? _mValue_UiTemplate;
+        private bool _mUnknown_UiTemplate;
+        public Outputs.HumanTaskUIUiTemplate? UiTemplate
+        {
+            get
+            {
+                if (!_mUnknown_UiTemplate) return _mValue_UiTemplate;
+                throw new UndeferrableValueException("Value 'HumanTaskUI.UiTemplate' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/humanTaskUI:HumanTaskUI")]
@@ -65,28 +100,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The name of the Human Task UI.
         /// </summary>
-        [Input("humanTaskUiName")]
+        [PolicyResourceProperty("humanTaskUiName", "_mUnknown_HumanTaskUiName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHumanTaskUiName;
-
-        public string? HumanTaskUiName => _mHumanTaskUiName.GetValue("humanTaskUiName");
+        private string? _mValue_HumanTaskUiName;
+        private bool _mUnknown_HumanTaskUiName;
+        public string? HumanTaskUiName
+        {
+            get
+            {
+                if (!_mUnknown_HumanTaskUiName) return _mValue_HumanTaskUiName;
+                throw new UndeferrableValueException("Value 'HumanTaskUIArgs.HumanTaskUiName' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HumanTaskUIArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Liquid template for the worker user interface. See UI Template below.
         /// </summary>
-        [Input("uiTemplate")]
+        [PolicyResourceProperty("uiTemplate", "_mUnknown_UiTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.HumanTaskUIUiTemplateArgs> _mUiTemplate;
-
-        public Inputs.HumanTaskUIUiTemplateArgs? UiTemplate => _mUiTemplate.GetValue("uiTemplate");
+        private Inputs.HumanTaskUIUiTemplateArgs? _mValue_UiTemplate;
+        private bool _mUnknown_UiTemplate;
+        public Inputs.HumanTaskUIUiTemplateArgs? UiTemplate
+        {
+            get
+            {
+                if (!_mUnknown_UiTemplate) return _mValue_UiTemplate;
+                throw new UndeferrableValueException("Value 'HumanTaskUIArgs.UiTemplate' is not present");
+            }
+        }
     }
 }

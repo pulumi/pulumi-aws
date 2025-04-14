@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Inputs
         /// <summary>
         /// An EC2 instance type.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'GameServerGroupInstanceDefinitionArgs.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance weighting that indicates how much this instance type contributes
@@ -27,10 +34,17 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Inputs
         /// Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
         /// the most cost-effective options.
         /// </summary>
-        [Input("weightedCapacity")]
+        [PolicyResourceProperty("weightedCapacity", "_mUnknown_WeightedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWeightedCapacity;
-
-        public string? WeightedCapacity => _mWeightedCapacity.GetValue("weightedCapacity");
+        private string? _mValue_WeightedCapacity;
+        private bool _mUnknown_WeightedCapacity;
+        public string? WeightedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WeightedCapacity) return _mValue_WeightedCapacity;
+                throw new UndeferrableValueException("Value 'GameServerGroupInstanceDefinitionArgs.WeightedCapacity' is not present");
+            }
+        }
     }
 }

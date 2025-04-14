@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Outputs
         /// <summary>
         /// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAction;
-
-        public string? Action => _mAction.GetValue("action");
+        private string? _mValue_Action;
+        private bool _mUnknown_Action;
+        public string? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRule.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
         /// </summary>
-        [Input("header")]
+        [PolicyResourceProperty("header", "_mUnknown_Header")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader> _mHeader;
-
-        public Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader? Header => _mHeader.GetValue("header");
+        private Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader? _mValue_Header;
+        private bool _mUnknown_Header;
+        public Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader? Header
+        {
+            get
+            {
+                if (!_mUnknown_Header) return _mValue_Header;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRule.Header' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
         /// </summary>
-        [Input("ruleOptions")]
+        [PolicyResourceProperty("ruleOptions", "_mUnknown_RuleOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption>> _mRuleOptions;
-
-        public List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption>? RuleOptions => _mRuleOptions.GetValue("ruleOptions");
+        private List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption>? _mValue_RuleOptions;
+        private bool _mUnknown_RuleOptions;
+        public List<Outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption>? RuleOptions
+        {
+            get
+            {
+                if (!_mUnknown_RuleOptions) return _mValue_RuleOptions;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRule.RuleOptions' is not present");
+            }
+        }
     }
 }

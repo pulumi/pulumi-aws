@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// The ID of the user or group. Valid values between `0` and `2147483647`
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mId;
-
-        public int? Id => _mId.GetValue("id");
+        private int? _mValue_Id;
+        private bool _mUnknown_Id;
+        public int? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         /// </summary>
-        [Input("storageCapacityQuotaGib")]
+        [PolicyResourceProperty("storageCapacityQuotaGib", "_mUnknown_StorageCapacityQuotaGib")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStorageCapacityQuotaGib;
-
-        public int? StorageCapacityQuotaGib => _mStorageCapacityQuotaGib.GetValue("storageCapacityQuotaGib");
+        private int? _mValue_StorageCapacityQuotaGib;
+        private bool _mUnknown_StorageCapacityQuotaGib;
+        public int? StorageCapacityQuotaGib
+        {
+            get
+            {
+                if (!_mUnknown_StorageCapacityQuotaGib) return _mValue_StorageCapacityQuotaGib;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota.StorageCapacityQuotaGib' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota.Type' is not present");
+            }
+        }
     }
 }

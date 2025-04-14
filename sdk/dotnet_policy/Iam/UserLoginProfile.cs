@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
         /// </summary>
-        [Input("encryptedPassword")]
+        [PolicyResourceProperty("encryptedPassword", "_mUnknown_EncryptedPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptedPassword;
-
-        public string? EncryptedPassword => _mEncryptedPassword.GetValue("encryptedPassword");
+        private string? _mValue_EncryptedPassword;
+        private bool _mUnknown_EncryptedPassword;
+        public string? EncryptedPassword
+        {
+            get
+            {
+                if (!_mUnknown_EncryptedPassword) return _mValue_EncryptedPassword;
+                throw new UndeferrableValueException("Value 'UserLoginProfile.EncryptedPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
         /// </summary>
-        [Input("keyFingerprint")]
+        [PolicyResourceProperty("keyFingerprint", "_mUnknown_KeyFingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyFingerprint;
-
-        public string? KeyFingerprint => _mKeyFingerprint.GetValue("keyFingerprint");
+        private string? _mValue_KeyFingerprint;
+        private bool _mUnknown_KeyFingerprint;
+        public string? KeyFingerprint
+        {
+            get
+            {
+                if (!_mUnknown_KeyFingerprint) return _mValue_KeyFingerprint;
+                throw new UndeferrableValueException("Value 'UserLoginProfile.KeyFingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// The plain text password, only available when `pgp_key` is not provided.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'UserLoginProfile.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         /// </summary>
-        [Input("passwordLength")]
+        [PolicyResourceProperty("passwordLength", "_mUnknown_PasswordLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordLength;
-
-        public int? PasswordLength => _mPasswordLength.GetValue("passwordLength");
+        private int? _mValue_PasswordLength;
+        private bool _mUnknown_PasswordLength;
+        public int? PasswordLength
+        {
+            get
+            {
+                if (!_mUnknown_PasswordLength) return _mValue_PasswordLength;
+                throw new UndeferrableValueException("Value 'UserLoginProfile.PasswordLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         /// </summary>
-        [Input("passwordResetRequired")]
+        [PolicyResourceProperty("passwordResetRequired", "_mUnknown_PasswordResetRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPasswordResetRequired;
-
-        public bool? PasswordResetRequired => _mPasswordResetRequired.GetValue("passwordResetRequired");
+        private bool? _mValue_PasswordResetRequired;
+        private bool _mUnknown_PasswordResetRequired;
+        public bool? PasswordResetRequired
+        {
+            get
+            {
+                if (!_mUnknown_PasswordResetRequired) return _mValue_PasswordResetRequired;
+                throw new UndeferrableValueException("Value 'UserLoginProfile.PasswordResetRequired' is not present");
+            }
+        }
 
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         /// </summary>
-        [Input("pgpKey")]
+        [PolicyResourceProperty("pgpKey", "_mUnknown_PgpKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPgpKey;
-
-        public string? PgpKey => _mPgpKey.GetValue("pgpKey");
+        private string? _mValue_PgpKey;
+        private bool _mUnknown_PgpKey;
+        public string? PgpKey
+        {
+            get
+            {
+                if (!_mUnknown_PgpKey) return _mValue_PgpKey;
+                throw new UndeferrableValueException("Value 'UserLoginProfile.PgpKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM user's name.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'UserLoginProfile.User' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         /// </summary>
-        [Input("passwordLength")]
+        [PolicyResourceProperty("passwordLength", "_mUnknown_PasswordLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPasswordLength;
-
-        public int? PasswordLength => _mPasswordLength.GetValue("passwordLength");
+        private int? _mValue_PasswordLength;
+        private bool _mUnknown_PasswordLength;
+        public int? PasswordLength
+        {
+            get
+            {
+                if (!_mUnknown_PasswordLength) return _mValue_PasswordLength;
+                throw new UndeferrableValueException("Value 'UserLoginProfileArgs.PasswordLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         /// </summary>
-        [Input("passwordResetRequired")]
+        [PolicyResourceProperty("passwordResetRequired", "_mUnknown_PasswordResetRequired")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPasswordResetRequired;
-
-        public bool? PasswordResetRequired => _mPasswordResetRequired.GetValue("passwordResetRequired");
+        private bool? _mValue_PasswordResetRequired;
+        private bool _mUnknown_PasswordResetRequired;
+        public bool? PasswordResetRequired
+        {
+            get
+            {
+                if (!_mUnknown_PasswordResetRequired) return _mValue_PasswordResetRequired;
+                throw new UndeferrableValueException("Value 'UserLoginProfileArgs.PasswordResetRequired' is not present");
+            }
+        }
 
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         /// </summary>
-        [Input("pgpKey")]
+        [PolicyResourceProperty("pgpKey", "_mUnknown_PgpKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPgpKey;
-
-        public string? PgpKey => _mPgpKey.GetValue("pgpKey");
+        private string? _mValue_PgpKey;
+        private bool _mUnknown_PgpKey;
+        public string? PgpKey
+        {
+            get
+            {
+                if (!_mUnknown_PgpKey) return _mValue_PgpKey;
+                throw new UndeferrableValueException("Value 'UserLoginProfileArgs.PgpKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM user's name.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'UserLoginProfileArgs.User' is not present");
+            }
+        }
     }
 }

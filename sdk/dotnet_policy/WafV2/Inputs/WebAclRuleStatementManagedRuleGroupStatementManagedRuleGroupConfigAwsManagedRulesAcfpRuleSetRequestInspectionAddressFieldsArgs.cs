@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The names of the address fields.
         /// </summary>
-        [Input("identifiers")]
+        [PolicyResourceProperty("identifiers", "_mUnknown_Identifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdentifiers;
-
-        public List<string>? Identifiers => _mIdentifiers.GetValue("identifiers");
+        private List<string>? _mValue_Identifiers;
+        private bool _mUnknown_Identifiers;
+        public List<string>? Identifiers
+        {
+            get
+            {
+                if (!_mUnknown_Identifiers) return _mValue_Identifiers;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs.Identifiers' is not present");
+            }
+        }
     }
 }

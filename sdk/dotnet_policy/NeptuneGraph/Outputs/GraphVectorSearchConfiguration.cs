@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.NeptuneGraph.Outputs
         /// <summary>
         /// Specifies the number of dimensions for vector embeddings.  Value must be between 1 and 65,535.
         /// </summary>
-        [Input("vectorSearchDimension")]
+        [PolicyResourceProperty("vectorSearchDimension", "_mUnknown_VectorSearchDimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVectorSearchDimension;
-
-        public int? VectorSearchDimension => _mVectorSearchDimension.GetValue("vectorSearchDimension");
+        private int? _mValue_VectorSearchDimension;
+        private bool _mUnknown_VectorSearchDimension;
+        public int? VectorSearchDimension
+        {
+            get
+            {
+                if (!_mUnknown_VectorSearchDimension) return _mValue_VectorSearchDimension;
+                throw new UndeferrableValueException("Value 'GraphVectorSearchConfiguration.VectorSearchDimension' is not present");
+            }
+        }
     }
 }

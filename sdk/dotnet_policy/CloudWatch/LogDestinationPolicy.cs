@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("accessPolicy")]
+        [PolicyResourceProperty("accessPolicy", "_mUnknown_AccessPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
-
-        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
+        private string? _mValue_AccessPolicy;
+        private bool _mUnknown_AccessPolicy;
+        public string? AccessPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicy) return _mValue_AccessPolicy;
+                throw new UndeferrableValueException("Value 'LogDestinationPolicy.AccessPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the subscription filter
         /// </summary>
-        [Input("destinationName")]
+        [PolicyResourceProperty("destinationName", "_mUnknown_DestinationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationName;
-
-        public string? DestinationName => _mDestinationName.GetValue("destinationName");
+        private string? _mValue_DestinationName;
+        private bool _mUnknown_DestinationName;
+        public string? DestinationName
+        {
+            get
+            {
+                if (!_mUnknown_DestinationName) return _mValue_DestinationName;
+                throw new UndeferrableValueException("Value 'LogDestinationPolicy.DestinationName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         /// </summary>
-        [Input("forceUpdate")]
+        [PolicyResourceProperty("forceUpdate", "_mUnknown_ForceUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
-
-        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
+        private bool? _mValue_ForceUpdate;
+        private bool _mUnknown_ForceUpdate;
+        public bool? ForceUpdate
+        {
+            get
+            {
+                if (!_mUnknown_ForceUpdate) return _mValue_ForceUpdate;
+                throw new UndeferrableValueException("Value 'LogDestinationPolicy.ForceUpdate' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The policy document. This is a JSON formatted string.
         /// </summary>
-        [Input("accessPolicy")]
+        [PolicyResourceProperty("accessPolicy", "_mUnknown_AccessPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicy;
-
-        public string? AccessPolicy => _mAccessPolicy.GetValue("accessPolicy");
+        private string? _mValue_AccessPolicy;
+        private bool _mUnknown_AccessPolicy;
+        public string? AccessPolicy
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicy) return _mValue_AccessPolicy;
+                throw new UndeferrableValueException("Value 'LogDestinationPolicyArgs.AccessPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// A name for the subscription filter
         /// </summary>
-        [Input("destinationName")]
+        [PolicyResourceProperty("destinationName", "_mUnknown_DestinationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationName;
-
-        public string? DestinationName => _mDestinationName.GetValue("destinationName");
+        private string? _mValue_DestinationName;
+        private bool _mUnknown_DestinationName;
+        public string? DestinationName
+        {
+            get
+            {
+                if (!_mUnknown_DestinationName) return _mValue_DestinationName;
+                throw new UndeferrableValueException("Value 'LogDestinationPolicyArgs.DestinationName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         /// </summary>
-        [Input("forceUpdate")]
+        [PolicyResourceProperty("forceUpdate", "_mUnknown_ForceUpdate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceUpdate;
-
-        public bool? ForceUpdate => _mForceUpdate.GetValue("forceUpdate");
+        private bool? _mValue_ForceUpdate;
+        private bool _mUnknown_ForceUpdate;
+        public bool? ForceUpdate
+        {
+            get
+            {
+                if (!_mUnknown_ForceUpdate) return _mValue_ForceUpdate;
+                throw new UndeferrableValueException("Value 'LogDestinationPolicyArgs.ForceUpdate' is not present");
+            }
+        }
     }
 }

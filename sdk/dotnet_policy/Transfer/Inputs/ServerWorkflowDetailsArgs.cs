@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Inputs
         /// <summary>
         /// A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
         /// </summary>
-        [Input("onPartialUpload")]
+        [PolicyResourceProperty("onPartialUpload", "_mUnknown_OnPartialUpload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerWorkflowDetailsOnPartialUploadArgs> _mOnPartialUpload;
-
-        public Inputs.ServerWorkflowDetailsOnPartialUploadArgs? OnPartialUpload => _mOnPartialUpload.GetValue("onPartialUpload");
+        private Inputs.ServerWorkflowDetailsOnPartialUploadArgs? _mValue_OnPartialUpload;
+        private bool _mUnknown_OnPartialUpload;
+        public Inputs.ServerWorkflowDetailsOnPartialUploadArgs? OnPartialUpload
+        {
+            get
+            {
+                if (!_mUnknown_OnPartialUpload) return _mValue_OnPartialUpload;
+                throw new UndeferrableValueException("Value 'ServerWorkflowDetailsArgs.OnPartialUpload' is not present");
+            }
+        }
 
         /// <summary>
         /// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
         /// </summary>
-        [Input("onUpload")]
+        [PolicyResourceProperty("onUpload", "_mUnknown_OnUpload")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ServerWorkflowDetailsOnUploadArgs> _mOnUpload;
-
-        public Inputs.ServerWorkflowDetailsOnUploadArgs? OnUpload => _mOnUpload.GetValue("onUpload");
+        private Inputs.ServerWorkflowDetailsOnUploadArgs? _mValue_OnUpload;
+        private bool _mUnknown_OnUpload;
+        public Inputs.ServerWorkflowDetailsOnUploadArgs? OnUpload
+        {
+            get
+            {
+                if (!_mUnknown_OnUpload) return _mValue_OnUpload;
+                throw new UndeferrableValueException("Value 'ServerWorkflowDetailsArgs.OnUpload' is not present");
+            }
+        }
     }
 }

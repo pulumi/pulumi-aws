@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DeviceFleet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the fleet.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeviceFleet.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Device Fleet (must be unique).
         /// </summary>
-        [Input("deviceFleetName")]
+        [PolicyResourceProperty("deviceFleetName", "_mUnknown_DeviceFleetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
-
-        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
+        private string? _mValue_DeviceFleetName;
+        private bool _mUnknown_DeviceFleetName;
+        public string? DeviceFleetName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceFleetName) return _mValue_DeviceFleetName;
+                throw new UndeferrableValueException("Value 'DeviceFleet.DeviceFleetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         /// </summary>
-        [Input("enableIotRoleAlias")]
+        [PolicyResourceProperty("enableIotRoleAlias", "_mUnknown_EnableIotRoleAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableIotRoleAlias;
+        private bool? _mValue_EnableIotRoleAlias;
+        private bool _mUnknown_EnableIotRoleAlias;
+        public bool? EnableIotRoleAlias
+        {
+            get
+            {
+                if (!_mUnknown_EnableIotRoleAlias) return _mValue_EnableIotRoleAlias;
+                throw new UndeferrableValueException("Value 'DeviceFleet.EnableIotRoleAlias' is not present");
+            }
+        }
 
-        public bool? EnableIotRoleAlias => _mEnableIotRoleAlias.GetValue("enableIotRoleAlias");
-
-        [Input("iotRoleAlias")]
+        [PolicyResourceProperty("iotRoleAlias", "_mUnknown_IotRoleAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIotRoleAlias;
-
-        public string? IotRoleAlias => _mIotRoleAlias.GetValue("iotRoleAlias");
+        private string? _mValue_IotRoleAlias;
+        private bool _mUnknown_IotRoleAlias;
+        public string? IotRoleAlias
+        {
+            get
+            {
+                if (!_mUnknown_IotRoleAlias) return _mValue_IotRoleAlias;
+                throw new UndeferrableValueException("Value 'DeviceFleet.IotRoleAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies details about the repository. see Output Config details below.
         /// </summary>
-        [Input("outputConfig")]
+        [PolicyResourceProperty("outputConfig", "_mUnknown_OutputConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DeviceFleetOutputConfig> _mOutputConfig;
-
-        public Outputs.DeviceFleetOutputConfig? OutputConfig => _mOutputConfig.GetValue("outputConfig");
+        private Outputs.DeviceFleetOutputConfig? _mValue_OutputConfig;
+        private bool _mUnknown_OutputConfig;
+        public Outputs.DeviceFleetOutputConfig? OutputConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutputConfig) return _mValue_OutputConfig;
+                throw new UndeferrableValueException("Value 'DeviceFleet.OutputConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DeviceFleet.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeviceFleet.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DeviceFleet.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sagemaker/deviceFleet:DeviceFleet")]
@@ -98,55 +161,97 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker
         /// <summary>
         /// A description of the fleet.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeviceFleetArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Device Fleet (must be unique).
         /// </summary>
-        [Input("deviceFleetName")]
+        [PolicyResourceProperty("deviceFleetName", "_mUnknown_DeviceFleetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceFleetName;
-
-        public string? DeviceFleetName => _mDeviceFleetName.GetValue("deviceFleetName");
+        private string? _mValue_DeviceFleetName;
+        private bool _mUnknown_DeviceFleetName;
+        public string? DeviceFleetName
+        {
+            get
+            {
+                if (!_mUnknown_DeviceFleetName) return _mValue_DeviceFleetName;
+                throw new UndeferrableValueException("Value 'DeviceFleetArgs.DeviceFleetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         /// </summary>
-        [Input("enableIotRoleAlias")]
+        [PolicyResourceProperty("enableIotRoleAlias", "_mUnknown_EnableIotRoleAlias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableIotRoleAlias;
-
-        public bool? EnableIotRoleAlias => _mEnableIotRoleAlias.GetValue("enableIotRoleAlias");
+        private bool? _mValue_EnableIotRoleAlias;
+        private bool _mUnknown_EnableIotRoleAlias;
+        public bool? EnableIotRoleAlias
+        {
+            get
+            {
+                if (!_mUnknown_EnableIotRoleAlias) return _mValue_EnableIotRoleAlias;
+                throw new UndeferrableValueException("Value 'DeviceFleetArgs.EnableIotRoleAlias' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies details about the repository. see Output Config details below.
         /// </summary>
-        [Input("outputConfig")]
+        [PolicyResourceProperty("outputConfig", "_mUnknown_OutputConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DeviceFleetOutputConfigArgs> _mOutputConfig;
-
-        public Inputs.DeviceFleetOutputConfigArgs? OutputConfig => _mOutputConfig.GetValue("outputConfig");
+        private Inputs.DeviceFleetOutputConfigArgs? _mValue_OutputConfig;
+        private bool _mUnknown_OutputConfig;
+        public Inputs.DeviceFleetOutputConfigArgs? OutputConfig
+        {
+            get
+            {
+                if (!_mUnknown_OutputConfig) return _mValue_OutputConfig;
+                throw new UndeferrableValueException("Value 'DeviceFleetArgs.OutputConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'DeviceFleetArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeviceFleetArgs.Tags' is not present");
+            }
+        }
     }
 }

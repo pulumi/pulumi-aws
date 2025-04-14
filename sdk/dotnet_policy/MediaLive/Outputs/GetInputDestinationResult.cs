@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class GetInputDestinationResult
     {
-        [Input("ip")]
+        [PolicyResourceProperty("ip", "_mUnknown_Ip")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIp;
+        private string? _mValue_Ip;
+        private bool _mUnknown_Ip;
+        public string? Ip
+        {
+            get
+            {
+                if (!_mUnknown_Ip) return _mValue_Ip;
+                throw new UndeferrableValueException("Value 'GetInputDestinationResult.Ip' is not present");
+            }
+        }
 
-        public string? Ip => _mIp.GetValue("ip");
-
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPort;
+        private string? _mValue_Port;
+        private bool _mUnknown_Port;
+        public string? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetInputDestinationResult.Port' is not present");
+            }
+        }
 
-        public string? Port => _mPort.GetValue("port");
-
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'GetInputDestinationResult.Url' is not present");
+            }
+        }
 
-        public string? Url => _mUrl.GetValue("url");
-
-        [Input("vpcs")]
+        [PolicyResourceProperty("vpcs", "_mUnknown_Vpcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetInputDestinationVpcResult>> _mVpcs;
-
-        public List<Outputs.GetInputDestinationVpcResult>? Vpcs => _mVpcs.GetValue("vpcs");
+        private List<Outputs.GetInputDestinationVpcResult>? _mValue_Vpcs;
+        private bool _mUnknown_Vpcs;
+        public List<Outputs.GetInputDestinationVpcResult>? Vpcs
+        {
+            get
+            {
+                if (!_mUnknown_Vpcs) return _mValue_Vpcs;
+                throw new UndeferrableValueException("Value 'GetInputDestinationResult.Vpcs' is not present");
+            }
+        }
     }
 }

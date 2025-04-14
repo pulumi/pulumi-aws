@@ -15,38 +15,66 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator.Outputs
         /// <summary>
         /// An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
         /// </summary>
-        [Input("attachmentArn")]
+        [PolicyResourceProperty("attachmentArn", "_mUnknown_AttachmentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentArn;
-
-        public string? AttachmentArn => _mAttachmentArn.GetValue("attachmentArn");
+        private string? _mValue_AttachmentArn;
+        private bool _mUnknown_AttachmentArn;
+        public string? AttachmentArn
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentArn) return _mValue_AttachmentArn;
+                throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.AttachmentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
         /// **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
         /// </summary>
-        [Input("clientIpPreservationEnabled")]
+        [PolicyResourceProperty("clientIpPreservationEnabled", "_mUnknown_ClientIpPreservationEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mClientIpPreservationEnabled;
-
-        public bool? ClientIpPreservationEnabled => _mClientIpPreservationEnabled.GetValue("clientIpPreservationEnabled");
+        private bool? _mValue_ClientIpPreservationEnabled;
+        private bool _mUnknown_ClientIpPreservationEnabled;
+        public bool? ClientIpPreservationEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ClientIpPreservationEnabled) return _mValue_ClientIpPreservationEnabled;
+                throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.ClientIpPreservationEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
         /// </summary>
-        [Input("weight")]
+        [PolicyResourceProperty("weight", "_mUnknown_Weight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWeight;
-
-        public int? Weight => _mWeight.GetValue("weight");
+        private int? _mValue_Weight;
+        private bool _mUnknown_Weight;
+        public int? Weight
+        {
+            get
+            {
+                if (!_mUnknown_Weight) return _mValue_Weight;
+                throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.Weight' is not present");
+            }
+        }
     }
 }

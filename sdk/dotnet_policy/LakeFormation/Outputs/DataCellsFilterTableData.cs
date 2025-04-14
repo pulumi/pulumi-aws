@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation.Outputs
         /// <summary>
         /// A list of column names and/or nested column attributes.
         /// </summary>
-        [Input("columnNames")]
+        [PolicyResourceProperty("columnNames", "_mUnknown_ColumnNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColumnNames;
-
-        public List<string>? ColumnNames => _mColumnNames.GetValue("columnNames");
+        private List<string>? _mValue_ColumnNames;
+        private bool _mUnknown_ColumnNames;
+        public List<string>? ColumnNames
+        {
+            get
+            {
+                if (!_mUnknown_ColumnNames) return _mValue_ColumnNames;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.ColumnNames' is not present");
+            }
+        }
 
         /// <summary>
         /// A wildcard with exclusions. See Column Wildcard below for details.
         /// </summary>
-        [Input("columnWildcard")]
+        [PolicyResourceProperty("columnWildcard", "_mUnknown_ColumnWildcard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCellsFilterTableDataColumnWildcard> _mColumnWildcard;
-
-        public Outputs.DataCellsFilterTableDataColumnWildcard? ColumnWildcard => _mColumnWildcard.GetValue("columnWildcard");
+        private Outputs.DataCellsFilterTableDataColumnWildcard? _mValue_ColumnWildcard;
+        private bool _mUnknown_ColumnWildcard;
+        public Outputs.DataCellsFilterTableDataColumnWildcard? ColumnWildcard
+        {
+            get
+            {
+                if (!_mUnknown_ColumnWildcard) return _mValue_ColumnWildcard;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.ColumnWildcard' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the data cells filter.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A PartiQL predicate. See Row Filter below for details.
         /// </summary>
-        [Input("rowFilter")]
+        [PolicyResourceProperty("rowFilter", "_mUnknown_RowFilter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCellsFilterTableDataRowFilter> _mRowFilter;
-
-        public Outputs.DataCellsFilterTableDataRowFilter? RowFilter => _mRowFilter.GetValue("rowFilter");
+        private Outputs.DataCellsFilterTableDataRowFilter? _mValue_RowFilter;
+        private bool _mUnknown_RowFilter;
+        public Outputs.DataCellsFilterTableDataRowFilter? RowFilter
+        {
+            get
+            {
+                if (!_mUnknown_RowFilter) return _mValue_RowFilter;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.RowFilter' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Data Catalog.
         /// </summary>
-        [Input("tableCatalogId")]
+        [PolicyResourceProperty("tableCatalogId", "_mUnknown_TableCatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableCatalogId;
-
-        public string? TableCatalogId => _mTableCatalogId.GetValue("tableCatalogId");
+        private string? _mValue_TableCatalogId;
+        private bool _mUnknown_TableCatalogId;
+        public string? TableCatalogId
+        {
+            get
+            {
+                if (!_mUnknown_TableCatalogId) return _mValue_TableCatalogId;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.TableCatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the data cells filter version.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionId;
-
-        public string? VersionId => _mVersionId.GetValue("versionId");
+        private string? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public string? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'DataCellsFilterTableData.VersionId' is not present");
+            }
+        }
     }
 }

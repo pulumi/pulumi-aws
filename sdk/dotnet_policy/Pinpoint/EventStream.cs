@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'EventStream.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         /// </summary>
-        [Input("destinationStreamArn")]
+        [PolicyResourceProperty("destinationStreamArn", "_mUnknown_DestinationStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationStreamArn;
-
-        public string? DestinationStreamArn => _mDestinationStreamArn.GetValue("destinationStreamArn");
+        private string? _mValue_DestinationStreamArn;
+        private bool _mUnknown_DestinationStreamArn;
+        public string? DestinationStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationStreamArn) return _mValue_DestinationStreamArn;
+                throw new UndeferrableValueException("Value 'EventStream.DestinationStreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EventStream.RoleArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/eventStream:EventStream")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'EventStreamArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         /// </summary>
-        [Input("destinationStreamArn")]
+        [PolicyResourceProperty("destinationStreamArn", "_mUnknown_DestinationStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationStreamArn;
-
-        public string? DestinationStreamArn => _mDestinationStreamArn.GetValue("destinationStreamArn");
+        private string? _mValue_DestinationStreamArn;
+        private bool _mUnknown_DestinationStreamArn;
+        public string? DestinationStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_DestinationStreamArn) return _mValue_DestinationStreamArn;
+                throw new UndeferrableValueException("Value 'EventStreamArgs.DestinationStreamArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'EventStreamArgs.RoleArn' is not present");
+            }
+        }
     }
 }

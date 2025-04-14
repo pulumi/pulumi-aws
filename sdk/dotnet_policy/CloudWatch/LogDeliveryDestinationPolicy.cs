@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The name of the delivery destination to assign this policy to.
         /// </summary>
-        [Input("deliveryDestinationName")]
+        [PolicyResourceProperty("deliveryDestinationName", "_mUnknown_DeliveryDestinationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationName;
-
-        public string? DeliveryDestinationName => _mDeliveryDestinationName.GetValue("deliveryDestinationName");
+        private string? _mValue_DeliveryDestinationName;
+        private bool _mUnknown_DeliveryDestinationName;
+        public string? DeliveryDestinationName
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryDestinationName) return _mValue_DeliveryDestinationName;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationPolicy.DeliveryDestinationName' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the policy.
         /// </summary>
-        [Input("deliveryDestinationPolicy")]
+        [PolicyResourceProperty("deliveryDestinationPolicy", "_mUnknown_DeliveryDestinationPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationPolicy;
-
-        public string? DeliveryDestinationPolicy => _mDeliveryDestinationPolicy.GetValue("deliveryDestinationPolicy");
+        private string? _mValue_DeliveryDestinationPolicy;
+        private bool _mUnknown_DeliveryDestinationPolicy;
+        public string? DeliveryDestinationPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryDestinationPolicy) return _mValue_DeliveryDestinationPolicy;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationPolicy.DeliveryDestinationPolicy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch
         /// <summary>
         /// The name of the delivery destination to assign this policy to.
         /// </summary>
-        [Input("deliveryDestinationName")]
+        [PolicyResourceProperty("deliveryDestinationName", "_mUnknown_DeliveryDestinationName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationName;
-
-        public string? DeliveryDestinationName => _mDeliveryDestinationName.GetValue("deliveryDestinationName");
+        private string? _mValue_DeliveryDestinationName;
+        private bool _mUnknown_DeliveryDestinationName;
+        public string? DeliveryDestinationName
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryDestinationName) return _mValue_DeliveryDestinationName;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationPolicyArgs.DeliveryDestinationName' is not present");
+            }
+        }
 
         /// <summary>
         /// The contents of the policy.
         /// </summary>
-        [Input("deliveryDestinationPolicy")]
+        [PolicyResourceProperty("deliveryDestinationPolicy", "_mUnknown_DeliveryDestinationPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryDestinationPolicy;
-
-        public string? DeliveryDestinationPolicy => _mDeliveryDestinationPolicy.GetValue("deliveryDestinationPolicy");
+        private string? _mValue_DeliveryDestinationPolicy;
+        private bool _mUnknown_DeliveryDestinationPolicy;
+        public string? DeliveryDestinationPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryDestinationPolicy) return _mValue_DeliveryDestinationPolicy;
+                throw new UndeferrableValueException("Value 'LogDeliveryDestinationPolicyArgs.DeliveryDestinationPolicy' is not present");
+            }
+        }
     }
 }

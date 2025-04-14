@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Transfer.Outputs
         /// <summary>
         /// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
         /// </summary>
-        [Input("compression")]
+        [PolicyResourceProperty("compression", "_mUnknown_Compression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCompression;
-
-        public string? Compression => _mCompression.GetValue("compression");
+        private string? _mValue_Compression;
+        private bool _mUnknown_Compression;
+        public string? Compression
+        {
+            get
+            {
+                if (!_mUnknown_Compression) return _mValue_Compression;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.Compression' is not present");
+            }
+        }
 
         /// <summary>
         /// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
         /// </summary>
-        [Input("encryptionAlgorithm")]
+        [PolicyResourceProperty("encryptionAlgorithm", "_mUnknown_EncryptionAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionAlgorithm;
-
-        public string? EncryptionAlgorithm => _mEncryptionAlgorithm.GetValue("encryptionAlgorithm");
+        private string? _mValue_EncryptionAlgorithm;
+        private bool _mUnknown_EncryptionAlgorithm;
+        public string? EncryptionAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionAlgorithm) return _mValue_EncryptionAlgorithm;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.EncryptionAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 local profile.
         /// </summary>
-        [Input("localProfileId")]
+        [PolicyResourceProperty("localProfileId", "_mUnknown_LocalProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocalProfileId;
-
-        public string? LocalProfileId => _mLocalProfileId.GetValue("localProfileId");
+        private string? _mValue_LocalProfileId;
+        private bool _mUnknown_LocalProfileId;
+        public string? LocalProfileId
+        {
+            get
+            {
+                if (!_mUnknown_LocalProfileId) return _mValue_LocalProfileId;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.LocalProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
         /// </summary>
-        [Input("mdnResponse")]
+        [PolicyResourceProperty("mdnResponse", "_mUnknown_MdnResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMdnResponse;
-
-        public string? MdnResponse => _mMdnResponse.GetValue("mdnResponse");
+        private string? _mValue_MdnResponse;
+        private bool _mUnknown_MdnResponse;
+        public string? MdnResponse
+        {
+            get
+            {
+                if (!_mUnknown_MdnResponse) return _mValue_MdnResponse;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.MdnResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
         /// </summary>
-        [Input("mdnSigningAlgorithm")]
+        [PolicyResourceProperty("mdnSigningAlgorithm", "_mUnknown_MdnSigningAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMdnSigningAlgorithm;
-
-        public string? MdnSigningAlgorithm => _mMdnSigningAlgorithm.GetValue("mdnSigningAlgorithm");
+        private string? _mValue_MdnSigningAlgorithm;
+        private bool _mUnknown_MdnSigningAlgorithm;
+        public string? MdnSigningAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_MdnSigningAlgorithm) return _mValue_MdnSigningAlgorithm;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.MdnSigningAlgorithm' is not present");
+            }
+        }
 
         /// <summary>
         /// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
         /// </summary>
-        [Input("messageSubject")]
+        [PolicyResourceProperty("messageSubject", "_mUnknown_MessageSubject")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageSubject;
-
-        public string? MessageSubject => _mMessageSubject.GetValue("messageSubject");
+        private string? _mValue_MessageSubject;
+        private bool _mUnknown_MessageSubject;
+        public string? MessageSubject
+        {
+            get
+            {
+                if (!_mUnknown_MessageSubject) return _mValue_MessageSubject;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.MessageSubject' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 partner profile.
         /// </summary>
-        [Input("partnerProfileId")]
+        [PolicyResourceProperty("partnerProfileId", "_mUnknown_PartnerProfileId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerProfileId;
-
-        public string? PartnerProfileId => _mPartnerProfileId.GetValue("partnerProfileId");
+        private string? _mValue_PartnerProfileId;
+        private bool _mUnknown_PartnerProfileId;
+        public string? PartnerProfileId
+        {
+            get
+            {
+                if (!_mUnknown_PartnerProfileId) return _mValue_PartnerProfileId;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.PartnerProfileId' is not present");
+            }
+        }
 
         /// <summary>
         /// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
         /// </summary>
-        [Input("signingAlgorithm")]
+        [PolicyResourceProperty("signingAlgorithm", "_mUnknown_SigningAlgorithm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigningAlgorithm;
-
-        public string? SigningAlgorithm => _mSigningAlgorithm.GetValue("signingAlgorithm");
+        private string? _mValue_SigningAlgorithm;
+        private bool _mUnknown_SigningAlgorithm;
+        public string? SigningAlgorithm
+        {
+            get
+            {
+                if (!_mUnknown_SigningAlgorithm) return _mValue_SigningAlgorithm;
+                throw new UndeferrableValueException("Value 'ConnectorAs2Config.SigningAlgorithm' is not present");
+            }
+        }
     }
 }

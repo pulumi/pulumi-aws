@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
         /// </summary>
-        [Input("ebsStorageSettings")]
+        [PolicyResourceProperty("ebsStorageSettings", "_mUnknown_EbsStorageSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings> _mEbsStorageSettings;
-
-        public Outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings? EbsStorageSettings => _mEbsStorageSettings.GetValue("ebsStorageSettings");
+        private Outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings? _mValue_EbsStorageSettings;
+        private bool _mUnknown_EbsStorageSettings;
+        public Outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings? EbsStorageSettings
+        {
+            get
+            {
+                if (!_mUnknown_EbsStorageSettings) return _mValue_EbsStorageSettings;
+                throw new UndeferrableValueException("Value 'SpaceSpaceSettingsSpaceStorageSettings.EbsStorageSettings' is not present");
+            }
+        }
     }
 }

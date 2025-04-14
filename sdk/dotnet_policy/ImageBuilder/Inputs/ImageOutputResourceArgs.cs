@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Set of objects with each Amazon Machine Image (AMI) created.
         /// </summary>
-        [Input("amis")]
+        [PolicyResourceProperty("amis", "_mUnknown_Amis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageOutputResourceAmiArgs>> _mAmis;
-
-        public List<Inputs.ImageOutputResourceAmiArgs>? Amis => _mAmis.GetValue("amis");
+        private List<Inputs.ImageOutputResourceAmiArgs>? _mValue_Amis;
+        private bool _mUnknown_Amis;
+        public List<Inputs.ImageOutputResourceAmiArgs>? Amis
+        {
+            get
+            {
+                if (!_mUnknown_Amis) return _mValue_Amis;
+                throw new UndeferrableValueException("Value 'ImageOutputResourceArgs.Amis' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of objects with each container image created and stored in the output repository.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ImageOutputResourceContainerArgs>> _mContainers;
-
-        public List<Inputs.ImageOutputResourceContainerArgs>? Containers => _mContainers.GetValue("containers");
+        private List<Inputs.ImageOutputResourceContainerArgs>? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public List<Inputs.ImageOutputResourceContainerArgs>? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'ImageOutputResourceArgs.Containers' is not present");
+            }
+        }
     }
 }

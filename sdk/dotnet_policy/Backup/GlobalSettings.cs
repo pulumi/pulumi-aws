@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// A list of resources along with the opt-in preferences for the account.
         /// </summary>
-        [Input("globalSettings")]
+        [PolicyResourceProperty("globalSettings", "_mUnknown_GlobalSettingsList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mGlobalSettingsList;
-
-        public Dictionary<string, string>? GlobalSettingsList => _mGlobalSettingsList.GetValue("globalSettings");
+        private Dictionary<string, string>? _mValue_GlobalSettingsList;
+        private bool _mUnknown_GlobalSettingsList;
+        public Dictionary<string, string>? GlobalSettingsList
+        {
+            get
+            {
+                if (!_mUnknown_GlobalSettingsList) return _mValue_GlobalSettingsList;
+                throw new UndeferrableValueException("Value 'GlobalSettings.GlobalSettingsList' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/globalSettings:GlobalSettings")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// A list of resources along with the opt-in preferences for the account.
         /// </summary>
-        [Input("globalSettings")]
+        [PolicyResourceProperty("globalSettings", "_mUnknown_GlobalSettingsList")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mGlobalSettingsList;
-
-        public Dictionary<string, string>? GlobalSettingsList => _mGlobalSettingsList.GetValue("globalSettings");
+        private Dictionary<string, string>? _mValue_GlobalSettingsList;
+        private bool _mUnknown_GlobalSettingsList;
+        public Dictionary<string, string>? GlobalSettingsList
+        {
+            get
+            {
+                if (!_mUnknown_GlobalSettingsList) return _mValue_GlobalSettingsList;
+                throw new UndeferrableValueException("Value 'GlobalSettingsArgs.GlobalSettingsList' is not present");
+            }
+        }
     }
 }

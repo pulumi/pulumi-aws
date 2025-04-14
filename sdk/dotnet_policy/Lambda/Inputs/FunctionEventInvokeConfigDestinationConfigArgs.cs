@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Inputs
         /// <summary>
         /// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
         /// </summary>
-        [Input("onFailure")]
+        [PolicyResourceProperty("onFailure", "_mUnknown_OnFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs> _mOnFailure;
-
-        public Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs? OnFailure => _mOnFailure.GetValue("onFailure");
+        private Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs? _mValue_OnFailure;
+        private bool _mUnknown_OnFailure;
+        public Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs? OnFailure
+        {
+            get
+            {
+                if (!_mUnknown_OnFailure) return _mValue_OnFailure;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigDestinationConfigArgs.OnFailure' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
         /// </summary>
-        [Input("onSuccess")]
+        [PolicyResourceProperty("onSuccess", "_mUnknown_OnSuccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs> _mOnSuccess;
-
-        public Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs? OnSuccess => _mOnSuccess.GetValue("onSuccess");
+        private Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs? _mValue_OnSuccess;
+        private bool _mUnknown_OnSuccess;
+        public Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs? OnSuccess
+        {
+            get
+            {
+                if (!_mUnknown_OnSuccess) return _mValue_OnSuccess;
+                throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigDestinationConfigArgs.OnSuccess' is not present");
+            }
+        }
     }
 }

@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Column name that a tag key is assigned to.
         /// </summary>
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
-
-        public string? ColumnName => _mColumnName.GetValue("columnName");
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRuleArgs.ColumnName' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
         /// </summary>
-        [Input("matchAllValue")]
+        [PolicyResourceProperty("matchAllValue", "_mUnknown_MatchAllValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMatchAllValue;
-
-        public string? MatchAllValue => _mMatchAllValue.GetValue("matchAllValue");
+        private string? _mValue_MatchAllValue;
+        private bool _mUnknown_MatchAllValue;
+        public string? MatchAllValue
+        {
+            get
+            {
+                if (!_mUnknown_MatchAllValue) return _mValue_MatchAllValue;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRuleArgs.MatchAllValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique key for a tag.
         /// </summary>
-        [Input("tagKey")]
+        [PolicyResourceProperty("tagKey", "_mUnknown_TagKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagKey;
-
-        public string? TagKey => _mTagKey.GetValue("tagKey");
+        private string? _mValue_TagKey;
+        private bool _mUnknown_TagKey;
+        public string? TagKey
+        {
+            get
+            {
+                if (!_mUnknown_TagKey) return _mValue_TagKey;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRuleArgs.TagKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that you want to use to delimit the values when you pass the values at run time.
         /// </summary>
-        [Input("tagMultiValueDelimiter")]
+        [PolicyResourceProperty("tagMultiValueDelimiter", "_mUnknown_TagMultiValueDelimiter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTagMultiValueDelimiter;
-
-        public string? TagMultiValueDelimiter => _mTagMultiValueDelimiter.GetValue("tagMultiValueDelimiter");
+        private string? _mValue_TagMultiValueDelimiter;
+        private bool _mUnknown_TagMultiValueDelimiter;
+        public string? TagMultiValueDelimiter
+        {
+            get
+            {
+                if (!_mUnknown_TagMultiValueDelimiter) return _mValue_TagMultiValueDelimiter;
+                throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRuleArgs.TagMultiValueDelimiter' is not present");
+            }
+        }
     }
 }

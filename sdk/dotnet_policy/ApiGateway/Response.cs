@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         /// </summary>
-        [Input("responseParameters")]
+        [PolicyResourceProperty("responseParameters", "_mUnknown_ResponseParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
-
-        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+        private Dictionary<string, string>? _mValue_ResponseParameters;
+        private bool _mUnknown_ResponseParameters;
+        public Dictionary<string, string>? ResponseParameters
+        {
+            get
+            {
+                if (!_mUnknown_ResponseParameters) return _mValue_ResponseParameters;
+                throw new UndeferrableValueException("Value 'Response.ResponseParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of templates used to transform the response body.
         /// </summary>
-        [Input("responseTemplates")]
+        [PolicyResourceProperty("responseTemplates", "_mUnknown_ResponseTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
-
-        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+        private Dictionary<string, string>? _mValue_ResponseTemplates;
+        private bool _mUnknown_ResponseTemplates;
+        public Dictionary<string, string>? ResponseTemplates
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplates) return _mValue_ResponseTemplates;
+                throw new UndeferrableValueException("Value 'Response.ResponseTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// Response type of the associated GatewayResponse.
         /// </summary>
-        [Input("responseType")]
+        [PolicyResourceProperty("responseType", "_mUnknown_ResponseType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseType;
-
-        public string? ResponseType => _mResponseType.GetValue("responseType");
+        private string? _mValue_ResponseType;
+        private bool _mUnknown_ResponseType;
+        public string? ResponseType
+        {
+            get
+            {
+                if (!_mUnknown_ResponseType) return _mValue_ResponseType;
+                throw new UndeferrableValueException("Value 'Response.ResponseType' is not present");
+            }
+        }
 
         /// <summary>
         /// String identifier of the associated REST API.
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
-
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'Response.RestApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP status code of the Gateway Response.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'Response.StatusCode' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/response:Response")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         /// </summary>
-        [Input("responseParameters")]
+        [PolicyResourceProperty("responseParameters", "_mUnknown_ResponseParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseParameters;
-
-        public Dictionary<string, string>? ResponseParameters => _mResponseParameters.GetValue("responseParameters");
+        private Dictionary<string, string>? _mValue_ResponseParameters;
+        private bool _mUnknown_ResponseParameters;
+        public Dictionary<string, string>? ResponseParameters
+        {
+            get
+            {
+                if (!_mUnknown_ResponseParameters) return _mValue_ResponseParameters;
+                throw new UndeferrableValueException("Value 'ResponseArgs.ResponseParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of templates used to transform the response body.
         /// </summary>
-        [Input("responseTemplates")]
+        [PolicyResourceProperty("responseTemplates", "_mUnknown_ResponseTemplates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseTemplates;
-
-        public Dictionary<string, string>? ResponseTemplates => _mResponseTemplates.GetValue("responseTemplates");
+        private Dictionary<string, string>? _mValue_ResponseTemplates;
+        private bool _mUnknown_ResponseTemplates;
+        public Dictionary<string, string>? ResponseTemplates
+        {
+            get
+            {
+                if (!_mUnknown_ResponseTemplates) return _mValue_ResponseTemplates;
+                throw new UndeferrableValueException("Value 'ResponseArgs.ResponseTemplates' is not present");
+            }
+        }
 
         /// <summary>
         /// Response type of the associated GatewayResponse.
         /// </summary>
-        [Input("responseType")]
+        [PolicyResourceProperty("responseType", "_mUnknown_ResponseType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseType;
-
-        public string? ResponseType => _mResponseType.GetValue("responseType");
+        private string? _mValue_ResponseType;
+        private bool _mUnknown_ResponseType;
+        public string? ResponseType
+        {
+            get
+            {
+                if (!_mUnknown_ResponseType) return _mValue_ResponseType;
+                throw new UndeferrableValueException("Value 'ResponseArgs.ResponseType' is not present");
+            }
+        }
 
         /// <summary>
         /// String identifier of the associated REST API.
         /// </summary>
-        [Input("restApiId")]
+        [PolicyResourceProperty("restApiId", "_mUnknown_RestApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestApiId;
-
-        public string? RestApiId => _mRestApiId.GetValue("restApiId");
+        private string? _mValue_RestApiId;
+        private bool _mUnknown_RestApiId;
+        public string? RestApiId
+        {
+            get
+            {
+                if (!_mUnknown_RestApiId) return _mValue_RestApiId;
+                throw new UndeferrableValueException("Value 'ResponseArgs.RestApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// HTTP status code of the Gateway Response.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'ResponseArgs.StatusCode' is not present");
+            }
+        }
     }
 }

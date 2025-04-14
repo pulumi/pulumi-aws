@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// AWS account ID for member account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'Member.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The detector ID of the GuardDuty account where you want to create member accounts.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'Member.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         /// </summary>
-        [Input("disableEmailNotification")]
+        [PolicyResourceProperty("disableEmailNotification", "_mUnknown_DisableEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
-
-        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
+        private bool? _mValue_DisableEmailNotification;
+        private bool _mUnknown_DisableEmailNotification;
+        public bool? DisableEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_DisableEmailNotification) return _mValue_DisableEmailNotification;
+                throw new UndeferrableValueException("Value 'Member.DisableEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address for member account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'Member.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// Message for invitation.
         /// </summary>
-        [Input("invitationMessage")]
+        [PolicyResourceProperty("invitationMessage", "_mUnknown_InvitationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationMessage;
-
-        public string? InvitationMessage => _mInvitationMessage.GetValue("invitationMessage");
+        private string? _mValue_InvitationMessage;
+        private bool _mUnknown_InvitationMessage;
+        public string? InvitationMessage
+        {
+            get
+            {
+                if (!_mUnknown_InvitationMessage) return _mValue_InvitationMessage;
+                throw new UndeferrableValueException("Value 'Member.InvitationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
-        [Input("invite")]
+        [PolicyResourceProperty("invite", "_mUnknown_Invite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
-
-        public bool? Invite => _mInvite.GetValue("invite");
+        private bool? _mValue_Invite;
+        private bool _mUnknown_Invite;
+        public bool? Invite
+        {
+            get
+            {
+                if (!_mUnknown_Invite) return _mValue_Invite;
+                throw new UndeferrableValueException("Value 'Member.Invite' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         /// </summary>
-        [Input("relationshipStatus")]
+        [PolicyResourceProperty("relationshipStatus", "_mUnknown_RelationshipStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRelationshipStatus;
-
-        public string? RelationshipStatus => _mRelationshipStatus.GetValue("relationshipStatus");
+        private string? _mValue_RelationshipStatus;
+        private bool _mUnknown_RelationshipStatus;
+        public string? RelationshipStatus
+        {
+            get
+            {
+                if (!_mUnknown_RelationshipStatus) return _mValue_RelationshipStatus;
+                throw new UndeferrableValueException("Value 'Member.RelationshipStatus' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:guardduty/member:Member")]
@@ -83,55 +132,97 @@ namespace Pulumi.PolicyPacks.Aws.GuardDuty
         /// <summary>
         /// AWS account ID for member account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'MemberArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The detector ID of the GuardDuty account where you want to create member accounts.
         /// </summary>
-        [Input("detectorId")]
+        [PolicyResourceProperty("detectorId", "_mUnknown_DetectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetectorId;
-
-        public string? DetectorId => _mDetectorId.GetValue("detectorId");
+        private string? _mValue_DetectorId;
+        private bool _mUnknown_DetectorId;
+        public string? DetectorId
+        {
+            get
+            {
+                if (!_mUnknown_DetectorId) return _mValue_DetectorId;
+                throw new UndeferrableValueException("Value 'MemberArgs.DetectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         /// </summary>
-        [Input("disableEmailNotification")]
+        [PolicyResourceProperty("disableEmailNotification", "_mUnknown_DisableEmailNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableEmailNotification;
-
-        public bool? DisableEmailNotification => _mDisableEmailNotification.GetValue("disableEmailNotification");
+        private bool? _mValue_DisableEmailNotification;
+        private bool _mUnknown_DisableEmailNotification;
+        public bool? DisableEmailNotification
+        {
+            get
+            {
+                if (!_mUnknown_DisableEmailNotification) return _mValue_DisableEmailNotification;
+                throw new UndeferrableValueException("Value 'MemberArgs.DisableEmailNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Email address for member account.
         /// </summary>
-        [Input("email")]
+        [PolicyResourceProperty("email", "_mUnknown_Email")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmail;
-
-        public string? Email => _mEmail.GetValue("email");
+        private string? _mValue_Email;
+        private bool _mUnknown_Email;
+        public string? Email
+        {
+            get
+            {
+                if (!_mUnknown_Email) return _mValue_Email;
+                throw new UndeferrableValueException("Value 'MemberArgs.Email' is not present");
+            }
+        }
 
         /// <summary>
         /// Message for invitation.
         /// </summary>
-        [Input("invitationMessage")]
+        [PolicyResourceProperty("invitationMessage", "_mUnknown_InvitationMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationMessage;
-
-        public string? InvitationMessage => _mInvitationMessage.GetValue("invitationMessage");
+        private string? _mValue_InvitationMessage;
+        private bool _mUnknown_InvitationMessage;
+        public string? InvitationMessage
+        {
+            get
+            {
+                if (!_mUnknown_InvitationMessage) return _mValue_InvitationMessage;
+                throw new UndeferrableValueException("Value 'MemberArgs.InvitationMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         /// </summary>
-        [Input("invite")]
+        [PolicyResourceProperty("invite", "_mUnknown_Invite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvite;
-
-        public bool? Invite => _mInvite.GetValue("invite");
+        private bool? _mValue_Invite;
+        private bool _mUnknown_Invite;
+        public bool? Invite
+        {
+            get
+            {
+                if (!_mUnknown_Invite) return _mValue_Invite;
+                throw new UndeferrableValueException("Value 'MemberArgs.Invite' is not present");
+            }
+        }
     }
 }

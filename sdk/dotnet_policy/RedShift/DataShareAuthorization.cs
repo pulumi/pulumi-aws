@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Whether to allow write operations for a datashare.
         /// </summary>
-        [Input("allowWrites")]
+        [PolicyResourceProperty("allowWrites", "_mUnknown_AllowWrites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
-
-        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
+        private bool? _mValue_AllowWrites;
+        private bool _mUnknown_AllowWrites;
+        public bool? AllowWrites
+        {
+            get
+            {
+                if (!_mUnknown_AllowWrites) return _mValue_AllowWrites;
+                throw new UndeferrableValueException("Value 'DataShareAuthorization.AllowWrites' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
         /// </summary>
-        [Input("consumerIdentifier")]
+        [PolicyResourceProperty("consumerIdentifier", "_mUnknown_ConsumerIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerIdentifier;
-
-        public string? ConsumerIdentifier => _mConsumerIdentifier.GetValue("consumerIdentifier");
+        private string? _mValue_ConsumerIdentifier;
+        private bool _mUnknown_ConsumerIdentifier;
+        public string? ConsumerIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerIdentifier) return _mValue_ConsumerIdentifier;
+                throw new UndeferrableValueException("Value 'DataShareAuthorization.ConsumerIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("dataShareArn")]
+        [PolicyResourceProperty("dataShareArn", "_mUnknown_DataShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
-
-        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
+        private string? _mValue_DataShareArn;
+        private bool _mUnknown_DataShareArn;
+        public string? DataShareArn
+        {
+            get
+            {
+                if (!_mUnknown_DataShareArn) return _mValue_DataShareArn;
+                throw new UndeferrableValueException("Value 'DataShareAuthorization.DataShareArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of a datashare to show its managing entity.
         /// </summary>
-        [Input("managedBy")]
+        [PolicyResourceProperty("managedBy", "_mUnknown_ManagedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedBy;
-
-        public string? ManagedBy => _mManagedBy.GetValue("managedBy");
+        private string? _mValue_ManagedBy;
+        private bool _mUnknown_ManagedBy;
+        public string? ManagedBy
+        {
+            get
+            {
+                if (!_mUnknown_ManagedBy) return _mValue_ManagedBy;
+                throw new UndeferrableValueException("Value 'DataShareAuthorization.ManagedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the producer.
         /// </summary>
-        [Input("producerArn")]
+        [PolicyResourceProperty("producerArn", "_mUnknown_ProducerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProducerArn;
-
-        public string? ProducerArn => _mProducerArn.GetValue("producerArn");
+        private string? _mValue_ProducerArn;
+        private bool _mUnknown_ProducerArn;
+        public string? ProducerArn
+        {
+            get
+            {
+                if (!_mUnknown_ProducerArn) return _mValue_ProducerArn;
+                throw new UndeferrableValueException("Value 'DataShareAuthorization.ProducerArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/dataShareAuthorization:DataShareAuthorization")]
@@ -67,30 +102,51 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// Whether to allow write operations for a datashare.
         /// </summary>
-        [Input("allowWrites")]
+        [PolicyResourceProperty("allowWrites", "_mUnknown_AllowWrites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowWrites;
-
-        public bool? AllowWrites => _mAllowWrites.GetValue("allowWrites");
+        private bool? _mValue_AllowWrites;
+        private bool _mUnknown_AllowWrites;
+        public bool? AllowWrites
+        {
+            get
+            {
+                if (!_mUnknown_AllowWrites) return _mValue_AllowWrites;
+                throw new UndeferrableValueException("Value 'DataShareAuthorizationArgs.AllowWrites' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
         /// </summary>
-        [Input("consumerIdentifier")]
+        [PolicyResourceProperty("consumerIdentifier", "_mUnknown_ConsumerIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConsumerIdentifier;
-
-        public string? ConsumerIdentifier => _mConsumerIdentifier.GetValue("consumerIdentifier");
+        private string? _mValue_ConsumerIdentifier;
+        private bool _mUnknown_ConsumerIdentifier;
+        public string? ConsumerIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ConsumerIdentifier) return _mValue_ConsumerIdentifier;
+                throw new UndeferrableValueException("Value 'DataShareAuthorizationArgs.ConsumerIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("dataShareArn")]
+        [PolicyResourceProperty("dataShareArn", "_mUnknown_DataShareArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataShareArn;
-
-        public string? DataShareArn => _mDataShareArn.GetValue("dataShareArn");
+        private string? _mValue_DataShareArn;
+        private bool _mUnknown_DataShareArn;
+        public string? DataShareArn
+        {
+            get
+            {
+                if (!_mUnknown_DataShareArn) return _mValue_DataShareArn;
+                throw new UndeferrableValueException("Value 'DataShareAuthorizationArgs.DataShareArn' is not present");
+            }
+        }
     }
 }

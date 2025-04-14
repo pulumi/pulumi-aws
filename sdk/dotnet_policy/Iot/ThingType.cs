@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The ARN of the created AWS IoT Thing Type.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ThingType.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
         /// </summary>
-        [Input("deprecated")]
+        [PolicyResourceProperty("deprecated", "_mUnknown_Deprecated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeprecated;
-
-        public bool? Deprecated => _mDeprecated.GetValue("deprecated");
+        private bool? _mValue_Deprecated;
+        private bool _mUnknown_Deprecated;
+        public bool? Deprecated
+        {
+            get
+            {
+                if (!_mUnknown_Deprecated) return _mValue_Deprecated;
+                throw new UndeferrableValueException("Value 'ThingType.Deprecated' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing type.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ThingType.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// , Configuration block that can contain the following properties of the thing type:
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ThingTypeProperties> _mProperties;
-
-        public Outputs.ThingTypeProperties? Properties => _mProperties.GetValue("properties");
+        private Outputs.ThingTypeProperties? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public Outputs.ThingTypeProperties? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'ThingType.Properties' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ThingType.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ThingType.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/thingType:ThingType")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
         /// </summary>
-        [Input("deprecated")]
+        [PolicyResourceProperty("deprecated", "_mUnknown_Deprecated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeprecated;
-
-        public bool? Deprecated => _mDeprecated.GetValue("deprecated");
+        private bool? _mValue_Deprecated;
+        private bool _mUnknown_Deprecated;
+        public bool? Deprecated
+        {
+            get
+            {
+                if (!_mUnknown_Deprecated) return _mValue_Deprecated;
+                throw new UndeferrableValueException("Value 'ThingTypeArgs.Deprecated' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the thing type.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ThingTypeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// , Configuration block that can contain the following properties of the thing type:
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ThingTypePropertiesArgs> _mProperties;
-
-        public Inputs.ThingTypePropertiesArgs? Properties => _mProperties.GetValue("properties");
+        private Inputs.ThingTypePropertiesArgs? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public Inputs.ThingTypePropertiesArgs? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'ThingTypeArgs.Properties' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ThingTypeArgs.Tags' is not present");
+            }
+        }
     }
 }

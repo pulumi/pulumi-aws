@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Outputs
         /// <summary>
         /// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         /// </summary>
-        [Input("bodies")]
+        [PolicyResourceProperty("bodies", "_mUnknown_Bodies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody>> _mBodies;
-
-        public List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody>? Bodies => _mBodies.GetValue("bodies");
+        private List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody>? _mValue_Bodies;
+        private bool _mUnknown_Bodies;
+        public List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody>? Bodies
+        {
+            get
+            {
+                if (!_mUnknown_Bodies) return _mValue_Bodies;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthOauthHttpParameters.Bodies' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         /// </summary>
-        [Input("headers")]
+        [PolicyResourceProperty("headers", "_mUnknown_Headers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader>> _mHeaders;
-
-        public List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader>? Headers => _mHeaders.GetValue("headers");
+        private List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader>? _mValue_Headers;
+        private bool _mUnknown_Headers;
+        public List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader>? Headers
+        {
+            get
+            {
+                if (!_mUnknown_Headers) return _mValue_Headers;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthOauthHttpParameters.Headers' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         /// </summary>
-        [Input("queryStrings")]
+        [PolicyResourceProperty("queryStrings", "_mUnknown_QueryStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString>> _mQueryStrings;
-
-        public List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString>? QueryStrings => _mQueryStrings.GetValue("queryStrings");
+        private List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString>? _mValue_QueryStrings;
+        private bool _mUnknown_QueryStrings;
+        public List<Outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString>? QueryStrings
+        {
+            get
+            {
+                if (!_mUnknown_QueryStrings) return _mValue_QueryStrings;
+                throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthOauthHttpParameters.QueryStrings' is not present");
+            }
+        }
     }
 }

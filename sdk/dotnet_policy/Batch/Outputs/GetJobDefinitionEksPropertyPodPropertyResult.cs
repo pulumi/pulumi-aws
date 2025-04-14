@@ -15,79 +15,142 @@ namespace Pulumi.PolicyPacks.Aws.Batch.Outputs
         /// <summary>
         /// The properties of the container that's used on the Amazon EKS pod. See containers below.
         /// </summary>
-        [Input("containers")]
+        [PolicyResourceProperty("containers", "_mUnknown_Containers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyContainerResult>> _mContainers;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyContainerResult>? Containers => _mContainers.GetValue("containers");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyContainerResult>? _mValue_Containers;
+        private bool _mUnknown_Containers;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyContainerResult>? Containers
+        {
+            get
+            {
+                if (!_mUnknown_Containers) return _mValue_Containers;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.Containers' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
         /// </summary>
-        [Input("dnsPolicy")]
+        [PolicyResourceProperty("dnsPolicy", "_mUnknown_DnsPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDnsPolicy;
-
-        public string? DnsPolicy => _mDnsPolicy.GetValue("dnsPolicy");
+        private string? _mValue_DnsPolicy;
+        private bool _mUnknown_DnsPolicy;
+        public string? DnsPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DnsPolicy) return _mValue_DnsPolicy;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.DnsPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
         /// </summary>
-        [Input("hostNetwork")]
+        [PolicyResourceProperty("hostNetwork", "_mUnknown_HostNetwork")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mHostNetwork;
+        private bool? _mValue_HostNetwork;
+        private bool _mUnknown_HostNetwork;
+        public bool? HostNetwork
+        {
+            get
+            {
+                if (!_mUnknown_HostNetwork) return _mValue_HostNetwork;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.HostNetwork' is not present");
+            }
+        }
 
-        public bool? HostNetwork => _mHostNetwork.GetValue("hostNetwork");
-
-        [Input("imagePullSecrets")]
+        [PolicyResourceProperty("imagePullSecrets", "_mUnknown_ImagePullSecrets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyImagePullSecretResult>> _mImagePullSecrets;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyImagePullSecretResult>? ImagePullSecrets => _mImagePullSecrets.GetValue("imagePullSecrets");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyImagePullSecretResult>? _mValue_ImagePullSecrets;
+        private bool _mUnknown_ImagePullSecrets;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyImagePullSecretResult>? ImagePullSecrets
+        {
+            get
+            {
+                if (!_mUnknown_ImagePullSecrets) return _mValue_ImagePullSecrets;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.ImagePullSecrets' is not present");
+            }
+        }
 
         /// <summary>
         /// Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
         /// </summary>
-        [Input("initContainers")]
+        [PolicyResourceProperty("initContainers", "_mUnknown_InitContainers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerResult>> _mInitContainers;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerResult>? InitContainers => _mInitContainers.GetValue("initContainers");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerResult>? _mValue_InitContainers;
+        private bool _mUnknown_InitContainers;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerResult>? InitContainers
+        {
+            get
+            {
+                if (!_mUnknown_InitContainers) return _mValue_InitContainers;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.InitContainers' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata about the Kubernetes pod.
         /// </summary>
-        [Input("metadatas")]
+        [PolicyResourceProperty("metadatas", "_mUnknown_Metadatas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyMetadataResult>> _mMetadatas;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyMetadataResult>? Metadatas => _mMetadatas.GetValue("metadatas");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyMetadataResult>? _mValue_Metadatas;
+        private bool _mUnknown_Metadatas;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyMetadataResult>? Metadatas
+        {
+            get
+            {
+                if (!_mUnknown_Metadatas) return _mValue_Metadatas;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.Metadatas' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service account that's used to run the pod.
         /// </summary>
-        [Input("serviceAccountName")]
+        [PolicyResourceProperty("serviceAccountName", "_mUnknown_ServiceAccountName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceAccountName;
-
-        public string? ServiceAccountName => _mServiceAccountName.GetValue("serviceAccountName");
+        private string? _mValue_ServiceAccountName;
+        private bool _mUnknown_ServiceAccountName;
+        public string? ServiceAccountName
+        {
+            get
+            {
+                if (!_mUnknown_ServiceAccountName) return _mValue_ServiceAccountName;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.ServiceAccountName' is not present");
+            }
+        }
 
         /// <summary>
         /// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
         /// </summary>
-        [Input("shareProcessNamespace")]
+        [PolicyResourceProperty("shareProcessNamespace", "_mUnknown_ShareProcessNamespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mShareProcessNamespace;
-
-        public bool? ShareProcessNamespace => _mShareProcessNamespace.GetValue("shareProcessNamespace");
+        private bool? _mValue_ShareProcessNamespace;
+        private bool _mUnknown_ShareProcessNamespace;
+        public bool? ShareProcessNamespace
+        {
+            get
+            {
+                if (!_mUnknown_ShareProcessNamespace) return _mValue_ShareProcessNamespace;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.ShareProcessNamespace' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of data volumes used in a job.
         /// </summary>
-        [Input("volumes")]
+        [PolicyResourceProperty("volumes", "_mUnknown_Volumes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeResult>> _mVolumes;
-
-        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeResult>? Volumes => _mVolumes.GetValue("volumes");
+        private List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeResult>? _mValue_Volumes;
+        private bool _mUnknown_Volumes;
+        public List<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeResult>? Volumes
+        {
+            get
+            {
+                if (!_mUnknown_Volumes) return _mValue_Volumes;
+                throw new UndeferrableValueException("Value 'GetJobDefinitionEksPropertyPodPropertyResult.Volumes' is not present");
+            }
+        }
     }
 }

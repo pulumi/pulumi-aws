@@ -15,91 +15,161 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Outputs
         /// <summary>
         /// The hash key name.
         /// </summary>
-        [Input("hashKeyField")]
+        [PolicyResourceProperty("hashKeyField", "_mUnknown_HashKeyField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKeyField;
-
-        public string? HashKeyField => _mHashKeyField.GetValue("hashKeyField");
+        private string? _mValue_HashKeyField;
+        private bool _mUnknown_HashKeyField;
+        public string? HashKeyField
+        {
+            get
+            {
+                if (!_mUnknown_HashKeyField) return _mValue_HashKeyField;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.HashKeyField' is not present");
+            }
+        }
 
         /// <summary>
         /// The hash key type. Valid values are "STRING" or "NUMBER".
         /// </summary>
-        [Input("hashKeyType")]
+        [PolicyResourceProperty("hashKeyType", "_mUnknown_HashKeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKeyType;
-
-        public string? HashKeyType => _mHashKeyType.GetValue("hashKeyType");
+        private string? _mValue_HashKeyType;
+        private bool _mUnknown_HashKeyType;
+        public string? HashKeyType
+        {
+            get
+            {
+                if (!_mUnknown_HashKeyType) return _mValue_HashKeyType;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.HashKeyType' is not present");
+            }
+        }
 
         /// <summary>
         /// The hash key value.
         /// </summary>
-        [Input("hashKeyValue")]
+        [PolicyResourceProperty("hashKeyValue", "_mUnknown_HashKeyValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHashKeyValue;
-
-        public string? HashKeyValue => _mHashKeyValue.GetValue("hashKeyValue");
+        private string? _mValue_HashKeyValue;
+        private bool _mUnknown_HashKeyValue;
+        public string? HashKeyValue
+        {
+            get
+            {
+                if (!_mUnknown_HashKeyValue) return _mValue_HashKeyValue;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.HashKeyValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
         /// </summary>
-        [Input("operation")]
+        [PolicyResourceProperty("operation", "_mUnknown_Operation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOperation;
-
-        public string? Operation => _mOperation.GetValue("operation");
+        private string? _mValue_Operation;
+        private bool _mUnknown_Operation;
+        public string? Operation
+        {
+            get
+            {
+                if (!_mUnknown_Operation) return _mValue_Operation;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.Operation' is not present");
+            }
+        }
 
         /// <summary>
         /// The action payload.
         /// </summary>
-        [Input("payloadField")]
+        [PolicyResourceProperty("payloadField", "_mUnknown_PayloadField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPayloadField;
-
-        public string? PayloadField => _mPayloadField.GetValue("payloadField");
+        private string? _mValue_PayloadField;
+        private bool _mUnknown_PayloadField;
+        public string? PayloadField
+        {
+            get
+            {
+                if (!_mUnknown_PayloadField) return _mValue_PayloadField;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.PayloadField' is not present");
+            }
+        }
 
         /// <summary>
         /// The range key name.
         /// </summary>
-        [Input("rangeKeyField")]
+        [PolicyResourceProperty("rangeKeyField", "_mUnknown_RangeKeyField")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKeyField;
-
-        public string? RangeKeyField => _mRangeKeyField.GetValue("rangeKeyField");
+        private string? _mValue_RangeKeyField;
+        private bool _mUnknown_RangeKeyField;
+        public string? RangeKeyField
+        {
+            get
+            {
+                if (!_mUnknown_RangeKeyField) return _mValue_RangeKeyField;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.RangeKeyField' is not present");
+            }
+        }
 
         /// <summary>
         /// The range key type. Valid values are "STRING" or "NUMBER".
         /// </summary>
-        [Input("rangeKeyType")]
+        [PolicyResourceProperty("rangeKeyType", "_mUnknown_RangeKeyType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKeyType;
-
-        public string? RangeKeyType => _mRangeKeyType.GetValue("rangeKeyType");
+        private string? _mValue_RangeKeyType;
+        private bool _mUnknown_RangeKeyType;
+        public string? RangeKeyType
+        {
+            get
+            {
+                if (!_mUnknown_RangeKeyType) return _mValue_RangeKeyType;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.RangeKeyType' is not present");
+            }
+        }
 
         /// <summary>
         /// The range key value.
         /// </summary>
-        [Input("rangeKeyValue")]
+        [PolicyResourceProperty("rangeKeyValue", "_mUnknown_RangeKeyValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRangeKeyValue;
-
-        public string? RangeKeyValue => _mRangeKeyValue.GetValue("rangeKeyValue");
+        private string? _mValue_RangeKeyValue;
+        private bool _mUnknown_RangeKeyValue;
+        public string? RangeKeyValue
+        {
+            get
+            {
+                if (!_mUnknown_RangeKeyValue) return _mValue_RangeKeyValue;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.RangeKeyValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access to the DynamoDB table.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the DynamoDB table.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodb.TableName' is not present");
+            }
+        }
     }
 }

@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
         /// </summary>
-        [Input("targetDocumentAttributeKey")]
+        [PolicyResourceProperty("targetDocumentAttributeKey", "_mUnknown_TargetDocumentAttributeKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetDocumentAttributeKey;
-
-        public string? TargetDocumentAttributeKey => _mTargetDocumentAttributeKey.GetValue("targetDocumentAttributeKey");
+        private string? _mValue_TargetDocumentAttributeKey;
+        private bool _mUnknown_TargetDocumentAttributeKey;
+        public string? TargetDocumentAttributeKey
+        {
+            get
+            {
+                if (!_mUnknown_TargetDocumentAttributeKey) return _mValue_TargetDocumentAttributeKey;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs.TargetDocumentAttributeKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         /// </summary>
-        [Input("targetDocumentAttributeValue")]
+        [PolicyResourceProperty("targetDocumentAttributeValue", "_mUnknown_TargetDocumentAttributeValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs> _mTargetDocumentAttributeValue;
-
-        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs? TargetDocumentAttributeValue => _mTargetDocumentAttributeValue.GetValue("targetDocumentAttributeValue");
+        private Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs? _mValue_TargetDocumentAttributeValue;
+        private bool _mUnknown_TargetDocumentAttributeValue;
+        public Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs? TargetDocumentAttributeValue
+        {
+            get
+            {
+                if (!_mUnknown_TargetDocumentAttributeValue) return _mValue_TargetDocumentAttributeValue;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs.TargetDocumentAttributeValue' is not present");
+            }
+        }
 
         /// <summary>
         /// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
         /// </summary>
-        [Input("targetDocumentAttributeValueDeletion")]
+        [PolicyResourceProperty("targetDocumentAttributeValueDeletion", "_mUnknown_TargetDocumentAttributeValueDeletion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTargetDocumentAttributeValueDeletion;
-
-        public bool? TargetDocumentAttributeValueDeletion => _mTargetDocumentAttributeValueDeletion.GetValue("targetDocumentAttributeValueDeletion");
+        private bool? _mValue_TargetDocumentAttributeValueDeletion;
+        private bool _mUnknown_TargetDocumentAttributeValueDeletion;
+        public bool? TargetDocumentAttributeValueDeletion
+        {
+            get
+            {
+                if (!_mUnknown_TargetDocumentAttributeValueDeletion) return _mValue_TargetDocumentAttributeValueDeletion;
+                throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs.TargetDocumentAttributeValueDeletion' is not present");
+            }
+        }
     }
 }

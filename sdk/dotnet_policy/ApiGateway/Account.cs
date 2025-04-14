@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// The version of the API keys used for the account.
         /// </summary>
-        [Input("apiKeyVersion")]
+        [PolicyResourceProperty("apiKeyVersion", "_mUnknown_ApiKeyVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeyVersion;
-
-        public string? ApiKeyVersion => _mApiKeyVersion.GetValue("apiKeyVersion");
+        private string? _mValue_ApiKeyVersion;
+        private bool _mUnknown_ApiKeyVersion;
+        public string? ApiKeyVersion
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeyVersion) return _mValue_ApiKeyVersion;
+                throw new UndeferrableValueException("Value 'Account.ApiKeyVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         /// </summary>
-        [Input("cloudwatchRoleArn")]
+        [PolicyResourceProperty("cloudwatchRoleArn", "_mUnknown_CloudwatchRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchRoleArn;
-
-        public string? CloudwatchRoleArn => _mCloudwatchRoleArn.GetValue("cloudwatchRoleArn");
+        private string? _mValue_CloudwatchRoleArn;
+        private bool _mUnknown_CloudwatchRoleArn;
+        public string? CloudwatchRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchRoleArn) return _mValue_CloudwatchRoleArn;
+                throw new UndeferrableValueException("Value 'Account.CloudwatchRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of features supported for the account.
         /// </summary>
-        [Input("features")]
+        [PolicyResourceProperty("features", "_mUnknown_Features")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFeatures;
-
-        public List<string>? Features => _mFeatures.GetValue("features");
+        private List<string>? _mValue_Features;
+        private bool _mUnknown_Features;
+        public List<string>? Features
+        {
+            get
+            {
+                if (!_mUnknown_Features) return _mValue_Features;
+                throw new UndeferrableValueException("Value 'Account.Features' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
         /// Defaults to `false`.
         /// Will be removed in a future major version of the provider.
         /// </summary>
-        [Input("resetOnDelete")]
+        [PolicyResourceProperty("resetOnDelete", "_mUnknown_ResetOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mResetOnDelete;
-
-        public bool? ResetOnDelete => _mResetOnDelete.GetValue("resetOnDelete");
+        private bool? _mValue_ResetOnDelete;
+        private bool _mUnknown_ResetOnDelete;
+        public bool? ResetOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_ResetOnDelete) return _mValue_ResetOnDelete;
+                throw new UndeferrableValueException("Value 'Account.ResetOnDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Account-Level throttle settings. See exported fields below.
         /// </summary>
-        [Input("throttleSettings")]
+        [PolicyResourceProperty("throttleSettings", "_mUnknown_ThrottleSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AccountThrottleSetting>> _mThrottleSettings;
-
-        public List<Outputs.AccountThrottleSetting>? ThrottleSettings => _mThrottleSettings.GetValue("throttleSettings");
+        private List<Outputs.AccountThrottleSetting>? _mValue_ThrottleSettings;
+        private bool _mUnknown_ThrottleSettings;
+        public List<Outputs.AccountThrottleSetting>? ThrottleSettings
+        {
+            get
+            {
+                if (!_mUnknown_ThrottleSettings) return _mValue_ThrottleSettings;
+                throw new UndeferrableValueException("Value 'Account.ThrottleSettings' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/account:Account")]
@@ -67,21 +102,35 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         /// </summary>
-        [Input("cloudwatchRoleArn")]
+        [PolicyResourceProperty("cloudwatchRoleArn", "_mUnknown_CloudwatchRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchRoleArn;
-
-        public string? CloudwatchRoleArn => _mCloudwatchRoleArn.GetValue("cloudwatchRoleArn");
+        private string? _mValue_CloudwatchRoleArn;
+        private bool _mUnknown_CloudwatchRoleArn;
+        public string? CloudwatchRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchRoleArn) return _mValue_CloudwatchRoleArn;
+                throw new UndeferrableValueException("Value 'AccountArgs.CloudwatchRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
         /// Defaults to `false`.
         /// Will be removed in a future major version of the provider.
         /// </summary>
-        [Input("resetOnDelete")]
+        [PolicyResourceProperty("resetOnDelete", "_mUnknown_ResetOnDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mResetOnDelete;
-
-        public bool? ResetOnDelete => _mResetOnDelete.GetValue("resetOnDelete");
+        private bool? _mValue_ResetOnDelete;
+        private bool _mUnknown_ResetOnDelete;
+        public bool? ResetOnDelete
+        {
+            get
+            {
+                if (!_mUnknown_ResetOnDelete) return _mValue_ResetOnDelete;
+                throw new UndeferrableValueException("Value 'AccountArgs.ResetOnDelete' is not present");
+            }
+        }
     }
 }

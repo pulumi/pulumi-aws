@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// The configuration for an Iceberg snapshot retention optimizer.
         /// </summary>
-        [Input("icebergConfiguration")]
+        [PolicyResourceProperty("icebergConfiguration", "_mUnknown_IcebergConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration> _mIcebergConfiguration;
-
-        public Outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration? IcebergConfiguration => _mIcebergConfiguration.GetValue("icebergConfiguration");
+        private Outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration? _mValue_IcebergConfiguration;
+        private bool _mUnknown_IcebergConfiguration;
+        public Outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration? IcebergConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_IcebergConfiguration) return _mValue_IcebergConfiguration;
+                throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfiguration.IcebergConfiguration' is not present");
+            }
+        }
     }
 }

@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The ARN of the DHCP Options Set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         /// </summary>
-        [Input("domainNameServers")]
+        [PolicyResourceProperty("domainNameServers", "_mUnknown_DomainNameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainNameServers;
-
-        public List<string>? DomainNameServers => _mDomainNameServers.GetValue("domainNameServers");
+        private List<string>? _mValue_DomainNameServers;
+        private bool _mUnknown_DomainNameServers;
+        public List<string>? DomainNameServers
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameServers) return _mValue_DomainNameServers;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.DomainNameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         /// </summary>
-        [Input("ipv6AddressPreferredLeaseTime")]
+        [PolicyResourceProperty("ipv6AddressPreferredLeaseTime", "_mUnknown_Ipv6AddressPreferredLeaseTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6AddressPreferredLeaseTime;
-
-        public string? Ipv6AddressPreferredLeaseTime => _mIpv6AddressPreferredLeaseTime.GetValue("ipv6AddressPreferredLeaseTime");
+        private string? _mValue_Ipv6AddressPreferredLeaseTime;
+        private bool _mUnknown_Ipv6AddressPreferredLeaseTime;
+        public string? Ipv6AddressPreferredLeaseTime
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressPreferredLeaseTime) return _mValue_Ipv6AddressPreferredLeaseTime;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.Ipv6AddressPreferredLeaseTime' is not present");
+            }
+        }
 
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
-        [Input("netbiosNameServers")]
+        [PolicyResourceProperty("netbiosNameServers", "_mUnknown_NetbiosNameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetbiosNameServers;
-
-        public List<string>? NetbiosNameServers => _mNetbiosNameServers.GetValue("netbiosNameServers");
+        private List<string>? _mValue_NetbiosNameServers;
+        private bool _mUnknown_NetbiosNameServers;
+        public List<string>? NetbiosNameServers
+        {
+            get
+            {
+                if (!_mUnknown_NetbiosNameServers) return _mValue_NetbiosNameServers;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.NetbiosNameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         /// </summary>
-        [Input("netbiosNodeType")]
+        [PolicyResourceProperty("netbiosNodeType", "_mUnknown_NetbiosNodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetbiosNodeType;
-
-        public string? NetbiosNodeType => _mNetbiosNodeType.GetValue("netbiosNodeType");
+        private string? _mValue_NetbiosNodeType;
+        private bool _mUnknown_NetbiosNodeType;
+        public string? NetbiosNodeType
+        {
+            get
+            {
+                if (!_mUnknown_NetbiosNodeType) return _mValue_NetbiosNodeType;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.NetbiosNodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of NTP servers to configure.
         /// </summary>
-        [Input("ntpServers")]
+        [PolicyResourceProperty("ntpServers", "_mUnknown_NtpServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNtpServers;
-
-        public List<string>? NtpServers => _mNtpServers.GetValue("ntpServers");
+        private List<string>? _mValue_NtpServers;
+        private bool _mUnknown_NtpServers;
+        public List<string>? NtpServers
+        {
+            get
+            {
+                if (!_mUnknown_NtpServers) return _mValue_NtpServers;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.NtpServers' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account that owns the DHCP options set.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptions.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpcDhcpOptions:VpcDhcpOptions")]
@@ -110,64 +180,113 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         /// </summary>
-        [Input("domainNameServers")]
+        [PolicyResourceProperty("domainNameServers", "_mUnknown_DomainNameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mDomainNameServers;
-
-        public List<string>? DomainNameServers => _mDomainNameServers.GetValue("domainNameServers");
+        private List<string>? _mValue_DomainNameServers;
+        private bool _mUnknown_DomainNameServers;
+        public List<string>? DomainNameServers
+        {
+            get
+            {
+                if (!_mUnknown_DomainNameServers) return _mValue_DomainNameServers;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.DomainNameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         /// </summary>
-        [Input("ipv6AddressPreferredLeaseTime")]
+        [PolicyResourceProperty("ipv6AddressPreferredLeaseTime", "_mUnknown_Ipv6AddressPreferredLeaseTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6AddressPreferredLeaseTime;
-
-        public string? Ipv6AddressPreferredLeaseTime => _mIpv6AddressPreferredLeaseTime.GetValue("ipv6AddressPreferredLeaseTime");
+        private string? _mValue_Ipv6AddressPreferredLeaseTime;
+        private bool _mUnknown_Ipv6AddressPreferredLeaseTime;
+        public string? Ipv6AddressPreferredLeaseTime
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressPreferredLeaseTime) return _mValue_Ipv6AddressPreferredLeaseTime;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.Ipv6AddressPreferredLeaseTime' is not present");
+            }
+        }
 
         /// <summary>
         /// List of NETBIOS name servers.
         /// </summary>
-        [Input("netbiosNameServers")]
+        [PolicyResourceProperty("netbiosNameServers", "_mUnknown_NetbiosNameServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNetbiosNameServers;
-
-        public List<string>? NetbiosNameServers => _mNetbiosNameServers.GetValue("netbiosNameServers");
+        private List<string>? _mValue_NetbiosNameServers;
+        private bool _mUnknown_NetbiosNameServers;
+        public List<string>? NetbiosNameServers
+        {
+            get
+            {
+                if (!_mUnknown_NetbiosNameServers) return _mValue_NetbiosNameServers;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.NetbiosNameServers' is not present");
+            }
+        }
 
         /// <summary>
         /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         /// </summary>
-        [Input("netbiosNodeType")]
+        [PolicyResourceProperty("netbiosNodeType", "_mUnknown_NetbiosNodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetbiosNodeType;
-
-        public string? NetbiosNodeType => _mNetbiosNodeType.GetValue("netbiosNodeType");
+        private string? _mValue_NetbiosNodeType;
+        private bool _mUnknown_NetbiosNodeType;
+        public string? NetbiosNodeType
+        {
+            get
+            {
+                if (!_mUnknown_NetbiosNodeType) return _mValue_NetbiosNodeType;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.NetbiosNodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of NTP servers to configure.
         /// </summary>
-        [Input("ntpServers")]
+        [PolicyResourceProperty("ntpServers", "_mUnknown_NtpServers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNtpServers;
-
-        public List<string>? NtpServers => _mNtpServers.GetValue("ntpServers");
+        private List<string>? _mValue_NtpServers;
+        private bool _mUnknown_NtpServers;
+        public List<string>? NtpServers
+        {
+            get
+            {
+                if (!_mUnknown_NtpServers) return _mValue_NtpServers;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.NtpServers' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.Tags' is not present");
+            }
+        }
     }
 }

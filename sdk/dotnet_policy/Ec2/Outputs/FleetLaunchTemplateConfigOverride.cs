@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Availability Zone in which to launch the instances.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// Override the instance type in the Launch Template with instance types that satisfy the requirements.
         /// </summary>
-        [Input("instanceRequirements")]
+        [PolicyResourceProperty("instanceRequirements", "_mUnknown_InstanceRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirements> _mInstanceRequirements;
-
-        public Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirements? InstanceRequirements => _mInstanceRequirements.GetValue("instanceRequirements");
+        private Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirements? _mValue_InstanceRequirements;
+        private bool _mUnknown_InstanceRequirements;
+        public Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirements? InstanceRequirements
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRequirements) return _mValue_InstanceRequirements;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.InstanceRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// Instance type.
         /// </summary>
-        [Input("instanceType")]
+        [PolicyResourceProperty("instanceType", "_mUnknown_InstanceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceType;
-
-        public string? InstanceType => _mInstanceType.GetValue("instanceType");
+        private string? _mValue_InstanceType;
+        private bool _mUnknown_InstanceType;
+        public string? InstanceType
+        {
+            get
+            {
+                if (!_mUnknown_InstanceType) return _mValue_InstanceType;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.InstanceType' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum price per unit hour that you are willing to pay for a Spot Instance.
         /// </summary>
-        [Input("maxPrice")]
+        [PolicyResourceProperty("maxPrice", "_mUnknown_MaxPrice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxPrice;
-
-        public string? MaxPrice => _mMaxPrice.GetValue("maxPrice");
+        private string? _mValue_MaxPrice;
+        private bool _mUnknown_MaxPrice;
+        public string? MaxPrice
+        {
+            get
+            {
+                if (!_mUnknown_MaxPrice) return _mValue_MaxPrice;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.MaxPrice' is not present");
+            }
+        }
 
         /// <summary>
         /// Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
         /// </summary>
-        [Input("priority")]
+        [PolicyResourceProperty("priority", "_mUnknown_Priority")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mPriority;
-
-        public double? Priority => _mPriority.GetValue("priority");
+        private double? _mValue_Priority;
+        private bool _mUnknown_Priority;
+        public double? Priority
+        {
+            get
+            {
+                if (!_mUnknown_Priority) return _mValue_Priority;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.Priority' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the subnet in which to launch the instances.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of units provided by the specified instance type.
         /// </summary>
-        [Input("weightedCapacity")]
+        [PolicyResourceProperty("weightedCapacity", "_mUnknown_WeightedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mWeightedCapacity;
-
-        public double? WeightedCapacity => _mWeightedCapacity.GetValue("weightedCapacity");
+        private double? _mValue_WeightedCapacity;
+        private bool _mUnknown_WeightedCapacity;
+        public double? WeightedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WeightedCapacity) return _mValue_WeightedCapacity;
+                throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.WeightedCapacity' is not present");
+            }
+        }
     }
 }

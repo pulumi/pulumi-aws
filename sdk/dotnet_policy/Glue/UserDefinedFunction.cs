@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// The ARN of the Glue User Defined Function.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Java class that contains the function code.
         /// </summary>
-        [Input("className")]
+        [PolicyResourceProperty("className", "_mUnknown_ClassName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClassName;
-
-        public string? ClassName => _mClassName.GetValue("className");
+        private string? _mValue_ClassName;
+        private bool _mUnknown_ClassName;
+        public string? ClassName
+        {
+            get
+            {
+                if (!_mUnknown_ClassName) return _mValue_ClassName;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.ClassName' is not present");
+            }
+        }
 
         /// <summary>
         /// The time at which the function was created.
         /// </summary>
-        [Input("createTime")]
+        [PolicyResourceProperty("createTime", "_mUnknown_CreateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTime;
-
-        public string? CreateTime => _mCreateTime.GetValue("createTime");
+        private string? _mValue_CreateTime;
+        private bool _mUnknown_CreateTime;
+        public string? CreateTime
+        {
+            get
+            {
+                if (!_mUnknown_CreateTime) return _mValue_CreateTime;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.CreateTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Database to create the Function.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the function.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner of the function.
         /// </summary>
-        [Input("ownerName")]
+        [PolicyResourceProperty("ownerName", "_mUnknown_OwnerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerName;
-
-        public string? OwnerName => _mOwnerName.GetValue("ownerName");
+        private string? _mValue_OwnerName;
+        private bool _mUnknown_OwnerName;
+        public string? OwnerName
+        {
+            get
+            {
+                if (!_mUnknown_OwnerName) return _mValue_OwnerName;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.OwnerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         /// </summary>
-        [Input("ownerType")]
+        [PolicyResourceProperty("ownerType", "_mUnknown_OwnerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerType;
-
-        public string? OwnerType => _mOwnerType.GetValue("ownerType");
+        private string? _mValue_OwnerType;
+        private bool _mUnknown_OwnerType;
+        public string? OwnerType
+        {
+            get
+            {
+                if (!_mUnknown_OwnerType) return _mValue_OwnerType;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.OwnerType' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration block for Resource URIs. See resource uris below for more details.
         /// </summary>
-        [Input("resourceUris")]
+        [PolicyResourceProperty("resourceUris", "_mUnknown_ResourceUris")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.UserDefinedFunctionResourceUri>> _mResourceUris;
-
-        public List<Outputs.UserDefinedFunctionResourceUri>? ResourceUris => _mResourceUris.GetValue("resourceUris");
+        private List<Outputs.UserDefinedFunctionResourceUri>? _mValue_ResourceUris;
+        private bool _mUnknown_ResourceUris;
+        public List<Outputs.UserDefinedFunctionResourceUri>? ResourceUris
+        {
+            get
+            {
+                if (!_mUnknown_ResourceUris) return _mValue_ResourceUris;
+                throw new UndeferrableValueException("Value 'UserDefinedFunction.ResourceUris' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/userDefinedFunction:UserDefinedFunction")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Java class that contains the function code.
         /// </summary>
-        [Input("className")]
+        [PolicyResourceProperty("className", "_mUnknown_ClassName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClassName;
-
-        public string? ClassName => _mClassName.GetValue("className");
+        private string? _mValue_ClassName;
+        private bool _mUnknown_ClassName;
+        public string? ClassName
+        {
+            get
+            {
+                if (!_mUnknown_ClassName) return _mValue_ClassName;
+                throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.ClassName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Database to create the Function.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the function.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner of the function.
         /// </summary>
-        [Input("ownerName")]
+        [PolicyResourceProperty("ownerName", "_mUnknown_OwnerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerName;
-
-        public string? OwnerName => _mOwnerName.GetValue("ownerName");
+        private string? _mValue_OwnerName;
+        private bool _mUnknown_OwnerName;
+        public string? OwnerName
+        {
+            get
+            {
+                if (!_mUnknown_OwnerName) return _mValue_OwnerName;
+                throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.OwnerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
         /// </summary>
-        [Input("ownerType")]
+        [PolicyResourceProperty("ownerType", "_mUnknown_OwnerType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerType;
-
-        public string? OwnerType => _mOwnerType.GetValue("ownerType");
+        private string? _mValue_OwnerType;
+        private bool _mUnknown_OwnerType;
+        public string? OwnerType
+        {
+            get
+            {
+                if (!_mUnknown_OwnerType) return _mValue_OwnerType;
+                throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.OwnerType' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration block for Resource URIs. See resource uris below for more details.
         /// </summary>
-        [Input("resourceUris")]
+        [PolicyResourceProperty("resourceUris", "_mUnknown_ResourceUris")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserDefinedFunctionResourceUriArgs>> _mResourceUris;
-
-        public List<Inputs.UserDefinedFunctionResourceUriArgs>? ResourceUris => _mResourceUris.GetValue("resourceUris");
+        private List<Inputs.UserDefinedFunctionResourceUriArgs>? _mValue_ResourceUris;
+        private bool _mUnknown_ResourceUris;
+        public List<Inputs.UserDefinedFunctionResourceUriArgs>? ResourceUris
+        {
+            get
+            {
+                if (!_mUnknown_ResourceUris) return _mValue_ResourceUris;
+                throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.ResourceUris' is not present");
+            }
+        }
     }
 }

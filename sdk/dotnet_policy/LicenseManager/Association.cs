@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager
         /// <summary>
         /// ARN of the license configuration.
         /// </summary>
-        [Input("licenseConfigurationArn")]
+        [PolicyResourceProperty("licenseConfigurationArn", "_mUnknown_LicenseConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseConfigurationArn;
-
-        public string? LicenseConfigurationArn => _mLicenseConfigurationArn.GetValue("licenseConfigurationArn");
+        private string? _mValue_LicenseConfigurationArn;
+        private bool _mUnknown_LicenseConfigurationArn;
+        public string? LicenseConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_LicenseConfigurationArn) return _mValue_LicenseConfigurationArn;
+                throw new UndeferrableValueException("Value 'Association.LicenseConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource associated with the license configuration.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'Association.ResourceArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:licensemanager/association:Association")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager
         /// <summary>
         /// ARN of the license configuration.
         /// </summary>
-        [Input("licenseConfigurationArn")]
+        [PolicyResourceProperty("licenseConfigurationArn", "_mUnknown_LicenseConfigurationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicenseConfigurationArn;
-
-        public string? LicenseConfigurationArn => _mLicenseConfigurationArn.GetValue("licenseConfigurationArn");
+        private string? _mValue_LicenseConfigurationArn;
+        private bool _mUnknown_LicenseConfigurationArn;
+        public string? LicenseConfigurationArn
+        {
+            get
+            {
+                if (!_mUnknown_LicenseConfigurationArn) return _mValue_LicenseConfigurationArn;
+                throw new UndeferrableValueException("Value 'AssociationArgs.LicenseConfigurationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the resource associated with the license configuration.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'AssociationArgs.ResourceArn' is not present");
+            }
+        }
     }
 }

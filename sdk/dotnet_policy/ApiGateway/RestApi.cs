@@ -16,166 +16,292 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("apiKeySource")]
+        [PolicyResourceProperty("apiKeySource", "_mUnknown_ApiKeySource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeySource;
-
-        public string? ApiKeySource => _mApiKeySource.GetValue("apiKeySource");
+        private string? _mValue_ApiKeySource;
+        private bool _mUnknown_ApiKeySource;
+        public string? ApiKeySource
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeySource) return _mValue_ApiKeySource;
+                throw new UndeferrableValueException("Value 'RestApi.ApiKeySource' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RestApi.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("binaryMediaTypes")]
+        [PolicyResourceProperty("binaryMediaTypes", "_mUnknown_BinaryMediaTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBinaryMediaTypes;
-
-        public List<string>? BinaryMediaTypes => _mBinaryMediaTypes.GetValue("binaryMediaTypes");
+        private List<string>? _mValue_BinaryMediaTypes;
+        private bool _mUnknown_BinaryMediaTypes;
+        public List<string>? BinaryMediaTypes
+        {
+            get
+            {
+                if (!_mUnknown_BinaryMediaTypes) return _mValue_BinaryMediaTypes;
+                throw new UndeferrableValueException("Value 'RestApi.BinaryMediaTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'RestApi.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Creation date of the REST API
         /// </summary>
-        [Input("createdDate")]
+        [PolicyResourceProperty("createdDate", "_mUnknown_CreatedDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedDate;
-
-        public string? CreatedDate => _mCreatedDate.GetValue("createdDate");
+        private string? _mValue_CreatedDate;
+        private bool _mUnknown_CreatedDate;
+        public string? CreatedDate
+        {
+            get
+            {
+                if (!_mUnknown_CreatedDate) return _mValue_CreatedDate;
+                throw new UndeferrableValueException("Value 'RestApi.CreatedDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RestApi.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("disableExecuteApiEndpoint")]
+        [PolicyResourceProperty("disableExecuteApiEndpoint", "_mUnknown_DisableExecuteApiEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableExecuteApiEndpoint;
-
-        public bool? DisableExecuteApiEndpoint => _mDisableExecuteApiEndpoint.GetValue("disableExecuteApiEndpoint");
+        private bool? _mValue_DisableExecuteApiEndpoint;
+        private bool _mUnknown_DisableExecuteApiEndpoint;
+        public bool? DisableExecuteApiEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_DisableExecuteApiEndpoint) return _mValue_DisableExecuteApiEndpoint;
+                throw new UndeferrableValueException("Value 'RestApi.DisableExecuteApiEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
-        [Input("endpointConfiguration")]
+        [PolicyResourceProperty("endpointConfiguration", "_mUnknown_EndpointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RestApiEndpointConfiguration> _mEndpointConfiguration;
-
-        public Outputs.RestApiEndpointConfiguration? EndpointConfiguration => _mEndpointConfiguration.GetValue("endpointConfiguration");
+        private Outputs.RestApiEndpointConfiguration? _mValue_EndpointConfiguration;
+        private bool _mUnknown_EndpointConfiguration;
+        public Outputs.RestApiEndpointConfiguration? EndpointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EndpointConfiguration) return _mValue_EndpointConfiguration;
+                throw new UndeferrableValueException("Value 'RestApi.EndpointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Execution ARN part to be used in `lambda_permission`'s `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         /// </summary>
-        [Input("executionArn")]
+        [PolicyResourceProperty("executionArn", "_mUnknown_ExecutionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionArn;
-
-        public string? ExecutionArn => _mExecutionArn.GetValue("executionArn");
+        private string? _mValue_ExecutionArn;
+        private bool _mUnknown_ExecutionArn;
+        public string? ExecutionArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionArn) return _mValue_ExecutionArn;
+                throw new UndeferrableValueException("Value 'RestApi.ExecutionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         /// </summary>
-        [Input("failOnWarnings")]
+        [PolicyResourceProperty("failOnWarnings", "_mUnknown_FailOnWarnings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
-
-        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
+        private bool? _mValue_FailOnWarnings;
+        private bool _mUnknown_FailOnWarnings;
+        public bool? FailOnWarnings
+        {
+            get
+            {
+                if (!_mUnknown_FailOnWarnings) return _mValue_FailOnWarnings;
+                throw new UndeferrableValueException("Value 'RestApi.FailOnWarnings' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("minimumCompressionSize")]
+        [PolicyResourceProperty("minimumCompressionSize", "_mUnknown_MinimumCompressionSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumCompressionSize;
-
-        public string? MinimumCompressionSize => _mMinimumCompressionSize.GetValue("minimumCompressionSize");
+        private string? _mValue_MinimumCompressionSize;
+        private bool _mUnknown_MinimumCompressionSize;
+        public string? MinimumCompressionSize
+        {
+            get
+            {
+                if (!_mUnknown_MinimumCompressionSize) return _mValue_MinimumCompressionSize;
+                throw new UndeferrableValueException("Value 'RestApi.MinimumCompressionSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RestApi.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'RestApi.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RestApi.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("putRestApiMode")]
+        [PolicyResourceProperty("putRestApiMode", "_mUnknown_PutRestApiMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPutRestApiMode;
-
-        public string? PutRestApiMode => _mPutRestApiMode.GetValue("putRestApiMode");
+        private string? _mValue_PutRestApiMode;
+        private bool _mUnknown_PutRestApiMode;
+        public string? PutRestApiMode
+        {
+            get
+            {
+                if (!_mUnknown_PutRestApiMode) return _mValue_PutRestApiMode;
+                throw new UndeferrableValueException("Value 'RestApi.PutRestApiMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource ID of the REST API's root
         /// </summary>
-        [Input("rootResourceId")]
+        [PolicyResourceProperty("rootResourceId", "_mUnknown_RootResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRootResourceId;
-
-        public string? RootResourceId => _mRootResourceId.GetValue("rootResourceId");
+        private string? _mValue_RootResourceId;
+        private bool _mUnknown_RootResourceId;
+        public string? RootResourceId
+        {
+            get
+            {
+                if (!_mUnknown_RootResourceId) return _mValue_RootResourceId;
+                throw new UndeferrableValueException("Value 'RestApi.RootResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RestApi.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RestApi.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigateway/restApi:RestApi")]
@@ -184,118 +310,209 @@ namespace Pulumi.PolicyPacks.Aws.ApiGateway
         /// <summary>
         /// Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("apiKeySource")]
+        [PolicyResourceProperty("apiKeySource", "_mUnknown_ApiKeySource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKeySource;
-
-        public string? ApiKeySource => _mApiKeySource.GetValue("apiKeySource");
+        private string? _mValue_ApiKeySource;
+        private bool _mUnknown_ApiKeySource;
+        public string? ApiKeySource
+        {
+            get
+            {
+                if (!_mUnknown_ApiKeySource) return _mValue_ApiKeySource;
+                throw new UndeferrableValueException("Value 'RestApiArgs.ApiKeySource' is not present");
+            }
+        }
 
         /// <summary>
         /// List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("binaryMediaTypes")]
+        [PolicyResourceProperty("binaryMediaTypes", "_mUnknown_BinaryMediaTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBinaryMediaTypes;
-
-        public List<string>? BinaryMediaTypes => _mBinaryMediaTypes.GetValue("binaryMediaTypes");
+        private List<string>? _mValue_BinaryMediaTypes;
+        private bool _mUnknown_BinaryMediaTypes;
+        public List<string>? BinaryMediaTypes
+        {
+            get
+            {
+                if (!_mUnknown_BinaryMediaTypes) return _mValue_BinaryMediaTypes;
+                throw new UndeferrableValueException("Value 'RestApiArgs.BinaryMediaTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
-        [Input("body")]
+        [PolicyResourceProperty("body", "_mUnknown_Body")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBody;
-
-        public string? Body => _mBody.GetValue("body");
+        private string? _mValue_Body;
+        private bool _mUnknown_Body;
+        public string? Body
+        {
+            get
+            {
+                if (!_mUnknown_Body) return _mValue_Body;
+                throw new UndeferrableValueException("Value 'RestApiArgs.Body' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'RestApiArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("disableExecuteApiEndpoint")]
+        [PolicyResourceProperty("disableExecuteApiEndpoint", "_mUnknown_DisableExecuteApiEndpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisableExecuteApiEndpoint;
-
-        public bool? DisableExecuteApiEndpoint => _mDisableExecuteApiEndpoint.GetValue("disableExecuteApiEndpoint");
+        private bool? _mValue_DisableExecuteApiEndpoint;
+        private bool _mUnknown_DisableExecuteApiEndpoint;
+        public bool? DisableExecuteApiEndpoint
+        {
+            get
+            {
+                if (!_mUnknown_DisableExecuteApiEndpoint) return _mValue_DisableExecuteApiEndpoint;
+                throw new UndeferrableValueException("Value 'RestApiArgs.DisableExecuteApiEndpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block defining API endpoint configuration including endpoint type. Defined below.
         /// </summary>
-        [Input("endpointConfiguration")]
+        [PolicyResourceProperty("endpointConfiguration", "_mUnknown_EndpointConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RestApiEndpointConfigurationArgs> _mEndpointConfiguration;
-
-        public Inputs.RestApiEndpointConfigurationArgs? EndpointConfiguration => _mEndpointConfiguration.GetValue("endpointConfiguration");
+        private Inputs.RestApiEndpointConfigurationArgs? _mValue_EndpointConfiguration;
+        private bool _mUnknown_EndpointConfiguration;
+        public Inputs.RestApiEndpointConfigurationArgs? EndpointConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EndpointConfiguration) return _mValue_EndpointConfiguration;
+                throw new UndeferrableValueException("Value 'RestApiArgs.EndpointConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         /// </summary>
-        [Input("failOnWarnings")]
+        [PolicyResourceProperty("failOnWarnings", "_mUnknown_FailOnWarnings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnWarnings;
-
-        public bool? FailOnWarnings => _mFailOnWarnings.GetValue("failOnWarnings");
+        private bool? _mValue_FailOnWarnings;
+        private bool _mUnknown_FailOnWarnings;
+        public bool? FailOnWarnings
+        {
+            get
+            {
+                if (!_mUnknown_FailOnWarnings) return _mValue_FailOnWarnings;
+                throw new UndeferrableValueException("Value 'RestApiArgs.FailOnWarnings' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("minimumCompressionSize")]
+        [PolicyResourceProperty("minimumCompressionSize", "_mUnknown_MinimumCompressionSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMinimumCompressionSize;
-
-        public string? MinimumCompressionSize => _mMinimumCompressionSize.GetValue("minimumCompressionSize");
+        private string? _mValue_MinimumCompressionSize;
+        private bool _mUnknown_MinimumCompressionSize;
+        public string? MinimumCompressionSize
+        {
+            get
+            {
+                if (!_mUnknown_MinimumCompressionSize) return _mValue_MinimumCompressionSize;
+                throw new UndeferrableValueException("Value 'RestApiArgs.MinimumCompressionSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RestApiArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'RestApiArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'RestApiArgs.Policy' is not present");
+            }
+        }
 
         /// <summary>
         /// Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         /// </summary>
-        [Input("putRestApiMode")]
+        [PolicyResourceProperty("putRestApiMode", "_mUnknown_PutRestApiMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPutRestApiMode;
-
-        public string? PutRestApiMode => _mPutRestApiMode.GetValue("putRestApiMode");
+        private string? _mValue_PutRestApiMode;
+        private bool _mUnknown_PutRestApiMode;
+        public string? PutRestApiMode
+        {
+            get
+            {
+                if (!_mUnknown_PutRestApiMode) return _mValue_PutRestApiMode;
+                throw new UndeferrableValueException("Value 'RestApiArgs.PutRestApiMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RestApiArgs.Tags' is not present");
+            }
+        }
     }
 }

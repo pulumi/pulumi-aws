@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         /// </summary>
-        [Input("fallbackBehavior")]
+        [PolicyResourceProperty("fallbackBehavior", "_mUnknown_FallbackBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFallbackBehavior;
-
-        public string? FallbackBehavior => _mFallbackBehavior.GetValue("fallbackBehavior");
+        private string? _mValue_FallbackBehavior;
+        private bool _mUnknown_FallbackBehavior;
+        public string? FallbackBehavior
+        {
+            get
+            {
+                if (!_mUnknown_FallbackBehavior) return _mValue_FallbackBehavior;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs.FallbackBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the HTTP header to use for the IP address.
         /// </summary>
-        [Input("headerName")]
+        [PolicyResourceProperty("headerName", "_mUnknown_HeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeaderName;
-
-        public string? HeaderName => _mHeaderName.GetValue("headerName");
+        private string? _mValue_HeaderName;
+        private bool _mUnknown_HeaderName;
+        public string? HeaderName
+        {
+            get
+            {
+                if (!_mUnknown_HeaderName) return _mValue_HeaderName;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs.HeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
         /// </summary>
-        [Input("position")]
+        [PolicyResourceProperty("position", "_mUnknown_Position")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPosition;
-
-        public string? Position => _mPosition.GetValue("position");
+        private string? _mValue_Position;
+        private bool _mUnknown_Position;
+        public string? Position
+        {
+            get
+            {
+                if (!_mUnknown_Position) return _mValue_Position;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs.Position' is not present");
+            }
+        }
     }
 }

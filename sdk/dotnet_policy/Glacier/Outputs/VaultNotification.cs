@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glacier.Outputs
         /// <summary>
         /// You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
         /// </summary>
-        [Input("events")]
+        [PolicyResourceProperty("events", "_mUnknown_Events")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEvents;
-
-        public List<string>? Events => _mEvents.GetValue("events");
+        private List<string>? _mValue_Events;
+        private bool _mUnknown_Events;
+        public List<string>? Events
+        {
+            get
+            {
+                if (!_mUnknown_Events) return _mValue_Events;
+                throw new UndeferrableValueException("Value 'VaultNotification.Events' is not present");
+            }
+        }
 
         /// <summary>
         /// The SNS Topic ARN.
         /// </summary>
-        [Input("snsTopic")]
+        [PolicyResourceProperty("snsTopic", "_mUnknown_SnsTopic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnsTopic;
-
-        public string? SnsTopic => _mSnsTopic.GetValue("snsTopic");
+        private string? _mValue_SnsTopic;
+        private bool _mUnknown_SnsTopic;
+        public string? SnsTopic
+        {
+            get
+            {
+                if (!_mUnknown_SnsTopic) return _mValue_SnsTopic;
+                throw new UndeferrableValueException("Value 'VaultNotification.SnsTopic' is not present");
+            }
+        }
     }
 }

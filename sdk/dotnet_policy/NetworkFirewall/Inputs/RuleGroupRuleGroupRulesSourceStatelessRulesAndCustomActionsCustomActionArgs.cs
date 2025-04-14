@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
         /// </summary>
-        [Input("actionDefinition")]
+        [PolicyResourceProperty("actionDefinition", "_mUnknown_ActionDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs> _mActionDefinition;
-
-        public Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs? ActionDefinition => _mActionDefinition.GetValue("actionDefinition");
+        private Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs? _mValue_ActionDefinition;
+        private bool _mUnknown_ActionDefinition;
+        public Inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs? ActionDefinition
+        {
+            get
+            {
+                if (!_mUnknown_ActionDefinition) return _mValue_ActionDefinition;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs.ActionDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// A friendly name of the custom action.
         /// </summary>
-        [Input("actionName")]
+        [PolicyResourceProperty("actionName", "_mUnknown_ActionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionName;
-
-        public string? ActionName => _mActionName.GetValue("actionName");
+        private string? _mValue_ActionName;
+        private bool _mUnknown_ActionName;
+        public string? ActionName
+        {
+            get
+            {
+                if (!_mUnknown_ActionName) return _mValue_ActionName;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs.ActionName' is not present");
+            }
+        }
     }
 }

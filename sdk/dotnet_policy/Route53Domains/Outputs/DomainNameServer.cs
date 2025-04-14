@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53Domains.Outputs
         /// <summary>
         /// Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
         /// </summary>
-        [Input("glueIps")]
+        [PolicyResourceProperty("glueIps", "_mUnknown_GlueIps")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGlueIps;
-
-        public List<string>? GlueIps => _mGlueIps.GetValue("glueIps");
+        private List<string>? _mValue_GlueIps;
+        private bool _mUnknown_GlueIps;
+        public List<string>? GlueIps
+        {
+            get
+            {
+                if (!_mUnknown_GlueIps) return _mValue_GlueIps;
+                throw new UndeferrableValueException("Value 'DomainNameServer.GlueIps' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified host name of the name server.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DomainNameServer.Name' is not present");
+            }
+        }
     }
 }

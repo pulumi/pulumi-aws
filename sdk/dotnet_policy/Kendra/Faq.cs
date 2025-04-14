@@ -16,188 +16,349 @@ namespace Pulumi.PolicyPacks.Aws.Kendra
         /// <summary>
         /// ARN of the FAQ.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Faq.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Unix datetime that the FAQ was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Faq.CreatedAt' is not present");
+            }
+        }
 
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Faq.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// When the Status field value is `FAILED`, this contains a message that explains why.
         /// </summary>
-        [Input("errorMessage")]
+        [PolicyResourceProperty("errorMessage", "_mUnknown_ErrorMessage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mErrorMessage;
-
-        public string? ErrorMessage => _mErrorMessage.GetValue("errorMessage");
+        private string? _mValue_ErrorMessage;
+        private bool _mUnknown_ErrorMessage;
+        public string? ErrorMessage
+        {
+            get
+            {
+                if (!_mUnknown_ErrorMessage) return _mValue_ErrorMessage;
+                throw new UndeferrableValueException("Value 'Faq.ErrorMessage' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the FAQ.
         /// </summary>
-        [Input("faqId")]
+        [PolicyResourceProperty("faqId", "_mUnknown_FaqId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFaqId;
+        private string? _mValue_FaqId;
+        private bool _mUnknown_FaqId;
+        public string? FaqId
+        {
+            get
+            {
+                if (!_mUnknown_FaqId) return _mValue_FaqId;
+                throw new UndeferrableValueException("Value 'Faq.FaqId' is not present");
+            }
+        }
 
-        public string? FaqId => _mFaqId.GetValue("faqId");
-
-        [Input("fileFormat")]
+        [PolicyResourceProperty("fileFormat", "_mUnknown_FileFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileFormat;
-
-        public string? FileFormat => _mFileFormat.GetValue("fileFormat");
+        private string? _mValue_FileFormat;
+        private bool _mUnknown_FileFormat;
+        public string? FileFormat
+        {
+            get
+            {
+                if (!_mUnknown_FileFormat) return _mValue_FileFormat;
+                throw new UndeferrableValueException("Value 'Faq.FileFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for a FAQ.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'Faq.IndexId' is not present");
+            }
+        }
 
-        public string? IndexId => _mIndexId.GetValue("indexId");
-
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'Faq.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name that should be associated with the FAQ.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Faq.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Faq.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
         /// </summary>
-        [Input("s3Path")]
+        [PolicyResourceProperty("s3Path", "_mUnknown_S3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FaqS3Path> _mS3Path;
-
-        public Outputs.FaqS3Path? S3Path => _mS3Path.GetValue("s3Path");
+        private Outputs.FaqS3Path? _mValue_S3Path;
+        private bool _mUnknown_S3Path;
+        public Outputs.FaqS3Path? S3Path
+        {
+            get
+            {
+                if (!_mUnknown_S3Path) return _mValue_S3Path;
+                throw new UndeferrableValueException("Value 'Faq.S3Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the FAQ. It is ready to use when the status is ACTIVE.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Faq.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Faq.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Faq.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The date and time that the FAQ was last updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'Faq.UpdatedAt' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kendra/faq:Faq")]
     public sealed class FaqArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FaqArgs.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("fileFormat")]
+        [PolicyResourceProperty("fileFormat", "_mUnknown_FileFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileFormat;
-
-        public string? FileFormat => _mFileFormat.GetValue("fileFormat");
+        private string? _mValue_FileFormat;
+        private bool _mUnknown_FileFormat;
+        public string? FileFormat
+        {
+            get
+            {
+                if (!_mUnknown_FileFormat) return _mValue_FileFormat;
+                throw new UndeferrableValueException("Value 'FaqArgs.FileFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the index for a FAQ.
         /// </summary>
-        [Input("indexId")]
+        [PolicyResourceProperty("indexId", "_mUnknown_IndexId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIndexId;
+        private string? _mValue_IndexId;
+        private bool _mUnknown_IndexId;
+        public string? IndexId
+        {
+            get
+            {
+                if (!_mUnknown_IndexId) return _mValue_IndexId;
+                throw new UndeferrableValueException("Value 'FaqArgs.IndexId' is not present");
+            }
+        }
 
-        public string? IndexId => _mIndexId.GetValue("indexId");
-
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'FaqArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The name that should be associated with the FAQ.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FaqArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'FaqArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The S3 location of the FAQ input data. Detailed below.
         /// </summary>
-        [Input("s3Path")]
+        [PolicyResourceProperty("s3Path", "_mUnknown_S3Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FaqS3PathArgs> _mS3Path;
+        private Inputs.FaqS3PathArgs? _mValue_S3Path;
+        private bool _mUnknown_S3Path;
+        public Inputs.FaqS3PathArgs? S3Path
+        {
+            get
+            {
+                if (!_mUnknown_S3Path) return _mValue_S3Path;
+                throw new UndeferrableValueException("Value 'FaqArgs.S3Path' is not present");
+            }
+        }
 
-        public Inputs.FaqS3PathArgs? S3Path => _mS3Path.GetValue("s3Path");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FaqArgs.Tags' is not present");
+            }
+        }
     }
 }

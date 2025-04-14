@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Alb.Inputs
         /// <summary>
         /// The target group stickiness for the rule.
         /// </summary>
-        [Input("stickiness")]
+        [PolicyResourceProperty("stickiness", "_mUnknown_Stickiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerRuleActionForwardStickinessArgs> _mStickiness;
-
-        public Inputs.ListenerRuleActionForwardStickinessArgs? Stickiness => _mStickiness.GetValue("stickiness");
+        private Inputs.ListenerRuleActionForwardStickinessArgs? _mValue_Stickiness;
+        private bool _mUnknown_Stickiness;
+        public Inputs.ListenerRuleActionForwardStickinessArgs? Stickiness
+        {
+            get
+            {
+                if (!_mUnknown_Stickiness) return _mValue_Stickiness;
+                throw new UndeferrableValueException("Value 'ListenerRuleActionForwardArgs.Stickiness' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more target group blocks.
         /// </summary>
-        [Input("targetGroups")]
+        [PolicyResourceProperty("targetGroups", "_mUnknown_TargetGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ListenerRuleActionForwardTargetGroupArgs>> _mTargetGroups;
-
-        public List<Inputs.ListenerRuleActionForwardTargetGroupArgs>? TargetGroups => _mTargetGroups.GetValue("targetGroups");
+        private List<Inputs.ListenerRuleActionForwardTargetGroupArgs>? _mValue_TargetGroups;
+        private bool _mUnknown_TargetGroups;
+        public List<Inputs.ListenerRuleActionForwardTargetGroupArgs>? TargetGroups
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroups) return _mValue_TargetGroups;
+                throw new UndeferrableValueException("Value 'ListenerRuleActionForwardArgs.TargetGroups' is not present");
+            }
+        }
     }
 }

@@ -16,40 +16,68 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
         /// <summary>
         /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Project.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The friendly name of the project that will be displayed to users.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Project.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the project in the space.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Project.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'Project.SpaceName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codecatalyst/project:Project")]
@@ -58,30 +86,51 @@ namespace Pulumi.PolicyPacks.Aws.CodeCatalyst
         /// <summary>
         /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProjectArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The friendly name of the project that will be displayed to users.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'ProjectArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the space.
         /// </summary>
-        [Input("spaceName")]
+        [PolicyResourceProperty("spaceName", "_mUnknown_SpaceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSpaceName;
-
-        public string? SpaceName => _mSpaceName.GetValue("spaceName");
+        private string? _mValue_SpaceName;
+        private bool _mUnknown_SpaceName;
+        public string? SpaceName
+        {
+            get
+            {
+                if (!_mUnknown_SpaceName) return _mValue_SpaceName;
+                throw new UndeferrableValueException("Value 'ProjectArgs.SpaceName' is not present");
+            }
+        }
     }
 }

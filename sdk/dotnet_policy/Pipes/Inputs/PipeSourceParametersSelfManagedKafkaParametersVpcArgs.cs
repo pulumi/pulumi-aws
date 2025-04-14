@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
 {
     public sealed class PipeSourceParametersSelfManagedKafkaParametersVpcArgs
     {
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersVpcArgs.SecurityGroups' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
-
-        [Input("subnets")]
+        [PolicyResourceProperty("subnets", "_mUnknown_Subnets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnets;
-
-        public List<string>? Subnets => _mSubnets.GetValue("subnets");
+        private List<string>? _mValue_Subnets;
+        private bool _mUnknown_Subnets;
+        public List<string>? Subnets
+        {
+            get
+            {
+                if (!_mUnknown_Subnets) return _mValue_Subnets;
+                throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersVpcArgs.Subnets' is not present");
+            }
+        }
     }
 }

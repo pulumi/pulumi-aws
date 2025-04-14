@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Outputs
 {
     public sealed class MembershipDefaultResultConfigurationOutputConfigurationS3
     {
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationS3.Bucket' is not present");
+            }
+        }
 
-        public string? Bucket => _mBucket.GetValue("bucket");
-
-        [Input("keyPrefix")]
+        [PolicyResourceProperty("keyPrefix", "_mUnknown_KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyPrefix;
+        private string? _mValue_KeyPrefix;
+        private bool _mUnknown_KeyPrefix;
+        public string? KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_KeyPrefix) return _mValue_KeyPrefix;
+                throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationS3.KeyPrefix' is not present");
+            }
+        }
 
-        public string? KeyPrefix => _mKeyPrefix.GetValue("keyPrefix");
-
-        [Input("resultFormat")]
+        [PolicyResourceProperty("resultFormat", "_mUnknown_ResultFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResultFormat;
-
-        public string? ResultFormat => _mResultFormat.GetValue("resultFormat");
+        private string? _mValue_ResultFormat;
+        private bool _mUnknown_ResultFormat;
+        public string? ResultFormat
+        {
+            get
+            {
+                if (!_mUnknown_ResultFormat) return _mValue_ResultFormat;
+                throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationS3.ResultFormat' is not present");
+            }
+        }
     }
 }

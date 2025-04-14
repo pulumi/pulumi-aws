@@ -16,89 +16,159 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
-        [Input("accessRole")]
+        [PolicyResourceProperty("accessRole", "_mUnknown_AccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
-
-        public string? AccessRole => _mAccessRole.GetValue("accessRole");
+        private string? _mValue_AccessRole;
+        private bool _mUnknown_AccessRole;
+        public string? AccessRole
+        {
+            get
+            {
+                if (!_mUnknown_AccessRole) return _mValue_AccessRole;
+                throw new UndeferrableValueException("Value 'Connector.AccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the connector.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Connector.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
-        [Input("as2Config")]
+        [PolicyResourceProperty("as2Config", "_mUnknown_As2Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorAs2Config> _mAs2Config;
-
-        public Outputs.ConnectorAs2Config? As2Config => _mAs2Config.GetValue("as2Config");
+        private Outputs.ConnectorAs2Config? _mValue_As2Config;
+        private bool _mUnknown_As2Config;
+        public Outputs.ConnectorAs2Config? As2Config
+        {
+            get
+            {
+                if (!_mUnknown_As2Config) return _mValue_As2Config;
+                throw new UndeferrableValueException("Value 'Connector.As2Config' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 profile or SFTP Profile.
         /// </summary>
-        [Input("connectorId")]
+        [PolicyResourceProperty("connectorId", "_mUnknown_ConnectorId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorId;
-
-        public string? ConnectorId => _mConnectorId.GetValue("connectorId");
+        private string? _mValue_ConnectorId;
+        private bool _mUnknown_ConnectorId;
+        public string? ConnectorId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorId) return _mValue_ConnectorId;
+                throw new UndeferrableValueException("Value 'Connector.ConnectorId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         /// </summary>
-        [Input("loggingRole")]
+        [PolicyResourceProperty("loggingRole", "_mUnknown_LoggingRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingRole;
-
-        public string? LoggingRole => _mLoggingRole.GetValue("loggingRole");
+        private string? _mValue_LoggingRole;
+        private bool _mUnknown_LoggingRole;
+        public string? LoggingRole
+        {
+            get
+            {
+                if (!_mUnknown_LoggingRole) return _mValue_LoggingRole;
+                throw new UndeferrableValueException("Value 'Connector.LoggingRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the security policy for the connector.
         /// </summary>
-        [Input("securityPolicyName")]
+        [PolicyResourceProperty("securityPolicyName", "_mUnknown_SecurityPolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicyName;
-
-        public string? SecurityPolicyName => _mSecurityPolicyName.GetValue("securityPolicyName");
+        private string? _mValue_SecurityPolicyName;
+        private bool _mUnknown_SecurityPolicyName;
+        public string? SecurityPolicyName
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicyName) return _mValue_SecurityPolicyName;
+                throw new UndeferrableValueException("Value 'Connector.SecurityPolicyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
-        [Input("sftpConfig")]
+        [PolicyResourceProperty("sftpConfig", "_mUnknown_SftpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectorSftpConfig> _mSftpConfig;
-
-        public Outputs.ConnectorSftpConfig? SftpConfig => _mSftpConfig.GetValue("sftpConfig");
+        private Outputs.ConnectorSftpConfig? _mValue_SftpConfig;
+        private bool _mUnknown_SftpConfig;
+        public Outputs.ConnectorSftpConfig? SftpConfig
+        {
+            get
+            {
+                if (!_mUnknown_SftpConfig) return _mValue_SftpConfig;
+                throw new UndeferrableValueException("Value 'Connector.SftpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Connector.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Connector.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the partners AS2 endpoint or SFTP endpoint.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'Connector.Url' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/connector:Connector")]
@@ -107,64 +177,113 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         /// </summary>
-        [Input("accessRole")]
+        [PolicyResourceProperty("accessRole", "_mUnknown_AccessRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessRole;
-
-        public string? AccessRole => _mAccessRole.GetValue("accessRole");
+        private string? _mValue_AccessRole;
+        private bool _mUnknown_AccessRole;
+        public string? AccessRole
+        {
+            get
+            {
+                if (!_mUnknown_AccessRole) return _mValue_AccessRole;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.AccessRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
-        [Input("as2Config")]
+        [PolicyResourceProperty("as2Config", "_mUnknown_As2Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorAs2ConfigArgs> _mAs2Config;
-
-        public Inputs.ConnectorAs2ConfigArgs? As2Config => _mAs2Config.GetValue("as2Config");
+        private Inputs.ConnectorAs2ConfigArgs? _mValue_As2Config;
+        private bool _mUnknown_As2Config;
+        public Inputs.ConnectorAs2ConfigArgs? As2Config
+        {
+            get
+            {
+                if (!_mUnknown_As2Config) return _mValue_As2Config;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.As2Config' is not present");
+            }
+        }
 
         /// <summary>
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         /// </summary>
-        [Input("loggingRole")]
+        [PolicyResourceProperty("loggingRole", "_mUnknown_LoggingRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoggingRole;
-
-        public string? LoggingRole => _mLoggingRole.GetValue("loggingRole");
+        private string? _mValue_LoggingRole;
+        private bool _mUnknown_LoggingRole;
+        public string? LoggingRole
+        {
+            get
+            {
+                if (!_mUnknown_LoggingRole) return _mValue_LoggingRole;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.LoggingRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the security policy for the connector.
         /// </summary>
-        [Input("securityPolicyName")]
+        [PolicyResourceProperty("securityPolicyName", "_mUnknown_SecurityPolicyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityPolicyName;
-
-        public string? SecurityPolicyName => _mSecurityPolicyName.GetValue("securityPolicyName");
+        private string? _mValue_SecurityPolicyName;
+        private bool _mUnknown_SecurityPolicyName;
+        public string? SecurityPolicyName
+        {
+            get
+            {
+                if (!_mUnknown_SecurityPolicyName) return _mValue_SecurityPolicyName;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.SecurityPolicyName' is not present");
+            }
+        }
 
         /// <summary>
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         /// </summary>
-        [Input("sftpConfig")]
+        [PolicyResourceProperty("sftpConfig", "_mUnknown_SftpConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorSftpConfigArgs> _mSftpConfig;
-
-        public Inputs.ConnectorSftpConfigArgs? SftpConfig => _mSftpConfig.GetValue("sftpConfig");
+        private Inputs.ConnectorSftpConfigArgs? _mValue_SftpConfig;
+        private bool _mUnknown_SftpConfig;
+        public Inputs.ConnectorSftpConfigArgs? SftpConfig
+        {
+            get
+            {
+                if (!_mUnknown_SftpConfig) return _mValue_SftpConfig;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.SftpConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL of the partners AS2 endpoint or SFTP endpoint.
         /// </summary>
-        [Input("url")]
+        [PolicyResourceProperty("url", "_mUnknown_Url")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUrl;
-
-        public string? Url => _mUrl.GetValue("url");
+        private string? _mValue_Url;
+        private bool _mUnknown_Url;
+        public string? Url
+        {
+            get
+            {
+                if (!_mUnknown_Url) return _mValue_Url;
+                throw new UndeferrableValueException("Value 'ConnectorArgs.Url' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Outputs
 {
     public sealed class GetContactsRotationRecurrenceShiftCoverageResult
     {
-        [Input("coverageTimes")]
+        [PolicyResourceProperty("coverageTimes", "_mUnknown_CoverageTimes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult>> _mCoverageTimes;
+        private List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult>? _mValue_CoverageTimes;
+        private bool _mUnknown_CoverageTimes;
+        public List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult>? CoverageTimes
+        {
+            get
+            {
+                if (!_mUnknown_CoverageTimes) return _mValue_CoverageTimes;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceShiftCoverageResult.CoverageTimes' is not present");
+            }
+        }
 
-        public List<Outputs.GetContactsRotationRecurrenceShiftCoverageCoverageTimeResult>? CoverageTimes => _mCoverageTimes.GetValue("coverageTimes");
-
-        [Input("mapBlockKey")]
+        [PolicyResourceProperty("mapBlockKey", "_mUnknown_MapBlockKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapBlockKey;
-
-        public string? MapBlockKey => _mMapBlockKey.GetValue("mapBlockKey");
+        private string? _mValue_MapBlockKey;
+        private bool _mUnknown_MapBlockKey;
+        public string? MapBlockKey
+        {
+            get
+            {
+                if (!_mUnknown_MapBlockKey) return _mValue_MapBlockKey;
+                throw new UndeferrableValueException("Value 'GetContactsRotationRecurrenceShiftCoverageResult.MapBlockKey' is not present");
+            }
+        }
     }
 }

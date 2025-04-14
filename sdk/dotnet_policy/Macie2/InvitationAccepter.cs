@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// The AWS account ID for the account that sent the invitation.
         /// </summary>
-        [Input("administratorAccountId")]
+        [PolicyResourceProperty("administratorAccountId", "_mUnknown_AdministratorAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorAccountId;
-
-        public string? AdministratorAccountId => _mAdministratorAccountId.GetValue("administratorAccountId");
+        private string? _mValue_AdministratorAccountId;
+        private bool _mUnknown_AdministratorAccountId;
+        public string? AdministratorAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AdministratorAccountId) return _mValue_AdministratorAccountId;
+                throw new UndeferrableValueException("Value 'InvitationAccepter.AdministratorAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the invitation.
         /// </summary>
-        [Input("invitationId")]
+        [PolicyResourceProperty("invitationId", "_mUnknown_InvitationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvitationId;
-
-        public string? InvitationId => _mInvitationId.GetValue("invitationId");
+        private string? _mValue_InvitationId;
+        private bool _mUnknown_InvitationId;
+        public string? InvitationId
+        {
+            get
+            {
+                if (!_mUnknown_InvitationId) return _mValue_InvitationId;
+                throw new UndeferrableValueException("Value 'InvitationAccepter.InvitationId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:macie2/invitationAccepter:InvitationAccepter")]
@@ -38,10 +52,17 @@ namespace Pulumi.PolicyPacks.Aws.Macie2
         /// <summary>
         /// The AWS account ID for the account that sent the invitation.
         /// </summary>
-        [Input("administratorAccountId")]
+        [PolicyResourceProperty("administratorAccountId", "_mUnknown_AdministratorAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdministratorAccountId;
-
-        public string? AdministratorAccountId => _mAdministratorAccountId.GetValue("administratorAccountId");
+        private string? _mValue_AdministratorAccountId;
+        private bool _mUnknown_AdministratorAccountId;
+        public string? AdministratorAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AdministratorAccountId) return _mValue_AdministratorAccountId;
+                throw new UndeferrableValueException("Value 'InvitationAccepterArgs.AdministratorAccountId' is not present");
+            }
+        }
     }
 }

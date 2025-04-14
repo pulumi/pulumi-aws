@@ -16,148 +16,260 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// ARN of the subscription.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TopicSubscription.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         /// </summary>
-        [Input("confirmationTimeoutInMinutes")]
+        [PolicyResourceProperty("confirmationTimeoutInMinutes", "_mUnknown_ConfirmationTimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConfirmationTimeoutInMinutes;
-
-        public int? ConfirmationTimeoutInMinutes => _mConfirmationTimeoutInMinutes.GetValue("confirmationTimeoutInMinutes");
+        private int? _mValue_ConfirmationTimeoutInMinutes;
+        private bool _mUnknown_ConfirmationTimeoutInMinutes;
+        public int? ConfirmationTimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationTimeoutInMinutes) return _mValue_ConfirmationTimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'TopicSubscription.ConfirmationTimeoutInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the subscription confirmation request was authenticated.
         /// </summary>
-        [Input("confirmationWasAuthenticated")]
+        [PolicyResourceProperty("confirmationWasAuthenticated", "_mUnknown_ConfirmationWasAuthenticated")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConfirmationWasAuthenticated;
-
-        public bool? ConfirmationWasAuthenticated => _mConfirmationWasAuthenticated.GetValue("confirmationWasAuthenticated");
+        private bool? _mValue_ConfirmationWasAuthenticated;
+        private bool _mUnknown_ConfirmationWasAuthenticated;
+        public bool? ConfirmationWasAuthenticated
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationWasAuthenticated) return _mValue_ConfirmationWasAuthenticated;
+                throw new UndeferrableValueException("Value 'TopicSubscription.ConfirmationWasAuthenticated' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         /// </summary>
-        [Input("deliveryPolicy")]
+        [PolicyResourceProperty("deliveryPolicy", "_mUnknown_DeliveryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryPolicy;
-
-        public string? DeliveryPolicy => _mDeliveryPolicy.GetValue("deliveryPolicy");
+        private string? _mValue_DeliveryPolicy;
+        private bool _mUnknown_DeliveryPolicy;
+        public string? DeliveryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryPolicy) return _mValue_DeliveryPolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscription.DeliveryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint to send data to. The contents vary with the protocol. See details below.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'TopicSubscription.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         /// </summary>
-        [Input("endpointAutoConfirms")]
+        [PolicyResourceProperty("endpointAutoConfirms", "_mUnknown_EndpointAutoConfirms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEndpointAutoConfirms;
-
-        public bool? EndpointAutoConfirms => _mEndpointAutoConfirms.GetValue("endpointAutoConfirms");
+        private bool? _mValue_EndpointAutoConfirms;
+        private bool _mUnknown_EndpointAutoConfirms;
+        public bool? EndpointAutoConfirms
+        {
+            get
+            {
+                if (!_mUnknown_EndpointAutoConfirms) return _mValue_EndpointAutoConfirms;
+                throw new UndeferrableValueException("Value 'TopicSubscription.EndpointAutoConfirms' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         /// </summary>
-        [Input("filterPolicy")]
+        [PolicyResourceProperty("filterPolicy", "_mUnknown_FilterPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPolicy;
-
-        public string? FilterPolicy => _mFilterPolicy.GetValue("filterPolicy");
+        private string? _mValue_FilterPolicy;
+        private bool _mUnknown_FilterPolicy;
+        public string? FilterPolicy
+        {
+            get
+            {
+                if (!_mUnknown_FilterPolicy) return _mValue_FilterPolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscription.FilterPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
-        [Input("filterPolicyScope")]
+        [PolicyResourceProperty("filterPolicyScope", "_mUnknown_FilterPolicyScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPolicyScope;
-
-        public string? FilterPolicyScope => _mFilterPolicyScope.GetValue("filterPolicyScope");
+        private string? _mValue_FilterPolicyScope;
+        private bool _mUnknown_FilterPolicyScope;
+        public string? FilterPolicyScope
+        {
+            get
+            {
+                if (!_mUnknown_FilterPolicyScope) return _mValue_FilterPolicyScope;
+                throw new UndeferrableValueException("Value 'TopicSubscription.FilterPolicyScope' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID of the subscription's owner.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'TopicSubscription.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the subscription has not been confirmed.
         /// </summary>
-        [Input("pendingConfirmation")]
+        [PolicyResourceProperty("pendingConfirmation", "_mUnknown_PendingConfirmation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPendingConfirmation;
-
-        public bool? PendingConfirmation => _mPendingConfirmation.GetValue("pendingConfirmation");
+        private bool? _mValue_PendingConfirmation;
+        private bool _mUnknown_PendingConfirmation;
+        public bool? PendingConfirmation
+        {
+            get
+            {
+                if (!_mUnknown_PendingConfirmation) return _mValue_PendingConfirmation;
+                throw new UndeferrableValueException("Value 'TopicSubscription.PendingConfirmation' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TopicSubscription.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         /// </summary>
-        [Input("rawMessageDelivery")]
+        [PolicyResourceProperty("rawMessageDelivery", "_mUnknown_RawMessageDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRawMessageDelivery;
-
-        public bool? RawMessageDelivery => _mRawMessageDelivery.GetValue("rawMessageDelivery");
+        private bool? _mValue_RawMessageDelivery;
+        private bool _mUnknown_RawMessageDelivery;
+        public bool? RawMessageDelivery
+        {
+            get
+            {
+                if (!_mUnknown_RawMessageDelivery) return _mValue_RawMessageDelivery;
+                throw new UndeferrableValueException("Value 'TopicSubscription.RawMessageDelivery' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         /// </summary>
-        [Input("redrivePolicy")]
+        [PolicyResourceProperty("redrivePolicy", "_mUnknown_RedrivePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicy;
-
-        public string? RedrivePolicy => _mRedrivePolicy.GetValue("redrivePolicy");
+        private string? _mValue_RedrivePolicy;
+        private bool _mUnknown_RedrivePolicy;
+        public string? RedrivePolicy
+        {
+            get
+            {
+                if (!_mUnknown_RedrivePolicy) return _mValue_RedrivePolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscription.RedrivePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         /// </summary>
-        [Input("replayPolicy")]
+        [PolicyResourceProperty("replayPolicy", "_mUnknown_ReplayPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplayPolicy;
-
-        public string? ReplayPolicy => _mReplayPolicy.GetValue("replayPolicy");
+        private string? _mValue_ReplayPolicy;
+        private bool _mUnknown_ReplayPolicy;
+        public string? ReplayPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ReplayPolicy) return _mValue_ReplayPolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscription.ReplayPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         /// </summary>
-        [Input("subscriptionRoleArn")]
+        [PolicyResourceProperty("subscriptionRoleArn", "_mUnknown_SubscriptionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriptionRoleArn;
-
-        public string? SubscriptionRoleArn => _mSubscriptionRoleArn.GetValue("subscriptionRoleArn");
+        private string? _mValue_SubscriptionRoleArn;
+        private bool _mUnknown_SubscriptionRoleArn;
+        public string? SubscriptionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SubscriptionRoleArn) return _mValue_SubscriptionRoleArn;
+                throw new UndeferrableValueException("Value 'TopicSubscription.SubscriptionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("topic")]
+        [PolicyResourceProperty("topic", "_mUnknown_Topic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopic;
-
-        public string? Topic => _mTopic.GetValue("topic");
+        private string? _mValue_Topic;
+        private bool _mUnknown_Topic;
+        public string? Topic
+        {
+            get
+            {
+                if (!_mUnknown_Topic) return _mValue_Topic;
+                throw new UndeferrableValueException("Value 'TopicSubscription.Topic' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sns/topicSubscription:TopicSubscription")]
@@ -166,111 +278,195 @@ namespace Pulumi.PolicyPacks.Aws.Sns
         /// <summary>
         /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         /// </summary>
-        [Input("confirmationTimeoutInMinutes")]
+        [PolicyResourceProperty("confirmationTimeoutInMinutes", "_mUnknown_ConfirmationTimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConfirmationTimeoutInMinutes;
-
-        public int? ConfirmationTimeoutInMinutes => _mConfirmationTimeoutInMinutes.GetValue("confirmationTimeoutInMinutes");
+        private int? _mValue_ConfirmationTimeoutInMinutes;
+        private bool _mUnknown_ConfirmationTimeoutInMinutes;
+        public int? ConfirmationTimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_ConfirmationTimeoutInMinutes) return _mValue_ConfirmationTimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.ConfirmationTimeoutInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         /// </summary>
-        [Input("deliveryPolicy")]
+        [PolicyResourceProperty("deliveryPolicy", "_mUnknown_DeliveryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryPolicy;
-
-        public string? DeliveryPolicy => _mDeliveryPolicy.GetValue("deliveryPolicy");
+        private string? _mValue_DeliveryPolicy;
+        private bool _mUnknown_DeliveryPolicy;
+        public string? DeliveryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryPolicy) return _mValue_DeliveryPolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.DeliveryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint to send data to. The contents vary with the protocol. See details below.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         /// </summary>
-        [Input("endpointAutoConfirms")]
+        [PolicyResourceProperty("endpointAutoConfirms", "_mUnknown_EndpointAutoConfirms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEndpointAutoConfirms;
-
-        public bool? EndpointAutoConfirms => _mEndpointAutoConfirms.GetValue("endpointAutoConfirms");
+        private bool? _mValue_EndpointAutoConfirms;
+        private bool _mUnknown_EndpointAutoConfirms;
+        public bool? EndpointAutoConfirms
+        {
+            get
+            {
+                if (!_mUnknown_EndpointAutoConfirms) return _mValue_EndpointAutoConfirms;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.EndpointAutoConfirms' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         /// </summary>
-        [Input("filterPolicy")]
+        [PolicyResourceProperty("filterPolicy", "_mUnknown_FilterPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPolicy;
-
-        public string? FilterPolicy => _mFilterPolicy.GetValue("filterPolicy");
+        private string? _mValue_FilterPolicy;
+        private bool _mUnknown_FilterPolicy;
+        public string? FilterPolicy
+        {
+            get
+            {
+                if (!_mUnknown_FilterPolicy) return _mValue_FilterPolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.FilterPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         /// </summary>
-        [Input("filterPolicyScope")]
+        [PolicyResourceProperty("filterPolicyScope", "_mUnknown_FilterPolicyScope")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterPolicyScope;
-
-        public string? FilterPolicyScope => _mFilterPolicyScope.GetValue("filterPolicyScope");
+        private string? _mValue_FilterPolicyScope;
+        private bool _mUnknown_FilterPolicyScope;
+        public string? FilterPolicyScope
+        {
+            get
+            {
+                if (!_mUnknown_FilterPolicyScope) return _mValue_FilterPolicyScope;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.FilterPolicyScope' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         /// </summary>
-        [Input("rawMessageDelivery")]
+        [PolicyResourceProperty("rawMessageDelivery", "_mUnknown_RawMessageDelivery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRawMessageDelivery;
-
-        public bool? RawMessageDelivery => _mRawMessageDelivery.GetValue("rawMessageDelivery");
+        private bool? _mValue_RawMessageDelivery;
+        private bool _mUnknown_RawMessageDelivery;
+        public bool? RawMessageDelivery
+        {
+            get
+            {
+                if (!_mUnknown_RawMessageDelivery) return _mValue_RawMessageDelivery;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.RawMessageDelivery' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         /// </summary>
-        [Input("redrivePolicy")]
+        [PolicyResourceProperty("redrivePolicy", "_mUnknown_RedrivePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedrivePolicy;
-
-        public string? RedrivePolicy => _mRedrivePolicy.GetValue("redrivePolicy");
+        private string? _mValue_RedrivePolicy;
+        private bool _mUnknown_RedrivePolicy;
+        public string? RedrivePolicy
+        {
+            get
+            {
+                if (!_mUnknown_RedrivePolicy) return _mValue_RedrivePolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.RedrivePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         /// </summary>
-        [Input("replayPolicy")]
+        [PolicyResourceProperty("replayPolicy", "_mUnknown_ReplayPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplayPolicy;
-
-        public string? ReplayPolicy => _mReplayPolicy.GetValue("replayPolicy");
+        private string? _mValue_ReplayPolicy;
+        private bool _mUnknown_ReplayPolicy;
+        public string? ReplayPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ReplayPolicy) return _mValue_ReplayPolicy;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.ReplayPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         /// </summary>
-        [Input("subscriptionRoleArn")]
+        [PolicyResourceProperty("subscriptionRoleArn", "_mUnknown_SubscriptionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubscriptionRoleArn;
-
-        public string? SubscriptionRoleArn => _mSubscriptionRoleArn.GetValue("subscriptionRoleArn");
+        private string? _mValue_SubscriptionRoleArn;
+        private bool _mUnknown_SubscriptionRoleArn;
+        public string? SubscriptionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SubscriptionRoleArn) return _mValue_SubscriptionRoleArn;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.SubscriptionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the SNS topic to subscribe to.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("topic")]
+        [PolicyResourceProperty("topic", "_mUnknown_Topic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopic;
-
-        public string? Topic => _mTopic.GetValue("topic");
+        private string? _mValue_Topic;
+        private bool _mUnknown_Topic;
+        public string? Topic
+        {
+            get
+            {
+                if (!_mUnknown_Topic) return _mValue_Topic;
+                throw new UndeferrableValueException("Value 'TopicSubscriptionArgs.Topic' is not present");
+            }
+        }
     }
 }

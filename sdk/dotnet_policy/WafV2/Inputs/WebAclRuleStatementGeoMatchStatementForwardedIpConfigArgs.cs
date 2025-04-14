@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
         /// </summary>
-        [Input("fallbackBehavior")]
+        [PolicyResourceProperty("fallbackBehavior", "_mUnknown_FallbackBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFallbackBehavior;
-
-        public string? FallbackBehavior => _mFallbackBehavior.GetValue("fallbackBehavior");
+        private string? _mValue_FallbackBehavior;
+        private bool _mUnknown_FallbackBehavior;
+        public string? FallbackBehavior
+        {
+            get
+            {
+                if (!_mUnknown_FallbackBehavior) return _mValue_FallbackBehavior;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs.FallbackBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the HTTP header to use for the IP address.
         /// </summary>
-        [Input("headerName")]
+        [PolicyResourceProperty("headerName", "_mUnknown_HeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeaderName;
-
-        public string? HeaderName => _mHeaderName.GetValue("headerName");
+        private string? _mValue_HeaderName;
+        private bool _mUnknown_HeaderName;
+        public string? HeaderName
+        {
+            get
+            {
+                if (!_mUnknown_HeaderName) return _mValue_HeaderName;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs.HeaderName' is not present");
+            }
+        }
     }
 }

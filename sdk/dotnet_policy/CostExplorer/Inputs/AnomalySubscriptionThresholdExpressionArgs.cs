@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.CostExplorer.Inputs
         /// <summary>
         /// Return results that match both Dimension objects.
         /// </summary>
-        [Input("ands")]
+        [PolicyResourceProperty("ands", "_mUnknown_Ands")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnomalySubscriptionThresholdExpressionAndArgs>> _mAnds;
-
-        public List<Inputs.AnomalySubscriptionThresholdExpressionAndArgs>? Ands => _mAnds.GetValue("ands");
+        private List<Inputs.AnomalySubscriptionThresholdExpressionAndArgs>? _mValue_Ands;
+        private bool _mUnknown_Ands;
+        public List<Inputs.AnomalySubscriptionThresholdExpressionAndArgs>? Ands
+        {
+            get
+            {
+                if (!_mUnknown_Ands) return _mValue_Ands;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpressionArgs.Ands' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the filter that's based on  values. See Cost Category below.
         /// </summary>
-        [Input("costCategory")]
+        [PolicyResourceProperty("costCategory", "_mUnknown_CostCategory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnomalySubscriptionThresholdExpressionCostCategoryArgs> _mCostCategory;
-
-        public Inputs.AnomalySubscriptionThresholdExpressionCostCategoryArgs? CostCategory => _mCostCategory.GetValue("costCategory");
+        private Inputs.AnomalySubscriptionThresholdExpressionCostCategoryArgs? _mValue_CostCategory;
+        private bool _mUnknown_CostCategory;
+        public Inputs.AnomalySubscriptionThresholdExpressionCostCategoryArgs? CostCategory
+        {
+            get
+            {
+                if (!_mUnknown_CostCategory) return _mValue_CostCategory;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpressionArgs.CostCategory' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the specific Dimension to use for.
         /// </summary>
-        [Input("dimension")]
+        [PolicyResourceProperty("dimension", "_mUnknown_Dimension")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs> _mDimension;
-
-        public Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs? Dimension => _mDimension.GetValue("dimension");
+        private Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs? _mValue_Dimension;
+        private bool _mUnknown_Dimension;
+        public Inputs.AnomalySubscriptionThresholdExpressionDimensionArgs? Dimension
+        {
+            get
+            {
+                if (!_mUnknown_Dimension) return _mValue_Dimension;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpressionArgs.Dimension' is not present");
+            }
+        }
 
         /// <summary>
         /// Return results that do not match the Dimension object.
         /// </summary>
-        [Input("not")]
+        [PolicyResourceProperty("not", "_mUnknown_Not")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnomalySubscriptionThresholdExpressionNotArgs> _mNot;
-
-        public Inputs.AnomalySubscriptionThresholdExpressionNotArgs? Not => _mNot.GetValue("not");
+        private Inputs.AnomalySubscriptionThresholdExpressionNotArgs? _mValue_Not;
+        private bool _mUnknown_Not;
+        public Inputs.AnomalySubscriptionThresholdExpressionNotArgs? Not
+        {
+            get
+            {
+                if (!_mUnknown_Not) return _mValue_Not;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpressionArgs.Not' is not present");
+            }
+        }
 
         /// <summary>
         /// Return results that match either Dimension object.
         /// </summary>
-        [Input("ors")]
+        [PolicyResourceProperty("ors", "_mUnknown_Ors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AnomalySubscriptionThresholdExpressionOrArgs>> _mOrs;
-
-        public List<Inputs.AnomalySubscriptionThresholdExpressionOrArgs>? Ors => _mOrs.GetValue("ors");
+        private List<Inputs.AnomalySubscriptionThresholdExpressionOrArgs>? _mValue_Ors;
+        private bool _mUnknown_Ors;
+        public List<Inputs.AnomalySubscriptionThresholdExpressionOrArgs>? Ors
+        {
+            get
+            {
+                if (!_mUnknown_Ors) return _mValue_Ors;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpressionArgs.Ors' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the specific Tag to use for. See Tags below.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AnomalySubscriptionThresholdExpressionTagsArgs> _mTags;
-
-        public Inputs.AnomalySubscriptionThresholdExpressionTagsArgs? Tags => _mTags.GetValue("tags");
+        private Inputs.AnomalySubscriptionThresholdExpressionTagsArgs? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Inputs.AnomalySubscriptionThresholdExpressionTagsArgs? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpressionArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,259 +15,553 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The ad marker type for this output group.
         /// </summary>
-        [Input("adMarkers")]
+        [PolicyResourceProperty("adMarkers", "_mUnknown_AdMarkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdMarkers;
+        private List<string>? _mValue_AdMarkers;
+        private bool _mUnknown_AdMarkers;
+        public List<string>? AdMarkers
+        {
+            get
+            {
+                if (!_mUnknown_AdMarkers) return _mValue_AdMarkers;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.AdMarkers' is not present");
+            }
+        }
 
-        public List<string>? AdMarkers => _mAdMarkers.GetValue("adMarkers");
-
-        [Input("baseUrlContent")]
+        [PolicyResourceProperty("baseUrlContent", "_mUnknown_BaseUrlContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseUrlContent;
+        private string? _mValue_BaseUrlContent;
+        private bool _mUnknown_BaseUrlContent;
+        public string? BaseUrlContent
+        {
+            get
+            {
+                if (!_mUnknown_BaseUrlContent) return _mValue_BaseUrlContent;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.BaseUrlContent' is not present");
+            }
+        }
 
-        public string? BaseUrlContent => _mBaseUrlContent.GetValue("baseUrlContent");
-
-        [Input("baseUrlContent1")]
+        [PolicyResourceProperty("baseUrlContent1", "_mUnknown_BaseUrlContent1")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseUrlContent1;
+        private string? _mValue_BaseUrlContent1;
+        private bool _mUnknown_BaseUrlContent1;
+        public string? BaseUrlContent1
+        {
+            get
+            {
+                if (!_mUnknown_BaseUrlContent1) return _mValue_BaseUrlContent1;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.BaseUrlContent1' is not present");
+            }
+        }
 
-        public string? BaseUrlContent1 => _mBaseUrlContent1.GetValue("baseUrlContent1");
-
-        [Input("baseUrlManifest")]
+        [PolicyResourceProperty("baseUrlManifest", "_mUnknown_BaseUrlManifest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseUrlManifest;
+        private string? _mValue_BaseUrlManifest;
+        private bool _mUnknown_BaseUrlManifest;
+        public string? BaseUrlManifest
+        {
+            get
+            {
+                if (!_mUnknown_BaseUrlManifest) return _mValue_BaseUrlManifest;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.BaseUrlManifest' is not present");
+            }
+        }
 
-        public string? BaseUrlManifest => _mBaseUrlManifest.GetValue("baseUrlManifest");
-
-        [Input("baseUrlManifest1")]
+        [PolicyResourceProperty("baseUrlManifest1", "_mUnknown_BaseUrlManifest1")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBaseUrlManifest1;
+        private string? _mValue_BaseUrlManifest1;
+        private bool _mUnknown_BaseUrlManifest1;
+        public string? BaseUrlManifest1
+        {
+            get
+            {
+                if (!_mUnknown_BaseUrlManifest1) return _mValue_BaseUrlManifest1;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.BaseUrlManifest1' is not present");
+            }
+        }
 
-        public string? BaseUrlManifest1 => _mBaseUrlManifest1.GetValue("baseUrlManifest1");
-
-        [Input("captionLanguageMappings")]
+        [PolicyResourceProperty("captionLanguageMappings", "_mUnknown_CaptionLanguageMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs>> _mCaptionLanguageMappings;
+        private List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs>? _mValue_CaptionLanguageMappings;
+        private bool _mUnknown_CaptionLanguageMappings;
+        public List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs>? CaptionLanguageMappings
+        {
+            get
+            {
+                if (!_mUnknown_CaptionLanguageMappings) return _mValue_CaptionLanguageMappings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.CaptionLanguageMappings' is not present");
+            }
+        }
 
-        public List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs>? CaptionLanguageMappings => _mCaptionLanguageMappings.GetValue("captionLanguageMappings");
-
-        [Input("captionLanguageSetting")]
+        [PolicyResourceProperty("captionLanguageSetting", "_mUnknown_CaptionLanguageSetting")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaptionLanguageSetting;
+        private string? _mValue_CaptionLanguageSetting;
+        private bool _mUnknown_CaptionLanguageSetting;
+        public string? CaptionLanguageSetting
+        {
+            get
+            {
+                if (!_mUnknown_CaptionLanguageSetting) return _mValue_CaptionLanguageSetting;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.CaptionLanguageSetting' is not present");
+            }
+        }
 
-        public string? CaptionLanguageSetting => _mCaptionLanguageSetting.GetValue("captionLanguageSetting");
-
-        [Input("clientCache")]
+        [PolicyResourceProperty("clientCache", "_mUnknown_ClientCache")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientCache;
+        private string? _mValue_ClientCache;
+        private bool _mUnknown_ClientCache;
+        public string? ClientCache
+        {
+            get
+            {
+                if (!_mUnknown_ClientCache) return _mValue_ClientCache;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.ClientCache' is not present");
+            }
+        }
 
-        public string? ClientCache => _mClientCache.GetValue("clientCache");
-
-        [Input("codecSpecification")]
+        [PolicyResourceProperty("codecSpecification", "_mUnknown_CodecSpecification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodecSpecification;
+        private string? _mValue_CodecSpecification;
+        private bool _mUnknown_CodecSpecification;
+        public string? CodecSpecification
+        {
+            get
+            {
+                if (!_mUnknown_CodecSpecification) return _mValue_CodecSpecification;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.CodecSpecification' is not present");
+            }
+        }
 
-        public string? CodecSpecification => _mCodecSpecification.GetValue("codecSpecification");
-
-        [Input("constantIv")]
+        [PolicyResourceProperty("constantIv", "_mUnknown_ConstantIv")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConstantIv;
+        private string? _mValue_ConstantIv;
+        private bool _mUnknown_ConstantIv;
+        public string? ConstantIv
+        {
+            get
+            {
+                if (!_mUnknown_ConstantIv) return _mValue_ConstantIv;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.ConstantIv' is not present");
+            }
+        }
 
-        public string? ConstantIv => _mConstantIv.GetValue("constantIv");
-
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs> _mDestination;
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.Destination' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs? Destination => _mDestination.GetValue("destination");
-
-        [Input("directoryStructure")]
+        [PolicyResourceProperty("directoryStructure", "_mUnknown_DirectoryStructure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryStructure;
+        private string? _mValue_DirectoryStructure;
+        private bool _mUnknown_DirectoryStructure;
+        public string? DirectoryStructure
+        {
+            get
+            {
+                if (!_mUnknown_DirectoryStructure) return _mValue_DirectoryStructure;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.DirectoryStructure' is not present");
+            }
+        }
 
-        public string? DirectoryStructure => _mDirectoryStructure.GetValue("directoryStructure");
-
-        [Input("discontinuityTags")]
+        [PolicyResourceProperty("discontinuityTags", "_mUnknown_DiscontinuityTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDiscontinuityTags;
+        private string? _mValue_DiscontinuityTags;
+        private bool _mUnknown_DiscontinuityTags;
+        public string? DiscontinuityTags
+        {
+            get
+            {
+                if (!_mUnknown_DiscontinuityTags) return _mValue_DiscontinuityTags;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.DiscontinuityTags' is not present");
+            }
+        }
 
-        public string? DiscontinuityTags => _mDiscontinuityTags.GetValue("discontinuityTags");
-
-        [Input("encryptionType")]
+        [PolicyResourceProperty("encryptionType", "_mUnknown_EncryptionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptionType;
+        private string? _mValue_EncryptionType;
+        private bool _mUnknown_EncryptionType;
+        public string? EncryptionType
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionType) return _mValue_EncryptionType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.EncryptionType' is not present");
+            }
+        }
 
-        public string? EncryptionType => _mEncryptionType.GetValue("encryptionType");
-
-        [Input("hlsCdnSettings")]
+        [PolicyResourceProperty("hlsCdnSettings", "_mUnknown_HlsCdnSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs>> _mHlsCdnSettings;
+        private List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs>? _mValue_HlsCdnSettings;
+        private bool _mUnknown_HlsCdnSettings;
+        public List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs>? HlsCdnSettings
+        {
+            get
+            {
+                if (!_mUnknown_HlsCdnSettings) return _mValue_HlsCdnSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.HlsCdnSettings' is not present");
+            }
+        }
 
-        public List<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs>? HlsCdnSettings => _mHlsCdnSettings.GetValue("hlsCdnSettings");
-
-        [Input("hlsId3SegmentTagging")]
+        [PolicyResourceProperty("hlsId3SegmentTagging", "_mUnknown_HlsId3SegmentTagging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHlsId3SegmentTagging;
+        private string? _mValue_HlsId3SegmentTagging;
+        private bool _mUnknown_HlsId3SegmentTagging;
+        public string? HlsId3SegmentTagging
+        {
+            get
+            {
+                if (!_mUnknown_HlsId3SegmentTagging) return _mValue_HlsId3SegmentTagging;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.HlsId3SegmentTagging' is not present");
+            }
+        }
 
-        public string? HlsId3SegmentTagging => _mHlsId3SegmentTagging.GetValue("hlsId3SegmentTagging");
-
-        [Input("iframeOnlyPlaylists")]
+        [PolicyResourceProperty("iframeOnlyPlaylists", "_mUnknown_IframeOnlyPlaylists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIframeOnlyPlaylists;
+        private string? _mValue_IframeOnlyPlaylists;
+        private bool _mUnknown_IframeOnlyPlaylists;
+        public string? IframeOnlyPlaylists
+        {
+            get
+            {
+                if (!_mUnknown_IframeOnlyPlaylists) return _mValue_IframeOnlyPlaylists;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.IframeOnlyPlaylists' is not present");
+            }
+        }
 
-        public string? IframeOnlyPlaylists => _mIframeOnlyPlaylists.GetValue("iframeOnlyPlaylists");
-
-        [Input("incompleteSegmentBehavior")]
+        [PolicyResourceProperty("incompleteSegmentBehavior", "_mUnknown_IncompleteSegmentBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIncompleteSegmentBehavior;
+        private string? _mValue_IncompleteSegmentBehavior;
+        private bool _mUnknown_IncompleteSegmentBehavior;
+        public string? IncompleteSegmentBehavior
+        {
+            get
+            {
+                if (!_mUnknown_IncompleteSegmentBehavior) return _mValue_IncompleteSegmentBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.IncompleteSegmentBehavior' is not present");
+            }
+        }
 
-        public string? IncompleteSegmentBehavior => _mIncompleteSegmentBehavior.GetValue("incompleteSegmentBehavior");
-
-        [Input("indexNSegments")]
+        [PolicyResourceProperty("indexNSegments", "_mUnknown_IndexNSegments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIndexNSegments;
+        private int? _mValue_IndexNSegments;
+        private bool _mUnknown_IndexNSegments;
+        public int? IndexNSegments
+        {
+            get
+            {
+                if (!_mUnknown_IndexNSegments) return _mValue_IndexNSegments;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.IndexNSegments' is not present");
+            }
+        }
 
-        public int? IndexNSegments => _mIndexNSegments.GetValue("indexNSegments");
-
-        [Input("inputLossAction")]
+        [PolicyResourceProperty("inputLossAction", "_mUnknown_InputLossAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputLossAction;
+        private string? _mValue_InputLossAction;
+        private bool _mUnknown_InputLossAction;
+        public string? InputLossAction
+        {
+            get
+            {
+                if (!_mUnknown_InputLossAction) return _mValue_InputLossAction;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.InputLossAction' is not present");
+            }
+        }
 
-        public string? InputLossAction => _mInputLossAction.GetValue("inputLossAction");
-
-        [Input("ivInManifest")]
+        [PolicyResourceProperty("ivInManifest", "_mUnknown_IvInManifest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIvInManifest;
+        private string? _mValue_IvInManifest;
+        private bool _mUnknown_IvInManifest;
+        public string? IvInManifest
+        {
+            get
+            {
+                if (!_mUnknown_IvInManifest) return _mValue_IvInManifest;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.IvInManifest' is not present");
+            }
+        }
 
-        public string? IvInManifest => _mIvInManifest.GetValue("ivInManifest");
-
-        [Input("ivSource")]
+        [PolicyResourceProperty("ivSource", "_mUnknown_IvSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIvSource;
+        private string? _mValue_IvSource;
+        private bool _mUnknown_IvSource;
+        public string? IvSource
+        {
+            get
+            {
+                if (!_mUnknown_IvSource) return _mValue_IvSource;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.IvSource' is not present");
+            }
+        }
 
-        public string? IvSource => _mIvSource.GetValue("ivSource");
-
-        [Input("keepSegments")]
+        [PolicyResourceProperty("keepSegments", "_mUnknown_KeepSegments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mKeepSegments;
+        private int? _mValue_KeepSegments;
+        private bool _mUnknown_KeepSegments;
+        public int? KeepSegments
+        {
+            get
+            {
+                if (!_mUnknown_KeepSegments) return _mValue_KeepSegments;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.KeepSegments' is not present");
+            }
+        }
 
-        public int? KeepSegments => _mKeepSegments.GetValue("keepSegments");
-
-        [Input("keyFormat")]
+        [PolicyResourceProperty("keyFormat", "_mUnknown_KeyFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyFormat;
+        private string? _mValue_KeyFormat;
+        private bool _mUnknown_KeyFormat;
+        public string? KeyFormat
+        {
+            get
+            {
+                if (!_mUnknown_KeyFormat) return _mValue_KeyFormat;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.KeyFormat' is not present");
+            }
+        }
 
-        public string? KeyFormat => _mKeyFormat.GetValue("keyFormat");
-
-        [Input("keyFormatVersions")]
+        [PolicyResourceProperty("keyFormatVersions", "_mUnknown_KeyFormatVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyFormatVersions;
+        private string? _mValue_KeyFormatVersions;
+        private bool _mUnknown_KeyFormatVersions;
+        public string? KeyFormatVersions
+        {
+            get
+            {
+                if (!_mUnknown_KeyFormatVersions) return _mValue_KeyFormatVersions;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.KeyFormatVersions' is not present");
+            }
+        }
 
-        public string? KeyFormatVersions => _mKeyFormatVersions.GetValue("keyFormatVersions");
-
-        [Input("keyProviderSettings")]
+        [PolicyResourceProperty("keyProviderSettings", "_mUnknown_KeyProviderSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs> _mKeyProviderSettings;
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs? _mValue_KeyProviderSettings;
+        private bool _mUnknown_KeyProviderSettings;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs? KeyProviderSettings
+        {
+            get
+            {
+                if (!_mUnknown_KeyProviderSettings) return _mValue_KeyProviderSettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.KeyProviderSettings' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs? KeyProviderSettings => _mKeyProviderSettings.GetValue("keyProviderSettings");
-
-        [Input("manifestCompression")]
+        [PolicyResourceProperty("manifestCompression", "_mUnknown_ManifestCompression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManifestCompression;
+        private string? _mValue_ManifestCompression;
+        private bool _mUnknown_ManifestCompression;
+        public string? ManifestCompression
+        {
+            get
+            {
+                if (!_mUnknown_ManifestCompression) return _mValue_ManifestCompression;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.ManifestCompression' is not present");
+            }
+        }
 
-        public string? ManifestCompression => _mManifestCompression.GetValue("manifestCompression");
-
-        [Input("manifestDurationFormat")]
+        [PolicyResourceProperty("manifestDurationFormat", "_mUnknown_ManifestDurationFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManifestDurationFormat;
+        private string? _mValue_ManifestDurationFormat;
+        private bool _mUnknown_ManifestDurationFormat;
+        public string? ManifestDurationFormat
+        {
+            get
+            {
+                if (!_mUnknown_ManifestDurationFormat) return _mValue_ManifestDurationFormat;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.ManifestDurationFormat' is not present");
+            }
+        }
 
-        public string? ManifestDurationFormat => _mManifestDurationFormat.GetValue("manifestDurationFormat");
-
-        [Input("minSegmentLength")]
+        [PolicyResourceProperty("minSegmentLength", "_mUnknown_MinSegmentLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSegmentLength;
+        private int? _mValue_MinSegmentLength;
+        private bool _mUnknown_MinSegmentLength;
+        public int? MinSegmentLength
+        {
+            get
+            {
+                if (!_mUnknown_MinSegmentLength) return _mValue_MinSegmentLength;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.MinSegmentLength' is not present");
+            }
+        }
 
-        public int? MinSegmentLength => _mMinSegmentLength.GetValue("minSegmentLength");
-
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.Mode' is not present");
+            }
+        }
 
-        public string? Mode => _mMode.GetValue("mode");
-
-        [Input("outputSelection")]
+        [PolicyResourceProperty("outputSelection", "_mUnknown_OutputSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputSelection;
+        private string? _mValue_OutputSelection;
+        private bool _mUnknown_OutputSelection;
+        public string? OutputSelection
+        {
+            get
+            {
+                if (!_mUnknown_OutputSelection) return _mValue_OutputSelection;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.OutputSelection' is not present");
+            }
+        }
 
-        public string? OutputSelection => _mOutputSelection.GetValue("outputSelection");
-
-        [Input("programDateTime")]
+        [PolicyResourceProperty("programDateTime", "_mUnknown_ProgramDateTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProgramDateTime;
+        private string? _mValue_ProgramDateTime;
+        private bool _mUnknown_ProgramDateTime;
+        public string? ProgramDateTime
+        {
+            get
+            {
+                if (!_mUnknown_ProgramDateTime) return _mValue_ProgramDateTime;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.ProgramDateTime' is not present");
+            }
+        }
 
-        public string? ProgramDateTime => _mProgramDateTime.GetValue("programDateTime");
-
-        [Input("programDateTimeClock")]
+        [PolicyResourceProperty("programDateTimeClock", "_mUnknown_ProgramDateTimeClock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProgramDateTimeClock;
+        private string? _mValue_ProgramDateTimeClock;
+        private bool _mUnknown_ProgramDateTimeClock;
+        public string? ProgramDateTimeClock
+        {
+            get
+            {
+                if (!_mUnknown_ProgramDateTimeClock) return _mValue_ProgramDateTimeClock;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.ProgramDateTimeClock' is not present");
+            }
+        }
 
-        public string? ProgramDateTimeClock => _mProgramDateTimeClock.GetValue("programDateTimeClock");
-
-        [Input("programDateTimePeriod")]
+        [PolicyResourceProperty("programDateTimePeriod", "_mUnknown_ProgramDateTimePeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProgramDateTimePeriod;
+        private int? _mValue_ProgramDateTimePeriod;
+        private bool _mUnknown_ProgramDateTimePeriod;
+        public int? ProgramDateTimePeriod
+        {
+            get
+            {
+                if (!_mUnknown_ProgramDateTimePeriod) return _mValue_ProgramDateTimePeriod;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.ProgramDateTimePeriod' is not present");
+            }
+        }
 
-        public int? ProgramDateTimePeriod => _mProgramDateTimePeriod.GetValue("programDateTimePeriod");
-
-        [Input("redundantManifest")]
+        [PolicyResourceProperty("redundantManifest", "_mUnknown_RedundantManifest")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedundantManifest;
+        private string? _mValue_RedundantManifest;
+        private bool _mUnknown_RedundantManifest;
+        public string? RedundantManifest
+        {
+            get
+            {
+                if (!_mUnknown_RedundantManifest) return _mValue_RedundantManifest;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.RedundantManifest' is not present");
+            }
+        }
 
-        public string? RedundantManifest => _mRedundantManifest.GetValue("redundantManifest");
-
-        [Input("segmentLength")]
+        [PolicyResourceProperty("segmentLength", "_mUnknown_SegmentLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSegmentLength;
+        private int? _mValue_SegmentLength;
+        private bool _mUnknown_SegmentLength;
+        public int? SegmentLength
+        {
+            get
+            {
+                if (!_mUnknown_SegmentLength) return _mValue_SegmentLength;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.SegmentLength' is not present");
+            }
+        }
 
-        public int? SegmentLength => _mSegmentLength.GetValue("segmentLength");
-
-        [Input("segmentsPerSubdirectory")]
+        [PolicyResourceProperty("segmentsPerSubdirectory", "_mUnknown_SegmentsPerSubdirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSegmentsPerSubdirectory;
+        private int? _mValue_SegmentsPerSubdirectory;
+        private bool _mUnknown_SegmentsPerSubdirectory;
+        public int? SegmentsPerSubdirectory
+        {
+            get
+            {
+                if (!_mUnknown_SegmentsPerSubdirectory) return _mValue_SegmentsPerSubdirectory;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.SegmentsPerSubdirectory' is not present");
+            }
+        }
 
-        public int? SegmentsPerSubdirectory => _mSegmentsPerSubdirectory.GetValue("segmentsPerSubdirectory");
-
-        [Input("streamInfResolution")]
+        [PolicyResourceProperty("streamInfResolution", "_mUnknown_StreamInfResolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamInfResolution;
-
-        public string? StreamInfResolution => _mStreamInfResolution.GetValue("streamInfResolution");
+        private string? _mValue_StreamInfResolution;
+        private bool _mUnknown_StreamInfResolution;
+        public string? StreamInfResolution
+        {
+            get
+            {
+                if (!_mUnknown_StreamInfResolution) return _mValue_StreamInfResolution;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.StreamInfResolution' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates ID3 frame that has the timecode.
         /// </summary>
-        [Input("timedMetadataId3Frame")]
+        [PolicyResourceProperty("timedMetadataId3Frame", "_mUnknown_TimedMetadataId3Frame")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimedMetadataId3Frame;
+        private string? _mValue_TimedMetadataId3Frame;
+        private bool _mUnknown_TimedMetadataId3Frame;
+        public string? TimedMetadataId3Frame
+        {
+            get
+            {
+                if (!_mUnknown_TimedMetadataId3Frame) return _mValue_TimedMetadataId3Frame;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.TimedMetadataId3Frame' is not present");
+            }
+        }
 
-        public string? TimedMetadataId3Frame => _mTimedMetadataId3Frame.GetValue("timedMetadataId3Frame");
-
-        [Input("timedMetadataId3Period")]
+        [PolicyResourceProperty("timedMetadataId3Period", "_mUnknown_TimedMetadataId3Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimedMetadataId3Period;
+        private int? _mValue_TimedMetadataId3Period;
+        private bool _mUnknown_TimedMetadataId3Period;
+        public int? TimedMetadataId3Period
+        {
+            get
+            {
+                if (!_mUnknown_TimedMetadataId3Period) return _mValue_TimedMetadataId3Period;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.TimedMetadataId3Period' is not present");
+            }
+        }
 
-        public int? TimedMetadataId3Period => _mTimedMetadataId3Period.GetValue("timedMetadataId3Period");
-
-        [Input("timestampDeltaMilliseconds")]
+        [PolicyResourceProperty("timestampDeltaMilliseconds", "_mUnknown_TimestampDeltaMilliseconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimestampDeltaMilliseconds;
+        private int? _mValue_TimestampDeltaMilliseconds;
+        private bool _mUnknown_TimestampDeltaMilliseconds;
+        public int? TimestampDeltaMilliseconds
+        {
+            get
+            {
+                if (!_mUnknown_TimestampDeltaMilliseconds) return _mValue_TimestampDeltaMilliseconds;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.TimestampDeltaMilliseconds' is not present");
+            }
+        }
 
-        public int? TimestampDeltaMilliseconds => _mTimestampDeltaMilliseconds.GetValue("timestampDeltaMilliseconds");
-
-        [Input("tsFileMode")]
+        [PolicyResourceProperty("tsFileMode", "_mUnknown_TsFileMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTsFileMode;
-
-        public string? TsFileMode => _mTsFileMode.GetValue("tsFileMode");
+        private string? _mValue_TsFileMode;
+        private bool _mUnknown_TsFileMode;
+        public string? TsFileMode
+        {
+            get
+            {
+                if (!_mUnknown_TsFileMode) return _mValue_TsFileMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs.TsFileMode' is not present");
+            }
+        }
     }
 }

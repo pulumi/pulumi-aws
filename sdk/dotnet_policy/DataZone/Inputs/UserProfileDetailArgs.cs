@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Inputs
 {
     public sealed class UserProfileDetailArgs
     {
-        [Input("iams")]
+        [PolicyResourceProperty("iams", "_mUnknown_Iams")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserProfileDetailIamArgs>> _mIams;
+        private List<Inputs.UserProfileDetailIamArgs>? _mValue_Iams;
+        private bool _mUnknown_Iams;
+        public List<Inputs.UserProfileDetailIamArgs>? Iams
+        {
+            get
+            {
+                if (!_mUnknown_Iams) return _mValue_Iams;
+                throw new UndeferrableValueException("Value 'UserProfileDetailArgs.Iams' is not present");
+            }
+        }
 
-        public List<Inputs.UserProfileDetailIamArgs>? Iams => _mIams.GetValue("iams");
-
-        [Input("ssos")]
+        [PolicyResourceProperty("ssos", "_mUnknown_Ssos")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.UserProfileDetailSsoArgs>> _mSsos;
-
-        public List<Inputs.UserProfileDetailSsoArgs>? Ssos => _mSsos.GetValue("ssos");
+        private List<Inputs.UserProfileDetailSsoArgs>? _mValue_Ssos;
+        private bool _mUnknown_Ssos;
+        public List<Inputs.UserProfileDetailSsoArgs>? Ssos
+        {
+            get
+            {
+                if (!_mUnknown_Ssos) return _mValue_Ssos;
+                throw new UndeferrableValueException("Value 'UserProfileDetailArgs.Ssos' is not present");
+            }
+        }
     }
 }

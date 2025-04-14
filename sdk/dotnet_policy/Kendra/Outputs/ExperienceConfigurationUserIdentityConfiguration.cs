@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// The AWS SSO field name that contains the identifiers of your users, such as their emails.
         /// </summary>
-        [Input("identityAttributeName")]
+        [PolicyResourceProperty("identityAttributeName", "_mUnknown_IdentityAttributeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityAttributeName;
-
-        public string? IdentityAttributeName => _mIdentityAttributeName.GetValue("identityAttributeName");
+        private string? _mValue_IdentityAttributeName;
+        private bool _mUnknown_IdentityAttributeName;
+        public string? IdentityAttributeName
+        {
+            get
+            {
+                if (!_mUnknown_IdentityAttributeName) return _mValue_IdentityAttributeName;
+                throw new UndeferrableValueException("Value 'ExperienceConfigurationUserIdentityConfiguration.IdentityAttributeName' is not present");
+            }
+        }
     }
 }

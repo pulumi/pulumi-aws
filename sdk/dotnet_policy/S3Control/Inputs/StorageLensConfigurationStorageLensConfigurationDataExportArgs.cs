@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Inputs
         /// <summary>
         /// Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
         /// </summary>
-        [Input("cloudWatchMetrics")]
+        [PolicyResourceProperty("cloudWatchMetrics", "_mUnknown_CloudWatchMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs> _mCloudWatchMetrics;
-
-        public Inputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs? CloudWatchMetrics => _mCloudWatchMetrics.GetValue("cloudWatchMetrics");
+        private Inputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs? _mValue_CloudWatchMetrics;
+        private bool _mUnknown_CloudWatchMetrics;
+        public Inputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs? CloudWatchMetrics
+        {
+            get
+            {
+                if (!_mUnknown_CloudWatchMetrics) return _mValue_CloudWatchMetrics;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportArgs.CloudWatchMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
         /// </summary>
-        [Input("s3BucketDestination")]
+        [PolicyResourceProperty("s3BucketDestination", "_mUnknown_S3BucketDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs> _mS3BucketDestination;
-
-        public Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs? S3BucketDestination => _mS3BucketDestination.GetValue("s3BucketDestination");
+        private Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs? _mValue_S3BucketDestination;
+        private bool _mUnknown_S3BucketDestination;
+        public Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs? S3BucketDestination
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketDestination) return _mValue_S3BucketDestination;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportArgs.S3BucketDestination' is not present");
+            }
+        }
     }
 }

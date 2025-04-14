@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
         /// </summary>
-        [Input("cognitoMemberDefinition")]
+        [PolicyResourceProperty("cognitoMemberDefinition", "_mUnknown_CognitoMemberDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkteamMemberDefinitionCognitoMemberDefinition> _mCognitoMemberDefinition;
-
-        public Outputs.WorkteamMemberDefinitionCognitoMemberDefinition? CognitoMemberDefinition => _mCognitoMemberDefinition.GetValue("cognitoMemberDefinition");
+        private Outputs.WorkteamMemberDefinitionCognitoMemberDefinition? _mValue_CognitoMemberDefinition;
+        private bool _mUnknown_CognitoMemberDefinition;
+        public Outputs.WorkteamMemberDefinitionCognitoMemberDefinition? CognitoMemberDefinition
+        {
+            get
+            {
+                if (!_mUnknown_CognitoMemberDefinition) return _mValue_CognitoMemberDefinition;
+                throw new UndeferrableValueException("Value 'WorkteamMemberDefinition.CognitoMemberDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
         /// </summary>
-        [Input("oidcMemberDefinition")]
+        [PolicyResourceProperty("oidcMemberDefinition", "_mUnknown_OidcMemberDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.WorkteamMemberDefinitionOidcMemberDefinition> _mOidcMemberDefinition;
-
-        public Outputs.WorkteamMemberDefinitionOidcMemberDefinition? OidcMemberDefinition => _mOidcMemberDefinition.GetValue("oidcMemberDefinition");
+        private Outputs.WorkteamMemberDefinitionOidcMemberDefinition? _mValue_OidcMemberDefinition;
+        private bool _mUnknown_OidcMemberDefinition;
+        public Outputs.WorkteamMemberDefinitionOidcMemberDefinition? OidcMemberDefinition
+        {
+            get
+            {
+                if (!_mUnknown_OidcMemberDefinition) return _mValue_OidcMemberDefinition;
+                throw new UndeferrableValueException("Value 'WorkteamMemberDefinition.OidcMemberDefinition' is not present");
+            }
+        }
     }
 }

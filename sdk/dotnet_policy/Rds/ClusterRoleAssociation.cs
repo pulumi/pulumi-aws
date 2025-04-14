@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// DB Cluster Identifier to associate with the IAM Role.
         /// </summary>
-        [Input("dbClusterIdentifier")]
+        [PolicyResourceProperty("dbClusterIdentifier", "_mUnknown_DbClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
-
-        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+        private string? _mValue_DbClusterIdentifier;
+        private bool _mUnknown_DbClusterIdentifier;
+        public string? DbClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterIdentifier) return _mValue_DbClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterRoleAssociation.DbClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
-        [Input("featureName")]
+        [PolicyResourceProperty("featureName", "_mUnknown_FeatureName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureName;
-
-        public string? FeatureName => _mFeatureName.GetValue("featureName");
+        private string? _mValue_FeatureName;
+        private bool _mUnknown_FeatureName;
+        public string? FeatureName
+        {
+            get
+            {
+                if (!_mUnknown_FeatureName) return _mValue_FeatureName;
+                throw new UndeferrableValueException("Value 'ClusterRoleAssociation.FeatureName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ClusterRoleAssociation.RoleArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/clusterRoleAssociation:ClusterRoleAssociation")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// DB Cluster Identifier to associate with the IAM Role.
         /// </summary>
-        [Input("dbClusterIdentifier")]
+        [PolicyResourceProperty("dbClusterIdentifier", "_mUnknown_DbClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDbClusterIdentifier;
-
-        public string? DbClusterIdentifier => _mDbClusterIdentifier.GetValue("dbClusterIdentifier");
+        private string? _mValue_DbClusterIdentifier;
+        private bool _mUnknown_DbClusterIdentifier;
+        public string? DbClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DbClusterIdentifier) return _mValue_DbClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterRoleAssociationArgs.DbClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         /// </summary>
-        [Input("featureName")]
+        [PolicyResourceProperty("featureName", "_mUnknown_FeatureName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureName;
-
-        public string? FeatureName => _mFeatureName.GetValue("featureName");
+        private string? _mValue_FeatureName;
+        private bool _mUnknown_FeatureName;
+        public string? FeatureName
+        {
+            get
+            {
+                if (!_mUnknown_FeatureName) return _mValue_FeatureName;
+                throw new UndeferrableValueException("Value 'ClusterRoleAssociationArgs.FeatureName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ClusterRoleAssociationArgs.RoleArn' is not present");
+            }
+        }
     }
 }

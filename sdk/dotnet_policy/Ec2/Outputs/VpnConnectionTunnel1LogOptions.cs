@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
         /// </summary>
-        [Input("cloudwatchLogOptions")]
+        [PolicyResourceProperty("cloudwatchLogOptions", "_mUnknown_CloudwatchLogOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions> _mCloudwatchLogOptions;
-
-        public Outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions? CloudwatchLogOptions => _mCloudwatchLogOptions.GetValue("cloudwatchLogOptions");
+        private Outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions? _mValue_CloudwatchLogOptions;
+        private bool _mUnknown_CloudwatchLogOptions;
+        public Outputs.VpnConnectionTunnel1LogOptionsCloudwatchLogOptions? CloudwatchLogOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogOptions) return _mValue_CloudwatchLogOptions;
+                throw new UndeferrableValueException("Value 'VpnConnectionTunnel1LogOptions.CloudwatchLogOptions' is not present");
+            }
+        }
     }
 }

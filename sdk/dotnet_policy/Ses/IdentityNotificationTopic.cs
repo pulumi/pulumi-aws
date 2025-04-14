@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
         /// </summary>
-        [Input("identity")]
+        [PolicyResourceProperty("identity", "_mUnknown_Identity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
-
-        public string? Identity => _mIdentity.GetValue("identity");
+        private string? _mValue_Identity;
+        private bool _mUnknown_Identity;
+        public string? Identity
+        {
+            get
+            {
+                if (!_mUnknown_Identity) return _mValue_Identity;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopic.Identity' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         /// </summary>
-        [Input("includeOriginalHeaders")]
+        [PolicyResourceProperty("includeOriginalHeaders", "_mUnknown_IncludeOriginalHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOriginalHeaders;
-
-        public bool? IncludeOriginalHeaders => _mIncludeOriginalHeaders.GetValue("includeOriginalHeaders");
+        private bool? _mValue_IncludeOriginalHeaders;
+        private bool _mUnknown_IncludeOriginalHeaders;
+        public bool? IncludeOriginalHeaders
+        {
+            get
+            {
+                if (!_mUnknown_IncludeOriginalHeaders) return _mValue_IncludeOriginalHeaders;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopic.IncludeOriginalHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
-        [Input("notificationType")]
+        [PolicyResourceProperty("notificationType", "_mUnknown_NotificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
-
-        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+        private string? _mValue_NotificationType;
+        private bool _mUnknown_NotificationType;
+        public string? NotificationType
+        {
+            get
+            {
+                if (!_mUnknown_NotificationType) return _mValue_NotificationType;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopic.NotificationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopic.TopicArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ses/identityNotificationTopic:IdentityNotificationTopic")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Ses
         /// <summary>
         /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
         /// </summary>
-        [Input("identity")]
+        [PolicyResourceProperty("identity", "_mUnknown_Identity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentity;
-
-        public string? Identity => _mIdentity.GetValue("identity");
+        private string? _mValue_Identity;
+        private bool _mUnknown_Identity;
+        public string? Identity
+        {
+            get
+            {
+                if (!_mUnknown_Identity) return _mValue_Identity;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.Identity' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         /// </summary>
-        [Input("includeOriginalHeaders")]
+        [PolicyResourceProperty("includeOriginalHeaders", "_mUnknown_IncludeOriginalHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeOriginalHeaders;
-
-        public bool? IncludeOriginalHeaders => _mIncludeOriginalHeaders.GetValue("includeOriginalHeaders");
+        private bool? _mValue_IncludeOriginalHeaders;
+        private bool _mUnknown_IncludeOriginalHeaders;
+        public bool? IncludeOriginalHeaders
+        {
+            get
+            {
+                if (!_mUnknown_IncludeOriginalHeaders) return _mValue_IncludeOriginalHeaders;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.IncludeOriginalHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         /// </summary>
-        [Input("notificationType")]
+        [PolicyResourceProperty("notificationType", "_mUnknown_NotificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
-
-        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+        private string? _mValue_NotificationType;
+        private bool _mUnknown_NotificationType;
+        public string? NotificationType
+        {
+            get
+            {
+                if (!_mUnknown_NotificationType) return _mValue_NotificationType;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.NotificationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         /// </summary>
-        [Input("topicArn")]
+        [PolicyResourceProperty("topicArn", "_mUnknown_TopicArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopicArn;
-
-        public string? TopicArn => _mTopicArn.GetValue("topicArn");
+        private string? _mValue_TopicArn;
+        private bool _mUnknown_TopicArn;
+        public string? TopicArn
+        {
+            get
+            {
+                if (!_mUnknown_TopicArn) return _mValue_TopicArn;
+                throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.TopicArn' is not present");
+            }
+        }
     }
 }

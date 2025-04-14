@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
         /// </summary>
-        [Input("iamRoleArn")]
+        [PolicyResourceProperty("iamRoleArn", "_mUnknown_IamRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIamRoleArn;
-
-        public string? IamRoleArn => _mIamRoleArn.GetValue("iamRoleArn");
+        private string? _mValue_IamRoleArn;
+        private bool _mUnknown_IamRoleArn;
+        public string? IamRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_IamRoleArn) return _mValue_IamRoleArn;
+                throw new UndeferrableValueException("Value 'BotAliasConversationLogsArgs.IamRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
         /// </summary>
-        [Input("logSettings")]
+        [PolicyResourceProperty("logSettings", "_mUnknown_LogSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BotAliasConversationLogsLogSettingArgs>> _mLogSettings;
-
-        public List<Inputs.BotAliasConversationLogsLogSettingArgs>? LogSettings => _mLogSettings.GetValue("logSettings");
+        private List<Inputs.BotAliasConversationLogsLogSettingArgs>? _mValue_LogSettings;
+        private bool _mUnknown_LogSettings;
+        public List<Inputs.BotAliasConversationLogsLogSettingArgs>? LogSettings
+        {
+            get
+            {
+                if (!_mUnknown_LogSettings) return _mValue_LogSettings;
+                throw new UndeferrableValueException("Value 'BotAliasConversationLogsArgs.LogSettings' is not present");
+            }
+        }
     }
 }

@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.Rum.Inputs
         /// <summary>
         /// If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
         /// </summary>
-        [Input("allowCookies")]
+        [PolicyResourceProperty("allowCookies", "_mUnknown_AllowCookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowCookies;
-
-        public bool? AllowCookies => _mAllowCookies.GetValue("allowCookies");
+        private bool? _mValue_AllowCookies;
+        private bool _mUnknown_AllowCookies;
+        public bool? AllowCookies
+        {
+            get
+            {
+                if (!_mUnknown_AllowCookies) return _mValue_AllowCookies;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.AllowCookies' is not present");
+            }
+        }
 
         /// <summary>
         /// If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
         /// </summary>
-        [Input("enableXray")]
+        [PolicyResourceProperty("enableXray", "_mUnknown_EnableXray")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableXray;
-
-        public bool? EnableXray => _mEnableXray.GetValue("enableXray");
+        private bool? _mValue_EnableXray;
+        private bool _mUnknown_EnableXray;
+        public bool? EnableXray
+        {
+            get
+            {
+                if (!_mUnknown_EnableXray) return _mValue_EnableXray;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.EnableXray' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of URLs in your website or application to exclude from RUM data collection.
         /// </summary>
-        [Input("excludedPages")]
+        [PolicyResourceProperty("excludedPages", "_mUnknown_ExcludedPages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExcludedPages;
-
-        public List<string>? ExcludedPages => _mExcludedPages.GetValue("excludedPages");
+        private List<string>? _mValue_ExcludedPages;
+        private bool _mUnknown_ExcludedPages;
+        public List<string>? ExcludedPages
+        {
+            get
+            {
+                if (!_mUnknown_ExcludedPages) return _mValue_ExcludedPages;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.ExcludedPages' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite" icon.
         /// </summary>
-        [Input("favoritePages")]
+        [PolicyResourceProperty("favoritePages", "_mUnknown_FavoritePages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFavoritePages;
-
-        public List<string>? FavoritePages => _mFavoritePages.GetValue("favoritePages");
+        private List<string>? _mValue_FavoritePages;
+        private bool _mUnknown_FavoritePages;
+        public List<string>? FavoritePages
+        {
+            get
+            {
+                if (!_mUnknown_FavoritePages) return _mValue_FavoritePages;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.FavoritePages' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
         /// </summary>
-        [Input("guestRoleArn")]
+        [PolicyResourceProperty("guestRoleArn", "_mUnknown_GuestRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuestRoleArn;
-
-        public string? GuestRoleArn => _mGuestRoleArn.GetValue("guestRoleArn");
+        private string? _mValue_GuestRoleArn;
+        private bool _mUnknown_GuestRoleArn;
+        public string? GuestRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_GuestRoleArn) return _mValue_GuestRoleArn;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.GuestRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
         /// </summary>
-        [Input("identityPoolId")]
+        [PolicyResourceProperty("identityPoolId", "_mUnknown_IdentityPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
-
-        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
+        private string? _mValue_IdentityPoolId;
+        private bool _mUnknown_IdentityPoolId;
+        public string? IdentityPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityPoolId) return _mValue_IdentityPoolId;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.IdentityPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
         /// </summary>
-        [Input("includedPages")]
+        [PolicyResourceProperty("includedPages", "_mUnknown_IncludedPages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIncludedPages;
-
-        public List<string>? IncludedPages => _mIncludedPages.GetValue("includedPages");
+        private List<string>? _mValue_IncludedPages;
+        private bool _mUnknown_IncludedPages;
+        public List<string>? IncludedPages
+        {
+            get
+            {
+                if (!_mUnknown_IncludedPages) return _mValue_IncludedPages;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.IncludedPages' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
         /// </summary>
-        [Input("sessionSampleRate")]
+        [PolicyResourceProperty("sessionSampleRate", "_mUnknown_SessionSampleRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mSessionSampleRate;
-
-        public double? SessionSampleRate => _mSessionSampleRate.GetValue("sessionSampleRate");
+        private double? _mValue_SessionSampleRate;
+        private bool _mUnknown_SessionSampleRate;
+        public double? SessionSampleRate
+        {
+            get
+            {
+                if (!_mUnknown_SessionSampleRate) return _mValue_SessionSampleRate;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.SessionSampleRate' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
         /// </summary>
-        [Input("telemetries")]
+        [PolicyResourceProperty("telemetries", "_mUnknown_Telemetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTelemetries;
-
-        public List<string>? Telemetries => _mTelemetries.GetValue("telemetries");
+        private List<string>? _mValue_Telemetries;
+        private bool _mUnknown_Telemetries;
+        public List<string>? Telemetries
+        {
+            get
+            {
+                if (!_mUnknown_Telemetries) return _mValue_Telemetries;
+                throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.Telemetries' is not present");
+            }
+        }
     }
 }

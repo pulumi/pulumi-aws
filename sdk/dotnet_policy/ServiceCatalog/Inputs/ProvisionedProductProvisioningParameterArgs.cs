@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ServiceCatalog.Inputs
         /// <summary>
         /// Parameter key.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ProvisionedProductProvisioningParameterArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
         /// </summary>
-        [Input("usePreviousValue")]
+        [PolicyResourceProperty("usePreviousValue", "_mUnknown_UsePreviousValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUsePreviousValue;
-
-        public bool? UsePreviousValue => _mUsePreviousValue.GetValue("usePreviousValue");
+        private bool? _mValue_UsePreviousValue;
+        private bool _mUnknown_UsePreviousValue;
+        public bool? UsePreviousValue
+        {
+            get
+            {
+                if (!_mUnknown_UsePreviousValue) return _mValue_UsePreviousValue;
+                throw new UndeferrableValueException("Value 'ProvisionedProductProvisioningParameterArgs.UsePreviousValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameter value.
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'ProvisionedProductProvisioningParameterArgs.Value' is not present");
+            }
+        }
     }
 }

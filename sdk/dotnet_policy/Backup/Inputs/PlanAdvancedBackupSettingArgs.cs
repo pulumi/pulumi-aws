@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Backup.Inputs
         /// <summary>
         /// Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
         /// </summary>
-        [Input("backupOptions")]
+        [PolicyResourceProperty("backupOptions", "_mUnknown_BackupOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mBackupOptions;
-
-        public Dictionary<string, string>? BackupOptions => _mBackupOptions.GetValue("backupOptions");
+        private Dictionary<string, string>? _mValue_BackupOptions;
+        private bool _mUnknown_BackupOptions;
+        public Dictionary<string, string>? BackupOptions
+        {
+            get
+            {
+                if (!_mUnknown_BackupOptions) return _mValue_BackupOptions;
+                throw new UndeferrableValueException("Value 'PlanAdvancedBackupSettingArgs.BackupOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
         /// </summary>
-        [Input("resourceType")]
+        [PolicyResourceProperty("resourceType", "_mUnknown_ResourceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceType;
-
-        public string? ResourceType => _mResourceType.GetValue("resourceType");
+        private string? _mValue_ResourceType;
+        private bool _mUnknown_ResourceType;
+        public string? ResourceType
+        {
+            get
+            {
+                if (!_mUnknown_ResourceType) return _mValue_ResourceType;
+                throw new UndeferrableValueException("Value 'PlanAdvancedBackupSettingArgs.ResourceType' is not present");
+            }
+        }
     }
 }

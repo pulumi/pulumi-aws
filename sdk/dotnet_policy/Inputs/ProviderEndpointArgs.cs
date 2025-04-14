@@ -15,2701 +15,4801 @@ namespace Pulumi.PolicyPacks.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("accessanalyzer")]
+        [PolicyResourceProperty("accessanalyzer", "_mUnknown_Accessanalyzer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessanalyzer;
+        private string? _mValue_Accessanalyzer;
+        private bool _mUnknown_Accessanalyzer;
+        public string? Accessanalyzer
+        {
+            get
+            {
+                if (!_mUnknown_Accessanalyzer) return _mValue_Accessanalyzer;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Accessanalyzer' is not present");
+            }
+        }
 
-        public string? Accessanalyzer => _mAccessanalyzer.GetValue("accessanalyzer");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("account")]
+        [PolicyResourceProperty("account", "_mUnknown_Account")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccount;
-
-        public string? Account => _mAccount.GetValue("account");
+        private string? _mValue_Account;
+        private bool _mUnknown_Account;
+        public string? Account
+        {
+            get
+            {
+                if (!_mUnknown_Account) return _mValue_Account;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Account' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("acm")]
+        [PolicyResourceProperty("acm", "_mUnknown_Acm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcm;
+        private string? _mValue_Acm;
+        private bool _mUnknown_Acm;
+        public string? Acm
+        {
+            get
+            {
+                if (!_mUnknown_Acm) return _mValue_Acm;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Acm' is not present");
+            }
+        }
 
-        public string? Acm => _mAcm.GetValue("acm");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("acmpca")]
+        [PolicyResourceProperty("acmpca", "_mUnknown_Acmpca")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcmpca;
-
-        public string? Acmpca => _mAcmpca.GetValue("acmpca");
+        private string? _mValue_Acmpca;
+        private bool _mUnknown_Acmpca;
+        public string? Acmpca
+        {
+            get
+            {
+                if (!_mUnknown_Acmpca) return _mValue_Acmpca;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Acmpca' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("amg")]
+        [PolicyResourceProperty("amg", "_mUnknown_Amg")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmg;
+        private string? _mValue_Amg;
+        private bool _mUnknown_Amg;
+        public string? Amg
+        {
+            get
+            {
+                if (!_mUnknown_Amg) return _mValue_Amg;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Amg' is not present");
+            }
+        }
 
-        public string? Amg => _mAmg.GetValue("amg");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("amp")]
+        [PolicyResourceProperty("amp", "_mUnknown_Amp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmp;
-
-        public string? Amp => _mAmp.GetValue("amp");
+        private string? _mValue_Amp;
+        private bool _mUnknown_Amp;
+        public string? Amp
+        {
+            get
+            {
+                if (!_mUnknown_Amp) return _mValue_Amp;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Amp' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("amplify")]
+        [PolicyResourceProperty("amplify", "_mUnknown_Amplify")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmplify;
+        private string? _mValue_Amplify;
+        private bool _mUnknown_Amplify;
+        public string? Amplify
+        {
+            get
+            {
+                if (!_mUnknown_Amplify) return _mValue_Amplify;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Amplify' is not present");
+            }
+        }
 
-        public string? Amplify => _mAmplify.GetValue("amplify");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("apigateway")]
+        [PolicyResourceProperty("apigateway", "_mUnknown_Apigateway")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApigateway;
+        private string? _mValue_Apigateway;
+        private bool _mUnknown_Apigateway;
+        public string? Apigateway
+        {
+            get
+            {
+                if (!_mUnknown_Apigateway) return _mValue_Apigateway;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Apigateway' is not present");
+            }
+        }
 
-        public string? Apigateway => _mApigateway.GetValue("apigateway");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("apigatewayv2")]
+        [PolicyResourceProperty("apigatewayv2", "_mUnknown_Apigatewayv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApigatewayv2;
-
-        public string? Apigatewayv2 => _mApigatewayv2.GetValue("apigatewayv2");
+        private string? _mValue_Apigatewayv2;
+        private bool _mUnknown_Apigatewayv2;
+        public string? Apigatewayv2
+        {
+            get
+            {
+                if (!_mUnknown_Apigatewayv2) return _mValue_Apigatewayv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Apigatewayv2' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appautoscaling")]
+        [PolicyResourceProperty("appautoscaling", "_mUnknown_Appautoscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppautoscaling;
+        private string? _mValue_Appautoscaling;
+        private bool _mUnknown_Appautoscaling;
+        public string? Appautoscaling
+        {
+            get
+            {
+                if (!_mUnknown_Appautoscaling) return _mValue_Appautoscaling;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appautoscaling' is not present");
+            }
+        }
 
-        public string? Appautoscaling => _mAppautoscaling.GetValue("appautoscaling");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appconfig")]
+        [PolicyResourceProperty("appconfig", "_mUnknown_Appconfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppconfig;
-
-        public string? Appconfig => _mAppconfig.GetValue("appconfig");
+        private string? _mValue_Appconfig;
+        private bool _mUnknown_Appconfig;
+        public string? Appconfig
+        {
+            get
+            {
+                if (!_mUnknown_Appconfig) return _mValue_Appconfig;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appconfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appfabric")]
+        [PolicyResourceProperty("appfabric", "_mUnknown_Appfabric")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppfabric;
+        private string? _mValue_Appfabric;
+        private bool _mUnknown_Appfabric;
+        public string? Appfabric
+        {
+            get
+            {
+                if (!_mUnknown_Appfabric) return _mValue_Appfabric;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appfabric' is not present");
+            }
+        }
 
-        public string? Appfabric => _mAppfabric.GetValue("appfabric");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appflow")]
+        [PolicyResourceProperty("appflow", "_mUnknown_Appflow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppflow;
-
-        public string? Appflow => _mAppflow.GetValue("appflow");
+        private string? _mValue_Appflow;
+        private bool _mUnknown_Appflow;
+        public string? Appflow
+        {
+            get
+            {
+                if (!_mUnknown_Appflow) return _mValue_Appflow;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appflow' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appintegrations")]
+        [PolicyResourceProperty("appintegrations", "_mUnknown_Appintegrations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppintegrations;
+        private string? _mValue_Appintegrations;
+        private bool _mUnknown_Appintegrations;
+        public string? Appintegrations
+        {
+            get
+            {
+                if (!_mUnknown_Appintegrations) return _mValue_Appintegrations;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appintegrations' is not present");
+            }
+        }
 
-        public string? Appintegrations => _mAppintegrations.GetValue("appintegrations");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appintegrationsservice")]
+        [PolicyResourceProperty("appintegrationsservice", "_mUnknown_Appintegrationsservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppintegrationsservice;
-
-        public string? Appintegrationsservice => _mAppintegrationsservice.GetValue("appintegrationsservice");
+        private string? _mValue_Appintegrationsservice;
+        private bool _mUnknown_Appintegrationsservice;
+        public string? Appintegrationsservice
+        {
+            get
+            {
+                if (!_mUnknown_Appintegrationsservice) return _mValue_Appintegrationsservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appintegrationsservice' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("applicationautoscaling")]
+        [PolicyResourceProperty("applicationautoscaling", "_mUnknown_Applicationautoscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationautoscaling;
+        private string? _mValue_Applicationautoscaling;
+        private bool _mUnknown_Applicationautoscaling;
+        public string? Applicationautoscaling
+        {
+            get
+            {
+                if (!_mUnknown_Applicationautoscaling) return _mValue_Applicationautoscaling;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Applicationautoscaling' is not present");
+            }
+        }
 
-        public string? Applicationautoscaling => _mApplicationautoscaling.GetValue("applicationautoscaling");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("applicationinsights")]
+        [PolicyResourceProperty("applicationinsights", "_mUnknown_Applicationinsights")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationinsights;
+        private string? _mValue_Applicationinsights;
+        private bool _mUnknown_Applicationinsights;
+        public string? Applicationinsights
+        {
+            get
+            {
+                if (!_mUnknown_Applicationinsights) return _mValue_Applicationinsights;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Applicationinsights' is not present");
+            }
+        }
 
-        public string? Applicationinsights => _mApplicationinsights.GetValue("applicationinsights");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("applicationsignals")]
+        [PolicyResourceProperty("applicationsignals", "_mUnknown_Applicationsignals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationsignals;
-
-        public string? Applicationsignals => _mApplicationsignals.GetValue("applicationsignals");
+        private string? _mValue_Applicationsignals;
+        private bool _mUnknown_Applicationsignals;
+        public string? Applicationsignals
+        {
+            get
+            {
+                if (!_mUnknown_Applicationsignals) return _mValue_Applicationsignals;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Applicationsignals' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appmesh")]
+        [PolicyResourceProperty("appmesh", "_mUnknown_Appmesh")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppmesh;
+        private string? _mValue_Appmesh;
+        private bool _mUnknown_Appmesh;
+        public string? Appmesh
+        {
+            get
+            {
+                if (!_mUnknown_Appmesh) return _mValue_Appmesh;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appmesh' is not present");
+            }
+        }
 
-        public string? Appmesh => _mAppmesh.GetValue("appmesh");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appregistry")]
+        [PolicyResourceProperty("appregistry", "_mUnknown_Appregistry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppregistry;
-
-        public string? Appregistry => _mAppregistry.GetValue("appregistry");
+        private string? _mValue_Appregistry;
+        private bool _mUnknown_Appregistry;
+        public string? Appregistry
+        {
+            get
+            {
+                if (!_mUnknown_Appregistry) return _mValue_Appregistry;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appregistry' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("apprunner")]
+        [PolicyResourceProperty("apprunner", "_mUnknown_Apprunner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprunner;
+        private string? _mValue_Apprunner;
+        private bool _mUnknown_Apprunner;
+        public string? Apprunner
+        {
+            get
+            {
+                if (!_mUnknown_Apprunner) return _mValue_Apprunner;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Apprunner' is not present");
+            }
+        }
 
-        public string? Apprunner => _mApprunner.GetValue("apprunner");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appstream")]
+        [PolicyResourceProperty("appstream", "_mUnknown_Appstream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppstream;
-
-        public string? Appstream => _mAppstream.GetValue("appstream");
+        private string? _mValue_Appstream;
+        private bool _mUnknown_Appstream;
+        public string? Appstream
+        {
+            get
+            {
+                if (!_mUnknown_Appstream) return _mValue_Appstream;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appstream' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("appsync")]
+        [PolicyResourceProperty("appsync", "_mUnknown_Appsync")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppsync;
+        private string? _mValue_Appsync;
+        private bool _mUnknown_Appsync;
+        public string? Appsync
+        {
+            get
+            {
+                if (!_mUnknown_Appsync) return _mValue_Appsync;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Appsync' is not present");
+            }
+        }
 
-        public string? Appsync => _mAppsync.GetValue("appsync");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("athena")]
+        [PolicyResourceProperty("athena", "_mUnknown_Athena")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAthena;
-
-        public string? Athena => _mAthena.GetValue("athena");
+        private string? _mValue_Athena;
+        private bool _mUnknown_Athena;
+        public string? Athena
+        {
+            get
+            {
+                if (!_mUnknown_Athena) return _mValue_Athena;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Athena' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("auditmanager")]
+        [PolicyResourceProperty("auditmanager", "_mUnknown_Auditmanager")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuditmanager;
+        private string? _mValue_Auditmanager;
+        private bool _mUnknown_Auditmanager;
+        public string? Auditmanager
+        {
+            get
+            {
+                if (!_mUnknown_Auditmanager) return _mValue_Auditmanager;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Auditmanager' is not present");
+            }
+        }
 
-        public string? Auditmanager => _mAuditmanager.GetValue("auditmanager");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("autoscaling")]
+        [PolicyResourceProperty("autoscaling", "_mUnknown_Autoscaling")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscaling;
+        private string? _mValue_Autoscaling;
+        private bool _mUnknown_Autoscaling;
+        public string? Autoscaling
+        {
+            get
+            {
+                if (!_mUnknown_Autoscaling) return _mValue_Autoscaling;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Autoscaling' is not present");
+            }
+        }
 
-        public string? Autoscaling => _mAutoscaling.GetValue("autoscaling");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("autoscalingplans")]
+        [PolicyResourceProperty("autoscalingplans", "_mUnknown_Autoscalingplans")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAutoscalingplans;
-
-        public string? Autoscalingplans => _mAutoscalingplans.GetValue("autoscalingplans");
+        private string? _mValue_Autoscalingplans;
+        private bool _mUnknown_Autoscalingplans;
+        public string? Autoscalingplans
+        {
+            get
+            {
+                if (!_mUnknown_Autoscalingplans) return _mValue_Autoscalingplans;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Autoscalingplans' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("backup")]
+        [PolicyResourceProperty("backup", "_mUnknown_Backup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackup;
+        private string? _mValue_Backup;
+        private bool _mUnknown_Backup;
+        public string? Backup
+        {
+            get
+            {
+                if (!_mUnknown_Backup) return _mValue_Backup;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Backup' is not present");
+            }
+        }
 
-        public string? Backup => _mBackup.GetValue("backup");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("batch")]
+        [PolicyResourceProperty("batch", "_mUnknown_Batch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBatch;
-
-        public string? Batch => _mBatch.GetValue("batch");
+        private string? _mValue_Batch;
+        private bool _mUnknown_Batch;
+        public string? Batch
+        {
+            get
+            {
+                if (!_mUnknown_Batch) return _mValue_Batch;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Batch' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("bcmdataexports")]
+        [PolicyResourceProperty("bcmdataexports", "_mUnknown_Bcmdataexports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBcmdataexports;
+        private string? _mValue_Bcmdataexports;
+        private bool _mUnknown_Bcmdataexports;
+        public string? Bcmdataexports
+        {
+            get
+            {
+                if (!_mUnknown_Bcmdataexports) return _mValue_Bcmdataexports;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Bcmdataexports' is not present");
+            }
+        }
 
-        public string? Bcmdataexports => _mBcmdataexports.GetValue("bcmdataexports");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("beanstalk")]
+        [PolicyResourceProperty("beanstalk", "_mUnknown_Beanstalk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBeanstalk;
+        private string? _mValue_Beanstalk;
+        private bool _mUnknown_Beanstalk;
+        public string? Beanstalk
+        {
+            get
+            {
+                if (!_mUnknown_Beanstalk) return _mValue_Beanstalk;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Beanstalk' is not present");
+            }
+        }
 
-        public string? Beanstalk => _mBeanstalk.GetValue("beanstalk");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("bedrock")]
+        [PolicyResourceProperty("bedrock", "_mUnknown_Bedrock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBedrock;
-
-        public string? Bedrock => _mBedrock.GetValue("bedrock");
+        private string? _mValue_Bedrock;
+        private bool _mUnknown_Bedrock;
+        public string? Bedrock
+        {
+            get
+            {
+                if (!_mUnknown_Bedrock) return _mValue_Bedrock;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Bedrock' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("bedrockagent")]
+        [PolicyResourceProperty("bedrockagent", "_mUnknown_Bedrockagent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBedrockagent;
+        private string? _mValue_Bedrockagent;
+        private bool _mUnknown_Bedrockagent;
+        public string? Bedrockagent
+        {
+            get
+            {
+                if (!_mUnknown_Bedrockagent) return _mValue_Bedrockagent;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Bedrockagent' is not present");
+            }
+        }
 
-        public string? Bedrockagent => _mBedrockagent.GetValue("bedrockagent");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("billing")]
+        [PolicyResourceProperty("billing", "_mUnknown_Billing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBilling;
-
-        public string? Billing => _mBilling.GetValue("billing");
+        private string? _mValue_Billing;
+        private bool _mUnknown_Billing;
+        public string? Billing
+        {
+            get
+            {
+                if (!_mUnknown_Billing) return _mValue_Billing;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Billing' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("budgets")]
+        [PolicyResourceProperty("budgets", "_mUnknown_Budgets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBudgets;
+        private string? _mValue_Budgets;
+        private bool _mUnknown_Budgets;
+        public string? Budgets
+        {
+            get
+            {
+                if (!_mUnknown_Budgets) return _mValue_Budgets;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Budgets' is not present");
+            }
+        }
 
-        public string? Budgets => _mBudgets.GetValue("budgets");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ce")]
+        [PolicyResourceProperty("ce", "_mUnknown_Ce")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCe;
+        private string? _mValue_Ce;
+        private bool _mUnknown_Ce;
+        public string? Ce
+        {
+            get
+            {
+                if (!_mUnknown_Ce) return _mValue_Ce;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ce' is not present");
+            }
+        }
 
-        public string? Ce => _mCe.GetValue("ce");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("chatbot")]
+        [PolicyResourceProperty("chatbot", "_mUnknown_Chatbot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChatbot;
-
-        public string? Chatbot => _mChatbot.GetValue("chatbot");
+        private string? _mValue_Chatbot;
+        private bool _mUnknown_Chatbot;
+        public string? Chatbot
+        {
+            get
+            {
+                if (!_mUnknown_Chatbot) return _mValue_Chatbot;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Chatbot' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("chime")]
+        [PolicyResourceProperty("chime", "_mUnknown_Chime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChime;
+        private string? _mValue_Chime;
+        private bool _mUnknown_Chime;
+        public string? Chime
+        {
+            get
+            {
+                if (!_mUnknown_Chime) return _mValue_Chime;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Chime' is not present");
+            }
+        }
 
-        public string? Chime => _mChime.GetValue("chime");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("chimesdkmediapipelines")]
+        [PolicyResourceProperty("chimesdkmediapipelines", "_mUnknown_Chimesdkmediapipelines")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChimesdkmediapipelines;
-
-        public string? Chimesdkmediapipelines => _mChimesdkmediapipelines.GetValue("chimesdkmediapipelines");
+        private string? _mValue_Chimesdkmediapipelines;
+        private bool _mUnknown_Chimesdkmediapipelines;
+        public string? Chimesdkmediapipelines
+        {
+            get
+            {
+                if (!_mUnknown_Chimesdkmediapipelines) return _mValue_Chimesdkmediapipelines;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Chimesdkmediapipelines' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("chimesdkvoice")]
+        [PolicyResourceProperty("chimesdkvoice", "_mUnknown_Chimesdkvoice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChimesdkvoice;
+        private string? _mValue_Chimesdkvoice;
+        private bool _mUnknown_Chimesdkvoice;
+        public string? Chimesdkvoice
+        {
+            get
+            {
+                if (!_mUnknown_Chimesdkvoice) return _mValue_Chimesdkvoice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Chimesdkvoice' is not present");
+            }
+        }
 
-        public string? Chimesdkvoice => _mChimesdkvoice.GetValue("chimesdkvoice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cleanrooms")]
+        [PolicyResourceProperty("cleanrooms", "_mUnknown_Cleanrooms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCleanrooms;
-
-        public string? Cleanrooms => _mCleanrooms.GetValue("cleanrooms");
+        private string? _mValue_Cleanrooms;
+        private bool _mUnknown_Cleanrooms;
+        public string? Cleanrooms
+        {
+            get
+            {
+                if (!_mUnknown_Cleanrooms) return _mValue_Cleanrooms;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cleanrooms' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloud9")]
+        [PolicyResourceProperty("cloud9", "_mUnknown_Cloud9")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloud9;
+        private string? _mValue_Cloud9;
+        private bool _mUnknown_Cloud9;
+        public string? Cloud9
+        {
+            get
+            {
+                if (!_mUnknown_Cloud9) return _mValue_Cloud9;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloud9' is not present");
+            }
+        }
 
-        public string? Cloud9 => _mCloud9.GetValue("cloud9");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudcontrol")]
+        [PolicyResourceProperty("cloudcontrol", "_mUnknown_Cloudcontrol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudcontrol;
-
-        public string? Cloudcontrol => _mCloudcontrol.GetValue("cloudcontrol");
+        private string? _mValue_Cloudcontrol;
+        private bool _mUnknown_Cloudcontrol;
+        public string? Cloudcontrol
+        {
+            get
+            {
+                if (!_mUnknown_Cloudcontrol) return _mValue_Cloudcontrol;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudcontrol' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudcontrolapi")]
+        [PolicyResourceProperty("cloudcontrolapi", "_mUnknown_Cloudcontrolapi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudcontrolapi;
+        private string? _mValue_Cloudcontrolapi;
+        private bool _mUnknown_Cloudcontrolapi;
+        public string? Cloudcontrolapi
+        {
+            get
+            {
+                if (!_mUnknown_Cloudcontrolapi) return _mValue_Cloudcontrolapi;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudcontrolapi' is not present");
+            }
+        }
 
-        public string? Cloudcontrolapi => _mCloudcontrolapi.GetValue("cloudcontrolapi");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudformation")]
+        [PolicyResourceProperty("cloudformation", "_mUnknown_Cloudformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudformation;
+        private string? _mValue_Cloudformation;
+        private bool _mUnknown_Cloudformation;
+        public string? Cloudformation
+        {
+            get
+            {
+                if (!_mUnknown_Cloudformation) return _mValue_Cloudformation;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudformation' is not present");
+            }
+        }
 
-        public string? Cloudformation => _mCloudformation.GetValue("cloudformation");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudfront")]
+        [PolicyResourceProperty("cloudfront", "_mUnknown_Cloudfront")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfront;
-
-        public string? Cloudfront => _mCloudfront.GetValue("cloudfront");
+        private string? _mValue_Cloudfront;
+        private bool _mUnknown_Cloudfront;
+        public string? Cloudfront
+        {
+            get
+            {
+                if (!_mUnknown_Cloudfront) return _mValue_Cloudfront;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudfront' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudfrontkeyvaluestore")]
+        [PolicyResourceProperty("cloudfrontkeyvaluestore", "_mUnknown_Cloudfrontkeyvaluestore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudfrontkeyvaluestore;
+        private string? _mValue_Cloudfrontkeyvaluestore;
+        private bool _mUnknown_Cloudfrontkeyvaluestore;
+        public string? Cloudfrontkeyvaluestore
+        {
+            get
+            {
+                if (!_mUnknown_Cloudfrontkeyvaluestore) return _mValue_Cloudfrontkeyvaluestore;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudfrontkeyvaluestore' is not present");
+            }
+        }
 
-        public string? Cloudfrontkeyvaluestore => _mCloudfrontkeyvaluestore.GetValue("cloudfrontkeyvaluestore");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudhsm")]
+        [PolicyResourceProperty("cloudhsm", "_mUnknown_Cloudhsm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudhsm;
-
-        public string? Cloudhsm => _mCloudhsm.GetValue("cloudhsm");
+        private string? _mValue_Cloudhsm;
+        private bool _mUnknown_Cloudhsm;
+        public string? Cloudhsm
+        {
+            get
+            {
+                if (!_mUnknown_Cloudhsm) return _mValue_Cloudhsm;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudhsm' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudhsmv2")]
+        [PolicyResourceProperty("cloudhsmv2", "_mUnknown_Cloudhsmv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudhsmv2;
+        private string? _mValue_Cloudhsmv2;
+        private bool _mUnknown_Cloudhsmv2;
+        public string? Cloudhsmv2
+        {
+            get
+            {
+                if (!_mUnknown_Cloudhsmv2) return _mValue_Cloudhsmv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudhsmv2' is not present");
+            }
+        }
 
-        public string? Cloudhsmv2 => _mCloudhsmv2.GetValue("cloudhsmv2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudsearch")]
+        [PolicyResourceProperty("cloudsearch", "_mUnknown_Cloudsearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudsearch;
+        private string? _mValue_Cloudsearch;
+        private bool _mUnknown_Cloudsearch;
+        public string? Cloudsearch
+        {
+            get
+            {
+                if (!_mUnknown_Cloudsearch) return _mValue_Cloudsearch;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudsearch' is not present");
+            }
+        }
 
-        public string? Cloudsearch => _mCloudsearch.GetValue("cloudsearch");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudtrail")]
+        [PolicyResourceProperty("cloudtrail", "_mUnknown_Cloudtrail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudtrail;
-
-        public string? Cloudtrail => _mCloudtrail.GetValue("cloudtrail");
+        private string? _mValue_Cloudtrail;
+        private bool _mUnknown_Cloudtrail;
+        public string? Cloudtrail
+        {
+            get
+            {
+                if (!_mUnknown_Cloudtrail) return _mValue_Cloudtrail;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudtrail' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudwatch")]
+        [PolicyResourceProperty("cloudwatch", "_mUnknown_Cloudwatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatch;
+        private string? _mValue_Cloudwatch;
+        private bool _mUnknown_Cloudwatch;
+        public string? Cloudwatch
+        {
+            get
+            {
+                if (!_mUnknown_Cloudwatch) return _mValue_Cloudwatch;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudwatch' is not present");
+            }
+        }
 
-        public string? Cloudwatch => _mCloudwatch.GetValue("cloudwatch");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudwatchevents")]
+        [PolicyResourceProperty("cloudwatchevents", "_mUnknown_Cloudwatchevents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchevents;
-
-        public string? Cloudwatchevents => _mCloudwatchevents.GetValue("cloudwatchevents");
+        private string? _mValue_Cloudwatchevents;
+        private bool _mUnknown_Cloudwatchevents;
+        public string? Cloudwatchevents
+        {
+            get
+            {
+                if (!_mUnknown_Cloudwatchevents) return _mValue_Cloudwatchevents;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudwatchevents' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudwatchevidently")]
+        [PolicyResourceProperty("cloudwatchevidently", "_mUnknown_Cloudwatchevidently")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchevidently;
+        private string? _mValue_Cloudwatchevidently;
+        private bool _mUnknown_Cloudwatchevidently;
+        public string? Cloudwatchevidently
+        {
+            get
+            {
+                if (!_mUnknown_Cloudwatchevidently) return _mValue_Cloudwatchevidently;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudwatchevidently' is not present");
+            }
+        }
 
-        public string? Cloudwatchevidently => _mCloudwatchevidently.GetValue("cloudwatchevidently");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudwatchlog")]
+        [PolicyResourceProperty("cloudwatchlog", "_mUnknown_Cloudwatchlog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchlog;
+        private string? _mValue_Cloudwatchlog;
+        private bool _mUnknown_Cloudwatchlog;
+        public string? Cloudwatchlog
+        {
+            get
+            {
+                if (!_mUnknown_Cloudwatchlog) return _mValue_Cloudwatchlog;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudwatchlog' is not present");
+            }
+        }
 
-        public string? Cloudwatchlog => _mCloudwatchlog.GetValue("cloudwatchlog");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudwatchlogs")]
+        [PolicyResourceProperty("cloudwatchlogs", "_mUnknown_Cloudwatchlogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchlogs;
-
-        public string? Cloudwatchlogs => _mCloudwatchlogs.GetValue("cloudwatchlogs");
+        private string? _mValue_Cloudwatchlogs;
+        private bool _mUnknown_Cloudwatchlogs;
+        public string? Cloudwatchlogs
+        {
+            get
+            {
+                if (!_mUnknown_Cloudwatchlogs) return _mValue_Cloudwatchlogs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudwatchlogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudwatchobservabilityaccessmanager")]
+        [PolicyResourceProperty("cloudwatchobservabilityaccessmanager", "_mUnknown_Cloudwatchobservabilityaccessmanager")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchobservabilityaccessmanager;
+        private string? _mValue_Cloudwatchobservabilityaccessmanager;
+        private bool _mUnknown_Cloudwatchobservabilityaccessmanager;
+        public string? Cloudwatchobservabilityaccessmanager
+        {
+            get
+            {
+                if (!_mUnknown_Cloudwatchobservabilityaccessmanager) return _mValue_Cloudwatchobservabilityaccessmanager;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudwatchobservabilityaccessmanager' is not present");
+            }
+        }
 
-        public string? Cloudwatchobservabilityaccessmanager => _mCloudwatchobservabilityaccessmanager.GetValue("cloudwatchobservabilityaccessmanager");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cloudwatchrum")]
+        [PolicyResourceProperty("cloudwatchrum", "_mUnknown_Cloudwatchrum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchrum;
-
-        public string? Cloudwatchrum => _mCloudwatchrum.GetValue("cloudwatchrum");
+        private string? _mValue_Cloudwatchrum;
+        private bool _mUnknown_Cloudwatchrum;
+        public string? Cloudwatchrum
+        {
+            get
+            {
+                if (!_mUnknown_Cloudwatchrum) return _mValue_Cloudwatchrum;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cloudwatchrum' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codeartifact")]
+        [PolicyResourceProperty("codeartifact", "_mUnknown_Codeartifact")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodeartifact;
+        private string? _mValue_Codeartifact;
+        private bool _mUnknown_Codeartifact;
+        public string? Codeartifact
+        {
+            get
+            {
+                if (!_mUnknown_Codeartifact) return _mValue_Codeartifact;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codeartifact' is not present");
+            }
+        }
 
-        public string? Codeartifact => _mCodeartifact.GetValue("codeartifact");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codebuild")]
+        [PolicyResourceProperty("codebuild", "_mUnknown_Codebuild")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodebuild;
-
-        public string? Codebuild => _mCodebuild.GetValue("codebuild");
+        private string? _mValue_Codebuild;
+        private bool _mUnknown_Codebuild;
+        public string? Codebuild
+        {
+            get
+            {
+                if (!_mUnknown_Codebuild) return _mValue_Codebuild;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codebuild' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codecatalyst")]
+        [PolicyResourceProperty("codecatalyst", "_mUnknown_Codecatalyst")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodecatalyst;
+        private string? _mValue_Codecatalyst;
+        private bool _mUnknown_Codecatalyst;
+        public string? Codecatalyst
+        {
+            get
+            {
+                if (!_mUnknown_Codecatalyst) return _mValue_Codecatalyst;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codecatalyst' is not present");
+            }
+        }
 
-        public string? Codecatalyst => _mCodecatalyst.GetValue("codecatalyst");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codecommit")]
+        [PolicyResourceProperty("codecommit", "_mUnknown_Codecommit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodecommit;
-
-        public string? Codecommit => _mCodecommit.GetValue("codecommit");
+        private string? _mValue_Codecommit;
+        private bool _mUnknown_Codecommit;
+        public string? Codecommit
+        {
+            get
+            {
+                if (!_mUnknown_Codecommit) return _mValue_Codecommit;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codecommit' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codeconnections")]
+        [PolicyResourceProperty("codeconnections", "_mUnknown_Codeconnections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodeconnections;
+        private string? _mValue_Codeconnections;
+        private bool _mUnknown_Codeconnections;
+        public string? Codeconnections
+        {
+            get
+            {
+                if (!_mUnknown_Codeconnections) return _mValue_Codeconnections;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codeconnections' is not present");
+            }
+        }
 
-        public string? Codeconnections => _mCodeconnections.GetValue("codeconnections");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codedeploy")]
+        [PolicyResourceProperty("codedeploy", "_mUnknown_Codedeploy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodedeploy;
+        private string? _mValue_Codedeploy;
+        private bool _mUnknown_Codedeploy;
+        public string? Codedeploy
+        {
+            get
+            {
+                if (!_mUnknown_Codedeploy) return _mValue_Codedeploy;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codedeploy' is not present");
+            }
+        }
 
-        public string? Codedeploy => _mCodedeploy.GetValue("codedeploy");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codeguruprofiler")]
+        [PolicyResourceProperty("codeguruprofiler", "_mUnknown_Codeguruprofiler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodeguruprofiler;
-
-        public string? Codeguruprofiler => _mCodeguruprofiler.GetValue("codeguruprofiler");
+        private string? _mValue_Codeguruprofiler;
+        private bool _mUnknown_Codeguruprofiler;
+        public string? Codeguruprofiler
+        {
+            get
+            {
+                if (!_mUnknown_Codeguruprofiler) return _mValue_Codeguruprofiler;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codeguruprofiler' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codegurureviewer")]
+        [PolicyResourceProperty("codegurureviewer", "_mUnknown_Codegurureviewer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodegurureviewer;
+        private string? _mValue_Codegurureviewer;
+        private bool _mUnknown_Codegurureviewer;
+        public string? Codegurureviewer
+        {
+            get
+            {
+                if (!_mUnknown_Codegurureviewer) return _mValue_Codegurureviewer;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codegurureviewer' is not present");
+            }
+        }
 
-        public string? Codegurureviewer => _mCodegurureviewer.GetValue("codegurureviewer");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codepipeline")]
+        [PolicyResourceProperty("codepipeline", "_mUnknown_Codepipeline")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodepipeline;
-
-        public string? Codepipeline => _mCodepipeline.GetValue("codepipeline");
+        private string? _mValue_Codepipeline;
+        private bool _mUnknown_Codepipeline;
+        public string? Codepipeline
+        {
+            get
+            {
+                if (!_mUnknown_Codepipeline) return _mValue_Codepipeline;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codepipeline' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codestarconnections")]
+        [PolicyResourceProperty("codestarconnections", "_mUnknown_Codestarconnections")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodestarconnections;
+        private string? _mValue_Codestarconnections;
+        private bool _mUnknown_Codestarconnections;
+        public string? Codestarconnections
+        {
+            get
+            {
+                if (!_mUnknown_Codestarconnections) return _mValue_Codestarconnections;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codestarconnections' is not present");
+            }
+        }
 
-        public string? Codestarconnections => _mCodestarconnections.GetValue("codestarconnections");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("codestarnotifications")]
+        [PolicyResourceProperty("codestarnotifications", "_mUnknown_Codestarnotifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodestarnotifications;
+        private string? _mValue_Codestarnotifications;
+        private bool _mUnknown_Codestarnotifications;
+        public string? Codestarnotifications
+        {
+            get
+            {
+                if (!_mUnknown_Codestarnotifications) return _mValue_Codestarnotifications;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Codestarnotifications' is not present");
+            }
+        }
 
-        public string? Codestarnotifications => _mCodestarnotifications.GetValue("codestarnotifications");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cognitoidentity")]
+        [PolicyResourceProperty("cognitoidentity", "_mUnknown_Cognitoidentity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCognitoidentity;
-
-        public string? Cognitoidentity => _mCognitoidentity.GetValue("cognitoidentity");
+        private string? _mValue_Cognitoidentity;
+        private bool _mUnknown_Cognitoidentity;
+        public string? Cognitoidentity
+        {
+            get
+            {
+                if (!_mUnknown_Cognitoidentity) return _mValue_Cognitoidentity;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cognitoidentity' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cognitoidentityprovider")]
+        [PolicyResourceProperty("cognitoidentityprovider", "_mUnknown_Cognitoidentityprovider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCognitoidentityprovider;
+        private string? _mValue_Cognitoidentityprovider;
+        private bool _mUnknown_Cognitoidentityprovider;
+        public string? Cognitoidentityprovider
+        {
+            get
+            {
+                if (!_mUnknown_Cognitoidentityprovider) return _mValue_Cognitoidentityprovider;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cognitoidentityprovider' is not present");
+            }
+        }
 
-        public string? Cognitoidentityprovider => _mCognitoidentityprovider.GetValue("cognitoidentityprovider");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cognitoidp")]
+        [PolicyResourceProperty("cognitoidp", "_mUnknown_Cognitoidp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCognitoidp;
-
-        public string? Cognitoidp => _mCognitoidp.GetValue("cognitoidp");
+        private string? _mValue_Cognitoidp;
+        private bool _mUnknown_Cognitoidp;
+        public string? Cognitoidp
+        {
+            get
+            {
+                if (!_mUnknown_Cognitoidp) return _mValue_Cognitoidp;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cognitoidp' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("comprehend")]
+        [PolicyResourceProperty("comprehend", "_mUnknown_Comprehend")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComprehend;
+        private string? _mValue_Comprehend;
+        private bool _mUnknown_Comprehend;
+        public string? Comprehend
+        {
+            get
+            {
+                if (!_mUnknown_Comprehend) return _mValue_Comprehend;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Comprehend' is not present");
+            }
+        }
 
-        public string? Comprehend => _mComprehend.GetValue("comprehend");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("computeoptimizer")]
+        [PolicyResourceProperty("computeoptimizer", "_mUnknown_Computeoptimizer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeoptimizer;
+        private string? _mValue_Computeoptimizer;
+        private bool _mUnknown_Computeoptimizer;
+        public string? Computeoptimizer
+        {
+            get
+            {
+                if (!_mUnknown_Computeoptimizer) return _mValue_Computeoptimizer;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Computeoptimizer' is not present");
+            }
+        }
 
-        public string? Computeoptimizer => _mComputeoptimizer.GetValue("computeoptimizer");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("config")]
+        [PolicyResourceProperty("config", "_mUnknown_Config")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfig;
-
-        public string? Config => _mConfig.GetValue("config");
+        private string? _mValue_Config;
+        private bool _mUnknown_Config;
+        public string? Config
+        {
+            get
+            {
+                if (!_mUnknown_Config) return _mValue_Config;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Config' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("configservice")]
+        [PolicyResourceProperty("configservice", "_mUnknown_Configservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigservice;
+        private string? _mValue_Configservice;
+        private bool _mUnknown_Configservice;
+        public string? Configservice
+        {
+            get
+            {
+                if (!_mUnknown_Configservice) return _mValue_Configservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Configservice' is not present");
+            }
+        }
 
-        public string? Configservice => _mConfigservice.GetValue("configservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("connect")]
+        [PolicyResourceProperty("connect", "_mUnknown_Connect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnect;
-
-        public string? Connect => _mConnect.GetValue("connect");
+        private string? _mValue_Connect;
+        private bool _mUnknown_Connect;
+        public string? Connect
+        {
+            get
+            {
+                if (!_mUnknown_Connect) return _mValue_Connect;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Connect' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("connectcases")]
+        [PolicyResourceProperty("connectcases", "_mUnknown_Connectcases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectcases;
+        private string? _mValue_Connectcases;
+        private bool _mUnknown_Connectcases;
+        public string? Connectcases
+        {
+            get
+            {
+                if (!_mUnknown_Connectcases) return _mValue_Connectcases;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Connectcases' is not present");
+            }
+        }
 
-        public string? Connectcases => _mConnectcases.GetValue("connectcases");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("controltower")]
+        [PolicyResourceProperty("controltower", "_mUnknown_Controltower")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mControltower;
-
-        public string? Controltower => _mControltower.GetValue("controltower");
+        private string? _mValue_Controltower;
+        private bool _mUnknown_Controltower;
+        public string? Controltower
+        {
+            get
+            {
+                if (!_mUnknown_Controltower) return _mValue_Controltower;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Controltower' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("costandusagereportservice")]
+        [PolicyResourceProperty("costandusagereportservice", "_mUnknown_Costandusagereportservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCostandusagereportservice;
+        private string? _mValue_Costandusagereportservice;
+        private bool _mUnknown_Costandusagereportservice;
+        public string? Costandusagereportservice
+        {
+            get
+            {
+                if (!_mUnknown_Costandusagereportservice) return _mValue_Costandusagereportservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Costandusagereportservice' is not present");
+            }
+        }
 
-        public string? Costandusagereportservice => _mCostandusagereportservice.GetValue("costandusagereportservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("costexplorer")]
+        [PolicyResourceProperty("costexplorer", "_mUnknown_Costexplorer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCostexplorer;
-
-        public string? Costexplorer => _mCostexplorer.GetValue("costexplorer");
+        private string? _mValue_Costexplorer;
+        private bool _mUnknown_Costexplorer;
+        public string? Costexplorer
+        {
+            get
+            {
+                if (!_mUnknown_Costexplorer) return _mValue_Costexplorer;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Costexplorer' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("costoptimizationhub")]
+        [PolicyResourceProperty("costoptimizationhub", "_mUnknown_Costoptimizationhub")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCostoptimizationhub;
+        private string? _mValue_Costoptimizationhub;
+        private bool _mUnknown_Costoptimizationhub;
+        public string? Costoptimizationhub
+        {
+            get
+            {
+                if (!_mUnknown_Costoptimizationhub) return _mValue_Costoptimizationhub;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Costoptimizationhub' is not present");
+            }
+        }
 
-        public string? Costoptimizationhub => _mCostoptimizationhub.GetValue("costoptimizationhub");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("cur")]
+        [PolicyResourceProperty("cur", "_mUnknown_Cur")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCur;
+        private string? _mValue_Cur;
+        private bool _mUnknown_Cur;
+        public string? Cur
+        {
+            get
+            {
+                if (!_mUnknown_Cur) return _mValue_Cur;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Cur' is not present");
+            }
+        }
 
-        public string? Cur => _mCur.GetValue("cur");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("customerprofiles")]
+        [PolicyResourceProperty("customerprofiles", "_mUnknown_Customerprofiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerprofiles;
-
-        public string? Customerprofiles => _mCustomerprofiles.GetValue("customerprofiles");
+        private string? _mValue_Customerprofiles;
+        private bool _mUnknown_Customerprofiles;
+        public string? Customerprofiles
+        {
+            get
+            {
+                if (!_mUnknown_Customerprofiles) return _mValue_Customerprofiles;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Customerprofiles' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("databasemigration")]
+        [PolicyResourceProperty("databasemigration", "_mUnknown_Databasemigration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabasemigration;
+        private string? _mValue_Databasemigration;
+        private bool _mUnknown_Databasemigration;
+        public string? Databasemigration
+        {
+            get
+            {
+                if (!_mUnknown_Databasemigration) return _mValue_Databasemigration;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Databasemigration' is not present");
+            }
+        }
 
-        public string? Databasemigration => _mDatabasemigration.GetValue("databasemigration");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("databasemigrationservice")]
+        [PolicyResourceProperty("databasemigrationservice", "_mUnknown_Databasemigrationservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabasemigrationservice;
-
-        public string? Databasemigrationservice => _mDatabasemigrationservice.GetValue("databasemigrationservice");
+        private string? _mValue_Databasemigrationservice;
+        private bool _mUnknown_Databasemigrationservice;
+        public string? Databasemigrationservice
+        {
+            get
+            {
+                if (!_mUnknown_Databasemigrationservice) return _mValue_Databasemigrationservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Databasemigrationservice' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("databrew")]
+        [PolicyResourceProperty("databrew", "_mUnknown_Databrew")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabrew;
+        private string? _mValue_Databrew;
+        private bool _mUnknown_Databrew;
+        public string? Databrew
+        {
+            get
+            {
+                if (!_mUnknown_Databrew) return _mValue_Databrew;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Databrew' is not present");
+            }
+        }
 
-        public string? Databrew => _mDatabrew.GetValue("databrew");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("dataexchange")]
+        [PolicyResourceProperty("dataexchange", "_mUnknown_Dataexchange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataexchange;
-
-        public string? Dataexchange => _mDataexchange.GetValue("dataexchange");
+        private string? _mValue_Dataexchange;
+        private bool _mUnknown_Dataexchange;
+        public string? Dataexchange
+        {
+            get
+            {
+                if (!_mUnknown_Dataexchange) return _mValue_Dataexchange;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Dataexchange' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("datapipeline")]
+        [PolicyResourceProperty("datapipeline", "_mUnknown_Datapipeline")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatapipeline;
+        private string? _mValue_Datapipeline;
+        private bool _mUnknown_Datapipeline;
+        public string? Datapipeline
+        {
+            get
+            {
+                if (!_mUnknown_Datapipeline) return _mValue_Datapipeline;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Datapipeline' is not present");
+            }
+        }
 
-        public string? Datapipeline => _mDatapipeline.GetValue("datapipeline");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("datasync")]
+        [PolicyResourceProperty("datasync", "_mUnknown_Datasync")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatasync;
-
-        public string? Datasync => _mDatasync.GetValue("datasync");
+        private string? _mValue_Datasync;
+        private bool _mUnknown_Datasync;
+        public string? Datasync
+        {
+            get
+            {
+                if (!_mUnknown_Datasync) return _mValue_Datasync;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Datasync' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("datazone")]
+        [PolicyResourceProperty("datazone", "_mUnknown_Datazone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatazone;
+        private string? _mValue_Datazone;
+        private bool _mUnknown_Datazone;
+        public string? Datazone
+        {
+            get
+            {
+                if (!_mUnknown_Datazone) return _mValue_Datazone;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Datazone' is not present");
+            }
+        }
 
-        public string? Datazone => _mDatazone.GetValue("datazone");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("dax")]
+        [PolicyResourceProperty("dax", "_mUnknown_Dax")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDax;
+        private string? _mValue_Dax;
+        private bool _mUnknown_Dax;
+        public string? Dax
+        {
+            get
+            {
+                if (!_mUnknown_Dax) return _mValue_Dax;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Dax' is not present");
+            }
+        }
 
-        public string? Dax => _mDax.GetValue("dax");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("deploy")]
+        [PolicyResourceProperty("deploy", "_mUnknown_Deploy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeploy;
-
-        public string? Deploy => _mDeploy.GetValue("deploy");
+        private string? _mValue_Deploy;
+        private bool _mUnknown_Deploy;
+        public string? Deploy
+        {
+            get
+            {
+                if (!_mUnknown_Deploy) return _mValue_Deploy;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Deploy' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("detective")]
+        [PolicyResourceProperty("detective", "_mUnknown_Detective")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetective;
+        private string? _mValue_Detective;
+        private bool _mUnknown_Detective;
+        public string? Detective
+        {
+            get
+            {
+                if (!_mUnknown_Detective) return _mValue_Detective;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Detective' is not present");
+            }
+        }
 
-        public string? Detective => _mDetective.GetValue("detective");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("devicefarm")]
+        [PolicyResourceProperty("devicefarm", "_mUnknown_Devicefarm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDevicefarm;
-
-        public string? Devicefarm => _mDevicefarm.GetValue("devicefarm");
+        private string? _mValue_Devicefarm;
+        private bool _mUnknown_Devicefarm;
+        public string? Devicefarm
+        {
+            get
+            {
+                if (!_mUnknown_Devicefarm) return _mValue_Devicefarm;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Devicefarm' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("devopsguru")]
+        [PolicyResourceProperty("devopsguru", "_mUnknown_Devopsguru")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDevopsguru;
+        private string? _mValue_Devopsguru;
+        private bool _mUnknown_Devopsguru;
+        public string? Devopsguru
+        {
+            get
+            {
+                if (!_mUnknown_Devopsguru) return _mValue_Devopsguru;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Devopsguru' is not present");
+            }
+        }
 
-        public string? Devopsguru => _mDevopsguru.GetValue("devopsguru");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("directconnect")]
+        [PolicyResourceProperty("directconnect", "_mUnknown_Directconnect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectconnect;
-
-        public string? Directconnect => _mDirectconnect.GetValue("directconnect");
+        private string? _mValue_Directconnect;
+        private bool _mUnknown_Directconnect;
+        public string? Directconnect
+        {
+            get
+            {
+                if (!_mUnknown_Directconnect) return _mValue_Directconnect;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Directconnect' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("directoryservice")]
+        [PolicyResourceProperty("directoryservice", "_mUnknown_Directoryservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirectoryservice;
+        private string? _mValue_Directoryservice;
+        private bool _mUnknown_Directoryservice;
+        public string? Directoryservice
+        {
+            get
+            {
+                if (!_mUnknown_Directoryservice) return _mValue_Directoryservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Directoryservice' is not present");
+            }
+        }
 
-        public string? Directoryservice => _mDirectoryservice.GetValue("directoryservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("dlm")]
+        [PolicyResourceProperty("dlm", "_mUnknown_Dlm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDlm;
-
-        public string? Dlm => _mDlm.GetValue("dlm");
+        private string? _mValue_Dlm;
+        private bool _mUnknown_Dlm;
+        public string? Dlm
+        {
+            get
+            {
+                if (!_mUnknown_Dlm) return _mValue_Dlm;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Dlm' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("dms")]
+        [PolicyResourceProperty("dms", "_mUnknown_Dms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDms;
+        private string? _mValue_Dms;
+        private bool _mUnknown_Dms;
+        public string? Dms
+        {
+            get
+            {
+                if (!_mUnknown_Dms) return _mValue_Dms;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Dms' is not present");
+            }
+        }
 
-        public string? Dms => _mDms.GetValue("dms");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("docdb")]
+        [PolicyResourceProperty("docdb", "_mUnknown_Docdb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocdb;
+        private string? _mValue_Docdb;
+        private bool _mUnknown_Docdb;
+        public string? Docdb
+        {
+            get
+            {
+                if (!_mUnknown_Docdb) return _mValue_Docdb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Docdb' is not present");
+            }
+        }
 
-        public string? Docdb => _mDocdb.GetValue("docdb");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("docdbelastic")]
+        [PolicyResourceProperty("docdbelastic", "_mUnknown_Docdbelastic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDocdbelastic;
-
-        public string? Docdbelastic => _mDocdbelastic.GetValue("docdbelastic");
+        private string? _mValue_Docdbelastic;
+        private bool _mUnknown_Docdbelastic;
+        public string? Docdbelastic
+        {
+            get
+            {
+                if (!_mUnknown_Docdbelastic) return _mValue_Docdbelastic;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Docdbelastic' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("drs")]
+        [PolicyResourceProperty("drs", "_mUnknown_Drs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDrs;
+        private string? _mValue_Drs;
+        private bool _mUnknown_Drs;
+        public string? Drs
+        {
+            get
+            {
+                if (!_mUnknown_Drs) return _mValue_Drs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Drs' is not present");
+            }
+        }
 
-        public string? Drs => _mDrs.GetValue("drs");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ds")]
+        [PolicyResourceProperty("ds", "_mUnknown_Ds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDs;
-
-        public string? Ds => _mDs.GetValue("ds");
+        private string? _mValue_Ds;
+        private bool _mUnknown_Ds;
+        public string? Ds
+        {
+            get
+            {
+                if (!_mUnknown_Ds) return _mValue_Ds;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ds' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("dsql")]
+        [PolicyResourceProperty("dsql", "_mUnknown_Dsql")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDsql;
+        private string? _mValue_Dsql;
+        private bool _mUnknown_Dsql;
+        public string? Dsql
+        {
+            get
+            {
+                if (!_mUnknown_Dsql) return _mValue_Dsql;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Dsql' is not present");
+            }
+        }
 
-        public string? Dsql => _mDsql.GetValue("dsql");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("dynamodb")]
+        [PolicyResourceProperty("dynamodb", "_mUnknown_Dynamodb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDynamodb;
+        private string? _mValue_Dynamodb;
+        private bool _mUnknown_Dynamodb;
+        public string? Dynamodb
+        {
+            get
+            {
+                if (!_mUnknown_Dynamodb) return _mValue_Dynamodb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Dynamodb' is not present");
+            }
+        }
 
-        public string? Dynamodb => _mDynamodb.GetValue("dynamodb");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ec2")]
+        [PolicyResourceProperty("ec2", "_mUnknown_Ec2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEc2;
-
-        public string? Ec2 => _mEc2.GetValue("ec2");
+        private string? _mValue_Ec2;
+        private bool _mUnknown_Ec2;
+        public string? Ec2
+        {
+            get
+            {
+                if (!_mUnknown_Ec2) return _mValue_Ec2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ec2' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ecr")]
+        [PolicyResourceProperty("ecr", "_mUnknown_Ecr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcr;
+        private string? _mValue_Ecr;
+        private bool _mUnknown_Ecr;
+        public string? Ecr
+        {
+            get
+            {
+                if (!_mUnknown_Ecr) return _mValue_Ecr;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ecr' is not present");
+            }
+        }
 
-        public string? Ecr => _mEcr.GetValue("ecr");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ecrpublic")]
+        [PolicyResourceProperty("ecrpublic", "_mUnknown_Ecrpublic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcrpublic;
-
-        public string? Ecrpublic => _mEcrpublic.GetValue("ecrpublic");
+        private string? _mValue_Ecrpublic;
+        private bool _mUnknown_Ecrpublic;
+        public string? Ecrpublic
+        {
+            get
+            {
+                if (!_mUnknown_Ecrpublic) return _mValue_Ecrpublic;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ecrpublic' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ecs")]
+        [PolicyResourceProperty("ecs", "_mUnknown_Ecs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcs;
+        private string? _mValue_Ecs;
+        private bool _mUnknown_Ecs;
+        public string? Ecs
+        {
+            get
+            {
+                if (!_mUnknown_Ecs) return _mValue_Ecs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ecs' is not present");
+            }
+        }
 
-        public string? Ecs => _mEcs.GetValue("ecs");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("efs")]
+        [PolicyResourceProperty("efs", "_mUnknown_Efs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEfs;
+        private string? _mValue_Efs;
+        private bool _mUnknown_Efs;
+        public string? Efs
+        {
+            get
+            {
+                if (!_mUnknown_Efs) return _mValue_Efs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Efs' is not present");
+            }
+        }
 
-        public string? Efs => _mEfs.GetValue("efs");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("eks")]
+        [PolicyResourceProperty("eks", "_mUnknown_Eks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEks;
-
-        public string? Eks => _mEks.GetValue("eks");
+        private string? _mValue_Eks;
+        private bool _mUnknown_Eks;
+        public string? Eks
+        {
+            get
+            {
+                if (!_mUnknown_Eks) return _mValue_Eks;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Eks' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elasticache")]
+        [PolicyResourceProperty("elasticache", "_mUnknown_Elasticache")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticache;
+        private string? _mValue_Elasticache;
+        private bool _mUnknown_Elasticache;
+        public string? Elasticache
+        {
+            get
+            {
+                if (!_mUnknown_Elasticache) return _mValue_Elasticache;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elasticache' is not present");
+            }
+        }
 
-        public string? Elasticache => _mElasticache.GetValue("elasticache");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elasticbeanstalk")]
+        [PolicyResourceProperty("elasticbeanstalk", "_mUnknown_Elasticbeanstalk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticbeanstalk;
-
-        public string? Elasticbeanstalk => _mElasticbeanstalk.GetValue("elasticbeanstalk");
+        private string? _mValue_Elasticbeanstalk;
+        private bool _mUnknown_Elasticbeanstalk;
+        public string? Elasticbeanstalk
+        {
+            get
+            {
+                if (!_mUnknown_Elasticbeanstalk) return _mValue_Elasticbeanstalk;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elasticbeanstalk' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elasticloadbalancing")]
+        [PolicyResourceProperty("elasticloadbalancing", "_mUnknown_Elasticloadbalancing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticloadbalancing;
+        private string? _mValue_Elasticloadbalancing;
+        private bool _mUnknown_Elasticloadbalancing;
+        public string? Elasticloadbalancing
+        {
+            get
+            {
+                if (!_mUnknown_Elasticloadbalancing) return _mValue_Elasticloadbalancing;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elasticloadbalancing' is not present");
+            }
+        }
 
-        public string? Elasticloadbalancing => _mElasticloadbalancing.GetValue("elasticloadbalancing");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elasticloadbalancingv2")]
+        [PolicyResourceProperty("elasticloadbalancingv2", "_mUnknown_Elasticloadbalancingv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticloadbalancingv2;
-
-        public string? Elasticloadbalancingv2 => _mElasticloadbalancingv2.GetValue("elasticloadbalancingv2");
+        private string? _mValue_Elasticloadbalancingv2;
+        private bool _mUnknown_Elasticloadbalancingv2;
+        public string? Elasticloadbalancingv2
+        {
+            get
+            {
+                if (!_mUnknown_Elasticloadbalancingv2) return _mValue_Elasticloadbalancingv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elasticloadbalancingv2' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elasticsearch")]
+        [PolicyResourceProperty("elasticsearch", "_mUnknown_Elasticsearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticsearch;
+        private string? _mValue_Elasticsearch;
+        private bool _mUnknown_Elasticsearch;
+        public string? Elasticsearch
+        {
+            get
+            {
+                if (!_mUnknown_Elasticsearch) return _mValue_Elasticsearch;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elasticsearch' is not present");
+            }
+        }
 
-        public string? Elasticsearch => _mElasticsearch.GetValue("elasticsearch");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elasticsearchservice")]
+        [PolicyResourceProperty("elasticsearchservice", "_mUnknown_Elasticsearchservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElasticsearchservice;
-
-        public string? Elasticsearchservice => _mElasticsearchservice.GetValue("elasticsearchservice");
+        private string? _mValue_Elasticsearchservice;
+        private bool _mUnknown_Elasticsearchservice;
+        public string? Elasticsearchservice
+        {
+            get
+            {
+                if (!_mUnknown_Elasticsearchservice) return _mValue_Elasticsearchservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elasticsearchservice' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elastictranscoder")]
+        [PolicyResourceProperty("elastictranscoder", "_mUnknown_Elastictranscoder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElastictranscoder;
+        private string? _mValue_Elastictranscoder;
+        private bool _mUnknown_Elastictranscoder;
+        public string? Elastictranscoder
+        {
+            get
+            {
+                if (!_mUnknown_Elastictranscoder) return _mValue_Elastictranscoder;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elastictranscoder' is not present");
+            }
+        }
 
-        public string? Elastictranscoder => _mElastictranscoder.GetValue("elastictranscoder");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elb")]
+        [PolicyResourceProperty("elb", "_mUnknown_Elb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElb;
+        private string? _mValue_Elb;
+        private bool _mUnknown_Elb;
+        public string? Elb
+        {
+            get
+            {
+                if (!_mUnknown_Elb) return _mValue_Elb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elb' is not present");
+            }
+        }
 
-        public string? Elb => _mElb.GetValue("elb");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("elbv2")]
+        [PolicyResourceProperty("elbv2", "_mUnknown_Elbv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mElbv2;
-
-        public string? Elbv2 => _mElbv2.GetValue("elbv2");
+        private string? _mValue_Elbv2;
+        private bool _mUnknown_Elbv2;
+        public string? Elbv2
+        {
+            get
+            {
+                if (!_mUnknown_Elbv2) return _mValue_Elbv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Elbv2' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("emr")]
+        [PolicyResourceProperty("emr", "_mUnknown_Emr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmr;
+        private string? _mValue_Emr;
+        private bool _mUnknown_Emr;
+        public string? Emr
+        {
+            get
+            {
+                if (!_mUnknown_Emr) return _mValue_Emr;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Emr' is not present");
+            }
+        }
 
-        public string? Emr => _mEmr.GetValue("emr");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("emrcontainers")]
+        [PolicyResourceProperty("emrcontainers", "_mUnknown_Emrcontainers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmrcontainers;
-
-        public string? Emrcontainers => _mEmrcontainers.GetValue("emrcontainers");
+        private string? _mValue_Emrcontainers;
+        private bool _mUnknown_Emrcontainers;
+        public string? Emrcontainers
+        {
+            get
+            {
+                if (!_mUnknown_Emrcontainers) return _mValue_Emrcontainers;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Emrcontainers' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("emrserverless")]
+        [PolicyResourceProperty("emrserverless", "_mUnknown_Emrserverless")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmrserverless;
+        private string? _mValue_Emrserverless;
+        private bool _mUnknown_Emrserverless;
+        public string? Emrserverless
+        {
+            get
+            {
+                if (!_mUnknown_Emrserverless) return _mValue_Emrserverless;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Emrserverless' is not present");
+            }
+        }
 
-        public string? Emrserverless => _mEmrserverless.GetValue("emrserverless");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("es")]
+        [PolicyResourceProperty("es", "_mUnknown_Es")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEs;
+        private string? _mValue_Es;
+        private bool _mUnknown_Es;
+        public string? Es
+        {
+            get
+            {
+                if (!_mUnknown_Es) return _mValue_Es;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Es' is not present");
+            }
+        }
 
-        public string? Es => _mEs.GetValue("es");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("eventbridge")]
+        [PolicyResourceProperty("eventbridge", "_mUnknown_Eventbridge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventbridge;
-
-        public string? Eventbridge => _mEventbridge.GetValue("eventbridge");
+        private string? _mValue_Eventbridge;
+        private bool _mUnknown_Eventbridge;
+        public string? Eventbridge
+        {
+            get
+            {
+                if (!_mUnknown_Eventbridge) return _mValue_Eventbridge;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Eventbridge' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("events")]
+        [PolicyResourceProperty("events", "_mUnknown_Events")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvents;
+        private string? _mValue_Events;
+        private bool _mUnknown_Events;
+        public string? Events
+        {
+            get
+            {
+                if (!_mUnknown_Events) return _mValue_Events;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Events' is not present");
+            }
+        }
 
-        public string? Events => _mEvents.GetValue("events");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("evidently")]
+        [PolicyResourceProperty("evidently", "_mUnknown_Evidently")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEvidently;
-
-        public string? Evidently => _mEvidently.GetValue("evidently");
+        private string? _mValue_Evidently;
+        private bool _mUnknown_Evidently;
+        public string? Evidently
+        {
+            get
+            {
+                if (!_mUnknown_Evidently) return _mValue_Evidently;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Evidently' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("finspace")]
+        [PolicyResourceProperty("finspace", "_mUnknown_Finspace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFinspace;
+        private string? _mValue_Finspace;
+        private bool _mUnknown_Finspace;
+        public string? Finspace
+        {
+            get
+            {
+                if (!_mUnknown_Finspace) return _mValue_Finspace;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Finspace' is not present");
+            }
+        }
 
-        public string? Finspace => _mFinspace.GetValue("finspace");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("firehose")]
+        [PolicyResourceProperty("firehose", "_mUnknown_Firehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirehose;
+        private string? _mValue_Firehose;
+        private bool _mUnknown_Firehose;
+        public string? Firehose
+        {
+            get
+            {
+                if (!_mUnknown_Firehose) return _mValue_Firehose;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Firehose' is not present");
+            }
+        }
 
-        public string? Firehose => _mFirehose.GetValue("firehose");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("fis")]
+        [PolicyResourceProperty("fis", "_mUnknown_Fis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFis;
-
-        public string? Fis => _mFis.GetValue("fis");
+        private string? _mValue_Fis;
+        private bool _mUnknown_Fis;
+        public string? Fis
+        {
+            get
+            {
+                if (!_mUnknown_Fis) return _mValue_Fis;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Fis' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("fms")]
+        [PolicyResourceProperty("fms", "_mUnknown_Fms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFms;
+        private string? _mValue_Fms;
+        private bool _mUnknown_Fms;
+        public string? Fms
+        {
+            get
+            {
+                if (!_mUnknown_Fms) return _mValue_Fms;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Fms' is not present");
+            }
+        }
 
-        public string? Fms => _mFms.GetValue("fms");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("fsx")]
+        [PolicyResourceProperty("fsx", "_mUnknown_Fsx")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFsx;
-
-        public string? Fsx => _mFsx.GetValue("fsx");
+        private string? _mValue_Fsx;
+        private bool _mUnknown_Fsx;
+        public string? Fsx
+        {
+            get
+            {
+                if (!_mUnknown_Fsx) return _mValue_Fsx;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Fsx' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("gamelift")]
+        [PolicyResourceProperty("gamelift", "_mUnknown_Gamelift")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGamelift;
+        private string? _mValue_Gamelift;
+        private bool _mUnknown_Gamelift;
+        public string? Gamelift
+        {
+            get
+            {
+                if (!_mUnknown_Gamelift) return _mValue_Gamelift;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Gamelift' is not present");
+            }
+        }
 
-        public string? Gamelift => _mGamelift.GetValue("gamelift");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("glacier")]
+        [PolicyResourceProperty("glacier", "_mUnknown_Glacier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlacier;
-
-        public string? Glacier => _mGlacier.GetValue("glacier");
+        private string? _mValue_Glacier;
+        private bool _mUnknown_Glacier;
+        public string? Glacier
+        {
+            get
+            {
+                if (!_mUnknown_Glacier) return _mValue_Glacier;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Glacier' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("globalaccelerator")]
+        [PolicyResourceProperty("globalaccelerator", "_mUnknown_Globalaccelerator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalaccelerator;
+        private string? _mValue_Globalaccelerator;
+        private bool _mUnknown_Globalaccelerator;
+        public string? Globalaccelerator
+        {
+            get
+            {
+                if (!_mUnknown_Globalaccelerator) return _mValue_Globalaccelerator;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Globalaccelerator' is not present");
+            }
+        }
 
-        public string? Globalaccelerator => _mGlobalaccelerator.GetValue("globalaccelerator");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("glue")]
+        [PolicyResourceProperty("glue", "_mUnknown_Glue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlue;
-
-        public string? Glue => _mGlue.GetValue("glue");
+        private string? _mValue_Glue;
+        private bool _mUnknown_Glue;
+        public string? Glue
+        {
+            get
+            {
+                if (!_mUnknown_Glue) return _mValue_Glue;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Glue' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("gluedatabrew")]
+        [PolicyResourceProperty("gluedatabrew", "_mUnknown_Gluedatabrew")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGluedatabrew;
+        private string? _mValue_Gluedatabrew;
+        private bool _mUnknown_Gluedatabrew;
+        public string? Gluedatabrew
+        {
+            get
+            {
+                if (!_mUnknown_Gluedatabrew) return _mValue_Gluedatabrew;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Gluedatabrew' is not present");
+            }
+        }
 
-        public string? Gluedatabrew => _mGluedatabrew.GetValue("gluedatabrew");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("grafana")]
+        [PolicyResourceProperty("grafana", "_mUnknown_Grafana")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrafana;
+        private string? _mValue_Grafana;
+        private bool _mUnknown_Grafana;
+        public string? Grafana
+        {
+            get
+            {
+                if (!_mUnknown_Grafana) return _mValue_Grafana;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Grafana' is not present");
+            }
+        }
 
-        public string? Grafana => _mGrafana.GetValue("grafana");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("greengrass")]
+        [PolicyResourceProperty("greengrass", "_mUnknown_Greengrass")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGreengrass;
-
-        public string? Greengrass => _mGreengrass.GetValue("greengrass");
+        private string? _mValue_Greengrass;
+        private bool _mUnknown_Greengrass;
+        public string? Greengrass
+        {
+            get
+            {
+                if (!_mUnknown_Greengrass) return _mValue_Greengrass;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Greengrass' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("groundstation")]
+        [PolicyResourceProperty("groundstation", "_mUnknown_Groundstation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroundstation;
+        private string? _mValue_Groundstation;
+        private bool _mUnknown_Groundstation;
+        public string? Groundstation
+        {
+            get
+            {
+                if (!_mUnknown_Groundstation) return _mValue_Groundstation;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Groundstation' is not present");
+            }
+        }
 
-        public string? Groundstation => _mGroundstation.GetValue("groundstation");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("guardduty")]
+        [PolicyResourceProperty("guardduty", "_mUnknown_Guardduty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGuardduty;
-
-        public string? Guardduty => _mGuardduty.GetValue("guardduty");
+        private string? _mValue_Guardduty;
+        private bool _mUnknown_Guardduty;
+        public string? Guardduty
+        {
+            get
+            {
+                if (!_mUnknown_Guardduty) return _mValue_Guardduty;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Guardduty' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("healthlake")]
+        [PolicyResourceProperty("healthlake", "_mUnknown_Healthlake")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthlake;
+        private string? _mValue_Healthlake;
+        private bool _mUnknown_Healthlake;
+        public string? Healthlake
+        {
+            get
+            {
+                if (!_mUnknown_Healthlake) return _mValue_Healthlake;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Healthlake' is not present");
+            }
+        }
 
-        public string? Healthlake => _mHealthlake.GetValue("healthlake");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("iam")]
+        [PolicyResourceProperty("iam", "_mUnknown_Iam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIam;
+        private string? _mValue_Iam;
+        private bool _mUnknown_Iam;
+        public string? Iam
+        {
+            get
+            {
+                if (!_mUnknown_Iam) return _mValue_Iam;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Iam' is not present");
+            }
+        }
 
-        public string? Iam => _mIam.GetValue("iam");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("identitystore")]
+        [PolicyResourceProperty("identitystore", "_mUnknown_Identitystore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentitystore;
-
-        public string? Identitystore => _mIdentitystore.GetValue("identitystore");
+        private string? _mValue_Identitystore;
+        private bool _mUnknown_Identitystore;
+        public string? Identitystore
+        {
+            get
+            {
+                if (!_mUnknown_Identitystore) return _mValue_Identitystore;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Identitystore' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("imagebuilder")]
+        [PolicyResourceProperty("imagebuilder", "_mUnknown_Imagebuilder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mImagebuilder;
+        private string? _mValue_Imagebuilder;
+        private bool _mUnknown_Imagebuilder;
+        public string? Imagebuilder
+        {
+            get
+            {
+                if (!_mUnknown_Imagebuilder) return _mValue_Imagebuilder;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Imagebuilder' is not present");
+            }
+        }
 
-        public string? Imagebuilder => _mImagebuilder.GetValue("imagebuilder");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("inspector")]
+        [PolicyResourceProperty("inspector", "_mUnknown_Inspector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInspector;
-
-        public string? Inspector => _mInspector.GetValue("inspector");
+        private string? _mValue_Inspector;
+        private bool _mUnknown_Inspector;
+        public string? Inspector
+        {
+            get
+            {
+                if (!_mUnknown_Inspector) return _mValue_Inspector;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Inspector' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("inspector2")]
+        [PolicyResourceProperty("inspector2", "_mUnknown_Inspector2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInspector2;
+        private string? _mValue_Inspector2;
+        private bool _mUnknown_Inspector2;
+        public string? Inspector2
+        {
+            get
+            {
+                if (!_mUnknown_Inspector2) return _mValue_Inspector2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Inspector2' is not present");
+            }
+        }
 
-        public string? Inspector2 => _mInspector2.GetValue("inspector2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("inspectorv2")]
+        [PolicyResourceProperty("inspectorv2", "_mUnknown_Inspectorv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInspectorv2;
+        private string? _mValue_Inspectorv2;
+        private bool _mUnknown_Inspectorv2;
+        public string? Inspectorv2
+        {
+            get
+            {
+                if (!_mUnknown_Inspectorv2) return _mValue_Inspectorv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Inspectorv2' is not present");
+            }
+        }
 
-        public string? Inspectorv2 => _mInspectorv2.GetValue("inspectorv2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("internetmonitor")]
+        [PolicyResourceProperty("internetmonitor", "_mUnknown_Internetmonitor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInternetmonitor;
-
-        public string? Internetmonitor => _mInternetmonitor.GetValue("internetmonitor");
+        private string? _mValue_Internetmonitor;
+        private bool _mUnknown_Internetmonitor;
+        public string? Internetmonitor
+        {
+            get
+            {
+                if (!_mUnknown_Internetmonitor) return _mValue_Internetmonitor;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Internetmonitor' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("invoicing")]
+        [PolicyResourceProperty("invoicing", "_mUnknown_Invoicing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInvoicing;
+        private string? _mValue_Invoicing;
+        private bool _mUnknown_Invoicing;
+        public string? Invoicing
+        {
+            get
+            {
+                if (!_mUnknown_Invoicing) return _mValue_Invoicing;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Invoicing' is not present");
+            }
+        }
 
-        public string? Invoicing => _mInvoicing.GetValue("invoicing");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("iot")]
+        [PolicyResourceProperty("iot", "_mUnknown_Iot")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIot;
-
-        public string? Iot => _mIot.GetValue("iot");
+        private string? _mValue_Iot;
+        private bool _mUnknown_Iot;
+        public string? Iot
+        {
+            get
+            {
+                if (!_mUnknown_Iot) return _mValue_Iot;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Iot' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("iotanalytics")]
+        [PolicyResourceProperty("iotanalytics", "_mUnknown_Iotanalytics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIotanalytics;
+        private string? _mValue_Iotanalytics;
+        private bool _mUnknown_Iotanalytics;
+        public string? Iotanalytics
+        {
+            get
+            {
+                if (!_mUnknown_Iotanalytics) return _mValue_Iotanalytics;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Iotanalytics' is not present");
+            }
+        }
 
-        public string? Iotanalytics => _mIotanalytics.GetValue("iotanalytics");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("iotevents")]
+        [PolicyResourceProperty("iotevents", "_mUnknown_Iotevents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIotevents;
-
-        public string? Iotevents => _mIotevents.GetValue("iotevents");
+        private string? _mValue_Iotevents;
+        private bool _mUnknown_Iotevents;
+        public string? Iotevents
+        {
+            get
+            {
+                if (!_mUnknown_Iotevents) return _mValue_Iotevents;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Iotevents' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ivs")]
+        [PolicyResourceProperty("ivs", "_mUnknown_Ivs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIvs;
+        private string? _mValue_Ivs;
+        private bool _mUnknown_Ivs;
+        public string? Ivs
+        {
+            get
+            {
+                if (!_mUnknown_Ivs) return _mValue_Ivs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ivs' is not present");
+            }
+        }
 
-        public string? Ivs => _mIvs.GetValue("ivs");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ivschat")]
+        [PolicyResourceProperty("ivschat", "_mUnknown_Ivschat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIvschat;
-
-        public string? Ivschat => _mIvschat.GetValue("ivschat");
+        private string? _mValue_Ivschat;
+        private bool _mUnknown_Ivschat;
+        public string? Ivschat
+        {
+            get
+            {
+                if (!_mUnknown_Ivschat) return _mValue_Ivschat;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ivschat' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kafka")]
+        [PolicyResourceProperty("kafka", "_mUnknown_Kafka")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKafka;
+        private string? _mValue_Kafka;
+        private bool _mUnknown_Kafka;
+        public string? Kafka
+        {
+            get
+            {
+                if (!_mUnknown_Kafka) return _mValue_Kafka;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kafka' is not present");
+            }
+        }
 
-        public string? Kafka => _mKafka.GetValue("kafka");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kafkaconnect")]
+        [PolicyResourceProperty("kafkaconnect", "_mUnknown_Kafkaconnect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKafkaconnect;
+        private string? _mValue_Kafkaconnect;
+        private bool _mUnknown_Kafkaconnect;
+        public string? Kafkaconnect
+        {
+            get
+            {
+                if (!_mUnknown_Kafkaconnect) return _mValue_Kafkaconnect;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kafkaconnect' is not present");
+            }
+        }
 
-        public string? Kafkaconnect => _mKafkaconnect.GetValue("kafkaconnect");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kendra")]
+        [PolicyResourceProperty("kendra", "_mUnknown_Kendra")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKendra;
-
-        public string? Kendra => _mKendra.GetValue("kendra");
+        private string? _mValue_Kendra;
+        private bool _mUnknown_Kendra;
+        public string? Kendra
+        {
+            get
+            {
+                if (!_mUnknown_Kendra) return _mValue_Kendra;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kendra' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("keyspaces")]
+        [PolicyResourceProperty("keyspaces", "_mUnknown_Keyspaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyspaces;
+        private string? _mValue_Keyspaces;
+        private bool _mUnknown_Keyspaces;
+        public string? Keyspaces
+        {
+            get
+            {
+                if (!_mUnknown_Keyspaces) return _mValue_Keyspaces;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Keyspaces' is not present");
+            }
+        }
 
-        public string? Keyspaces => _mKeyspaces.GetValue("keyspaces");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kinesis")]
+        [PolicyResourceProperty("kinesis", "_mUnknown_Kinesis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKinesis;
-
-        public string? Kinesis => _mKinesis.GetValue("kinesis");
+        private string? _mValue_Kinesis;
+        private bool _mUnknown_Kinesis;
+        public string? Kinesis
+        {
+            get
+            {
+                if (!_mUnknown_Kinesis) return _mValue_Kinesis;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kinesis' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kinesisanalytics")]
+        [PolicyResourceProperty("kinesisanalytics", "_mUnknown_Kinesisanalytics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKinesisanalytics;
+        private string? _mValue_Kinesisanalytics;
+        private bool _mUnknown_Kinesisanalytics;
+        public string? Kinesisanalytics
+        {
+            get
+            {
+                if (!_mUnknown_Kinesisanalytics) return _mValue_Kinesisanalytics;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kinesisanalytics' is not present");
+            }
+        }
 
-        public string? Kinesisanalytics => _mKinesisanalytics.GetValue("kinesisanalytics");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kinesisanalyticsv2")]
+        [PolicyResourceProperty("kinesisanalyticsv2", "_mUnknown_Kinesisanalyticsv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKinesisanalyticsv2;
-
-        public string? Kinesisanalyticsv2 => _mKinesisanalyticsv2.GetValue("kinesisanalyticsv2");
+        private string? _mValue_Kinesisanalyticsv2;
+        private bool _mUnknown_Kinesisanalyticsv2;
+        public string? Kinesisanalyticsv2
+        {
+            get
+            {
+                if (!_mUnknown_Kinesisanalyticsv2) return _mValue_Kinesisanalyticsv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kinesisanalyticsv2' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kinesisvideo")]
+        [PolicyResourceProperty("kinesisvideo", "_mUnknown_Kinesisvideo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKinesisvideo;
+        private string? _mValue_Kinesisvideo;
+        private bool _mUnknown_Kinesisvideo;
+        public string? Kinesisvideo
+        {
+            get
+            {
+                if (!_mUnknown_Kinesisvideo) return _mValue_Kinesisvideo;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kinesisvideo' is not present");
+            }
+        }
 
-        public string? Kinesisvideo => _mKinesisvideo.GetValue("kinesisvideo");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("kms")]
+        [PolicyResourceProperty("kms", "_mUnknown_Kms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKms;
-
-        public string? Kms => _mKms.GetValue("kms");
+        private string? _mValue_Kms;
+        private bool _mUnknown_Kms;
+        public string? Kms
+        {
+            get
+            {
+                if (!_mUnknown_Kms) return _mValue_Kms;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Kms' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lakeformation")]
+        [PolicyResourceProperty("lakeformation", "_mUnknown_Lakeformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLakeformation;
+        private string? _mValue_Lakeformation;
+        private bool _mUnknown_Lakeformation;
+        public string? Lakeformation
+        {
+            get
+            {
+                if (!_mUnknown_Lakeformation) return _mValue_Lakeformation;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lakeformation' is not present");
+            }
+        }
 
-        public string? Lakeformation => _mLakeformation.GetValue("lakeformation");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lambda")]
+        [PolicyResourceProperty("lambda", "_mUnknown_Lambda")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambda;
+        private string? _mValue_Lambda;
+        private bool _mUnknown_Lambda;
+        public string? Lambda
+        {
+            get
+            {
+                if (!_mUnknown_Lambda) return _mValue_Lambda;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lambda' is not present");
+            }
+        }
 
-        public string? Lambda => _mLambda.GetValue("lambda");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("launchwizard")]
+        [PolicyResourceProperty("launchwizard", "_mUnknown_Launchwizard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchwizard;
-
-        public string? Launchwizard => _mLaunchwizard.GetValue("launchwizard");
+        private string? _mValue_Launchwizard;
+        private bool _mUnknown_Launchwizard;
+        public string? Launchwizard
+        {
+            get
+            {
+                if (!_mUnknown_Launchwizard) return _mValue_Launchwizard;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Launchwizard' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lex")]
+        [PolicyResourceProperty("lex", "_mUnknown_Lex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLex;
+        private string? _mValue_Lex;
+        private bool _mUnknown_Lex;
+        public string? Lex
+        {
+            get
+            {
+                if (!_mUnknown_Lex) return _mValue_Lex;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lex' is not present");
+            }
+        }
 
-        public string? Lex => _mLex.GetValue("lex");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lexmodelbuilding")]
+        [PolicyResourceProperty("lexmodelbuilding", "_mUnknown_Lexmodelbuilding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLexmodelbuilding;
-
-        public string? Lexmodelbuilding => _mLexmodelbuilding.GetValue("lexmodelbuilding");
+        private string? _mValue_Lexmodelbuilding;
+        private bool _mUnknown_Lexmodelbuilding;
+        public string? Lexmodelbuilding
+        {
+            get
+            {
+                if (!_mUnknown_Lexmodelbuilding) return _mValue_Lexmodelbuilding;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lexmodelbuilding' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lexmodelbuildingservice")]
+        [PolicyResourceProperty("lexmodelbuildingservice", "_mUnknown_Lexmodelbuildingservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLexmodelbuildingservice;
+        private string? _mValue_Lexmodelbuildingservice;
+        private bool _mUnknown_Lexmodelbuildingservice;
+        public string? Lexmodelbuildingservice
+        {
+            get
+            {
+                if (!_mUnknown_Lexmodelbuildingservice) return _mValue_Lexmodelbuildingservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lexmodelbuildingservice' is not present");
+            }
+        }
 
-        public string? Lexmodelbuildingservice => _mLexmodelbuildingservice.GetValue("lexmodelbuildingservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lexmodels")]
+        [PolicyResourceProperty("lexmodels", "_mUnknown_Lexmodels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLexmodels;
-
-        public string? Lexmodels => _mLexmodels.GetValue("lexmodels");
+        private string? _mValue_Lexmodels;
+        private bool _mUnknown_Lexmodels;
+        public string? Lexmodels
+        {
+            get
+            {
+                if (!_mUnknown_Lexmodels) return _mValue_Lexmodels;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lexmodels' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lexmodelsv2")]
+        [PolicyResourceProperty("lexmodelsv2", "_mUnknown_Lexmodelsv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLexmodelsv2;
+        private string? _mValue_Lexmodelsv2;
+        private bool _mUnknown_Lexmodelsv2;
+        public string? Lexmodelsv2
+        {
+            get
+            {
+                if (!_mUnknown_Lexmodelsv2) return _mValue_Lexmodelsv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lexmodelsv2' is not present");
+            }
+        }
 
-        public string? Lexmodelsv2 => _mLexmodelsv2.GetValue("lexmodelsv2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lexv2models")]
+        [PolicyResourceProperty("lexv2models", "_mUnknown_Lexv2models")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLexv2models;
-
-        public string? Lexv2models => _mLexv2models.GetValue("lexv2models");
+        private string? _mValue_Lexv2models;
+        private bool _mUnknown_Lexv2models;
+        public string? Lexv2models
+        {
+            get
+            {
+                if (!_mUnknown_Lexv2models) return _mValue_Lexv2models;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lexv2models' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("licensemanager")]
+        [PolicyResourceProperty("licensemanager", "_mUnknown_Licensemanager")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLicensemanager;
+        private string? _mValue_Licensemanager;
+        private bool _mUnknown_Licensemanager;
+        public string? Licensemanager
+        {
+            get
+            {
+                if (!_mUnknown_Licensemanager) return _mValue_Licensemanager;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Licensemanager' is not present");
+            }
+        }
 
-        public string? Licensemanager => _mLicensemanager.GetValue("licensemanager");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lightsail")]
+        [PolicyResourceProperty("lightsail", "_mUnknown_Lightsail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLightsail;
+        private string? _mValue_Lightsail;
+        private bool _mUnknown_Lightsail;
+        public string? Lightsail
+        {
+            get
+            {
+                if (!_mUnknown_Lightsail) return _mValue_Lightsail;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lightsail' is not present");
+            }
+        }
 
-        public string? Lightsail => _mLightsail.GetValue("lightsail");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("locationservice")]
+        [PolicyResourceProperty("locationservice", "_mUnknown_Locationservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocationservice;
+        private string? _mValue_Locationservice;
+        private bool _mUnknown_Locationservice;
+        public string? Locationservice
+        {
+            get
+            {
+                if (!_mUnknown_Locationservice) return _mValue_Locationservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Locationservice' is not present");
+            }
+        }
 
-        public string? Locationservice => _mLocationservice.GetValue("locationservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("logs")]
+        [PolicyResourceProperty("logs", "_mUnknown_Logs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogs;
-
-        public string? Logs => _mLogs.GetValue("logs");
+        private string? _mValue_Logs;
+        private bool _mUnknown_Logs;
+        public string? Logs
+        {
+            get
+            {
+                if (!_mUnknown_Logs) return _mValue_Logs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Logs' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("lookoutmetrics")]
+        [PolicyResourceProperty("lookoutmetrics", "_mUnknown_Lookoutmetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLookoutmetrics;
+        private string? _mValue_Lookoutmetrics;
+        private bool _mUnknown_Lookoutmetrics;
+        public string? Lookoutmetrics
+        {
+            get
+            {
+                if (!_mUnknown_Lookoutmetrics) return _mValue_Lookoutmetrics;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Lookoutmetrics' is not present");
+            }
+        }
 
-        public string? Lookoutmetrics => _mLookoutmetrics.GetValue("lookoutmetrics");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("m2")]
+        [PolicyResourceProperty("m2", "_mUnknown_M2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mM2;
+        private string? _mValue_M2;
+        private bool _mUnknown_M2;
+        public string? M2
+        {
+            get
+            {
+                if (!_mUnknown_M2) return _mValue_M2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.M2' is not present");
+            }
+        }
 
-        public string? M2 => _mM2.GetValue("m2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("macie2")]
+        [PolicyResourceProperty("macie2", "_mUnknown_Macie2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMacie2;
-
-        public string? Macie2 => _mMacie2.GetValue("macie2");
+        private string? _mValue_Macie2;
+        private bool _mUnknown_Macie2;
+        public string? Macie2
+        {
+            get
+            {
+                if (!_mUnknown_Macie2) return _mValue_Macie2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Macie2' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("managedgrafana")]
+        [PolicyResourceProperty("managedgrafana", "_mUnknown_Managedgrafana")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mManagedgrafana;
+        private string? _mValue_Managedgrafana;
+        private bool _mUnknown_Managedgrafana;
+        public string? Managedgrafana
+        {
+            get
+            {
+                if (!_mUnknown_Managedgrafana) return _mValue_Managedgrafana;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Managedgrafana' is not present");
+            }
+        }
 
-        public string? Managedgrafana => _mManagedgrafana.GetValue("managedgrafana");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mediaconnect")]
+        [PolicyResourceProperty("mediaconnect", "_mUnknown_Mediaconnect")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediaconnect;
-
-        public string? Mediaconnect => _mMediaconnect.GetValue("mediaconnect");
+        private string? _mValue_Mediaconnect;
+        private bool _mUnknown_Mediaconnect;
+        public string? Mediaconnect
+        {
+            get
+            {
+                if (!_mUnknown_Mediaconnect) return _mValue_Mediaconnect;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mediaconnect' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mediaconvert")]
+        [PolicyResourceProperty("mediaconvert", "_mUnknown_Mediaconvert")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediaconvert;
+        private string? _mValue_Mediaconvert;
+        private bool _mUnknown_Mediaconvert;
+        public string? Mediaconvert
+        {
+            get
+            {
+                if (!_mUnknown_Mediaconvert) return _mValue_Mediaconvert;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mediaconvert' is not present");
+            }
+        }
 
-        public string? Mediaconvert => _mMediaconvert.GetValue("mediaconvert");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("medialive")]
+        [PolicyResourceProperty("medialive", "_mUnknown_Medialive")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMedialive;
+        private string? _mValue_Medialive;
+        private bool _mUnknown_Medialive;
+        public string? Medialive
+        {
+            get
+            {
+                if (!_mUnknown_Medialive) return _mValue_Medialive;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Medialive' is not present");
+            }
+        }
 
-        public string? Medialive => _mMedialive.GetValue("medialive");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mediapackage")]
+        [PolicyResourceProperty("mediapackage", "_mUnknown_Mediapackage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediapackage;
-
-        public string? Mediapackage => _mMediapackage.GetValue("mediapackage");
+        private string? _mValue_Mediapackage;
+        private bool _mUnknown_Mediapackage;
+        public string? Mediapackage
+        {
+            get
+            {
+                if (!_mUnknown_Mediapackage) return _mValue_Mediapackage;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mediapackage' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mediapackagev2")]
+        [PolicyResourceProperty("mediapackagev2", "_mUnknown_Mediapackagev2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediapackagev2;
+        private string? _mValue_Mediapackagev2;
+        private bool _mUnknown_Mediapackagev2;
+        public string? Mediapackagev2
+        {
+            get
+            {
+                if (!_mUnknown_Mediapackagev2) return _mValue_Mediapackagev2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mediapackagev2' is not present");
+            }
+        }
 
-        public string? Mediapackagev2 => _mMediapackagev2.GetValue("mediapackagev2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mediapackagevod")]
+        [PolicyResourceProperty("mediapackagevod", "_mUnknown_Mediapackagevod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediapackagevod;
-
-        public string? Mediapackagevod => _mMediapackagevod.GetValue("mediapackagevod");
+        private string? _mValue_Mediapackagevod;
+        private bool _mUnknown_Mediapackagevod;
+        public string? Mediapackagevod
+        {
+            get
+            {
+                if (!_mUnknown_Mediapackagevod) return _mValue_Mediapackagevod;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mediapackagevod' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mediastore")]
+        [PolicyResourceProperty("mediastore", "_mUnknown_Mediastore")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMediastore;
+        private string? _mValue_Mediastore;
+        private bool _mUnknown_Mediastore;
+        public string? Mediastore
+        {
+            get
+            {
+                if (!_mUnknown_Mediastore) return _mValue_Mediastore;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mediastore' is not present");
+            }
+        }
 
-        public string? Mediastore => _mMediastore.GetValue("mediastore");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("memorydb")]
+        [PolicyResourceProperty("memorydb", "_mUnknown_Memorydb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemorydb;
-
-        public string? Memorydb => _mMemorydb.GetValue("memorydb");
+        private string? _mValue_Memorydb;
+        private bool _mUnknown_Memorydb;
+        public string? Memorydb
+        {
+            get
+            {
+                if (!_mUnknown_Memorydb) return _mValue_Memorydb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Memorydb' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mgn")]
+        [PolicyResourceProperty("mgn", "_mUnknown_Mgn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMgn;
+        private string? _mValue_Mgn;
+        private bool _mUnknown_Mgn;
+        public string? Mgn
+        {
+            get
+            {
+                if (!_mUnknown_Mgn) return _mValue_Mgn;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mgn' is not present");
+            }
+        }
 
-        public string? Mgn => _mMgn.GetValue("mgn");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mq")]
+        [PolicyResourceProperty("mq", "_mUnknown_Mq")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMq;
-
-        public string? Mq => _mMq.GetValue("mq");
+        private string? _mValue_Mq;
+        private bool _mUnknown_Mq;
+        public string? Mq
+        {
+            get
+            {
+                if (!_mUnknown_Mq) return _mValue_Mq;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mq' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("msk")]
+        [PolicyResourceProperty("msk", "_mUnknown_Msk")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMsk;
+        private string? _mValue_Msk;
+        private bool _mUnknown_Msk;
+        public string? Msk
+        {
+            get
+            {
+                if (!_mUnknown_Msk) return _mValue_Msk;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Msk' is not present");
+            }
+        }
 
-        public string? Msk => _mMsk.GetValue("msk");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("mwaa")]
+        [PolicyResourceProperty("mwaa", "_mUnknown_Mwaa")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMwaa;
+        private string? _mValue_Mwaa;
+        private bool _mUnknown_Mwaa;
+        public string? Mwaa
+        {
+            get
+            {
+                if (!_mUnknown_Mwaa) return _mValue_Mwaa;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Mwaa' is not present");
+            }
+        }
 
-        public string? Mwaa => _mMwaa.GetValue("mwaa");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("neptune")]
+        [PolicyResourceProperty("neptune", "_mUnknown_Neptune")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptune;
-
-        public string? Neptune => _mNeptune.GetValue("neptune");
+        private string? _mValue_Neptune;
+        private bool _mUnknown_Neptune;
+        public string? Neptune
+        {
+            get
+            {
+                if (!_mUnknown_Neptune) return _mValue_Neptune;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Neptune' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("neptunegraph")]
+        [PolicyResourceProperty("neptunegraph", "_mUnknown_Neptunegraph")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNeptunegraph;
+        private string? _mValue_Neptunegraph;
+        private bool _mUnknown_Neptunegraph;
+        public string? Neptunegraph
+        {
+            get
+            {
+                if (!_mUnknown_Neptunegraph) return _mValue_Neptunegraph;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Neptunegraph' is not present");
+            }
+        }
 
-        public string? Neptunegraph => _mNeptunegraph.GetValue("neptunegraph");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("networkfirewall")]
+        [PolicyResourceProperty("networkfirewall", "_mUnknown_Networkfirewall")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkfirewall;
-
-        public string? Networkfirewall => _mNetworkfirewall.GetValue("networkfirewall");
+        private string? _mValue_Networkfirewall;
+        private bool _mUnknown_Networkfirewall;
+        public string? Networkfirewall
+        {
+            get
+            {
+                if (!_mUnknown_Networkfirewall) return _mValue_Networkfirewall;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Networkfirewall' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("networkmanager")]
+        [PolicyResourceProperty("networkmanager", "_mUnknown_Networkmanager")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkmanager;
+        private string? _mValue_Networkmanager;
+        private bool _mUnknown_Networkmanager;
+        public string? Networkmanager
+        {
+            get
+            {
+                if (!_mUnknown_Networkmanager) return _mValue_Networkmanager;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Networkmanager' is not present");
+            }
+        }
 
-        public string? Networkmanager => _mNetworkmanager.GetValue("networkmanager");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("networkmonitor")]
+        [PolicyResourceProperty("networkmonitor", "_mUnknown_Networkmonitor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkmonitor;
+        private string? _mValue_Networkmonitor;
+        private bool _mUnknown_Networkmonitor;
+        public string? Networkmonitor
+        {
+            get
+            {
+                if (!_mUnknown_Networkmonitor) return _mValue_Networkmonitor;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Networkmonitor' is not present");
+            }
+        }
 
-        public string? Networkmonitor => _mNetworkmonitor.GetValue("networkmonitor");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("oam")]
+        [PolicyResourceProperty("oam", "_mUnknown_Oam")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOam;
-
-        public string? Oam => _mOam.GetValue("oam");
+        private string? _mValue_Oam;
+        private bool _mUnknown_Oam;
+        public string? Oam
+        {
+            get
+            {
+                if (!_mUnknown_Oam) return _mValue_Oam;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Oam' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("opensearch")]
+        [PolicyResourceProperty("opensearch", "_mUnknown_Opensearch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpensearch;
+        private string? _mValue_Opensearch;
+        private bool _mUnknown_Opensearch;
+        public string? Opensearch
+        {
+            get
+            {
+                if (!_mUnknown_Opensearch) return _mValue_Opensearch;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Opensearch' is not present");
+            }
+        }
 
-        public string? Opensearch => _mOpensearch.GetValue("opensearch");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("opensearchingestion")]
+        [PolicyResourceProperty("opensearchingestion", "_mUnknown_Opensearchingestion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpensearchingestion;
-
-        public string? Opensearchingestion => _mOpensearchingestion.GetValue("opensearchingestion");
+        private string? _mValue_Opensearchingestion;
+        private bool _mUnknown_Opensearchingestion;
+        public string? Opensearchingestion
+        {
+            get
+            {
+                if (!_mUnknown_Opensearchingestion) return _mValue_Opensearchingestion;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Opensearchingestion' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("opensearchserverless")]
+        [PolicyResourceProperty("opensearchserverless", "_mUnknown_Opensearchserverless")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpensearchserverless;
+        private string? _mValue_Opensearchserverless;
+        private bool _mUnknown_Opensearchserverless;
+        public string? Opensearchserverless
+        {
+            get
+            {
+                if (!_mUnknown_Opensearchserverless) return _mValue_Opensearchserverless;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Opensearchserverless' is not present");
+            }
+        }
 
-        public string? Opensearchserverless => _mOpensearchserverless.GetValue("opensearchserverless");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("opensearchservice")]
+        [PolicyResourceProperty("opensearchservice", "_mUnknown_Opensearchservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpensearchservice;
+        private string? _mValue_Opensearchservice;
+        private bool _mUnknown_Opensearchservice;
+        public string? Opensearchservice
+        {
+            get
+            {
+                if (!_mUnknown_Opensearchservice) return _mValue_Opensearchservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Opensearchservice' is not present");
+            }
+        }
 
-        public string? Opensearchservice => _mOpensearchservice.GetValue("opensearchservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("opsworks")]
+        [PolicyResourceProperty("opsworks", "_mUnknown_Opsworks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOpsworks;
-
-        public string? Opsworks => _mOpsworks.GetValue("opsworks");
+        private string? _mValue_Opsworks;
+        private bool _mUnknown_Opsworks;
+        public string? Opsworks
+        {
+            get
+            {
+                if (!_mUnknown_Opsworks) return _mValue_Opsworks;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Opsworks' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("organizations")]
+        [PolicyResourceProperty("organizations", "_mUnknown_Organizations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizations;
+        private string? _mValue_Organizations;
+        private bool _mUnknown_Organizations;
+        public string? Organizations
+        {
+            get
+            {
+                if (!_mUnknown_Organizations) return _mValue_Organizations;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Organizations' is not present");
+            }
+        }
 
-        public string? Organizations => _mOrganizations.GetValue("organizations");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("osis")]
+        [PolicyResourceProperty("osis", "_mUnknown_Osis")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOsis;
-
-        public string? Osis => _mOsis.GetValue("osis");
+        private string? _mValue_Osis;
+        private bool _mUnknown_Osis;
+        public string? Osis
+        {
+            get
+            {
+                if (!_mUnknown_Osis) return _mValue_Osis;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Osis' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("outposts")]
+        [PolicyResourceProperty("outposts", "_mUnknown_Outposts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutposts;
+        private string? _mValue_Outposts;
+        private bool _mUnknown_Outposts;
+        public string? Outposts
+        {
+            get
+            {
+                if (!_mUnknown_Outposts) return _mValue_Outposts;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Outposts' is not present");
+            }
+        }
 
-        public string? Outposts => _mOutposts.GetValue("outposts");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("paymentcryptography")]
+        [PolicyResourceProperty("paymentcryptography", "_mUnknown_Paymentcryptography")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPaymentcryptography;
-
-        public string? Paymentcryptography => _mPaymentcryptography.GetValue("paymentcryptography");
+        private string? _mValue_Paymentcryptography;
+        private bool _mUnknown_Paymentcryptography;
+        public string? Paymentcryptography
+        {
+            get
+            {
+                if (!_mUnknown_Paymentcryptography) return _mValue_Paymentcryptography;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Paymentcryptography' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("pcaconnectorad")]
+        [PolicyResourceProperty("pcaconnectorad", "_mUnknown_Pcaconnectorad")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPcaconnectorad;
+        private string? _mValue_Pcaconnectorad;
+        private bool _mUnknown_Pcaconnectorad;
+        public string? Pcaconnectorad
+        {
+            get
+            {
+                if (!_mUnknown_Pcaconnectorad) return _mValue_Pcaconnectorad;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Pcaconnectorad' is not present");
+            }
+        }
 
-        public string? Pcaconnectorad => _mPcaconnectorad.GetValue("pcaconnectorad");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("pcs")]
+        [PolicyResourceProperty("pcs", "_mUnknown_Pcs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPcs;
-
-        public string? Pcs => _mPcs.GetValue("pcs");
+        private string? _mValue_Pcs;
+        private bool _mUnknown_Pcs;
+        public string? Pcs
+        {
+            get
+            {
+                if (!_mUnknown_Pcs) return _mValue_Pcs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Pcs' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("pinpoint")]
+        [PolicyResourceProperty("pinpoint", "_mUnknown_Pinpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPinpoint;
+        private string? _mValue_Pinpoint;
+        private bool _mUnknown_Pinpoint;
+        public string? Pinpoint
+        {
+            get
+            {
+                if (!_mUnknown_Pinpoint) return _mValue_Pinpoint;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Pinpoint' is not present");
+            }
+        }
 
-        public string? Pinpoint => _mPinpoint.GetValue("pinpoint");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("pinpointsmsvoicev2")]
+        [PolicyResourceProperty("pinpointsmsvoicev2", "_mUnknown_Pinpointsmsvoicev2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPinpointsmsvoicev2;
+        private string? _mValue_Pinpointsmsvoicev2;
+        private bool _mUnknown_Pinpointsmsvoicev2;
+        public string? Pinpointsmsvoicev2
+        {
+            get
+            {
+                if (!_mUnknown_Pinpointsmsvoicev2) return _mValue_Pinpointsmsvoicev2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Pinpointsmsvoicev2' is not present");
+            }
+        }
 
-        public string? Pinpointsmsvoicev2 => _mPinpointsmsvoicev2.GetValue("pinpointsmsvoicev2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("pipes")]
+        [PolicyResourceProperty("pipes", "_mUnknown_Pipes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPipes;
-
-        public string? Pipes => _mPipes.GetValue("pipes");
+        private string? _mValue_Pipes;
+        private bool _mUnknown_Pipes;
+        public string? Pipes
+        {
+            get
+            {
+                if (!_mUnknown_Pipes) return _mValue_Pipes;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Pipes' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("polly")]
+        [PolicyResourceProperty("polly", "_mUnknown_Polly")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolly;
+        private string? _mValue_Polly;
+        private bool _mUnknown_Polly;
+        public string? Polly
+        {
+            get
+            {
+                if (!_mUnknown_Polly) return _mValue_Polly;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Polly' is not present");
+            }
+        }
 
-        public string? Polly => _mPolly.GetValue("polly");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("pricing")]
+        [PolicyResourceProperty("pricing", "_mUnknown_Pricing")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPricing;
-
-        public string? Pricing => _mPricing.GetValue("pricing");
+        private string? _mValue_Pricing;
+        private bool _mUnknown_Pricing;
+        public string? Pricing
+        {
+            get
+            {
+                if (!_mUnknown_Pricing) return _mValue_Pricing;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Pricing' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("prometheus")]
+        [PolicyResourceProperty("prometheus", "_mUnknown_Prometheus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrometheus;
+        private string? _mValue_Prometheus;
+        private bool _mUnknown_Prometheus;
+        public string? Prometheus
+        {
+            get
+            {
+                if (!_mUnknown_Prometheus) return _mValue_Prometheus;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Prometheus' is not present");
+            }
+        }
 
-        public string? Prometheus => _mPrometheus.GetValue("prometheus");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("prometheusservice")]
+        [PolicyResourceProperty("prometheusservice", "_mUnknown_Prometheusservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrometheusservice;
+        private string? _mValue_Prometheusservice;
+        private bool _mUnknown_Prometheusservice;
+        public string? Prometheusservice
+        {
+            get
+            {
+                if (!_mUnknown_Prometheusservice) return _mValue_Prometheusservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Prometheusservice' is not present");
+            }
+        }
 
-        public string? Prometheusservice => _mPrometheusservice.GetValue("prometheusservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("qbusiness")]
+        [PolicyResourceProperty("qbusiness", "_mUnknown_Qbusiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQbusiness;
-
-        public string? Qbusiness => _mQbusiness.GetValue("qbusiness");
+        private string? _mValue_Qbusiness;
+        private bool _mUnknown_Qbusiness;
+        public string? Qbusiness
+        {
+            get
+            {
+                if (!_mUnknown_Qbusiness) return _mValue_Qbusiness;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Qbusiness' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("qldb")]
+        [PolicyResourceProperty("qldb", "_mUnknown_Qldb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQldb;
+        private string? _mValue_Qldb;
+        private bool _mUnknown_Qldb;
+        public string? Qldb
+        {
+            get
+            {
+                if (!_mUnknown_Qldb) return _mValue_Qldb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Qldb' is not present");
+            }
+        }
 
-        public string? Qldb => _mQldb.GetValue("qldb");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("quicksight")]
+        [PolicyResourceProperty("quicksight", "_mUnknown_Quicksight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuicksight;
-
-        public string? Quicksight => _mQuicksight.GetValue("quicksight");
+        private string? _mValue_Quicksight;
+        private bool _mUnknown_Quicksight;
+        public string? Quicksight
+        {
+            get
+            {
+                if (!_mUnknown_Quicksight) return _mValue_Quicksight;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Quicksight' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ram")]
+        [PolicyResourceProperty("ram", "_mUnknown_Ram")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRam;
+        private string? _mValue_Ram;
+        private bool _mUnknown_Ram;
+        public string? Ram
+        {
+            get
+            {
+                if (!_mUnknown_Ram) return _mValue_Ram;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ram' is not present");
+            }
+        }
 
-        public string? Ram => _mRam.GetValue("ram");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("rbin")]
+        [PolicyResourceProperty("rbin", "_mUnknown_Rbin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRbin;
+        private string? _mValue_Rbin;
+        private bool _mUnknown_Rbin;
+        public string? Rbin
+        {
+            get
+            {
+                if (!_mUnknown_Rbin) return _mValue_Rbin;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Rbin' is not present");
+            }
+        }
 
-        public string? Rbin => _mRbin.GetValue("rbin");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("rds")]
+        [PolicyResourceProperty("rds", "_mUnknown_Rds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRds;
-
-        public string? Rds => _mRds.GetValue("rds");
+        private string? _mValue_Rds;
+        private bool _mUnknown_Rds;
+        public string? Rds
+        {
+            get
+            {
+                if (!_mUnknown_Rds) return _mValue_Rds;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Rds' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("recyclebin")]
+        [PolicyResourceProperty("recyclebin", "_mUnknown_Recyclebin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecyclebin;
+        private string? _mValue_Recyclebin;
+        private bool _mUnknown_Recyclebin;
+        public string? Recyclebin
+        {
+            get
+            {
+                if (!_mUnknown_Recyclebin) return _mValue_Recyclebin;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Recyclebin' is not present");
+            }
+        }
 
-        public string? Recyclebin => _mRecyclebin.GetValue("recyclebin");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("redshift")]
+        [PolicyResourceProperty("redshift", "_mUnknown_Redshift")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedshift;
-
-        public string? Redshift => _mRedshift.GetValue("redshift");
+        private string? _mValue_Redshift;
+        private bool _mUnknown_Redshift;
+        public string? Redshift
+        {
+            get
+            {
+                if (!_mUnknown_Redshift) return _mValue_Redshift;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Redshift' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("redshiftdata")]
+        [PolicyResourceProperty("redshiftdata", "_mUnknown_Redshiftdata")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedshiftdata;
+        private string? _mValue_Redshiftdata;
+        private bool _mUnknown_Redshiftdata;
+        public string? Redshiftdata
+        {
+            get
+            {
+                if (!_mUnknown_Redshiftdata) return _mValue_Redshiftdata;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Redshiftdata' is not present");
+            }
+        }
 
-        public string? Redshiftdata => _mRedshiftdata.GetValue("redshiftdata");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("redshiftdataapiservice")]
+        [PolicyResourceProperty("redshiftdataapiservice", "_mUnknown_Redshiftdataapiservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedshiftdataapiservice;
-
-        public string? Redshiftdataapiservice => _mRedshiftdataapiservice.GetValue("redshiftdataapiservice");
+        private string? _mValue_Redshiftdataapiservice;
+        private bool _mUnknown_Redshiftdataapiservice;
+        public string? Redshiftdataapiservice
+        {
+            get
+            {
+                if (!_mUnknown_Redshiftdataapiservice) return _mValue_Redshiftdataapiservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Redshiftdataapiservice' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("redshiftserverless")]
+        [PolicyResourceProperty("redshiftserverless", "_mUnknown_Redshiftserverless")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRedshiftserverless;
+        private string? _mValue_Redshiftserverless;
+        private bool _mUnknown_Redshiftserverless;
+        public string? Redshiftserverless
+        {
+            get
+            {
+                if (!_mUnknown_Redshiftserverless) return _mValue_Redshiftserverless;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Redshiftserverless' is not present");
+            }
+        }
 
-        public string? Redshiftserverless => _mRedshiftserverless.GetValue("redshiftserverless");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("rekognition")]
+        [PolicyResourceProperty("rekognition", "_mUnknown_Rekognition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRekognition;
-
-        public string? Rekognition => _mRekognition.GetValue("rekognition");
+        private string? _mValue_Rekognition;
+        private bool _mUnknown_Rekognition;
+        public string? Rekognition
+        {
+            get
+            {
+                if (!_mUnknown_Rekognition) return _mValue_Rekognition;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Rekognition' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("resiliencehub")]
+        [PolicyResourceProperty("resiliencehub", "_mUnknown_Resiliencehub")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResiliencehub;
+        private string? _mValue_Resiliencehub;
+        private bool _mUnknown_Resiliencehub;
+        public string? Resiliencehub
+        {
+            get
+            {
+                if (!_mUnknown_Resiliencehub) return _mValue_Resiliencehub;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Resiliencehub' is not present");
+            }
+        }
 
-        public string? Resiliencehub => _mResiliencehub.GetValue("resiliencehub");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("resourceexplorer2")]
+        [PolicyResourceProperty("resourceexplorer2", "_mUnknown_Resourceexplorer2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceexplorer2;
+        private string? _mValue_Resourceexplorer2;
+        private bool _mUnknown_Resourceexplorer2;
+        public string? Resourceexplorer2
+        {
+            get
+            {
+                if (!_mUnknown_Resourceexplorer2) return _mValue_Resourceexplorer2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Resourceexplorer2' is not present");
+            }
+        }
 
-        public string? Resourceexplorer2 => _mResourceexplorer2.GetValue("resourceexplorer2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("resourcegroups")]
+        [PolicyResourceProperty("resourcegroups", "_mUnknown_Resourcegroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcegroups;
-
-        public string? Resourcegroups => _mResourcegroups.GetValue("resourcegroups");
+        private string? _mValue_Resourcegroups;
+        private bool _mUnknown_Resourcegroups;
+        public string? Resourcegroups
+        {
+            get
+            {
+                if (!_mUnknown_Resourcegroups) return _mValue_Resourcegroups;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Resourcegroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("resourcegroupstagging")]
+        [PolicyResourceProperty("resourcegroupstagging", "_mUnknown_Resourcegroupstagging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcegroupstagging;
+        private string? _mValue_Resourcegroupstagging;
+        private bool _mUnknown_Resourcegroupstagging;
+        public string? Resourcegroupstagging
+        {
+            get
+            {
+                if (!_mUnknown_Resourcegroupstagging) return _mValue_Resourcegroupstagging;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Resourcegroupstagging' is not present");
+            }
+        }
 
-        public string? Resourcegroupstagging => _mResourcegroupstagging.GetValue("resourcegroupstagging");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("resourcegroupstaggingapi")]
+        [PolicyResourceProperty("resourcegroupstaggingapi", "_mUnknown_Resourcegroupstaggingapi")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcegroupstaggingapi;
-
-        public string? Resourcegroupstaggingapi => _mResourcegroupstaggingapi.GetValue("resourcegroupstaggingapi");
+        private string? _mValue_Resourcegroupstaggingapi;
+        private bool _mUnknown_Resourcegroupstaggingapi;
+        public string? Resourcegroupstaggingapi
+        {
+            get
+            {
+                if (!_mUnknown_Resourcegroupstaggingapi) return _mValue_Resourcegroupstaggingapi;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Resourcegroupstaggingapi' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("rolesanywhere")]
+        [PolicyResourceProperty("rolesanywhere", "_mUnknown_Rolesanywhere")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRolesanywhere;
+        private string? _mValue_Rolesanywhere;
+        private bool _mUnknown_Rolesanywhere;
+        public string? Rolesanywhere
+        {
+            get
+            {
+                if (!_mUnknown_Rolesanywhere) return _mValue_Rolesanywhere;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Rolesanywhere' is not present");
+            }
+        }
 
-        public string? Rolesanywhere => _mRolesanywhere.GetValue("rolesanywhere");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("route53")]
+        [PolicyResourceProperty("route53", "_mUnknown_Route53")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoute53;
-
-        public string? Route53 => _mRoute53.GetValue("route53");
+        private string? _mValue_Route53;
+        private bool _mUnknown_Route53;
+        public string? Route53
+        {
+            get
+            {
+                if (!_mUnknown_Route53) return _mValue_Route53;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Route53' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("route53domains")]
+        [PolicyResourceProperty("route53domains", "_mUnknown_Route53domains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoute53domains;
+        private string? _mValue_Route53domains;
+        private bool _mUnknown_Route53domains;
+        public string? Route53domains
+        {
+            get
+            {
+                if (!_mUnknown_Route53domains) return _mValue_Route53domains;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Route53domains' is not present");
+            }
+        }
 
-        public string? Route53domains => _mRoute53domains.GetValue("route53domains");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("route53profiles")]
+        [PolicyResourceProperty("route53profiles", "_mUnknown_Route53profiles")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoute53profiles;
-
-        public string? Route53profiles => _mRoute53profiles.GetValue("route53profiles");
+        private string? _mValue_Route53profiles;
+        private bool _mUnknown_Route53profiles;
+        public string? Route53profiles
+        {
+            get
+            {
+                if (!_mUnknown_Route53profiles) return _mValue_Route53profiles;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Route53profiles' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("route53recoverycontrolconfig")]
+        [PolicyResourceProperty("route53recoverycontrolconfig", "_mUnknown_Route53recoverycontrolconfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoute53recoverycontrolconfig;
+        private string? _mValue_Route53recoverycontrolconfig;
+        private bool _mUnknown_Route53recoverycontrolconfig;
+        public string? Route53recoverycontrolconfig
+        {
+            get
+            {
+                if (!_mUnknown_Route53recoverycontrolconfig) return _mValue_Route53recoverycontrolconfig;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Route53recoverycontrolconfig' is not present");
+            }
+        }
 
-        public string? Route53recoverycontrolconfig => _mRoute53recoverycontrolconfig.GetValue("route53recoverycontrolconfig");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("route53recoveryreadiness")]
+        [PolicyResourceProperty("route53recoveryreadiness", "_mUnknown_Route53recoveryreadiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoute53recoveryreadiness;
+        private string? _mValue_Route53recoveryreadiness;
+        private bool _mUnknown_Route53recoveryreadiness;
+        public string? Route53recoveryreadiness
+        {
+            get
+            {
+                if (!_mUnknown_Route53recoveryreadiness) return _mValue_Route53recoveryreadiness;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Route53recoveryreadiness' is not present");
+            }
+        }
 
-        public string? Route53recoveryreadiness => _mRoute53recoveryreadiness.GetValue("route53recoveryreadiness");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("route53resolver")]
+        [PolicyResourceProperty("route53resolver", "_mUnknown_Route53resolver")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoute53resolver;
-
-        public string? Route53resolver => _mRoute53resolver.GetValue("route53resolver");
+        private string? _mValue_Route53resolver;
+        private bool _mUnknown_Route53resolver;
+        public string? Route53resolver
+        {
+            get
+            {
+                if (!_mUnknown_Route53resolver) return _mValue_Route53resolver;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Route53resolver' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("rum")]
+        [PolicyResourceProperty("rum", "_mUnknown_Rum")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRum;
+        private string? _mValue_Rum;
+        private bool _mUnknown_Rum;
+        public string? Rum
+        {
+            get
+            {
+                if (!_mUnknown_Rum) return _mValue_Rum;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Rum' is not present");
+            }
+        }
 
-        public string? Rum => _mRum.GetValue("rum");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3;
-
-        public string? S3 => _mS3.GetValue("s3");
+        private string? _mValue_S3;
+        private bool _mUnknown_S3;
+        public string? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.S3' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("s3api")]
+        [PolicyResourceProperty("s3api", "_mUnknown_S3api")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3api;
+        private string? _mValue_S3api;
+        private bool _mUnknown_S3api;
+        public string? S3api
+        {
+            get
+            {
+                if (!_mUnknown_S3api) return _mValue_S3api;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.S3api' is not present");
+            }
+        }
 
-        public string? S3api => _mS3api.GetValue("s3api");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("s3control")]
+        [PolicyResourceProperty("s3control", "_mUnknown_S3control")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3control;
-
-        public string? S3control => _mS3control.GetValue("s3control");
+        private string? _mValue_S3control;
+        private bool _mUnknown_S3control;
+        public string? S3control
+        {
+            get
+            {
+                if (!_mUnknown_S3control) return _mValue_S3control;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.S3control' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("s3outposts")]
+        [PolicyResourceProperty("s3outposts", "_mUnknown_S3outposts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3outposts;
+        private string? _mValue_S3outposts;
+        private bool _mUnknown_S3outposts;
+        public string? S3outposts
+        {
+            get
+            {
+                if (!_mUnknown_S3outposts) return _mValue_S3outposts;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.S3outposts' is not present");
+            }
+        }
 
-        public string? S3outposts => _mS3outposts.GetValue("s3outposts");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("s3tables")]
+        [PolicyResourceProperty("s3tables", "_mUnknown_S3tables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3tables;
-
-        public string? S3tables => _mS3tables.GetValue("s3tables");
+        private string? _mValue_S3tables;
+        private bool _mUnknown_S3tables;
+        public string? S3tables
+        {
+            get
+            {
+                if (!_mUnknown_S3tables) return _mValue_S3tables;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.S3tables' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sagemaker")]
+        [PolicyResourceProperty("sagemaker", "_mUnknown_Sagemaker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSagemaker;
+        private string? _mValue_Sagemaker;
+        private bool _mUnknown_Sagemaker;
+        public string? Sagemaker
+        {
+            get
+            {
+                if (!_mUnknown_Sagemaker) return _mValue_Sagemaker;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sagemaker' is not present");
+            }
+        }
 
-        public string? Sagemaker => _mSagemaker.GetValue("sagemaker");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("scheduler")]
+        [PolicyResourceProperty("scheduler", "_mUnknown_Scheduler")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduler;
+        private string? _mValue_Scheduler;
+        private bool _mUnknown_Scheduler;
+        public string? Scheduler
+        {
+            get
+            {
+                if (!_mUnknown_Scheduler) return _mValue_Scheduler;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Scheduler' is not present");
+            }
+        }
 
-        public string? Scheduler => _mScheduler.GetValue("scheduler");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("schemas")]
+        [PolicyResourceProperty("schemas", "_mUnknown_Schemas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSchemas;
-
-        public string? Schemas => _mSchemas.GetValue("schemas");
+        private string? _mValue_Schemas;
+        private bool _mUnknown_Schemas;
+        public string? Schemas
+        {
+            get
+            {
+                if (!_mUnknown_Schemas) return _mValue_Schemas;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Schemas' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sdb")]
+        [PolicyResourceProperty("sdb", "_mUnknown_Sdb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSdb;
+        private string? _mValue_Sdb;
+        private bool _mUnknown_Sdb;
+        public string? Sdb
+        {
+            get
+            {
+                if (!_mUnknown_Sdb) return _mValue_Sdb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sdb' is not present");
+            }
+        }
 
-        public string? Sdb => _mSdb.GetValue("sdb");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("secretsmanager")]
+        [PolicyResourceProperty("secretsmanager", "_mUnknown_Secretsmanager")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretsmanager;
-
-        public string? Secretsmanager => _mSecretsmanager.GetValue("secretsmanager");
+        private string? _mValue_Secretsmanager;
+        private bool _mUnknown_Secretsmanager;
+        public string? Secretsmanager
+        {
+            get
+            {
+                if (!_mUnknown_Secretsmanager) return _mValue_Secretsmanager;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Secretsmanager' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("securityhub")]
+        [PolicyResourceProperty("securityhub", "_mUnknown_Securityhub")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityhub;
+        private string? _mValue_Securityhub;
+        private bool _mUnknown_Securityhub;
+        public string? Securityhub
+        {
+            get
+            {
+                if (!_mUnknown_Securityhub) return _mValue_Securityhub;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Securityhub' is not present");
+            }
+        }
 
-        public string? Securityhub => _mSecurityhub.GetValue("securityhub");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("securitylake")]
+        [PolicyResourceProperty("securitylake", "_mUnknown_Securitylake")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecuritylake;
+        private string? _mValue_Securitylake;
+        private bool _mUnknown_Securitylake;
+        public string? Securitylake
+        {
+            get
+            {
+                if (!_mUnknown_Securitylake) return _mValue_Securitylake;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Securitylake' is not present");
+            }
+        }
 
-        public string? Securitylake => _mSecuritylake.GetValue("securitylake");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("serverlessapplicationrepository")]
+        [PolicyResourceProperty("serverlessapplicationrepository", "_mUnknown_Serverlessapplicationrepository")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerlessapplicationrepository;
-
-        public string? Serverlessapplicationrepository => _mServerlessapplicationrepository.GetValue("serverlessapplicationrepository");
+        private string? _mValue_Serverlessapplicationrepository;
+        private bool _mUnknown_Serverlessapplicationrepository;
+        public string? Serverlessapplicationrepository
+        {
+            get
+            {
+                if (!_mUnknown_Serverlessapplicationrepository) return _mValue_Serverlessapplicationrepository;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Serverlessapplicationrepository' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("serverlessapprepo")]
+        [PolicyResourceProperty("serverlessapprepo", "_mUnknown_Serverlessapprepo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerlessapprepo;
+        private string? _mValue_Serverlessapprepo;
+        private bool _mUnknown_Serverlessapprepo;
+        public string? Serverlessapprepo
+        {
+            get
+            {
+                if (!_mUnknown_Serverlessapprepo) return _mValue_Serverlessapprepo;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Serverlessapprepo' is not present");
+            }
+        }
 
-        public string? Serverlessapprepo => _mServerlessapprepo.GetValue("serverlessapprepo");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("serverlessrepo")]
+        [PolicyResourceProperty("serverlessrepo", "_mUnknown_Serverlessrepo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerlessrepo;
-
-        public string? Serverlessrepo => _mServerlessrepo.GetValue("serverlessrepo");
+        private string? _mValue_Serverlessrepo;
+        private bool _mUnknown_Serverlessrepo;
+        public string? Serverlessrepo
+        {
+            get
+            {
+                if (!_mUnknown_Serverlessrepo) return _mValue_Serverlessrepo;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Serverlessrepo' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("servicecatalog")]
+        [PolicyResourceProperty("servicecatalog", "_mUnknown_Servicecatalog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicecatalog;
+        private string? _mValue_Servicecatalog;
+        private bool _mUnknown_Servicecatalog;
+        public string? Servicecatalog
+        {
+            get
+            {
+                if (!_mUnknown_Servicecatalog) return _mValue_Servicecatalog;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Servicecatalog' is not present");
+            }
+        }
 
-        public string? Servicecatalog => _mServicecatalog.GetValue("servicecatalog");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("servicecatalogappregistry")]
+        [PolicyResourceProperty("servicecatalogappregistry", "_mUnknown_Servicecatalogappregistry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicecatalogappregistry;
+        private string? _mValue_Servicecatalogappregistry;
+        private bool _mUnknown_Servicecatalogappregistry;
+        public string? Servicecatalogappregistry
+        {
+            get
+            {
+                if (!_mUnknown_Servicecatalogappregistry) return _mValue_Servicecatalogappregistry;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Servicecatalogappregistry' is not present");
+            }
+        }
 
-        public string? Servicecatalogappregistry => _mServicecatalogappregistry.GetValue("servicecatalogappregistry");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("servicediscovery")]
+        [PolicyResourceProperty("servicediscovery", "_mUnknown_Servicediscovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicediscovery;
-
-        public string? Servicediscovery => _mServicediscovery.GetValue("servicediscovery");
+        private string? _mValue_Servicediscovery;
+        private bool _mUnknown_Servicediscovery;
+        public string? Servicediscovery
+        {
+            get
+            {
+                if (!_mUnknown_Servicediscovery) return _mValue_Servicediscovery;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Servicediscovery' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("servicequotas")]
+        [PolicyResourceProperty("servicequotas", "_mUnknown_Servicequotas")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicequotas;
+        private string? _mValue_Servicequotas;
+        private bool _mUnknown_Servicequotas;
+        public string? Servicequotas
+        {
+            get
+            {
+                if (!_mUnknown_Servicequotas) return _mValue_Servicequotas;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Servicequotas' is not present");
+            }
+        }
 
-        public string? Servicequotas => _mServicequotas.GetValue("servicequotas");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ses")]
+        [PolicyResourceProperty("ses", "_mUnknown_Ses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSes;
-
-        public string? Ses => _mSes.GetValue("ses");
+        private string? _mValue_Ses;
+        private bool _mUnknown_Ses;
+        public string? Ses
+        {
+            get
+            {
+                if (!_mUnknown_Ses) return _mValue_Ses;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ses' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sesv2")]
+        [PolicyResourceProperty("sesv2", "_mUnknown_Sesv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSesv2;
+        private string? _mValue_Sesv2;
+        private bool _mUnknown_Sesv2;
+        public string? Sesv2
+        {
+            get
+            {
+                if (!_mUnknown_Sesv2) return _mValue_Sesv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sesv2' is not present");
+            }
+        }
 
-        public string? Sesv2 => _mSesv2.GetValue("sesv2");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sfn")]
+        [PolicyResourceProperty("sfn", "_mUnknown_Sfn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSfn;
-
-        public string? Sfn => _mSfn.GetValue("sfn");
+        private string? _mValue_Sfn;
+        private bool _mUnknown_Sfn;
+        public string? Sfn
+        {
+            get
+            {
+                if (!_mUnknown_Sfn) return _mValue_Sfn;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sfn' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("shield")]
+        [PolicyResourceProperty("shield", "_mUnknown_Shield")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mShield;
+        private string? _mValue_Shield;
+        private bool _mUnknown_Shield;
+        public string? Shield
+        {
+            get
+            {
+                if (!_mUnknown_Shield) return _mValue_Shield;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Shield' is not present");
+            }
+        }
 
-        public string? Shield => _mShield.GetValue("shield");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("signer")]
+        [PolicyResourceProperty("signer", "_mUnknown_Signer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSigner;
-
-        public string? Signer => _mSigner.GetValue("signer");
+        private string? _mValue_Signer;
+        private bool _mUnknown_Signer;
+        public string? Signer
+        {
+            get
+            {
+                if (!_mUnknown_Signer) return _mValue_Signer;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Signer' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("simpledb")]
+        [PolicyResourceProperty("simpledb", "_mUnknown_Simpledb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSimpledb;
+        private string? _mValue_Simpledb;
+        private bool _mUnknown_Simpledb;
+        public string? Simpledb
+        {
+            get
+            {
+                if (!_mUnknown_Simpledb) return _mValue_Simpledb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Simpledb' is not present");
+            }
+        }
 
-        public string? Simpledb => _mSimpledb.GetValue("simpledb");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sns")]
+        [PolicyResourceProperty("sns", "_mUnknown_Sns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSns;
+        private string? _mValue_Sns;
+        private bool _mUnknown_Sns;
+        public string? Sns
+        {
+            get
+            {
+                if (!_mUnknown_Sns) return _mValue_Sns;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sns' is not present");
+            }
+        }
 
-        public string? Sns => _mSns.GetValue("sns");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sqs")]
+        [PolicyResourceProperty("sqs", "_mUnknown_Sqs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSqs;
-
-        public string? Sqs => _mSqs.GetValue("sqs");
+        private string? _mValue_Sqs;
+        private bool _mUnknown_Sqs;
+        public string? Sqs
+        {
+            get
+            {
+                if (!_mUnknown_Sqs) return _mValue_Sqs;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sqs' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ssm")]
+        [PolicyResourceProperty("ssm", "_mUnknown_Ssm")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSsm;
+        private string? _mValue_Ssm;
+        private bool _mUnknown_Ssm;
+        public string? Ssm
+        {
+            get
+            {
+                if (!_mUnknown_Ssm) return _mValue_Ssm;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ssm' is not present");
+            }
+        }
 
-        public string? Ssm => _mSsm.GetValue("ssm");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ssmcontacts")]
+        [PolicyResourceProperty("ssmcontacts", "_mUnknown_Ssmcontacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSsmcontacts;
-
-        public string? Ssmcontacts => _mSsmcontacts.GetValue("ssmcontacts");
+        private string? _mValue_Ssmcontacts;
+        private bool _mUnknown_Ssmcontacts;
+        public string? Ssmcontacts
+        {
+            get
+            {
+                if (!_mUnknown_Ssmcontacts) return _mValue_Ssmcontacts;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ssmcontacts' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ssmincidents")]
+        [PolicyResourceProperty("ssmincidents", "_mUnknown_Ssmincidents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSsmincidents;
+        private string? _mValue_Ssmincidents;
+        private bool _mUnknown_Ssmincidents;
+        public string? Ssmincidents
+        {
+            get
+            {
+                if (!_mUnknown_Ssmincidents) return _mValue_Ssmincidents;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ssmincidents' is not present");
+            }
+        }
 
-        public string? Ssmincidents => _mSsmincidents.GetValue("ssmincidents");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ssmquicksetup")]
+        [PolicyResourceProperty("ssmquicksetup", "_mUnknown_Ssmquicksetup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSsmquicksetup;
+        private string? _mValue_Ssmquicksetup;
+        private bool _mUnknown_Ssmquicksetup;
+        public string? Ssmquicksetup
+        {
+            get
+            {
+                if (!_mUnknown_Ssmquicksetup) return _mValue_Ssmquicksetup;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ssmquicksetup' is not present");
+            }
+        }
 
-        public string? Ssmquicksetup => _mSsmquicksetup.GetValue("ssmquicksetup");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ssmsap")]
+        [PolicyResourceProperty("ssmsap", "_mUnknown_Ssmsap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSsmsap;
-
-        public string? Ssmsap => _mSsmsap.GetValue("ssmsap");
+        private string? _mValue_Ssmsap;
+        private bool _mUnknown_Ssmsap;
+        public string? Ssmsap
+        {
+            get
+            {
+                if (!_mUnknown_Ssmsap) return _mValue_Ssmsap;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ssmsap' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sso")]
+        [PolicyResourceProperty("sso", "_mUnknown_Sso")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSso;
+        private string? _mValue_Sso;
+        private bool _mUnknown_Sso;
+        public string? Sso
+        {
+            get
+            {
+                if (!_mUnknown_Sso) return _mValue_Sso;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sso' is not present");
+            }
+        }
 
-        public string? Sso => _mSso.GetValue("sso");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("ssoadmin")]
+        [PolicyResourceProperty("ssoadmin", "_mUnknown_Ssoadmin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSsoadmin;
-
-        public string? Ssoadmin => _mSsoadmin.GetValue("ssoadmin");
+        private string? _mValue_Ssoadmin;
+        private bool _mUnknown_Ssoadmin;
+        public string? Ssoadmin
+        {
+            get
+            {
+                if (!_mUnknown_Ssoadmin) return _mValue_Ssoadmin;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Ssoadmin' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("stepfunctions")]
+        [PolicyResourceProperty("stepfunctions", "_mUnknown_Stepfunctions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStepfunctions;
+        private string? _mValue_Stepfunctions;
+        private bool _mUnknown_Stepfunctions;
+        public string? Stepfunctions
+        {
+            get
+            {
+                if (!_mUnknown_Stepfunctions) return _mValue_Stepfunctions;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Stepfunctions' is not present");
+            }
+        }
 
-        public string? Stepfunctions => _mStepfunctions.GetValue("stepfunctions");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("storagegateway")]
+        [PolicyResourceProperty("storagegateway", "_mUnknown_Storagegateway")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStoragegateway;
+        private string? _mValue_Storagegateway;
+        private bool _mUnknown_Storagegateway;
+        public string? Storagegateway
+        {
+            get
+            {
+                if (!_mUnknown_Storagegateway) return _mValue_Storagegateway;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Storagegateway' is not present");
+            }
+        }
 
-        public string? Storagegateway => _mStoragegateway.GetValue("storagegateway");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("sts")]
+        [PolicyResourceProperty("sts", "_mUnknown_Sts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSts;
-
-        public string? Sts => _mSts.GetValue("sts");
+        private string? _mValue_Sts;
+        private bool _mUnknown_Sts;
+        public string? Sts
+        {
+            get
+            {
+                if (!_mUnknown_Sts) return _mValue_Sts;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Sts' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("swf")]
+        [PolicyResourceProperty("swf", "_mUnknown_Swf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSwf;
+        private string? _mValue_Swf;
+        private bool _mUnknown_Swf;
+        public string? Swf
+        {
+            get
+            {
+                if (!_mUnknown_Swf) return _mValue_Swf;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Swf' is not present");
+            }
+        }
 
-        public string? Swf => _mSwf.GetValue("swf");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("synthetics")]
+        [PolicyResourceProperty("synthetics", "_mUnknown_Synthetics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSynthetics;
-
-        public string? Synthetics => _mSynthetics.GetValue("synthetics");
+        private string? _mValue_Synthetics;
+        private bool _mUnknown_Synthetics;
+        public string? Synthetics
+        {
+            get
+            {
+                if (!_mUnknown_Synthetics) return _mValue_Synthetics;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Synthetics' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("taxsettings")]
+        [PolicyResourceProperty("taxsettings", "_mUnknown_Taxsettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaxsettings;
+        private string? _mValue_Taxsettings;
+        private bool _mUnknown_Taxsettings;
+        public string? Taxsettings
+        {
+            get
+            {
+                if (!_mUnknown_Taxsettings) return _mValue_Taxsettings;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Taxsettings' is not present");
+            }
+        }
 
-        public string? Taxsettings => _mTaxsettings.GetValue("taxsettings");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("timestreaminfluxdb")]
+        [PolicyResourceProperty("timestreaminfluxdb", "_mUnknown_Timestreaminfluxdb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestreaminfluxdb;
-
-        public string? Timestreaminfluxdb => _mTimestreaminfluxdb.GetValue("timestreaminfluxdb");
+        private string? _mValue_Timestreaminfluxdb;
+        private bool _mUnknown_Timestreaminfluxdb;
+        public string? Timestreaminfluxdb
+        {
+            get
+            {
+                if (!_mUnknown_Timestreaminfluxdb) return _mValue_Timestreaminfluxdb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Timestreaminfluxdb' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("timestreamquery")]
+        [PolicyResourceProperty("timestreamquery", "_mUnknown_Timestreamquery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestreamquery;
+        private string? _mValue_Timestreamquery;
+        private bool _mUnknown_Timestreamquery;
+        public string? Timestreamquery
+        {
+            get
+            {
+                if (!_mUnknown_Timestreamquery) return _mValue_Timestreamquery;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Timestreamquery' is not present");
+            }
+        }
 
-        public string? Timestreamquery => _mTimestreamquery.GetValue("timestreamquery");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("timestreamwrite")]
+        [PolicyResourceProperty("timestreamwrite", "_mUnknown_Timestreamwrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestreamwrite;
-
-        public string? Timestreamwrite => _mTimestreamwrite.GetValue("timestreamwrite");
+        private string? _mValue_Timestreamwrite;
+        private bool _mUnknown_Timestreamwrite;
+        public string? Timestreamwrite
+        {
+            get
+            {
+                if (!_mUnknown_Timestreamwrite) return _mValue_Timestreamwrite;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Timestreamwrite' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("transcribe")]
+        [PolicyResourceProperty("transcribe", "_mUnknown_Transcribe")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTranscribe;
+        private string? _mValue_Transcribe;
+        private bool _mUnknown_Transcribe;
+        public string? Transcribe
+        {
+            get
+            {
+                if (!_mUnknown_Transcribe) return _mValue_Transcribe;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Transcribe' is not present");
+            }
+        }
 
-        public string? Transcribe => _mTranscribe.GetValue("transcribe");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("transcribeservice")]
+        [PolicyResourceProperty("transcribeservice", "_mUnknown_Transcribeservice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTranscribeservice;
+        private string? _mValue_Transcribeservice;
+        private bool _mUnknown_Transcribeservice;
+        public string? Transcribeservice
+        {
+            get
+            {
+                if (!_mUnknown_Transcribeservice) return _mValue_Transcribeservice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Transcribeservice' is not present");
+            }
+        }
 
-        public string? Transcribeservice => _mTranscribeservice.GetValue("transcribeservice");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("transfer")]
+        [PolicyResourceProperty("transfer", "_mUnknown_Transfer")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransfer;
-
-        public string? Transfer => _mTransfer.GetValue("transfer");
+        private string? _mValue_Transfer;
+        private bool _mUnknown_Transfer;
+        public string? Transfer
+        {
+            get
+            {
+                if (!_mUnknown_Transfer) return _mValue_Transfer;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Transfer' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("verifiedpermissions")]
+        [PolicyResourceProperty("verifiedpermissions", "_mUnknown_Verifiedpermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerifiedpermissions;
+        private string? _mValue_Verifiedpermissions;
+        private bool _mUnknown_Verifiedpermissions;
+        public string? Verifiedpermissions
+        {
+            get
+            {
+                if (!_mUnknown_Verifiedpermissions) return _mValue_Verifiedpermissions;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Verifiedpermissions' is not present");
+            }
+        }
 
-        public string? Verifiedpermissions => _mVerifiedpermissions.GetValue("verifiedpermissions");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("vpclattice")]
+        [PolicyResourceProperty("vpclattice", "_mUnknown_Vpclattice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpclattice;
-
-        public string? Vpclattice => _mVpclattice.GetValue("vpclattice");
+        private string? _mValue_Vpclattice;
+        private bool _mUnknown_Vpclattice;
+        public string? Vpclattice
+        {
+            get
+            {
+                if (!_mUnknown_Vpclattice) return _mValue_Vpclattice;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Vpclattice' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("waf")]
+        [PolicyResourceProperty("waf", "_mUnknown_Waf")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWaf;
+        private string? _mValue_Waf;
+        private bool _mUnknown_Waf;
+        public string? Waf
+        {
+            get
+            {
+                if (!_mUnknown_Waf) return _mValue_Waf;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Waf' is not present");
+            }
+        }
 
-        public string? Waf => _mWaf.GetValue("waf");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("wafregional")]
+        [PolicyResourceProperty("wafregional", "_mUnknown_Wafregional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWafregional;
+        private string? _mValue_Wafregional;
+        private bool _mUnknown_Wafregional;
+        public string? Wafregional
+        {
+            get
+            {
+                if (!_mUnknown_Wafregional) return _mValue_Wafregional;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Wafregional' is not present");
+            }
+        }
 
-        public string? Wafregional => _mWafregional.GetValue("wafregional");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("wafv2")]
+        [PolicyResourceProperty("wafv2", "_mUnknown_Wafv2")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWafv2;
-
-        public string? Wafv2 => _mWafv2.GetValue("wafv2");
+        private string? _mValue_Wafv2;
+        private bool _mUnknown_Wafv2;
+        public string? Wafv2
+        {
+            get
+            {
+                if (!_mUnknown_Wafv2) return _mValue_Wafv2;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Wafv2' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("wellarchitected")]
+        [PolicyResourceProperty("wellarchitected", "_mUnknown_Wellarchitected")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWellarchitected;
+        private string? _mValue_Wellarchitected;
+        private bool _mUnknown_Wellarchitected;
+        public string? Wellarchitected
+        {
+            get
+            {
+                if (!_mUnknown_Wellarchitected) return _mValue_Wellarchitected;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Wellarchitected' is not present");
+            }
+        }
 
-        public string? Wellarchitected => _mWellarchitected.GetValue("wellarchitected");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("worklink")]
+        [PolicyResourceProperty("worklink", "_mUnknown_Worklink")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorklink;
-
-        public string? Worklink => _mWorklink.GetValue("worklink");
+        private string? _mValue_Worklink;
+        private bool _mUnknown_Worklink;
+        public string? Worklink
+        {
+            get
+            {
+                if (!_mUnknown_Worklink) return _mValue_Worklink;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Worklink' is not present");
+            }
+        }
 
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("workspaces")]
+        [PolicyResourceProperty("workspaces", "_mUnknown_Workspaces")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspaces;
+        private string? _mValue_Workspaces;
+        private bool _mUnknown_Workspaces;
+        public string? Workspaces
+        {
+            get
+            {
+                if (!_mUnknown_Workspaces) return _mValue_Workspaces;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Workspaces' is not present");
+            }
+        }
 
-        public string? Workspaces => _mWorkspaces.GetValue("workspaces");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("workspacesweb")]
+        [PolicyResourceProperty("workspacesweb", "_mUnknown_Workspacesweb")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWorkspacesweb;
+        private string? _mValue_Workspacesweb;
+        private bool _mUnknown_Workspacesweb;
+        public string? Workspacesweb
+        {
+            get
+            {
+                if (!_mUnknown_Workspacesweb) return _mValue_Workspacesweb;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Workspacesweb' is not present");
+            }
+        }
 
-        public string? Workspacesweb => _mWorkspacesweb.GetValue("workspacesweb");
-
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
-        [Input("xray")]
+        [PolicyResourceProperty("xray", "_mUnknown_Xray")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mXray;
-
-        public string? Xray => _mXray.GetValue("xray");
+        private string? _mValue_Xray;
+        private bool _mUnknown_Xray;
+        public string? Xray
+        {
+            get
+            {
+                if (!_mUnknown_Xray) return _mValue_Xray;
+                throw new UndeferrableValueException("Value 'ProviderEndpointArgs.Xray' is not present");
+            }
+        }
     }
 }

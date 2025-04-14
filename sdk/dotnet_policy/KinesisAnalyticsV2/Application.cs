@@ -16,146 +16,258 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2
         /// <summary>
         /// The application's configuration
         /// </summary>
-        [Input("applicationConfiguration")]
+        [PolicyResourceProperty("applicationConfiguration", "_mUnknown_ApplicationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfiguration> _mApplicationConfiguration;
-
-        public Outputs.ApplicationApplicationConfiguration? ApplicationConfiguration => _mApplicationConfiguration.GetValue("applicationConfiguration");
+        private Outputs.ApplicationApplicationConfiguration? _mValue_ApplicationConfiguration;
+        private bool _mUnknown_ApplicationConfiguration;
+        public Outputs.ApplicationApplicationConfiguration? ApplicationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationConfiguration) return _mValue_ApplicationConfiguration;
+                throw new UndeferrableValueException("Value 'Application.ApplicationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         /// </summary>
-        [Input("applicationMode")]
+        [PolicyResourceProperty("applicationMode", "_mUnknown_ApplicationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationMode;
-
-        public string? ApplicationMode => _mApplicationMode.GetValue("applicationMode");
+        private string? _mValue_ApplicationMode;
+        private bool _mUnknown_ApplicationMode;
+        public string? ApplicationMode
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationMode) return _mValue_ApplicationMode;
+                throw new UndeferrableValueException("Value 'Application.ApplicationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the application.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Application.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A CloudWatch log stream to monitor application configuration errors.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationCloudwatchLoggingOptions> _mCloudwatchLoggingOptions;
-
-        public Outputs.ApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Outputs.ApplicationCloudwatchLoggingOptions? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Outputs.ApplicationCloudwatchLoggingOptions? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'Application.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The current timestamp when the application was created.
         /// </summary>
-        [Input("createTimestamp")]
+        [PolicyResourceProperty("createTimestamp", "_mUnknown_CreateTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateTimestamp;
-
-        public string? CreateTimestamp => _mCreateTimestamp.GetValue("createTimestamp");
+        private string? _mValue_CreateTimestamp;
+        private bool _mUnknown_CreateTimestamp;
+        public string? CreateTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreateTimestamp) return _mValue_CreateTimestamp;
+                throw new UndeferrableValueException("Value 'Application.CreateTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// A summary description of the application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Application.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to force stop an unresponsive Flink-based application.
         /// </summary>
-        [Input("forceStop")]
+        [PolicyResourceProperty("forceStop", "_mUnknown_ForceStop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
-
-        public bool? ForceStop => _mForceStop.GetValue("forceStop");
+        private bool? _mValue_ForceStop;
+        private bool _mUnknown_ForceStop;
+        public bool? ForceStop
+        {
+            get
+            {
+                if (!_mUnknown_ForceStop) return _mValue_ForceStop;
+                throw new UndeferrableValueException("Value 'Application.ForceStop' is not present");
+            }
+        }
 
         /// <summary>
         /// The current timestamp when the application was last updated.
         /// </summary>
-        [Input("lastUpdateTimestamp")]
+        [PolicyResourceProperty("lastUpdateTimestamp", "_mUnknown_LastUpdateTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdateTimestamp;
-
-        public string? LastUpdateTimestamp => _mLastUpdateTimestamp.GetValue("lastUpdateTimestamp");
+        private string? _mValue_LastUpdateTimestamp;
+        private bool _mUnknown_LastUpdateTimestamp;
+        public string? LastUpdateTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdateTimestamp) return _mValue_LastUpdateTimestamp;
+                throw new UndeferrableValueException("Value 'Application.LastUpdateTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Application.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         /// </summary>
-        [Input("runtimeEnvironment")]
+        [PolicyResourceProperty("runtimeEnvironment", "_mUnknown_RuntimeEnvironment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeEnvironment;
-
-        public string? RuntimeEnvironment => _mRuntimeEnvironment.GetValue("runtimeEnvironment");
+        private string? _mValue_RuntimeEnvironment;
+        private bool _mUnknown_RuntimeEnvironment;
+        public string? RuntimeEnvironment
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeEnvironment) return _mValue_RuntimeEnvironment;
+                throw new UndeferrableValueException("Value 'Application.RuntimeEnvironment' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         /// </summary>
-        [Input("serviceExecutionRole")]
+        [PolicyResourceProperty("serviceExecutionRole", "_mUnknown_ServiceExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRole;
-
-        public string? ServiceExecutionRole => _mServiceExecutionRole.GetValue("serviceExecutionRole");
+        private string? _mValue_ServiceExecutionRole;
+        private bool _mUnknown_ServiceExecutionRole;
+        public string? ServiceExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceExecutionRole) return _mValue_ServiceExecutionRole;
+                throw new UndeferrableValueException("Value 'Application.ServiceExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start or stop the application.
         /// </summary>
-        [Input("startApplication")]
+        [PolicyResourceProperty("startApplication", "_mUnknown_StartApplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
-
-        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
+        private bool? _mValue_StartApplication;
+        private bool _mUnknown_StartApplication;
+        public bool? StartApplication
+        {
+            get
+            {
+                if (!_mUnknown_StartApplication) return _mValue_StartApplication;
+                throw new UndeferrableValueException("Value 'Application.StartApplication' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the application.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'Application.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Application.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Application.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         /// </summary>
-        [Input("versionId")]
+        [PolicyResourceProperty("versionId", "_mUnknown_VersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersionId;
-
-        public int? VersionId => _mVersionId.GetValue("versionId");
+        private int? _mValue_VersionId;
+        private bool _mUnknown_VersionId;
+        public int? VersionId
+        {
+            get
+            {
+                if (!_mUnknown_VersionId) return _mValue_VersionId;
+                throw new UndeferrableValueException("Value 'Application.VersionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:kinesisanalyticsv2/application:Application")]
@@ -164,91 +276,161 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2
         /// <summary>
         /// The application's configuration
         /// </summary>
-        [Input("applicationConfiguration")]
+        [PolicyResourceProperty("applicationConfiguration", "_mUnknown_ApplicationConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationArgs> _mApplicationConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationArgs? ApplicationConfiguration => _mApplicationConfiguration.GetValue("applicationConfiguration");
+        private Inputs.ApplicationApplicationConfigurationArgs? _mValue_ApplicationConfiguration;
+        private bool _mUnknown_ApplicationConfiguration;
+        public Inputs.ApplicationApplicationConfigurationArgs? ApplicationConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationConfiguration) return _mValue_ApplicationConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ApplicationConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         /// </summary>
-        [Input("applicationMode")]
+        [PolicyResourceProperty("applicationMode", "_mUnknown_ApplicationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationMode;
-
-        public string? ApplicationMode => _mApplicationMode.GetValue("applicationMode");
+        private string? _mValue_ApplicationMode;
+        private bool _mUnknown_ApplicationMode;
+        public string? ApplicationMode
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationMode) return _mValue_ApplicationMode;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ApplicationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// A CloudWatch log stream to monitor application configuration errors.
         /// </summary>
-        [Input("cloudwatchLoggingOptions")]
+        [PolicyResourceProperty("cloudwatchLoggingOptions", "_mUnknown_CloudwatchLoggingOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationCloudwatchLoggingOptionsArgs> _mCloudwatchLoggingOptions;
-
-        public Inputs.ApplicationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions => _mCloudwatchLoggingOptions.GetValue("cloudwatchLoggingOptions");
+        private Inputs.ApplicationCloudwatchLoggingOptionsArgs? _mValue_CloudwatchLoggingOptions;
+        private bool _mUnknown_CloudwatchLoggingOptions;
+        public Inputs.ApplicationCloudwatchLoggingOptionsArgs? CloudwatchLoggingOptions
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLoggingOptions) return _mValue_CloudwatchLoggingOptions;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.CloudwatchLoggingOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// A summary description of the application.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to force stop an unresponsive Flink-based application.
         /// </summary>
-        [Input("forceStop")]
+        [PolicyResourceProperty("forceStop", "_mUnknown_ForceStop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceStop;
-
-        public bool? ForceStop => _mForceStop.GetValue("forceStop");
+        private bool? _mValue_ForceStop;
+        private bool _mUnknown_ForceStop;
+        public bool? ForceStop
+        {
+            get
+            {
+                if (!_mUnknown_ForceStop) return _mValue_ForceStop;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ForceStop' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the application.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         /// </summary>
-        [Input("runtimeEnvironment")]
+        [PolicyResourceProperty("runtimeEnvironment", "_mUnknown_RuntimeEnvironment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuntimeEnvironment;
-
-        public string? RuntimeEnvironment => _mRuntimeEnvironment.GetValue("runtimeEnvironment");
+        private string? _mValue_RuntimeEnvironment;
+        private bool _mUnknown_RuntimeEnvironment;
+        public string? RuntimeEnvironment
+        {
+            get
+            {
+                if (!_mUnknown_RuntimeEnvironment) return _mValue_RuntimeEnvironment;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.RuntimeEnvironment' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         /// </summary>
-        [Input("serviceExecutionRole")]
+        [PolicyResourceProperty("serviceExecutionRole", "_mUnknown_ServiceExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceExecutionRole;
-
-        public string? ServiceExecutionRole => _mServiceExecutionRole.GetValue("serviceExecutionRole");
+        private string? _mValue_ServiceExecutionRole;
+        private bool _mUnknown_ServiceExecutionRole;
+        public string? ServiceExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceExecutionRole) return _mValue_ServiceExecutionRole;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.ServiceExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to start or stop the application.
         /// </summary>
-        [Input("startApplication")]
+        [PolicyResourceProperty("startApplication", "_mUnknown_StartApplication")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mStartApplication;
-
-        public bool? StartApplication => _mStartApplication.GetValue("startApplication");
+        private bool? _mValue_StartApplication;
+        private bool _mUnknown_StartApplication;
+        public bool? StartApplication
+        {
+            get
+            {
+                if (!_mUnknown_StartApplication) return _mValue_StartApplication;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.StartApplication' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ApplicationArgs.Tags' is not present");
+            }
+        }
     }
 }

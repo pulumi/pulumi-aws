@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Whether advanced security is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptions.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
         /// </summary>
-        [Input("internalUserDatabaseEnabled")]
+        [PolicyResourceProperty("internalUserDatabaseEnabled", "_mUnknown_InternalUserDatabaseEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInternalUserDatabaseEnabled;
-
-        public bool? InternalUserDatabaseEnabled => _mInternalUserDatabaseEnabled.GetValue("internalUserDatabaseEnabled");
+        private bool? _mValue_InternalUserDatabaseEnabled;
+        private bool _mUnknown_InternalUserDatabaseEnabled;
+        public bool? InternalUserDatabaseEnabled
+        {
+            get
+            {
+                if (!_mUnknown_InternalUserDatabaseEnabled) return _mValue_InternalUserDatabaseEnabled;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptions.InternalUserDatabaseEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the main user. Detailed below.
         /// </summary>
-        [Input("masterUserOptions")]
+        [PolicyResourceProperty("masterUserOptions", "_mUnknown_MasterUserOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DomainAdvancedSecurityOptionsMasterUserOptions> _mMasterUserOptions;
-
-        public Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? MasterUserOptions => _mMasterUserOptions.GetValue("masterUserOptions");
+        private Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? _mValue_MasterUserOptions;
+        private bool _mUnknown_MasterUserOptions;
+        public Outputs.DomainAdvancedSecurityOptionsMasterUserOptions? MasterUserOptions
+        {
+            get
+            {
+                if (!_mUnknown_MasterUserOptions) return _mValue_MasterUserOptions;
+                throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptions.MasterUserOptions' is not present");
+            }
+        }
     }
 }

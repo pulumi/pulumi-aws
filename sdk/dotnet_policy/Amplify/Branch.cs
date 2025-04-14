@@ -16,209 +16,370 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'Branch.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the branch.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Branch.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of custom resources that are linked to this branch.
         /// </summary>
-        [Input("associatedResources")]
+        [PolicyResourceProperty("associatedResources", "_mUnknown_AssociatedResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAssociatedResources;
-
-        public List<string>? AssociatedResources => _mAssociatedResources.GetValue("associatedResources");
+        private List<string>? _mValue_AssociatedResources;
+        private bool _mUnknown_AssociatedResources;
+        public List<string>? AssociatedResources
+        {
+            get
+            {
+                if (!_mUnknown_AssociatedResources) return _mValue_AssociatedResources;
+                throw new UndeferrableValueException("Value 'Branch.AssociatedResources' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
-        [Input("backendEnvironmentArn")]
+        [PolicyResourceProperty("backendEnvironmentArn", "_mUnknown_BackendEnvironmentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackendEnvironmentArn;
-
-        public string? BackendEnvironmentArn => _mBackendEnvironmentArn.GetValue("backendEnvironmentArn");
+        private string? _mValue_BackendEnvironmentArn;
+        private bool _mUnknown_BackendEnvironmentArn;
+        public string? BackendEnvironmentArn
+        {
+            get
+            {
+                if (!_mUnknown_BackendEnvironmentArn) return _mValue_BackendEnvironmentArn;
+                throw new UndeferrableValueException("Value 'Branch.BackendEnvironmentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Basic authorization credentials for the branch.
         /// </summary>
-        [Input("basicAuthCredentials")]
+        [PolicyResourceProperty("basicAuthCredentials", "_mUnknown_BasicAuthCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
-
-        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+        private string? _mValue_BasicAuthCredentials;
+        private bool _mUnknown_BasicAuthCredentials;
+        public string? BasicAuthCredentials
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthCredentials) return _mValue_BasicAuthCredentials;
+                throw new UndeferrableValueException("Value 'Branch.BasicAuthCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the branch.
         /// </summary>
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
-
-        public string? BranchName => _mBranchName.GetValue("branchName");
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'Branch.BranchName' is not present");
+            }
+        }
 
         /// <summary>
         /// Custom domains for the branch.
         /// </summary>
-        [Input("customDomains")]
+        [PolicyResourceProperty("customDomains", "_mUnknown_CustomDomains")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCustomDomains;
-
-        public List<string>? CustomDomains => _mCustomDomains.GetValue("customDomains");
+        private List<string>? _mValue_CustomDomains;
+        private bool _mUnknown_CustomDomains;
+        public List<string>? CustomDomains
+        {
+            get
+            {
+                if (!_mUnknown_CustomDomains) return _mValue_CustomDomains;
+                throw new UndeferrableValueException("Value 'Branch.CustomDomains' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the branch.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Branch.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination branch if the branch is a pull request branch.
         /// </summary>
-        [Input("destinationBranch")]
+        [PolicyResourceProperty("destinationBranch", "_mUnknown_DestinationBranch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationBranch;
-
-        public string? DestinationBranch => _mDestinationBranch.GetValue("destinationBranch");
+        private string? _mValue_DestinationBranch;
+        private bool _mUnknown_DestinationBranch;
+        public string? DestinationBranch
+        {
+            get
+            {
+                if (!_mUnknown_DestinationBranch) return _mValue_DestinationBranch;
+                throw new UndeferrableValueException("Value 'Branch.DestinationBranch' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for a branch. This is used as the default domain prefix.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'Branch.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables auto building for the branch.
         /// </summary>
-        [Input("enableAutoBuild")]
+        [PolicyResourceProperty("enableAutoBuild", "_mUnknown_EnableAutoBuild")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBuild;
-
-        public bool? EnableAutoBuild => _mEnableAutoBuild.GetValue("enableAutoBuild");
+        private bool? _mValue_EnableAutoBuild;
+        private bool _mUnknown_EnableAutoBuild;
+        public bool? EnableAutoBuild
+        {
+            get
+            {
+                if (!_mUnknown_EnableAutoBuild) return _mValue_EnableAutoBuild;
+                throw new UndeferrableValueException("Value 'Branch.EnableAutoBuild' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables basic authorization for the branch.
         /// </summary>
-        [Input("enableBasicAuth")]
+        [PolicyResourceProperty("enableBasicAuth", "_mUnknown_EnableBasicAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
-
-        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
+        private bool? _mValue_EnableBasicAuth;
+        private bool _mUnknown_EnableBasicAuth;
+        public bool? EnableBasicAuth
+        {
+            get
+            {
+                if (!_mUnknown_EnableBasicAuth) return _mValue_EnableBasicAuth;
+                throw new UndeferrableValueException("Value 'Branch.EnableBasicAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables notifications for the branch.
         /// </summary>
-        [Input("enableNotification")]
+        [PolicyResourceProperty("enableNotification", "_mUnknown_EnableNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNotification;
-
-        public bool? EnableNotification => _mEnableNotification.GetValue("enableNotification");
+        private bool? _mValue_EnableNotification;
+        private bool _mUnknown_EnableNotification;
+        public bool? EnableNotification
+        {
+            get
+            {
+                if (!_mUnknown_EnableNotification) return _mValue_EnableNotification;
+                throw new UndeferrableValueException("Value 'Branch.EnableNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables performance mode for the branch.
         /// </summary>
-        [Input("enablePerformanceMode")]
+        [PolicyResourceProperty("enablePerformanceMode", "_mUnknown_EnablePerformanceMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePerformanceMode;
-
-        public bool? EnablePerformanceMode => _mEnablePerformanceMode.GetValue("enablePerformanceMode");
+        private bool? _mValue_EnablePerformanceMode;
+        private bool _mUnknown_EnablePerformanceMode;
+        public bool? EnablePerformanceMode
+        {
+            get
+            {
+                if (!_mUnknown_EnablePerformanceMode) return _mValue_EnablePerformanceMode;
+                throw new UndeferrableValueException("Value 'Branch.EnablePerformanceMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables pull request previews for this branch.
         /// </summary>
-        [Input("enablePullRequestPreview")]
+        [PolicyResourceProperty("enablePullRequestPreview", "_mUnknown_EnablePullRequestPreview")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePullRequestPreview;
-
-        public bool? EnablePullRequestPreview => _mEnablePullRequestPreview.GetValue("enablePullRequestPreview");
+        private bool? _mValue_EnablePullRequestPreview;
+        private bool _mUnknown_EnablePullRequestPreview;
+        public bool? EnablePullRequestPreview
+        {
+            get
+            {
+                if (!_mUnknown_EnablePullRequestPreview) return _mValue_EnablePullRequestPreview;
+                throw new UndeferrableValueException("Value 'Branch.EnablePullRequestPreview' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables for the branch.
         /// </summary>
-        [Input("environmentVariables")]
+        [PolicyResourceProperty("environmentVariables", "_mUnknown_EnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
-
-        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+        private Dictionary<string, string>? _mValue_EnvironmentVariables;
+        private bool _mUnknown_EnvironmentVariables;
+        public Dictionary<string, string>? EnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentVariables) return _mValue_EnvironmentVariables;
+                throw new UndeferrableValueException("Value 'Branch.EnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// Framework for the branch.
         /// </summary>
-        [Input("framework")]
+        [PolicyResourceProperty("framework", "_mUnknown_Framework")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFramework;
-
-        public string? Framework => _mFramework.GetValue("framework");
+        private string? _mValue_Framework;
+        private bool _mUnknown_Framework;
+        public string? Framework
+        {
+            get
+            {
+                if (!_mUnknown_Framework) return _mValue_Framework;
+                throw new UndeferrableValueException("Value 'Branch.Framework' is not present");
+            }
+        }
 
         /// <summary>
         /// Amplify environment name for the pull request.
         /// </summary>
-        [Input("pullRequestEnvironmentName")]
+        [PolicyResourceProperty("pullRequestEnvironmentName", "_mUnknown_PullRequestEnvironmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPullRequestEnvironmentName;
-
-        public string? PullRequestEnvironmentName => _mPullRequestEnvironmentName.GetValue("pullRequestEnvironmentName");
+        private string? _mValue_PullRequestEnvironmentName;
+        private bool _mUnknown_PullRequestEnvironmentName;
+        public string? PullRequestEnvironmentName
+        {
+            get
+            {
+                if (!_mUnknown_PullRequestEnvironmentName) return _mValue_PullRequestEnvironmentName;
+                throw new UndeferrableValueException("Value 'Branch.PullRequestEnvironmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Source branch if the branch is a pull request branch.
         /// </summary>
-        [Input("sourceBranch")]
+        [PolicyResourceProperty("sourceBranch", "_mUnknown_SourceBranch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceBranch;
-
-        public string? SourceBranch => _mSourceBranch.GetValue("sourceBranch");
+        private string? _mValue_SourceBranch;
+        private bool _mUnknown_SourceBranch;
+        public string? SourceBranch
+        {
+            get
+            {
+                if (!_mUnknown_SourceBranch) return _mValue_SourceBranch;
+                throw new UndeferrableValueException("Value 'Branch.SourceBranch' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         /// </summary>
-        [Input("stage")]
+        [PolicyResourceProperty("stage", "_mUnknown_Stage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
-
-        public string? Stage => _mStage.GetValue("stage");
+        private string? _mValue_Stage;
+        private bool _mUnknown_Stage;
+        public string? Stage
+        {
+            get
+            {
+                if (!_mUnknown_Stage) return _mValue_Stage;
+                throw new UndeferrableValueException("Value 'Branch.Stage' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Branch.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Branch.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Content Time To Live (TTL) for the website in seconds.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTtl;
-
-        public string? Ttl => _mTtl.GetValue("ttl");
+        private string? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public string? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'Branch.Ttl' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:amplify/branch:Branch")]
@@ -227,154 +388,273 @@ namespace Pulumi.PolicyPacks.Aws.Amplify
         /// <summary>
         /// Unique ID for an Amplify app.
         /// </summary>
-        [Input("appId")]
+        [PolicyResourceProperty("appId", "_mUnknown_AppId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppId;
-
-        public string? AppId => _mAppId.GetValue("appId");
+        private string? _mValue_AppId;
+        private bool _mUnknown_AppId;
+        public string? AppId
+        {
+            get
+            {
+                if (!_mUnknown_AppId) return _mValue_AppId;
+                throw new UndeferrableValueException("Value 'BranchArgs.AppId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for a backend environment that is part of an Amplify app.
         /// </summary>
-        [Input("backendEnvironmentArn")]
+        [PolicyResourceProperty("backendEnvironmentArn", "_mUnknown_BackendEnvironmentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBackendEnvironmentArn;
-
-        public string? BackendEnvironmentArn => _mBackendEnvironmentArn.GetValue("backendEnvironmentArn");
+        private string? _mValue_BackendEnvironmentArn;
+        private bool _mUnknown_BackendEnvironmentArn;
+        public string? BackendEnvironmentArn
+        {
+            get
+            {
+                if (!_mUnknown_BackendEnvironmentArn) return _mValue_BackendEnvironmentArn;
+                throw new UndeferrableValueException("Value 'BranchArgs.BackendEnvironmentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Basic authorization credentials for the branch.
         /// </summary>
-        [Input("basicAuthCredentials")]
+        [PolicyResourceProperty("basicAuthCredentials", "_mUnknown_BasicAuthCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBasicAuthCredentials;
-
-        public string? BasicAuthCredentials => _mBasicAuthCredentials.GetValue("basicAuthCredentials");
+        private string? _mValue_BasicAuthCredentials;
+        private bool _mUnknown_BasicAuthCredentials;
+        public string? BasicAuthCredentials
+        {
+            get
+            {
+                if (!_mUnknown_BasicAuthCredentials) return _mValue_BasicAuthCredentials;
+                throw new UndeferrableValueException("Value 'BranchArgs.BasicAuthCredentials' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the branch.
         /// </summary>
-        [Input("branchName")]
+        [PolicyResourceProperty("branchName", "_mUnknown_BranchName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBranchName;
-
-        public string? BranchName => _mBranchName.GetValue("branchName");
+        private string? _mValue_BranchName;
+        private bool _mUnknown_BranchName;
+        public string? BranchName
+        {
+            get
+            {
+                if (!_mUnknown_BranchName) return _mValue_BranchName;
+                throw new UndeferrableValueException("Value 'BranchArgs.BranchName' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the branch.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'BranchArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for a branch. This is used as the default domain prefix.
         /// </summary>
-        [Input("displayName")]
+        [PolicyResourceProperty("displayName", "_mUnknown_DisplayName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayName;
-
-        public string? DisplayName => _mDisplayName.GetValue("displayName");
+        private string? _mValue_DisplayName;
+        private bool _mUnknown_DisplayName;
+        public string? DisplayName
+        {
+            get
+            {
+                if (!_mUnknown_DisplayName) return _mValue_DisplayName;
+                throw new UndeferrableValueException("Value 'BranchArgs.DisplayName' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables auto building for the branch.
         /// </summary>
-        [Input("enableAutoBuild")]
+        [PolicyResourceProperty("enableAutoBuild", "_mUnknown_EnableAutoBuild")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableAutoBuild;
-
-        public bool? EnableAutoBuild => _mEnableAutoBuild.GetValue("enableAutoBuild");
+        private bool? _mValue_EnableAutoBuild;
+        private bool _mUnknown_EnableAutoBuild;
+        public bool? EnableAutoBuild
+        {
+            get
+            {
+                if (!_mUnknown_EnableAutoBuild) return _mValue_EnableAutoBuild;
+                throw new UndeferrableValueException("Value 'BranchArgs.EnableAutoBuild' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables basic authorization for the branch.
         /// </summary>
-        [Input("enableBasicAuth")]
+        [PolicyResourceProperty("enableBasicAuth", "_mUnknown_EnableBasicAuth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableBasicAuth;
-
-        public bool? EnableBasicAuth => _mEnableBasicAuth.GetValue("enableBasicAuth");
+        private bool? _mValue_EnableBasicAuth;
+        private bool _mUnknown_EnableBasicAuth;
+        public bool? EnableBasicAuth
+        {
+            get
+            {
+                if (!_mUnknown_EnableBasicAuth) return _mValue_EnableBasicAuth;
+                throw new UndeferrableValueException("Value 'BranchArgs.EnableBasicAuth' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables notifications for the branch.
         /// </summary>
-        [Input("enableNotification")]
+        [PolicyResourceProperty("enableNotification", "_mUnknown_EnableNotification")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNotification;
-
-        public bool? EnableNotification => _mEnableNotification.GetValue("enableNotification");
+        private bool? _mValue_EnableNotification;
+        private bool _mUnknown_EnableNotification;
+        public bool? EnableNotification
+        {
+            get
+            {
+                if (!_mUnknown_EnableNotification) return _mValue_EnableNotification;
+                throw new UndeferrableValueException("Value 'BranchArgs.EnableNotification' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables performance mode for the branch.
         /// </summary>
-        [Input("enablePerformanceMode")]
+        [PolicyResourceProperty("enablePerformanceMode", "_mUnknown_EnablePerformanceMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePerformanceMode;
-
-        public bool? EnablePerformanceMode => _mEnablePerformanceMode.GetValue("enablePerformanceMode");
+        private bool? _mValue_EnablePerformanceMode;
+        private bool _mUnknown_EnablePerformanceMode;
+        public bool? EnablePerformanceMode
+        {
+            get
+            {
+                if (!_mUnknown_EnablePerformanceMode) return _mValue_EnablePerformanceMode;
+                throw new UndeferrableValueException("Value 'BranchArgs.EnablePerformanceMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables pull request previews for this branch.
         /// </summary>
-        [Input("enablePullRequestPreview")]
+        [PolicyResourceProperty("enablePullRequestPreview", "_mUnknown_EnablePullRequestPreview")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnablePullRequestPreview;
-
-        public bool? EnablePullRequestPreview => _mEnablePullRequestPreview.GetValue("enablePullRequestPreview");
+        private bool? _mValue_EnablePullRequestPreview;
+        private bool _mUnknown_EnablePullRequestPreview;
+        public bool? EnablePullRequestPreview
+        {
+            get
+            {
+                if (!_mUnknown_EnablePullRequestPreview) return _mValue_EnablePullRequestPreview;
+                throw new UndeferrableValueException("Value 'BranchArgs.EnablePullRequestPreview' is not present");
+            }
+        }
 
         /// <summary>
         /// Environment variables for the branch.
         /// </summary>
-        [Input("environmentVariables")]
+        [PolicyResourceProperty("environmentVariables", "_mUnknown_EnvironmentVariables")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mEnvironmentVariables;
-
-        public Dictionary<string, string>? EnvironmentVariables => _mEnvironmentVariables.GetValue("environmentVariables");
+        private Dictionary<string, string>? _mValue_EnvironmentVariables;
+        private bool _mUnknown_EnvironmentVariables;
+        public Dictionary<string, string>? EnvironmentVariables
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentVariables) return _mValue_EnvironmentVariables;
+                throw new UndeferrableValueException("Value 'BranchArgs.EnvironmentVariables' is not present");
+            }
+        }
 
         /// <summary>
         /// Framework for the branch.
         /// </summary>
-        [Input("framework")]
+        [PolicyResourceProperty("framework", "_mUnknown_Framework")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFramework;
-
-        public string? Framework => _mFramework.GetValue("framework");
+        private string? _mValue_Framework;
+        private bool _mUnknown_Framework;
+        public string? Framework
+        {
+            get
+            {
+                if (!_mUnknown_Framework) return _mValue_Framework;
+                throw new UndeferrableValueException("Value 'BranchArgs.Framework' is not present");
+            }
+        }
 
         /// <summary>
         /// Amplify environment name for the pull request.
         /// </summary>
-        [Input("pullRequestEnvironmentName")]
+        [PolicyResourceProperty("pullRequestEnvironmentName", "_mUnknown_PullRequestEnvironmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPullRequestEnvironmentName;
-
-        public string? PullRequestEnvironmentName => _mPullRequestEnvironmentName.GetValue("pullRequestEnvironmentName");
+        private string? _mValue_PullRequestEnvironmentName;
+        private bool _mUnknown_PullRequestEnvironmentName;
+        public string? PullRequestEnvironmentName
+        {
+            get
+            {
+                if (!_mUnknown_PullRequestEnvironmentName) return _mValue_PullRequestEnvironmentName;
+                throw new UndeferrableValueException("Value 'BranchArgs.PullRequestEnvironmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         /// </summary>
-        [Input("stage")]
+        [PolicyResourceProperty("stage", "_mUnknown_Stage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
-
-        public string? Stage => _mStage.GetValue("stage");
+        private string? _mValue_Stage;
+        private bool _mUnknown_Stage;
+        public string? Stage
+        {
+            get
+            {
+                if (!_mUnknown_Stage) return _mValue_Stage;
+                throw new UndeferrableValueException("Value 'BranchArgs.Stage' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BranchArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Content Time To Live (TTL) for the website in seconds.
         /// </summary>
-        [Input("ttl")]
+        [PolicyResourceProperty("ttl", "_mUnknown_Ttl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTtl;
-
-        public string? Ttl => _mTtl.GetValue("ttl");
+        private string? _mValue_Ttl;
+        private bool _mUnknown_Ttl;
+        public string? Ttl
+        {
+            get
+            {
+                if (!_mUnknown_Ttl) return _mValue_Ttl;
+                throw new UndeferrableValueException("Value 'BranchArgs.Ttl' is not present");
+            }
+        }
     }
 }

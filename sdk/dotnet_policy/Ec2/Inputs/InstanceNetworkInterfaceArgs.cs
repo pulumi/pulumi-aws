@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
         /// </summary>
-        [Input("deleteOnTermination")]
+        [PolicyResourceProperty("deleteOnTermination", "_mUnknown_DeleteOnTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteOnTermination;
-
-        public bool? DeleteOnTermination => _mDeleteOnTermination.GetValue("deleteOnTermination");
+        private bool? _mValue_DeleteOnTermination;
+        private bool _mUnknown_DeleteOnTermination;
+        public bool? DeleteOnTermination
+        {
+            get
+            {
+                if (!_mUnknown_DeleteOnTermination) return _mValue_DeleteOnTermination;
+                throw new UndeferrableValueException("Value 'InstanceNetworkInterfaceArgs.DeleteOnTermination' is not present");
+            }
+        }
 
         /// <summary>
         /// Integer index of the network interface attachment. Limited by instance type.
         /// </summary>
-        [Input("deviceIndex")]
+        [PolicyResourceProperty("deviceIndex", "_mUnknown_DeviceIndex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeviceIndex;
-
-        public int? DeviceIndex => _mDeviceIndex.GetValue("deviceIndex");
+        private int? _mValue_DeviceIndex;
+        private bool _mUnknown_DeviceIndex;
+        public int? DeviceIndex
+        {
+            get
+            {
+                if (!_mUnknown_DeviceIndex) return _mValue_DeviceIndex;
+                throw new UndeferrableValueException("Value 'InstanceNetworkInterfaceArgs.DeviceIndex' is not present");
+            }
+        }
 
         /// <summary>
         /// Integer index of the network card. Limited by instance type. The default index is `0`.
         /// </summary>
-        [Input("networkCardIndex")]
+        [PolicyResourceProperty("networkCardIndex", "_mUnknown_NetworkCardIndex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetworkCardIndex;
-
-        public int? NetworkCardIndex => _mNetworkCardIndex.GetValue("networkCardIndex");
+        private int? _mValue_NetworkCardIndex;
+        private bool _mUnknown_NetworkCardIndex;
+        public int? NetworkCardIndex
+        {
+            get
+            {
+                if (!_mUnknown_NetworkCardIndex) return _mValue_NetworkCardIndex;
+                throw new UndeferrableValueException("Value 'InstanceNetworkInterfaceArgs.NetworkCardIndex' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the network interface to attach.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'InstanceNetworkInterfaceArgs.NetworkInterfaceId' is not present");
+            }
+        }
     }
 }

@@ -16,110 +16,201 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Creation time of the Form Type.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'FormType.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Creator of the Form Type.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'FormType.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of form type. Must have a length of between 1 and 2048 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FormType.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the domain.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'FormType.DomainIdentifier' is not present");
+            }
+        }
 
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
-
-        [Input("imports")]
+        [PolicyResourceProperty("imports", "_mUnknown_Imports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FormTypeImport>> _mImports;
-
-        public List<Outputs.FormTypeImport>? Imports => _mImports.GetValue("imports");
+        private List<Outputs.FormTypeImport>? _mValue_Imports;
+        private bool _mUnknown_Imports;
+        public List<Outputs.FormTypeImport>? Imports
+        {
+            get
+            {
+                if (!_mUnknown_Imports) return _mValue_Imports;
+                throw new UndeferrableValueException("Value 'FormType.Imports' is not present");
+            }
+        }
 
         /// <summary>
         /// Object of the model of the form type that contains the following attributes.
         /// </summary>
-        [Input("model")]
+        [PolicyResourceProperty("model", "_mUnknown_Model")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FormTypeModel> _mModel;
-
-        public Outputs.FormTypeModel? Model => _mModel.GetValue("model");
+        private Outputs.FormTypeModel? _mValue_Model;
+        private bool _mUnknown_Model;
+        public Outputs.FormTypeModel? Model
+        {
+            get
+            {
+                if (!_mUnknown_Model) return _mValue_Model;
+                throw new UndeferrableValueException("Value 'FormType.Model' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the form type. Must be the name of the structure in smithy document.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FormType.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Origin domain id of the Form Type.
         /// </summary>
-        [Input("originDomainId")]
+        [PolicyResourceProperty("originDomainId", "_mUnknown_OriginDomainId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginDomainId;
-
-        public string? OriginDomainId => _mOriginDomainId.GetValue("originDomainId");
+        private string? _mValue_OriginDomainId;
+        private bool _mUnknown_OriginDomainId;
+        public string? OriginDomainId
+        {
+            get
+            {
+                if (!_mUnknown_OriginDomainId) return _mValue_OriginDomainId;
+                throw new UndeferrableValueException("Value 'FormType.OriginDomainId' is not present");
+            }
+        }
 
         /// <summary>
         /// Origin project id of the Form Type.
         /// </summary>
-        [Input("originProjectId")]
+        [PolicyResourceProperty("originProjectId", "_mUnknown_OriginProjectId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginProjectId;
-
-        public string? OriginProjectId => _mOriginProjectId.GetValue("originProjectId");
+        private string? _mValue_OriginProjectId;
+        private bool _mUnknown_OriginProjectId;
+        public string? OriginProjectId
+        {
+            get
+            {
+                if (!_mUnknown_OriginProjectId) return _mValue_OriginProjectId;
+                throw new UndeferrableValueException("Value 'FormType.OriginProjectId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         /// </summary>
-        [Input("owningProjectIdentifier")]
+        [PolicyResourceProperty("owningProjectIdentifier", "_mUnknown_OwningProjectIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
-
-        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
+        private string? _mValue_OwningProjectIdentifier;
+        private bool _mUnknown_OwningProjectIdentifier;
+        public string? OwningProjectIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_OwningProjectIdentifier) return _mValue_OwningProjectIdentifier;
+                throw new UndeferrableValueException("Value 'FormType.OwningProjectIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Revision of the Form Type.
         /// </summary>
-        [Input("revision")]
+        [PolicyResourceProperty("revision", "_mUnknown_Revision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevision;
+        private string? _mValue_Revision;
+        private bool _mUnknown_Revision;
+        public string? Revision
+        {
+            get
+            {
+                if (!_mUnknown_Revision) return _mValue_Revision;
+                throw new UndeferrableValueException("Value 'FormType.Revision' is not present");
+            }
+        }
 
-        public string? Revision => _mRevision.GetValue("revision");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'FormType.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FormTypeTimeouts> _mTimeouts;
-
-        public Outputs.FormTypeTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.FormTypeTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.FormTypeTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'FormType.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:datazone/formType:FormType")]
@@ -128,58 +219,107 @@ namespace Pulumi.PolicyPacks.Aws.DataZone
         /// <summary>
         /// Description of form type. Must have a length of between 1 and 2048 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FormTypeArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the domain.
         /// </summary>
-        [Input("domainIdentifier")]
+        [PolicyResourceProperty("domainIdentifier", "_mUnknown_DomainIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainIdentifier;
-
-        public string? DomainIdentifier => _mDomainIdentifier.GetValue("domainIdentifier");
+        private string? _mValue_DomainIdentifier;
+        private bool _mUnknown_DomainIdentifier;
+        public string? DomainIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_DomainIdentifier) return _mValue_DomainIdentifier;
+                throw new UndeferrableValueException("Value 'FormTypeArgs.DomainIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Object of the model of the form type that contains the following attributes.
         /// </summary>
-        [Input("model")]
+        [PolicyResourceProperty("model", "_mUnknown_Model")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FormTypeModelArgs> _mModel;
-
-        public Inputs.FormTypeModelArgs? Model => _mModel.GetValue("model");
+        private Inputs.FormTypeModelArgs? _mValue_Model;
+        private bool _mUnknown_Model;
+        public Inputs.FormTypeModelArgs? Model
+        {
+            get
+            {
+                if (!_mUnknown_Model) return _mValue_Model;
+                throw new UndeferrableValueException("Value 'FormTypeArgs.Model' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the form type. Must be the name of the structure in smithy document.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FormTypeArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         /// </summary>
-        [Input("owningProjectIdentifier")]
+        [PolicyResourceProperty("owningProjectIdentifier", "_mUnknown_OwningProjectIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwningProjectIdentifier;
+        private string? _mValue_OwningProjectIdentifier;
+        private bool _mUnknown_OwningProjectIdentifier;
+        public string? OwningProjectIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_OwningProjectIdentifier) return _mValue_OwningProjectIdentifier;
+                throw new UndeferrableValueException("Value 'FormTypeArgs.OwningProjectIdentifier' is not present");
+            }
+        }
 
-        public string? OwningProjectIdentifier => _mOwningProjectIdentifier.GetValue("owningProjectIdentifier");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'FormTypeArgs.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FormTypeTimeoutsArgs> _mTimeouts;
-
-        public Inputs.FormTypeTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.FormTypeTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.FormTypeTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'FormTypeArgs.Timeouts' is not present");
+            }
+        }
     }
 }

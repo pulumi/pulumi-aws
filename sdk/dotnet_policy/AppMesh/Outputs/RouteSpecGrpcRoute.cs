@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Action to take if a match is determined.
         /// </summary>
-        [Input("action")]
+        [PolicyResourceProperty("action", "_mUnknown_Action")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RouteSpecGrpcRouteAction> _mAction;
-
-        public Outputs.RouteSpecGrpcRouteAction? Action => _mAction.GetValue("action");
+        private Outputs.RouteSpecGrpcRouteAction? _mValue_Action;
+        private bool _mUnknown_Action;
+        public Outputs.RouteSpecGrpcRouteAction? Action
+        {
+            get
+            {
+                if (!_mUnknown_Action) return _mValue_Action;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRoute.Action' is not present");
+            }
+        }
 
         /// <summary>
         /// Criteria for determining an gRPC request match.
         /// </summary>
-        [Input("match")]
+        [PolicyResourceProperty("match", "_mUnknown_Match")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RouteSpecGrpcRouteMatch> _mMatch;
-
-        public Outputs.RouteSpecGrpcRouteMatch? Match => _mMatch.GetValue("match");
+        private Outputs.RouteSpecGrpcRouteMatch? _mValue_Match;
+        private bool _mUnknown_Match;
+        public Outputs.RouteSpecGrpcRouteMatch? Match
+        {
+            get
+            {
+                if (!_mUnknown_Match) return _mValue_Match;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRoute.Match' is not present");
+            }
+        }
 
         /// <summary>
         /// Retry policy.
         /// </summary>
-        [Input("retryPolicy")]
+        [PolicyResourceProperty("retryPolicy", "_mUnknown_RetryPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RouteSpecGrpcRouteRetryPolicy> _mRetryPolicy;
-
-        public Outputs.RouteSpecGrpcRouteRetryPolicy? RetryPolicy => _mRetryPolicy.GetValue("retryPolicy");
+        private Outputs.RouteSpecGrpcRouteRetryPolicy? _mValue_RetryPolicy;
+        private bool _mUnknown_RetryPolicy;
+        public Outputs.RouteSpecGrpcRouteRetryPolicy? RetryPolicy
+        {
+            get
+            {
+                if (!_mUnknown_RetryPolicy) return _mValue_RetryPolicy;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRoute.RetryPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Types of timeouts.
         /// </summary>
-        [Input("timeout")]
+        [PolicyResourceProperty("timeout", "_mUnknown_Timeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RouteSpecGrpcRouteTimeout> _mTimeout;
-
-        public Outputs.RouteSpecGrpcRouteTimeout? Timeout => _mTimeout.GetValue("timeout");
+        private Outputs.RouteSpecGrpcRouteTimeout? _mValue_Timeout;
+        private bool _mUnknown_Timeout;
+        public Outputs.RouteSpecGrpcRouteTimeout? Timeout
+        {
+            get
+            {
+                if (!_mUnknown_Timeout) return _mValue_Timeout;
+                throw new UndeferrableValueException("Value 'RouteSpecGrpcRoute.Timeout' is not present");
+            }
+        }
     }
 }

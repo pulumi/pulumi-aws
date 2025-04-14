@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Values in the response header with the specified name that indicate a failed login attempt.
         /// </summary>
-        [Input("failureValues")]
+        [PolicyResourceProperty("failureValues", "_mUnknown_FailureValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFailureValues;
-
-        public List<string>? FailureValues => _mFailureValues.GetValue("failureValues");
+        private List<string>? _mValue_FailureValues;
+        private bool _mUnknown_FailureValues;
+        public List<string>? FailureValues
+        {
+            get
+            {
+                if (!_mUnknown_FailureValues) return _mValue_FailureValues;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs.FailureValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the value to match against in the JSON.
         /// </summary>
-        [Input("identifier")]
+        [PolicyResourceProperty("identifier", "_mUnknown_Identifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentifier;
-
-        public string? Identifier => _mIdentifier.GetValue("identifier");
+        private string? _mValue_Identifier;
+        private bool _mUnknown_Identifier;
+        public string? Identifier
+        {
+            get
+            {
+                if (!_mUnknown_Identifier) return _mValue_Identifier;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs.Identifier' is not present");
+            }
+        }
 
         /// <summary>
         /// Values in the response header with the specified name that indicate a successful login attempt.
         /// </summary>
-        [Input("successValues")]
+        [PolicyResourceProperty("successValues", "_mUnknown_SuccessValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuccessValues;
-
-        public List<string>? SuccessValues => _mSuccessValues.GetValue("successValues");
+        private List<string>? _mValue_SuccessValues;
+        private bool _mUnknown_SuccessValues;
+        public List<string>? SuccessValues
+        {
+            get
+            {
+                if (!_mUnknown_SuccessValues) return _mValue_SuccessValues;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs.SuccessValues' is not present");
+            }
+        }
     }
 }

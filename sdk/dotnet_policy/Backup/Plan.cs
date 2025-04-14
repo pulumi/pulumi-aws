@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// An object that specifies backup options for each resource type.
         /// </summary>
-        [Input("advancedBackupSettings")]
+        [PolicyResourceProperty("advancedBackupSettings", "_mUnknown_AdvancedBackupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PlanAdvancedBackupSetting>> _mAdvancedBackupSettings;
-
-        public List<Outputs.PlanAdvancedBackupSetting>? AdvancedBackupSettings => _mAdvancedBackupSettings.GetValue("advancedBackupSettings");
+        private List<Outputs.PlanAdvancedBackupSetting>? _mValue_AdvancedBackupSettings;
+        private bool _mUnknown_AdvancedBackupSettings;
+        public List<Outputs.PlanAdvancedBackupSetting>? AdvancedBackupSettings
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedBackupSettings) return _mValue_AdvancedBackupSettings;
+                throw new UndeferrableValueException("Value 'Plan.AdvancedBackupSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the backup plan.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Plan.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of a backup plan.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Plan.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PlanRule>> _mRules;
-
-        public List<Outputs.PlanRule>? Rules => _mRules.GetValue("rules");
+        private List<Outputs.PlanRule>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Outputs.PlanRule>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'Plan.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Plan.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Plan.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'Plan.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/plan:Plan")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// An object that specifies backup options for each resource type.
         /// </summary>
-        [Input("advancedBackupSettings")]
+        [PolicyResourceProperty("advancedBackupSettings", "_mUnknown_AdvancedBackupSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PlanAdvancedBackupSettingArgs>> _mAdvancedBackupSettings;
-
-        public List<Inputs.PlanAdvancedBackupSettingArgs>? AdvancedBackupSettings => _mAdvancedBackupSettings.GetValue("advancedBackupSettings");
+        private List<Inputs.PlanAdvancedBackupSettingArgs>? _mValue_AdvancedBackupSettings;
+        private bool _mUnknown_AdvancedBackupSettings;
+        public List<Inputs.PlanAdvancedBackupSettingArgs>? AdvancedBackupSettings
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedBackupSettings) return _mValue_AdvancedBackupSettings;
+                throw new UndeferrableValueException("Value 'PlanArgs.AdvancedBackupSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The display name of a backup plan.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PlanArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PlanRuleArgs>> _mRules;
-
-        public List<Inputs.PlanRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.PlanRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.PlanRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'PlanArgs.Rules' is not present");
+            }
+        }
 
         /// <summary>
         /// Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'PlanArgs.Tags' is not present");
+            }
+        }
     }
 }

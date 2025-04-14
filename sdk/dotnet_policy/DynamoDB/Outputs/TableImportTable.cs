@@ -16,41 +16,69 @@ namespace Pulumi.PolicyPacks.Aws.DynamoDB.Outputs
         /// Type of compression to be used on the input coming from the imported table.
         /// Valid values are `GZIP`, `ZSTD` and `NONE`.
         /// </summary>
-        [Input("inputCompressionType")]
+        [PolicyResourceProperty("inputCompressionType", "_mUnknown_InputCompressionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputCompressionType;
-
-        public string? InputCompressionType => _mInputCompressionType.GetValue("inputCompressionType");
+        private string? _mValue_InputCompressionType;
+        private bool _mUnknown_InputCompressionType;
+        public string? InputCompressionType
+        {
+            get
+            {
+                if (!_mUnknown_InputCompressionType) return _mValue_InputCompressionType;
+                throw new UndeferrableValueException("Value 'TableImportTable.InputCompressionType' is not present");
+            }
+        }
 
         /// <summary>
         /// The format of the source data.
         /// Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
         /// </summary>
-        [Input("inputFormat")]
+        [PolicyResourceProperty("inputFormat", "_mUnknown_InputFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputFormat;
-
-        public string? InputFormat => _mInputFormat.GetValue("inputFormat");
+        private string? _mValue_InputFormat;
+        private bool _mUnknown_InputFormat;
+        public string? InputFormat
+        {
+            get
+            {
+                if (!_mUnknown_InputFormat) return _mValue_InputFormat;
+                throw new UndeferrableValueException("Value 'TableImportTable.InputFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Describe the format options for the data that was imported into the target table.
         /// There is one value, `csv`.
         /// See below.
         /// </summary>
-        [Input("inputFormatOptions")]
+        [PolicyResourceProperty("inputFormatOptions", "_mUnknown_InputFormatOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableImportTableInputFormatOptions> _mInputFormatOptions;
-
-        public Outputs.TableImportTableInputFormatOptions? InputFormatOptions => _mInputFormatOptions.GetValue("inputFormatOptions");
+        private Outputs.TableImportTableInputFormatOptions? _mValue_InputFormatOptions;
+        private bool _mUnknown_InputFormatOptions;
+        public Outputs.TableImportTableInputFormatOptions? InputFormatOptions
+        {
+            get
+            {
+                if (!_mUnknown_InputFormatOptions) return _mValue_InputFormatOptions;
+                throw new UndeferrableValueException("Value 'TableImportTable.InputFormatOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// Values for the S3 bucket the source file is imported from.
         /// See below.
         /// </summary>
-        [Input("s3BucketSource")]
+        [PolicyResourceProperty("s3BucketSource", "_mUnknown_S3BucketSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TableImportTableS3BucketSource> _mS3BucketSource;
-
-        public Outputs.TableImportTableS3BucketSource? S3BucketSource => _mS3BucketSource.GetValue("s3BucketSource");
+        private Outputs.TableImportTableS3BucketSource? _mValue_S3BucketSource;
+        private bool _mUnknown_S3BucketSource;
+        public Outputs.TableImportTableS3BucketSource? S3BucketSource
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketSource) return _mValue_S3BucketSource;
+                throw new UndeferrableValueException("Value 'TableImportTable.S3BucketSource' is not present");
+            }
+        }
     }
 }

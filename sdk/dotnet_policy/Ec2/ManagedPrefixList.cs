@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
         /// </summary>
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the prefix list.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         /// </summary>
-        [Input("entries")]
+        [PolicyResourceProperty("entries", "_mUnknown_Entries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ManagedPrefixListEntry>> _mEntries;
-
-        public List<Outputs.ManagedPrefixListEntry>? Entries => _mEntries.GetValue("entries");
+        private List<Outputs.ManagedPrefixListEntry>? _mValue_Entries;
+        private bool _mUnknown_Entries;
+        public List<Outputs.ManagedPrefixListEntry>? Entries
+        {
+            get
+            {
+                if (!_mUnknown_Entries) return _mValue_Entries;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.Entries' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of entries that this prefix list can contain.
         /// </summary>
-        [Input("maxEntries")]
+        [PolicyResourceProperty("maxEntries", "_mUnknown_MaxEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxEntries;
-
-        public int? MaxEntries => _mMaxEntries.GetValue("maxEntries");
+        private int? _mValue_MaxEntries;
+        private bool _mUnknown_MaxEntries;
+        public int? MaxEntries
+        {
+            get
+            {
+                if (!_mUnknown_MaxEntries) return _mValue_MaxEntries;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.MaxEntries' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of this resource. The name must not start with `com.amazonaws`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the AWS account that owns this prefix list.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Latest version of this prefix list.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVersion;
-
-        public int? Version => _mVersion.GetValue("version");
+        private int? _mValue_Version;
+        private bool _mUnknown_Version;
+        public int? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'ManagedPrefixList.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]
@@ -101,46 +164,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Address family (`IPv4` or `IPv6`) of this prefix list.
         /// </summary>
-        [Input("addressFamily")]
+        [PolicyResourceProperty("addressFamily", "_mUnknown_AddressFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddressFamily;
-
-        public string? AddressFamily => _mAddressFamily.GetValue("addressFamily");
+        private string? _mValue_AddressFamily;
+        private bool _mUnknown_AddressFamily;
+        public string? AddressFamily
+        {
+            get
+            {
+                if (!_mUnknown_AddressFamily) return _mValue_AddressFamily;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.AddressFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         /// </summary>
-        [Input("entries")]
+        [PolicyResourceProperty("entries", "_mUnknown_Entries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ManagedPrefixListEntryArgs>> _mEntries;
-
-        public List<Inputs.ManagedPrefixListEntryArgs>? Entries => _mEntries.GetValue("entries");
+        private List<Inputs.ManagedPrefixListEntryArgs>? _mValue_Entries;
+        private bool _mUnknown_Entries;
+        public List<Inputs.ManagedPrefixListEntryArgs>? Entries
+        {
+            get
+            {
+                if (!_mUnknown_Entries) return _mValue_Entries;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.Entries' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of entries that this prefix list can contain.
         /// </summary>
-        [Input("maxEntries")]
+        [PolicyResourceProperty("maxEntries", "_mUnknown_MaxEntries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxEntries;
-
-        public int? MaxEntries => _mMaxEntries.GetValue("maxEntries");
+        private int? _mValue_MaxEntries;
+        private bool _mUnknown_MaxEntries;
+        public int? MaxEntries
+        {
+            get
+            {
+                if (!_mUnknown_MaxEntries) return _mValue_MaxEntries;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.MaxEntries' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of this resource. The name must not start with `com.amazonaws`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.Tags' is not present");
+            }
+        }
     }
 }

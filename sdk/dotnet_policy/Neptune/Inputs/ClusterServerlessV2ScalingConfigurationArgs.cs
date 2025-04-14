@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Neptune.Inputs
         /// <summary>
         /// The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         /// </summary>
-        [Input("maxCapacity")]
+        [PolicyResourceProperty("maxCapacity", "_mUnknown_MaxCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMaxCapacity;
-
-        public double? MaxCapacity => _mMaxCapacity.GetValue("maxCapacity");
+        private double? _mValue_MaxCapacity;
+        private bool _mUnknown_MaxCapacity;
+        public double? MaxCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MaxCapacity) return _mValue_MaxCapacity;
+                throw new UndeferrableValueException("Value 'ClusterServerlessV2ScalingConfigurationArgs.MaxCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
         /// </summary>
-        [Input("minCapacity")]
+        [PolicyResourceProperty("minCapacity", "_mUnknown_MinCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMinCapacity;
-
-        public double? MinCapacity => _mMinCapacity.GetValue("minCapacity");
+        private double? _mValue_MinCapacity;
+        private bool _mUnknown_MinCapacity;
+        public double? MinCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinCapacity) return _mValue_MinCapacity;
+                throw new UndeferrableValueException("Value 'ClusterServerlessV2ScalingConfigurationArgs.MinCapacity' is not present");
+            }
+        }
     }
 }

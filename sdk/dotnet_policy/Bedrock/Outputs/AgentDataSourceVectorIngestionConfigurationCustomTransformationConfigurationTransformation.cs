@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Outputs
         /// <summary>
         /// When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
         /// </summary>
-        [Input("stepToApply")]
+        [PolicyResourceProperty("stepToApply", "_mUnknown_StepToApply")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStepToApply;
-
-        public string? StepToApply => _mStepToApply.GetValue("stepToApply");
+        private string? _mValue_StepToApply;
+        private bool _mUnknown_StepToApply;
+        public string? StepToApply
+        {
+            get
+            {
+                if (!_mUnknown_StepToApply) return _mValue_StepToApply;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.StepToApply' is not present");
+            }
+        }
 
         /// <summary>
         /// The lambda function that processes documents.
         /// </summary>
-        [Input("transformationFunction")]
+        [PolicyResourceProperty("transformationFunction", "_mUnknown_TransformationFunction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction> _mTransformationFunction;
-
-        public Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction? TransformationFunction => _mTransformationFunction.GetValue("transformationFunction");
+        private Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction? _mValue_TransformationFunction;
+        private bool _mUnknown_TransformationFunction;
+        public Outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction? TransformationFunction
+        {
+            get
+            {
+                if (!_mUnknown_TransformationFunction) return _mValue_TransformationFunction;
+                throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.TransformationFunction' is not present");
+            }
+        }
     }
 }

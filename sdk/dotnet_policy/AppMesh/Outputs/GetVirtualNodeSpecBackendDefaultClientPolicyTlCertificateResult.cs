@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult
     {
-        [Input("files")]
+        [PolicyResourceProperty("files", "_mUnknown_Files")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult>> _mFiles;
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult>? _mValue_Files;
+        private bool _mUnknown_Files;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult>? Files
+        {
+            get
+            {
+                if (!_mUnknown_Files) return _mValue_Files;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult.Files' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult>? Files => _mFiles.GetValue("files");
-
-        [Input("sds")]
+        [PolicyResourceProperty("sds", "_mUnknown_Sds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult>> _mSds;
-
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult>? Sds => _mSds.GetValue("sds");
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult>? _mValue_Sds;
+        private bool _mUnknown_Sds;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult>? Sds
+        {
+            get
+            {
+                if (!_mUnknown_Sds) return _mValue_Sds;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult.Sds' is not present");
+            }
+        }
     }
 }

@@ -16,105 +16,189 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// ARN of the listener.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Listener.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Date and time that the listener was created, specified in ISO-8601 format.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Listener.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Default action block for the default listener rule. Default action blocks are defined below.
         /// </summary>
-        [Input("defaultAction")]
+        [PolicyResourceProperty("defaultAction", "_mUnknown_DefaultAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerDefaultAction> _mDefaultAction;
+        private Outputs.ListenerDefaultAction? _mValue_DefaultAction;
+        private bool _mUnknown_DefaultAction;
+        public Outputs.ListenerDefaultAction? DefaultAction
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAction) return _mValue_DefaultAction;
+                throw new UndeferrableValueException("Value 'Listener.DefaultAction' is not present");
+            }
+        }
 
-        public Outputs.ListenerDefaultAction? DefaultAction => _mDefaultAction.GetValue("defaultAction");
-
-        [Input("lastUpdatedAt")]
+        [PolicyResourceProperty("lastUpdatedAt", "_mUnknown_LastUpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedAt;
-
-        public string? LastUpdatedAt => _mLastUpdatedAt.GetValue("lastUpdatedAt");
+        private string? _mValue_LastUpdatedAt;
+        private bool _mUnknown_LastUpdatedAt;
+        public string? LastUpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedAt) return _mValue_LastUpdatedAt;
+                throw new UndeferrableValueException("Value 'Listener.LastUpdatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         /// </summary>
-        [Input("listenerId")]
+        [PolicyResourceProperty("listenerId", "_mUnknown_ListenerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mListenerId;
-
-        public string? ListenerId => _mListenerId.GetValue("listenerId");
+        private string? _mValue_ListenerId;
+        private bool _mUnknown_ListenerId;
+        public string? ListenerId
+        {
+            get
+            {
+                if (!_mUnknown_ListenerId) return _mValue_ListenerId;
+                throw new UndeferrableValueException("Value 'Listener.ListenerId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Listener.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'Listener.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'Listener.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
-
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'Listener.ServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         /// </summary>
-        [Input("serviceIdentifier")]
+        [PolicyResourceProperty("serviceIdentifier", "_mUnknown_ServiceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
-
-        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
+        private string? _mValue_ServiceIdentifier;
+        private bool _mUnknown_ServiceIdentifier;
+        public string? ServiceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIdentifier) return _mValue_ServiceIdentifier;
+                throw new UndeferrableValueException("Value 'Listener.ServiceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Listener.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Listener.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:vpclattice/listener:Listener")]
@@ -123,65 +207,114 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice
         /// <summary>
         /// Default action block for the default listener rule. Default action blocks are defined below.
         /// </summary>
-        [Input("defaultAction")]
+        [PolicyResourceProperty("defaultAction", "_mUnknown_DefaultAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ListenerDefaultActionArgs> _mDefaultAction;
-
-        public Inputs.ListenerDefaultActionArgs? DefaultAction => _mDefaultAction.GetValue("defaultAction");
+        private Inputs.ListenerDefaultActionArgs? _mValue_DefaultAction;
+        private bool _mUnknown_DefaultAction;
+        public Inputs.ListenerDefaultActionArgs? DefaultAction
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAction) return _mValue_DefaultAction;
+                throw new UndeferrableValueException("Value 'ListenerArgs.DefaultAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// </summary>
-        [Input("serviceArn")]
+        [PolicyResourceProperty("serviceArn", "_mUnknown_ServiceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceArn;
-
-        public string? ServiceArn => _mServiceArn.GetValue("serviceArn");
+        private string? _mValue_ServiceArn;
+        private bool _mUnknown_ServiceArn;
+        public string? ServiceArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceArn) return _mValue_ServiceArn;
+                throw new UndeferrableValueException("Value 'ListenerArgs.ServiceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         /// </summary>
-        [Input("serviceIdentifier")]
+        [PolicyResourceProperty("serviceIdentifier", "_mUnknown_ServiceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceIdentifier;
-
-        public string? ServiceIdentifier => _mServiceIdentifier.GetValue("serviceIdentifier");
+        private string? _mValue_ServiceIdentifier;
+        private bool _mUnknown_ServiceIdentifier;
+        public string? ServiceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ServiceIdentifier) return _mValue_ServiceIdentifier;
+                throw new UndeferrableValueException("Value 'ListenerArgs.ServiceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ListenerArgs.Tags' is not present");
+            }
+        }
     }
 }

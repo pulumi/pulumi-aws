@@ -16,46 +16,81 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// ARN of the InputSecurityGroup.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'InputSecurityGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of inputs currently using this InputSecurityGroup.
         /// </summary>
-        [Input("inputs")]
+        [PolicyResourceProperty("inputs", "_mUnknown_Inputs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputs;
-
-        public List<string>? Inputs => _mInputs.GetValue("inputs");
+        private List<string>? _mValue_Inputs;
+        private bool _mUnknown_Inputs;
+        public List<string>? Inputs
+        {
+            get
+            {
+                if (!_mUnknown_Inputs) return _mValue_Inputs;
+                throw new UndeferrableValueException("Value 'InputSecurityGroup.Inputs' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InputSecurityGroup.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'InputSecurityGroup.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("whitelistRules")]
+        [PolicyResourceProperty("whitelistRules", "_mUnknown_WhitelistRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.InputSecurityGroupWhitelistRule>> _mWhitelistRules;
-
-        public List<Outputs.InputSecurityGroupWhitelistRule>? WhitelistRules => _mWhitelistRules.GetValue("whitelistRules");
+        private List<Outputs.InputSecurityGroupWhitelistRule>? _mValue_WhitelistRules;
+        private bool _mUnknown_WhitelistRules;
+        public List<Outputs.InputSecurityGroupWhitelistRule>? WhitelistRules
+        {
+            get
+            {
+                if (!_mUnknown_WhitelistRules) return _mValue_WhitelistRules;
+                throw new UndeferrableValueException("Value 'InputSecurityGroup.WhitelistRules' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:medialive/inputSecurityGroup:InputSecurityGroup")]
@@ -64,21 +99,35 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive
         /// <summary>
         /// A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'InputSecurityGroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Whitelist rules. See Whitelist Rules for more details.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("whitelistRules")]
+        [PolicyResourceProperty("whitelistRules", "_mUnknown_WhitelistRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.InputSecurityGroupWhitelistRuleArgs>> _mWhitelistRules;
-
-        public List<Inputs.InputSecurityGroupWhitelistRuleArgs>? WhitelistRules => _mWhitelistRules.GetValue("whitelistRules");
+        private List<Inputs.InputSecurityGroupWhitelistRuleArgs>? _mValue_WhitelistRules;
+        private bool _mUnknown_WhitelistRules;
+        public List<Inputs.InputSecurityGroupWhitelistRuleArgs>? WhitelistRules
+        {
+            get
+            {
+                if (!_mUnknown_WhitelistRules) return _mValue_WhitelistRules;
+                throw new UndeferrableValueException("Value 'InputSecurityGroupArgs.WhitelistRules' is not present");
+            }
+        }
     }
 }

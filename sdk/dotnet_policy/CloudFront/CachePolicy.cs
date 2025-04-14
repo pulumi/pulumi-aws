@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// The cache policy ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CachePolicy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the cache policy.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'CachePolicy.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
         /// </summary>
-        [Input("defaultTtl")]
+        [PolicyResourceProperty("defaultTtl", "_mUnknown_DefaultTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTtl;
-
-        public int? DefaultTtl => _mDefaultTtl.GetValue("defaultTtl");
+        private int? _mValue_DefaultTtl;
+        private bool _mUnknown_DefaultTtl;
+        public int? DefaultTtl
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTtl) return _mValue_DefaultTtl;
+                throw new UndeferrableValueException("Value 'CachePolicy.DefaultTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Current version of the cache policy.
         /// </summary>
-        [Input("etag")]
+        [PolicyResourceProperty("etag", "_mUnknown_Etag")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEtag;
-
-        public string? Etag => _mEtag.GetValue("etag");
+        private string? _mValue_Etag;
+        private bool _mUnknown_Etag;
+        public string? Etag
+        {
+            get
+            {
+                if (!_mUnknown_Etag) return _mValue_Etag;
+                throw new UndeferrableValueException("Value 'CachePolicy.Etag' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
-        [Input("maxTtl")]
+        [PolicyResourceProperty("maxTtl", "_mUnknown_MaxTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTtl;
-
-        public int? MaxTtl => _mMaxTtl.GetValue("maxTtl");
+        private int? _mValue_MaxTtl;
+        private bool _mUnknown_MaxTtl;
+        public int? MaxTtl
+        {
+            get
+            {
+                if (!_mUnknown_MaxTtl) return _mValue_MaxTtl;
+                throw new UndeferrableValueException("Value 'CachePolicy.MaxTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         /// </summary>
-        [Input("minTtl")]
+        [PolicyResourceProperty("minTtl", "_mUnknown_MinTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinTtl;
-
-        public int? MinTtl => _mMinTtl.GetValue("minTtl");
+        private int? _mValue_MinTtl;
+        private bool _mUnknown_MinTtl;
+        public int? MinTtl
+        {
+            get
+            {
+                if (!_mUnknown_MinTtl) return _mValue_MinTtl;
+                throw new UndeferrableValueException("Value 'CachePolicy.MinTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name used to identify the cache policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CachePolicy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         /// </summary>
-        [Input("parametersInCacheKeyAndForwardedToOrigin")]
+        [PolicyResourceProperty("parametersInCacheKeyAndForwardedToOrigin", "_mUnknown_ParametersInCacheKeyAndForwardedToOrigin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin> _mParametersInCacheKeyAndForwardedToOrigin;
-
-        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin? ParametersInCacheKeyAndForwardedToOrigin => _mParametersInCacheKeyAndForwardedToOrigin.GetValue("parametersInCacheKeyAndForwardedToOrigin");
+        private Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin? _mValue_ParametersInCacheKeyAndForwardedToOrigin;
+        private bool _mUnknown_ParametersInCacheKeyAndForwardedToOrigin;
+        public Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin? ParametersInCacheKeyAndForwardedToOrigin
+        {
+            get
+            {
+                if (!_mUnknown_ParametersInCacheKeyAndForwardedToOrigin) return _mValue_ParametersInCacheKeyAndForwardedToOrigin;
+                throw new UndeferrableValueException("Value 'CachePolicy.ParametersInCacheKeyAndForwardedToOrigin' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudfront/cachePolicy:CachePolicy")]
@@ -92,55 +148,97 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront
         /// <summary>
         /// Description for the cache policy.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'CachePolicyArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
         /// </summary>
-        [Input("defaultTtl")]
+        [PolicyResourceProperty("defaultTtl", "_mUnknown_DefaultTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTtl;
-
-        public int? DefaultTtl => _mDefaultTtl.GetValue("defaultTtl");
+        private int? _mValue_DefaultTtl;
+        private bool _mUnknown_DefaultTtl;
+        public int? DefaultTtl
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTtl) return _mValue_DefaultTtl;
+                throw new UndeferrableValueException("Value 'CachePolicyArgs.DefaultTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
-        [Input("maxTtl")]
+        [PolicyResourceProperty("maxTtl", "_mUnknown_MaxTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxTtl;
-
-        public int? MaxTtl => _mMaxTtl.GetValue("maxTtl");
+        private int? _mValue_MaxTtl;
+        private bool _mUnknown_MaxTtl;
+        public int? MaxTtl
+        {
+            get
+            {
+                if (!_mUnknown_MaxTtl) return _mValue_MaxTtl;
+                throw new UndeferrableValueException("Value 'CachePolicyArgs.MaxTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         /// </summary>
-        [Input("minTtl")]
+        [PolicyResourceProperty("minTtl", "_mUnknown_MinTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinTtl;
-
-        public int? MinTtl => _mMinTtl.GetValue("minTtl");
+        private int? _mValue_MinTtl;
+        private bool _mUnknown_MinTtl;
+        public int? MinTtl
+        {
+            get
+            {
+                if (!_mUnknown_MinTtl) return _mValue_MinTtl;
+                throw new UndeferrableValueException("Value 'CachePolicyArgs.MinTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name used to identify the cache policy.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'CachePolicyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         /// </summary>
-        [Input("parametersInCacheKeyAndForwardedToOrigin")]
+        [PolicyResourceProperty("parametersInCacheKeyAndForwardedToOrigin", "_mUnknown_ParametersInCacheKeyAndForwardedToOrigin")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs> _mParametersInCacheKeyAndForwardedToOrigin;
-
-        public Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs? ParametersInCacheKeyAndForwardedToOrigin => _mParametersInCacheKeyAndForwardedToOrigin.GetValue("parametersInCacheKeyAndForwardedToOrigin");
+        private Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs? _mValue_ParametersInCacheKeyAndForwardedToOrigin;
+        private bool _mUnknown_ParametersInCacheKeyAndForwardedToOrigin;
+        public Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs? ParametersInCacheKeyAndForwardedToOrigin
+        {
+            get
+            {
+                if (!_mUnknown_ParametersInCacheKeyAndForwardedToOrigin) return _mValue_ParametersInCacheKeyAndForwardedToOrigin;
+                throw new UndeferrableValueException("Value 'CachePolicyArgs.ParametersInCacheKeyAndForwardedToOrigin' is not present");
+            }
+        }
     }
 }

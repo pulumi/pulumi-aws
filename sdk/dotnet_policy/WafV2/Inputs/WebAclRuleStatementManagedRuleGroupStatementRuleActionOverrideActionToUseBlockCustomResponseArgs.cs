@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
         /// </summary>
-        [Input("customResponseBodyKey")]
+        [PolicyResourceProperty("customResponseBodyKey", "_mUnknown_CustomResponseBodyKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomResponseBodyKey;
-
-        public string? CustomResponseBodyKey => _mCustomResponseBodyKey.GetValue("customResponseBodyKey");
+        private string? _mValue_CustomResponseBodyKey;
+        private bool _mUnknown_CustomResponseBodyKey;
+        public string? CustomResponseBodyKey
+        {
+            get
+            {
+                if (!_mUnknown_CustomResponseBodyKey) return _mValue_CustomResponseBodyKey;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs.CustomResponseBodyKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP status code to return to the client.
         /// </summary>
-        [Input("responseCode")]
+        [PolicyResourceProperty("responseCode", "_mUnknown_ResponseCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mResponseCode;
-
-        public int? ResponseCode => _mResponseCode.GetValue("responseCode");
+        private int? _mValue_ResponseCode;
+        private bool _mUnknown_ResponseCode;
+        public int? ResponseCode
+        {
+            get
+            {
+                if (!_mUnknown_ResponseCode) return _mValue_ResponseCode;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs.ResponseCode' is not present");
+            }
+        }
 
         /// <summary>
         /// The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         /// </summary>
-        [Input("responseHeaders")]
+        [PolicyResourceProperty("responseHeaders", "_mUnknown_ResponseHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>> _mResponseHeaders;
-
-        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>? ResponseHeaders => _mResponseHeaders.GetValue("responseHeaders");
+        private List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>? _mValue_ResponseHeaders;
+        private bool _mUnknown_ResponseHeaders;
+        public List<Inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs>? ResponseHeaders
+        {
+            get
+            {
+                if (!_mUnknown_ResponseHeaders) return _mValue_ResponseHeaders;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs.ResponseHeaders' is not present");
+            }
+        }
     }
 }

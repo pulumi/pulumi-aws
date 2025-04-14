@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamWrite.Inputs
         /// <summary>
         /// A flag to enable magnetic store writes.
         /// </summary>
-        [Input("enableMagneticStoreWrites")]
+        [PolicyResourceProperty("enableMagneticStoreWrites", "_mUnknown_EnableMagneticStoreWrites")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMagneticStoreWrites;
-
-        public bool? EnableMagneticStoreWrites => _mEnableMagneticStoreWrites.GetValue("enableMagneticStoreWrites");
+        private bool? _mValue_EnableMagneticStoreWrites;
+        private bool _mUnknown_EnableMagneticStoreWrites;
+        public bool? EnableMagneticStoreWrites
+        {
+            get
+            {
+                if (!_mUnknown_EnableMagneticStoreWrites) return _mValue_EnableMagneticStoreWrites;
+                throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesArgs.EnableMagneticStoreWrites' is not present");
+            }
+        }
 
         /// <summary>
         /// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
         /// </summary>
-        [Input("magneticStoreRejectedDataLocation")]
+        [PolicyResourceProperty("magneticStoreRejectedDataLocation", "_mUnknown_MagneticStoreRejectedDataLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs> _mMagneticStoreRejectedDataLocation;
-
-        public Inputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs? MagneticStoreRejectedDataLocation => _mMagneticStoreRejectedDataLocation.GetValue("magneticStoreRejectedDataLocation");
+        private Inputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs? _mValue_MagneticStoreRejectedDataLocation;
+        private bool _mUnknown_MagneticStoreRejectedDataLocation;
+        public Inputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs? MagneticStoreRejectedDataLocation
+        {
+            get
+            {
+                if (!_mUnknown_MagneticStoreRejectedDataLocation) return _mValue_MagneticStoreRejectedDataLocation;
+                throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesArgs.MagneticStoreRejectedDataLocation' is not present");
+            }
+        }
     }
 }

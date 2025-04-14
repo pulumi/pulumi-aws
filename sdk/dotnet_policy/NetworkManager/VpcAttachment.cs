@@ -16,139 +16,244 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ARN of the attachment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VpcAttachment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy rule number associated with the attachment.
         /// </summary>
-        [Input("attachmentPolicyRuleNumber")]
+        [PolicyResourceProperty("attachmentPolicyRuleNumber", "_mUnknown_AttachmentPolicyRuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentPolicyRuleNumber;
-
-        public int? AttachmentPolicyRuleNumber => _mAttachmentPolicyRuleNumber.GetValue("attachmentPolicyRuleNumber");
+        private int? _mValue_AttachmentPolicyRuleNumber;
+        private bool _mUnknown_AttachmentPolicyRuleNumber;
+        public int? AttachmentPolicyRuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentPolicyRuleNumber) return _mValue_AttachmentPolicyRuleNumber;
+                throw new UndeferrableValueException("Value 'VpcAttachment.AttachmentPolicyRuleNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of attachment.
         /// </summary>
-        [Input("attachmentType")]
+        [PolicyResourceProperty("attachmentType", "_mUnknown_AttachmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
-
-        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
+        private string? _mValue_AttachmentType;
+        private bool _mUnknown_AttachmentType;
+        public string? AttachmentType
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentType) return _mValue_AttachmentType;
+                throw new UndeferrableValueException("Value 'VpcAttachment.AttachmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of a core network.
         /// </summary>
-        [Input("coreNetworkArn")]
+        [PolicyResourceProperty("coreNetworkArn", "_mUnknown_CoreNetworkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
-
-        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+        private string? _mValue_CoreNetworkArn;
+        private bool _mUnknown_CoreNetworkArn;
+        public string? CoreNetworkArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkArn) return _mValue_CoreNetworkArn;
+                throw new UndeferrableValueException("Value 'VpcAttachment.CoreNetworkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of a core network for the VPC attachment.
         /// </summary>
-        [Input("coreNetworkId")]
+        [PolicyResourceProperty("coreNetworkId", "_mUnknown_CoreNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
-
-        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+        private string? _mValue_CoreNetworkId;
+        private bool _mUnknown_CoreNetworkId;
+        public string? CoreNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkId) return _mValue_CoreNetworkId;
+                throw new UndeferrableValueException("Value 'VpcAttachment.CoreNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Region where the edge is located.
         /// </summary>
-        [Input("edgeLocation")]
+        [PolicyResourceProperty("edgeLocation", "_mUnknown_EdgeLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
-
-        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
+        private string? _mValue_EdgeLocation;
+        private bool _mUnknown_EdgeLocation;
+        public string? EdgeLocation
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocation) return _mValue_EdgeLocation;
+                throw new UndeferrableValueException("Value 'VpcAttachment.EdgeLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for the VPC attachment.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VpcAttachmentOptions> _mOptions;
-
-        public Outputs.VpcAttachmentOptions? Options => _mOptions.GetValue("options");
+        private Outputs.VpcAttachmentOptions? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Outputs.VpcAttachmentOptions? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'VpcAttachment.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the attachment account owner.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'VpcAttachment.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The attachment resource ARN.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'VpcAttachment.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the segment attachment.
         /// </summary>
-        [Input("segmentName")]
+        [PolicyResourceProperty("segmentName", "_mUnknown_SegmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentName;
-
-        public string? SegmentName => _mSegmentName.GetValue("segmentName");
+        private string? _mValue_SegmentName;
+        private bool _mUnknown_SegmentName;
+        public string? SegmentName
+        {
+            get
+            {
+                if (!_mUnknown_SegmentName) return _mValue_SegmentName;
+                throw new UndeferrableValueException("Value 'VpcAttachment.SegmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the attachment.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'VpcAttachment.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet ARN of the VPC attachment.
         /// </summary>
-        [Input("subnetArns")]
+        [PolicyResourceProperty("subnetArns", "_mUnknown_SubnetArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetArns;
-
-        public List<string>? SubnetArns => _mSubnetArns.GetValue("subnetArns");
+        private List<string>? _mValue_SubnetArns;
+        private bool _mUnknown_SubnetArns;
+        public List<string>? SubnetArns
+        {
+            get
+            {
+                if (!_mUnknown_SubnetArns) return _mValue_SubnetArns;
+                throw new UndeferrableValueException("Value 'VpcAttachment.SubnetArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcAttachment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VpcAttachment.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the VPC.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcArn")]
+        [PolicyResourceProperty("vpcArn", "_mUnknown_VpcArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcArn;
-
-        public string? VpcArn => _mVpcArn.GetValue("vpcArn");
+        private string? _mValue_VpcArn;
+        private bool _mUnknown_VpcArn;
+        public string? VpcArn
+        {
+            get
+            {
+                if (!_mUnknown_VpcArn) return _mValue_VpcArn;
+                throw new UndeferrableValueException("Value 'VpcAttachment.VpcArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/vpcAttachment:VpcAttachment")]
@@ -157,48 +262,83 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of a core network for the VPC attachment.
         /// </summary>
-        [Input("coreNetworkId")]
+        [PolicyResourceProperty("coreNetworkId", "_mUnknown_CoreNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
-
-        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+        private string? _mValue_CoreNetworkId;
+        private bool _mUnknown_CoreNetworkId;
+        public string? CoreNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkId) return _mValue_CoreNetworkId;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.CoreNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// Options for the VPC attachment.
         /// </summary>
-        [Input("options")]
+        [PolicyResourceProperty("options", "_mUnknown_Options")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VpcAttachmentOptionsArgs> _mOptions;
-
-        public Inputs.VpcAttachmentOptionsArgs? Options => _mOptions.GetValue("options");
+        private Inputs.VpcAttachmentOptionsArgs? _mValue_Options;
+        private bool _mUnknown_Options;
+        public Inputs.VpcAttachmentOptionsArgs? Options
+        {
+            get
+            {
+                if (!_mUnknown_Options) return _mValue_Options;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.Options' is not present");
+            }
+        }
 
         /// <summary>
         /// The subnet ARN of the VPC attachment.
         /// </summary>
-        [Input("subnetArns")]
+        [PolicyResourceProperty("subnetArns", "_mUnknown_SubnetArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetArns;
-
-        public List<string>? SubnetArns => _mSubnetArns.GetValue("subnetArns");
+        private List<string>? _mValue_SubnetArns;
+        private bool _mUnknown_SubnetArns;
+        public List<string>? SubnetArns
+        {
+            get
+            {
+                if (!_mUnknown_SubnetArns) return _mValue_SubnetArns;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.SubnetArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the VPC.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcArn")]
+        [PolicyResourceProperty("vpcArn", "_mUnknown_VpcArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcArn;
-
-        public string? VpcArn => _mVpcArn.GetValue("vpcArn");
+        private string? _mValue_VpcArn;
+        private bool _mUnknown_VpcArn;
+        public string? VpcArn
+        {
+            get
+            {
+                if (!_mUnknown_VpcArn) return _mValue_VpcArn;
+                throw new UndeferrableValueException("Value 'VpcAttachmentArgs.VpcArn' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
 {
     public sealed class IntentFollowUpPromptRejectionStatementArgs
     {
-        [Input("messages")]
+        [PolicyResourceProperty("messages", "_mUnknown_Messages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.IntentFollowUpPromptRejectionStatementMessageArgs>> _mMessages;
+        private List<Inputs.IntentFollowUpPromptRejectionStatementMessageArgs>? _mValue_Messages;
+        private bool _mUnknown_Messages;
+        public List<Inputs.IntentFollowUpPromptRejectionStatementMessageArgs>? Messages
+        {
+            get
+            {
+                if (!_mUnknown_Messages) return _mValue_Messages;
+                throw new UndeferrableValueException("Value 'IntentFollowUpPromptRejectionStatementArgs.Messages' is not present");
+            }
+        }
 
-        public List<Inputs.IntentFollowUpPromptRejectionStatementMessageArgs>? Messages => _mMessages.GetValue("messages");
-
-        [Input("responseCard")]
+        [PolicyResourceProperty("responseCard", "_mUnknown_ResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseCard;
-
-        public string? ResponseCard => _mResponseCard.GetValue("responseCard");
+        private string? _mValue_ResponseCard;
+        private bool _mUnknown_ResponseCard;
+        public string? ResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ResponseCard) return _mValue_ResponseCard;
+                throw new UndeferrableValueException("Value 'IntentFollowUpPromptRejectionStatementArgs.ResponseCard' is not present");
+            }
+        }
     }
 }

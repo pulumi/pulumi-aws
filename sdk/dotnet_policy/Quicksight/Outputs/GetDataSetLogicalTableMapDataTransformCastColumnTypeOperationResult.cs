@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult
     {
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult.ColumnName' is not present");
+            }
+        }
 
-        public string? ColumnName => _mColumnName.GetValue("columnName");
-
-        [Input("format")]
+        [PolicyResourceProperty("format", "_mUnknown_Format")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormat;
+        private string? _mValue_Format;
+        private bool _mUnknown_Format;
+        public string? Format
+        {
+            get
+            {
+                if (!_mUnknown_Format) return _mValue_Format;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult.Format' is not present");
+            }
+        }
 
-        public string? Format => _mFormat.GetValue("format");
-
-        [Input("newColumnType")]
+        [PolicyResourceProperty("newColumnType", "_mUnknown_NewColumnType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNewColumnType;
-
-        public string? NewColumnType => _mNewColumnType.GetValue("newColumnType");
+        private string? _mValue_NewColumnType;
+        private bool _mUnknown_NewColumnType;
+        public string? NewColumnType
+        {
+            get
+            {
+                if (!_mUnknown_NewColumnType) return _mValue_NewColumnType;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformCastColumnTypeOperationResult.NewColumnType' is not present");
+            }
+        }
     }
 }

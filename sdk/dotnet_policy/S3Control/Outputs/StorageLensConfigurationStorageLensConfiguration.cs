@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
         /// </summary>
-        [Input("accountLevel")]
+        [PolicyResourceProperty("accountLevel", "_mUnknown_AccountLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel> _mAccountLevel;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel? AccountLevel => _mAccountLevel.GetValue("accountLevel");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel? _mValue_AccountLevel;
+        private bool _mUnknown_AccountLevel;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevel? AccountLevel
+        {
+            get
+            {
+                if (!_mUnknown_AccountLevel) return _mValue_AccountLevel;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfiguration.AccountLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
         /// </summary>
-        [Input("awsOrg")]
+        [PolicyResourceProperty("awsOrg", "_mUnknown_AwsOrg")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg> _mAwsOrg;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg? AwsOrg => _mAwsOrg.GetValue("awsOrg");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg? _mValue_AwsOrg;
+        private bool _mUnknown_AwsOrg;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAwsOrg? AwsOrg
+        {
+            get
+            {
+                if (!_mUnknown_AwsOrg) return _mValue_AwsOrg;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfiguration.AwsOrg' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
         /// </summary>
-        [Input("dataExport")]
+        [PolicyResourceProperty("dataExport", "_mUnknown_DataExport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationDataExport> _mDataExport;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationDataExport? DataExport => _mDataExport.GetValue("dataExport");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationDataExport? _mValue_DataExport;
+        private bool _mUnknown_DataExport;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationDataExport? DataExport
+        {
+            get
+            {
+                if (!_mUnknown_DataExport) return _mValue_DataExport;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfiguration.DataExport' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the S3 Storage Lens configuration is enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfiguration.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
         /// </summary>
-        [Input("exclude")]
+        [PolicyResourceProperty("exclude", "_mUnknown_Exclude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationExclude> _mExclude;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationExclude? Exclude => _mExclude.GetValue("exclude");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationExclude? _mValue_Exclude;
+        private bool _mUnknown_Exclude;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationExclude? Exclude
+        {
+            get
+            {
+                if (!_mUnknown_Exclude) return _mValue_Exclude;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfiguration.Exclude' is not present");
+            }
+        }
 
         /// <summary>
         /// What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
         /// </summary>
-        [Input("include")]
+        [PolicyResourceProperty("include", "_mUnknown_Include")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationInclude> _mInclude;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationInclude? Include => _mInclude.GetValue("include");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationInclude? _mValue_Include;
+        private bool _mUnknown_Include;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationInclude? Include
+        {
+            get
+            {
+                if (!_mUnknown_Include) return _mValue_Include;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfiguration.Include' is not present");
+            }
+        }
     }
 }

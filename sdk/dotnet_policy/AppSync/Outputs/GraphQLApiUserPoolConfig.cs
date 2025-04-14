@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Outputs
         /// <summary>
         /// Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
         /// </summary>
-        [Input("appIdClientRegex")]
+        [PolicyResourceProperty("appIdClientRegex", "_mUnknown_AppIdClientRegex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAppIdClientRegex;
-
-        public string? AppIdClientRegex => _mAppIdClientRegex.GetValue("appIdClientRegex");
+        private string? _mValue_AppIdClientRegex;
+        private bool _mUnknown_AppIdClientRegex;
+        public string? AppIdClientRegex
+        {
+            get
+            {
+                if (!_mUnknown_AppIdClientRegex) return _mValue_AppIdClientRegex;
+                throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfig.AppIdClientRegex' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS region in which the user pool was created.
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfig.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
         /// </summary>
-        [Input("defaultAction")]
+        [PolicyResourceProperty("defaultAction", "_mUnknown_DefaultAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAction;
-
-        public string? DefaultAction => _mDefaultAction.GetValue("defaultAction");
+        private string? _mValue_DefaultAction;
+        private bool _mUnknown_DefaultAction;
+        public string? DefaultAction
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAction) return _mValue_DefaultAction;
+                throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfig.DefaultAction' is not present");
+            }
+        }
 
         /// <summary>
         /// User pool ID.
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfig.UserPoolId' is not present");
+            }
+        }
     }
 }

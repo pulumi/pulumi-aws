@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// The source template. See source_template.
         /// </summary>
-        [Input("sourceTemplate")]
+        [PolicyResourceProperty("sourceTemplate", "_mUnknown_SourceTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DashboardSourceEntitySourceTemplate> _mSourceTemplate;
-
-        public Outputs.DashboardSourceEntitySourceTemplate? SourceTemplate => _mSourceTemplate.GetValue("sourceTemplate");
+        private Outputs.DashboardSourceEntitySourceTemplate? _mValue_SourceTemplate;
+        private bool _mUnknown_SourceTemplate;
+        public Outputs.DashboardSourceEntitySourceTemplate? SourceTemplate
+        {
+            get
+            {
+                if (!_mUnknown_SourceTemplate) return _mValue_SourceTemplate;
+                throw new UndeferrableValueException("Value 'DashboardSourceEntity.SourceTemplate' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Auditmanager.Outputs
         /// <summary>
         /// Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
         /// </summary>
-        [Input("awsAccounts")]
+        [PolicyResourceProperty("awsAccounts", "_mUnknown_AwsAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssessmentScopeAwsAccount>> _mAwsAccounts;
-
-        public List<Outputs.AssessmentScopeAwsAccount>? AwsAccounts => _mAwsAccounts.GetValue("awsAccounts");
+        private List<Outputs.AssessmentScopeAwsAccount>? _mValue_AwsAccounts;
+        private bool _mUnknown_AwsAccounts;
+        public List<Outputs.AssessmentScopeAwsAccount>? AwsAccounts
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccounts) return _mValue_AwsAccounts;
+                throw new UndeferrableValueException("Value 'AssessmentScope.AwsAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         /// </summary>
-        [Input("awsServices")]
+        [PolicyResourceProperty("awsServices", "_mUnknown_AwsServices")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AssessmentScopeAwsService>> _mAwsServices;
-
-        public List<Outputs.AssessmentScopeAwsService>? AwsServices => _mAwsServices.GetValue("awsServices");
+        private List<Outputs.AssessmentScopeAwsService>? _mValue_AwsServices;
+        private bool _mUnknown_AwsServices;
+        public List<Outputs.AssessmentScopeAwsService>? AwsServices
+        {
+            get
+            {
+                if (!_mUnknown_AwsServices) return _mValue_AwsServices;
+                throw new UndeferrableValueException("Value 'AssessmentScope.AwsServices' is not present");
+            }
+        }
     }
 }

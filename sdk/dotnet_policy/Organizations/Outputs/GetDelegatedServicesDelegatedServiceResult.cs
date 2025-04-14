@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Organizations.Outputs
         /// <summary>
         /// The date that the account became a delegated administrator for this service.
         /// </summary>
-        [Input("delegationEnabledDate")]
+        [PolicyResourceProperty("delegationEnabledDate", "_mUnknown_DelegationEnabledDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDelegationEnabledDate;
-
-        public string? DelegationEnabledDate => _mDelegationEnabledDate.GetValue("delegationEnabledDate");
+        private string? _mValue_DelegationEnabledDate;
+        private bool _mUnknown_DelegationEnabledDate;
+        public string? DelegationEnabledDate
+        {
+            get
+            {
+                if (!_mUnknown_DelegationEnabledDate) return _mValue_DelegationEnabledDate;
+                throw new UndeferrableValueException("Value 'GetDelegatedServicesDelegatedServiceResult.DelegationEnabledDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of an AWS service that can request an operation for the specified service.
         /// </summary>
-        [Input("servicePrincipal")]
+        [PolicyResourceProperty("servicePrincipal", "_mUnknown_ServicePrincipal")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServicePrincipal;
-
-        public string? ServicePrincipal => _mServicePrincipal.GetValue("servicePrincipal");
+        private string? _mValue_ServicePrincipal;
+        private bool _mUnknown_ServicePrincipal;
+        public string? ServicePrincipal
+        {
+            get
+            {
+                if (!_mUnknown_ServicePrincipal) return _mValue_ServicePrincipal;
+                throw new UndeferrableValueException("Value 'GetDelegatedServicesDelegatedServiceResult.ServicePrincipal' is not present");
+            }
+        }
     }
 }

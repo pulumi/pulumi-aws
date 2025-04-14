@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The CIDR block associated with the local subnet of the customer network.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'VpnConnectionRoute.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPN connection.
         /// </summary>
-        [Input("vpnConnectionId")]
+        [PolicyResourceProperty("vpnConnectionId", "_mUnknown_VpnConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnConnectionId;
-
-        public string? VpnConnectionId => _mVpnConnectionId.GetValue("vpnConnectionId");
+        private string? _mValue_VpnConnectionId;
+        private bool _mUnknown_VpnConnectionId;
+        public string? VpnConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_VpnConnectionId) return _mValue_VpnConnectionId;
+                throw new UndeferrableValueException("Value 'VpnConnectionRoute.VpnConnectionId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/vpnConnectionRoute:VpnConnectionRoute")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The CIDR block associated with the local subnet of the customer network.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'VpnConnectionRouteArgs.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the VPN connection.
         /// </summary>
-        [Input("vpnConnectionId")]
+        [PolicyResourceProperty("vpnConnectionId", "_mUnknown_VpnConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpnConnectionId;
-
-        public string? VpnConnectionId => _mVpnConnectionId.GetValue("vpnConnectionId");
+        private string? _mValue_VpnConnectionId;
+        private bool _mUnknown_VpnConnectionId;
+        public string? VpnConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_VpnConnectionId) return _mValue_VpnConnectionId;
+                throw new UndeferrableValueException("Value 'VpnConnectionRouteArgs.VpnConnectionId' is not present");
+            }
+        }
     }
 }

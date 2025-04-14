@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
         /// in `destination` must be specified as well.
         /// </summary>
-        [Input("sseKmsEncryptedObjects")]
+        [PolicyResourceProperty("sseKmsEncryptedObjects", "_mUnknown_SseKmsEncryptedObjects")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>> _mSseKmsEncryptedObjects;
-
-        public List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>? SseKmsEncryptedObjects => _mSseKmsEncryptedObjects.GetValue("sseKmsEncryptedObjects");
+        private List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>? _mValue_SseKmsEncryptedObjects;
+        private bool _mUnknown_SseKmsEncryptedObjects;
+        public List<Inputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs>? SseKmsEncryptedObjects
+        {
+            get
+            {
+                if (!_mUnknown_SseKmsEncryptedObjects) return _mValue_SseKmsEncryptedObjects;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs.SseKmsEncryptedObjects' is not present");
+            }
+        }
     }
 }

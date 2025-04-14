@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Budgets
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'BudgetAction.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the budget action.
         /// </summary>
-        [Input("actionId")]
+        [PolicyResourceProperty("actionId", "_mUnknown_ActionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionId;
-
-        public string? ActionId => _mActionId.GetValue("actionId");
+        private string? _mValue_ActionId;
+        private bool _mUnknown_ActionId;
+        public string? ActionId
+        {
+            get
+            {
+                if (!_mUnknown_ActionId) return _mValue_ActionId;
+                throw new UndeferrableValueException("Value 'BudgetAction.ActionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The trigger threshold of the action. See Action Threshold.
         /// </summary>
-        [Input("actionThreshold")]
+        [PolicyResourceProperty("actionThreshold", "_mUnknown_ActionThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetActionActionThreshold> _mActionThreshold;
-
-        public Outputs.BudgetActionActionThreshold? ActionThreshold => _mActionThreshold.GetValue("actionThreshold");
+        private Outputs.BudgetActionActionThreshold? _mValue_ActionThreshold;
+        private bool _mUnknown_ActionThreshold;
+        public Outputs.BudgetActionActionThreshold? ActionThreshold
+        {
+            get
+            {
+                if (!_mUnknown_ActionThreshold) return _mValue_ActionThreshold;
+                throw new UndeferrableValueException("Value 'BudgetAction.ActionThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         /// </summary>
-        [Input("actionType")]
+        [PolicyResourceProperty("actionType", "_mUnknown_ActionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionType;
-
-        public string? ActionType => _mActionType.GetValue("actionType");
+        private string? _mValue_ActionType;
+        private bool _mUnknown_ActionType;
+        public string? ActionType
+        {
+            get
+            {
+                if (!_mUnknown_ActionType) return _mValue_ActionType;
+                throw new UndeferrableValueException("Value 'BudgetAction.ActionType' is not present");
+            }
+        }
 
         /// <summary>
         /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         /// </summary>
-        [Input("approvalModel")]
+        [PolicyResourceProperty("approvalModel", "_mUnknown_ApprovalModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalModel;
-
-        public string? ApprovalModel => _mApprovalModel.GetValue("approvalModel");
+        private string? _mValue_ApprovalModel;
+        private bool _mUnknown_ApprovalModel;
+        public string? ApprovalModel
+        {
+            get
+            {
+                if (!_mUnknown_ApprovalModel) return _mValue_ApprovalModel;
+                throw new UndeferrableValueException("Value 'BudgetAction.ApprovalModel' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the budget action.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'BudgetAction.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a budget.
         /// </summary>
-        [Input("budgetName")]
+        [PolicyResourceProperty("budgetName", "_mUnknown_BudgetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
-
-        public string? BudgetName => _mBudgetName.GetValue("budgetName");
+        private string? _mValue_BudgetName;
+        private bool _mUnknown_BudgetName;
+        public string? BudgetName
+        {
+            get
+            {
+                if (!_mUnknown_BudgetName) return _mValue_BudgetName;
+                throw new UndeferrableValueException("Value 'BudgetAction.BudgetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies all of the type-specific parameters. See Definition.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BudgetActionDefinition> _mDefinition;
-
-        public Outputs.BudgetActionDefinition? Definition => _mDefinition.GetValue("definition");
+        private Outputs.BudgetActionDefinition? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Outputs.BudgetActionDefinition? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'BudgetAction.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// The role passed for action execution and reversion. Roles and actions must be in the same account.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'BudgetAction.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         /// </summary>
-        [Input("notificationType")]
+        [PolicyResourceProperty("notificationType", "_mUnknown_NotificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
-
-        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+        private string? _mValue_NotificationType;
+        private bool _mUnknown_NotificationType;
+        public string? NotificationType
+        {
+            get
+            {
+                if (!_mUnknown_NotificationType) return _mValue_NotificationType;
+                throw new UndeferrableValueException("Value 'BudgetAction.NotificationType' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the budget action.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'BudgetAction.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of subscribers. See Subscriber.
         /// </summary>
-        [Input("subscribers")]
+        [PolicyResourceProperty("subscribers", "_mUnknown_Subscribers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BudgetActionSubscriber>> _mSubscribers;
-
-        public List<Outputs.BudgetActionSubscriber>? Subscribers => _mSubscribers.GetValue("subscribers");
+        private List<Outputs.BudgetActionSubscriber>? _mValue_Subscribers;
+        private bool _mUnknown_Subscribers;
+        public List<Outputs.BudgetActionSubscriber>? Subscribers
+        {
+            get
+            {
+                if (!_mUnknown_Subscribers) return _mValue_Subscribers;
+                throw new UndeferrableValueException("Value 'BudgetAction.Subscribers' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BudgetAction.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'BudgetAction.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:budgets/budgetAction:BudgetAction")]
@@ -146,91 +244,161 @@ namespace Pulumi.PolicyPacks.Aws.Budgets
         /// <summary>
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The trigger threshold of the action. See Action Threshold.
         /// </summary>
-        [Input("actionThreshold")]
+        [PolicyResourceProperty("actionThreshold", "_mUnknown_ActionThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetActionActionThresholdArgs> _mActionThreshold;
-
-        public Inputs.BudgetActionActionThresholdArgs? ActionThreshold => _mActionThreshold.GetValue("actionThreshold");
+        private Inputs.BudgetActionActionThresholdArgs? _mValue_ActionThreshold;
+        private bool _mUnknown_ActionThreshold;
+        public Inputs.BudgetActionActionThresholdArgs? ActionThreshold
+        {
+            get
+            {
+                if (!_mUnknown_ActionThreshold) return _mValue_ActionThreshold;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.ActionThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         /// </summary>
-        [Input("actionType")]
+        [PolicyResourceProperty("actionType", "_mUnknown_ActionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActionType;
-
-        public string? ActionType => _mActionType.GetValue("actionType");
+        private string? _mValue_ActionType;
+        private bool _mUnknown_ActionType;
+        public string? ActionType
+        {
+            get
+            {
+                if (!_mUnknown_ActionType) return _mValue_ActionType;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.ActionType' is not present");
+            }
+        }
 
         /// <summary>
         /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         /// </summary>
-        [Input("approvalModel")]
+        [PolicyResourceProperty("approvalModel", "_mUnknown_ApprovalModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApprovalModel;
-
-        public string? ApprovalModel => _mApprovalModel.GetValue("approvalModel");
+        private string? _mValue_ApprovalModel;
+        private bool _mUnknown_ApprovalModel;
+        public string? ApprovalModel
+        {
+            get
+            {
+                if (!_mUnknown_ApprovalModel) return _mValue_ApprovalModel;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.ApprovalModel' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of a budget.
         /// </summary>
-        [Input("budgetName")]
+        [PolicyResourceProperty("budgetName", "_mUnknown_BudgetName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBudgetName;
-
-        public string? BudgetName => _mBudgetName.GetValue("budgetName");
+        private string? _mValue_BudgetName;
+        private bool _mUnknown_BudgetName;
+        public string? BudgetName
+        {
+            get
+            {
+                if (!_mUnknown_BudgetName) return _mValue_BudgetName;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.BudgetName' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies all of the type-specific parameters. See Definition.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BudgetActionDefinitionArgs> _mDefinition;
-
-        public Inputs.BudgetActionDefinitionArgs? Definition => _mDefinition.GetValue("definition");
+        private Inputs.BudgetActionDefinitionArgs? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public Inputs.BudgetActionDefinitionArgs? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// The role passed for action execution and reversion. Roles and actions must be in the same account.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         /// </summary>
-        [Input("notificationType")]
+        [PolicyResourceProperty("notificationType", "_mUnknown_NotificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
-
-        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+        private string? _mValue_NotificationType;
+        private bool _mUnknown_NotificationType;
+        public string? NotificationType
+        {
+            get
+            {
+                if (!_mUnknown_NotificationType) return _mValue_NotificationType;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.NotificationType' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of subscribers. See Subscriber.
         /// </summary>
-        [Input("subscribers")]
+        [PolicyResourceProperty("subscribers", "_mUnknown_Subscribers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BudgetActionSubscriberArgs>> _mSubscribers;
-
-        public List<Inputs.BudgetActionSubscriberArgs>? Subscribers => _mSubscribers.GetValue("subscribers");
+        private List<Inputs.BudgetActionSubscriberArgs>? _mValue_Subscribers;
+        private bool _mUnknown_Subscribers;
+        public List<Inputs.BudgetActionSubscriberArgs>? Subscribers
+        {
+            get
+            {
+                if (!_mUnknown_Subscribers) return _mValue_Subscribers;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.Subscribers' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'BudgetActionArgs.Tags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter>> _mParameters;
-
-        public List<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter>? Parameters => _mParameters.GetValue("parameters");
+        private List<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public List<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor.Type' is not present");
+            }
+        }
     }
 }

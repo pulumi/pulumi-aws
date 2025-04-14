@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the attachment.
         /// </summary>
-        [Input("attachmentId")]
+        [PolicyResourceProperty("attachmentId", "_mUnknown_AttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentId;
-
-        public string? AttachmentId => _mAttachmentId.GetValue("attachmentId");
+        private string? _mValue_AttachmentId;
+        private bool _mUnknown_AttachmentId;
+        public string? AttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentId) return _mValue_AttachmentId;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.AttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The policy rule number associated with the attachment.
         /// </summary>
-        [Input("attachmentPolicyRuleNumber")]
+        [PolicyResourceProperty("attachmentPolicyRuleNumber", "_mUnknown_AttachmentPolicyRuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAttachmentPolicyRuleNumber;
-
-        public int? AttachmentPolicyRuleNumber => _mAttachmentPolicyRuleNumber.GetValue("attachmentPolicyRuleNumber");
+        private int? _mValue_AttachmentPolicyRuleNumber;
+        private bool _mUnknown_AttachmentPolicyRuleNumber;
+        public int? AttachmentPolicyRuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentPolicyRuleNumber) return _mValue_AttachmentPolicyRuleNumber;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.AttachmentPolicyRuleNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         /// </summary>
-        [Input("attachmentType")]
+        [PolicyResourceProperty("attachmentType", "_mUnknown_AttachmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
-
-        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
+        private string? _mValue_AttachmentType;
+        private bool _mUnknown_AttachmentType;
+        public string? AttachmentType
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentType) return _mValue_AttachmentType;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.AttachmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of a core network.
         /// </summary>
-        [Input("coreNetworkArn")]
+        [PolicyResourceProperty("coreNetworkArn", "_mUnknown_CoreNetworkArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkArn;
-
-        public string? CoreNetworkArn => _mCoreNetworkArn.GetValue("coreNetworkArn");
+        private string? _mValue_CoreNetworkArn;
+        private bool _mUnknown_CoreNetworkArn;
+        public string? CoreNetworkArn
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkArn) return _mValue_CoreNetworkArn;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.CoreNetworkArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of a core network.
         /// </summary>
-        [Input("coreNetworkId")]
+        [PolicyResourceProperty("coreNetworkId", "_mUnknown_CoreNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCoreNetworkId;
-
-        public string? CoreNetworkId => _mCoreNetworkId.GetValue("coreNetworkId");
+        private string? _mValue_CoreNetworkId;
+        private bool _mUnknown_CoreNetworkId;
+        public string? CoreNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_CoreNetworkId) return _mValue_CoreNetworkId;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.CoreNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
         /// </summary>
-        [Input("edgeLocation")]
+        [PolicyResourceProperty("edgeLocation", "_mUnknown_EdgeLocation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEdgeLocation;
-
-        public string? EdgeLocation => _mEdgeLocation.GetValue("edgeLocation");
+        private string? _mValue_EdgeLocation;
+        private bool _mUnknown_EdgeLocation;
+        public string? EdgeLocation
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocation) return _mValue_EdgeLocation;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.EdgeLocation' is not present");
+            }
+        }
 
         /// <summary>
         /// The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
         /// </summary>
-        [Input("edgeLocations")]
+        [PolicyResourceProperty("edgeLocations", "_mUnknown_EdgeLocations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEdgeLocations;
-
-        public List<string>? EdgeLocations => _mEdgeLocations.GetValue("edgeLocations");
+        private List<string>? _mValue_EdgeLocations;
+        private bool _mUnknown_EdgeLocations;
+        public List<string>? EdgeLocations
+        {
+            get
+            {
+                if (!_mUnknown_EdgeLocations) return _mValue_EdgeLocations;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.EdgeLocations' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the attachment account owner.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The attachment resource ARN.
         /// </summary>
-        [Input("resourceArn")]
+        [PolicyResourceProperty("resourceArn", "_mUnknown_ResourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceArn;
-
-        public string? ResourceArn => _mResourceArn.GetValue("resourceArn");
+        private string? _mValue_ResourceArn;
+        private bool _mUnknown_ResourceArn;
+        public string? ResourceArn
+        {
+            get
+            {
+                if (!_mUnknown_ResourceArn) return _mValue_ResourceArn;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.ResourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the segment attachment.
         /// </summary>
-        [Input("segmentName")]
+        [PolicyResourceProperty("segmentName", "_mUnknown_SegmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentName;
-
-        public string? SegmentName => _mSegmentName.GetValue("segmentName");
+        private string? _mValue_SegmentName;
+        private bool _mUnknown_SegmentName;
+        public string? SegmentName
+        {
+            get
+            {
+                if (!_mUnknown_SegmentName) return _mValue_SegmentName;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.SegmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the attachment.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'AttachmentAccepter.State' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/attachmentAccepter:AttachmentAccepter")]
@@ -119,19 +196,33 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the attachment.
         /// </summary>
-        [Input("attachmentId")]
+        [PolicyResourceProperty("attachmentId", "_mUnknown_AttachmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentId;
-
-        public string? AttachmentId => _mAttachmentId.GetValue("attachmentId");
+        private string? _mValue_AttachmentId;
+        private bool _mUnknown_AttachmentId;
+        public string? AttachmentId
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentId) return _mValue_AttachmentId;
+                throw new UndeferrableValueException("Value 'AttachmentAccepterArgs.AttachmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
         /// </summary>
-        [Input("attachmentType")]
+        [PolicyResourceProperty("attachmentType", "_mUnknown_AttachmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAttachmentType;
-
-        public string? AttachmentType => _mAttachmentType.GetValue("attachmentType");
+        private string? _mValue_AttachmentType;
+        private bool _mUnknown_AttachmentType;
+        public string? AttachmentType
+        {
+            get
+            {
+                if (!_mUnknown_AttachmentType) return _mValue_AttachmentType;
+                throw new UndeferrableValueException("Value 'AttachmentAccepterArgs.AttachmentType' is not present");
+            }
+        }
     }
 }

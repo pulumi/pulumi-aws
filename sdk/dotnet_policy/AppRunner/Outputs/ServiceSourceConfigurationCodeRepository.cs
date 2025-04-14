@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppRunner.Outputs
         /// <summary>
         /// Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
         /// </summary>
-        [Input("codeConfiguration")]
+        [PolicyResourceProperty("codeConfiguration", "_mUnknown_CodeConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration> _mCodeConfiguration;
-
-        public Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration? CodeConfiguration => _mCodeConfiguration.GetValue("codeConfiguration");
+        private Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration? _mValue_CodeConfiguration;
+        private bool _mUnknown_CodeConfiguration;
+        public Outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration? CodeConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CodeConfiguration) return _mValue_CodeConfiguration;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.CodeConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of the repository that contains the source code.
         /// </summary>
-        [Input("repositoryUrl")]
+        [PolicyResourceProperty("repositoryUrl", "_mUnknown_RepositoryUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryUrl;
-
-        public string? RepositoryUrl => _mRepositoryUrl.GetValue("repositoryUrl");
+        private string? _mValue_RepositoryUrl;
+        private bool _mUnknown_RepositoryUrl;
+        public string? RepositoryUrl
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryUrl) return _mValue_RepositoryUrl;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.RepositoryUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// Version that should be used within the source code repository. See Source Code Version below for more details.
         /// </summary>
-        [Input("sourceCodeVersion")]
+        [PolicyResourceProperty("sourceCodeVersion", "_mUnknown_SourceCodeVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion> _mSourceCodeVersion;
-
-        public Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion? SourceCodeVersion => _mSourceCodeVersion.GetValue("sourceCodeVersion");
+        private Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion? _mValue_SourceCodeVersion;
+        private bool _mUnknown_SourceCodeVersion;
+        public Outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion? SourceCodeVersion
+        {
+            get
+            {
+                if (!_mUnknown_SourceCodeVersion) return _mValue_SourceCodeVersion;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.SourceCodeVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
         /// </summary>
-        [Input("sourceDirectory")]
+        [PolicyResourceProperty("sourceDirectory", "_mUnknown_SourceDirectory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDirectory;
-
-        public string? SourceDirectory => _mSourceDirectory.GetValue("sourceDirectory");
+        private string? _mValue_SourceDirectory;
+        private bool _mUnknown_SourceDirectory;
+        public string? SourceDirectory
+        {
+            get
+            {
+                if (!_mUnknown_SourceDirectory) return _mValue_SourceDirectory;
+                throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.SourceDirectory' is not present");
+            }
+        }
     }
 }

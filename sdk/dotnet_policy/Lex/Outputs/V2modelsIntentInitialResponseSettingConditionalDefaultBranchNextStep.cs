@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
         /// </summary>
-        [Input("dialogAction")]
+        [PolicyResourceProperty("dialogAction", "_mUnknown_DialogAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogAction> _mDialogAction;
-
-        public Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogAction? DialogAction => _mDialogAction.GetValue("dialogAction");
+        private Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogAction? _mValue_DialogAction;
+        private bool _mUnknown_DialogAction;
+        public Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogAction? DialogAction
+        {
+            get
+            {
+                if (!_mUnknown_DialogAction) return _mValue_DialogAction;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStep.DialogAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for override settings to configure the intent state. See `intent`.
         /// </summary>
-        [Input("intent")]
+        [PolicyResourceProperty("intent", "_mUnknown_Intent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent> _mIntent;
-
-        public Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent? Intent => _mIntent.GetValue("intent");
+        private Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent? _mValue_Intent;
+        private bool _mUnknown_Intent;
+        public Outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent? Intent
+        {
+            get
+            {
+                if (!_mUnknown_Intent) return _mValue_Intent;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStep.Intent' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         /// </summary>
-        [Input("sessionAttributes")]
+        [PolicyResourceProperty("sessionAttributes", "_mUnknown_SessionAttributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mSessionAttributes;
-
-        public Dictionary<string, string>? SessionAttributes => _mSessionAttributes.GetValue("sessionAttributes");
+        private Dictionary<string, string>? _mValue_SessionAttributes;
+        private bool _mUnknown_SessionAttributes;
+        public Dictionary<string, string>? SessionAttributes
+        {
+            get
+            {
+                if (!_mUnknown_SessionAttributes) return _mValue_SessionAttributes;
+                throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStep.SessionAttributes' is not present");
+            }
+        }
     }
 }

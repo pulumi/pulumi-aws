@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Join key properties of the left operand. See left_join_key_properties.
         /// </summary>
-        [Input("leftJoinKeyProperties")]
+        [PolicyResourceProperty("leftJoinKeyProperties", "_mUnknown_LeftJoinKeyProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties> _mLeftJoinKeyProperties;
-
-        public Outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties? LeftJoinKeyProperties => _mLeftJoinKeyProperties.GetValue("leftJoinKeyProperties");
+        private Outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties? _mValue_LeftJoinKeyProperties;
+        private bool _mUnknown_LeftJoinKeyProperties;
+        public Outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties? LeftJoinKeyProperties
+        {
+            get
+            {
+                if (!_mUnknown_LeftJoinKeyProperties) return _mValue_LeftJoinKeyProperties;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstruction.LeftJoinKeyProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Operand on the left side of a join.
         /// </summary>
-        [Input("leftOperand")]
+        [PolicyResourceProperty("leftOperand", "_mUnknown_LeftOperand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLeftOperand;
-
-        public string? LeftOperand => _mLeftOperand.GetValue("leftOperand");
+        private string? _mValue_LeftOperand;
+        private bool _mUnknown_LeftOperand;
+        public string? LeftOperand
+        {
+            get
+            {
+                if (!_mUnknown_LeftOperand) return _mValue_LeftOperand;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstruction.LeftOperand' is not present");
+            }
+        }
 
         /// <summary>
         /// Join instructions provided in the ON clause of a join.
         /// </summary>
-        [Input("onClause")]
+        [PolicyResourceProperty("onClause", "_mUnknown_OnClause")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOnClause;
-
-        public string? OnClause => _mOnClause.GetValue("onClause");
+        private string? _mValue_OnClause;
+        private bool _mUnknown_OnClause;
+        public string? OnClause
+        {
+            get
+            {
+                if (!_mUnknown_OnClause) return _mValue_OnClause;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstruction.OnClause' is not present");
+            }
+        }
 
         /// <summary>
         /// Join key properties of the right operand. See right_join_key_properties.
         /// </summary>
-        [Input("rightJoinKeyProperties")]
+        [PolicyResourceProperty("rightJoinKeyProperties", "_mUnknown_RightJoinKeyProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties> _mRightJoinKeyProperties;
-
-        public Outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties? RightJoinKeyProperties => _mRightJoinKeyProperties.GetValue("rightJoinKeyProperties");
+        private Outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties? _mValue_RightJoinKeyProperties;
+        private bool _mUnknown_RightJoinKeyProperties;
+        public Outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties? RightJoinKeyProperties
+        {
+            get
+            {
+                if (!_mUnknown_RightJoinKeyProperties) return _mValue_RightJoinKeyProperties;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstruction.RightJoinKeyProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Operand on the right side of a join.
         /// </summary>
-        [Input("rightOperand")]
+        [PolicyResourceProperty("rightOperand", "_mUnknown_RightOperand")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRightOperand;
-
-        public string? RightOperand => _mRightOperand.GetValue("rightOperand");
+        private string? _mValue_RightOperand;
+        private bool _mUnknown_RightOperand;
+        public string? RightOperand
+        {
+            get
+            {
+                if (!_mUnknown_RightOperand) return _mValue_RightOperand;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstruction.RightOperand' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstruction.Type' is not present");
+            }
+        }
     }
 }

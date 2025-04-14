@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// Enablement status of a control in a specific standard.
         /// </summary>
-        [Input("associationStatus")]
+        [PolicyResourceProperty("associationStatus", "_mUnknown_AssociationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationStatus;
-
-        public string? AssociationStatus => _mAssociationStatus.GetValue("associationStatus");
+        private string? _mValue_AssociationStatus;
+        private bool _mUnknown_AssociationStatus;
+        public string? AssociationStatus
+        {
+            get
+            {
+                if (!_mUnknown_AssociationStatus) return _mValue_AssociationStatus;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.AssociationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// List of underlying requirements in the compliance framework related to the standard.
         /// </summary>
-        [Input("relatedRequirements")]
+        [PolicyResourceProperty("relatedRequirements", "_mUnknown_RelatedRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRelatedRequirements;
-
-        public List<string>? RelatedRequirements => _mRelatedRequirements.GetValue("relatedRequirements");
+        private List<string>? _mValue_RelatedRequirements;
+        private bool _mUnknown_RelatedRequirements;
+        public List<string>? RelatedRequirements
+        {
+            get
+            {
+                if (!_mUnknown_RelatedRequirements) return _mValue_RelatedRequirements;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.RelatedRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the security control.
         /// </summary>
-        [Input("securityControlArn")]
+        [PolicyResourceProperty("securityControlArn", "_mUnknown_SecurityControlArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityControlArn;
-
-        public string? SecurityControlArn => _mSecurityControlArn.GetValue("securityControlArn");
+        private string? _mValue_SecurityControlArn;
+        private bool _mUnknown_SecurityControlArn;
+        public string? SecurityControlArn
+        {
+            get
+            {
+                if (!_mUnknown_SecurityControlArn) return _mValue_SecurityControlArn;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.SecurityControlArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
         /// </summary>
-        [Input("securityControlId")]
+        [PolicyResourceProperty("securityControlId", "_mUnknown_SecurityControlId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityControlId;
-
-        public string? SecurityControlId => _mSecurityControlId.GetValue("securityControlId");
+        private string? _mValue_SecurityControlId;
+        private bool _mUnknown_SecurityControlId;
+        public string? SecurityControlId
+        {
+            get
+            {
+                if (!_mUnknown_SecurityControlId) return _mValue_SecurityControlId;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.SecurityControlId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the standard.
         /// </summary>
-        [Input("standardsArn")]
+        [PolicyResourceProperty("standardsArn", "_mUnknown_StandardsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsArn;
-
-        public string? StandardsArn => _mStandardsArn.GetValue("standardsArn");
+        private string? _mValue_StandardsArn;
+        private bool _mUnknown_StandardsArn;
+        public string? StandardsArn
+        {
+            get
+            {
+                if (!_mUnknown_StandardsArn) return _mValue_StandardsArn;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.StandardsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the standard.
         /// </summary>
-        [Input("standardsControlDescription")]
+        [PolicyResourceProperty("standardsControlDescription", "_mUnknown_StandardsControlDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsControlDescription;
-
-        public string? StandardsControlDescription => _mStandardsControlDescription.GetValue("standardsControlDescription");
+        private string? _mValue_StandardsControlDescription;
+        private bool _mUnknown_StandardsControlDescription;
+        public string? StandardsControlDescription
+        {
+            get
+            {
+                if (!_mUnknown_StandardsControlDescription) return _mValue_StandardsControlDescription;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.StandardsControlDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// Title of the standard.
         /// </summary>
-        [Input("standardsControlTitle")]
+        [PolicyResourceProperty("standardsControlTitle", "_mUnknown_StandardsControlTitle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStandardsControlTitle;
-
-        public string? StandardsControlTitle => _mStandardsControlTitle.GetValue("standardsControlTitle");
+        private string? _mValue_StandardsControlTitle;
+        private bool _mUnknown_StandardsControlTitle;
+        public string? StandardsControlTitle
+        {
+            get
+            {
+                if (!_mUnknown_StandardsControlTitle) return _mValue_StandardsControlTitle;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.StandardsControlTitle' is not present");
+            }
+        }
 
         /// <summary>
         /// Last time that a control's enablement status in a specified standard was updated.
         /// </summary>
-        [Input("updatedAt")]
+        [PolicyResourceProperty("updatedAt", "_mUnknown_UpdatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedAt;
-
-        public string? UpdatedAt => _mUpdatedAt.GetValue("updatedAt");
+        private string? _mValue_UpdatedAt;
+        private bool _mUnknown_UpdatedAt;
+        public string? UpdatedAt
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedAt) return _mValue_UpdatedAt;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.UpdatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Reason for updating a control's enablement status in a specified standard.
         /// </summary>
-        [Input("updatedReason")]
+        [PolicyResourceProperty("updatedReason", "_mUnknown_UpdatedReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedReason;
-
-        public string? UpdatedReason => _mUpdatedReason.GetValue("updatedReason");
+        private string? _mValue_UpdatedReason;
+        private bool _mUnknown_UpdatedReason;
+        public string? UpdatedReason
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedReason) return _mValue_UpdatedReason;
+                throw new UndeferrableValueException("Value 'GetStandardsControlAssociationsStandardsControlAssociationResult.UpdatedReason' is not present");
+            }
+        }
     }
 }

@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
 {
     public sealed class GetBrokerEncryptionOptionResult
     {
-        [Input("kmsKeyId")]
+        [PolicyResourceProperty("kmsKeyId", "_mUnknown_KmsKeyId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsKeyId;
+        private string? _mValue_KmsKeyId;
+        private bool _mUnknown_KmsKeyId;
+        public string? KmsKeyId
+        {
+            get
+            {
+                if (!_mUnknown_KmsKeyId) return _mValue_KmsKeyId;
+                throw new UndeferrableValueException("Value 'GetBrokerEncryptionOptionResult.KmsKeyId' is not present");
+            }
+        }
 
-        public string? KmsKeyId => _mKmsKeyId.GetValue("kmsKeyId");
-
-        [Input("useAwsOwnedKey")]
+        [PolicyResourceProperty("useAwsOwnedKey", "_mUnknown_UseAwsOwnedKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseAwsOwnedKey;
-
-        public bool? UseAwsOwnedKey => _mUseAwsOwnedKey.GetValue("useAwsOwnedKey");
+        private bool? _mValue_UseAwsOwnedKey;
+        private bool _mUnknown_UseAwsOwnedKey;
+        public bool? UseAwsOwnedKey
+        {
+            get
+            {
+                if (!_mUnknown_UseAwsOwnedKey) return _mValue_UseAwsOwnedKey;
+                throw new UndeferrableValueException("Value 'GetBrokerEncryptionOptionResult.UseAwsOwnedKey' is not present");
+            }
+        }
     }
 }

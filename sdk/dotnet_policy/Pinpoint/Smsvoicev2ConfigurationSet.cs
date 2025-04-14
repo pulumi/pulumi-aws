@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// ARN of the configuration set.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
         /// </summary>
-        [Input("defaultMessageType")]
+        [PolicyResourceProperty("defaultMessageType", "_mUnknown_DefaultMessageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultMessageType;
-
-        public string? DefaultMessageType => _mDefaultMessageType.GetValue("defaultMessageType");
+        private string? _mValue_DefaultMessageType;
+        private bool _mUnknown_DefaultMessageType;
+        public string? DefaultMessageType
+        {
+            get
+            {
+                if (!_mUnknown_DefaultMessageType) return _mValue_DefaultMessageType;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.DefaultMessageType' is not present");
+            }
+        }
 
         /// <summary>
         /// The default sender ID to use for this configuration set.
         /// </summary>
-        [Input("defaultSenderId")]
+        [PolicyResourceProperty("defaultSenderId", "_mUnknown_DefaultSenderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSenderId;
-
-        public string? DefaultSenderId => _mDefaultSenderId.GetValue("defaultSenderId");
+        private string? _mValue_DefaultSenderId;
+        private bool _mUnknown_DefaultSenderId;
+        public string? DefaultSenderId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSenderId) return _mValue_DefaultSenderId;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.DefaultSenderId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
         /// </summary>
-        [Input("defaultMessageType")]
+        [PolicyResourceProperty("defaultMessageType", "_mUnknown_DefaultMessageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultMessageType;
-
-        public string? DefaultMessageType => _mDefaultMessageType.GetValue("defaultMessageType");
+        private string? _mValue_DefaultMessageType;
+        private bool _mUnknown_DefaultMessageType;
+        public string? DefaultMessageType
+        {
+            get
+            {
+                if (!_mUnknown_DefaultMessageType) return _mValue_DefaultMessageType;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.DefaultMessageType' is not present");
+            }
+        }
 
         /// <summary>
         /// The default sender ID to use for this configuration set.
         /// </summary>
-        [Input("defaultSenderId")]
+        [PolicyResourceProperty("defaultSenderId", "_mUnknown_DefaultSenderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSenderId;
-
-        public string? DefaultSenderId => _mDefaultSenderId.GetValue("defaultSenderId");
+        private string? _mValue_DefaultSenderId;
+        private bool _mUnknown_DefaultSenderId;
+        public string? DefaultSenderId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSenderId) return _mValue_DefaultSenderId;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.DefaultSenderId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the configuration set.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.Tags' is not present");
+            }
+        }
     }
 }

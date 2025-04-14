@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult
     {
-        [Input("certificates")]
+        [PolicyResourceProperty("certificates", "_mUnknown_Certificates")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult>> _mCertificates;
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult>? _mValue_Certificates;
+        private bool _mUnknown_Certificates;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult>? Certificates
+        {
+            get
+            {
+                if (!_mUnknown_Certificates) return _mValue_Certificates;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlResult.Certificates' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult>? Certificates => _mCertificates.GetValue("certificates");
-
-        [Input("enforce")]
+        [PolicyResourceProperty("enforce", "_mUnknown_Enforce")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnforce;
+        private bool? _mValue_Enforce;
+        private bool _mUnknown_Enforce;
+        public bool? Enforce
+        {
+            get
+            {
+                if (!_mUnknown_Enforce) return _mValue_Enforce;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlResult.Enforce' is not present");
+            }
+        }
 
-        public bool? Enforce => _mEnforce.GetValue("enforce");
-
-        [Input("ports")]
+        [PolicyResourceProperty("ports", "_mUnknown_Ports")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<int>> _mPorts;
+        private List<int>? _mValue_Ports;
+        private bool _mUnknown_Ports;
+        public List<int>? Ports
+        {
+            get
+            {
+                if (!_mUnknown_Ports) return _mValue_Ports;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlResult.Ports' is not present");
+            }
+        }
 
-        public List<int>? Ports => _mPorts.GetValue("ports");
-
-        [Input("validations")]
+        [PolicyResourceProperty("validations", "_mUnknown_Validations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult>> _mValidations;
-
-        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult>? Validations => _mValidations.GetValue("validations");
+        private List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult>? _mValue_Validations;
+        private bool _mUnknown_Validations;
+        public List<Outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult>? Validations
+        {
+            get
+            {
+                if (!_mUnknown_Validations) return _mValue_Validations;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendDefaultClientPolicyTlResult.Validations' is not present");
+            }
+        }
     }
 }

@@ -16,189 +16,336 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'Eip.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'Eip.AllocationId' is not present");
+            }
+        }
 
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
-
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Eip.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
-        [Input("associateWithPrivateIp")]
+        [PolicyResourceProperty("associateWithPrivateIp", "_mUnknown_AssociateWithPrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociateWithPrivateIp;
-
-        public string? AssociateWithPrivateIp => _mAssociateWithPrivateIp.GetValue("associateWithPrivateIp");
+        private string? _mValue_AssociateWithPrivateIp;
+        private bool _mUnknown_AssociateWithPrivateIp;
+        public string? AssociateWithPrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_AssociateWithPrivateIp) return _mValue_AssociateWithPrivateIp;
+                throw new UndeferrableValueException("Value 'Eip.AssociateWithPrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// ID representing the association of the address with an instance in a VPC.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'Eip.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Carrier IP address.
         /// </summary>
-        [Input("carrierIp")]
+        [PolicyResourceProperty("carrierIp", "_mUnknown_CarrierIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCarrierIp;
-
-        public string? CarrierIp => _mCarrierIp.GetValue("carrierIp");
+        private string? _mValue_CarrierIp;
+        private bool _mUnknown_CarrierIp;
+        public string? CarrierIp
+        {
+            get
+            {
+                if (!_mUnknown_CarrierIp) return _mValue_CarrierIp;
+                throw new UndeferrableValueException("Value 'Eip.CarrierIp' is not present");
+            }
+        }
 
         /// <summary>
         /// Customer owned IP.
         /// </summary>
-        [Input("customerOwnedIp")]
+        [PolicyResourceProperty("customerOwnedIp", "_mUnknown_CustomerOwnedIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIp;
-
-        public string? CustomerOwnedIp => _mCustomerOwnedIp.GetValue("customerOwnedIp");
+        private string? _mValue_CustomerOwnedIp;
+        private bool _mUnknown_CustomerOwnedIp;
+        public string? CustomerOwnedIp
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIp) return _mValue_CustomerOwnedIp;
+                throw new UndeferrableValueException("Value 'Eip.CustomerOwnedIp' is not present");
+            }
+        }
 
         /// <summary>
         /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         /// </summary>
-        [Input("customerOwnedIpv4Pool")]
+        [PolicyResourceProperty("customerOwnedIpv4Pool", "_mUnknown_CustomerOwnedIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
-
-        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+        private string? _mValue_CustomerOwnedIpv4Pool;
+        private bool _mUnknown_CustomerOwnedIpv4Pool;
+        public string? CustomerOwnedIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpv4Pool) return _mValue_CustomerOwnedIpv4Pool;
+                throw new UndeferrableValueException("Value 'Eip.CustomerOwnedIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates if this EIP is for use in VPC (`vpc`).
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'Eip.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 instance ID.
         /// </summary>
-        [Input("instance")]
+        [PolicyResourceProperty("instance", "_mUnknown_Instance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
-
-        public string? Instance => _mInstance.GetValue("instance");
+        private string? _mValue_Instance;
+        private bool _mUnknown_Instance;
+        public string? Instance
+        {
+            get
+            {
+                if (!_mUnknown_Instance) return _mValue_Instance;
+                throw new UndeferrableValueException("Value 'Eip.Instance' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         /// </summary>
-        [Input("ipamPoolId")]
+        [PolicyResourceProperty("ipamPoolId", "_mUnknown_IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
-
-        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+        private string? _mValue_IpamPoolId;
+        private bool _mUnknown_IpamPoolId;
+        public string? IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IpamPoolId) return _mValue_IpamPoolId;
+                throw new UndeferrableValueException("Value 'Eip.IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
-        [Input("networkBorderGroup")]
+        [PolicyResourceProperty("networkBorderGroup", "_mUnknown_NetworkBorderGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkBorderGroup;
-
-        public string? NetworkBorderGroup => _mNetworkBorderGroup.GetValue("networkBorderGroup");
+        private string? _mValue_NetworkBorderGroup;
+        private bool _mUnknown_NetworkBorderGroup;
+        public string? NetworkBorderGroup
+        {
+            get
+            {
+                if (!_mUnknown_NetworkBorderGroup) return _mValue_NetworkBorderGroup;
+                throw new UndeferrableValueException("Value 'Eip.NetworkBorderGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Network interface ID to associate with.
         /// </summary>
-        [Input("networkInterface")]
+        [PolicyResourceProperty("networkInterface", "_mUnknown_NetworkInterface")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterface;
-
-        public string? NetworkInterface => _mNetworkInterface.GetValue("networkInterface");
+        private string? _mValue_NetworkInterface;
+        private bool _mUnknown_NetworkInterface;
+        public string? NetworkInterface
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterface) return _mValue_NetworkInterface;
+                throw new UndeferrableValueException("Value 'Eip.NetworkInterface' is not present");
+            }
+        }
 
         /// <summary>
         /// The Private DNS associated with the Elastic IP address (if in VPC).
         /// </summary>
-        [Input("privateDns")]
+        [PolicyResourceProperty("privateDns", "_mUnknown_PrivateDns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateDns;
-
-        public string? PrivateDns => _mPrivateDns.GetValue("privateDns");
+        private string? _mValue_PrivateDns;
+        private bool _mUnknown_PrivateDns;
+        public string? PrivateDns
+        {
+            get
+            {
+                if (!_mUnknown_PrivateDns) return _mValue_PrivateDns;
+                throw new UndeferrableValueException("Value 'Eip.PrivateDns' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains the private IP address (if in VPC).
         /// </summary>
-        [Input("privateIp")]
+        [PolicyResourceProperty("privateIp", "_mUnknown_PrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
-
-        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+        private string? _mValue_PrivateIp;
+        private bool _mUnknown_PrivateIp;
+        public string? PrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIp) return _mValue_PrivateIp;
+                throw new UndeferrableValueException("Value 'Eip.PrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// The DNS pointer (PTR) record for the IP address.
         /// </summary>
-        [Input("ptrRecord")]
+        [PolicyResourceProperty("ptrRecord", "_mUnknown_PtrRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPtrRecord;
-
-        public string? PtrRecord => _mPtrRecord.GetValue("ptrRecord");
+        private string? _mValue_PtrRecord;
+        private bool _mUnknown_PtrRecord;
+        public string? PtrRecord
+        {
+            get
+            {
+                if (!_mUnknown_PtrRecord) return _mValue_PtrRecord;
+                throw new UndeferrableValueException("Value 'Eip.PtrRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// Public DNS associated with the Elastic IP address.
         /// </summary>
-        [Input("publicDns")]
+        [PolicyResourceProperty("publicDns", "_mUnknown_PublicDns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicDns;
-
-        public string? PublicDns => _mPublicDns.GetValue("publicDns");
+        private string? _mValue_PublicDns;
+        private bool _mUnknown_PublicDns;
+        public string? PublicDns
+        {
+            get
+            {
+                if (!_mUnknown_PublicDns) return _mValue_PublicDns;
+                throw new UndeferrableValueException("Value 'Eip.PublicDns' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains the public IP address.
         /// </summary>
-        [Input("publicIp")]
+        [PolicyResourceProperty("publicIp", "_mUnknown_PublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
-
-        public string? PublicIp => _mPublicIp.GetValue("publicIp");
+        private string? _mValue_PublicIp;
+        private bool _mUnknown_PublicIp;
+        public string? PublicIp
+        {
+            get
+            {
+                if (!_mUnknown_PublicIp) return _mValue_PublicIp;
+                throw new UndeferrableValueException("Value 'Eip.PublicIp' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 IPv4 address pool identifier or `amazon`.
         /// This option is only available for VPC EIPs.
         /// </summary>
-        [Input("publicIpv4Pool")]
+        [PolicyResourceProperty("publicIpv4Pool", "_mUnknown_PublicIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpv4Pool;
-
-        public string? PublicIpv4Pool => _mPublicIpv4Pool.GetValue("publicIpv4Pool");
+        private string? _mValue_PublicIpv4Pool;
+        private bool _mUnknown_PublicIpv4Pool;
+        public string? PublicIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_PublicIpv4Pool) return _mValue_PublicIpv4Pool;
+                throw new UndeferrableValueException("Value 'Eip.PublicIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Eip.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Eip.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -209,11 +356,18 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         /// case both options are defined as the api only requires one or the other.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVpc;
-
-        public bool? Vpc => _mVpc.GetValue("vpc");
+        private bool? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public bool? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'Eip.Vpc' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/eip:Eip")]
@@ -222,93 +376,163 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAddress;
-
-        public string? Address => _mAddress.GetValue("address");
+        private string? _mValue_Address;
+        private bool _mUnknown_Address;
+        public string? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'EipArgs.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         /// </summary>
-        [Input("associateWithPrivateIp")]
+        [PolicyResourceProperty("associateWithPrivateIp", "_mUnknown_AssociateWithPrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociateWithPrivateIp;
-
-        public string? AssociateWithPrivateIp => _mAssociateWithPrivateIp.GetValue("associateWithPrivateIp");
+        private string? _mValue_AssociateWithPrivateIp;
+        private bool _mUnknown_AssociateWithPrivateIp;
+        public string? AssociateWithPrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_AssociateWithPrivateIp) return _mValue_AssociateWithPrivateIp;
+                throw new UndeferrableValueException("Value 'EipArgs.AssociateWithPrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         /// </summary>
-        [Input("customerOwnedIpv4Pool")]
+        [PolicyResourceProperty("customerOwnedIpv4Pool", "_mUnknown_CustomerOwnedIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerOwnedIpv4Pool;
-
-        public string? CustomerOwnedIpv4Pool => _mCustomerOwnedIpv4Pool.GetValue("customerOwnedIpv4Pool");
+        private string? _mValue_CustomerOwnedIpv4Pool;
+        private bool _mUnknown_CustomerOwnedIpv4Pool;
+        public string? CustomerOwnedIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_CustomerOwnedIpv4Pool) return _mValue_CustomerOwnedIpv4Pool;
+                throw new UndeferrableValueException("Value 'EipArgs.CustomerOwnedIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates if this EIP is for use in VPC (`vpc`).
         /// </summary>
-        [Input("domain")]
+        [PolicyResourceProperty("domain", "_mUnknown_Domain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomain;
-
-        public string? Domain => _mDomain.GetValue("domain");
+        private string? _mValue_Domain;
+        private bool _mUnknown_Domain;
+        public string? Domain
+        {
+            get
+            {
+                if (!_mUnknown_Domain) return _mValue_Domain;
+                throw new UndeferrableValueException("Value 'EipArgs.Domain' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 instance ID.
         /// </summary>
-        [Input("instance")]
+        [PolicyResourceProperty("instance", "_mUnknown_Instance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstance;
-
-        public string? Instance => _mInstance.GetValue("instance");
+        private string? _mValue_Instance;
+        private bool _mUnknown_Instance;
+        public string? Instance
+        {
+            get
+            {
+                if (!_mUnknown_Instance) return _mValue_Instance;
+                throw new UndeferrableValueException("Value 'EipArgs.Instance' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         /// </summary>
-        [Input("ipamPoolId")]
+        [PolicyResourceProperty("ipamPoolId", "_mUnknown_IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpamPoolId;
-
-        public string? IpamPoolId => _mIpamPoolId.GetValue("ipamPoolId");
+        private string? _mValue_IpamPoolId;
+        private bool _mUnknown_IpamPoolId;
+        public string? IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IpamPoolId) return _mValue_IpamPoolId;
+                throw new UndeferrableValueException("Value 'EipArgs.IpamPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         /// </summary>
-        [Input("networkBorderGroup")]
+        [PolicyResourceProperty("networkBorderGroup", "_mUnknown_NetworkBorderGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkBorderGroup;
-
-        public string? NetworkBorderGroup => _mNetworkBorderGroup.GetValue("networkBorderGroup");
+        private string? _mValue_NetworkBorderGroup;
+        private bool _mUnknown_NetworkBorderGroup;
+        public string? NetworkBorderGroup
+        {
+            get
+            {
+                if (!_mUnknown_NetworkBorderGroup) return _mValue_NetworkBorderGroup;
+                throw new UndeferrableValueException("Value 'EipArgs.NetworkBorderGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Network interface ID to associate with.
         /// </summary>
-        [Input("networkInterface")]
+        [PolicyResourceProperty("networkInterface", "_mUnknown_NetworkInterface")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterface;
-
-        public string? NetworkInterface => _mNetworkInterface.GetValue("networkInterface");
+        private string? _mValue_NetworkInterface;
+        private bool _mUnknown_NetworkInterface;
+        public string? NetworkInterface
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterface) return _mValue_NetworkInterface;
+                throw new UndeferrableValueException("Value 'EipArgs.NetworkInterface' is not present");
+            }
+        }
 
         /// <summary>
         /// EC2 IPv4 address pool identifier or `amazon`.
         /// This option is only available for VPC EIPs.
         /// </summary>
-        [Input("publicIpv4Pool")]
+        [PolicyResourceProperty("publicIpv4Pool", "_mUnknown_PublicIpv4Pool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIpv4Pool;
-
-        public string? PublicIpv4Pool => _mPublicIpv4Pool.GetValue("publicIpv4Pool");
+        private string? _mValue_PublicIpv4Pool;
+        private bool _mUnknown_PublicIpv4Pool;
+        public string? PublicIpv4Pool
+        {
+            get
+            {
+                if (!_mUnknown_PublicIpv4Pool) return _mValue_PublicIpv4Pool;
+                throw new UndeferrableValueException("Value 'EipArgs.PublicIpv4Pool' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'EipArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -319,10 +543,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         /// case both options are defined as the api only requires one or the other.
         /// </summary>
-        [Input("vpc")]
+        [PolicyResourceProperty("vpc", "_mUnknown_Vpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mVpc;
-
-        public bool? Vpc => _mVpc.GetValue("vpc");
+        private bool? _mValue_Vpc;
+        private bool _mUnknown_Vpc;
+        public bool? Vpc
+        {
+            get
+            {
+                if (!_mUnknown_Vpc) return _mValue_Vpc;
+                throw new UndeferrableValueException("Value 'EipArgs.Vpc' is not present");
+            }
+        }
     }
 }

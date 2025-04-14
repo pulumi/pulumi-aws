@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
         /// </summary>
-        [Input("idleTimeout")]
+        [PolicyResourceProperty("idleTimeout", "_mUnknown_IdleTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleTimeout;
-
-        public int? IdleTimeout => _mIdleTimeout.GetValue("idleTimeout");
+        private int? _mValue_IdleTimeout;
+        private bool _mUnknown_IdleTimeout;
+        public int? IdleTimeout
+        {
+            get
+            {
+                if (!_mUnknown_IdleTimeout) return _mValue_IdleTimeout;
+                throw new UndeferrableValueException("Value 'ClusterAutoTerminationPolicyArgs.IdleTimeout' is not present");
+            }
+        }
     }
 }

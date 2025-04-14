@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Rds.Outputs
         /// <summary>
         /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
         /// </summary>
-        [Input("restoreTime")]
+        [PolicyResourceProperty("restoreTime", "_mUnknown_RestoreTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreTime;
-
-        public string? RestoreTime => _mRestoreTime.GetValue("restoreTime");
+        private string? _mValue_RestoreTime;
+        private bool _mUnknown_RestoreTime;
+        public string? RestoreTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreTime) return _mValue_RestoreTime;
+                throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.RestoreTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
         /// </summary>
-        [Input("sourceDbInstanceAutomatedBackupsArn")]
+        [PolicyResourceProperty("sourceDbInstanceAutomatedBackupsArn", "_mUnknown_SourceDbInstanceAutomatedBackupsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbInstanceAutomatedBackupsArn;
-
-        public string? SourceDbInstanceAutomatedBackupsArn => _mSourceDbInstanceAutomatedBackupsArn.GetValue("sourceDbInstanceAutomatedBackupsArn");
+        private string? _mValue_SourceDbInstanceAutomatedBackupsArn;
+        private bool _mUnknown_SourceDbInstanceAutomatedBackupsArn;
+        public string? SourceDbInstanceAutomatedBackupsArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceDbInstanceAutomatedBackupsArn) return _mValue_SourceDbInstanceAutomatedBackupsArn;
+                throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.SourceDbInstanceAutomatedBackupsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
         /// </summary>
-        [Input("sourceDbInstanceIdentifier")]
+        [PolicyResourceProperty("sourceDbInstanceIdentifier", "_mUnknown_SourceDbInstanceIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbInstanceIdentifier;
-
-        public string? SourceDbInstanceIdentifier => _mSourceDbInstanceIdentifier.GetValue("sourceDbInstanceIdentifier");
+        private string? _mValue_SourceDbInstanceIdentifier;
+        private bool _mUnknown_SourceDbInstanceIdentifier;
+        public string? SourceDbInstanceIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceDbInstanceIdentifier) return _mValue_SourceDbInstanceIdentifier;
+                throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.SourceDbInstanceIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
         /// </summary>
-        [Input("sourceDbiResourceId")]
+        [PolicyResourceProperty("sourceDbiResourceId", "_mUnknown_SourceDbiResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceDbiResourceId;
-
-        public string? SourceDbiResourceId => _mSourceDbiResourceId.GetValue("sourceDbiResourceId");
+        private string? _mValue_SourceDbiResourceId;
+        private bool _mUnknown_SourceDbiResourceId;
+        public string? SourceDbiResourceId
+        {
+            get
+            {
+                if (!_mUnknown_SourceDbiResourceId) return _mValue_SourceDbiResourceId;
+                throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.SourceDbiResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
         /// </summary>
-        [Input("useLatestRestorableTime")]
+        [PolicyResourceProperty("useLatestRestorableTime", "_mUnknown_UseLatestRestorableTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseLatestRestorableTime;
-
-        public bool? UseLatestRestorableTime => _mUseLatestRestorableTime.GetValue("useLatestRestorableTime");
+        private bool? _mValue_UseLatestRestorableTime;
+        private bool _mUnknown_UseLatestRestorableTime;
+        public bool? UseLatestRestorableTime
+        {
+            get
+            {
+                if (!_mUnknown_UseLatestRestorableTime) return _mValue_UseLatestRestorableTime;
+                throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.UseLatestRestorableTime' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Eks.Inputs
         /// <summary>
         /// The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
         /// </summary>
-        [Input("authenticationMode")]
+        [PolicyResourceProperty("authenticationMode", "_mUnknown_AuthenticationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationMode;
-
-        public string? AuthenticationMode => _mAuthenticationMode.GetValue("authenticationMode");
+        private string? _mValue_AuthenticationMode;
+        private bool _mUnknown_AuthenticationMode;
+        public string? AuthenticationMode
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationMode) return _mValue_AuthenticationMode;
+                throw new UndeferrableValueException("Value 'ClusterAccessConfigArgs.AuthenticationMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         /// </summary>
-        [Input("bootstrapClusterCreatorAdminPermissions")]
+        [PolicyResourceProperty("bootstrapClusterCreatorAdminPermissions", "_mUnknown_BootstrapClusterCreatorAdminPermissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBootstrapClusterCreatorAdminPermissions;
-
-        public bool? BootstrapClusterCreatorAdminPermissions => _mBootstrapClusterCreatorAdminPermissions.GetValue("bootstrapClusterCreatorAdminPermissions");
+        private bool? _mValue_BootstrapClusterCreatorAdminPermissions;
+        private bool _mUnknown_BootstrapClusterCreatorAdminPermissions;
+        public bool? BootstrapClusterCreatorAdminPermissions
+        {
+            get
+            {
+                if (!_mUnknown_BootstrapClusterCreatorAdminPermissions) return _mValue_BootstrapClusterCreatorAdminPermissions;
+                throw new UndeferrableValueException("Value 'ClusterAccessConfigArgs.BootstrapClusterCreatorAdminPermissions' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Time for which a bot waits after the customer stops speaking to assume the utterance is finished.
         /// </summary>
-        [Input("endTimeoutMs")]
+        [PolicyResourceProperty("endTimeoutMs", "_mUnknown_EndTimeoutMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEndTimeoutMs;
-
-        public int? EndTimeoutMs => _mEndTimeoutMs.GetValue("endTimeoutMs");
+        private int? _mValue_EndTimeoutMs;
+        private bool _mUnknown_EndTimeoutMs;
+        public int? EndTimeoutMs
+        {
+            get
+            {
+                if (!_mUnknown_EndTimeoutMs) return _mValue_EndTimeoutMs;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification.EndTimeoutMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Time for how long Amazon Lex waits before speech input is truncated and the speech is returned to application.
         /// </summary>
-        [Input("maxLengthMs")]
+        [PolicyResourceProperty("maxLengthMs", "_mUnknown_MaxLengthMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxLengthMs;
-
-        public int? MaxLengthMs => _mMaxLengthMs.GetValue("maxLengthMs");
+        private int? _mValue_MaxLengthMs;
+        private bool _mUnknown_MaxLengthMs;
+        public int? MaxLengthMs
+        {
+            get
+            {
+                if (!_mUnknown_MaxLengthMs) return _mValue_MaxLengthMs;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification.MaxLengthMs' is not present");
+            }
+        }
     }
 }

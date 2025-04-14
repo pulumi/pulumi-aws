@@ -16,29 +16,50 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// PEM-encoded certificate for the Certificate Authority.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificate.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Certificate Authority.
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificate.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificate.CertificateChain' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate")]
@@ -47,28 +68,49 @@ namespace Pulumi.PolicyPacks.Aws.Acmpca
         /// <summary>
         /// PEM-encoded certificate for the Certificate Authority.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_Certificate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificate;
-
-        public string? Certificate => _mCertificate.GetValue("certificate");
+        private string? _mValue_Certificate;
+        private bool _mUnknown_Certificate;
+        public string? Certificate
+        {
+            get
+            {
+                if (!_mUnknown_Certificate) return _mValue_Certificate;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateArgs.Certificate' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the Certificate Authority.
         /// </summary>
-        [Input("certificateAuthorityArn")]
+        [PolicyResourceProperty("certificateAuthorityArn", "_mUnknown_CertificateAuthorityArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateAuthorityArn;
-
-        public string? CertificateAuthorityArn => _mCertificateAuthorityArn.GetValue("certificateAuthorityArn");
+        private string? _mValue_CertificateAuthorityArn;
+        private bool _mUnknown_CertificateAuthorityArn;
+        public string? CertificateAuthorityArn
+        {
+            get
+            {
+                if (!_mUnknown_CertificateAuthorityArn) return _mValue_CertificateAuthorityArn;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateArgs.CertificateAuthorityArn' is not present");
+            }
+        }
 
         /// <summary>
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateArgs.CertificateChain' is not present");
+            }
+        }
     }
 }

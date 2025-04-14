@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// Amazon Resource Name (ARN) of the conformance pack.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ConformancePack.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
         /// </summary>
-        [Input("deliveryS3Bucket")]
+        [PolicyResourceProperty("deliveryS3Bucket", "_mUnknown_DeliveryS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3Bucket;
-
-        public string? DeliveryS3Bucket => _mDeliveryS3Bucket.GetValue("deliveryS3Bucket");
+        private string? _mValue_DeliveryS3Bucket;
+        private bool _mUnknown_DeliveryS3Bucket;
+        public string? DeliveryS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryS3Bucket) return _mValue_DeliveryS3Bucket;
+                throw new UndeferrableValueException("Value 'ConformancePack.DeliveryS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix for the Amazon S3 bucket. Maximum length of 1024.
         /// </summary>
-        [Input("deliveryS3KeyPrefix")]
+        [PolicyResourceProperty("deliveryS3KeyPrefix", "_mUnknown_DeliveryS3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3KeyPrefix;
-
-        public string? DeliveryS3KeyPrefix => _mDeliveryS3KeyPrefix.GetValue("deliveryS3KeyPrefix");
+        private string? _mValue_DeliveryS3KeyPrefix;
+        private bool _mUnknown_DeliveryS3KeyPrefix;
+        public string? DeliveryS3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryS3KeyPrefix) return _mValue_DeliveryS3KeyPrefix;
+                throw new UndeferrableValueException("Value 'ConformancePack.DeliveryS3KeyPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         /// </summary>
-        [Input("inputParameters")]
+        [PolicyResourceProperty("inputParameters", "_mUnknown_InputParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ConformancePackInputParameter>> _mInputParameters;
-
-        public List<Outputs.ConformancePackInputParameter>? InputParameters => _mInputParameters.GetValue("inputParameters");
+        private List<Outputs.ConformancePackInputParameter>? _mValue_InputParameters;
+        private bool _mUnknown_InputParameters;
+        public List<Outputs.ConformancePackInputParameter>? InputParameters
+        {
+            get
+            {
+                if (!_mUnknown_InputParameters) return _mValue_InputParameters;
+                throw new UndeferrableValueException("Value 'ConformancePack.InputParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConformancePack.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         /// </summary>
-        [Input("templateBody")]
+        [PolicyResourceProperty("templateBody", "_mUnknown_TemplateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
-
-        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+        private string? _mValue_TemplateBody;
+        private bool _mUnknown_TemplateBody;
+        public string? TemplateBody
+        {
+            get
+            {
+                if (!_mUnknown_TemplateBody) return _mValue_TemplateBody;
+                throw new UndeferrableValueException("Value 'ConformancePack.TemplateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         /// </summary>
-        [Input("templateS3Uri")]
+        [PolicyResourceProperty("templateS3Uri", "_mUnknown_TemplateS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateS3Uri;
-
-        public string? TemplateS3Uri => _mTemplateS3Uri.GetValue("templateS3Uri");
+        private string? _mValue_TemplateS3Uri;
+        private bool _mUnknown_TemplateS3Uri;
+        public string? TemplateS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_TemplateS3Uri) return _mValue_TemplateS3Uri;
+                throw new UndeferrableValueException("Value 'ConformancePack.TemplateS3Uri' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cfg/conformancePack:ConformancePack")]
@@ -83,55 +132,97 @@ namespace Pulumi.PolicyPacks.Aws.Cfg
         /// <summary>
         /// Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
         /// </summary>
-        [Input("deliveryS3Bucket")]
+        [PolicyResourceProperty("deliveryS3Bucket", "_mUnknown_DeliveryS3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3Bucket;
-
-        public string? DeliveryS3Bucket => _mDeliveryS3Bucket.GetValue("deliveryS3Bucket");
+        private string? _mValue_DeliveryS3Bucket;
+        private bool _mUnknown_DeliveryS3Bucket;
+        public string? DeliveryS3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryS3Bucket) return _mValue_DeliveryS3Bucket;
+                throw new UndeferrableValueException("Value 'ConformancePackArgs.DeliveryS3Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// The prefix for the Amazon S3 bucket. Maximum length of 1024.
         /// </summary>
-        [Input("deliveryS3KeyPrefix")]
+        [PolicyResourceProperty("deliveryS3KeyPrefix", "_mUnknown_DeliveryS3KeyPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryS3KeyPrefix;
-
-        public string? DeliveryS3KeyPrefix => _mDeliveryS3KeyPrefix.GetValue("deliveryS3KeyPrefix");
+        private string? _mValue_DeliveryS3KeyPrefix;
+        private bool _mUnknown_DeliveryS3KeyPrefix;
+        public string? DeliveryS3KeyPrefix
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryS3KeyPrefix) return _mValue_DeliveryS3KeyPrefix;
+                throw new UndeferrableValueException("Value 'ConformancePackArgs.DeliveryS3KeyPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         /// </summary>
-        [Input("inputParameters")]
+        [PolicyResourceProperty("inputParameters", "_mUnknown_InputParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ConformancePackInputParameterArgs>> _mInputParameters;
-
-        public List<Inputs.ConformancePackInputParameterArgs>? InputParameters => _mInputParameters.GetValue("inputParameters");
+        private List<Inputs.ConformancePackInputParameterArgs>? _mValue_InputParameters;
+        private bool _mUnknown_InputParameters;
+        public List<Inputs.ConformancePackInputParameterArgs>? InputParameters
+        {
+            get
+            {
+                if (!_mUnknown_InputParameters) return _mValue_InputParameters;
+                throw new UndeferrableValueException("Value 'ConformancePackArgs.InputParameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConformancePackArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         /// </summary>
-        [Input("templateBody")]
+        [PolicyResourceProperty("templateBody", "_mUnknown_TemplateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
-
-        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+        private string? _mValue_TemplateBody;
+        private bool _mUnknown_TemplateBody;
+        public string? TemplateBody
+        {
+            get
+            {
+                if (!_mUnknown_TemplateBody) return _mValue_TemplateBody;
+                throw new UndeferrableValueException("Value 'ConformancePackArgs.TemplateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         /// </summary>
-        [Input("templateS3Uri")]
+        [PolicyResourceProperty("templateS3Uri", "_mUnknown_TemplateS3Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateS3Uri;
-
-        public string? TemplateS3Uri => _mTemplateS3Uri.GetValue("templateS3Uri");
+        private string? _mValue_TemplateS3Uri;
+        private bool _mUnknown_TemplateS3Uri;
+        public string? TemplateS3Uri
+        {
+            get
+            {
+                if (!_mUnknown_TemplateS3Uri) return _mValue_TemplateS3Uri;
+                throw new UndeferrableValueException("Value 'ConformancePackArgs.TemplateS3Uri' is not present");
+            }
+        }
     }
 }

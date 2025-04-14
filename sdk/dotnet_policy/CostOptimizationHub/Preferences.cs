@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CostOptimizationHub
         /// <summary>
         /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
         /// </summary>
-        [Input("memberAccountDiscountVisibility")]
+        [PolicyResourceProperty("memberAccountDiscountVisibility", "_mUnknown_MemberAccountDiscountVisibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberAccountDiscountVisibility;
-
-        public string? MemberAccountDiscountVisibility => _mMemberAccountDiscountVisibility.GetValue("memberAccountDiscountVisibility");
+        private string? _mValue_MemberAccountDiscountVisibility;
+        private bool _mUnknown_MemberAccountDiscountVisibility;
+        public string? MemberAccountDiscountVisibility
+        {
+            get
+            {
+                if (!_mUnknown_MemberAccountDiscountVisibility) return _mValue_MemberAccountDiscountVisibility;
+                throw new UndeferrableValueException("Value 'Preferences.MemberAccountDiscountVisibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         /// </summary>
-        [Input("savingsEstimationMode")]
+        [PolicyResourceProperty("savingsEstimationMode", "_mUnknown_SavingsEstimationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSavingsEstimationMode;
-
-        public string? SavingsEstimationMode => _mSavingsEstimationMode.GetValue("savingsEstimationMode");
+        private string? _mValue_SavingsEstimationMode;
+        private bool _mUnknown_SavingsEstimationMode;
+        public string? SavingsEstimationMode
+        {
+            get
+            {
+                if (!_mUnknown_SavingsEstimationMode) return _mValue_SavingsEstimationMode;
+                throw new UndeferrableValueException("Value 'Preferences.SavingsEstimationMode' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:costoptimizationhub/preferences:Preferences")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.CostOptimizationHub
         /// <summary>
         /// Customize whether the member accounts can see the "After Discounts" savings estimates. Valid values are `All` and `None`. Default value is `All`.
         /// </summary>
-        [Input("memberAccountDiscountVisibility")]
+        [PolicyResourceProperty("memberAccountDiscountVisibility", "_mUnknown_MemberAccountDiscountVisibility")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemberAccountDiscountVisibility;
-
-        public string? MemberAccountDiscountVisibility => _mMemberAccountDiscountVisibility.GetValue("memberAccountDiscountVisibility");
+        private string? _mValue_MemberAccountDiscountVisibility;
+        private bool _mUnknown_MemberAccountDiscountVisibility;
+        public string? MemberAccountDiscountVisibility
+        {
+            get
+            {
+                if (!_mUnknown_MemberAccountDiscountVisibility) return _mValue_MemberAccountDiscountVisibility;
+                throw new UndeferrableValueException("Value 'PreferencesArgs.MemberAccountDiscountVisibility' is not present");
+            }
+        }
 
         /// <summary>
         /// Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
         /// </summary>
-        [Input("savingsEstimationMode")]
+        [PolicyResourceProperty("savingsEstimationMode", "_mUnknown_SavingsEstimationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSavingsEstimationMode;
-
-        public string? SavingsEstimationMode => _mSavingsEstimationMode.GetValue("savingsEstimationMode");
+        private string? _mValue_SavingsEstimationMode;
+        private bool _mUnknown_SavingsEstimationMode;
+        public string? SavingsEstimationMode
+        {
+            get
+            {
+                if (!_mUnknown_SavingsEstimationMode) return _mValue_SavingsEstimationMode;
+                throw new UndeferrableValueException("Value 'PreferencesArgs.SavingsEstimationMode' is not present");
+            }
+        }
     }
 }

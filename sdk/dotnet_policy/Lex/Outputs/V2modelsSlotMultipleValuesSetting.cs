@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
         /// </summary>
-        [Input("allowMultipleValues")]
+        [PolicyResourceProperty("allowMultipleValues", "_mUnknown_AllowMultipleValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowMultipleValues;
-
-        public bool? AllowMultipleValues => _mAllowMultipleValues.GetValue("allowMultipleValues");
+        private bool? _mValue_AllowMultipleValues;
+        private bool _mUnknown_AllowMultipleValues;
+        public bool? AllowMultipleValues
+        {
+            get
+            {
+                if (!_mUnknown_AllowMultipleValues) return _mValue_AllowMultipleValues;
+                throw new UndeferrableValueException("Value 'V2modelsSlotMultipleValuesSetting.AllowMultipleValues' is not present");
+            }
+        }
     }
 }

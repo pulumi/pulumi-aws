@@ -15,97 +15,174 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
         /// </summary>
-        [Input("connectionAttempts")]
+        [PolicyResourceProperty("connectionAttempts", "_mUnknown_ConnectionAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConnectionAttempts;
-
-        public int? ConnectionAttempts => _mConnectionAttempts.GetValue("connectionAttempts");
+        private int? _mValue_ConnectionAttempts;
+        private bool _mUnknown_ConnectionAttempts;
+        public int? ConnectionAttempts
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionAttempts) return _mValue_ConnectionAttempts;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.ConnectionAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
         /// </summary>
-        [Input("connectionTimeout")]
+        [PolicyResourceProperty("connectionTimeout", "_mUnknown_ConnectionTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConnectionTimeout;
-
-        public int? ConnectionTimeout => _mConnectionTimeout.GetValue("connectionTimeout");
+        private int? _mValue_ConnectionTimeout;
+        private bool _mUnknown_ConnectionTimeout;
+        public int? ConnectionTimeout
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionTimeout) return _mValue_ConnectionTimeout;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.ConnectionTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
         /// </summary>
-        [Input("customHeaders")]
+        [PolicyResourceProperty("customHeaders", "_mUnknown_CustomHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DistributionOriginCustomHeaderArgs>> _mCustomHeaders;
-
-        public List<Inputs.DistributionOriginCustomHeaderArgs>? CustomHeaders => _mCustomHeaders.GetValue("customHeaders");
+        private List<Inputs.DistributionOriginCustomHeaderArgs>? _mValue_CustomHeaders;
+        private bool _mUnknown_CustomHeaders;
+        public List<Inputs.DistributionOriginCustomHeaderArgs>? CustomHeaders
+        {
+            get
+            {
+                if (!_mUnknown_CustomHeaders) return _mValue_CustomHeaders;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.CustomHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
         /// </summary>
-        [Input("customOriginConfig")]
+        [PolicyResourceProperty("customOriginConfig", "_mUnknown_CustomOriginConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionOriginCustomOriginConfigArgs> _mCustomOriginConfig;
-
-        public Inputs.DistributionOriginCustomOriginConfigArgs? CustomOriginConfig => _mCustomOriginConfig.GetValue("customOriginConfig");
+        private Inputs.DistributionOriginCustomOriginConfigArgs? _mValue_CustomOriginConfig;
+        private bool _mUnknown_CustomOriginConfig;
+        public Inputs.DistributionOriginCustomOriginConfigArgs? CustomOriginConfig
+        {
+            get
+            {
+                if (!_mUnknown_CustomOriginConfig) return _mValue_CustomOriginConfig;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.CustomOriginConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of a [CloudFront origin access control][8] for this origin.
         /// </summary>
-        [Input("originAccessControlId")]
+        [PolicyResourceProperty("originAccessControlId", "_mUnknown_OriginAccessControlId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginAccessControlId;
+        private string? _mValue_OriginAccessControlId;
+        private bool _mUnknown_OriginAccessControlId;
+        public string? OriginAccessControlId
+        {
+            get
+            {
+                if (!_mUnknown_OriginAccessControlId) return _mValue_OriginAccessControlId;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.OriginAccessControlId' is not present");
+            }
+        }
 
-        public string? OriginAccessControlId => _mOriginAccessControlId.GetValue("originAccessControlId");
-
-        [Input("originId")]
+        [PolicyResourceProperty("originId", "_mUnknown_OriginId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginId;
-
-        public string? OriginId => _mOriginId.GetValue("originId");
+        private string? _mValue_OriginId;
+        private bool _mUnknown_OriginId;
+        public string? OriginId
+        {
+            get
+            {
+                if (!_mUnknown_OriginId) return _mValue_OriginId;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.OriginId' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
         /// </summary>
-        [Input("originPath")]
+        [PolicyResourceProperty("originPath", "_mUnknown_OriginPath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOriginPath;
-
-        public string? OriginPath => _mOriginPath.GetValue("originPath");
+        private string? _mValue_OriginPath;
+        private bool _mUnknown_OriginPath;
+        public string? OriginPath
+        {
+            get
+            {
+                if (!_mUnknown_OriginPath) return _mValue_OriginPath;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.OriginPath' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         /// </summary>
-        [Input("originShield")]
+        [PolicyResourceProperty("originShield", "_mUnknown_OriginShield")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionOriginOriginShieldArgs> _mOriginShield;
-
-        public Inputs.DistributionOriginOriginShieldArgs? OriginShield => _mOriginShield.GetValue("originShield");
+        private Inputs.DistributionOriginOriginShieldArgs? _mValue_OriginShield;
+        private bool _mUnknown_OriginShield;
+        public Inputs.DistributionOriginOriginShieldArgs? OriginShield
+        {
+            get
+            {
+                if (!_mUnknown_OriginShield) return _mValue_OriginShield;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.OriginShield' is not present");
+            }
+        }
 
         /// <summary>
         /// CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         /// </summary>
-        [Input("s3OriginConfig")]
+        [PolicyResourceProperty("s3OriginConfig", "_mUnknown_S3OriginConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionOriginS3OriginConfigArgs> _mS3OriginConfig;
-
-        public Inputs.DistributionOriginS3OriginConfigArgs? S3OriginConfig => _mS3OriginConfig.GetValue("s3OriginConfig");
+        private Inputs.DistributionOriginS3OriginConfigArgs? _mValue_S3OriginConfig;
+        private bool _mUnknown_S3OriginConfig;
+        public Inputs.DistributionOriginS3OriginConfigArgs? S3OriginConfig
+        {
+            get
+            {
+                if (!_mUnknown_S3OriginConfig) return _mValue_S3OriginConfig;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.S3OriginConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The VPC origin configuration.
         /// </summary>
-        [Input("vpcOriginConfig")]
+        [PolicyResourceProperty("vpcOriginConfig", "_mUnknown_VpcOriginConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionOriginVpcOriginConfigArgs> _mVpcOriginConfig;
-
-        public Inputs.DistributionOriginVpcOriginConfigArgs? VpcOriginConfig => _mVpcOriginConfig.GetValue("vpcOriginConfig");
+        private Inputs.DistributionOriginVpcOriginConfigArgs? _mValue_VpcOriginConfig;
+        private bool _mUnknown_VpcOriginConfig;
+        public Inputs.DistributionOriginVpcOriginConfigArgs? VpcOriginConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcOriginConfig) return _mValue_VpcOriginConfig;
+                throw new UndeferrableValueException("Value 'DistributionOriginArgs.VpcOriginConfig' is not present");
+            }
+        }
     }
 }

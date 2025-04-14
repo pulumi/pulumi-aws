@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// API version that the destination connector uses.
         /// </summary>
-        [Input("apiVersion")]
+        [PolicyResourceProperty("apiVersion", "_mUnknown_ApiVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiVersion;
-
-        public string? ApiVersion => _mApiVersion.GetValue("apiVersion");
+        private string? _mValue_ApiVersion;
+        private bool _mUnknown_ApiVersion;
+        public string? ApiVersion
+        {
+            get
+            {
+                if (!_mUnknown_ApiVersion) return _mValue_ApiVersion;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfig.ApiVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
         /// </summary>
-        [Input("connectorProfileName")]
+        [PolicyResourceProperty("connectorProfileName", "_mUnknown_ConnectorProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorProfileName;
-
-        public string? ConnectorProfileName => _mConnectorProfileName.GetValue("connectorProfileName");
+        private string? _mValue_ConnectorProfileName;
+        private bool _mUnknown_ConnectorProfileName;
+        public string? ConnectorProfileName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorProfileName) return _mValue_ConnectorProfileName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfig.ConnectorProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
         /// </summary>
-        [Input("connectorType")]
+        [PolicyResourceProperty("connectorType", "_mUnknown_ConnectorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorType;
-
-        public string? ConnectorType => _mConnectorType.GetValue("connectorType");
+        private string? _mValue_ConnectorType;
+        private bool _mUnknown_ConnectorType;
+        public string? ConnectorType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorType) return _mValue_ConnectorType;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfig.ConnectorType' is not present");
+            }
+        }
 
         /// <summary>
         /// This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
         /// </summary>
-        [Input("destinationConnectorProperties")]
+        [PolicyResourceProperty("destinationConnectorProperties", "_mUnknown_DestinationConnectorProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowDestinationFlowConfigDestinationConnectorProperties> _mDestinationConnectorProperties;
-
-        public Outputs.FlowDestinationFlowConfigDestinationConnectorProperties? DestinationConnectorProperties => _mDestinationConnectorProperties.GetValue("destinationConnectorProperties");
+        private Outputs.FlowDestinationFlowConfigDestinationConnectorProperties? _mValue_DestinationConnectorProperties;
+        private bool _mUnknown_DestinationConnectorProperties;
+        public Outputs.FlowDestinationFlowConfigDestinationConnectorProperties? DestinationConnectorProperties
+        {
+            get
+            {
+                if (!_mUnknown_DestinationConnectorProperties) return _mValue_DestinationConnectorProperties;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfig.DestinationConnectorProperties' is not present");
+            }
+        }
     }
 }

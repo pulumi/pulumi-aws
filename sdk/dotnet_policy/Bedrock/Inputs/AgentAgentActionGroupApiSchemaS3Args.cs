@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
         /// <summary>
         /// Name of the S3 bucket.
         /// </summary>
-        [Input("s3BucketName")]
+        [PolicyResourceProperty("s3BucketName", "_mUnknown_S3BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3BucketName;
-
-        public string? S3BucketName => _mS3BucketName.GetValue("s3BucketName");
+        private string? _mValue_S3BucketName;
+        private bool _mUnknown_S3BucketName;
+        public string? S3BucketName
+        {
+            get
+            {
+                if (!_mUnknown_S3BucketName) return _mValue_S3BucketName;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaS3Args.S3BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 object key containing the resource.
         /// </summary>
-        [Input("s3ObjectKey")]
+        [PolicyResourceProperty("s3ObjectKey", "_mUnknown_S3ObjectKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mS3ObjectKey;
-
-        public string? S3ObjectKey => _mS3ObjectKey.GetValue("s3ObjectKey");
+        private string? _mValue_S3ObjectKey;
+        private bool _mUnknown_S3ObjectKey;
+        public string? S3ObjectKey
+        {
+            get
+            {
+                if (!_mUnknown_S3ObjectKey) return _mValue_S3ObjectKey;
+                throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaS3Args.S3ObjectKey' is not present");
+            }
+        }
     }
 }

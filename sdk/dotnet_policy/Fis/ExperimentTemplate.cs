@@ -16,82 +16,145 @@ namespace Pulumi.PolicyPacks.Aws.Fis
         /// <summary>
         /// Action to be performed during an experiment. See below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperimentTemplateAction>> _mActions;
-
-        public List<Outputs.ExperimentTemplateAction>? Actions => _mActions.GetValue("actions");
+        private List<Outputs.ExperimentTemplateAction>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Outputs.ExperimentTemplateAction>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the experiment template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The experiment options for the experiment template. See experiment_options below for more details!
         /// </summary>
-        [Input("experimentOptions")]
+        [PolicyResourceProperty("experimentOptions", "_mUnknown_ExperimentOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperimentTemplateExperimentOptions> _mExperimentOptions;
-
-        public Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions => _mExperimentOptions.GetValue("experimentOptions");
+        private Outputs.ExperimentTemplateExperimentOptions? _mValue_ExperimentOptions;
+        private bool _mUnknown_ExperimentOptions;
+        public Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions
+        {
+            get
+            {
+                if (!_mUnknown_ExperimentOptions) return _mValue_ExperimentOptions;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.ExperimentOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for experiment logging. See below.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ExperimentTemplateLogConfiguration> _mLogConfiguration;
-
-        public Outputs.ExperimentTemplateLogConfiguration? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Outputs.ExperimentTemplateLogConfiguration? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Outputs.ExperimentTemplateLogConfiguration? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("stopConditions")]
+        [PolicyResourceProperty("stopConditions", "_mUnknown_StopConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperimentTemplateStopCondition>> _mStopConditions;
-
-        public List<Outputs.ExperimentTemplateStopCondition>? StopConditions => _mStopConditions.GetValue("stopConditions");
+        private List<Outputs.ExperimentTemplateStopCondition>? _mValue_StopConditions;
+        private bool _mUnknown_StopConditions;
+        public List<Outputs.ExperimentTemplateStopCondition>? StopConditions
+        {
+            get
+            {
+                if (!_mUnknown_StopConditions) return _mValue_StopConditions;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.StopConditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Target of an action. See below.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ExperimentTemplateTarget>> _mTargets;
-
-        public List<Outputs.ExperimentTemplateTarget>? Targets => _mTargets.GetValue("targets");
+        private List<Outputs.ExperimentTemplateTarget>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Outputs.ExperimentTemplateTarget>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'ExperimentTemplate.Targets' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]
@@ -100,75 +163,131 @@ namespace Pulumi.PolicyPacks.Aws.Fis
         /// <summary>
         /// Action to be performed during an experiment. See below.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateActionArgs>> _mActions;
-
-        public List<Inputs.ExperimentTemplateActionArgs>? Actions => _mActions.GetValue("actions");
+        private List<Inputs.ExperimentTemplateActionArgs>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<Inputs.ExperimentTemplateActionArgs>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// Description for the experiment template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The experiment options for the experiment template. See experiment_options below for more details!
         /// </summary>
-        [Input("experimentOptions")]
+        [PolicyResourceProperty("experimentOptions", "_mUnknown_ExperimentOptions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ExperimentTemplateExperimentOptionsArgs> _mExperimentOptions;
-
-        public Inputs.ExperimentTemplateExperimentOptionsArgs? ExperimentOptions => _mExperimentOptions.GetValue("experimentOptions");
+        private Inputs.ExperimentTemplateExperimentOptionsArgs? _mValue_ExperimentOptions;
+        private bool _mUnknown_ExperimentOptions;
+        public Inputs.ExperimentTemplateExperimentOptionsArgs? ExperimentOptions
+        {
+            get
+            {
+                if (!_mUnknown_ExperimentOptions) return _mValue_ExperimentOptions;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.ExperimentOptions' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration for experiment logging. See below.
         /// </summary>
-        [Input("logConfiguration")]
+        [PolicyResourceProperty("logConfiguration", "_mUnknown_LogConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ExperimentTemplateLogConfigurationArgs> _mLogConfiguration;
-
-        public Inputs.ExperimentTemplateLogConfigurationArgs? LogConfiguration => _mLogConfiguration.GetValue("logConfiguration");
+        private Inputs.ExperimentTemplateLogConfigurationArgs? _mValue_LogConfiguration;
+        private bool _mUnknown_LogConfiguration;
+        public Inputs.ExperimentTemplateLogConfigurationArgs? LogConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LogConfiguration) return _mValue_LogConfiguration;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.LogConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// When an ongoing experiment should be stopped. See below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("stopConditions")]
+        [PolicyResourceProperty("stopConditions", "_mUnknown_StopConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateStopConditionArgs>> _mStopConditions;
-
-        public List<Inputs.ExperimentTemplateStopConditionArgs>? StopConditions => _mStopConditions.GetValue("stopConditions");
+        private List<Inputs.ExperimentTemplateStopConditionArgs>? _mValue_StopConditions;
+        private bool _mUnknown_StopConditions;
+        public List<Inputs.ExperimentTemplateStopConditionArgs>? StopConditions
+        {
+            get
+            {
+                if (!_mUnknown_StopConditions) return _mValue_StopConditions;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.StopConditions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Target of an action. See below.
         /// </summary>
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ExperimentTemplateTargetArgs>> _mTargets;
-
-        public List<Inputs.ExperimentTemplateTargetArgs>? Targets => _mTargets.GetValue("targets");
+        private List<Inputs.ExperimentTemplateTargetArgs>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Inputs.ExperimentTemplateTargetArgs>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'ExperimentTemplateArgs.Targets' is not present");
+            }
+        }
     }
 }

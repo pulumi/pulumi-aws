@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Outputs
         /// <summary>
         /// The location and type of the application code.
         /// </summary>
-        [Input("codeContent")]
+        [PolicyResourceProperty("codeContent", "_mUnknown_CodeContent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent> _mCodeContent;
-
-        public Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent? CodeContent => _mCodeContent.GetValue("codeContent");
+        private Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent? _mValue_CodeContent;
+        private bool _mUnknown_CodeContent;
+        public Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent? CodeContent
+        {
+            get
+            {
+                if (!_mUnknown_CodeContent) return _mValue_CodeContent;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfiguration.CodeContent' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
         /// </summary>
-        [Input("codeContentType")]
+        [PolicyResourceProperty("codeContentType", "_mUnknown_CodeContentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodeContentType;
-
-        public string? CodeContentType => _mCodeContentType.GetValue("codeContentType");
+        private string? _mValue_CodeContentType;
+        private bool _mUnknown_CodeContentType;
+        public string? CodeContentType
+        {
+            get
+            {
+                if (!_mUnknown_CodeContentType) return _mValue_CodeContentType;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfiguration.CodeContentType' is not present");
+            }
+        }
     }
 }

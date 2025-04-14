@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.CleanRooms.Inputs
 {
     public sealed class MembershipDefaultResultConfigurationOutputConfigurationArgs
     {
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args> _mS3;
-
-        public Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationArgs.S3' is not present");
+            }
+        }
     }
 }

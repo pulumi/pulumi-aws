@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Maximum CDI input resolution.
         /// </summary>
-        [Input("resolution")]
+        [PolicyResourceProperty("resolution", "_mUnknown_Resolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolution;
-
-        public string? Resolution => _mResolution.GetValue("resolution");
+        private string? _mValue_Resolution;
+        private bool _mUnknown_Resolution;
+        public string? Resolution
+        {
+            get
+            {
+                if (!_mUnknown_Resolution) return _mValue_Resolution;
+                throw new UndeferrableValueException("Value 'ChannelCdiInputSpecification.Resolution' is not present");
+            }
+        }
     }
 }

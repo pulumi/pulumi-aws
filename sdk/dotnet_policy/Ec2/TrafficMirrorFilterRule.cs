@@ -16,103 +16,180 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// ARN of the traffic mirror filter rule.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the traffic mirror filter rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
-        [Input("destinationPortRange")]
+        [PolicyResourceProperty("destinationPortRange", "_mUnknown_DestinationPortRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrafficMirrorFilterRuleDestinationPortRange> _mDestinationPortRange;
-
-        public Outputs.TrafficMirrorFilterRuleDestinationPortRange? DestinationPortRange => _mDestinationPortRange.GetValue("destinationPortRange");
+        private Outputs.TrafficMirrorFilterRuleDestinationPortRange? _mValue_DestinationPortRange;
+        private bool _mUnknown_DestinationPortRange;
+        public Outputs.TrafficMirrorFilterRuleDestinationPortRange? DestinationPortRange
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPortRange) return _mValue_DestinationPortRange;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.DestinationPortRange' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProtocol;
-
-        public int? Protocol => _mProtocol.GetValue("protocol");
+        private int? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public int? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
-        [Input("ruleAction")]
+        [PolicyResourceProperty("ruleAction", "_mUnknown_RuleAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
-
-        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+        private string? _mValue_RuleAction;
+        private bool _mUnknown_RuleAction;
+        public string? RuleAction
+        {
+            get
+            {
+                if (!_mUnknown_RuleAction) return _mValue_RuleAction;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.RuleAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         /// </summary>
-        [Input("ruleNumber")]
+        [PolicyResourceProperty("ruleNumber", "_mUnknown_RuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
-
-        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+        private int? _mValue_RuleNumber;
+        private bool _mUnknown_RuleNumber;
+        public int? RuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_RuleNumber) return _mValue_RuleNumber;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.RuleNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Source CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
-        [Input("sourceCidrBlock")]
+        [PolicyResourceProperty("sourceCidrBlock", "_mUnknown_SourceCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCidrBlock;
-
-        public string? SourceCidrBlock => _mSourceCidrBlock.GetValue("sourceCidrBlock");
+        private string? _mValue_SourceCidrBlock;
+        private bool _mUnknown_SourceCidrBlock;
+        public string? SourceCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_SourceCidrBlock) return _mValue_SourceCidrBlock;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.SourceCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
-        [Input("sourcePortRange")]
+        [PolicyResourceProperty("sourcePortRange", "_mUnknown_SourcePortRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrafficMirrorFilterRuleSourcePortRange> _mSourcePortRange;
-
-        public Outputs.TrafficMirrorFilterRuleSourcePortRange? SourcePortRange => _mSourcePortRange.GetValue("sourcePortRange");
+        private Outputs.TrafficMirrorFilterRuleSourcePortRange? _mValue_SourcePortRange;
+        private bool _mUnknown_SourcePortRange;
+        public Outputs.TrafficMirrorFilterRuleSourcePortRange? SourcePortRange
+        {
+            get
+            {
+                if (!_mUnknown_SourcePortRange) return _mValue_SourcePortRange;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.SourcePortRange' is not present");
+            }
+        }
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         /// 
         /// Traffic mirror port range support following attributes:
         /// </summary>
-        [Input("trafficDirection")]
+        [PolicyResourceProperty("trafficDirection", "_mUnknown_TrafficDirection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficDirection;
-
-        public string? TrafficDirection => _mTrafficDirection.GetValue("trafficDirection");
+        private string? _mValue_TrafficDirection;
+        private bool _mUnknown_TrafficDirection;
+        public string? TrafficDirection
+        {
+            get
+            {
+                if (!_mUnknown_TrafficDirection) return _mValue_TrafficDirection;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.TrafficDirection' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic mirror filter to which this rule should be added
         /// </summary>
-        [Input("trafficMirrorFilterId")]
+        [PolicyResourceProperty("trafficMirrorFilterId", "_mUnknown_TrafficMirrorFilterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorFilterId;
-
-        public string? TrafficMirrorFilterId => _mTrafficMirrorFilterId.GetValue("trafficMirrorFilterId");
+        private string? _mValue_TrafficMirrorFilterId;
+        private bool _mUnknown_TrafficMirrorFilterId;
+        public string? TrafficMirrorFilterId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficMirrorFilterId) return _mValue_TrafficMirrorFilterId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRule.TrafficMirrorFilterId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule")]
@@ -121,93 +198,163 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// Description of the traffic mirror filter rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
-        [Input("destinationCidrBlock")]
+        [PolicyResourceProperty("destinationCidrBlock", "_mUnknown_DestinationCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDestinationCidrBlock;
-
-        public string? DestinationCidrBlock => _mDestinationCidrBlock.GetValue("destinationCidrBlock");
+        private string? _mValue_DestinationCidrBlock;
+        private bool _mUnknown_DestinationCidrBlock;
+        public string? DestinationCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_DestinationCidrBlock) return _mValue_DestinationCidrBlock;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.DestinationCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
-        [Input("destinationPortRange")]
+        [PolicyResourceProperty("destinationPortRange", "_mUnknown_DestinationPortRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs> _mDestinationPortRange;
-
-        public Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs? DestinationPortRange => _mDestinationPortRange.GetValue("destinationPortRange");
+        private Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs? _mValue_DestinationPortRange;
+        private bool _mUnknown_DestinationPortRange;
+        public Inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs? DestinationPortRange
+        {
+            get
+            {
+                if (!_mUnknown_DestinationPortRange) return _mValue_DestinationPortRange;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.DestinationPortRange' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProtocol;
-
-        public int? Protocol => _mProtocol.GetValue("protocol");
+        private int? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public int? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         /// </summary>
-        [Input("ruleAction")]
+        [PolicyResourceProperty("ruleAction", "_mUnknown_RuleAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
-
-        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
+        private string? _mValue_RuleAction;
+        private bool _mUnknown_RuleAction;
+        public string? RuleAction
+        {
+            get
+            {
+                if (!_mUnknown_RuleAction) return _mValue_RuleAction;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.RuleAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         /// </summary>
-        [Input("ruleNumber")]
+        [PolicyResourceProperty("ruleNumber", "_mUnknown_RuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
-
-        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+        private int? _mValue_RuleNumber;
+        private bool _mUnknown_RuleNumber;
+        public int? RuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_RuleNumber) return _mValue_RuleNumber;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.RuleNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Source CIDR block to assign to the Traffic Mirror rule.
         /// </summary>
-        [Input("sourceCidrBlock")]
+        [PolicyResourceProperty("sourceCidrBlock", "_mUnknown_SourceCidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceCidrBlock;
-
-        public string? SourceCidrBlock => _mSourceCidrBlock.GetValue("sourceCidrBlock");
+        private string? _mValue_SourceCidrBlock;
+        private bool _mUnknown_SourceCidrBlock;
+        public string? SourceCidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_SourceCidrBlock) return _mValue_SourceCidrBlock;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.SourceCidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         /// </summary>
-        [Input("sourcePortRange")]
+        [PolicyResourceProperty("sourcePortRange", "_mUnknown_SourcePortRange")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs> _mSourcePortRange;
-
-        public Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs? SourcePortRange => _mSourcePortRange.GetValue("sourcePortRange");
+        private Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs? _mValue_SourcePortRange;
+        private bool _mUnknown_SourcePortRange;
+        public Inputs.TrafficMirrorFilterRuleSourcePortRangeArgs? SourcePortRange
+        {
+            get
+            {
+                if (!_mUnknown_SourcePortRange) return _mValue_SourcePortRange;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.SourcePortRange' is not present");
+            }
+        }
 
         /// <summary>
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         /// 
         /// Traffic mirror port range support following attributes:
         /// </summary>
-        [Input("trafficDirection")]
+        [PolicyResourceProperty("trafficDirection", "_mUnknown_TrafficDirection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficDirection;
-
-        public string? TrafficDirection => _mTrafficDirection.GetValue("trafficDirection");
+        private string? _mValue_TrafficDirection;
+        private bool _mUnknown_TrafficDirection;
+        public string? TrafficDirection
+        {
+            get
+            {
+                if (!_mUnknown_TrafficDirection) return _mValue_TrafficDirection;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.TrafficDirection' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the traffic mirror filter to which this rule should be added
         /// </summary>
-        [Input("trafficMirrorFilterId")]
+        [PolicyResourceProperty("trafficMirrorFilterId", "_mUnknown_TrafficMirrorFilterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrafficMirrorFilterId;
-
-        public string? TrafficMirrorFilterId => _mTrafficMirrorFilterId.GetValue("trafficMirrorFilterId");
+        private string? _mValue_TrafficMirrorFilterId;
+        private bool _mUnknown_TrafficMirrorFilterId;
+        public string? TrafficMirrorFilterId
+        {
+            get
+            {
+                if (!_mUnknown_TrafficMirrorFilterId) return _mValue_TrafficMirrorFilterId;
+                throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.TrafficMirrorFilterId' is not present");
+            }
+        }
     }
 }

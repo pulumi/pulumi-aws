@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.EmrContainers.Inputs
         /// <summary>
         /// The SQL file to be executed.
         /// </summary>
-        [Input("entryPoint")]
+        [PolicyResourceProperty("entryPoint", "_mUnknown_EntryPoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEntryPoint;
-
-        public string? EntryPoint => _mEntryPoint.GetValue("entryPoint");
+        private string? _mValue_EntryPoint;
+        private bool _mUnknown_EntryPoint;
+        public string? EntryPoint
+        {
+            get
+            {
+                if (!_mUnknown_EntryPoint) return _mValue_EntryPoint;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs.EntryPoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The Spark parameters to be included in the Spark SQL command.
         /// </summary>
-        [Input("sparkSqlParameters")]
+        [PolicyResourceProperty("sparkSqlParameters", "_mUnknown_SparkSqlParameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSparkSqlParameters;
-
-        public string? SparkSqlParameters => _mSparkSqlParameters.GetValue("sparkSqlParameters");
+        private string? _mValue_SparkSqlParameters;
+        private bool _mUnknown_SparkSqlParameters;
+        public string? SparkSqlParameters
+        {
+            get
+            {
+                if (!_mUnknown_SparkSqlParameters) return _mValue_SparkSqlParameters;
+                throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs.SparkSqlParameters' is not present");
+            }
+        }
     }
 }

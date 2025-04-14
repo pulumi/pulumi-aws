@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Route53.Inputs
         /// <summary>
         /// ID of the VPC to associate.
         /// </summary>
-        [Input("vpcId")]
+        [PolicyResourceProperty("vpcId", "_mUnknown_VpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcId;
-
-        public string? VpcId => _mVpcId.GetValue("vpcId");
+        private string? _mValue_VpcId;
+        private bool _mUnknown_VpcId;
+        public string? VpcId
+        {
+            get
+            {
+                if (!_mUnknown_VpcId) return _mValue_VpcId;
+                throw new UndeferrableValueException("Value 'ZoneVpcArgs.VpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// Region of the VPC to associate. Defaults to AWS provider region.
         /// </summary>
-        [Input("vpcRegion")]
+        [PolicyResourceProperty("vpcRegion", "_mUnknown_VpcRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcRegion;
-
-        public string? VpcRegion => _mVpcRegion.GetValue("vpcRegion");
+        private string? _mValue_VpcRegion;
+        private bool _mUnknown_VpcRegion;
+        public string? VpcRegion
+        {
+            get
+            {
+                if (!_mUnknown_VpcRegion) return _mValue_VpcRegion;
+                throw new UndeferrableValueException("Value 'ZoneVpcArgs.VpcRegion' is not present");
+            }
+        }
     }
 }

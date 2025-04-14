@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.ComputeOptimizer.Inputs
         /// <summary>
         /// The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
         /// </summary>
-        [Input("headroom")]
+        [PolicyResourceProperty("headroom", "_mUnknown_Headroom")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHeadroom;
-
-        public string? Headroom => _mHeadroom.GetValue("headroom");
+        private string? _mValue_Headroom;
+        private bool _mUnknown_Headroom;
+        public string? Headroom
+        {
+            get
+            {
+                if (!_mUnknown_Headroom) return _mValue_Headroom;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreferenceMetricParametersArgs.Headroom' is not present");
+            }
+        }
 
         /// <summary>
         /// The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
         /// </summary>
-        [Input("threshold")]
+        [PolicyResourceProperty("threshold", "_mUnknown_Threshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mThreshold;
-
-        public string? Threshold => _mThreshold.GetValue("threshold");
+        private string? _mValue_Threshold;
+        private bool _mUnknown_Threshold;
+        public string? Threshold
+        {
+            get
+            {
+                if (!_mUnknown_Threshold) return _mValue_Threshold;
+                throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreferenceMetricParametersArgs.Threshold' is not present");
+            }
+        }
     }
 }

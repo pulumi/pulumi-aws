@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Outputs
         /// <summary>
         /// A list of the conditions that determine when the trigger will fire. See Conditions.
         /// </summary>
-        [Input("conditions")]
+        [PolicyResourceProperty("conditions", "_mUnknown_Conditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TriggerPredicateCondition>> _mConditions;
-
-        public List<Outputs.TriggerPredicateCondition>? Conditions => _mConditions.GetValue("conditions");
+        private List<Outputs.TriggerPredicateCondition>? _mValue_Conditions;
+        private bool _mUnknown_Conditions;
+        public List<Outputs.TriggerPredicateCondition>? Conditions
+        {
+            get
+            {
+                if (!_mUnknown_Conditions) return _mValue_Conditions;
+                throw new UndeferrableValueException("Value 'TriggerPredicate.Conditions' is not present");
+            }
+        }
 
         /// <summary>
         /// How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
         /// </summary>
-        [Input("logical")]
+        [PolicyResourceProperty("logical", "_mUnknown_Logical")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogical;
-
-        public string? Logical => _mLogical.GetValue("logical");
+        private string? _mValue_Logical;
+        private bool _mUnknown_Logical;
+        public string? Logical
+        {
+            get
+            {
+                if (!_mUnknown_Logical) return _mValue_Logical;
+                throw new UndeferrableValueException("Value 'TriggerPredicate.Logical' is not present");
+            }
+        }
     }
 }

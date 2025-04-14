@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// <summary>
         /// Name of the HTTP header to match.
         /// </summary>
-        [Input("httpHeaderName")]
+        [PolicyResourceProperty("httpHeaderName", "_mUnknown_HttpHeaderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHttpHeaderName;
-
-        public string? HttpHeaderName => _mHttpHeaderName.GetValue("httpHeaderName");
+        private string? _mValue_HttpHeaderName;
+        private bool _mUnknown_HttpHeaderName;
+        public string? HttpHeaderName
+        {
+            get
+            {
+                if (!_mUnknown_HttpHeaderName) return _mValue_HttpHeaderName;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionHttpHeaderArgs.HttpHeaderName' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of `key`-`value` pairs indicating the query string parameters to match.
         /// </summary>
-        [Input("values")]
+        [PolicyResourceProperty("values", "_mUnknown_Values")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mValues;
-
-        public List<string>? Values => _mValues.GetValue("values");
+        private List<string>? _mValue_Values;
+        private bool _mUnknown_Values;
+        public List<string>? Values
+        {
+            get
+            {
+                if (!_mUnknown_Values) return _mValue_Values;
+                throw new UndeferrableValueException("Value 'GetListenerRuleConditionHttpHeaderArgs.Values' is not present");
+            }
+        }
     }
 }

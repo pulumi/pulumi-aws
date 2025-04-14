@@ -17,19 +17,33 @@ namespace Pulumi.PolicyPacks.Aws.Rbin.Outputs
         /// 
         /// The following argument is optional:
         /// </summary>
-        [Input("resourceTagKey")]
+        [PolicyResourceProperty("resourceTagKey", "_mUnknown_ResourceTagKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceTagKey;
-
-        public string? ResourceTagKey => _mResourceTagKey.GetValue("resourceTagKey");
+        private string? _mValue_ResourceTagKey;
+        private bool _mUnknown_ResourceTagKey;
+        public string? ResourceTagKey
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTagKey) return _mValue_ResourceTagKey;
+                throw new UndeferrableValueException("Value 'RuleResourceTag.ResourceTagKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag value.
         /// </summary>
-        [Input("resourceTagValue")]
+        [PolicyResourceProperty("resourceTagValue", "_mUnknown_ResourceTagValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceTagValue;
-
-        public string? ResourceTagValue => _mResourceTagValue.GetValue("resourceTagValue");
+        private string? _mValue_ResourceTagValue;
+        private bool _mUnknown_ResourceTagValue;
+        public string? ResourceTagValue
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTagValue) return _mValue_ResourceTagValue;
+                throw new UndeferrableValueException("Value 'RuleResourceTag.ResourceTagValue' is not present");
+            }
+        }
     }
 }

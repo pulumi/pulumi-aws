@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Outputs
 {
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount
     {
-        [Input("max")]
+        [PolicyResourceProperty("max", "_mUnknown_Max")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMax;
+        private int? _mValue_Max;
+        private bool _mUnknown_Max;
+        public int? Max
+        {
+            get
+            {
+                if (!_mUnknown_Max) return _mValue_Max;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount.Max' is not present");
+            }
+        }
 
-        public int? Max => _mMax.GetValue("max");
-
-        [Input("min")]
+        [PolicyResourceProperty("min", "_mUnknown_Min")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMin;
-
-        public int? Min => _mMin.GetValue("min");
+        private int? _mValue_Min;
+        private bool _mUnknown_Min;
+        public int? Min
+        {
+            get
+            {
+                if (!_mUnknown_Min) return _mValue_Min;
+                throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount.Min' is not present");
+            }
+        }
     }
 }

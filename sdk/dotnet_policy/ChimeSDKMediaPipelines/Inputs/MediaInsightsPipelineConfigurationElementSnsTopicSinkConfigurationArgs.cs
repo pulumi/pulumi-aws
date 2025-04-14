@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ChimeSDKMediaPipelines.Inputs
         /// <summary>
         /// SNS topic to deliver results.
         /// </summary>
-        [Input("insightsTarget")]
+        [PolicyResourceProperty("insightsTarget", "_mUnknown_InsightsTarget")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInsightsTarget;
-
-        public string? InsightsTarget => _mInsightsTarget.GetValue("insightsTarget");
+        private string? _mValue_InsightsTarget;
+        private bool _mUnknown_InsightsTarget;
+        public string? InsightsTarget
+        {
+            get
+            {
+                if (!_mUnknown_InsightsTarget) return _mValue_InsightsTarget;
+                throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs.InsightsTarget' is not present");
+            }
+        }
     }
 }

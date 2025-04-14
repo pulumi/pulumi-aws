@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Inputs
         /// The ARN of the resource to use for authentication. For type `CODECONNECTIONS` this should be
         /// an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
         /// </summary>
-        [Input("resource")]
+        [PolicyResourceProperty("resource", "_mUnknown_Resource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResource;
-
-        public string? Resource => _mResource.GetValue("resource");
+        private string? _mValue_Resource;
+        private bool _mUnknown_Resource;
+        public string? Resource
+        {
+            get
+            {
+                if (!_mUnknown_Resource) return _mValue_Resource;
+                throw new UndeferrableValueException("Value 'ProjectSecondarySourceAuthArgs.Resource' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of authentication AWS CodeBuild should perform. Valid values are `CODECONNECTIONS` and
         /// `SECRETS_MANAGER`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProjectSecondarySourceAuthArgs.Type' is not present");
+            }
+        }
     }
 }

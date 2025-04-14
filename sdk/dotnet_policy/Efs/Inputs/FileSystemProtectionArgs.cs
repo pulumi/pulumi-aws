@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Efs.Inputs
         /// <summary>
         /// Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
         /// </summary>
-        [Input("replicationOverwrite")]
+        [PolicyResourceProperty("replicationOverwrite", "_mUnknown_ReplicationOverwrite")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicationOverwrite;
-
-        public string? ReplicationOverwrite => _mReplicationOverwrite.GetValue("replicationOverwrite");
+        private string? _mValue_ReplicationOverwrite;
+        private bool _mUnknown_ReplicationOverwrite;
+        public string? ReplicationOverwrite
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationOverwrite) return _mValue_ReplicationOverwrite;
+                throw new UndeferrableValueException("Value 'FileSystemProtectionArgs.ReplicationOverwrite' is not present");
+            }
+        }
     }
 }

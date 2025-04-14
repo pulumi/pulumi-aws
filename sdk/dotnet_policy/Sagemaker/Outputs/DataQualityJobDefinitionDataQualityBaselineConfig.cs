@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The constraints resource for a monitoring job. Fields are documented below.
         /// </summary>
-        [Input("constraintsResource")]
+        [PolicyResourceProperty("constraintsResource", "_mUnknown_ConstraintsResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource> _mConstraintsResource;
-
-        public Outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource? ConstraintsResource => _mConstraintsResource.GetValue("constraintsResource");
+        private Outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource? _mValue_ConstraintsResource;
+        private bool _mUnknown_ConstraintsResource;
+        public Outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource? ConstraintsResource
+        {
+            get
+            {
+                if (!_mUnknown_ConstraintsResource) return _mValue_ConstraintsResource;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityBaselineConfig.ConstraintsResource' is not present");
+            }
+        }
 
         /// <summary>
         /// The statistics resource for a monitoring job. Fields are documented below.
         /// </summary>
-        [Input("statisticsResource")]
+        [PolicyResourceProperty("statisticsResource", "_mUnknown_StatisticsResource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource> _mStatisticsResource;
-
-        public Outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource? StatisticsResource => _mStatisticsResource.GetValue("statisticsResource");
+        private Outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource? _mValue_StatisticsResource;
+        private bool _mUnknown_StatisticsResource;
+        public Outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource? StatisticsResource
+        {
+            get
+            {
+                if (!_mUnknown_StatisticsResource) return _mValue_StatisticsResource;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityBaselineConfig.StatisticsResource' is not present");
+            }
+        }
     }
 }

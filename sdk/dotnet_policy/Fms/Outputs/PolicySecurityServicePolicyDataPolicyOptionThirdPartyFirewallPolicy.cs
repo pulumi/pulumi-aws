@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Fms.Outputs
         /// <summary>
         /// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         /// </summary>
-        [Input("firewallDeploymentModel")]
+        [PolicyResourceProperty("firewallDeploymentModel", "_mUnknown_FirewallDeploymentModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirewallDeploymentModel;
-
-        public string? FirewallDeploymentModel => _mFirewallDeploymentModel.GetValue("firewallDeploymentModel");
+        private string? _mValue_FirewallDeploymentModel;
+        private bool _mUnknown_FirewallDeploymentModel;
+        public string? FirewallDeploymentModel
+        {
+            get
+            {
+                if (!_mUnknown_FirewallDeploymentModel) return _mValue_FirewallDeploymentModel;
+                throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy.FirewallDeploymentModel' is not present");
+            }
+        }
     }
 }

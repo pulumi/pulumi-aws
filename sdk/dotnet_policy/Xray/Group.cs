@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Xray
         /// <summary>
         /// The ARN of the Group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Group.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         /// </summary>
-        [Input("filterExpression")]
+        [PolicyResourceProperty("filterExpression", "_mUnknown_FilterExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterExpression;
-
-        public string? FilterExpression => _mFilterExpression.GetValue("filterExpression");
+        private string? _mValue_FilterExpression;
+        private bool _mUnknown_FilterExpression;
+        public string? FilterExpression
+        {
+            get
+            {
+                if (!_mUnknown_FilterExpression) return _mValue_FilterExpression;
+                throw new UndeferrableValueException("Value 'Group.FilterExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'Group.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options for enabling insights.
         /// </summary>
-        [Input("insightsConfiguration")]
+        [PolicyResourceProperty("insightsConfiguration", "_mUnknown_InsightsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupInsightsConfiguration> _mInsightsConfiguration;
-
-        public Outputs.GroupInsightsConfiguration? InsightsConfiguration => _mInsightsConfiguration.GetValue("insightsConfiguration");
+        private Outputs.GroupInsightsConfiguration? _mValue_InsightsConfiguration;
+        private bool _mUnknown_InsightsConfiguration;
+        public Outputs.GroupInsightsConfiguration? InsightsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InsightsConfiguration) return _mValue_InsightsConfiguration;
+                throw new UndeferrableValueException("Value 'Group.InsightsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Group.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Group.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:xray/group:Group")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Xray
         /// <summary>
         /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         /// </summary>
-        [Input("filterExpression")]
+        [PolicyResourceProperty("filterExpression", "_mUnknown_FilterExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterExpression;
-
-        public string? FilterExpression => _mFilterExpression.GetValue("filterExpression");
+        private string? _mValue_FilterExpression;
+        private bool _mUnknown_FilterExpression;
+        public string? FilterExpression
+        {
+            get
+            {
+                if (!_mUnknown_FilterExpression) return _mValue_FilterExpression;
+                throw new UndeferrableValueException("Value 'GroupArgs.FilterExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the group.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GroupArgs.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration options for enabling insights.
         /// </summary>
-        [Input("insightsConfiguration")]
+        [PolicyResourceProperty("insightsConfiguration", "_mUnknown_InsightsConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupInsightsConfigurationArgs> _mInsightsConfiguration;
-
-        public Inputs.GroupInsightsConfigurationArgs? InsightsConfiguration => _mInsightsConfiguration.GetValue("insightsConfiguration");
+        private Inputs.GroupInsightsConfigurationArgs? _mValue_InsightsConfiguration;
+        private bool _mUnknown_InsightsConfiguration;
+        public Inputs.GroupInsightsConfigurationArgs? InsightsConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InsightsConfiguration) return _mValue_InsightsConfiguration;
+                throw new UndeferrableValueException("Value 'GroupArgs.InsightsConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GroupArgs.Tags' is not present");
+            }
+        }
     }
 }

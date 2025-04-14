@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.LB.Inputs
         /// <summary>
         /// The hostname.
         /// </summary>
-        [Input("host")]
+        [PolicyResourceProperty("host", "_mUnknown_Host")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHost;
-
-        public string? Host => _mHost.GetValue("host");
+        private string? _mValue_Host;
+        private bool _mUnknown_Host;
+        public string? Host
+        {
+            get
+            {
+                if (!_mUnknown_Host) return _mValue_Host;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionRedirectInputArgs.Host' is not present");
+            }
+        }
 
         /// <summary>
         /// The absolute path, starting with `/`.
         /// </summary>
-        [Input("path")]
+        [PolicyResourceProperty("path", "_mUnknown_Path")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPath;
-
-        public string? Path => _mPath.GetValue("path");
+        private string? _mValue_Path;
+        private bool _mUnknown_Path;
+        public string? Path
+        {
+            get
+            {
+                if (!_mUnknown_Path) return _mValue_Path;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionRedirectInputArgs.Path' is not present");
+            }
+        }
 
         /// <summary>
         /// The port.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPort;
-
-        public string? Port => _mPort.GetValue("port");
+        private string? _mValue_Port;
+        private bool _mUnknown_Port;
+        public string? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionRedirectInputArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionRedirectInputArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// The query parameters.
         /// </summary>
-        [Input("query")]
+        [PolicyResourceProperty("query", "_mUnknown_Query")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQuery;
-
-        public string? Query => _mQuery.GetValue("query");
+        private string? _mValue_Query;
+        private bool _mUnknown_Query;
+        public string? Query
+        {
+            get
+            {
+                if (!_mUnknown_Query) return _mValue_Query;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionRedirectInputArgs.Query' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP redirect code.
         /// </summary>
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusCode;
-
-        public string? StatusCode => _mStatusCode.GetValue("statusCode");
+        private string? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public string? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'GetListenerRuleActionRedirectInputArgs.StatusCode' is not present");
+            }
+        }
     }
 }

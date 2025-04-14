@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings
     {
-        [Input("staticKeySettings")]
+        [PolicyResourceProperty("staticKeySettings", "_mUnknown_StaticKeySettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting>> _mStaticKeySettings;
-
-        public List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting>? StaticKeySettings => _mStaticKeySettings.GetValue("staticKeySettings");
+        private List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting>? _mValue_StaticKeySettings;
+        private bool _mUnknown_StaticKeySettings;
+        public List<Outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting>? StaticKeySettings
+        {
+            get
+            {
+                if (!_mUnknown_StaticKeySettings) return _mValue_StaticKeySettings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings.StaticKeySettings' is not present");
+            }
+        }
     }
 }

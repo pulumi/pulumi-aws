@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Inputs
         /// <summary>
         /// The part of a web request that you want to search, such as a specified header or a query string.
         /// </summary>
-        [Input("fieldToMatch")]
+        [PolicyResourceProperty("fieldToMatch", "_mUnknown_FieldToMatch")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs> _mFieldToMatch;
-
-        public Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs? FieldToMatch => _mFieldToMatch.GetValue("fieldToMatch");
+        private Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs? _mValue_FieldToMatch;
+        private bool _mUnknown_FieldToMatch;
+        public Inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs? FieldToMatch
+        {
+            get
+            {
+                if (!_mUnknown_FieldToMatch) return _mValue_FieldToMatch;
+                throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.FieldToMatch' is not present");
+            }
+        }
 
         /// <summary>
         /// Within the portion of a web request that you want to search
@@ -28,22 +35,36 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Inputs
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
         /// for all supported values.
         /// </summary>
-        [Input("positionalConstraint")]
+        [PolicyResourceProperty("positionalConstraint", "_mUnknown_PositionalConstraint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPositionalConstraint;
-
-        public string? PositionalConstraint => _mPositionalConstraint.GetValue("positionalConstraint");
+        private string? _mValue_PositionalConstraint;
+        private bool _mUnknown_PositionalConstraint;
+        public string? PositionalConstraint
+        {
+            get
+            {
+                if (!_mUnknown_PositionalConstraint) return _mValue_PositionalConstraint;
+                throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.PositionalConstraint' is not present");
+            }
+        }
 
         /// <summary>
         /// The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
         /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
         /// for all supported values.
         /// </summary>
-        [Input("targetString")]
+        [PolicyResourceProperty("targetString", "_mUnknown_TargetString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetString;
-
-        public string? TargetString => _mTargetString.GetValue("targetString");
+        private string? _mValue_TargetString;
+        private bool _mUnknown_TargetString;
+        public string? TargetString
+        {
+            get
+            {
+                if (!_mUnknown_TargetString) return _mValue_TargetString;
+                throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.TargetString' is not present");
+            }
+        }
 
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -52,10 +73,17 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Inputs
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         /// for all supported values.
         /// </summary>
-        [Input("textTransformation")]
+        [PolicyResourceProperty("textTransformation", "_mUnknown_TextTransformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTextTransformation;
-
-        public string? TextTransformation => _mTextTransformation.GetValue("textTransformation");
+        private string? _mValue_TextTransformation;
+        private bool _mUnknown_TextTransformation;
+        public string? TextTransformation
+        {
+            get
+            {
+                if (!_mUnknown_TextTransformation) return _mValue_TextTransformation;
+                throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.TextTransformation' is not present");
+            }
+        }
     }
 }

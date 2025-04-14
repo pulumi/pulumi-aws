@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Inputs
         /// <summary>
         /// Contains information about an audit log processing configuration.
         /// </summary>
-        [Input("auditLog")]
+        [PolicyResourceProperty("auditLog", "_mUnknown_AuditLog")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs> _mAuditLog;
-
-        public Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs? AuditLog => _mAuditLog.GetValue("auditLog");
+        private Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs? _mValue_AuditLog;
+        private bool _mUnknown_AuditLog;
+        public Inputs.IngestionDestinationProcessingConfigurationAuditLogArgs? AuditLog
+        {
+            get
+            {
+                if (!_mUnknown_AuditLog) return _mValue_AuditLog;
+                throw new UndeferrableValueException("Value 'IngestionDestinationProcessingConfigurationArgs.AuditLog' is not present");
+            }
+        }
     }
 }

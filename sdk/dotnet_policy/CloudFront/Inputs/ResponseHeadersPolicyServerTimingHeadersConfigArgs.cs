@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Inputs
         /// <summary>
         /// A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyServerTimingHeadersConfigArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
         /// </summary>
-        [Input("samplingRate")]
+        [PolicyResourceProperty("samplingRate", "_mUnknown_SamplingRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mSamplingRate;
-
-        public double? SamplingRate => _mSamplingRate.GetValue("samplingRate");
+        private double? _mValue_SamplingRate;
+        private bool _mUnknown_SamplingRate;
+        public double? SamplingRate
+        {
+            get
+            {
+                if (!_mUnknown_SamplingRate) return _mValue_SamplingRate;
+                throw new UndeferrableValueException("Value 'ResponseHeadersPolicyServerTimingHeadersConfigArgs.SamplingRate' is not present");
+            }
+        }
     }
 }

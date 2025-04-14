@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudFront.Outputs
         /// <summary>
         /// Value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
         /// </summary>
-        [Input("frameOption")]
+        [PolicyResourceProperty("frameOption", "_mUnknown_FrameOption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrameOption;
-
-        public string? FrameOption => _mFrameOption.GetValue("frameOption");
+        private string? _mValue_FrameOption;
+        private bool _mUnknown_FrameOption;
+        public string? FrameOption
+        {
+            get
+            {
+                if (!_mUnknown_FrameOption) return _mValue_FrameOption;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult.FrameOption' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
-        [Input("override")]
+        [PolicyResourceProperty("override", "_mUnknown_Override")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mOverride;
-
-        public bool? Override => _mOverride.GetValue("override");
+        private bool? _mValue_Override;
+        private bool _mUnknown_Override;
+        public bool? Override
+        {
+            get
+            {
+                if (!_mUnknown_Override) return _mValue_Override;
+                throw new UndeferrableValueException("Value 'GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult.Override' is not present");
+            }
+        }
     }
 }

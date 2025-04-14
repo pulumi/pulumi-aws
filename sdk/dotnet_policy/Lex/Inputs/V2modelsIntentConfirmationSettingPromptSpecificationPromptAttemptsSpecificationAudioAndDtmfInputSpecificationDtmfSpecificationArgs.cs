@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// DTMF character that clears the accumulated DTMF digits and immediately ends the input.
         /// </summary>
-        [Input("deletionCharacter")]
+        [PolicyResourceProperty("deletionCharacter", "_mUnknown_DeletionCharacter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeletionCharacter;
-
-        public string? DeletionCharacter => _mDeletionCharacter.GetValue("deletionCharacter");
+        private string? _mValue_DeletionCharacter;
+        private bool _mUnknown_DeletionCharacter;
+        public string? DeletionCharacter
+        {
+            get
+            {
+                if (!_mUnknown_DeletionCharacter) return _mValue_DeletionCharacter;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.DeletionCharacter' is not present");
+            }
+        }
 
         /// <summary>
         /// DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
         /// </summary>
-        [Input("endCharacter")]
+        [PolicyResourceProperty("endCharacter", "_mUnknown_EndCharacter")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndCharacter;
-
-        public string? EndCharacter => _mEndCharacter.GetValue("endCharacter");
+        private string? _mValue_EndCharacter;
+        private bool _mUnknown_EndCharacter;
+        public string? EndCharacter
+        {
+            get
+            {
+                if (!_mUnknown_EndCharacter) return _mValue_EndCharacter;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.EndCharacter' is not present");
+            }
+        }
 
         /// <summary>
         /// How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
         /// </summary>
-        [Input("endTimeoutMs")]
+        [PolicyResourceProperty("endTimeoutMs", "_mUnknown_EndTimeoutMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEndTimeoutMs;
-
-        public int? EndTimeoutMs => _mEndTimeoutMs.GetValue("endTimeoutMs");
+        private int? _mValue_EndTimeoutMs;
+        private bool _mUnknown_EndTimeoutMs;
+        public int? EndTimeoutMs
+        {
+            get
+            {
+                if (!_mUnknown_EndTimeoutMs) return _mValue_EndTimeoutMs;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.EndTimeoutMs' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum number of DTMF digits allowed in an utterance.
         /// </summary>
-        [Input("maxLength")]
+        [PolicyResourceProperty("maxLength", "_mUnknown_MaxLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxLength;
-
-        public int? MaxLength => _mMaxLength.GetValue("maxLength");
+        private int? _mValue_MaxLength;
+        private bool _mUnknown_MaxLength;
+        public int? MaxLength
+        {
+            get
+            {
+                if (!_mUnknown_MaxLength) return _mValue_MaxLength;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.MaxLength' is not present");
+            }
+        }
     }
 }

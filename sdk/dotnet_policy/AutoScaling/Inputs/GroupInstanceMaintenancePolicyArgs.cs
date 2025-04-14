@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling.Inputs
         /// <summary>
         /// Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
         /// </summary>
-        [Input("maxHealthyPercentage")]
+        [PolicyResourceProperty("maxHealthyPercentage", "_mUnknown_MaxHealthyPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxHealthyPercentage;
-
-        public int? MaxHealthyPercentage => _mMaxHealthyPercentage.GetValue("maxHealthyPercentage");
+        private int? _mValue_MaxHealthyPercentage;
+        private bool _mUnknown_MaxHealthyPercentage;
+        public int? MaxHealthyPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MaxHealthyPercentage) return _mValue_MaxHealthyPercentage;
+                throw new UndeferrableValueException("Value 'GroupInstanceMaintenancePolicyArgs.MaxHealthyPercentage' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
         /// </summary>
-        [Input("minHealthyPercentage")]
+        [PolicyResourceProperty("minHealthyPercentage", "_mUnknown_MinHealthyPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinHealthyPercentage;
-
-        public int? MinHealthyPercentage => _mMinHealthyPercentage.GetValue("minHealthyPercentage");
+        private int? _mValue_MinHealthyPercentage;
+        private bool _mUnknown_MinHealthyPercentage;
+        public int? MinHealthyPercentage
+        {
+            get
+            {
+                if (!_mUnknown_MinHealthyPercentage) return _mValue_MinHealthyPercentage;
+                throw new UndeferrableValueException("Value 'GroupInstanceMaintenancePolicyArgs.MinHealthyPercentage' is not present");
+            }
+        }
     }
 }

@@ -15,22 +15,43 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Inputs
         /// <summary>
         /// The number of times to prompt the user for information.
         /// </summary>
-        [Input("maxAttempts")]
+        [PolicyResourceProperty("maxAttempts", "_mUnknown_MaxAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAttempts;
+        private int? _mValue_MaxAttempts;
+        private bool _mUnknown_MaxAttempts;
+        public int? MaxAttempts
+        {
+            get
+            {
+                if (!_mUnknown_MaxAttempts) return _mValue_MaxAttempts;
+                throw new UndeferrableValueException("Value 'BotClarificationPromptArgs.MaxAttempts' is not present");
+            }
+        }
 
-        public int? MaxAttempts => _mMaxAttempts.GetValue("maxAttempts");
-
-        [Input("messages")]
+        [PolicyResourceProperty("messages", "_mUnknown_Messages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BotClarificationPromptMessageArgs>> _mMessages;
+        private List<Inputs.BotClarificationPromptMessageArgs>? _mValue_Messages;
+        private bool _mUnknown_Messages;
+        public List<Inputs.BotClarificationPromptMessageArgs>? Messages
+        {
+            get
+            {
+                if (!_mUnknown_Messages) return _mValue_Messages;
+                throw new UndeferrableValueException("Value 'BotClarificationPromptArgs.Messages' is not present");
+            }
+        }
 
-        public List<Inputs.BotClarificationPromptMessageArgs>? Messages => _mMessages.GetValue("messages");
-
-        [Input("responseCard")]
+        [PolicyResourceProperty("responseCard", "_mUnknown_ResponseCard")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResponseCard;
-
-        public string? ResponseCard => _mResponseCard.GetValue("responseCard");
+        private string? _mValue_ResponseCard;
+        private bool _mUnknown_ResponseCard;
+        public string? ResponseCard
+        {
+            get
+            {
+                if (!_mUnknown_ResponseCard) return _mValue_ResponseCard;
+                throw new UndeferrableValueException("Value 'BotClarificationPromptArgs.ResponseCard' is not present");
+            }
+        }
     }
 }

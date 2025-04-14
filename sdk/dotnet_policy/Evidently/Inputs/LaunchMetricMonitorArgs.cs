@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Evidently.Inputs
         /// <summary>
         /// A block that defines the metric. Detailed below.
         /// </summary>
-        [Input("metricDefinition")]
+        [PolicyResourceProperty("metricDefinition", "_mUnknown_MetricDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LaunchMetricMonitorMetricDefinitionArgs> _mMetricDefinition;
-
-        public Inputs.LaunchMetricMonitorMetricDefinitionArgs? MetricDefinition => _mMetricDefinition.GetValue("metricDefinition");
+        private Inputs.LaunchMetricMonitorMetricDefinitionArgs? _mValue_MetricDefinition;
+        private bool _mUnknown_MetricDefinition;
+        public Inputs.LaunchMetricMonitorMetricDefinitionArgs? MetricDefinition
+        {
+            get
+            {
+                if (!_mUnknown_MetricDefinition) return _mValue_MetricDefinition;
+                throw new UndeferrableValueException("Value 'LaunchMetricMonitorArgs.MetricDefinition' is not present");
+            }
+        }
     }
 }

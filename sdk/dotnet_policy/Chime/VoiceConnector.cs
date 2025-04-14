@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'VoiceConnector.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'VoiceConnector.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon Chime Voice Connector.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VoiceConnector.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The outbound host name for the Amazon Chime Voice Connector.
         /// </summary>
-        [Input("outboundHostName")]
+        [PolicyResourceProperty("outboundHostName", "_mUnknown_OutboundHostName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutboundHostName;
-
-        public string? OutboundHostName => _mOutboundHostName.GetValue("outboundHostName");
+        private string? _mValue_OutboundHostName;
+        private bool _mUnknown_OutboundHostName;
+        public string? OutboundHostName
+        {
+            get
+            {
+                if (!_mUnknown_OutboundHostName) return _mValue_OutboundHostName;
+                throw new UndeferrableValueException("Value 'VoiceConnector.OutboundHostName' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("requireEncryption")]
+        [PolicyResourceProperty("requireEncryption", "_mUnknown_RequireEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireEncryption;
-
-        public bool? RequireEncryption => _mRequireEncryption.GetValue("requireEncryption");
+        private bool? _mValue_RequireEncryption;
+        private bool _mUnknown_RequireEncryption;
+        public bool? RequireEncryption
+        {
+            get
+            {
+                if (!_mUnknown_RequireEncryption) return _mValue_RequireEncryption;
+                throw new UndeferrableValueException("Value 'VoiceConnector.RequireEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VoiceConnector.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'VoiceConnector.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/voiceConnector:VoiceConnector")]
@@ -85,39 +134,67 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         /// </summary>
-        [Input("awsRegion")]
+        [PolicyResourceProperty("awsRegion", "_mUnknown_AwsRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsRegion;
-
-        public string? AwsRegion => _mAwsRegion.GetValue("awsRegion");
+        private string? _mValue_AwsRegion;
+        private bool _mUnknown_AwsRegion;
+        public string? AwsRegion
+        {
+            get
+            {
+                if (!_mUnknown_AwsRegion) return _mValue_AwsRegion;
+                throw new UndeferrableValueException("Value 'VoiceConnectorArgs.AwsRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Amazon Chime Voice Connector.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'VoiceConnectorArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("requireEncryption")]
+        [PolicyResourceProperty("requireEncryption", "_mUnknown_RequireEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireEncryption;
-
-        public bool? RequireEncryption => _mRequireEncryption.GetValue("requireEncryption");
+        private bool? _mValue_RequireEncryption;
+        private bool _mUnknown_RequireEncryption;
+        public bool? RequireEncryption
+        {
+            get
+            {
+                if (!_mUnknown_RequireEncryption) return _mValue_RequireEncryption;
+                throw new UndeferrableValueException("Value 'VoiceConnectorArgs.RequireEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'VoiceConnectorArgs.Tags' is not present");
+            }
+        }
     }
 }

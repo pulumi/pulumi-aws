@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
 {
     public sealed class RuleGroupRuleGroupReferenceSetsArgs
     {
-        [Input("ipSetReferences")]
+        [PolicyResourceProperty("ipSetReferences", "_mUnknown_IpSetReferences")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs>> _mIpSetReferences;
-
-        public List<Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs>? IpSetReferences => _mIpSetReferences.GetValue("ipSetReferences");
+        private List<Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs>? _mValue_IpSetReferences;
+        private bool _mUnknown_IpSetReferences;
+        public List<Inputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs>? IpSetReferences
+        {
+            get
+            {
+                if (!_mUnknown_IpSetReferences) return _mValue_IpSetReferences;
+                throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSetsArgs.IpSetReferences' is not present");
+            }
+        }
     }
 }

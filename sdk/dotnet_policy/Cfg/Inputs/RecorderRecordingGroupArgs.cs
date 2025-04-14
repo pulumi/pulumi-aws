@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
         /// <summary>
         /// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
         /// </summary>
-        [Input("allSupported")]
+        [PolicyResourceProperty("allSupported", "_mUnknown_AllSupported")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllSupported;
-
-        public bool? AllSupported => _mAllSupported.GetValue("allSupported");
+        private bool? _mValue_AllSupported;
+        private bool _mUnknown_AllSupported;
+        public bool? AllSupported
+        {
+            get
+            {
+                if (!_mUnknown_AllSupported) return _mValue_AllSupported;
+                throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.AllSupported' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
         /// </summary>
-        [Input("exclusionByResourceTypes")]
+        [PolicyResourceProperty("exclusionByResourceTypes", "_mUnknown_ExclusionByResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs>> _mExclusionByResourceTypes;
-
-        public List<Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs>? ExclusionByResourceTypes => _mExclusionByResourceTypes.GetValue("exclusionByResourceTypes");
+        private List<Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs>? _mValue_ExclusionByResourceTypes;
+        private bool _mUnknown_ExclusionByResourceTypes;
+        public List<Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs>? ExclusionByResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ExclusionByResourceTypes) return _mValue_ExclusionByResourceTypes;
+                throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.ExclusionByResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
         /// </summary>
-        [Input("includeGlobalResourceTypes")]
+        [PolicyResourceProperty("includeGlobalResourceTypes", "_mUnknown_IncludeGlobalResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeGlobalResourceTypes;
-
-        public bool? IncludeGlobalResourceTypes => _mIncludeGlobalResourceTypes.GetValue("includeGlobalResourceTypes");
+        private bool? _mValue_IncludeGlobalResourceTypes;
+        private bool _mUnknown_IncludeGlobalResourceTypes;
+        public bool? IncludeGlobalResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_IncludeGlobalResourceTypes) return _mValue_IncludeGlobalResourceTypes;
+                throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.IncludeGlobalResourceTypes' is not present");
+            }
+        }
 
         /// <summary>
         /// Recording Strategy. Detailed below.
         /// </summary>
-        [Input("recordingStrategies")]
+        [PolicyResourceProperty("recordingStrategies", "_mUnknown_RecordingStrategies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.RecorderRecordingGroupRecordingStrategyArgs>> _mRecordingStrategies;
-
-        public List<Inputs.RecorderRecordingGroupRecordingStrategyArgs>? RecordingStrategies => _mRecordingStrategies.GetValue("recordingStrategies");
+        private List<Inputs.RecorderRecordingGroupRecordingStrategyArgs>? _mValue_RecordingStrategies;
+        private bool _mUnknown_RecordingStrategies;
+        public List<Inputs.RecorderRecordingGroupRecordingStrategyArgs>? RecordingStrategies
+        {
+            get
+            {
+                if (!_mUnknown_RecordingStrategies) return _mValue_RecordingStrategies;
+                throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.RecordingStrategies' is not present");
+            }
+        }
 
         /// <summary>
         /// A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         /// </summary>
-        [Input("resourceTypes")]
+        [PolicyResourceProperty("resourceTypes", "_mUnknown_ResourceTypes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResourceTypes;
-
-        public List<string>? ResourceTypes => _mResourceTypes.GetValue("resourceTypes");
+        private List<string>? _mValue_ResourceTypes;
+        private bool _mUnknown_ResourceTypes;
+        public List<string>? ResourceTypes
+        {
+            get
+            {
+                if (!_mUnknown_ResourceTypes) return _mValue_ResourceTypes;
+                throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.ResourceTypes' is not present");
+            }
+        }
     }
 }

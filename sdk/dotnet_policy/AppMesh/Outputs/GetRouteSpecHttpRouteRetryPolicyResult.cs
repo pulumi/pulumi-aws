@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetRouteSpecHttpRouteRetryPolicyResult
     {
-        [Input("httpRetryEvents")]
+        [PolicyResourceProperty("httpRetryEvents", "_mUnknown_HttpRetryEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mHttpRetryEvents;
+        private List<string>? _mValue_HttpRetryEvents;
+        private bool _mUnknown_HttpRetryEvents;
+        public List<string>? HttpRetryEvents
+        {
+            get
+            {
+                if (!_mUnknown_HttpRetryEvents) return _mValue_HttpRetryEvents;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttpRouteRetryPolicyResult.HttpRetryEvents' is not present");
+            }
+        }
 
-        public List<string>? HttpRetryEvents => _mHttpRetryEvents.GetValue("httpRetryEvents");
-
-        [Input("maxRetries")]
+        [PolicyResourceProperty("maxRetries", "_mUnknown_MaxRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxRetries;
+        private int? _mValue_MaxRetries;
+        private bool _mUnknown_MaxRetries;
+        public int? MaxRetries
+        {
+            get
+            {
+                if (!_mUnknown_MaxRetries) return _mValue_MaxRetries;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttpRouteRetryPolicyResult.MaxRetries' is not present");
+            }
+        }
 
-        public int? MaxRetries => _mMaxRetries.GetValue("maxRetries");
-
-        [Input("perRetryTimeouts")]
+        [PolicyResourceProperty("perRetryTimeouts", "_mUnknown_PerRetryTimeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult>> _mPerRetryTimeouts;
+        private List<Outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult>? _mValue_PerRetryTimeouts;
+        private bool _mUnknown_PerRetryTimeouts;
+        public List<Outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult>? PerRetryTimeouts
+        {
+            get
+            {
+                if (!_mUnknown_PerRetryTimeouts) return _mValue_PerRetryTimeouts;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttpRouteRetryPolicyResult.PerRetryTimeouts' is not present");
+            }
+        }
 
-        public List<Outputs.GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult>? PerRetryTimeouts => _mPerRetryTimeouts.GetValue("perRetryTimeouts");
-
-        [Input("tcpRetryEvents")]
+        [PolicyResourceProperty("tcpRetryEvents", "_mUnknown_TcpRetryEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTcpRetryEvents;
-
-        public List<string>? TcpRetryEvents => _mTcpRetryEvents.GetValue("tcpRetryEvents");
+        private List<string>? _mValue_TcpRetryEvents;
+        private bool _mUnknown_TcpRetryEvents;
+        public List<string>? TcpRetryEvents
+        {
+            get
+            {
+                if (!_mUnknown_TcpRetryEvents) return _mValue_TcpRetryEvents;
+                throw new UndeferrableValueException("Value 'GetRouteSpecHttpRouteRetryPolicyResult.TcpRetryEvents' is not present");
+            }
+        }
     }
 }

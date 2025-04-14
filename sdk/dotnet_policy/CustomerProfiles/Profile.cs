@@ -16,202 +16,356 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles
         /// <summary>
         /// A unique account number that you have given to the customer.
         /// </summary>
-        [Input("accountNumber")]
+        [PolicyResourceProperty("accountNumber", "_mUnknown_AccountNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountNumber;
-
-        public string? AccountNumber => _mAccountNumber.GetValue("accountNumber");
+        private string? _mValue_AccountNumber;
+        private bool _mUnknown_AccountNumber;
+        public string? AccountNumber
+        {
+            get
+            {
+                if (!_mUnknown_AccountNumber) return _mValue_AccountNumber;
+                throw new UndeferrableValueException("Value 'Profile.AccountNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Any additional information relevant to the customer’s profile.
         /// </summary>
-        [Input("additionalInformation")]
+        [PolicyResourceProperty("additionalInformation", "_mUnknown_AdditionalInformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalInformation;
-
-        public string? AdditionalInformation => _mAdditionalInformation.GetValue("additionalInformation");
+        private string? _mValue_AdditionalInformation;
+        private bool _mUnknown_AdditionalInformation;
+        public string? AdditionalInformation
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalInformation) return _mValue_AdditionalInformation;
+                throw new UndeferrableValueException("Value 'Profile.AdditionalInformation' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileAddress> _mAddress;
-
-        public Outputs.ProfileAddress? Address => _mAddress.GetValue("address");
+        private Outputs.ProfileAddress? _mValue_Address;
+        private bool _mUnknown_Address;
+        public Outputs.ProfileAddress? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'Profile.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// A key value pair of attributes of a customer profile.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'Profile.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the customer’s billing address. Documented below.
         /// </summary>
-        [Input("billingAddress")]
+        [PolicyResourceProperty("billingAddress", "_mUnknown_BillingAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileBillingAddress> _mBillingAddress;
-
-        public Outputs.ProfileBillingAddress? BillingAddress => _mBillingAddress.GetValue("billingAddress");
+        private Outputs.ProfileBillingAddress? _mValue_BillingAddress;
+        private bool _mUnknown_BillingAddress;
+        public Outputs.ProfileBillingAddress? BillingAddress
+        {
+            get
+            {
+                if (!_mUnknown_BillingAddress) return _mValue_BillingAddress;
+                throw new UndeferrableValueException("Value 'Profile.BillingAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s birth date.
         /// </summary>
-        [Input("birthDate")]
+        [PolicyResourceProperty("birthDate", "_mUnknown_BirthDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBirthDate;
-
-        public string? BirthDate => _mBirthDate.GetValue("birthDate");
+        private string? _mValue_BirthDate;
+        private bool _mUnknown_BirthDate;
+        public string? BirthDate
+        {
+            get
+            {
+                if (!_mUnknown_BirthDate) return _mValue_BirthDate;
+                throw new UndeferrableValueException("Value 'Profile.BirthDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s business email address.
         /// </summary>
-        [Input("businessEmailAddress")]
+        [PolicyResourceProperty("businessEmailAddress", "_mUnknown_BusinessEmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessEmailAddress;
-
-        public string? BusinessEmailAddress => _mBusinessEmailAddress.GetValue("businessEmailAddress");
+        private string? _mValue_BusinessEmailAddress;
+        private bool _mUnknown_BusinessEmailAddress;
+        public string? BusinessEmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_BusinessEmailAddress) return _mValue_BusinessEmailAddress;
+                throw new UndeferrableValueException("Value 'Profile.BusinessEmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the customer’s business.
         /// </summary>
-        [Input("businessName")]
+        [PolicyResourceProperty("businessName", "_mUnknown_BusinessName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessName;
-
-        public string? BusinessName => _mBusinessName.GetValue("businessName");
+        private string? _mValue_BusinessName;
+        private bool _mUnknown_BusinessName;
+        public string? BusinessName
+        {
+            get
+            {
+                if (!_mUnknown_BusinessName) return _mValue_BusinessName;
+                throw new UndeferrableValueException("Value 'Profile.BusinessName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s business phone number.
         /// </summary>
-        [Input("businessPhoneNumber")]
+        [PolicyResourceProperty("businessPhoneNumber", "_mUnknown_BusinessPhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessPhoneNumber;
-
-        public string? BusinessPhoneNumber => _mBusinessPhoneNumber.GetValue("businessPhoneNumber");
+        private string? _mValue_BusinessPhoneNumber;
+        private bool _mUnknown_BusinessPhoneNumber;
+        public string? BusinessPhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_BusinessPhoneNumber) return _mValue_BusinessPhoneNumber;
+                throw new UndeferrableValueException("Value 'Profile.BusinessPhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your Customer Profile domain. It must be unique for your AWS account.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'Profile.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s email address, which has not been specified as a personal or business address.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'Profile.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s first name.
         /// </summary>
-        [Input("firstName")]
+        [PolicyResourceProperty("firstName", "_mUnknown_FirstName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
-
-        public string? FirstName => _mFirstName.GetValue("firstName");
+        private string? _mValue_FirstName;
+        private bool _mUnknown_FirstName;
+        public string? FirstName
+        {
+            get
+            {
+                if (!_mUnknown_FirstName) return _mValue_FirstName;
+                throw new UndeferrableValueException("Value 'Profile.FirstName' is not present");
+            }
+        }
 
         /// <summary>
         /// The gender with which the customer identifies.
         /// </summary>
-        [Input("genderString")]
+        [PolicyResourceProperty("genderString", "_mUnknown_GenderString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGenderString;
-
-        public string? GenderString => _mGenderString.GetValue("genderString");
+        private string? _mValue_GenderString;
+        private bool _mUnknown_GenderString;
+        public string? GenderString
+        {
+            get
+            {
+                if (!_mUnknown_GenderString) return _mValue_GenderString;
+                throw new UndeferrableValueException("Value 'Profile.GenderString' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s home phone number.
         /// </summary>
-        [Input("homePhoneNumber")]
+        [PolicyResourceProperty("homePhoneNumber", "_mUnknown_HomePhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomePhoneNumber;
-
-        public string? HomePhoneNumber => _mHomePhoneNumber.GetValue("homePhoneNumber");
+        private string? _mValue_HomePhoneNumber;
+        private bool _mUnknown_HomePhoneNumber;
+        public string? HomePhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_HomePhoneNumber) return _mValue_HomePhoneNumber;
+                throw new UndeferrableValueException("Value 'Profile.HomePhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s last name.
         /// </summary>
-        [Input("lastName")]
+        [PolicyResourceProperty("lastName", "_mUnknown_LastName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
-
-        public string? LastName => _mLastName.GetValue("lastName");
+        private string? _mValue_LastName;
+        private bool _mUnknown_LastName;
+        public string? LastName
+        {
+            get
+            {
+                if (!_mUnknown_LastName) return _mValue_LastName;
+                throw new UndeferrableValueException("Value 'Profile.LastName' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the customer’s mailing address. Documented below.
         /// </summary>
-        [Input("mailingAddress")]
+        [PolicyResourceProperty("mailingAddress", "_mUnknown_MailingAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileMailingAddress> _mMailingAddress;
-
-        public Outputs.ProfileMailingAddress? MailingAddress => _mMailingAddress.GetValue("mailingAddress");
+        private Outputs.ProfileMailingAddress? _mValue_MailingAddress;
+        private bool _mUnknown_MailingAddress;
+        public Outputs.ProfileMailingAddress? MailingAddress
+        {
+            get
+            {
+                if (!_mUnknown_MailingAddress) return _mValue_MailingAddress;
+                throw new UndeferrableValueException("Value 'Profile.MailingAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s middle name.
         /// </summary>
-        [Input("middleName")]
+        [PolicyResourceProperty("middleName", "_mUnknown_MiddleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMiddleName;
-
-        public string? MiddleName => _mMiddleName.GetValue("middleName");
+        private string? _mValue_MiddleName;
+        private bool _mUnknown_MiddleName;
+        public string? MiddleName
+        {
+            get
+            {
+                if (!_mUnknown_MiddleName) return _mValue_MiddleName;
+                throw new UndeferrableValueException("Value 'Profile.MiddleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s mobile phone number.
         /// </summary>
-        [Input("mobilePhoneNumber")]
+        [PolicyResourceProperty("mobilePhoneNumber", "_mUnknown_MobilePhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMobilePhoneNumber;
-
-        public string? MobilePhoneNumber => _mMobilePhoneNumber.GetValue("mobilePhoneNumber");
+        private string? _mValue_MobilePhoneNumber;
+        private bool _mUnknown_MobilePhoneNumber;
+        public string? MobilePhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_MobilePhoneNumber) return _mValue_MobilePhoneNumber;
+                throw new UndeferrableValueException("Value 'Profile.MobilePhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of profile used to describe the customer.
         /// </summary>
-        [Input("partyTypeString")]
+        [PolicyResourceProperty("partyTypeString", "_mUnknown_PartyTypeString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartyTypeString;
-
-        public string? PartyTypeString => _mPartyTypeString.GetValue("partyTypeString");
+        private string? _mValue_PartyTypeString;
+        private bool _mUnknown_PartyTypeString;
+        public string? PartyTypeString
+        {
+            get
+            {
+                if (!_mUnknown_PartyTypeString) return _mValue_PartyTypeString;
+                throw new UndeferrableValueException("Value 'Profile.PartyTypeString' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s personal email address.
         /// </summary>
-        [Input("personalEmailAddress")]
+        [PolicyResourceProperty("personalEmailAddress", "_mUnknown_PersonalEmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPersonalEmailAddress;
-
-        public string? PersonalEmailAddress => _mPersonalEmailAddress.GetValue("personalEmailAddress");
+        private string? _mValue_PersonalEmailAddress;
+        private bool _mUnknown_PersonalEmailAddress;
+        public string? PersonalEmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_PersonalEmailAddress) return _mValue_PersonalEmailAddress;
+                throw new UndeferrableValueException("Value 'Profile.PersonalEmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s phone number, which has not been specified as a mobile, home, or business number.
         /// </summary>
-        [Input("phoneNumber")]
+        [PolicyResourceProperty("phoneNumber", "_mUnknown_PhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
-
-        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+        private string? _mValue_PhoneNumber;
+        private bool _mUnknown_PhoneNumber;
+        public string? PhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumber) return _mValue_PhoneNumber;
+                throw new UndeferrableValueException("Value 'Profile.PhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the customer’s shipping address. Documented below.
         /// </summary>
-        [Input("shippingAddress")]
+        [PolicyResourceProperty("shippingAddress", "_mUnknown_ShippingAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProfileShippingAddress> _mShippingAddress;
-
-        public Outputs.ProfileShippingAddress? ShippingAddress => _mShippingAddress.GetValue("shippingAddress");
+        private Outputs.ProfileShippingAddress? _mValue_ShippingAddress;
+        private bool _mUnknown_ShippingAddress;
+        public Outputs.ProfileShippingAddress? ShippingAddress
+        {
+            get
+            {
+                if (!_mUnknown_ShippingAddress) return _mValue_ShippingAddress;
+                throw new UndeferrableValueException("Value 'Profile.ShippingAddress' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:customerprofiles/profile:Profile")]
@@ -220,201 +374,355 @@ namespace Pulumi.PolicyPacks.Aws.CustomerProfiles
         /// <summary>
         /// A unique account number that you have given to the customer.
         /// </summary>
-        [Input("accountNumber")]
+        [PolicyResourceProperty("accountNumber", "_mUnknown_AccountNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountNumber;
-
-        public string? AccountNumber => _mAccountNumber.GetValue("accountNumber");
+        private string? _mValue_AccountNumber;
+        private bool _mUnknown_AccountNumber;
+        public string? AccountNumber
+        {
+            get
+            {
+                if (!_mUnknown_AccountNumber) return _mValue_AccountNumber;
+                throw new UndeferrableValueException("Value 'ProfileArgs.AccountNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// Any additional information relevant to the customer’s profile.
         /// </summary>
-        [Input("additionalInformation")]
+        [PolicyResourceProperty("additionalInformation", "_mUnknown_AdditionalInformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdditionalInformation;
-
-        public string? AdditionalInformation => _mAdditionalInformation.GetValue("additionalInformation");
+        private string? _mValue_AdditionalInformation;
+        private bool _mUnknown_AdditionalInformation;
+        public string? AdditionalInformation
+        {
+            get
+            {
+                if (!_mUnknown_AdditionalInformation) return _mValue_AdditionalInformation;
+                throw new UndeferrableValueException("Value 'ProfileArgs.AdditionalInformation' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         /// </summary>
-        [Input("address")]
+        [PolicyResourceProperty("address", "_mUnknown_Address")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileAddressArgs> _mAddress;
-
-        public Inputs.ProfileAddressArgs? Address => _mAddress.GetValue("address");
+        private Inputs.ProfileAddressArgs? _mValue_Address;
+        private bool _mUnknown_Address;
+        public Inputs.ProfileAddressArgs? Address
+        {
+            get
+            {
+                if (!_mUnknown_Address) return _mValue_Address;
+                throw new UndeferrableValueException("Value 'ProfileArgs.Address' is not present");
+            }
+        }
 
         /// <summary>
         /// A key value pair of attributes of a customer profile.
         /// </summary>
-        [Input("attributes")]
+        [PolicyResourceProperty("attributes", "_mUnknown_Attributes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributes;
-
-        public Dictionary<string, string>? Attributes => _mAttributes.GetValue("attributes");
+        private Dictionary<string, string>? _mValue_Attributes;
+        private bool _mUnknown_Attributes;
+        public Dictionary<string, string>? Attributes
+        {
+            get
+            {
+                if (!_mUnknown_Attributes) return _mValue_Attributes;
+                throw new UndeferrableValueException("Value 'ProfileArgs.Attributes' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the customer’s billing address. Documented below.
         /// </summary>
-        [Input("billingAddress")]
+        [PolicyResourceProperty("billingAddress", "_mUnknown_BillingAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileBillingAddressArgs> _mBillingAddress;
-
-        public Inputs.ProfileBillingAddressArgs? BillingAddress => _mBillingAddress.GetValue("billingAddress");
+        private Inputs.ProfileBillingAddressArgs? _mValue_BillingAddress;
+        private bool _mUnknown_BillingAddress;
+        public Inputs.ProfileBillingAddressArgs? BillingAddress
+        {
+            get
+            {
+                if (!_mUnknown_BillingAddress) return _mValue_BillingAddress;
+                throw new UndeferrableValueException("Value 'ProfileArgs.BillingAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s birth date.
         /// </summary>
-        [Input("birthDate")]
+        [PolicyResourceProperty("birthDate", "_mUnknown_BirthDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBirthDate;
-
-        public string? BirthDate => _mBirthDate.GetValue("birthDate");
+        private string? _mValue_BirthDate;
+        private bool _mUnknown_BirthDate;
+        public string? BirthDate
+        {
+            get
+            {
+                if (!_mUnknown_BirthDate) return _mValue_BirthDate;
+                throw new UndeferrableValueException("Value 'ProfileArgs.BirthDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s business email address.
         /// </summary>
-        [Input("businessEmailAddress")]
+        [PolicyResourceProperty("businessEmailAddress", "_mUnknown_BusinessEmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessEmailAddress;
-
-        public string? BusinessEmailAddress => _mBusinessEmailAddress.GetValue("businessEmailAddress");
+        private string? _mValue_BusinessEmailAddress;
+        private bool _mUnknown_BusinessEmailAddress;
+        public string? BusinessEmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_BusinessEmailAddress) return _mValue_BusinessEmailAddress;
+                throw new UndeferrableValueException("Value 'ProfileArgs.BusinessEmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the customer’s business.
         /// </summary>
-        [Input("businessName")]
+        [PolicyResourceProperty("businessName", "_mUnknown_BusinessName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessName;
-
-        public string? BusinessName => _mBusinessName.GetValue("businessName");
+        private string? _mValue_BusinessName;
+        private bool _mUnknown_BusinessName;
+        public string? BusinessName
+        {
+            get
+            {
+                if (!_mUnknown_BusinessName) return _mValue_BusinessName;
+                throw new UndeferrableValueException("Value 'ProfileArgs.BusinessName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s business phone number.
         /// </summary>
-        [Input("businessPhoneNumber")]
+        [PolicyResourceProperty("businessPhoneNumber", "_mUnknown_BusinessPhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBusinessPhoneNumber;
-
-        public string? BusinessPhoneNumber => _mBusinessPhoneNumber.GetValue("businessPhoneNumber");
+        private string? _mValue_BusinessPhoneNumber;
+        private bool _mUnknown_BusinessPhoneNumber;
+        public string? BusinessPhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_BusinessPhoneNumber) return _mValue_BusinessPhoneNumber;
+                throw new UndeferrableValueException("Value 'ProfileArgs.BusinessPhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of your Customer Profile domain. It must be unique for your AWS account.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'ProfileArgs.DomainName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s email address, which has not been specified as a personal or business address.
         /// </summary>
-        [Input("emailAddress")]
+        [PolicyResourceProperty("emailAddress", "_mUnknown_EmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEmailAddress;
-
-        public string? EmailAddress => _mEmailAddress.GetValue("emailAddress");
+        private string? _mValue_EmailAddress;
+        private bool _mUnknown_EmailAddress;
+        public string? EmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_EmailAddress) return _mValue_EmailAddress;
+                throw new UndeferrableValueException("Value 'ProfileArgs.EmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s first name.
         /// </summary>
-        [Input("firstName")]
+        [PolicyResourceProperty("firstName", "_mUnknown_FirstName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFirstName;
-
-        public string? FirstName => _mFirstName.GetValue("firstName");
+        private string? _mValue_FirstName;
+        private bool _mUnknown_FirstName;
+        public string? FirstName
+        {
+            get
+            {
+                if (!_mUnknown_FirstName) return _mValue_FirstName;
+                throw new UndeferrableValueException("Value 'ProfileArgs.FirstName' is not present");
+            }
+        }
 
         /// <summary>
         /// The gender with which the customer identifies.
         /// </summary>
-        [Input("genderString")]
+        [PolicyResourceProperty("genderString", "_mUnknown_GenderString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGenderString;
-
-        public string? GenderString => _mGenderString.GetValue("genderString");
+        private string? _mValue_GenderString;
+        private bool _mUnknown_GenderString;
+        public string? GenderString
+        {
+            get
+            {
+                if (!_mUnknown_GenderString) return _mValue_GenderString;
+                throw new UndeferrableValueException("Value 'ProfileArgs.GenderString' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s home phone number.
         /// </summary>
-        [Input("homePhoneNumber")]
+        [PolicyResourceProperty("homePhoneNumber", "_mUnknown_HomePhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHomePhoneNumber;
-
-        public string? HomePhoneNumber => _mHomePhoneNumber.GetValue("homePhoneNumber");
+        private string? _mValue_HomePhoneNumber;
+        private bool _mUnknown_HomePhoneNumber;
+        public string? HomePhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_HomePhoneNumber) return _mValue_HomePhoneNumber;
+                throw new UndeferrableValueException("Value 'ProfileArgs.HomePhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s last name.
         /// </summary>
-        [Input("lastName")]
+        [PolicyResourceProperty("lastName", "_mUnknown_LastName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastName;
-
-        public string? LastName => _mLastName.GetValue("lastName");
+        private string? _mValue_LastName;
+        private bool _mUnknown_LastName;
+        public string? LastName
+        {
+            get
+            {
+                if (!_mUnknown_LastName) return _mValue_LastName;
+                throw new UndeferrableValueException("Value 'ProfileArgs.LastName' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the customer’s mailing address. Documented below.
         /// </summary>
-        [Input("mailingAddress")]
+        [PolicyResourceProperty("mailingAddress", "_mUnknown_MailingAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileMailingAddressArgs> _mMailingAddress;
-
-        public Inputs.ProfileMailingAddressArgs? MailingAddress => _mMailingAddress.GetValue("mailingAddress");
+        private Inputs.ProfileMailingAddressArgs? _mValue_MailingAddress;
+        private bool _mUnknown_MailingAddress;
+        public Inputs.ProfileMailingAddressArgs? MailingAddress
+        {
+            get
+            {
+                if (!_mUnknown_MailingAddress) return _mValue_MailingAddress;
+                throw new UndeferrableValueException("Value 'ProfileArgs.MailingAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s middle name.
         /// </summary>
-        [Input("middleName")]
+        [PolicyResourceProperty("middleName", "_mUnknown_MiddleName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMiddleName;
-
-        public string? MiddleName => _mMiddleName.GetValue("middleName");
+        private string? _mValue_MiddleName;
+        private bool _mUnknown_MiddleName;
+        public string? MiddleName
+        {
+            get
+            {
+                if (!_mUnknown_MiddleName) return _mValue_MiddleName;
+                throw new UndeferrableValueException("Value 'ProfileArgs.MiddleName' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s mobile phone number.
         /// </summary>
-        [Input("mobilePhoneNumber")]
+        [PolicyResourceProperty("mobilePhoneNumber", "_mUnknown_MobilePhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMobilePhoneNumber;
-
-        public string? MobilePhoneNumber => _mMobilePhoneNumber.GetValue("mobilePhoneNumber");
+        private string? _mValue_MobilePhoneNumber;
+        private bool _mUnknown_MobilePhoneNumber;
+        public string? MobilePhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_MobilePhoneNumber) return _mValue_MobilePhoneNumber;
+                throw new UndeferrableValueException("Value 'ProfileArgs.MobilePhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of profile used to describe the customer.
         /// </summary>
-        [Input("partyTypeString")]
+        [PolicyResourceProperty("partyTypeString", "_mUnknown_PartyTypeString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartyTypeString;
-
-        public string? PartyTypeString => _mPartyTypeString.GetValue("partyTypeString");
+        private string? _mValue_PartyTypeString;
+        private bool _mUnknown_PartyTypeString;
+        public string? PartyTypeString
+        {
+            get
+            {
+                if (!_mUnknown_PartyTypeString) return _mValue_PartyTypeString;
+                throw new UndeferrableValueException("Value 'ProfileArgs.PartyTypeString' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s personal email address.
         /// </summary>
-        [Input("personalEmailAddress")]
+        [PolicyResourceProperty("personalEmailAddress", "_mUnknown_PersonalEmailAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPersonalEmailAddress;
-
-        public string? PersonalEmailAddress => _mPersonalEmailAddress.GetValue("personalEmailAddress");
+        private string? _mValue_PersonalEmailAddress;
+        private bool _mUnknown_PersonalEmailAddress;
+        public string? PersonalEmailAddress
+        {
+            get
+            {
+                if (!_mUnknown_PersonalEmailAddress) return _mValue_PersonalEmailAddress;
+                throw new UndeferrableValueException("Value 'ProfileArgs.PersonalEmailAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The customer’s phone number, which has not been specified as a mobile, home, or business number.
         /// </summary>
-        [Input("phoneNumber")]
+        [PolicyResourceProperty("phoneNumber", "_mUnknown_PhoneNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPhoneNumber;
-
-        public string? PhoneNumber => _mPhoneNumber.GetValue("phoneNumber");
+        private string? _mValue_PhoneNumber;
+        private bool _mUnknown_PhoneNumber;
+        public string? PhoneNumber
+        {
+            get
+            {
+                if (!_mUnknown_PhoneNumber) return _mValue_PhoneNumber;
+                throw new UndeferrableValueException("Value 'ProfileArgs.PhoneNumber' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the customer’s shipping address. Documented below.
         /// </summary>
-        [Input("shippingAddress")]
+        [PolicyResourceProperty("shippingAddress", "_mUnknown_ShippingAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProfileShippingAddressArgs> _mShippingAddress;
-
-        public Inputs.ProfileShippingAddressArgs? ShippingAddress => _mShippingAddress.GetValue("shippingAddress");
+        private Inputs.ProfileShippingAddressArgs? _mValue_ShippingAddress;
+        private bool _mUnknown_ShippingAddress;
+        public Inputs.ProfileShippingAddressArgs? ShippingAddress
+        {
+            get
+            {
+                if (!_mUnknown_ShippingAddress) return _mValue_ShippingAddress;
+                throw new UndeferrableValueException("Value 'ProfileArgs.ShippingAddress' is not present");
+            }
+        }
     }
 }

@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.VpcLattice.Outputs
 {
     public sealed class GetListenerDefaultActionFixedResponseResult
     {
-        [Input("statusCode")]
+        [PolicyResourceProperty("statusCode", "_mUnknown_StatusCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStatusCode;
-
-        public int? StatusCode => _mStatusCode.GetValue("statusCode");
+        private int? _mValue_StatusCode;
+        private bool _mUnknown_StatusCode;
+        public int? StatusCode
+        {
+            get
+            {
+                if (!_mUnknown_StatusCode) return _mValue_StatusCode;
+                throw new UndeferrableValueException("Value 'GetListenerDefaultActionFixedResponseResult.StatusCode' is not present");
+            }
+        }
     }
 }

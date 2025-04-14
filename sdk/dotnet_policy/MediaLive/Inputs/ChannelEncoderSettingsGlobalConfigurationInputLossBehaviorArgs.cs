@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs
     {
-        [Input("blackFrameMsec")]
+        [PolicyResourceProperty("blackFrameMsec", "_mUnknown_BlackFrameMsec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBlackFrameMsec;
+        private int? _mValue_BlackFrameMsec;
+        private bool _mUnknown_BlackFrameMsec;
+        public int? BlackFrameMsec
+        {
+            get
+            {
+                if (!_mUnknown_BlackFrameMsec) return _mValue_BlackFrameMsec;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.BlackFrameMsec' is not present");
+            }
+        }
 
-        public int? BlackFrameMsec => _mBlackFrameMsec.GetValue("blackFrameMsec");
-
-        [Input("inputLossImageColor")]
+        [PolicyResourceProperty("inputLossImageColor", "_mUnknown_InputLossImageColor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputLossImageColor;
+        private string? _mValue_InputLossImageColor;
+        private bool _mUnknown_InputLossImageColor;
+        public string? InputLossImageColor
+        {
+            get
+            {
+                if (!_mUnknown_InputLossImageColor) return _mValue_InputLossImageColor;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.InputLossImageColor' is not present");
+            }
+        }
 
-        public string? InputLossImageColor => _mInputLossImageColor.GetValue("inputLossImageColor");
-
-        [Input("inputLossImageSlate")]
+        [PolicyResourceProperty("inputLossImageSlate", "_mUnknown_InputLossImageSlate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs> _mInputLossImageSlate;
+        private Inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs? _mValue_InputLossImageSlate;
+        private bool _mUnknown_InputLossImageSlate;
+        public Inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs? InputLossImageSlate
+        {
+            get
+            {
+                if (!_mUnknown_InputLossImageSlate) return _mValue_InputLossImageSlate;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.InputLossImageSlate' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs? InputLossImageSlate => _mInputLossImageSlate.GetValue("inputLossImageSlate");
-
-        [Input("inputLossImageType")]
+        [PolicyResourceProperty("inputLossImageType", "_mUnknown_InputLossImageType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputLossImageType;
+        private string? _mValue_InputLossImageType;
+        private bool _mUnknown_InputLossImageType;
+        public string? InputLossImageType
+        {
+            get
+            {
+                if (!_mUnknown_InputLossImageType) return _mValue_InputLossImageType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.InputLossImageType' is not present");
+            }
+        }
 
-        public string? InputLossImageType => _mInputLossImageType.GetValue("inputLossImageType");
-
-        [Input("repeatFrameMsec")]
+        [PolicyResourceProperty("repeatFrameMsec", "_mUnknown_RepeatFrameMsec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRepeatFrameMsec;
-
-        public int? RepeatFrameMsec => _mRepeatFrameMsec.GetValue("repeatFrameMsec");
+        private int? _mValue_RepeatFrameMsec;
+        private bool _mUnknown_RepeatFrameMsec;
+        public int? RepeatFrameMsec
+        {
+            get
+            {
+                if (!_mUnknown_RepeatFrameMsec) return _mValue_RepeatFrameMsec;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.RepeatFrameMsec' is not present");
+            }
+        }
     }
 }

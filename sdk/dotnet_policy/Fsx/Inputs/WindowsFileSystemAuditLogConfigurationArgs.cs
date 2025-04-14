@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
         /// </summary>
-        [Input("auditLogDestination")]
+        [PolicyResourceProperty("auditLogDestination", "_mUnknown_AuditLogDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuditLogDestination;
-
-        public string? AuditLogDestination => _mAuditLogDestination.GetValue("auditLogDestination");
+        private string? _mValue_AuditLogDestination;
+        private bool _mUnknown_AuditLogDestination;
+        public string? AuditLogDestination
+        {
+            get
+            {
+                if (!_mUnknown_AuditLogDestination) return _mValue_AuditLogDestination;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemAuditLogConfigurationArgs.AuditLogDestination' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         /// </summary>
-        [Input("fileAccessAuditLogLevel")]
+        [PolicyResourceProperty("fileAccessAuditLogLevel", "_mUnknown_FileAccessAuditLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileAccessAuditLogLevel;
-
-        public string? FileAccessAuditLogLevel => _mFileAccessAuditLogLevel.GetValue("fileAccessAuditLogLevel");
+        private string? _mValue_FileAccessAuditLogLevel;
+        private bool _mUnknown_FileAccessAuditLogLevel;
+        public string? FileAccessAuditLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_FileAccessAuditLogLevel) return _mValue_FileAccessAuditLogLevel;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemAuditLogConfigurationArgs.FileAccessAuditLogLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
         /// </summary>
-        [Input("fileShareAccessAuditLogLevel")]
+        [PolicyResourceProperty("fileShareAccessAuditLogLevel", "_mUnknown_FileShareAccessAuditLogLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileShareAccessAuditLogLevel;
-
-        public string? FileShareAccessAuditLogLevel => _mFileShareAccessAuditLogLevel.GetValue("fileShareAccessAuditLogLevel");
+        private string? _mValue_FileShareAccessAuditLogLevel;
+        private bool _mUnknown_FileShareAccessAuditLogLevel;
+        public string? FileShareAccessAuditLogLevel
+        {
+            get
+            {
+                if (!_mUnknown_FileShareAccessAuditLogLevel) return _mValue_FileShareAccessAuditLogLevel;
+                throw new UndeferrableValueException("Value 'WindowsFileSystemAuditLogConfigurationArgs.FileShareAccessAuditLogLevel' is not present");
+            }
+        }
     }
 }

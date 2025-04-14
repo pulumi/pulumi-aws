@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// IAM group name.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachmentsExclusive.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyArns")]
+        [PolicyResourceProperty("policyArns", "_mUnknown_PolicyArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
-
-        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
+        private List<string>? _mValue_PolicyArns;
+        private bool _mUnknown_PolicyArns;
+        public List<string>? PolicyArns
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArns) return _mValue_PolicyArns;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachmentsExclusive.PolicyArns' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// IAM group name.
         /// </summary>
-        [Input("groupName")]
+        [PolicyResourceProperty("groupName", "_mUnknown_GroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupName;
-
-        public string? GroupName => _mGroupName.GetValue("groupName");
+        private string? _mValue_GroupName;
+        private bool _mUnknown_GroupName;
+        public string? GroupName
+        {
+            get
+            {
+                if (!_mUnknown_GroupName) return _mValue_GroupName;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachmentsExclusiveArgs.GroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
         /// </summary>
-        [Input("policyArns")]
+        [PolicyResourceProperty("policyArns", "_mUnknown_PolicyArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPolicyArns;
-
-        public List<string>? PolicyArns => _mPolicyArns.GetValue("policyArns");
+        private List<string>? _mValue_PolicyArns;
+        private bool _mUnknown_PolicyArns;
+        public List<string>? PolicyArns
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArns) return _mValue_PolicyArns;
+                throw new UndeferrableValueException("Value 'GroupPolicyAttachmentsExclusiveArgs.PolicyArns' is not present");
+            }
+        }
     }
 }

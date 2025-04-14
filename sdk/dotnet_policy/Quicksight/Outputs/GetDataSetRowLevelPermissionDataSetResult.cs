@@ -12,34 +12,69 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetRowLevelPermissionDataSetResult
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionDataSetResult.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("formatVersion")]
+        [PolicyResourceProperty("formatVersion", "_mUnknown_FormatVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFormatVersion;
+        private string? _mValue_FormatVersion;
+        private bool _mUnknown_FormatVersion;
+        public string? FormatVersion
+        {
+            get
+            {
+                if (!_mUnknown_FormatVersion) return _mValue_FormatVersion;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionDataSetResult.FormatVersion' is not present");
+            }
+        }
 
-        public string? FormatVersion => _mFormatVersion.GetValue("formatVersion");
-
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionDataSetResult.Namespace' is not present");
+            }
+        }
 
-        public string? Namespace => _mNamespace.GetValue("namespace");
-
-        [Input("permissionPolicy")]
+        [PolicyResourceProperty("permissionPolicy", "_mUnknown_PermissionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPermissionPolicy;
+        private string? _mValue_PermissionPolicy;
+        private bool _mUnknown_PermissionPolicy;
+        public string? PermissionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_PermissionPolicy) return _mValue_PermissionPolicy;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionDataSetResult.PermissionPolicy' is not present");
+            }
+        }
 
-        public string? PermissionPolicy => _mPermissionPolicy.GetValue("permissionPolicy");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionDataSetResult.Status' is not present");
+            }
+        }
     }
 }

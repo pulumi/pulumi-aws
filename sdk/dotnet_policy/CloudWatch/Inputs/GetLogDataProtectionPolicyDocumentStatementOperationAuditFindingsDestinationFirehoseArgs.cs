@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Name of the Kinesis Firehose Delivery Stream to send findings to.
         /// </summary>
-        [Input("deliveryStream")]
+        [PolicyResourceProperty("deliveryStream", "_mUnknown_DeliveryStream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStream;
-
-        public string? DeliveryStream => _mDeliveryStream.GetValue("deliveryStream");
+        private string? _mValue_DeliveryStream;
+        private bool _mUnknown_DeliveryStream;
+        public string? DeliveryStream
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStream) return _mValue_DeliveryStream;
+                throw new UndeferrableValueException("Value 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseInputArgs.DeliveryStream' is not present");
+            }
+        }
     }
 }

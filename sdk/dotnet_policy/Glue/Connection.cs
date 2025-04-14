@@ -16,96 +16,166 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ARN of the Glue Connection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Connection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'Connection.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
         /// 
         /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
-        [Input("connectionProperties")]
+        [PolicyResourceProperty("connectionProperties", "_mUnknown_ConnectionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectionProperties;
-
-        public Dictionary<string, string>? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
+        private Dictionary<string, string>? _mValue_ConnectionProperties;
+        private bool _mUnknown_ConnectionProperties;
+        public Dictionary<string, string>? ConnectionProperties
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionProperties) return _mValue_ConnectionProperties;
+                throw new UndeferrableValueException("Value 'Connection.ConnectionProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
-        [Input("connectionType")]
+        [PolicyResourceProperty("connectionType", "_mUnknown_ConnectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
-
-        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+        private string? _mValue_ConnectionType;
+        private bool _mUnknown_ConnectionType;
+        public string? ConnectionType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionType) return _mValue_ConnectionType;
+                throw new UndeferrableValueException("Value 'Connection.ConnectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the connection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Connection.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of criteria that can be used in selecting this connection.
         /// </summary>
-        [Input("matchCriterias")]
+        [PolicyResourceProperty("matchCriterias", "_mUnknown_MatchCriterias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchCriterias;
-
-        public List<string>? MatchCriterias => _mMatchCriterias.GetValue("matchCriterias");
+        private List<string>? _mValue_MatchCriterias;
+        private bool _mUnknown_MatchCriterias;
+        public List<string>? MatchCriterias
+        {
+            get
+            {
+                if (!_mUnknown_MatchCriterias) return _mValue_MatchCriterias;
+                throw new UndeferrableValueException("Value 'Connection.MatchCriterias' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the connection.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Connection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         /// </summary>
-        [Input("physicalConnectionRequirements")]
+        [PolicyResourceProperty("physicalConnectionRequirements", "_mUnknown_PhysicalConnectionRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ConnectionPhysicalConnectionRequirements> _mPhysicalConnectionRequirements;
-
-        public Outputs.ConnectionPhysicalConnectionRequirements? PhysicalConnectionRequirements => _mPhysicalConnectionRequirements.GetValue("physicalConnectionRequirements");
+        private Outputs.ConnectionPhysicalConnectionRequirements? _mValue_PhysicalConnectionRequirements;
+        private bool _mUnknown_PhysicalConnectionRequirements;
+        public Outputs.ConnectionPhysicalConnectionRequirements? PhysicalConnectionRequirements
+        {
+            get
+            {
+                if (!_mUnknown_PhysicalConnectionRequirements) return _mValue_PhysicalConnectionRequirements;
+                throw new UndeferrableValueException("Value 'Connection.PhysicalConnectionRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Connection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Connection.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/connection:Connection")]
@@ -114,77 +184,133 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
         /// 
         /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         /// </summary>
-        [Input("connectionProperties")]
+        [PolicyResourceProperty("connectionProperties", "_mUnknown_ConnectionProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConnectionProperties;
-
-        public Dictionary<string, string>? ConnectionProperties => _mConnectionProperties.GetValue("connectionProperties");
+        private Dictionary<string, string>? _mValue_ConnectionProperties;
+        private bool _mUnknown_ConnectionProperties;
+        public Dictionary<string, string>? ConnectionProperties
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionProperties) return _mValue_ConnectionProperties;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.ConnectionProperties' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         /// </summary>
-        [Input("connectionType")]
+        [PolicyResourceProperty("connectionType", "_mUnknown_ConnectionType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionType;
-
-        public string? ConnectionType => _mConnectionType.GetValue("connectionType");
+        private string? _mValue_ConnectionType;
+        private bool _mUnknown_ConnectionType;
+        public string? ConnectionType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionType) return _mValue_ConnectionType;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.ConnectionType' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the connection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of criteria that can be used in selecting this connection.
         /// </summary>
-        [Input("matchCriterias")]
+        [PolicyResourceProperty("matchCriterias", "_mUnknown_MatchCriterias")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mMatchCriterias;
-
-        public List<string>? MatchCriterias => _mMatchCriterias.GetValue("matchCriterias");
+        private List<string>? _mValue_MatchCriterias;
+        private bool _mUnknown_MatchCriterias;
+        public List<string>? MatchCriterias
+        {
+            get
+            {
+                if (!_mUnknown_MatchCriterias) return _mValue_MatchCriterias;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.MatchCriterias' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the connection.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         /// </summary>
-        [Input("physicalConnectionRequirements")]
+        [PolicyResourceProperty("physicalConnectionRequirements", "_mUnknown_PhysicalConnectionRequirements")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectionPhysicalConnectionRequirementsArgs> _mPhysicalConnectionRequirements;
-
-        public Inputs.ConnectionPhysicalConnectionRequirementsArgs? PhysicalConnectionRequirements => _mPhysicalConnectionRequirements.GetValue("physicalConnectionRequirements");
+        private Inputs.ConnectionPhysicalConnectionRequirementsArgs? _mValue_PhysicalConnectionRequirements;
+        private bool _mUnknown_PhysicalConnectionRequirements;
+        public Inputs.ConnectionPhysicalConnectionRequirementsArgs? PhysicalConnectionRequirements
+        {
+            get
+            {
+                if (!_mUnknown_PhysicalConnectionRequirements) return _mValue_PhysicalConnectionRequirements;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.PhysicalConnectionRequirements' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Tags' is not present");
+            }
+        }
     }
 }

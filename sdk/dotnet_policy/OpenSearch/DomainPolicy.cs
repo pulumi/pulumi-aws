@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// IAM policy document specifying the access policies for the domain
         /// </summary>
-        [Input("accessPolicies")]
+        [PolicyResourceProperty("accessPolicies", "_mUnknown_AccessPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
-
-        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
+        private string? _mValue_AccessPolicies;
+        private bool _mUnknown_AccessPolicies;
+        public string? AccessPolicies
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicies) return _mValue_AccessPolicies;
+                throw new UndeferrableValueException("Value 'DomainPolicy.AccessPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainPolicy.DomainName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:opensearch/domainPolicy:DomainPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearch
         /// <summary>
         /// IAM policy document specifying the access policies for the domain
         /// </summary>
-        [Input("accessPolicies")]
+        [PolicyResourceProperty("accessPolicies", "_mUnknown_AccessPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessPolicies;
-
-        public string? AccessPolicies => _mAccessPolicies.GetValue("accessPolicies");
+        private string? _mValue_AccessPolicies;
+        private bool _mUnknown_AccessPolicies;
+        public string? AccessPolicies
+        {
+            get
+            {
+                if (!_mUnknown_AccessPolicies) return _mValue_AccessPolicies;
+                throw new UndeferrableValueException("Value 'DomainPolicyArgs.AccessPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName")]
+        [PolicyResourceProperty("domainName", "_mUnknown_DomainName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDomainName;
-
-        public string? DomainName => _mDomainName.GetValue("domainName");
+        private string? _mValue_DomainName;
+        private bool _mUnknown_DomainName;
+        public string? DomainName
+        {
+            get
+            {
+                if (!_mUnknown_DomainName) return _mValue_DomainName;
+                throw new UndeferrableValueException("Value 'DomainPolicyArgs.DomainName' is not present");
+            }
+        }
     }
 }

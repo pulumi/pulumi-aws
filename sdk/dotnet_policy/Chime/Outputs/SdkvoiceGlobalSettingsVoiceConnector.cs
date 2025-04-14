@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Chime.Outputs
         /// <summary>
         /// The S3 bucket that stores the Voice Connector's call detail records.
         /// </summary>
-        [Input("cdrBucket")]
+        [PolicyResourceProperty("cdrBucket", "_mUnknown_CdrBucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCdrBucket;
-
-        public string? CdrBucket => _mCdrBucket.GetValue("cdrBucket");
+        private string? _mValue_CdrBucket;
+        private bool _mUnknown_CdrBucket;
+        public string? CdrBucket
+        {
+            get
+            {
+                if (!_mUnknown_CdrBucket) return _mValue_CdrBucket;
+                throw new UndeferrableValueException("Value 'SdkvoiceGlobalSettingsVoiceConnector.CdrBucket' is not present");
+            }
+        }
     }
 }

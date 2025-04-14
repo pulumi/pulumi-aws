@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.EcrPublic
         /// <summary>
         /// Full ARN of the repository.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Repository.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Catalog data configuration for the repository. See below for schema.
         /// </summary>
-        [Input("catalogData")]
+        [PolicyResourceProperty("catalogData", "_mUnknown_CatalogData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RepositoryCatalogData> _mCatalogData;
+        private Outputs.RepositoryCatalogData? _mValue_CatalogData;
+        private bool _mUnknown_CatalogData;
+        public Outputs.RepositoryCatalogData? CatalogData
+        {
+            get
+            {
+                if (!_mUnknown_CatalogData) return _mValue_CatalogData;
+                throw new UndeferrableValueException("Value 'Repository.CatalogData' is not present");
+            }
+        }
 
-        public Outputs.RepositoryCatalogData? CatalogData => _mCatalogData.GetValue("catalogData");
-
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'Repository.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
-        [Input("registryId")]
+        [PolicyResourceProperty("registryId", "_mUnknown_RegistryId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegistryId;
-
-        public string? RegistryId => _mRegistryId.GetValue("registryId");
+        private string? _mValue_RegistryId;
+        private bool _mUnknown_RegistryId;
+        public string? RegistryId
+        {
+            get
+            {
+                if (!_mUnknown_RegistryId) return _mValue_RegistryId;
+                throw new UndeferrableValueException("Value 'Repository.RegistryId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the repository.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'Repository.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// The URI of the repository.
         /// </summary>
-        [Input("repositoryUri")]
+        [PolicyResourceProperty("repositoryUri", "_mUnknown_RepositoryUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryUri;
-
-        public string? RepositoryUri => _mRepositoryUri.GetValue("repositoryUri");
+        private string? _mValue_RepositoryUri;
+        private bool _mUnknown_RepositoryUri;
+        public string? RepositoryUri
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryUri) return _mValue_RepositoryUri;
+                throw new UndeferrableValueException("Value 'Repository.RepositoryUri' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Repository.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Repository.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ecrpublic/repository:Repository")]
@@ -89,34 +145,62 @@ namespace Pulumi.PolicyPacks.Aws.EcrPublic
         /// <summary>
         /// Catalog data configuration for the repository. See below for schema.
         /// </summary>
-        [Input("catalogData")]
+        [PolicyResourceProperty("catalogData", "_mUnknown_CatalogData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RepositoryCatalogDataArgs> _mCatalogData;
+        private Inputs.RepositoryCatalogDataArgs? _mValue_CatalogData;
+        private bool _mUnknown_CatalogData;
+        public Inputs.RepositoryCatalogDataArgs? CatalogData
+        {
+            get
+            {
+                if (!_mUnknown_CatalogData) return _mValue_CatalogData;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.CatalogData' is not present");
+            }
+        }
 
-        public Inputs.RepositoryCatalogDataArgs? CatalogData => _mCatalogData.GetValue("catalogData");
-
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the repository.
         /// </summary>
-        [Input("repositoryName")]
+        [PolicyResourceProperty("repositoryName", "_mUnknown_RepositoryName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRepositoryName;
-
-        public string? RepositoryName => _mRepositoryName.GetValue("repositoryName");
+        private string? _mValue_RepositoryName;
+        private bool _mUnknown_RepositoryName;
+        public string? RepositoryName
+        {
+            get
+            {
+                if (!_mUnknown_RepositoryName) return _mValue_RepositoryName;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.RepositoryName' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RepositoryArgs.Tags' is not present");
+            }
+        }
     }
 }

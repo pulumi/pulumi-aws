@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Ssm.Inputs
         /// <summary>
         /// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
         /// </summary>
-        [Input("notificationArn")]
+        [PolicyResourceProperty("notificationArn", "_mUnknown_NotificationArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationArn;
-
-        public string? NotificationArn => _mNotificationArn.GetValue("notificationArn");
+        private string? _mValue_NotificationArn;
+        private bool _mUnknown_NotificationArn;
+        public string? NotificationArn
+        {
+            get
+            {
+                if (!_mUnknown_NotificationArn) return _mValue_NotificationArn;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs.NotificationArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
         /// </summary>
-        [Input("notificationEvents")]
+        [PolicyResourceProperty("notificationEvents", "_mUnknown_NotificationEvents")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNotificationEvents;
-
-        public List<string>? NotificationEvents => _mNotificationEvents.GetValue("notificationEvents");
+        private List<string>? _mValue_NotificationEvents;
+        private bool _mUnknown_NotificationEvents;
+        public List<string>? NotificationEvents
+        {
+            get
+            {
+                if (!_mUnknown_NotificationEvents) return _mValue_NotificationEvents;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs.NotificationEvents' is not present");
+            }
+        }
 
         /// <summary>
         /// When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
         /// </summary>
-        [Input("notificationType")]
+        [PolicyResourceProperty("notificationType", "_mUnknown_NotificationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNotificationType;
-
-        public string? NotificationType => _mNotificationType.GetValue("notificationType");
+        private string? _mValue_NotificationType;
+        private bool _mUnknown_NotificationType;
+        public string? NotificationType
+        {
+            get
+            {
+                if (!_mUnknown_NotificationType) return _mValue_NotificationType;
+                throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs.NotificationType' is not present");
+            }
+        }
     }
 }

@@ -18,10 +18,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// * `ObjectWriter` - Uploading account will own the object if the object is uploaded with the `bucket-owner-full-control` canned ACL.
         /// * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
         /// </summary>
-        [Input("objectOwnership")]
+        [PolicyResourceProperty("objectOwnership", "_mUnknown_ObjectOwnership")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectOwnership;
-
-        public string? ObjectOwnership => _mObjectOwnership.GetValue("objectOwnership");
+        private string? _mValue_ObjectOwnership;
+        private bool _mUnknown_ObjectOwnership;
+        public string? ObjectOwnership
+        {
+            get
+            {
+                if (!_mUnknown_ObjectOwnership) return _mValue_ObjectOwnership;
+                throw new UndeferrableValueException("Value 'BucketOwnershipControlsRuleArgs.ObjectOwnership' is not present");
+            }
+        }
     }
 }

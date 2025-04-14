@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SesV2.Inputs
         /// <summary>
         /// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
         /// </summary>
-        [Input("defaultDimensionValue")]
+        [PolicyResourceProperty("defaultDimensionValue", "_mUnknown_DefaultDimensionValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultDimensionValue;
-
-        public string? DefaultDimensionValue => _mDefaultDimensionValue.GetValue("defaultDimensionValue");
+        private string? _mValue_DefaultDimensionValue;
+        private bool _mUnknown_DefaultDimensionValue;
+        public string? DefaultDimensionValue
+        {
+            get
+            {
+                if (!_mUnknown_DefaultDimensionValue) return _mValue_DefaultDimensionValue;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs.DefaultDimensionValue' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of an Amazon CloudWatch dimension associated with an email sending metric.
         /// </summary>
-        [Input("dimensionName")]
+        [PolicyResourceProperty("dimensionName", "_mUnknown_DimensionName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimensionName;
-
-        public string? DimensionName => _mDimensionName.GetValue("dimensionName");
+        private string? _mValue_DimensionName;
+        private bool _mUnknown_DimensionName;
+        public string? DimensionName
+        {
+            get
+            {
+                if (!_mUnknown_DimensionName) return _mValue_DimensionName;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs.DimensionName' is not present");
+            }
+        }
 
         /// <summary>
         /// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         /// </summary>
-        [Input("dimensionValueSource")]
+        [PolicyResourceProperty("dimensionValueSource", "_mUnknown_DimensionValueSource")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDimensionValueSource;
-
-        public string? DimensionValueSource => _mDimensionValueSource.GetValue("dimensionValueSource");
+        private string? _mValue_DimensionValueSource;
+        private bool _mUnknown_DimensionValueSource;
+        public string? DimensionValueSource
+        {
+            get
+            {
+                if (!_mUnknown_DimensionValueSource) return _mValue_DimensionValueSource;
+                throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs.DimensionValueSource' is not present");
+            }
+        }
     }
 }

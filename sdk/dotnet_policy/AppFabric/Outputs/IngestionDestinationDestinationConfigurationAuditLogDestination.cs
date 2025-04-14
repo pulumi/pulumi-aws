@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AppFabric.Outputs
         /// <summary>
         /// Contains information about an Amazon Data Firehose delivery stream.
         /// </summary>
-        [Input("firehoseStream")]
+        [PolicyResourceProperty("firehoseStream", "_mUnknown_FirehoseStream")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream> _mFirehoseStream;
-
-        public Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream? FirehoseStream => _mFirehoseStream.GetValue("firehoseStream");
+        private Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream? _mValue_FirehoseStream;
+        private bool _mUnknown_FirehoseStream;
+        public Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream? FirehoseStream
+        {
+            get
+            {
+                if (!_mUnknown_FirehoseStream) return _mValue_FirehoseStream;
+                throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestination.FirehoseStream' is not present");
+            }
+        }
 
         /// <summary>
         /// Contains information about an Amazon S3 bucket.
         /// </summary>
-        [Input("s3Bucket")]
+        [PolicyResourceProperty("s3Bucket", "_mUnknown_S3Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket> _mS3Bucket;
-
-        public Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket? S3Bucket => _mS3Bucket.GetValue("s3Bucket");
+        private Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket? _mValue_S3Bucket;
+        private bool _mUnknown_S3Bucket;
+        public Outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket? S3Bucket
+        {
+            get
+            {
+                if (!_mUnknown_S3Bucket) return _mValue_S3Bucket;
+                throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestination.S3Bucket' is not present");
+            }
+        }
     }
 }

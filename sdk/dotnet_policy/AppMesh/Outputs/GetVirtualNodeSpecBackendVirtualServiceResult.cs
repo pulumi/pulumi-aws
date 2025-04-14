@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecBackendVirtualServiceResult
     {
-        [Input("clientPolicies")]
+        [PolicyResourceProperty("clientPolicies", "_mUnknown_ClientPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult>> _mClientPolicies;
+        private List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult>? _mValue_ClientPolicies;
+        private bool _mUnknown_ClientPolicies;
+        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult>? ClientPolicies
+        {
+            get
+            {
+                if (!_mUnknown_ClientPolicies) return _mValue_ClientPolicies;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendVirtualServiceResult.ClientPolicies' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult>? ClientPolicies => _mClientPolicies.GetValue("clientPolicies");
-
-        [Input("virtualServiceName")]
+        [PolicyResourceProperty("virtualServiceName", "_mUnknown_VirtualServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualServiceName;
-
-        public string? VirtualServiceName => _mVirtualServiceName.GetValue("virtualServiceName");
+        private string? _mValue_VirtualServiceName;
+        private bool _mUnknown_VirtualServiceName;
+        public string? VirtualServiceName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualServiceName) return _mValue_VirtualServiceName;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecBackendVirtualServiceResult.VirtualServiceName' is not present");
+            }
+        }
     }
 }

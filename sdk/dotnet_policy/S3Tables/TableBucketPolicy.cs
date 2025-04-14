@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
-        [Input("resourcePolicy")]
+        [PolicyResourceProperty("resourcePolicy", "_mUnknown_ResourcePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
-
-        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+        private string? _mValue_ResourcePolicy;
+        private bool _mUnknown_ResourcePolicy;
+        public string? ResourcePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePolicy) return _mValue_ResourcePolicy;
+                throw new UndeferrableValueException("Value 'TableBucketPolicy.ResourcePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that owns this policy.
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'TableBucketPolicy.TableBucketArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3tables/tableBucketPolicy:TableBucketPolicy")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// <summary>
         /// Amazon Web Services resource-based policy document in JSON format.
         /// </summary>
-        [Input("resourcePolicy")]
+        [PolicyResourceProperty("resourcePolicy", "_mUnknown_ResourcePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePolicy;
-
-        public string? ResourcePolicy => _mResourcePolicy.GetValue("resourcePolicy");
+        private string? _mValue_ResourcePolicy;
+        private bool _mUnknown_ResourcePolicy;
+        public string? ResourcePolicy
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePolicy) return _mValue_ResourcePolicy;
+                throw new UndeferrableValueException("Value 'TableBucketPolicyArgs.ResourcePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that owns this policy.
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'TableBucketPolicyArgs.TableBucketArn' is not present");
+            }
+        }
     }
 }

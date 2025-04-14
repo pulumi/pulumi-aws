@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// Enables or disables data processing.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the data processors as multiple blocks. See `processors` block below for details.
         /// </summary>
-        [Input("processors")]
+        [PolicyResourceProperty("processors", "_mUnknown_Processors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor>> _mProcessors;
-
-        public List<Outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor>? Processors => _mProcessors.GetValue("processors");
+        private List<Outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor>? _mValue_Processors;
+        private bool _mUnknown_Processors;
+        public List<Outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor>? Processors
+        {
+            get
+            {
+                if (!_mUnknown_Processors) return _mValue_Processors;
+                throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration.Processors' is not present");
+            }
+        }
     }
 }

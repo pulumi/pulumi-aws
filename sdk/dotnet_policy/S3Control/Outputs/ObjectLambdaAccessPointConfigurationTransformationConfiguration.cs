@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
         /// </summary>
-        [Input("actions")]
+        [PolicyResourceProperty("actions", "_mUnknown_Actions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mActions;
-
-        public List<string>? Actions => _mActions.GetValue("actions");
+        private List<string>? _mValue_Actions;
+        private bool _mUnknown_Actions;
+        public List<string>? Actions
+        {
+            get
+            {
+                if (!_mUnknown_Actions) return _mValue_Actions;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfiguration.Actions' is not present");
+            }
+        }
 
         /// <summary>
         /// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
         /// </summary>
-        [Input("contentTransformation")]
+        [PolicyResourceProperty("contentTransformation", "_mUnknown_ContentTransformation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation> _mContentTransformation;
-
-        public Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation? ContentTransformation => _mContentTransformation.GetValue("contentTransformation");
+        private Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation? _mValue_ContentTransformation;
+        private bool _mUnknown_ContentTransformation;
+        public Outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation? ContentTransformation
+        {
+            get
+            {
+                if (!_mUnknown_ContentTransformation) return _mValue_ContentTransformation;
+                throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfiguration.ContentTransformation' is not present");
+            }
+        }
     }
 }

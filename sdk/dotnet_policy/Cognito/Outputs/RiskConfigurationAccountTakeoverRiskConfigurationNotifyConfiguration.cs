@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Cognito.Outputs
         /// <summary>
         /// Email template used when a detected risk event is blocked. See notify email type below.
         /// </summary>
-        [Input("blockEmail")]
+        [PolicyResourceProperty("blockEmail", "_mUnknown_BlockEmail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail> _mBlockEmail;
-
-        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail? BlockEmail => _mBlockEmail.GetValue("blockEmail");
+        private Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail? _mValue_BlockEmail;
+        private bool _mUnknown_BlockEmail;
+        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail? BlockEmail
+        {
+            get
+            {
+                if (!_mUnknown_BlockEmail) return _mValue_BlockEmail;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.BlockEmail' is not present");
+            }
+        }
 
         /// <summary>
         /// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
         /// </summary>
-        [Input("from")]
+        [PolicyResourceProperty("from", "_mUnknown_From")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrom;
-
-        public string? From => _mFrom.GetValue("from");
+        private string? _mValue_From;
+        private bool _mUnknown_From;
+        public string? From
+        {
+            get
+            {
+                if (!_mUnknown_From) return _mValue_From;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.From' is not present");
+            }
+        }
 
         /// <summary>
         /// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
         /// </summary>
-        [Input("mfaEmail")]
+        [PolicyResourceProperty("mfaEmail", "_mUnknown_MfaEmail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail> _mMfaEmail;
-
-        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail? MfaEmail => _mMfaEmail.GetValue("mfaEmail");
+        private Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail? _mValue_MfaEmail;
+        private bool _mUnknown_MfaEmail;
+        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail? MfaEmail
+        {
+            get
+            {
+                if (!_mUnknown_MfaEmail) return _mValue_MfaEmail;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.MfaEmail' is not present");
+            }
+        }
 
         /// <summary>
         /// The email template used when a detected risk event is allowed. See notify email type below.
         /// </summary>
-        [Input("noActionEmail")]
+        [PolicyResourceProperty("noActionEmail", "_mUnknown_NoActionEmail")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail> _mNoActionEmail;
-
-        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail? NoActionEmail => _mNoActionEmail.GetValue("noActionEmail");
+        private Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail? _mValue_NoActionEmail;
+        private bool _mUnknown_NoActionEmail;
+        public Outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail? NoActionEmail
+        {
+            get
+            {
+                if (!_mUnknown_NoActionEmail) return _mValue_NoActionEmail;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.NoActionEmail' is not present");
+            }
+        }
 
         /// <summary>
         /// The destination to which the receiver of an email should reply to.
         /// </summary>
-        [Input("replyTo")]
+        [PolicyResourceProperty("replyTo", "_mUnknown_ReplyTo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplyTo;
-
-        public string? ReplyTo => _mReplyTo.GetValue("replyTo");
+        private string? _mValue_ReplyTo;
+        private bool _mUnknown_ReplyTo;
+        public string? ReplyTo
+        {
+            get
+            {
+                if (!_mUnknown_ReplyTo) return _mValue_ReplyTo;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.ReplyTo' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
         /// </summary>
-        [Input("sourceArn")]
+        [PolicyResourceProperty("sourceArn", "_mUnknown_SourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceArn;
-
-        public string? SourceArn => _mSourceArn.GetValue("sourceArn");
+        private string? _mValue_SourceArn;
+        private bool _mUnknown_SourceArn;
+        public string? SourceArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceArn) return _mValue_SourceArn;
+                throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.SourceArn' is not present");
+            }
+        }
     }
 }

@@ -15,21 +15,35 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// Specifies the resources that the lifecycle policy applies to. Detailed below.
         /// </summary>
-        [Input("includeResources")]
+        [PolicyResourceProperty("includeResources", "_mUnknown_IncludeResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailActionIncludeResourcesArgs> _mIncludeResources;
-
-        public Inputs.LifecyclePolicyPolicyDetailActionIncludeResourcesArgs? IncludeResources => _mIncludeResources.GetValue("includeResources");
+        private Inputs.LifecyclePolicyPolicyDetailActionIncludeResourcesArgs? _mValue_IncludeResources;
+        private bool _mUnknown_IncludeResources;
+        public Inputs.LifecyclePolicyPolicyDetailActionIncludeResourcesArgs? IncludeResources
+        {
+            get
+            {
+                if (!_mUnknown_IncludeResources) return _mValue_IncludeResources;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionArgs.IncludeResources' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionArgs.Type' is not present");
+            }
+        }
     }
 }

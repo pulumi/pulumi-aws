@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Fsx.Outputs
         /// <summary>
         /// Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
         /// </summary>
-        [Input("copyStrategy")]
+        [PolicyResourceProperty("copyStrategy", "_mUnknown_CopyStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCopyStrategy;
-
-        public string? CopyStrategy => _mCopyStrategy.GetValue("copyStrategy");
+        private string? _mValue_CopyStrategy;
+        private bool _mUnknown_CopyStrategy;
+        public string? CopyStrategy
+        {
+            get
+            {
+                if (!_mUnknown_CopyStrategy) return _mValue_CopyStrategy;
+                throw new UndeferrableValueException("Value 'OpenZfsVolumeOriginSnapshot.CopyStrategy' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the origin snapshot.
         /// </summary>
-        [Input("snapshotArn")]
+        [PolicyResourceProperty("snapshotArn", "_mUnknown_SnapshotArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSnapshotArn;
-
-        public string? SnapshotArn => _mSnapshotArn.GetValue("snapshotArn");
+        private string? _mValue_SnapshotArn;
+        private bool _mUnknown_SnapshotArn;
+        public string? SnapshotArn
+        {
+            get
+            {
+                if (!_mUnknown_SnapshotArn) return _mValue_SnapshotArn;
+                throw new UndeferrableValueException("Value 'OpenZfsVolumeOriginSnapshot.SnapshotArn' is not present");
+            }
+        }
     }
 }

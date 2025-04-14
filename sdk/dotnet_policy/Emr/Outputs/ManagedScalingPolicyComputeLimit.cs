@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
         /// </summary>
-        [Input("maximumCapacityUnits")]
+        [PolicyResourceProperty("maximumCapacityUnits", "_mUnknown_MaximumCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumCapacityUnits;
-
-        public int? MaximumCapacityUnits => _mMaximumCapacityUnits.GetValue("maximumCapacityUnits");
+        private int? _mValue_MaximumCapacityUnits;
+        private bool _mUnknown_MaximumCapacityUnits;
+        public int? MaximumCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaximumCapacityUnits) return _mValue_MaximumCapacityUnits;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.MaximumCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
         /// </summary>
-        [Input("maximumCoreCapacityUnits")]
+        [PolicyResourceProperty("maximumCoreCapacityUnits", "_mUnknown_MaximumCoreCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumCoreCapacityUnits;
-
-        public int? MaximumCoreCapacityUnits => _mMaximumCoreCapacityUnits.GetValue("maximumCoreCapacityUnits");
+        private int? _mValue_MaximumCoreCapacityUnits;
+        private bool _mUnknown_MaximumCoreCapacityUnits;
+        public int? MaximumCoreCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaximumCoreCapacityUnits) return _mValue_MaximumCoreCapacityUnits;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.MaximumCoreCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
         /// </summary>
-        [Input("maximumOndemandCapacityUnits")]
+        [PolicyResourceProperty("maximumOndemandCapacityUnits", "_mUnknown_MaximumOndemandCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumOndemandCapacityUnits;
-
-        public int? MaximumOndemandCapacityUnits => _mMaximumOndemandCapacityUnits.GetValue("maximumOndemandCapacityUnits");
+        private int? _mValue_MaximumOndemandCapacityUnits;
+        private bool _mUnknown_MaximumOndemandCapacityUnits;
+        public int? MaximumOndemandCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_MaximumOndemandCapacityUnits) return _mValue_MaximumOndemandCapacityUnits;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.MaximumOndemandCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
         /// </summary>
-        [Input("minimumCapacityUnits")]
+        [PolicyResourceProperty("minimumCapacityUnits", "_mUnknown_MinimumCapacityUnits")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumCapacityUnits;
-
-        public int? MinimumCapacityUnits => _mMinimumCapacityUnits.GetValue("minimumCapacityUnits");
+        private int? _mValue_MinimumCapacityUnits;
+        private bool _mUnknown_MinimumCapacityUnits;
+        public int? MinimumCapacityUnits
+        {
+            get
+            {
+                if (!_mUnknown_MinimumCapacityUnits) return _mValue_MinimumCapacityUnits;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.MinimumCapacityUnits' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
         /// </summary>
-        [Input("unitType")]
+        [PolicyResourceProperty("unitType", "_mUnknown_UnitType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnitType;
-
-        public string? UnitType => _mUnitType.GetValue("unitType");
+        private string? _mValue_UnitType;
+        private bool _mUnknown_UnitType;
+        public string? UnitType
+        {
+            get
+            {
+                if (!_mUnknown_UnitType) return _mValue_UnitType;
+                throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.UnitType' is not present");
+            }
+        }
     }
 }

@@ -15,67 +15,123 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// ID of the cluster.
         /// </summary>
-        [Input("id")]
+        [PolicyResourceProperty("id", "_mUnknown_Id")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mId;
-
-        public string? Id => _mId.GetValue("id");
+        private string? _mValue_Id;
+        private bool _mUnknown_Id;
+        public string? Id
+        {
+            get
+            {
+                if (!_mUnknown_Id) return _mValue_Id;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.Id' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for instance fleet.
         /// </summary>
-        [Input("instanceTypeConfigs")]
+        [PolicyResourceProperty("instanceTypeConfigs", "_mUnknown_InstanceTypeConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfig>> _mInstanceTypeConfigs;
-
-        public List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfig>? InstanceTypeConfigs => _mInstanceTypeConfigs.GetValue("instanceTypeConfigs");
+        private List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfig>? _mValue_InstanceTypeConfigs;
+        private bool _mUnknown_InstanceTypeConfigs;
+        public List<Outputs.ClusterMasterInstanceFleetInstanceTypeConfig>? InstanceTypeConfigs
+        {
+            get
+            {
+                if (!_mUnknown_InstanceTypeConfigs) return _mValue_InstanceTypeConfigs;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.InstanceTypeConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for launch specification.
         /// </summary>
-        [Input("launchSpecifications")]
+        [PolicyResourceProperty("launchSpecifications", "_mUnknown_LaunchSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ClusterMasterInstanceFleetLaunchSpecifications> _mLaunchSpecifications;
-
-        public Outputs.ClusterMasterInstanceFleetLaunchSpecifications? LaunchSpecifications => _mLaunchSpecifications.GetValue("launchSpecifications");
+        private Outputs.ClusterMasterInstanceFleetLaunchSpecifications? _mValue_LaunchSpecifications;
+        private bool _mUnknown_LaunchSpecifications;
+        public Outputs.ClusterMasterInstanceFleetLaunchSpecifications? LaunchSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_LaunchSpecifications) return _mValue_LaunchSpecifications;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.LaunchSpecifications' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name given to the instance fleet.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("provisionedOnDemandCapacity")]
+        [PolicyResourceProperty("provisionedOnDemandCapacity", "_mUnknown_ProvisionedOnDemandCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedOnDemandCapacity;
+        private int? _mValue_ProvisionedOnDemandCapacity;
+        private bool _mUnknown_ProvisionedOnDemandCapacity;
+        public int? ProvisionedOnDemandCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedOnDemandCapacity) return _mValue_ProvisionedOnDemandCapacity;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.ProvisionedOnDemandCapacity' is not present");
+            }
+        }
 
-        public int? ProvisionedOnDemandCapacity => _mProvisionedOnDemandCapacity.GetValue("provisionedOnDemandCapacity");
-
-        [Input("provisionedSpotCapacity")]
+        [PolicyResourceProperty("provisionedSpotCapacity", "_mUnknown_ProvisionedSpotCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mProvisionedSpotCapacity;
-
-        public int? ProvisionedSpotCapacity => _mProvisionedSpotCapacity.GetValue("provisionedSpotCapacity");
+        private int? _mValue_ProvisionedSpotCapacity;
+        private bool _mUnknown_ProvisionedSpotCapacity;
+        public int? ProvisionedSpotCapacity
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionedSpotCapacity) return _mValue_ProvisionedSpotCapacity;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.ProvisionedSpotCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         /// </summary>
-        [Input("targetOnDemandCapacity")]
+        [PolicyResourceProperty("targetOnDemandCapacity", "_mUnknown_TargetOnDemandCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetOnDemandCapacity;
-
-        public int? TargetOnDemandCapacity => _mTargetOnDemandCapacity.GetValue("targetOnDemandCapacity");
+        private int? _mValue_TargetOnDemandCapacity;
+        private bool _mUnknown_TargetOnDemandCapacity;
+        public int? TargetOnDemandCapacity
+        {
+            get
+            {
+                if (!_mUnknown_TargetOnDemandCapacity) return _mValue_TargetOnDemandCapacity;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.TargetOnDemandCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         /// </summary>
-        [Input("targetSpotCapacity")]
+        [PolicyResourceProperty("targetSpotCapacity", "_mUnknown_TargetSpotCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTargetSpotCapacity;
-
-        public int? TargetSpotCapacity => _mTargetSpotCapacity.GetValue("targetSpotCapacity");
+        private int? _mValue_TargetSpotCapacity;
+        private bool _mUnknown_TargetSpotCapacity;
+        public int? TargetSpotCapacity
+        {
+            get
+            {
+                if (!_mUnknown_TargetSpotCapacity) return _mValue_TargetSpotCapacity;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleet.TargetSpotCapacity' is not present");
+            }
+        }
     }
 }

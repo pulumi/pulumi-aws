@@ -17,19 +17,33 @@ namespace Pulumi.PolicyPacks.Aws.IvsChat.Outputs
         /// is allowed or denied) if the handler does not return a valid response,
         /// encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
         /// </summary>
-        [Input("fallbackResult")]
+        [PolicyResourceProperty("fallbackResult", "_mUnknown_FallbackResult")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFallbackResult;
-
-        public string? FallbackResult => _mFallbackResult.GetValue("fallbackResult");
+        private string? _mValue_FallbackResult;
+        private bool _mUnknown_FallbackResult;
+        public string? FallbackResult
+        {
+            get
+            {
+                if (!_mUnknown_FallbackResult) return _mValue_FallbackResult;
+                throw new UndeferrableValueException("Value 'RoomMessageReviewHandler.FallbackResult' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the lambda message review handler function.
         /// </summary>
-        [Input("uri")]
+        [PolicyResourceProperty("uri", "_mUnknown_Uri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUri;
-
-        public string? Uri => _mUri.GetValue("uri");
+        private string? _mValue_Uri;
+        private bool _mUnknown_Uri;
+        public string? Uri
+        {
+            get
+            {
+                if (!_mUnknown_Uri) return _mValue_Uri;
+                throw new UndeferrableValueException("Value 'RoomMessageReviewHandler.Uri' is not present");
+            }
+        }
     }
 }

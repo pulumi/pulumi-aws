@@ -16,17 +16,31 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>
-        [Input("tableData")]
+        [PolicyResourceProperty("tableData", "_mUnknown_TableData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCellsFilterTableData> _mTableData;
+        private Outputs.DataCellsFilterTableData? _mValue_TableData;
+        private bool _mUnknown_TableData;
+        public Outputs.DataCellsFilterTableData? TableData
+        {
+            get
+            {
+                if (!_mUnknown_TableData) return _mValue_TableData;
+                throw new UndeferrableValueException("Value 'DataCellsFilter.TableData' is not present");
+            }
+        }
 
-        public Outputs.DataCellsFilterTableData? TableData => _mTableData.GetValue("tableData");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataCellsFilterTimeouts> _mTimeouts;
-
-        public Outputs.DataCellsFilterTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.DataCellsFilterTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.DataCellsFilterTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DataCellsFilter.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lakeformation/dataCellsFilter:DataCellsFilter")]
@@ -35,16 +49,30 @@ namespace Pulumi.PolicyPacks.Aws.LakeFormation
         /// <summary>
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>
-        [Input("tableData")]
+        [PolicyResourceProperty("tableData", "_mUnknown_TableData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCellsFilterTableDataArgs> _mTableData;
+        private Inputs.DataCellsFilterTableDataArgs? _mValue_TableData;
+        private bool _mUnknown_TableData;
+        public Inputs.DataCellsFilterTableDataArgs? TableData
+        {
+            get
+            {
+                if (!_mUnknown_TableData) return _mValue_TableData;
+                throw new UndeferrableValueException("Value 'DataCellsFilterArgs.TableData' is not present");
+            }
+        }
 
-        public Inputs.DataCellsFilterTableDataArgs? TableData => _mTableData.GetValue("tableData");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataCellsFilterTimeoutsArgs> _mTimeouts;
-
-        public Inputs.DataCellsFilterTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.DataCellsFilterTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.DataCellsFilterTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'DataCellsFilterArgs.Timeouts' is not present");
+            }
+        }
     }
 }

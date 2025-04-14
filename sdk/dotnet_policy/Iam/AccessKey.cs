@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
         /// </summary>
-        [Input("createDate")]
+        [PolicyResourceProperty("createDate", "_mUnknown_CreateDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreateDate;
-
-        public string? CreateDate => _mCreateDate.GetValue("createDate");
+        private string? _mValue_CreateDate;
+        private bool _mUnknown_CreateDate;
+        public string? CreateDate
+        {
+            get
+            {
+                if (!_mUnknown_CreateDate) return _mValue_CreateDate;
+                throw new UndeferrableValueException("Value 'AccessKey.CreateDate' is not present");
+            }
+        }
 
         /// <summary>
         /// Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
         /// </summary>
-        [Input("encryptedSecret")]
+        [PolicyResourceProperty("encryptedSecret", "_mUnknown_EncryptedSecret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptedSecret;
-
-        public string? EncryptedSecret => _mEncryptedSecret.GetValue("encryptedSecret");
+        private string? _mValue_EncryptedSecret;
+        private bool _mUnknown_EncryptedSecret;
+        public string? EncryptedSecret
+        {
+            get
+            {
+                if (!_mUnknown_EncryptedSecret) return _mValue_EncryptedSecret;
+                throw new UndeferrableValueException("Value 'AccessKey.EncryptedSecret' is not present");
+            }
+        }
 
         /// <summary>
         /// Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
         /// </summary>
-        [Input("encryptedSesSmtpPasswordV4")]
+        [PolicyResourceProperty("encryptedSesSmtpPasswordV4", "_mUnknown_EncryptedSesSmtpPasswordV4")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncryptedSesSmtpPasswordV4;
-
-        public string? EncryptedSesSmtpPasswordV4 => _mEncryptedSesSmtpPasswordV4.GetValue("encryptedSesSmtpPasswordV4");
+        private string? _mValue_EncryptedSesSmtpPasswordV4;
+        private bool _mUnknown_EncryptedSesSmtpPasswordV4;
+        public string? EncryptedSesSmtpPasswordV4
+        {
+            get
+            {
+                if (!_mUnknown_EncryptedSesSmtpPasswordV4) return _mValue_EncryptedSesSmtpPasswordV4;
+                throw new UndeferrableValueException("Value 'AccessKey.EncryptedSesSmtpPasswordV4' is not present");
+            }
+        }
 
         /// <summary>
         /// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         /// </summary>
-        [Input("keyFingerprint")]
+        [PolicyResourceProperty("keyFingerprint", "_mUnknown_KeyFingerprint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyFingerprint;
-
-        public string? KeyFingerprint => _mKeyFingerprint.GetValue("keyFingerprint");
+        private string? _mValue_KeyFingerprint;
+        private bool _mUnknown_KeyFingerprint;
+        public string? KeyFingerprint
+        {
+            get
+            {
+                if (!_mUnknown_KeyFingerprint) return _mValue_KeyFingerprint;
+                throw new UndeferrableValueException("Value 'AccessKey.KeyFingerprint' is not present");
+            }
+        }
 
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
-        [Input("pgpKey")]
+        [PolicyResourceProperty("pgpKey", "_mUnknown_PgpKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPgpKey;
-
-        public string? PgpKey => _mPgpKey.GetValue("pgpKey");
+        private string? _mValue_PgpKey;
+        private bool _mUnknown_PgpKey;
+        public string? PgpKey
+        {
+            get
+            {
+                if (!_mUnknown_PgpKey) return _mValue_PgpKey;
+                throw new UndeferrableValueException("Value 'AccessKey.PgpKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         /// </summary>
-        [Input("secret")]
+        [PolicyResourceProperty("secret", "_mUnknown_Secret")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecret;
-
-        public string? Secret => _mSecret.GetValue("secret");
+        private string? _mValue_Secret;
+        private bool _mUnknown_Secret;
+        public string? Secret
+        {
+            get
+            {
+                if (!_mUnknown_Secret) return _mValue_Secret;
+                throw new UndeferrableValueException("Value 'AccessKey.Secret' is not present");
+            }
+        }
 
         /// <summary>
         /// Secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
         /// </summary>
-        [Input("sesSmtpPasswordV4")]
+        [PolicyResourceProperty("sesSmtpPasswordV4", "_mUnknown_SesSmtpPasswordV4")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSesSmtpPasswordV4;
-
-        public string? SesSmtpPasswordV4 => _mSesSmtpPasswordV4.GetValue("sesSmtpPasswordV4");
+        private string? _mValue_SesSmtpPasswordV4;
+        private bool _mUnknown_SesSmtpPasswordV4;
+        public string? SesSmtpPasswordV4
+        {
+            get
+            {
+                if (!_mUnknown_SesSmtpPasswordV4) return _mValue_SesSmtpPasswordV4;
+                throw new UndeferrableValueException("Value 'AccessKey.SesSmtpPasswordV4' is not present");
+            }
+        }
 
         /// <summary>
         /// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AccessKey.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM user to associate with this access key.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'AccessKey.User' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iam/accessKey:AccessKey")]
@@ -101,28 +164,49 @@ namespace Pulumi.PolicyPacks.Aws.Iam
         /// <summary>
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         /// </summary>
-        [Input("pgpKey")]
+        [PolicyResourceProperty("pgpKey", "_mUnknown_PgpKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPgpKey;
-
-        public string? PgpKey => _mPgpKey.GetValue("pgpKey");
+        private string? _mValue_PgpKey;
+        private bool _mUnknown_PgpKey;
+        public string? PgpKey
+        {
+            get
+            {
+                if (!_mUnknown_PgpKey) return _mValue_PgpKey;
+                throw new UndeferrableValueException("Value 'AccessKeyArgs.PgpKey' is not present");
+            }
+        }
 
         /// <summary>
         /// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'AccessKeyArgs.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// IAM user to associate with this access key.
         /// </summary>
-        [Input("user")]
+        [PolicyResourceProperty("user", "_mUnknown_User")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUser;
-
-        public string? User => _mUser.GetValue("user");
+        private string? _mValue_User;
+        private bool _mUnknown_User;
+        public string? User
+        {
+            get
+            {
+                if (!_mUnknown_User) return _mValue_User;
+                throw new UndeferrableValueException("Value 'AccessKeyArgs.User' is not present");
+            }
+        }
     }
 }

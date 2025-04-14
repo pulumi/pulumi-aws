@@ -16,137 +16,242 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The Direct Connect endpoint on which the physical connection terminates.
         /// </summary>
-        [Input("awsDevice")]
+        [PolicyResourceProperty("awsDevice", "_mUnknown_AwsDevice")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsDevice;
-
-        public string? AwsDevice => _mAwsDevice.GetValue("awsDevice");
+        private string? _mValue_AwsDevice;
+        private bool _mUnknown_AwsDevice;
+        public string? AwsDevice
+        {
+            get
+            {
+                if (!_mUnknown_AwsDevice) return _mValue_AwsDevice;
+                throw new UndeferrableValueException("Value 'HostedConnection.AwsDevice' is not present");
+            }
+        }
 
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         /// </summary>
-        [Input("bandwidth")]
+        [PolicyResourceProperty("bandwidth", "_mUnknown_Bandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBandwidth;
-
-        public string? Bandwidth => _mBandwidth.GetValue("bandwidth");
+        private string? _mValue_Bandwidth;
+        private bool _mUnknown_Bandwidth;
+        public string? Bandwidth
+        {
+            get
+            {
+                if (!_mUnknown_Bandwidth) return _mValue_Bandwidth;
+                throw new UndeferrableValueException("Value 'HostedConnection.Bandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the interconnect or LAG.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'HostedConnection.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         /// </summary>
-        [Input("hasLogicalRedundancy")]
+        [PolicyResourceProperty("hasLogicalRedundancy", "_mUnknown_HasLogicalRedundancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHasLogicalRedundancy;
-
-        public string? HasLogicalRedundancy => _mHasLogicalRedundancy.GetValue("hasLogicalRedundancy");
+        private string? _mValue_HasLogicalRedundancy;
+        private bool _mUnknown_HasLogicalRedundancy;
+        public string? HasLogicalRedundancy
+        {
+            get
+            {
+                if (!_mUnknown_HasLogicalRedundancy) return _mValue_HasLogicalRedundancy;
+                throw new UndeferrableValueException("Value 'HostedConnection.HasLogicalRedundancy' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean value representing if jumbo frames have been enabled for this connection.
         /// </summary>
-        [Input("jumboFrameCapable")]
+        [PolicyResourceProperty("jumboFrameCapable", "_mUnknown_JumboFrameCapable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mJumboFrameCapable;
-
-        public bool? JumboFrameCapable => _mJumboFrameCapable.GetValue("jumboFrameCapable");
+        private bool? _mValue_JumboFrameCapable;
+        private bool _mUnknown_JumboFrameCapable;
+        public bool? JumboFrameCapable
+        {
+            get
+            {
+                if (!_mUnknown_JumboFrameCapable) return _mValue_JumboFrameCapable;
+                throw new UndeferrableValueException("Value 'HostedConnection.JumboFrameCapable' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the LAG.
         /// </summary>
-        [Input("lagId")]
+        [PolicyResourceProperty("lagId", "_mUnknown_LagId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLagId;
-
-        public string? LagId => _mLagId.GetValue("lagId");
+        private string? _mValue_LagId;
+        private bool _mUnknown_LagId;
+        public string? LagId
+        {
+            get
+            {
+                if (!_mUnknown_LagId) return _mValue_LagId;
+                throw new UndeferrableValueException("Value 'HostedConnection.LagId' is not present");
+            }
+        }
 
         /// <summary>
         /// The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
         /// </summary>
-        [Input("loaIssueTime")]
+        [PolicyResourceProperty("loaIssueTime", "_mUnknown_LoaIssueTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLoaIssueTime;
-
-        public string? LoaIssueTime => _mLoaIssueTime.GetValue("loaIssueTime");
+        private string? _mValue_LoaIssueTime;
+        private bool _mUnknown_LoaIssueTime;
+        public string? LoaIssueTime
+        {
+            get
+            {
+                if (!_mUnknown_LoaIssueTime) return _mValue_LoaIssueTime;
+                throw new UndeferrableValueException("Value 'HostedConnection.LoaIssueTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The location of the connection.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'HostedConnection.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HostedConnection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account of the customer for the connection.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'HostedConnection.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the AWS Direct Connect service provider associated with the connection.
         /// </summary>
-        [Input("partnerName")]
+        [PolicyResourceProperty("partnerName", "_mUnknown_PartnerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPartnerName;
-
-        public string? PartnerName => _mPartnerName.GetValue("partnerName");
+        private string? _mValue_PartnerName;
+        private bool _mUnknown_PartnerName;
+        public string? PartnerName
+        {
+            get
+            {
+                if (!_mUnknown_PartnerName) return _mValue_PartnerName;
+                throw new UndeferrableValueException("Value 'HostedConnection.PartnerName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the service provider associated with the connection.
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'HostedConnection.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// The AWS Region where the connection is located.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'HostedConnection.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'HostedConnection.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The dedicated VLAN provisioned to the hosted connection.
         /// </summary>
-        [Input("vlan")]
+        [PolicyResourceProperty("vlan", "_mUnknown_Vlan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
-
-        public int? Vlan => _mVlan.GetValue("vlan");
+        private int? _mValue_Vlan;
+        private bool _mUnknown_Vlan;
+        public int? Vlan
+        {
+            get
+            {
+                if (!_mUnknown_Vlan) return _mValue_Vlan;
+                throw new UndeferrableValueException("Value 'HostedConnection.Vlan' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:directconnect/hostedConnection:HostedConnection")]
@@ -155,46 +260,81 @@ namespace Pulumi.PolicyPacks.Aws.DirectConnect
         /// <summary>
         /// The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         /// </summary>
-        [Input("bandwidth")]
+        [PolicyResourceProperty("bandwidth", "_mUnknown_Bandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBandwidth;
-
-        public string? Bandwidth => _mBandwidth.GetValue("bandwidth");
+        private string? _mValue_Bandwidth;
+        private bool _mUnknown_Bandwidth;
+        public string? Bandwidth
+        {
+            get
+            {
+                if (!_mUnknown_Bandwidth) return _mValue_Bandwidth;
+                throw new UndeferrableValueException("Value 'HostedConnectionArgs.Bandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the interconnect or LAG.
         /// </summary>
-        [Input("connectionId")]
+        [PolicyResourceProperty("connectionId", "_mUnknown_ConnectionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionId;
-
-        public string? ConnectionId => _mConnectionId.GetValue("connectionId");
+        private string? _mValue_ConnectionId;
+        private bool _mUnknown_ConnectionId;
+        public string? ConnectionId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionId) return _mValue_ConnectionId;
+                throw new UndeferrableValueException("Value 'HostedConnectionArgs.ConnectionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'HostedConnectionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS account of the customer for the connection.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'HostedConnectionArgs.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The dedicated VLAN provisioned to the hosted connection.
         /// </summary>
-        [Input("vlan")]
+        [PolicyResourceProperty("vlan", "_mUnknown_Vlan")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVlan;
-
-        public int? Vlan => _mVlan.GetValue("vlan");
+        private int? _mValue_Vlan;
+        private bool _mUnknown_Vlan;
+        public int? Vlan
+        {
+            get
+            {
+                if (!_mUnknown_Vlan) return _mValue_Vlan;
+                throw new UndeferrableValueException("Value 'HostedConnectionArgs.Vlan' is not present");
+            }
+        }
     }
 }

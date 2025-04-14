@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// Platform credential API key from Baidu.
         /// </summary>
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
-
-        public string? ApiKey => _mApiKey.GetValue("apiKey");
+        private string? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public string? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'BaiduChannel.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'BaiduChannel.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to enable the channel. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'BaiduChannel.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform credential Secret key from Baidu.
         /// </summary>
-        [Input("secretKey")]
+        [PolicyResourceProperty("secretKey", "_mUnknown_SecretKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
-
-        public string? SecretKey => _mSecretKey.GetValue("secretKey");
+        private string? _mValue_SecretKey;
+        private bool _mUnknown_SecretKey;
+        public string? SecretKey
+        {
+            get
+            {
+                if (!_mUnknown_SecretKey) return _mValue_SecretKey;
+                throw new UndeferrableValueException("Value 'BaiduChannel.SecretKey' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Pinpoint
         /// <summary>
         /// Platform credential API key from Baidu.
         /// </summary>
-        [Input("apiKey")]
+        [PolicyResourceProperty("apiKey", "_mUnknown_ApiKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiKey;
-
-        public string? ApiKey => _mApiKey.GetValue("apiKey");
+        private string? _mValue_ApiKey;
+        private bool _mUnknown_ApiKey;
+        public string? ApiKey
+        {
+            get
+            {
+                if (!_mUnknown_ApiKey) return _mValue_ApiKey;
+                throw new UndeferrableValueException("Value 'BaiduChannelArgs.ApiKey' is not present");
+            }
+        }
 
         /// <summary>
         /// The application ID.
         /// </summary>
-        [Input("applicationId")]
+        [PolicyResourceProperty("applicationId", "_mUnknown_ApplicationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplicationId;
-
-        public string? ApplicationId => _mApplicationId.GetValue("applicationId");
+        private string? _mValue_ApplicationId;
+        private bool _mUnknown_ApplicationId;
+        public string? ApplicationId
+        {
+            get
+            {
+                if (!_mUnknown_ApplicationId) return _mValue_ApplicationId;
+                throw new UndeferrableValueException("Value 'BaiduChannelArgs.ApplicationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to enable the channel. Defaults to `true`.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'BaiduChannelArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Platform credential Secret key from Baidu.
         /// </summary>
-        [Input("secretKey")]
+        [PolicyResourceProperty("secretKey", "_mUnknown_SecretKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretKey;
-
-        public string? SecretKey => _mSecretKey.GetValue("secretKey");
+        private string? _mValue_SecretKey;
+        private bool _mUnknown_SecretKey;
+        public string? SecretKey
+        {
+            get
+            {
+                if (!_mUnknown_SecretKey) return _mValue_SecretKey;
+                throw new UndeferrableValueException("Value 'BaiduChannelArgs.SecretKey' is not present");
+            }
+        }
     }
 }

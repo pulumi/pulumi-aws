@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         /// </summary>
-        [Input("attributeMapping")]
+        [PolicyResourceProperty("attributeMapping", "_mUnknown_AttributeMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributeMapping;
-
-        public Dictionary<string, string>? AttributeMapping => _mAttributeMapping.GetValue("attributeMapping");
+        private Dictionary<string, string>? _mValue_AttributeMapping;
+        private bool _mUnknown_AttributeMapping;
+        public Dictionary<string, string>? AttributeMapping
+        {
+            get
+            {
+                if (!_mUnknown_AttributeMapping) return _mValue_AttributeMapping;
+                throw new UndeferrableValueException("Value 'IdentityProvider.AttributeMapping' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of identity providers.
         /// </summary>
-        [Input("idpIdentifiers")]
+        [PolicyResourceProperty("idpIdentifiers", "_mUnknown_IdpIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdpIdentifiers;
-
-        public List<string>? IdpIdentifiers => _mIdpIdentifiers.GetValue("idpIdentifiers");
+        private List<string>? _mValue_IdpIdentifiers;
+        private bool _mUnknown_IdpIdentifiers;
+        public List<string>? IdpIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_IdpIdentifiers) return _mValue_IdpIdentifiers;
+                throw new UndeferrableValueException("Value 'IdentityProvider.IdpIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// The map of identity details, such as access token
         /// </summary>
-        [Input("providerDetails")]
+        [PolicyResourceProperty("providerDetails", "_mUnknown_ProviderDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProviderDetails;
-
-        public Dictionary<string, string>? ProviderDetails => _mProviderDetails.GetValue("providerDetails");
+        private Dictionary<string, string>? _mValue_ProviderDetails;
+        private bool _mUnknown_ProviderDetails;
+        public Dictionary<string, string>? ProviderDetails
+        {
+            get
+            {
+                if (!_mUnknown_ProviderDetails) return _mValue_ProviderDetails;
+                throw new UndeferrableValueException("Value 'IdentityProvider.ProviderDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider name
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'IdentityProvider.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'IdentityProvider.ProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool id
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'IdentityProvider.UserPoolId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/identityProvider:IdentityProvider")]
@@ -74,55 +116,97 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         /// </summary>
-        [Input("attributeMapping")]
+        [PolicyResourceProperty("attributeMapping", "_mUnknown_AttributeMapping")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mAttributeMapping;
-
-        public Dictionary<string, string>? AttributeMapping => _mAttributeMapping.GetValue("attributeMapping");
+        private Dictionary<string, string>? _mValue_AttributeMapping;
+        private bool _mUnknown_AttributeMapping;
+        public Dictionary<string, string>? AttributeMapping
+        {
+            get
+            {
+                if (!_mUnknown_AttributeMapping) return _mValue_AttributeMapping;
+                throw new UndeferrableValueException("Value 'IdentityProviderArgs.AttributeMapping' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of identity providers.
         /// </summary>
-        [Input("idpIdentifiers")]
+        [PolicyResourceProperty("idpIdentifiers", "_mUnknown_IdpIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIdpIdentifiers;
-
-        public List<string>? IdpIdentifiers => _mIdpIdentifiers.GetValue("idpIdentifiers");
+        private List<string>? _mValue_IdpIdentifiers;
+        private bool _mUnknown_IdpIdentifiers;
+        public List<string>? IdpIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_IdpIdentifiers) return _mValue_IdpIdentifiers;
+                throw new UndeferrableValueException("Value 'IdentityProviderArgs.IdpIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// The map of identity details, such as access token
         /// </summary>
-        [Input("providerDetails")]
+        [PolicyResourceProperty("providerDetails", "_mUnknown_ProviderDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProviderDetails;
-
-        public Dictionary<string, string>? ProviderDetails => _mProviderDetails.GetValue("providerDetails");
+        private Dictionary<string, string>? _mValue_ProviderDetails;
+        private bool _mUnknown_ProviderDetails;
+        public Dictionary<string, string>? ProviderDetails
+        {
+            get
+            {
+                if (!_mUnknown_ProviderDetails) return _mValue_ProviderDetails;
+                throw new UndeferrableValueException("Value 'IdentityProviderArgs.ProviderDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider name
         /// </summary>
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
-
-        public string? ProviderName => _mProviderName.GetValue("providerName");
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'IdentityProviderArgs.ProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'IdentityProviderArgs.ProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The user pool id
         /// </summary>
-        [Input("userPoolId")]
+        [PolicyResourceProperty("userPoolId", "_mUnknown_UserPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUserPoolId;
-
-        public string? UserPoolId => _mUserPoolId.GetValue("userPoolId");
+        private string? _mValue_UserPoolId;
+        private bool _mUnknown_UserPoolId;
+        public string? UserPoolId
+        {
+            get
+            {
+                if (!_mUnknown_UserPoolId) return _mValue_UserPoolId;
+                throw new UndeferrableValueException("Value 'IdentityProviderArgs.UserPoolId' is not present");
+            }
+        }
     }
 }

@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         /// </summary>
-        [Input("idle")]
+        [PolicyResourceProperty("idle", "_mUnknown_Idle")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RouteSpecTcpRouteTimeoutIdleArgs> _mIdle;
-
-        public Inputs.RouteSpecTcpRouteTimeoutIdleArgs? Idle => _mIdle.GetValue("idle");
+        private Inputs.RouteSpecTcpRouteTimeoutIdleArgs? _mValue_Idle;
+        private bool _mUnknown_Idle;
+        public Inputs.RouteSpecTcpRouteTimeoutIdleArgs? Idle
+        {
+            get
+            {
+                if (!_mUnknown_Idle) return _mValue_Idle;
+                throw new UndeferrableValueException("Value 'RouteSpecTcpRouteTimeoutArgs.Idle' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Inputs
         /// <summary>
         /// Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
         /// </summary>
-        [Input("enableMachineLearning")]
+        [PolicyResourceProperty("enableMachineLearning", "_mUnknown_EnableMachineLearning")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableMachineLearning;
-
-        public bool? EnableMachineLearning => _mEnableMachineLearning.GetValue("enableMachineLearning");
+        private bool? _mValue_EnableMachineLearning;
+        private bool _mUnknown_EnableMachineLearning;
+        public bool? EnableMachineLearning
+        {
+            get
+            {
+                if (!_mUnknown_EnableMachineLearning) return _mValue_EnableMachineLearning;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs.EnableMachineLearning' is not present");
+            }
+        }
 
         /// <summary>
         /// The inspection level to use for the Bot Control rule group.
         /// </summary>
-        [Input("inspectionLevel")]
+        [PolicyResourceProperty("inspectionLevel", "_mUnknown_InspectionLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInspectionLevel;
-
-        public string? InspectionLevel => _mInspectionLevel.GetValue("inspectionLevel");
+        private string? _mValue_InspectionLevel;
+        private bool _mUnknown_InspectionLevel;
+        public string? InspectionLevel
+        {
+            get
+            {
+                if (!_mUnknown_InspectionLevel) return _mValue_InspectionLevel;
+                throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs.InspectionLevel' is not present");
+            }
+        }
     }
 }

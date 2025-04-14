@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Inputs
         /// <summary>
         /// Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
         /// </summary>
-        [Input("alarms")]
+        [PolicyResourceProperty("alarms", "_mUnknown_Alarms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarms;
-
-        public List<string>? Alarms => _mAlarms.GetValue("alarms");
+        private List<string>? _mValue_Alarms;
+        private bool _mUnknown_Alarms;
+        public List<string>? Alarms
+        {
+            get
+            {
+                if (!_mUnknown_Alarms) return _mValue_Alarms;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscalingArgs.Alarms' is not present");
+            }
+        }
 
         /// <summary>
         /// The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
         /// </summary>
-        [Input("cpuThreshold")]
+        [PolicyResourceProperty("cpuThreshold", "_mUnknown_CpuThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mCpuThreshold;
-
-        public double? CpuThreshold => _mCpuThreshold.GetValue("cpuThreshold");
+        private double? _mValue_CpuThreshold;
+        private bool _mUnknown_CpuThreshold;
+        public double? CpuThreshold
+        {
+            get
+            {
+                if (!_mUnknown_CpuThreshold) return _mValue_CpuThreshold;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscalingArgs.CpuThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
         /// </summary>
-        [Input("ignoreMetricsTime")]
+        [PolicyResourceProperty("ignoreMetricsTime", "_mUnknown_IgnoreMetricsTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIgnoreMetricsTime;
-
-        public int? IgnoreMetricsTime => _mIgnoreMetricsTime.GetValue("ignoreMetricsTime");
+        private int? _mValue_IgnoreMetricsTime;
+        private bool _mUnknown_IgnoreMetricsTime;
+        public int? IgnoreMetricsTime
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreMetricsTime) return _mValue_IgnoreMetricsTime;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscalingArgs.IgnoreMetricsTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of instances to add or remove when the load exceeds a threshold.
         /// </summary>
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
-
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscalingArgs.InstanceCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The load threshold. A value of -1 disables the threshold.
         /// </summary>
-        [Input("loadThreshold")]
+        [PolicyResourceProperty("loadThreshold", "_mUnknown_LoadThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLoadThreshold;
-
-        public double? LoadThreshold => _mLoadThreshold.GetValue("loadThreshold");
+        private double? _mValue_LoadThreshold;
+        private bool _mUnknown_LoadThreshold;
+        public double? LoadThreshold
+        {
+            get
+            {
+                if (!_mUnknown_LoadThreshold) return _mValue_LoadThreshold;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscalingArgs.LoadThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
         /// </summary>
-        [Input("memoryThreshold")]
+        [PolicyResourceProperty("memoryThreshold", "_mUnknown_MemoryThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMemoryThreshold;
-
-        public double? MemoryThreshold => _mMemoryThreshold.GetValue("memoryThreshold");
+        private double? _mValue_MemoryThreshold;
+        private bool _mUnknown_MemoryThreshold;
+        public double? MemoryThreshold
+        {
+            get
+            {
+                if (!_mUnknown_MemoryThreshold) return _mValue_MemoryThreshold;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscalingArgs.MemoryThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
         /// </summary>
-        [Input("thresholdsWaitTime")]
+        [PolicyResourceProperty("thresholdsWaitTime", "_mUnknown_ThresholdsWaitTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThresholdsWaitTime;
-
-        public int? ThresholdsWaitTime => _mThresholdsWaitTime.GetValue("thresholdsWaitTime");
+        private int? _mValue_ThresholdsWaitTime;
+        private bool _mUnknown_ThresholdsWaitTime;
+        public int? ThresholdsWaitTime
+        {
+            get
+            {
+                if (!_mUnknown_ThresholdsWaitTime) return _mValue_ThresholdsWaitTime;
+                throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscalingArgs.ThresholdsWaitTime' is not present");
+            }
+        }
     }
 }

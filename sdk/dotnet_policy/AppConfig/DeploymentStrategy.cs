@@ -16,92 +16,162 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// ARN of the AppConfig Deployment Strategy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
         /// </summary>
-        [Input("deploymentDurationInMinutes")]
+        [PolicyResourceProperty("deploymentDurationInMinutes", "_mUnknown_DeploymentDurationInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentDurationInMinutes;
-
-        public int? DeploymentDurationInMinutes => _mDeploymentDurationInMinutes.GetValue("deploymentDurationInMinutes");
+        private int? _mValue_DeploymentDurationInMinutes;
+        private bool _mUnknown_DeploymentDurationInMinutes;
+        public int? DeploymentDurationInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentDurationInMinutes) return _mValue_DeploymentDurationInMinutes;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.DeploymentDurationInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the deployment strategy. Can be at most 1024 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         /// </summary>
-        [Input("finalBakeTimeInMinutes")]
+        [PolicyResourceProperty("finalBakeTimeInMinutes", "_mUnknown_FinalBakeTimeInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFinalBakeTimeInMinutes;
-
-        public int? FinalBakeTimeInMinutes => _mFinalBakeTimeInMinutes.GetValue("finalBakeTimeInMinutes");
+        private int? _mValue_FinalBakeTimeInMinutes;
+        private bool _mUnknown_FinalBakeTimeInMinutes;
+        public int? FinalBakeTimeInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_FinalBakeTimeInMinutes) return _mValue_FinalBakeTimeInMinutes;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.FinalBakeTimeInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         /// </summary>
-        [Input("growthFactor")]
+        [PolicyResourceProperty("growthFactor", "_mUnknown_GrowthFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mGrowthFactor;
-
-        public double? GrowthFactor => _mGrowthFactor.GetValue("growthFactor");
+        private double? _mValue_GrowthFactor;
+        private bool _mUnknown_GrowthFactor;
+        public double? GrowthFactor
+        {
+            get
+            {
+                if (!_mUnknown_GrowthFactor) return _mValue_GrowthFactor;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.GrowthFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         /// </summary>
-        [Input("growthType")]
+        [PolicyResourceProperty("growthType", "_mUnknown_GrowthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrowthType;
-
-        public string? GrowthType => _mGrowthType.GetValue("growthType");
+        private string? _mValue_GrowthType;
+        private bool _mUnknown_GrowthType;
+        public string? GrowthType
+        {
+            get
+            {
+                if (!_mUnknown_GrowthType) return _mValue_GrowthType;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.GrowthType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the deployment strategy. Must be between 1 and 64 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         /// </summary>
-        [Input("replicateTo")]
+        [PolicyResourceProperty("replicateTo", "_mUnknown_ReplicateTo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateTo;
-
-        public string? ReplicateTo => _mReplicateTo.GetValue("replicateTo");
+        private string? _mValue_ReplicateTo;
+        private bool _mUnknown_ReplicateTo;
+        public string? ReplicateTo
+        {
+            get
+            {
+                if (!_mUnknown_ReplicateTo) return _mValue_ReplicateTo;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.ReplicateTo' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DeploymentStrategy.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appconfig/deploymentStrategy:DeploymentStrategy")]
@@ -110,73 +180,129 @@ namespace Pulumi.PolicyPacks.Aws.AppConfig
         /// <summary>
         /// Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
         /// </summary>
-        [Input("deploymentDurationInMinutes")]
+        [PolicyResourceProperty("deploymentDurationInMinutes", "_mUnknown_DeploymentDurationInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeploymentDurationInMinutes;
-
-        public int? DeploymentDurationInMinutes => _mDeploymentDurationInMinutes.GetValue("deploymentDurationInMinutes");
+        private int? _mValue_DeploymentDurationInMinutes;
+        private bool _mUnknown_DeploymentDurationInMinutes;
+        public int? DeploymentDurationInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_DeploymentDurationInMinutes) return _mValue_DeploymentDurationInMinutes;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.DeploymentDurationInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the deployment strategy. Can be at most 1024 characters.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
         /// </summary>
-        [Input("finalBakeTimeInMinutes")]
+        [PolicyResourceProperty("finalBakeTimeInMinutes", "_mUnknown_FinalBakeTimeInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFinalBakeTimeInMinutes;
-
-        public int? FinalBakeTimeInMinutes => _mFinalBakeTimeInMinutes.GetValue("finalBakeTimeInMinutes");
+        private int? _mValue_FinalBakeTimeInMinutes;
+        private bool _mUnknown_FinalBakeTimeInMinutes;
+        public int? FinalBakeTimeInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_FinalBakeTimeInMinutes) return _mValue_FinalBakeTimeInMinutes;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.FinalBakeTimeInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
         /// </summary>
-        [Input("growthFactor")]
+        [PolicyResourceProperty("growthFactor", "_mUnknown_GrowthFactor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mGrowthFactor;
-
-        public double? GrowthFactor => _mGrowthFactor.GetValue("growthFactor");
+        private double? _mValue_GrowthFactor;
+        private bool _mUnknown_GrowthFactor;
+        public double? GrowthFactor
+        {
+            get
+            {
+                if (!_mUnknown_GrowthFactor) return _mValue_GrowthFactor;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.GrowthFactor' is not present");
+            }
+        }
 
         /// <summary>
         /// Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
         /// </summary>
-        [Input("growthType")]
+        [PolicyResourceProperty("growthType", "_mUnknown_GrowthType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGrowthType;
-
-        public string? GrowthType => _mGrowthType.GetValue("growthType");
+        private string? _mValue_GrowthType;
+        private bool _mUnknown_GrowthType;
+        public string? GrowthType
+        {
+            get
+            {
+                if (!_mUnknown_GrowthType) return _mValue_GrowthType;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.GrowthType' is not present");
+            }
+        }
 
         /// <summary>
         /// Name for the deployment strategy. Must be between 1 and 64 characters in length.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
         /// </summary>
-        [Input("replicateTo")]
+        [PolicyResourceProperty("replicateTo", "_mUnknown_ReplicateTo")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReplicateTo;
-
-        public string? ReplicateTo => _mReplicateTo.GetValue("replicateTo");
+        private string? _mValue_ReplicateTo;
+        private bool _mUnknown_ReplicateTo;
+        public string? ReplicateTo
+        {
+            get
+            {
+                if (!_mUnknown_ReplicateTo) return _mValue_ReplicateTo;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.ReplicateTo' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.Tags' is not present");
+            }
+        }
     }
 }

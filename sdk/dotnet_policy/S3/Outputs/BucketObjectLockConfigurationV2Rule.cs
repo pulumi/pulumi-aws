@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Outputs
         /// <summary>
         /// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
         /// </summary>
-        [Input("defaultRetention")]
+        [PolicyResourceProperty("defaultRetention", "_mUnknown_DefaultRetention")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.BucketObjectLockConfigurationV2RuleDefaultRetention> _mDefaultRetention;
-
-        public Outputs.BucketObjectLockConfigurationV2RuleDefaultRetention? DefaultRetention => _mDefaultRetention.GetValue("defaultRetention");
+        private Outputs.BucketObjectLockConfigurationV2RuleDefaultRetention? _mValue_DefaultRetention;
+        private bool _mUnknown_DefaultRetention;
+        public Outputs.BucketObjectLockConfigurationV2RuleDefaultRetention? DefaultRetention
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRetention) return _mValue_DefaultRetention;
+                throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2Rule.DefaultRetention' is not present");
+            }
+        }
     }
 }

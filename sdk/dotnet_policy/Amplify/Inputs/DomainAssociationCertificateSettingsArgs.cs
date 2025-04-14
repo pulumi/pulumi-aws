@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Amplify.Inputs
         /// <summary>
         /// DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
         /// </summary>
-        [Input("certificateVerificationDnsRecord")]
+        [PolicyResourceProperty("certificateVerificationDnsRecord", "_mUnknown_CertificateVerificationDnsRecord")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateVerificationDnsRecord;
-
-        public string? CertificateVerificationDnsRecord => _mCertificateVerificationDnsRecord.GetValue("certificateVerificationDnsRecord");
+        private string? _mValue_CertificateVerificationDnsRecord;
+        private bool _mUnknown_CertificateVerificationDnsRecord;
+        public string? CertificateVerificationDnsRecord
+        {
+            get
+            {
+                if (!_mUnknown_CertificateVerificationDnsRecord) return _mValue_CertificateVerificationDnsRecord;
+                throw new UndeferrableValueException("Value 'DomainAssociationCertificateSettingsArgs.CertificateVerificationDnsRecord' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon resource name (ARN) for the custom certificate.
         /// Required when `type` is `CUSTOM`.
         /// </summary>
-        [Input("customCertificateArn")]
+        [PolicyResourceProperty("customCertificateArn", "_mUnknown_CustomCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomCertificateArn;
-
-        public string? CustomCertificateArn => _mCustomCertificateArn.GetValue("customCertificateArn");
+        private string? _mValue_CustomCertificateArn;
+        private bool _mUnknown_CustomCertificateArn;
+        public string? CustomCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomCertificateArn) return _mValue_CustomCertificateArn;
+                throw new UndeferrableValueException("Value 'DomainAssociationCertificateSettingsArgs.CustomCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The certificate type.
         /// Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'DomainAssociationCertificateSettingsArgs.Type' is not present");
+            }
+        }
     }
 }

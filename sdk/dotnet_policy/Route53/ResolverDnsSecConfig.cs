@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The ARN for a configuration for DNSSEC validation.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         /// </summary>
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
-
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.OwnerId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.ResourceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         /// </summary>
-        [Input("validationStatus")]
+        [PolicyResourceProperty("validationStatus", "_mUnknown_ValidationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValidationStatus;
-
-        public string? ValidationStatus => _mValidationStatus.GetValue("validationStatus");
+        private string? _mValue_ValidationStatus;
+        private bool _mUnknown_ValidationStatus;
+        public string? ValidationStatus
+        {
+            get
+            {
+                if (!_mUnknown_ValidationStatus) return _mValue_ValidationStatus;
+                throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.ValidationStatus' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig")]
@@ -56,10 +84,17 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         /// </summary>
-        [Input("resourceId")]
+        [PolicyResourceProperty("resourceId", "_mUnknown_ResourceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceId;
-
-        public string? ResourceId => _mResourceId.GetValue("resourceId");
+        private string? _mValue_ResourceId;
+        private bool _mUnknown_ResourceId;
+        public string? ResourceId
+        {
+            get
+            {
+                if (!_mUnknown_ResourceId) return _mValue_ResourceId;
+                throw new UndeferrableValueException("Value 'ResolverDnsSecConfigArgs.ResourceId' is not present");
+            }
+        }
     }
 }

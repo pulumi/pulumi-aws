@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// S3 Storage Lens activity metrics. See Activity Metrics below for more details.
         /// </summary>
-        [Input("activityMetrics")]
+        [PolicyResourceProperty("activityMetrics", "_mUnknown_ActivityMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics> _mActivityMetrics;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics? ActivityMetrics => _mActivityMetrics.GetValue("activityMetrics");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics? _mValue_ActivityMetrics;
+        private bool _mUnknown_ActivityMetrics;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics? ActivityMetrics
+        {
+            get
+            {
+                if (!_mUnknown_ActivityMetrics) return _mValue_ActivityMetrics;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevel.ActivityMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
         /// </summary>
-        [Input("advancedCostOptimizationMetrics")]
+        [PolicyResourceProperty("advancedCostOptimizationMetrics", "_mUnknown_AdvancedCostOptimizationMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics> _mAdvancedCostOptimizationMetrics;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics? AdvancedCostOptimizationMetrics => _mAdvancedCostOptimizationMetrics.GetValue("advancedCostOptimizationMetrics");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics? _mValue_AdvancedCostOptimizationMetrics;
+        private bool _mUnknown_AdvancedCostOptimizationMetrics;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics? AdvancedCostOptimizationMetrics
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedCostOptimizationMetrics) return _mValue_AdvancedCostOptimizationMetrics;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevel.AdvancedCostOptimizationMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
         /// </summary>
-        [Input("advancedDataProtectionMetrics")]
+        [PolicyResourceProperty("advancedDataProtectionMetrics", "_mUnknown_AdvancedDataProtectionMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics> _mAdvancedDataProtectionMetrics;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics => _mAdvancedDataProtectionMetrics.GetValue("advancedDataProtectionMetrics");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics? _mValue_AdvancedDataProtectionMetrics;
+        private bool _mUnknown_AdvancedDataProtectionMetrics;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedDataProtectionMetrics) return _mValue_AdvancedDataProtectionMetrics;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevel.AdvancedDataProtectionMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
         /// </summary>
-        [Input("bucketLevel")]
+        [PolicyResourceProperty("bucketLevel", "_mUnknown_BucketLevel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel> _mBucketLevel;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel? BucketLevel => _mBucketLevel.GetValue("bucketLevel");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel? _mValue_BucketLevel;
+        private bool _mUnknown_BucketLevel;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel? BucketLevel
+        {
+            get
+            {
+                if (!_mUnknown_BucketLevel) return _mValue_BucketLevel;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevel.BucketLevel' is not present");
+            }
+        }
 
         /// <summary>
         /// Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
         /// </summary>
-        [Input("detailedStatusCodeMetrics")]
+        [PolicyResourceProperty("detailedStatusCodeMetrics", "_mUnknown_DetailedStatusCodeMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics> _mDetailedStatusCodeMetrics;
-
-        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics? DetailedStatusCodeMetrics => _mDetailedStatusCodeMetrics.GetValue("detailedStatusCodeMetrics");
+        private Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics? _mValue_DetailedStatusCodeMetrics;
+        private bool _mUnknown_DetailedStatusCodeMetrics;
+        public Outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics? DetailedStatusCodeMetrics
+        {
+            get
+            {
+                if (!_mUnknown_DetailedStatusCodeMetrics) return _mValue_DetailedStatusCodeMetrics;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevel.DetailedStatusCodeMetrics' is not present");
+            }
+        }
     }
 }

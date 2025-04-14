@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Inputs
         /// <summary>
         /// Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
         /// </summary>
-        [Input("audit")]
+        [PolicyResourceProperty("audit", "_mUnknown_Audit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAudit;
-
-        public bool? Audit => _mAudit.GetValue("audit");
+        private bool? _mValue_Audit;
+        private bool _mUnknown_Audit;
+        public bool? Audit
+        {
+            get
+            {
+                if (!_mUnknown_Audit) return _mValue_Audit;
+                throw new UndeferrableValueException("Value 'BrokerLogsArgs.Audit' is not present");
+            }
+        }
 
         /// <summary>
         /// Enables general logging via CloudWatch. Defaults to `false`.
         /// </summary>
-        [Input("general")]
+        [PolicyResourceProperty("general", "_mUnknown_General")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mGeneral;
-
-        public bool? General => _mGeneral.GetValue("general");
+        private bool? _mValue_General;
+        private bool _mUnknown_General;
+        public bool? General
+        {
+            get
+            {
+                if (!_mUnknown_General) return _mValue_General;
+                throw new UndeferrableValueException("Value 'BrokerLogsArgs.General' is not present");
+            }
+        }
     }
 }

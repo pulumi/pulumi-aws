@@ -16,74 +16,130 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
-        [Input("aclConfiguration")]
+        [PolicyResourceProperty("aclConfiguration", "_mUnknown_AclConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DatabaseAclConfiguration> _mAclConfiguration;
-
-        public Outputs.DatabaseAclConfiguration? AclConfiguration => _mAclConfiguration.GetValue("aclConfiguration");
+        private Outputs.DatabaseAclConfiguration? _mValue_AclConfiguration;
+        private bool _mUnknown_AclConfiguration;
+        public Outputs.DatabaseAclConfiguration? AclConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AclConfiguration) return _mValue_AclConfiguration;
+                throw new UndeferrableValueException("Value 'Database.AclConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of S3 bucket to save the results of the query execution.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'Database.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the database.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'Database.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DatabaseEncryptionConfiguration> _mEncryptionConfiguration;
-
-        public Outputs.DatabaseEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Outputs.DatabaseEncryptionConfiguration? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Outputs.DatabaseEncryptionConfiguration? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'Database.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'Database.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'Database.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Database.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of custom metadata properties for the database definition.
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProperties;
-
-        public Dictionary<string, string>? Properties => _mProperties.GetValue("properties");
+        private Dictionary<string, string>? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public Dictionary<string, string>? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'Database.Properties' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:athena/database:Database")]
@@ -92,73 +148,129 @@ namespace Pulumi.PolicyPacks.Aws.Athena
         /// <summary>
         /// That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         /// </summary>
-        [Input("aclConfiguration")]
+        [PolicyResourceProperty("aclConfiguration", "_mUnknown_AclConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DatabaseAclConfigurationArgs> _mAclConfiguration;
-
-        public Inputs.DatabaseAclConfigurationArgs? AclConfiguration => _mAclConfiguration.GetValue("aclConfiguration");
+        private Inputs.DatabaseAclConfigurationArgs? _mValue_AclConfiguration;
+        private bool _mUnknown_AclConfiguration;
+        public Inputs.DatabaseAclConfigurationArgs? AclConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AclConfiguration) return _mValue_AclConfiguration;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.AclConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of S3 bucket to save the results of the query execution.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the database.
         /// </summary>
-        [Input("comment")]
+        [PolicyResourceProperty("comment", "_mUnknown_Comment")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComment;
-
-        public string? Comment => _mComment.GetValue("comment");
+        private string? _mValue_Comment;
+        private bool _mUnknown_Comment;
+        public string? Comment
+        {
+            get
+            {
+                if (!_mUnknown_Comment) return _mValue_Comment;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.Comment' is not present");
+            }
+        }
 
         /// <summary>
         /// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DatabaseEncryptionConfigurationArgs> _mEncryptionConfiguration;
-
-        public Inputs.DatabaseEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Inputs.DatabaseEncryptionConfigurationArgs? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Inputs.DatabaseEncryptionConfigurationArgs? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         /// </summary>
-        [Input("expectedBucketOwner")]
+        [PolicyResourceProperty("expectedBucketOwner", "_mUnknown_ExpectedBucketOwner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExpectedBucketOwner;
-
-        public string? ExpectedBucketOwner => _mExpectedBucketOwner.GetValue("expectedBucketOwner");
+        private string? _mValue_ExpectedBucketOwner;
+        private bool _mUnknown_ExpectedBucketOwner;
+        public string? ExpectedBucketOwner
+        {
+            get
+            {
+                if (!_mUnknown_ExpectedBucketOwner) return _mValue_ExpectedBucketOwner;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.ExpectedBucketOwner' is not present");
+            }
+        }
 
         /// <summary>
         /// Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the database to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of custom metadata properties for the database definition.
         /// </summary>
-        [Input("properties")]
+        [PolicyResourceProperty("properties", "_mUnknown_Properties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mProperties;
-
-        public Dictionary<string, string>? Properties => _mProperties.GetValue("properties");
+        private Dictionary<string, string>? _mValue_Properties;
+        private bool _mUnknown_Properties;
+        public Dictionary<string, string>? Properties
+        {
+            get
+            {
+                if (!_mUnknown_Properties) return _mValue_Properties;
+                throw new UndeferrableValueException("Value 'DatabaseArgs.Properties' is not present");
+            }
+        }
     }
 }

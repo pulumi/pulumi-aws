@@ -15,48 +15,83 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Inputs
         /// <summary>
         /// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
         /// </summary>
-        [Input("consoleAccess")]
+        [PolicyResourceProperty("consoleAccess", "_mUnknown_ConsoleAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mConsoleAccess;
-
-        public bool? ConsoleAccess => _mConsoleAccess.GetValue("consoleAccess");
+        private bool? _mValue_ConsoleAccess;
+        private bool _mUnknown_ConsoleAccess;
+        public bool? ConsoleAccess
+        {
+            get
+            {
+                if (!_mUnknown_ConsoleAccess) return _mValue_ConsoleAccess;
+                throw new UndeferrableValueException("Value 'BrokerUserArgs.ConsoleAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
         /// </summary>
-        [Input("groups")]
+        [PolicyResourceProperty("groups", "_mUnknown_Groups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mGroups;
-
-        public List<string>? Groups => _mGroups.GetValue("groups");
+        private List<string>? _mValue_Groups;
+        private bool _mUnknown_Groups;
+        public List<string>? Groups
+        {
+            get
+            {
+                if (!_mUnknown_Groups) return _mValue_Groups;
+                throw new UndeferrableValueException("Value 'BrokerUserArgs.Groups' is not present");
+            }
+        }
 
         /// <summary>
         /// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
         /// </summary>
-        [Input("password")]
+        [PolicyResourceProperty("password", "_mUnknown_Password")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPassword;
-
-        public string? Password => _mPassword.GetValue("password");
+        private string? _mValue_Password;
+        private bool _mUnknown_Password;
+        public string? Password
+        {
+            get
+            {
+                if (!_mUnknown_Password) return _mValue_Password;
+                throw new UndeferrableValueException("Value 'BrokerUserArgs.Password' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to set set replication user. Defaults to `false`.
         /// </summary>
-        [Input("replicationUser")]
+        [PolicyResourceProperty("replicationUser", "_mUnknown_ReplicationUser")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mReplicationUser;
-
-        public bool? ReplicationUser => _mReplicationUser.GetValue("replicationUser");
+        private bool? _mValue_ReplicationUser;
+        private bool _mUnknown_ReplicationUser;
+        public bool? ReplicationUser
+        {
+            get
+            {
+                if (!_mUnknown_ReplicationUser) return _mValue_ReplicationUser;
+                throw new UndeferrableValueException("Value 'BrokerUserArgs.ReplicationUser' is not present");
+            }
+        }
 
         /// <summary>
         /// Username of the user.
         /// 
         /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         /// </summary>
-        [Input("username")]
+        [PolicyResourceProperty("username", "_mUnknown_Username")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsername;
-
-        public string? Username => _mUsername.GetValue("username");
+        private string? _mValue_Username;
+        private bool _mUnknown_Username;
+        public string? Username
+        {
+            get
+            {
+                if (!_mUnknown_Username) return _mValue_Username;
+                throw new UndeferrableValueException("Value 'BrokerUserArgs.Username' is not present");
+            }
+        }
     }
 }

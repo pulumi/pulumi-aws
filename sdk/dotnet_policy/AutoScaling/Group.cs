@@ -16,94 +16,164 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// ARN for this Auto Scaling Group
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Group.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         /// </summary>
-        [Input("availabilityZoneDistribution")]
+        [PolicyResourceProperty("availabilityZoneDistribution", "_mUnknown_AvailabilityZoneDistribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupAvailabilityZoneDistribution> _mAvailabilityZoneDistribution;
-
-        public Outputs.GroupAvailabilityZoneDistribution? AvailabilityZoneDistribution => _mAvailabilityZoneDistribution.GetValue("availabilityZoneDistribution");
+        private Outputs.GroupAvailabilityZoneDistribution? _mValue_AvailabilityZoneDistribution;
+        private bool _mUnknown_AvailabilityZoneDistribution;
+        public Outputs.GroupAvailabilityZoneDistribution? AvailabilityZoneDistribution
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneDistribution) return _mValue_AvailabilityZoneDistribution;
+                throw new UndeferrableValueException("Value 'Group.AvailabilityZoneDistribution' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'Group.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         /// </summary>
-        [Input("capacityRebalance")]
+        [PolicyResourceProperty("capacityRebalance", "_mUnknown_CapacityRebalance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCapacityRebalance;
-
-        public bool? CapacityRebalance => _mCapacityRebalance.GetValue("capacityRebalance");
+        private bool? _mValue_CapacityRebalance;
+        private bool _mUnknown_CapacityRebalance;
+        public bool? CapacityRebalance
+        {
+            get
+            {
+                if (!_mUnknown_CapacityRebalance) return _mValue_CapacityRebalance;
+                throw new UndeferrableValueException("Value 'Group.CapacityRebalance' is not present");
+            }
+        }
 
         /// <summary>
         /// Reserved.
         /// </summary>
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
-
-        public string? Context => _mContext.GetValue("context");
+        private string? _mValue_Context;
+        private bool _mUnknown_Context;
+        public string? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'Group.Context' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         /// </summary>
-        [Input("defaultCooldown")]
+        [PolicyResourceProperty("defaultCooldown", "_mUnknown_DefaultCooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultCooldown;
-
-        public int? DefaultCooldown => _mDefaultCooldown.GetValue("defaultCooldown");
+        private int? _mValue_DefaultCooldown;
+        private bool _mUnknown_DefaultCooldown;
+        public int? DefaultCooldown
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCooldown) return _mValue_DefaultCooldown;
+                throw new UndeferrableValueException("Value 'Group.DefaultCooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         /// </summary>
-        [Input("defaultInstanceWarmup")]
+        [PolicyResourceProperty("defaultInstanceWarmup", "_mUnknown_DefaultInstanceWarmup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultInstanceWarmup;
-
-        public int? DefaultInstanceWarmup => _mDefaultInstanceWarmup.GetValue("defaultInstanceWarmup");
+        private int? _mValue_DefaultInstanceWarmup;
+        private bool _mUnknown_DefaultInstanceWarmup;
+        public int? DefaultInstanceWarmup
+        {
+            get
+            {
+                if (!_mUnknown_DefaultInstanceWarmup) return _mValue_DefaultInstanceWarmup;
+                throw new UndeferrableValueException("Value 'Group.DefaultInstanceWarmup' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of Amazon EC2 instances that
         /// should be running in the group. (See also Waiting for
         /// Capacity below.)
         /// </summary>
-        [Input("desiredCapacity")]
+        [PolicyResourceProperty("desiredCapacity", "_mUnknown_DesiredCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
-
-        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+        private int? _mValue_DesiredCapacity;
+        private bool _mUnknown_DesiredCapacity;
+        public int? DesiredCapacity
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacity) return _mValue_DesiredCapacity;
+                throw new UndeferrableValueException("Value 'Group.DesiredCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         /// </summary>
-        [Input("desiredCapacityType")]
+        [PolicyResourceProperty("desiredCapacityType", "_mUnknown_DesiredCapacityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredCapacityType;
-
-        public string? DesiredCapacityType => _mDesiredCapacityType.GetValue("desiredCapacityType");
+        private string? _mValue_DesiredCapacityType;
+        private bool _mUnknown_DesiredCapacityType;
+        public string? DesiredCapacityType
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacityType) return _mValue_DesiredCapacityType;
+                throw new UndeferrableValueException("Value 'Group.DesiredCapacityType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
-        [Input("enabledMetrics")]
+        [PolicyResourceProperty("enabledMetrics", "_mUnknown_EnabledMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledMetrics;
-
-        public List<string>? EnabledMetrics => _mEnabledMetrics.GetValue("enabledMetrics");
+        private List<string>? _mValue_EnabledMetrics;
+        private bool _mUnknown_EnabledMetrics;
+        public List<string>? EnabledMetrics
+        {
+            get
+            {
+                if (!_mUnknown_EnabledMetrics) return _mValue_EnabledMetrics;
+                throw new UndeferrableValueException("Value 'Group.EnabledMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
@@ -112,47 +182,82 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// drains all the instances before deleting the group. This bypasses that
         /// behavior and potentially leaves resources dangling.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'Group.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         /// </summary>
-        [Input("forceDeleteWarmPool")]
+        [PolicyResourceProperty("forceDeleteWarmPool", "_mUnknown_ForceDeleteWarmPool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDeleteWarmPool;
-
-        public bool? ForceDeleteWarmPool => _mForceDeleteWarmPool.GetValue("forceDeleteWarmPool");
+        private bool? _mValue_ForceDeleteWarmPool;
+        private bool _mUnknown_ForceDeleteWarmPool;
+        public bool? ForceDeleteWarmPool
+        {
+            get
+            {
+                if (!_mUnknown_ForceDeleteWarmPool) return _mValue_ForceDeleteWarmPool;
+                throw new UndeferrableValueException("Value 'Group.ForceDeleteWarmPool' is not present");
+            }
+        }
 
         /// <summary>
         /// Time (in seconds) after instance comes into service before checking health.
         /// </summary>
-        [Input("healthCheckGracePeriod")]
+        [PolicyResourceProperty("healthCheckGracePeriod", "_mUnknown_HealthCheckGracePeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriod;
-
-        public int? HealthCheckGracePeriod => _mHealthCheckGracePeriod.GetValue("healthCheckGracePeriod");
+        private int? _mValue_HealthCheckGracePeriod;
+        private bool _mUnknown_HealthCheckGracePeriod;
+        public int? HealthCheckGracePeriod
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckGracePeriod) return _mValue_HealthCheckGracePeriod;
+                throw new UndeferrableValueException("Value 'Group.HealthCheckGracePeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// "EC2" or "ELB". Controls how health checking is done.
         /// </summary>
-        [Input("healthCheckType")]
+        [PolicyResourceProperty("healthCheckType", "_mUnknown_HealthCheckType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckType;
-
-        public string? HealthCheckType => _mHealthCheckType.GetValue("healthCheckType");
+        private string? _mValue_HealthCheckType;
+        private bool _mUnknown_HealthCheckType;
+        public string? HealthCheckType
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckType) return _mValue_HealthCheckType;
+                throw new UndeferrableValueException("Value 'Group.HealthCheckType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         /// </summary>
-        [Input("ignoreFailedScalingActivities")]
+        [PolicyResourceProperty("ignoreFailedScalingActivities", "_mUnknown_IgnoreFailedScalingActivities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreFailedScalingActivities;
-
-        public bool? IgnoreFailedScalingActivities => _mIgnoreFailedScalingActivities.GetValue("ignoreFailedScalingActivities");
+        private bool? _mValue_IgnoreFailedScalingActivities;
+        private bool _mUnknown_IgnoreFailedScalingActivities;
+        public bool? IgnoreFailedScalingActivities
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreFailedScalingActivities) return _mValue_IgnoreFailedScalingActivities;
+                throw new UndeferrableValueException("Value 'Group.IgnoreFailedScalingActivities' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more
@@ -163,86 +268,149 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
         /// a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
-        [Input("initialLifecycleHooks")]
+        [PolicyResourceProperty("initialLifecycleHooks", "_mUnknown_InitialLifecycleHooks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupInitialLifecycleHook>> _mInitialLifecycleHooks;
-
-        public List<Outputs.GroupInitialLifecycleHook>? InitialLifecycleHooks => _mInitialLifecycleHooks.GetValue("initialLifecycleHooks");
+        private List<Outputs.GroupInitialLifecycleHook>? _mValue_InitialLifecycleHooks;
+        private bool _mUnknown_InitialLifecycleHooks;
+        public List<Outputs.GroupInitialLifecycleHook>? InitialLifecycleHooks
+        {
+            get
+            {
+                if (!_mUnknown_InitialLifecycleHooks) return _mValue_InitialLifecycleHooks;
+                throw new UndeferrableValueException("Value 'Group.InitialLifecycleHooks' is not present");
+            }
+        }
 
         /// <summary>
         /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         /// </summary>
-        [Input("instanceMaintenancePolicy")]
+        [PolicyResourceProperty("instanceMaintenancePolicy", "_mUnknown_InstanceMaintenancePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupInstanceMaintenancePolicy> _mInstanceMaintenancePolicy;
-
-        public Outputs.GroupInstanceMaintenancePolicy? InstanceMaintenancePolicy => _mInstanceMaintenancePolicy.GetValue("instanceMaintenancePolicy");
+        private Outputs.GroupInstanceMaintenancePolicy? _mValue_InstanceMaintenancePolicy;
+        private bool _mUnknown_InstanceMaintenancePolicy;
+        public Outputs.GroupInstanceMaintenancePolicy? InstanceMaintenancePolicy
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMaintenancePolicy) return _mValue_InstanceMaintenancePolicy;
+                throw new UndeferrableValueException("Value 'Group.InstanceMaintenancePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// If this block is configured, start an
         /// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
         /// when this Auto Scaling Group is updated. Defined below.
         /// </summary>
-        [Input("instanceRefresh")]
+        [PolicyResourceProperty("instanceRefresh", "_mUnknown_InstanceRefresh")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupInstanceRefresh> _mInstanceRefresh;
-
-        public Outputs.GroupInstanceRefresh? InstanceRefresh => _mInstanceRefresh.GetValue("instanceRefresh");
+        private Outputs.GroupInstanceRefresh? _mValue_InstanceRefresh;
+        private bool _mUnknown_InstanceRefresh;
+        public Outputs.GroupInstanceRefresh? InstanceRefresh
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRefresh) return _mValue_InstanceRefresh;
+                throw new UndeferrableValueException("Value 'Group.InstanceRefresh' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the launch configuration to use.
         /// </summary>
-        [Input("launchConfiguration")]
+        [PolicyResourceProperty("launchConfiguration", "_mUnknown_LaunchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchConfiguration;
-
-        public string? LaunchConfiguration => _mLaunchConfiguration.GetValue("launchConfiguration");
+        private string? _mValue_LaunchConfiguration;
+        private bool _mUnknown_LaunchConfiguration;
+        public string? LaunchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LaunchConfiguration) return _mValue_LaunchConfiguration;
+                throw new UndeferrableValueException("Value 'Group.LaunchConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         /// </summary>
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupLaunchTemplate> _mLaunchTemplate;
-
-        public Outputs.GroupLaunchTemplate? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Outputs.GroupLaunchTemplate? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Outputs.GroupLaunchTemplate? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'Group.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// List of elastic load balancer names to add to the autoscaling
         /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         /// </summary>
-        [Input("loadBalancers")]
+        [PolicyResourceProperty("loadBalancers", "_mUnknown_LoadBalancers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
-
-        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+        private List<string>? _mValue_LoadBalancers;
+        private bool _mUnknown_LoadBalancers;
+        public List<string>? LoadBalancers
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancers) return _mValue_LoadBalancers;
+                throw new UndeferrableValueException("Value 'Group.LoadBalancers' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
-        [Input("maxInstanceLifetime")]
+        [PolicyResourceProperty("maxInstanceLifetime", "_mUnknown_MaxInstanceLifetime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxInstanceLifetime;
-
-        public int? MaxInstanceLifetime => _mMaxInstanceLifetime.GetValue("maxInstanceLifetime");
+        private int? _mValue_MaxInstanceLifetime;
+        private bool _mUnknown_MaxInstanceLifetime;
+        public int? MaxInstanceLifetime
+        {
+            get
+            {
+                if (!_mUnknown_MaxInstanceLifetime) return _mValue_MaxInstanceLifetime;
+                throw new UndeferrableValueException("Value 'Group.MaxInstanceLifetime' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size of the Auto Scaling Group.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'Group.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
-        [Input("metricsGranularity")]
+        [PolicyResourceProperty("metricsGranularity", "_mUnknown_MetricsGranularity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricsGranularity;
-
-        public string? MetricsGranularity => _mMetricsGranularity.GetValue("metricsGranularity");
+        private string? _mValue_MetricsGranularity;
+        private bool _mUnknown_MetricsGranularity;
+        public string? MetricsGranularity
+        {
+            get
+            {
+                if (!_mUnknown_MetricsGranularity) return _mValue_MetricsGranularity;
+                throw new UndeferrableValueException("Value 'Group.MetricsGranularity' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting this causes Pulumi to wait for
@@ -250,67 +418,116 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// ELB only on creation. Updates will not wait on ELB instance number changes.
         /// (See also Waiting for Capacity below.)
         /// </summary>
-        [Input("minElbCapacity")]
+        [PolicyResourceProperty("minElbCapacity", "_mUnknown_MinElbCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinElbCapacity;
-
-        public int? MinElbCapacity => _mMinElbCapacity.GetValue("minElbCapacity");
+        private int? _mValue_MinElbCapacity;
+        private bool _mUnknown_MinElbCapacity;
+        public int? MinElbCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinElbCapacity) return _mValue_MinElbCapacity;
+                throw new UndeferrableValueException("Value 'Group.MinElbCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum size of the Auto Scaling Group.
         /// (See also Waiting for Capacity below.)
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'Group.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         /// </summary>
-        [Input("mixedInstancesPolicy")]
+        [PolicyResourceProperty("mixedInstancesPolicy", "_mUnknown_MixedInstancesPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupMixedInstancesPolicy> _mMixedInstancesPolicy;
-
-        public Outputs.GroupMixedInstancesPolicy? MixedInstancesPolicy => _mMixedInstancesPolicy.GetValue("mixedInstancesPolicy");
+        private Outputs.GroupMixedInstancesPolicy? _mValue_MixedInstancesPolicy;
+        private bool _mUnknown_MixedInstancesPolicy;
+        public Outputs.GroupMixedInstancesPolicy? MixedInstancesPolicy
+        {
+            get
+            {
+                if (!_mUnknown_MixedInstancesPolicy) return _mValue_MixedInstancesPolicy;
+                throw new UndeferrableValueException("Value 'Group.MixedInstancesPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Group.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'Group.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
-        [Input("placementGroup")]
+        [PolicyResourceProperty("placementGroup", "_mUnknown_PlacementGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
-
-        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
+        private string? _mValue_PlacementGroup;
+        private bool _mUnknown_PlacementGroup;
+        public string? PlacementGroup
+        {
+            get
+            {
+                if (!_mUnknown_PlacementGroup) return _mValue_PlacementGroup;
+                throw new UndeferrableValueException("Value 'Group.PlacementGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Predicted capacity of the group.
         /// </summary>
-        [Input("predictedCapacity")]
+        [PolicyResourceProperty("predictedCapacity", "_mUnknown_PredictedCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPredictedCapacity;
-
-        public int? PredictedCapacity => _mPredictedCapacity.GetValue("predictedCapacity");
+        private int? _mValue_PredictedCapacity;
+        private bool _mUnknown_PredictedCapacity;
+        public int? PredictedCapacity
+        {
+            get
+            {
+                if (!_mUnknown_PredictedCapacity) return _mValue_PredictedCapacity;
+                throw new UndeferrableValueException("Value 'Group.PredictedCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether newly launched instances
@@ -319,75 +536,131 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
         /// in the Amazon EC2 Auto Scaling User Guide.
         /// </summary>
-        [Input("protectFromScaleIn")]
+        [PolicyResourceProperty("protectFromScaleIn", "_mUnknown_ProtectFromScaleIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProtectFromScaleIn;
-
-        public bool? ProtectFromScaleIn => _mProtectFromScaleIn.GetValue("protectFromScaleIn");
+        private bool? _mValue_ProtectFromScaleIn;
+        private bool _mUnknown_ProtectFromScaleIn;
+        public bool? ProtectFromScaleIn
+        {
+            get
+            {
+                if (!_mUnknown_ProtectFromScaleIn) return _mValue_ProtectFromScaleIn;
+                throw new UndeferrableValueException("Value 'Group.ProtectFromScaleIn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services
         /// </summary>
-        [Input("serviceLinkedRoleArn")]
+        [PolicyResourceProperty("serviceLinkedRoleArn", "_mUnknown_ServiceLinkedRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceLinkedRoleArn;
-
-        public string? ServiceLinkedRoleArn => _mServiceLinkedRoleArn.GetValue("serviceLinkedRoleArn");
+        private string? _mValue_ServiceLinkedRoleArn;
+        private bool _mUnknown_ServiceLinkedRoleArn;
+        public string? ServiceLinkedRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceLinkedRoleArn) return _mValue_ServiceLinkedRoleArn;
+                throw new UndeferrableValueException("Value 'Group.ServiceLinkedRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         /// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
         /// </summary>
-        [Input("suspendedProcesses")]
+        [PolicyResourceProperty("suspendedProcesses", "_mUnknown_SuspendedProcesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuspendedProcesses;
-
-        public List<string>? SuspendedProcesses => _mSuspendedProcesses.GetValue("suspendedProcesses");
+        private List<string>? _mValue_SuspendedProcesses;
+        private bool _mUnknown_SuspendedProcesses;
+        public List<string>? SuspendedProcesses
+        {
+            get
+            {
+                if (!_mUnknown_SuspendedProcesses) return _mValue_SuspendedProcesses;
+                throw new UndeferrableValueException("Value 'Group.SuspendedProcesses' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) containing resource tags. See Tag below for more details.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupTag>> _mTags;
-
-        public List<Outputs.GroupTag>? Tags => _mTags.GetValue("tags");
+        private List<Outputs.GroupTag>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public List<Outputs.GroupTag>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Group.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
-        [Input("targetGroupArns")]
+        [PolicyResourceProperty("targetGroupArns", "_mUnknown_TargetGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetGroupArns;
-
-        public List<string>? TargetGroupArns => _mTargetGroupArns.GetValue("targetGroupArns");
+        private List<string>? _mValue_TargetGroupArns;
+        private bool _mUnknown_TargetGroupArns;
+        public List<string>? TargetGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupArns) return _mValue_TargetGroupArns;
+                throw new UndeferrableValueException("Value 'Group.TargetGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         /// </summary>
-        [Input("terminationPolicies")]
+        [PolicyResourceProperty("terminationPolicies", "_mUnknown_TerminationPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTerminationPolicies;
-
-        public List<string>? TerminationPolicies => _mTerminationPolicies.GetValue("terminationPolicies");
+        private List<string>? _mValue_TerminationPolicies;
+        private bool _mUnknown_TerminationPolicies;
+        public List<string>? TerminationPolicies
+        {
+            get
+            {
+                if (!_mUnknown_TerminationPolicies) return _mValue_TerminationPolicies;
+                throw new UndeferrableValueException("Value 'Group.TerminationPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Attaches one or more traffic sources to the specified Auto Scaling group.
         /// </summary>
-        [Input("trafficSources")]
+        [PolicyResourceProperty("trafficSources", "_mUnknown_TrafficSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GroupTrafficSource>> _mTrafficSources;
-
-        public List<Outputs.GroupTrafficSource>? TrafficSources => _mTrafficSources.GetValue("trafficSources");
+        private List<Outputs.GroupTrafficSource>? _mValue_TrafficSources;
+        private bool _mUnknown_TrafficSources;
+        public List<Outputs.GroupTrafficSource>? TrafficSources
+        {
+            get
+            {
+                if (!_mUnknown_TrafficSources) return _mValue_TrafficSources;
+                throw new UndeferrableValueException("Value 'Group.TrafficSources' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
-        [Input("vpcZoneIdentifiers")]
+        [PolicyResourceProperty("vpcZoneIdentifiers", "_mUnknown_VpcZoneIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcZoneIdentifiers;
-
-        public List<string>? VpcZoneIdentifiers => _mVpcZoneIdentifiers.GetValue("vpcZoneIdentifiers");
+        private List<string>? _mValue_VpcZoneIdentifiers;
+        private bool _mUnknown_VpcZoneIdentifiers;
+        public List<string>? VpcZoneIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_VpcZoneIdentifiers) return _mValue_VpcZoneIdentifiers;
+                throw new UndeferrableValueException("Value 'Group.VpcZoneIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum
@@ -396,11 +669,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// for Capacity below.) Setting this to "0" causes
         /// the provider to skip all Capacity Waiting behavior.
         /// </summary>
-        [Input("waitForCapacityTimeout")]
+        [PolicyResourceProperty("waitForCapacityTimeout", "_mUnknown_WaitForCapacityTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForCapacityTimeout;
-
-        public string? WaitForCapacityTimeout => _mWaitForCapacityTimeout.GetValue("waitForCapacityTimeout");
+        private string? _mValue_WaitForCapacityTimeout;
+        private bool _mUnknown_WaitForCapacityTimeout;
+        public string? WaitForCapacityTimeout
+        {
+            get
+            {
+                if (!_mUnknown_WaitForCapacityTimeout) return _mValue_WaitForCapacityTimeout;
+                throw new UndeferrableValueException("Value 'Group.WaitForCapacityTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting this will cause Pulumi to wait
@@ -409,30 +689,51 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// precedence over `min_elb_capacity` behavior.)
         /// (See also Waiting for Capacity below.)
         /// </summary>
-        [Input("waitForElbCapacity")]
+        [PolicyResourceProperty("waitForElbCapacity", "_mUnknown_WaitForElbCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitForElbCapacity;
-
-        public int? WaitForElbCapacity => _mWaitForElbCapacity.GetValue("waitForElbCapacity");
+        private int? _mValue_WaitForElbCapacity;
+        private bool _mUnknown_WaitForElbCapacity;
+        public int? WaitForElbCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WaitForElbCapacity) return _mValue_WaitForElbCapacity;
+                throw new UndeferrableValueException("Value 'Group.WaitForElbCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
         /// to the specified Auto Scaling group. Defined below
         /// </summary>
-        [Input("warmPool")]
+        [PolicyResourceProperty("warmPool", "_mUnknown_WarmPool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.GroupWarmPool> _mWarmPool;
-
-        public Outputs.GroupWarmPool? WarmPool => _mWarmPool.GetValue("warmPool");
+        private Outputs.GroupWarmPool? _mValue_WarmPool;
+        private bool _mUnknown_WarmPool;
+        public Outputs.GroupWarmPool? WarmPool
+        {
+            get
+            {
+                if (!_mUnknown_WarmPool) return _mValue_WarmPool;
+                throw new UndeferrableValueException("Value 'Group.WarmPool' is not present");
+            }
+        }
 
         /// <summary>
         /// Current size of the warm pool.
         /// </summary>
-        [Input("warmPoolSize")]
+        [PolicyResourceProperty("warmPoolSize", "_mUnknown_WarmPoolSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWarmPoolSize;
-
-        public int? WarmPoolSize => _mWarmPoolSize.GetValue("warmPoolSize");
+        private int? _mValue_WarmPoolSize;
+        private bool _mUnknown_WarmPoolSize;
+        public int? WarmPoolSize
+        {
+            get
+            {
+                if (!_mUnknown_WarmPoolSize) return _mValue_WarmPoolSize;
+                throw new UndeferrableValueException("Value 'Group.WarmPoolSize' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:autoscaling/group:Group")]
@@ -441,85 +742,148 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// <summary>
         /// The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
         /// </summary>
-        [Input("availabilityZoneDistribution")]
+        [PolicyResourceProperty("availabilityZoneDistribution", "_mUnknown_AvailabilityZoneDistribution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupAvailabilityZoneDistributionArgs> _mAvailabilityZoneDistribution;
-
-        public Inputs.GroupAvailabilityZoneDistributionArgs? AvailabilityZoneDistribution => _mAvailabilityZoneDistribution.GetValue("availabilityZoneDistribution");
+        private Inputs.GroupAvailabilityZoneDistributionArgs? _mValue_AvailabilityZoneDistribution;
+        private bool _mUnknown_AvailabilityZoneDistribution;
+        public Inputs.GroupAvailabilityZoneDistributionArgs? AvailabilityZoneDistribution
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneDistribution) return _mValue_AvailabilityZoneDistribution;
+                throw new UndeferrableValueException("Value 'GroupArgs.AvailabilityZoneDistribution' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
         /// </summary>
-        [Input("availabilityZones")]
+        [PolicyResourceProperty("availabilityZones", "_mUnknown_AvailabilityZones")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAvailabilityZones;
-
-        public List<string>? AvailabilityZones => _mAvailabilityZones.GetValue("availabilityZones");
+        private List<string>? _mValue_AvailabilityZones;
+        private bool _mUnknown_AvailabilityZones;
+        public List<string>? AvailabilityZones
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZones) return _mValue_AvailabilityZones;
+                throw new UndeferrableValueException("Value 'GroupArgs.AvailabilityZones' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         /// </summary>
-        [Input("capacityRebalance")]
+        [PolicyResourceProperty("capacityRebalance", "_mUnknown_CapacityRebalance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCapacityRebalance;
-
-        public bool? CapacityRebalance => _mCapacityRebalance.GetValue("capacityRebalance");
+        private bool? _mValue_CapacityRebalance;
+        private bool _mUnknown_CapacityRebalance;
+        public bool? CapacityRebalance
+        {
+            get
+            {
+                if (!_mUnknown_CapacityRebalance) return _mValue_CapacityRebalance;
+                throw new UndeferrableValueException("Value 'GroupArgs.CapacityRebalance' is not present");
+            }
+        }
 
         /// <summary>
         /// Reserved.
         /// </summary>
-        [Input("context")]
+        [PolicyResourceProperty("context", "_mUnknown_Context")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContext;
-
-        public string? Context => _mContext.GetValue("context");
+        private string? _mValue_Context;
+        private bool _mUnknown_Context;
+        public string? Context
+        {
+            get
+            {
+                if (!_mUnknown_Context) return _mValue_Context;
+                throw new UndeferrableValueException("Value 'GroupArgs.Context' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         /// </summary>
-        [Input("defaultCooldown")]
+        [PolicyResourceProperty("defaultCooldown", "_mUnknown_DefaultCooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultCooldown;
-
-        public int? DefaultCooldown => _mDefaultCooldown.GetValue("defaultCooldown");
+        private int? _mValue_DefaultCooldown;
+        private bool _mUnknown_DefaultCooldown;
+        public int? DefaultCooldown
+        {
+            get
+            {
+                if (!_mUnknown_DefaultCooldown) return _mValue_DefaultCooldown;
+                throw new UndeferrableValueException("Value 'GroupArgs.DefaultCooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         /// </summary>
-        [Input("defaultInstanceWarmup")]
+        [PolicyResourceProperty("defaultInstanceWarmup", "_mUnknown_DefaultInstanceWarmup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultInstanceWarmup;
-
-        public int? DefaultInstanceWarmup => _mDefaultInstanceWarmup.GetValue("defaultInstanceWarmup");
+        private int? _mValue_DefaultInstanceWarmup;
+        private bool _mUnknown_DefaultInstanceWarmup;
+        public int? DefaultInstanceWarmup
+        {
+            get
+            {
+                if (!_mUnknown_DefaultInstanceWarmup) return _mValue_DefaultInstanceWarmup;
+                throw new UndeferrableValueException("Value 'GroupArgs.DefaultInstanceWarmup' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of Amazon EC2 instances that
         /// should be running in the group. (See also Waiting for
         /// Capacity below.)
         /// </summary>
-        [Input("desiredCapacity")]
+        [PolicyResourceProperty("desiredCapacity", "_mUnknown_DesiredCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDesiredCapacity;
-
-        public int? DesiredCapacity => _mDesiredCapacity.GetValue("desiredCapacity");
+        private int? _mValue_DesiredCapacity;
+        private bool _mUnknown_DesiredCapacity;
+        public int? DesiredCapacity
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacity) return _mValue_DesiredCapacity;
+                throw new UndeferrableValueException("Value 'GroupArgs.DesiredCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
         /// </summary>
-        [Input("desiredCapacityType")]
+        [PolicyResourceProperty("desiredCapacityType", "_mUnknown_DesiredCapacityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDesiredCapacityType;
-
-        public string? DesiredCapacityType => _mDesiredCapacityType.GetValue("desiredCapacityType");
+        private string? _mValue_DesiredCapacityType;
+        private bool _mUnknown_DesiredCapacityType;
+        public string? DesiredCapacityType
+        {
+            get
+            {
+                if (!_mUnknown_DesiredCapacityType) return _mValue_DesiredCapacityType;
+                throw new UndeferrableValueException("Value 'GroupArgs.DesiredCapacityType' is not present");
+            }
+        }
 
         /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
-        [Input("enabledMetrics")]
+        [PolicyResourceProperty("enabledMetrics", "_mUnknown_EnabledMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEnabledMetrics;
-
-        public List<string>? EnabledMetrics => _mEnabledMetrics.GetValue("enabledMetrics");
+        private List<string>? _mValue_EnabledMetrics;
+        private bool _mUnknown_EnabledMetrics;
+        public List<string>? EnabledMetrics
+        {
+            get
+            {
+                if (!_mUnknown_EnabledMetrics) return _mValue_EnabledMetrics;
+                throw new UndeferrableValueException("Value 'GroupArgs.EnabledMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
@@ -528,47 +892,82 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// drains all the instances before deleting the group. This bypasses that
         /// behavior and potentially leaves resources dangling.
         /// </summary>
-        [Input("forceDelete")]
+        [PolicyResourceProperty("forceDelete", "_mUnknown_ForceDelete")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDelete;
-
-        public bool? ForceDelete => _mForceDelete.GetValue("forceDelete");
+        private bool? _mValue_ForceDelete;
+        private bool _mUnknown_ForceDelete;
+        public bool? ForceDelete
+        {
+            get
+            {
+                if (!_mUnknown_ForceDelete) return _mValue_ForceDelete;
+                throw new UndeferrableValueException("Value 'GroupArgs.ForceDelete' is not present");
+            }
+        }
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
         /// </summary>
-        [Input("forceDeleteWarmPool")]
+        [PolicyResourceProperty("forceDeleteWarmPool", "_mUnknown_ForceDeleteWarmPool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDeleteWarmPool;
-
-        public bool? ForceDeleteWarmPool => _mForceDeleteWarmPool.GetValue("forceDeleteWarmPool");
+        private bool? _mValue_ForceDeleteWarmPool;
+        private bool _mUnknown_ForceDeleteWarmPool;
+        public bool? ForceDeleteWarmPool
+        {
+            get
+            {
+                if (!_mUnknown_ForceDeleteWarmPool) return _mValue_ForceDeleteWarmPool;
+                throw new UndeferrableValueException("Value 'GroupArgs.ForceDeleteWarmPool' is not present");
+            }
+        }
 
         /// <summary>
         /// Time (in seconds) after instance comes into service before checking health.
         /// </summary>
-        [Input("healthCheckGracePeriod")]
+        [PolicyResourceProperty("healthCheckGracePeriod", "_mUnknown_HealthCheckGracePeriod")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHealthCheckGracePeriod;
-
-        public int? HealthCheckGracePeriod => _mHealthCheckGracePeriod.GetValue("healthCheckGracePeriod");
+        private int? _mValue_HealthCheckGracePeriod;
+        private bool _mUnknown_HealthCheckGracePeriod;
+        public int? HealthCheckGracePeriod
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckGracePeriod) return _mValue_HealthCheckGracePeriod;
+                throw new UndeferrableValueException("Value 'GroupArgs.HealthCheckGracePeriod' is not present");
+            }
+        }
 
         /// <summary>
         /// "EC2" or "ELB". Controls how health checking is done.
         /// </summary>
-        [Input("healthCheckType")]
+        [PolicyResourceProperty("healthCheckType", "_mUnknown_HealthCheckType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHealthCheckType;
-
-        public string? HealthCheckType => _mHealthCheckType.GetValue("healthCheckType");
+        private string? _mValue_HealthCheckType;
+        private bool _mUnknown_HealthCheckType;
+        public string? HealthCheckType
+        {
+            get
+            {
+                if (!_mUnknown_HealthCheckType) return _mValue_HealthCheckType;
+                throw new UndeferrableValueException("Value 'GroupArgs.HealthCheckType' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
         /// </summary>
-        [Input("ignoreFailedScalingActivities")]
+        [PolicyResourceProperty("ignoreFailedScalingActivities", "_mUnknown_IgnoreFailedScalingActivities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreFailedScalingActivities;
-
-        public bool? IgnoreFailedScalingActivities => _mIgnoreFailedScalingActivities.GetValue("ignoreFailedScalingActivities");
+        private bool? _mValue_IgnoreFailedScalingActivities;
+        private bool _mUnknown_IgnoreFailedScalingActivities;
+        public bool? IgnoreFailedScalingActivities
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreFailedScalingActivities) return _mValue_IgnoreFailedScalingActivities;
+                throw new UndeferrableValueException("Value 'GroupArgs.IgnoreFailedScalingActivities' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more
@@ -579,86 +978,149 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
         /// a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
         /// </summary>
-        [Input("initialLifecycleHooks")]
+        [PolicyResourceProperty("initialLifecycleHooks", "_mUnknown_InitialLifecycleHooks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupInitialLifecycleHookArgs>> _mInitialLifecycleHooks;
-
-        public List<Inputs.GroupInitialLifecycleHookArgs>? InitialLifecycleHooks => _mInitialLifecycleHooks.GetValue("initialLifecycleHooks");
+        private List<Inputs.GroupInitialLifecycleHookArgs>? _mValue_InitialLifecycleHooks;
+        private bool _mUnknown_InitialLifecycleHooks;
+        public List<Inputs.GroupInitialLifecycleHookArgs>? InitialLifecycleHooks
+        {
+            get
+            {
+                if (!_mUnknown_InitialLifecycleHooks) return _mValue_InitialLifecycleHooks;
+                throw new UndeferrableValueException("Value 'GroupArgs.InitialLifecycleHooks' is not present");
+            }
+        }
 
         /// <summary>
         /// If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
         /// </summary>
-        [Input("instanceMaintenancePolicy")]
+        [PolicyResourceProperty("instanceMaintenancePolicy", "_mUnknown_InstanceMaintenancePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupInstanceMaintenancePolicyArgs> _mInstanceMaintenancePolicy;
-
-        public Inputs.GroupInstanceMaintenancePolicyArgs? InstanceMaintenancePolicy => _mInstanceMaintenancePolicy.GetValue("instanceMaintenancePolicy");
+        private Inputs.GroupInstanceMaintenancePolicyArgs? _mValue_InstanceMaintenancePolicy;
+        private bool _mUnknown_InstanceMaintenancePolicy;
+        public Inputs.GroupInstanceMaintenancePolicyArgs? InstanceMaintenancePolicy
+        {
+            get
+            {
+                if (!_mUnknown_InstanceMaintenancePolicy) return _mValue_InstanceMaintenancePolicy;
+                throw new UndeferrableValueException("Value 'GroupArgs.InstanceMaintenancePolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// If this block is configured, start an
         /// [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
         /// when this Auto Scaling Group is updated. Defined below.
         /// </summary>
-        [Input("instanceRefresh")]
+        [PolicyResourceProperty("instanceRefresh", "_mUnknown_InstanceRefresh")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupInstanceRefreshArgs> _mInstanceRefresh;
-
-        public Inputs.GroupInstanceRefreshArgs? InstanceRefresh => _mInstanceRefresh.GetValue("instanceRefresh");
+        private Inputs.GroupInstanceRefreshArgs? _mValue_InstanceRefresh;
+        private bool _mUnknown_InstanceRefresh;
+        public Inputs.GroupInstanceRefreshArgs? InstanceRefresh
+        {
+            get
+            {
+                if (!_mUnknown_InstanceRefresh) return _mValue_InstanceRefresh;
+                throw new UndeferrableValueException("Value 'GroupArgs.InstanceRefresh' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the launch configuration to use.
         /// </summary>
-        [Input("launchConfiguration")]
+        [PolicyResourceProperty("launchConfiguration", "_mUnknown_LaunchConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLaunchConfiguration;
-
-        public string? LaunchConfiguration => _mLaunchConfiguration.GetValue("launchConfiguration");
+        private string? _mValue_LaunchConfiguration;
+        private bool _mUnknown_LaunchConfiguration;
+        public string? LaunchConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LaunchConfiguration) return _mValue_LaunchConfiguration;
+                throw new UndeferrableValueException("Value 'GroupArgs.LaunchConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         /// </summary>
-        [Input("launchTemplate")]
+        [PolicyResourceProperty("launchTemplate", "_mUnknown_LaunchTemplate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupLaunchTemplateArgs> _mLaunchTemplate;
-
-        public Inputs.GroupLaunchTemplateArgs? LaunchTemplate => _mLaunchTemplate.GetValue("launchTemplate");
+        private Inputs.GroupLaunchTemplateArgs? _mValue_LaunchTemplate;
+        private bool _mUnknown_LaunchTemplate;
+        public Inputs.GroupLaunchTemplateArgs? LaunchTemplate
+        {
+            get
+            {
+                if (!_mUnknown_LaunchTemplate) return _mValue_LaunchTemplate;
+                throw new UndeferrableValueException("Value 'GroupArgs.LaunchTemplate' is not present");
+            }
+        }
 
         /// <summary>
         /// List of elastic load balancer names to add to the autoscaling
         /// group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         /// </summary>
-        [Input("loadBalancers")]
+        [PolicyResourceProperty("loadBalancers", "_mUnknown_LoadBalancers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mLoadBalancers;
-
-        public List<string>? LoadBalancers => _mLoadBalancers.GetValue("loadBalancers");
+        private List<string>? _mValue_LoadBalancers;
+        private bool _mUnknown_LoadBalancers;
+        public List<string>? LoadBalancers
+        {
+            get
+            {
+                if (!_mUnknown_LoadBalancers) return _mValue_LoadBalancers;
+                throw new UndeferrableValueException("Value 'GroupArgs.LoadBalancers' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
-        [Input("maxInstanceLifetime")]
+        [PolicyResourceProperty("maxInstanceLifetime", "_mUnknown_MaxInstanceLifetime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxInstanceLifetime;
-
-        public int? MaxInstanceLifetime => _mMaxInstanceLifetime.GetValue("maxInstanceLifetime");
+        private int? _mValue_MaxInstanceLifetime;
+        private bool _mUnknown_MaxInstanceLifetime;
+        public int? MaxInstanceLifetime
+        {
+            get
+            {
+                if (!_mUnknown_MaxInstanceLifetime) return _mValue_MaxInstanceLifetime;
+                throw new UndeferrableValueException("Value 'GroupArgs.MaxInstanceLifetime' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size of the Auto Scaling Group.
         /// </summary>
-        [Input("maxSize")]
+        [PolicyResourceProperty("maxSize", "_mUnknown_MaxSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxSize;
-
-        public int? MaxSize => _mMaxSize.GetValue("maxSize");
+        private int? _mValue_MaxSize;
+        private bool _mUnknown_MaxSize;
+        public int? MaxSize
+        {
+            get
+            {
+                if (!_mUnknown_MaxSize) return _mValue_MaxSize;
+                throw new UndeferrableValueException("Value 'GroupArgs.MaxSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
         /// </summary>
-        [Input("metricsGranularity")]
+        [PolicyResourceProperty("metricsGranularity", "_mUnknown_MetricsGranularity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricsGranularity;
-
-        public string? MetricsGranularity => _mMetricsGranularity.GetValue("metricsGranularity");
+        private string? _mValue_MetricsGranularity;
+        private bool _mUnknown_MetricsGranularity;
+        public string? MetricsGranularity
+        {
+            get
+            {
+                if (!_mUnknown_MetricsGranularity) return _mValue_MetricsGranularity;
+                throw new UndeferrableValueException("Value 'GroupArgs.MetricsGranularity' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting this causes Pulumi to wait for
@@ -666,58 +1128,100 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// ELB only on creation. Updates will not wait on ELB instance number changes.
         /// (See also Waiting for Capacity below.)
         /// </summary>
-        [Input("minElbCapacity")]
+        [PolicyResourceProperty("minElbCapacity", "_mUnknown_MinElbCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinElbCapacity;
-
-        public int? MinElbCapacity => _mMinElbCapacity.GetValue("minElbCapacity");
+        private int? _mValue_MinElbCapacity;
+        private bool _mUnknown_MinElbCapacity;
+        public int? MinElbCapacity
+        {
+            get
+            {
+                if (!_mUnknown_MinElbCapacity) return _mValue_MinElbCapacity;
+                throw new UndeferrableValueException("Value 'GroupArgs.MinElbCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum size of the Auto Scaling Group.
         /// (See also Waiting for Capacity below.)
         /// </summary>
-        [Input("minSize")]
+        [PolicyResourceProperty("minSize", "_mUnknown_MinSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinSize;
-
-        public int? MinSize => _mMinSize.GetValue("minSize");
+        private int? _mValue_MinSize;
+        private bool _mUnknown_MinSize;
+        public int? MinSize
+        {
+            get
+            {
+                if (!_mUnknown_MinSize) return _mValue_MinSize;
+                throw new UndeferrableValueException("Value 'GroupArgs.MinSize' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         /// </summary>
-        [Input("mixedInstancesPolicy")]
+        [PolicyResourceProperty("mixedInstancesPolicy", "_mUnknown_MixedInstancesPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupMixedInstancesPolicyArgs> _mMixedInstancesPolicy;
-
-        public Inputs.GroupMixedInstancesPolicyArgs? MixedInstancesPolicy => _mMixedInstancesPolicy.GetValue("mixedInstancesPolicy");
+        private Inputs.GroupMixedInstancesPolicyArgs? _mValue_MixedInstancesPolicy;
+        private bool _mUnknown_MixedInstancesPolicy;
+        public Inputs.GroupMixedInstancesPolicyArgs? MixedInstancesPolicy
+        {
+            get
+            {
+                if (!_mUnknown_MixedInstancesPolicy) return _mValue_MixedInstancesPolicy;
+                throw new UndeferrableValueException("Value 'GroupArgs.MixedInstancesPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'GroupArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'GroupArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the placement group into which you'll launch your instances, if any.
         /// </summary>
-        [Input("placementGroup")]
+        [PolicyResourceProperty("placementGroup", "_mUnknown_PlacementGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPlacementGroup;
-
-        public string? PlacementGroup => _mPlacementGroup.GetValue("placementGroup");
+        private string? _mValue_PlacementGroup;
+        private bool _mUnknown_PlacementGroup;
+        public string? PlacementGroup
+        {
+            get
+            {
+                if (!_mUnknown_PlacementGroup) return _mValue_PlacementGroup;
+                throw new UndeferrableValueException("Value 'GroupArgs.PlacementGroup' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether newly launched instances
@@ -726,75 +1230,131 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
         /// in the Amazon EC2 Auto Scaling User Guide.
         /// </summary>
-        [Input("protectFromScaleIn")]
+        [PolicyResourceProperty("protectFromScaleIn", "_mUnknown_ProtectFromScaleIn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mProtectFromScaleIn;
-
-        public bool? ProtectFromScaleIn => _mProtectFromScaleIn.GetValue("protectFromScaleIn");
+        private bool? _mValue_ProtectFromScaleIn;
+        private bool _mUnknown_ProtectFromScaleIn;
+        public bool? ProtectFromScaleIn
+        {
+            get
+            {
+                if (!_mUnknown_ProtectFromScaleIn) return _mValue_ProtectFromScaleIn;
+                throw new UndeferrableValueException("Value 'GroupArgs.ProtectFromScaleIn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services
         /// </summary>
-        [Input("serviceLinkedRoleArn")]
+        [PolicyResourceProperty("serviceLinkedRoleArn", "_mUnknown_ServiceLinkedRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceLinkedRoleArn;
-
-        public string? ServiceLinkedRoleArn => _mServiceLinkedRoleArn.GetValue("serviceLinkedRoleArn");
+        private string? _mValue_ServiceLinkedRoleArn;
+        private bool _mUnknown_ServiceLinkedRoleArn;
+        public string? ServiceLinkedRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ServiceLinkedRoleArn) return _mValue_ServiceLinkedRoleArn;
+                throw new UndeferrableValueException("Value 'GroupArgs.ServiceLinkedRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
         /// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
         /// </summary>
-        [Input("suspendedProcesses")]
+        [PolicyResourceProperty("suspendedProcesses", "_mUnknown_SuspendedProcesses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSuspendedProcesses;
-
-        public List<string>? SuspendedProcesses => _mSuspendedProcesses.GetValue("suspendedProcesses");
+        private List<string>? _mValue_SuspendedProcesses;
+        private bool _mUnknown_SuspendedProcesses;
+        public List<string>? SuspendedProcesses
+        {
+            get
+            {
+                if (!_mUnknown_SuspendedProcesses) return _mValue_SuspendedProcesses;
+                throw new UndeferrableValueException("Value 'GroupArgs.SuspendedProcesses' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) containing resource tags. See Tag below for more details.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupTagArgs>> _mTags;
-
-        public List<Inputs.GroupTagArgs>? Tags => _mTags.GetValue("tags");
+        private List<Inputs.GroupTagArgs>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public List<Inputs.GroupTagArgs>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'GroupArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
-        [Input("targetGroupArns")]
+        [PolicyResourceProperty("targetGroupArns", "_mUnknown_TargetGroupArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetGroupArns;
-
-        public List<string>? TargetGroupArns => _mTargetGroupArns.GetValue("targetGroupArns");
+        private List<string>? _mValue_TargetGroupArns;
+        private bool _mUnknown_TargetGroupArns;
+        public List<string>? TargetGroupArns
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroupArns) return _mValue_TargetGroupArns;
+                throw new UndeferrableValueException("Value 'GroupArgs.TargetGroupArns' is not present");
+            }
+        }
 
         /// <summary>
         /// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
         /// </summary>
-        [Input("terminationPolicies")]
+        [PolicyResourceProperty("terminationPolicies", "_mUnknown_TerminationPolicies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTerminationPolicies;
-
-        public List<string>? TerminationPolicies => _mTerminationPolicies.GetValue("terminationPolicies");
+        private List<string>? _mValue_TerminationPolicies;
+        private bool _mUnknown_TerminationPolicies;
+        public List<string>? TerminationPolicies
+        {
+            get
+            {
+                if (!_mUnknown_TerminationPolicies) return _mValue_TerminationPolicies;
+                throw new UndeferrableValueException("Value 'GroupArgs.TerminationPolicies' is not present");
+            }
+        }
 
         /// <summary>
         /// Attaches one or more traffic sources to the specified Auto Scaling group.
         /// </summary>
-        [Input("trafficSources")]
+        [PolicyResourceProperty("trafficSources", "_mUnknown_TrafficSources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GroupTrafficSourceArgs>> _mTrafficSources;
-
-        public List<Inputs.GroupTrafficSourceArgs>? TrafficSources => _mTrafficSources.GetValue("trafficSources");
+        private List<Inputs.GroupTrafficSourceArgs>? _mValue_TrafficSources;
+        private bool _mUnknown_TrafficSources;
+        public List<Inputs.GroupTrafficSourceArgs>? TrafficSources
+        {
+            get
+            {
+                if (!_mUnknown_TrafficSources) return _mValue_TrafficSources;
+                throw new UndeferrableValueException("Value 'GroupArgs.TrafficSources' is not present");
+            }
+        }
 
         /// <summary>
         /// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         /// </summary>
-        [Input("vpcZoneIdentifiers")]
+        [PolicyResourceProperty("vpcZoneIdentifiers", "_mUnknown_VpcZoneIdentifiers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcZoneIdentifiers;
-
-        public List<string>? VpcZoneIdentifiers => _mVpcZoneIdentifiers.GetValue("vpcZoneIdentifiers");
+        private List<string>? _mValue_VpcZoneIdentifiers;
+        private bool _mUnknown_VpcZoneIdentifiers;
+        public List<string>? VpcZoneIdentifiers
+        {
+            get
+            {
+                if (!_mUnknown_VpcZoneIdentifiers) return _mValue_VpcZoneIdentifiers;
+                throw new UndeferrableValueException("Value 'GroupArgs.VpcZoneIdentifiers' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum
@@ -803,11 +1363,18 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// for Capacity below.) Setting this to "0" causes
         /// the provider to skip all Capacity Waiting behavior.
         /// </summary>
-        [Input("waitForCapacityTimeout")]
+        [PolicyResourceProperty("waitForCapacityTimeout", "_mUnknown_WaitForCapacityTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWaitForCapacityTimeout;
-
-        public string? WaitForCapacityTimeout => _mWaitForCapacityTimeout.GetValue("waitForCapacityTimeout");
+        private string? _mValue_WaitForCapacityTimeout;
+        private bool _mUnknown_WaitForCapacityTimeout;
+        public string? WaitForCapacityTimeout
+        {
+            get
+            {
+                if (!_mUnknown_WaitForCapacityTimeout) return _mValue_WaitForCapacityTimeout;
+                throw new UndeferrableValueException("Value 'GroupArgs.WaitForCapacityTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting this will cause Pulumi to wait
@@ -816,20 +1383,34 @@ namespace Pulumi.PolicyPacks.Aws.AutoScaling
         /// precedence over `min_elb_capacity` behavior.)
         /// (See also Waiting for Capacity below.)
         /// </summary>
-        [Input("waitForElbCapacity")]
+        [PolicyResourceProperty("waitForElbCapacity", "_mUnknown_WaitForElbCapacity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mWaitForElbCapacity;
-
-        public int? WaitForElbCapacity => _mWaitForElbCapacity.GetValue("waitForElbCapacity");
+        private int? _mValue_WaitForElbCapacity;
+        private bool _mUnknown_WaitForElbCapacity;
+        public int? WaitForElbCapacity
+        {
+            get
+            {
+                if (!_mUnknown_WaitForElbCapacity) return _mValue_WaitForElbCapacity;
+                throw new UndeferrableValueException("Value 'GroupArgs.WaitForElbCapacity' is not present");
+            }
+        }
 
         /// <summary>
         /// If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
         /// to the specified Auto Scaling group. Defined below
         /// </summary>
-        [Input("warmPool")]
+        [PolicyResourceProperty("warmPool", "_mUnknown_WarmPool")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.GroupWarmPoolArgs> _mWarmPool;
-
-        public Inputs.GroupWarmPoolArgs? WarmPool => _mWarmPool.GetValue("warmPool");
+        private Inputs.GroupWarmPoolArgs? _mValue_WarmPool;
+        private bool _mUnknown_WarmPool;
+        public Inputs.GroupWarmPoolArgs? WarmPool
+        {
+            get
+            {
+                if (!_mUnknown_WarmPool) return _mValue_WarmPool;
+                throw new UndeferrableValueException("Value 'GroupArgs.WarmPool' is not present");
+            }
+        }
     }
 }

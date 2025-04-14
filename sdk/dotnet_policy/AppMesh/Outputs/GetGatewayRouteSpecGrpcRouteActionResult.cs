@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetGatewayRouteSpecGrpcRouteActionResult
     {
-        [Input("targets")]
+        [PolicyResourceProperty("targets", "_mUnknown_Targets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult>> _mTargets;
-
-        public List<Outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult>? Targets => _mTargets.GetValue("targets");
+        private List<Outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult>? _mValue_Targets;
+        private bool _mUnknown_Targets;
+        public List<Outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult>? Targets
+        {
+            get
+            {
+                if (!_mUnknown_Targets) return _mValue_Targets;
+                throw new UndeferrableValueException("Value 'GetGatewayRouteSpecGrpcRouteActionResult.Targets' is not present");
+            }
+        }
     }
 }

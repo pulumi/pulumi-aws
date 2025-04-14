@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Set of AWS Organization ARNs to assign.
         /// </summary>
-        [Input("organizationArns")]
+        [PolicyResourceProperty("organizationArns", "_mUnknown_OrganizationArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationArns;
-
-        public List<string>? OrganizationArns => _mOrganizationArns.GetValue("organizationArns");
+        private List<string>? _mValue_OrganizationArns;
+        private bool _mUnknown_OrganizationArns;
+        public List<string>? OrganizationArns
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationArns) return _mValue_OrganizationArns;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission.OrganizationArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of AWS Organizational Unit ARNs to assign.
         /// </summary>
-        [Input("organizationalUnitArns")]
+        [PolicyResourceProperty("organizationalUnitArns", "_mUnknown_OrganizationalUnitArns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOrganizationalUnitArns;
-
-        public List<string>? OrganizationalUnitArns => _mOrganizationalUnitArns.GetValue("organizationalUnitArns");
+        private List<string>? _mValue_OrganizationalUnitArns;
+        private bool _mUnknown_OrganizationalUnitArns;
+        public List<string>? OrganizationalUnitArns
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitArns) return _mValue_OrganizationalUnitArns;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission.OrganizationalUnitArns' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
         /// </summary>
-        [Input("userGroups")]
+        [PolicyResourceProperty("userGroups", "_mUnknown_UserGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserGroups;
-
-        public List<string>? UserGroups => _mUserGroups.GetValue("userGroups");
+        private List<string>? _mValue_UserGroups;
+        private bool _mUnknown_UserGroups;
+        public List<string>? UserGroups
+        {
+            get
+            {
+                if (!_mUnknown_UserGroups) return _mValue_UserGroups;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission.UserGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of AWS Account identifiers to assign.
         /// </summary>
-        [Input("userIds")]
+        [PolicyResourceProperty("userIds", "_mUnknown_UserIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mUserIds;
-
-        public List<string>? UserIds => _mUserIds.GetValue("userIds");
+        private List<string>? _mValue_UserIds;
+        private bool _mUnknown_UserIds;
+        public List<string>? UserIds
+        {
+            get
+            {
+                if (!_mUnknown_UserIds) return _mValue_UserIds;
+                throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission.UserIds' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.WafV2.Outputs
         /// <summary>
         /// Default handling for logs that don't match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
         /// </summary>
-        [Input("defaultBehavior")]
+        [PolicyResourceProperty("defaultBehavior", "_mUnknown_DefaultBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultBehavior;
-
-        public string? DefaultBehavior => _mDefaultBehavior.GetValue("defaultBehavior");
+        private string? _mValue_DefaultBehavior;
+        private bool _mUnknown_DefaultBehavior;
+        public string? DefaultBehavior
+        {
+            get
+            {
+                if (!_mUnknown_DefaultBehavior) return _mValue_DefaultBehavior;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilter.DefaultBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter(s) that you want to apply to the logs. See Filter below for more details.
         /// </summary>
-        [Input("filters")]
+        [PolicyResourceProperty("filters", "_mUnknown_Filters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.WebAclLoggingConfigurationLoggingFilterFilter>> _mFilters;
-
-        public List<Outputs.WebAclLoggingConfigurationLoggingFilterFilter>? Filters => _mFilters.GetValue("filters");
+        private List<Outputs.WebAclLoggingConfigurationLoggingFilterFilter>? _mValue_Filters;
+        private bool _mUnknown_Filters;
+        public List<Outputs.WebAclLoggingConfigurationLoggingFilterFilter>? Filters
+        {
+            get
+            {
+                if (!_mUnknown_Filters) return _mValue_Filters;
+                throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilter.Filters' is not present");
+            }
+        }
     }
 }

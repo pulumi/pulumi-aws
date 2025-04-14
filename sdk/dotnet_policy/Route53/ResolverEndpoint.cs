@@ -16,97 +16,167 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// ARN of the Route 53 Resolver endpoint.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Direction of DNS queries to or from the Route 53 Resolver endpoint.
         /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
         /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
         /// </summary>
-        [Input("direction")]
+        [PolicyResourceProperty("direction", "_mUnknown_Direction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirection;
-
-        public string? Direction => _mDirection.GetValue("direction");
+        private string? _mValue_Direction;
+        private bool _mUnknown_Direction;
+        public string? Direction
+        {
+            get
+            {
+                if (!_mUnknown_Direction) return _mValue_Direction;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.Direction' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the VPC that you want to create the resolver endpoint in.
         /// </summary>
-        [Input("hostVpcId")]
+        [PolicyResourceProperty("hostVpcId", "_mUnknown_HostVpcId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostVpcId;
-
-        public string? HostVpcId => _mHostVpcId.GetValue("hostVpcId");
+        private string? _mValue_HostVpcId;
+        private bool _mUnknown_HostVpcId;
+        public string? HostVpcId
+        {
+            get
+            {
+                if (!_mUnknown_HostVpcId) return _mValue_HostVpcId;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.HostVpcId' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
-        [Input("ipAddresses")]
+        [PolicyResourceProperty("ipAddresses", "_mUnknown_IpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ResolverEndpointIpAddress>> _mIpAddresses;
-
-        public List<Outputs.ResolverEndpointIpAddress>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
+        private List<Outputs.ResolverEndpointIpAddress>? _mValue_IpAddresses;
+        private bool _mUnknown_IpAddresses;
+        public List<Outputs.ResolverEndpointIpAddress>? IpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_IpAddresses) return _mValue_IpAddresses;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.IpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the Route 53 Resolver endpoint.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocols you want to use for the Route 53 Resolver endpoint.
         /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         /// </summary>
-        [Input("protocols")]
+        [PolicyResourceProperty("protocols", "_mUnknown_Protocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtocols;
-
-        public List<string>? Protocols => _mProtocols.GetValue("protocols");
+        private List<string>? _mValue_Protocols;
+        private bool _mUnknown_Protocols;
+        public List<string>? Protocols
+        {
+            get
+            {
+                if (!_mUnknown_Protocols) return _mValue_Protocols;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.Protocols' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint IP type. This endpoint type is applied to all IP addresses.
         /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
-        [Input("resolverEndpointType")]
+        [PolicyResourceProperty("resolverEndpointType", "_mUnknown_ResolverEndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointType;
-
-        public string? ResolverEndpointType => _mResolverEndpointType.GetValue("resolverEndpointType");
+        private string? _mValue_ResolverEndpointType;
+        private bool _mUnknown_ResolverEndpointType;
+        public string? ResolverEndpointType
+        {
+            get
+            {
+                if (!_mUnknown_ResolverEndpointType) return _mValue_ResolverEndpointType;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.ResolverEndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of one or more security groups that you want to use to control access to this VPC.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ResolverEndpoint.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/resolverEndpoint:ResolverEndpoint")]
@@ -117,67 +187,116 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
         /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
         /// </summary>
-        [Input("direction")]
+        [PolicyResourceProperty("direction", "_mUnknown_Direction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDirection;
-
-        public string? Direction => _mDirection.GetValue("direction");
+        private string? _mValue_Direction;
+        private bool _mUnknown_Direction;
+        public string? Direction
+        {
+            get
+            {
+                if (!_mUnknown_Direction) return _mValue_Direction;
+                throw new UndeferrableValueException("Value 'ResolverEndpointArgs.Direction' is not present");
+            }
+        }
 
         /// <summary>
         /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         /// </summary>
-        [Input("ipAddresses")]
+        [PolicyResourceProperty("ipAddresses", "_mUnknown_IpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ResolverEndpointIpAddressArgs>> _mIpAddresses;
-
-        public List<Inputs.ResolverEndpointIpAddressArgs>? IpAddresses => _mIpAddresses.GetValue("ipAddresses");
+        private List<Inputs.ResolverEndpointIpAddressArgs>? _mValue_IpAddresses;
+        private bool _mUnknown_IpAddresses;
+        public List<Inputs.ResolverEndpointIpAddressArgs>? IpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_IpAddresses) return _mValue_IpAddresses;
+                throw new UndeferrableValueException("Value 'ResolverEndpointArgs.IpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// Friendly name of the Route 53 Resolver endpoint.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResolverEndpointArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocols you want to use for the Route 53 Resolver endpoint.
         /// Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
         /// </summary>
-        [Input("protocols")]
+        [PolicyResourceProperty("protocols", "_mUnknown_Protocols")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mProtocols;
-
-        public List<string>? Protocols => _mProtocols.GetValue("protocols");
+        private List<string>? _mValue_Protocols;
+        private bool _mUnknown_Protocols;
+        public List<string>? Protocols
+        {
+            get
+            {
+                if (!_mUnknown_Protocols) return _mValue_Protocols;
+                throw new UndeferrableValueException("Value 'ResolverEndpointArgs.Protocols' is not present");
+            }
+        }
 
         /// <summary>
         /// Endpoint IP type. This endpoint type is applied to all IP addresses.
         /// Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
         /// </summary>
-        [Input("resolverEndpointType")]
+        [PolicyResourceProperty("resolverEndpointType", "_mUnknown_ResolverEndpointType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolverEndpointType;
-
-        public string? ResolverEndpointType => _mResolverEndpointType.GetValue("resolverEndpointType");
+        private string? _mValue_ResolverEndpointType;
+        private bool _mUnknown_ResolverEndpointType;
+        public string? ResolverEndpointType
+        {
+            get
+            {
+                if (!_mUnknown_ResolverEndpointType) return _mValue_ResolverEndpointType;
+                throw new UndeferrableValueException("Value 'ResolverEndpointArgs.ResolverEndpointType' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of one or more security groups that you want to use to control access to this VPC.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ResolverEndpointArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ResolverEndpointArgs.Tags' is not present");
+            }
+        }
     }
 }

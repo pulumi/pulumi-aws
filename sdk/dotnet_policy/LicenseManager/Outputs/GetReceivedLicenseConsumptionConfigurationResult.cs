@@ -15,25 +15,46 @@ namespace Pulumi.PolicyPacks.Aws.LicenseManager.Outputs
         /// <summary>
         /// Details about a borrow configuration. Detailed below
         /// </summary>
-        [Input("borrowConfigurations")]
+        [PolicyResourceProperty("borrowConfigurations", "_mUnknown_BorrowConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult>> _mBorrowConfigurations;
-
-        public List<Outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult>? BorrowConfigurations => _mBorrowConfigurations.GetValue("borrowConfigurations");
+        private List<Outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult>? _mValue_BorrowConfigurations;
+        private bool _mUnknown_BorrowConfigurations;
+        public List<Outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult>? BorrowConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_BorrowConfigurations) return _mValue_BorrowConfigurations;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseConsumptionConfigurationResult.BorrowConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about a provisional configuration. Detailed below
         /// </summary>
-        [Input("provisionalConfigurations")]
+        [PolicyResourceProperty("provisionalConfigurations", "_mUnknown_ProvisionalConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult>> _mProvisionalConfigurations;
+        private List<Outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult>? _mValue_ProvisionalConfigurations;
+        private bool _mUnknown_ProvisionalConfigurations;
+        public List<Outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult>? ProvisionalConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_ProvisionalConfigurations) return _mValue_ProvisionalConfigurations;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseConsumptionConfigurationResult.ProvisionalConfigurations' is not present");
+            }
+        }
 
-        public List<Outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult>? ProvisionalConfigurations => _mProvisionalConfigurations.GetValue("provisionalConfigurations");
-
-        [Input("renewType")]
+        [PolicyResourceProperty("renewType", "_mUnknown_RenewType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRenewType;
-
-        public string? RenewType => _mRenewType.GetValue("renewType");
+        private string? _mValue_RenewType;
+        private bool _mUnknown_RenewType;
+        public string? RenewType
+        {
+            get
+            {
+                if (!_mUnknown_RenewType) return _mValue_RenewType;
+                throw new UndeferrableValueException("Value 'GetReceivedLicenseConsumptionConfigurationResult.RenewType' is not present");
+            }
+        }
     }
 }

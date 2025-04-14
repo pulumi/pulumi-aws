@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CloudFormation.Inputs
         /// <summary>
         /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'StackSetInstanceStackInstanceSummaryArgs.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Organizational unit ID in which the stack is deployed.
         /// </summary>
-        [Input("organizationalUnitId")]
+        [PolicyResourceProperty("organizationalUnitId", "_mUnknown_OrganizationalUnitId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOrganizationalUnitId;
-
-        public string? OrganizationalUnitId => _mOrganizationalUnitId.GetValue("organizationalUnitId");
+        private string? _mValue_OrganizationalUnitId;
+        private bool _mUnknown_OrganizationalUnitId;
+        public string? OrganizationalUnitId
+        {
+            get
+            {
+                if (!_mUnknown_OrganizationalUnitId) return _mValue_OrganizationalUnitId;
+                throw new UndeferrableValueException("Value 'StackSetInstanceStackInstanceSummaryArgs.OrganizationalUnitId' is not present");
+            }
+        }
 
         /// <summary>
         /// Stack identifier.
         /// </summary>
-        [Input("stackId")]
+        [PolicyResourceProperty("stackId", "_mUnknown_StackId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStackId;
-
-        public string? StackId => _mStackId.GetValue("stackId");
+        private string? _mValue_StackId;
+        private bool _mUnknown_StackId;
+        public string? StackId
+        {
+            get
+            {
+                if (!_mUnknown_StackId) return _mValue_StackId;
+                throw new UndeferrableValueException("Value 'StackSetInstanceStackInstanceSummaryArgs.StackId' is not present");
+            }
+        }
     }
 }

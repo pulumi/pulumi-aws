@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// ID of the channel in MediaPackage that is the destination for this output group.
         /// </summary>
-        [Input("channelId")]
+        [PolicyResourceProperty("channelId", "_mUnknown_ChannelId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mChannelId;
-
-        public string? ChannelId => _mChannelId.GetValue("channelId");
+        private string? _mValue_ChannelId;
+        private bool _mUnknown_ChannelId;
+        public string? ChannelId
+        {
+            get
+            {
+                if (!_mUnknown_ChannelId) return _mValue_ChannelId;
+                throw new UndeferrableValueException("Value 'ChannelDestinationMediaPackageSetting.ChannelId' is not present");
+            }
+        }
     }
 }

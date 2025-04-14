@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Inputs
         /// <summary>
         /// The HTTP methods that are processed and forwarded to the distribution's origin.
         /// </summary>
-        [Input("allowedHttpMethods")]
+        [PolicyResourceProperty("allowedHttpMethods", "_mUnknown_AllowedHttpMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllowedHttpMethods;
-
-        public string? AllowedHttpMethods => _mAllowedHttpMethods.GetValue("allowedHttpMethods");
+        private string? _mValue_AllowedHttpMethods;
+        private bool _mUnknown_AllowedHttpMethods;
+        public string? AllowedHttpMethods
+        {
+            get
+            {
+                if (!_mUnknown_AllowedHttpMethods) return _mValue_AllowedHttpMethods;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.AllowedHttpMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// The HTTP method responses that are cached by your distribution.
         /// </summary>
-        [Input("cachedHttpMethods")]
+        [PolicyResourceProperty("cachedHttpMethods", "_mUnknown_CachedHttpMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCachedHttpMethods;
-
-        public string? CachedHttpMethods => _mCachedHttpMethods.GetValue("cachedHttpMethods");
+        private string? _mValue_CachedHttpMethods;
+        private bool _mUnknown_CachedHttpMethods;
+        public string? CachedHttpMethods
+        {
+            get
+            {
+                if (!_mUnknown_CachedHttpMethods) return _mValue_CachedHttpMethods;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.CachedHttpMethods' is not present");
+            }
+        }
 
         /// <summary>
         /// The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
         /// </summary>
-        [Input("defaultTtl")]
+        [PolicyResourceProperty("defaultTtl", "_mUnknown_DefaultTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultTtl;
-
-        public int? DefaultTtl => _mDefaultTtl.GetValue("defaultTtl");
+        private int? _mValue_DefaultTtl;
+        private bool _mUnknown_DefaultTtl;
+        public int? DefaultTtl
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTtl) return _mValue_DefaultTtl;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.DefaultTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
         /// </summary>
-        [Input("forwardedCookies")]
+        [PolicyResourceProperty("forwardedCookies", "_mUnknown_ForwardedCookies")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionCacheBehaviorSettingsForwardedCookiesArgs> _mForwardedCookies;
-
-        public Inputs.DistributionCacheBehaviorSettingsForwardedCookiesArgs? ForwardedCookies => _mForwardedCookies.GetValue("forwardedCookies");
+        private Inputs.DistributionCacheBehaviorSettingsForwardedCookiesArgs? _mValue_ForwardedCookies;
+        private bool _mUnknown_ForwardedCookies;
+        public Inputs.DistributionCacheBehaviorSettingsForwardedCookiesArgs? ForwardedCookies
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedCookies) return _mValue_ForwardedCookies;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.ForwardedCookies' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
         /// </summary>
-        [Input("forwardedHeaders")]
+        [PolicyResourceProperty("forwardedHeaders", "_mUnknown_ForwardedHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionCacheBehaviorSettingsForwardedHeadersArgs> _mForwardedHeaders;
-
-        public Inputs.DistributionCacheBehaviorSettingsForwardedHeadersArgs? ForwardedHeaders => _mForwardedHeaders.GetValue("forwardedHeaders");
+        private Inputs.DistributionCacheBehaviorSettingsForwardedHeadersArgs? _mValue_ForwardedHeaders;
+        private bool _mUnknown_ForwardedHeaders;
+        public Inputs.DistributionCacheBehaviorSettingsForwardedHeadersArgs? ForwardedHeaders
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedHeaders) return _mValue_ForwardedHeaders;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.ForwardedHeaders' is not present");
+            }
+        }
 
         /// <summary>
         /// An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
         /// </summary>
-        [Input("forwardedQueryStrings")]
+        [PolicyResourceProperty("forwardedQueryStrings", "_mUnknown_ForwardedQueryStrings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs> _mForwardedQueryStrings;
-
-        public Inputs.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs? ForwardedQueryStrings => _mForwardedQueryStrings.GetValue("forwardedQueryStrings");
+        private Inputs.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs? _mValue_ForwardedQueryStrings;
+        private bool _mUnknown_ForwardedQueryStrings;
+        public Inputs.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs? ForwardedQueryStrings
+        {
+            get
+            {
+                if (!_mUnknown_ForwardedQueryStrings) return _mValue_ForwardedQueryStrings;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.ForwardedQueryStrings' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
-        [Input("maximumTtl")]
+        [PolicyResourceProperty("maximumTtl", "_mUnknown_MaximumTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumTtl;
-
-        public int? MaximumTtl => _mMaximumTtl.GetValue("maximumTtl");
+        private int? _mValue_MaximumTtl;
+        private bool _mUnknown_MaximumTtl;
+        public int? MaximumTtl
+        {
+            get
+            {
+                if (!_mUnknown_MaximumTtl) return _mValue_MaximumTtl;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.MaximumTtl' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         /// </summary>
-        [Input("minimumTtl")]
+        [PolicyResourceProperty("minimumTtl", "_mUnknown_MinimumTtl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumTtl;
-
-        public int? MinimumTtl => _mMinimumTtl.GetValue("minimumTtl");
+        private int? _mValue_MinimumTtl;
+        private bool _mUnknown_MinimumTtl;
+        public int? MinimumTtl
+        {
+            get
+            {
+                if (!_mUnknown_MinimumTtl) return _mValue_MinimumTtl;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.MinimumTtl' is not present");
+            }
+        }
     }
 }

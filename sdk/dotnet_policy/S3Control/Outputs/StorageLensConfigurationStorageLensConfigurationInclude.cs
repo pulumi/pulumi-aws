@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Control.Outputs
         /// <summary>
         /// List of S3 bucket ARNs.
         /// </summary>
-        [Input("buckets")]
+        [PolicyResourceProperty("buckets", "_mUnknown_Buckets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBuckets;
-
-        public List<string>? Buckets => _mBuckets.GetValue("buckets");
+        private List<string>? _mValue_Buckets;
+        private bool _mUnknown_Buckets;
+        public List<string>? Buckets
+        {
+            get
+            {
+                if (!_mUnknown_Buckets) return _mValue_Buckets;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationInclude.Buckets' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS Regions.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationInclude.Regions' is not present");
+            }
+        }
     }
 }

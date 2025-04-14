@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// Describes the execution property groups.
         /// </summary>
-        [Input("propertyGroups")]
+        [PolicyResourceProperty("propertyGroups", "_mUnknown_PropertyGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs>> _mPropertyGroups;
-
-        public List<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs>? PropertyGroups => _mPropertyGroups.GetValue("propertyGroups");
+        private List<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs>? _mValue_PropertyGroups;
+        private bool _mUnknown_PropertyGroups;
+        public List<Inputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs>? PropertyGroups
+        {
+            get
+            {
+                if (!_mUnknown_PropertyGroups) return _mValue_PropertyGroups;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationEnvironmentPropertiesArgs.PropertyGroups' is not present");
+            }
+        }
     }
 }

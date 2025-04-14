@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         /// </summary>
-        [Input("datetimeTypeFieldName")]
+        [PolicyResourceProperty("datetimeTypeFieldName", "_mUnknown_DatetimeTypeFieldName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatetimeTypeFieldName;
-
-        public string? DatetimeTypeFieldName => _mDatetimeTypeFieldName.GetValue("datetimeTypeFieldName");
+        private string? _mValue_DatetimeTypeFieldName;
+        private bool _mUnknown_DatetimeTypeFieldName;
+        public string? DatetimeTypeFieldName
+        {
+            get
+            {
+                if (!_mUnknown_DatetimeTypeFieldName) return _mValue_DatetimeTypeFieldName;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfigIncrementalPullConfigArgs.DatetimeTypeFieldName' is not present");
+            }
+        }
     }
 }

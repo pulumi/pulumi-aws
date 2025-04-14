@@ -12,25 +12,46 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock.Inputs
 {
     public sealed class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs
     {
-        [Input("exclusionFilters")]
+        [PolicyResourceProperty("exclusionFilters", "_mUnknown_ExclusionFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExclusionFilters;
+        private List<string>? _mValue_ExclusionFilters;
+        private bool _mUnknown_ExclusionFilters;
+        public List<string>? ExclusionFilters
+        {
+            get
+            {
+                if (!_mUnknown_ExclusionFilters) return _mValue_ExclusionFilters;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.ExclusionFilters' is not present");
+            }
+        }
 
-        public List<string>? ExclusionFilters => _mExclusionFilters.GetValue("exclusionFilters");
-
-        [Input("inclusionFilters")]
+        [PolicyResourceProperty("inclusionFilters", "_mUnknown_InclusionFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInclusionFilters;
-
-        public List<string>? InclusionFilters => _mInclusionFilters.GetValue("inclusionFilters");
+        private List<string>? _mValue_InclusionFilters;
+        private bool _mUnknown_InclusionFilters;
+        public List<string>? InclusionFilters
+        {
+            get
+            {
+                if (!_mUnknown_InclusionFilters) return _mValue_InclusionFilters;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.InclusionFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// The supported object type or content type of the data source.
         /// </summary>
-        [Input("objectType")]
+        [PolicyResourceProperty("objectType", "_mUnknown_ObjectType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectType;
-
-        public string? ObjectType => _mObjectType.GetValue("objectType");
+        private string? _mValue_ObjectType;
+        private bool _mUnknown_ObjectType;
+        public string? ObjectType
+        {
+            get
+            {
+                if (!_mUnknown_ObjectType) return _mValue_ObjectType;
+                throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.ObjectType' is not present");
+            }
+        }
     }
 }

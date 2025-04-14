@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// <summary>
         /// Date and time when the namespace was created.
         /// </summary>
-        [Input("createdAt")]
+        [PolicyResourceProperty("createdAt", "_mUnknown_CreatedAt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedAt;
-
-        public string? CreatedAt => _mCreatedAt.GetValue("createdAt");
+        private string? _mValue_CreatedAt;
+        private bool _mUnknown_CreatedAt;
+        public string? CreatedAt
+        {
+            get
+            {
+                if (!_mUnknown_CreatedAt) return _mValue_CreatedAt;
+                throw new UndeferrableValueException("Value 'Namespace.CreatedAt' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the account that created the namespace.
         /// </summary>
-        [Input("createdBy")]
+        [PolicyResourceProperty("createdBy", "_mUnknown_CreatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedBy;
-
-        public string? CreatedBy => _mCreatedBy.GetValue("createdBy");
+        private string? _mValue_CreatedBy;
+        private bool _mUnknown_CreatedBy;
+        public string? CreatedBy
+        {
+            get
+            {
+                if (!_mUnknown_CreatedBy) return _mValue_CreatedBy;
+                throw new UndeferrableValueException("Value 'Namespace.CreatedBy' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the namespace.
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_NameSpace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
-
-        public string? NameSpace => _mNameSpace.GetValue("namespace");
+        private string? _mValue_NameSpace;
+        private bool _mUnknown_NameSpace;
+        public string? NameSpace
+        {
+            get
+            {
+                if (!_mUnknown_NameSpace) return _mValue_NameSpace;
+                throw new UndeferrableValueException("Value 'Namespace.NameSpace' is not present");
+            }
+        }
 
         /// <summary>
         /// Account ID of the account that owns the namespace.
         /// </summary>
-        [Input("ownerAccountId")]
+        [PolicyResourceProperty("ownerAccountId", "_mUnknown_OwnerAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerAccountId;
-
-        public string? OwnerAccountId => _mOwnerAccountId.GetValue("ownerAccountId");
+        private string? _mValue_OwnerAccountId;
+        private bool _mUnknown_OwnerAccountId;
+        public string? OwnerAccountId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerAccountId) return _mValue_OwnerAccountId;
+                throw new UndeferrableValueException("Value 'Namespace.OwnerAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'Namespace.TableBucketArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:s3tables/namespace:Namespace")]
@@ -69,19 +104,33 @@ namespace Pulumi.PolicyPacks.Aws.S3Tables
         /// Must be between 1 and 255 characters in length.
         /// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_NameSpace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameSpace;
-
-        public string? NameSpace => _mNameSpace.GetValue("namespace");
+        private string? _mValue_NameSpace;
+        private bool _mUnknown_NameSpace;
+        public string? NameSpace
+        {
+            get
+            {
+                if (!_mUnknown_NameSpace) return _mValue_NameSpace;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.NameSpace' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN referencing the Table Bucket that contains this Namespace.
         /// </summary>
-        [Input("tableBucketArn")]
+        [PolicyResourceProperty("tableBucketArn", "_mUnknown_TableBucketArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableBucketArn;
-
-        public string? TableBucketArn => _mTableBucketArn.GetValue("tableBucketArn");
+        private string? _mValue_TableBucketArn;
+        private bool _mUnknown_TableBucketArn;
+        public string? TableBucketArn
+        {
+            get
+            {
+                if (!_mUnknown_TableBucketArn) return _mValue_TableBucketArn;
+                throw new UndeferrableValueException("Value 'NamespaceArgs.TableBucketArn' is not present");
+            }
+        }
     }
 }

@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Amazon Resource Name (ARN) of the configuration.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Configuration.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Configuration.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Apache Kafka versions which can use this configuration.
         /// </summary>
-        [Input("kafkaVersions")]
+        [PolicyResourceProperty("kafkaVersions", "_mUnknown_KafkaVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKafkaVersions;
-
-        public List<string>? KafkaVersions => _mKafkaVersions.GetValue("kafkaVersions");
+        private List<string>? _mValue_KafkaVersions;
+        private bool _mUnknown_KafkaVersions;
+        public List<string>? KafkaVersions
+        {
+            get
+            {
+                if (!_mUnknown_KafkaVersions) return _mValue_KafkaVersions;
+                throw new UndeferrableValueException("Value 'Configuration.KafkaVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Latest revision of the configuration.
         /// </summary>
-        [Input("latestRevision")]
+        [PolicyResourceProperty("latestRevision", "_mUnknown_LatestRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mLatestRevision;
-
-        public int? LatestRevision => _mLatestRevision.GetValue("latestRevision");
+        private int? _mValue_LatestRevision;
+        private bool _mUnknown_LatestRevision;
+        public int? LatestRevision
+        {
+            get
+            {
+                if (!_mUnknown_LatestRevision) return _mValue_LatestRevision;
+                throw new UndeferrableValueException("Value 'Configuration.LatestRevision' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Configuration.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         /// </summary>
-        [Input("serverProperties")]
+        [PolicyResourceProperty("serverProperties", "_mUnknown_ServerProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerProperties;
-
-        public string? ServerProperties => _mServerProperties.GetValue("serverProperties");
+        private string? _mValue_ServerProperties;
+        private bool _mUnknown_ServerProperties;
+        public string? ServerProperties
+        {
+            get
+            {
+                if (!_mUnknown_ServerProperties) return _mValue_ServerProperties;
+                throw new UndeferrableValueException("Value 'Configuration.ServerProperties' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:msk/configuration:Configuration")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// Description of the configuration.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Apache Kafka versions which can use this configuration.
         /// </summary>
-        [Input("kafkaVersions")]
+        [PolicyResourceProperty("kafkaVersions", "_mUnknown_KafkaVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKafkaVersions;
-
-        public List<string>? KafkaVersions => _mKafkaVersions.GetValue("kafkaVersions");
+        private List<string>? _mValue_KafkaVersions;
+        private bool _mUnknown_KafkaVersions;
+        public List<string>? KafkaVersions
+        {
+            get
+            {
+                if (!_mUnknown_KafkaVersions) return _mValue_KafkaVersions;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.KafkaVersions' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the configuration.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         /// </summary>
-        [Input("serverProperties")]
+        [PolicyResourceProperty("serverProperties", "_mUnknown_ServerProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServerProperties;
-
-        public string? ServerProperties => _mServerProperties.GetValue("serverProperties");
+        private string? _mValue_ServerProperties;
+        private bool _mUnknown_ServerProperties;
+        public string? ServerProperties
+        {
+            get
+            {
+                if (!_mUnknown_ServerProperties) return _mValue_ServerProperties;
+                throw new UndeferrableValueException("Value 'ConfigurationArgs.ServerProperties' is not present");
+            }
+        }
     }
 }

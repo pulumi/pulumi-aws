@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'RouteResponse.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         /// </summary>
-        [Input("modelSelectionExpression")]
+        [PolicyResourceProperty("modelSelectionExpression", "_mUnknown_ModelSelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelSelectionExpression;
-
-        public string? ModelSelectionExpression => _mModelSelectionExpression.GetValue("modelSelectionExpression");
+        private string? _mValue_ModelSelectionExpression;
+        private bool _mUnknown_ModelSelectionExpression;
+        public string? ModelSelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_ModelSelectionExpression) return _mValue_ModelSelectionExpression;
+                throw new UndeferrableValueException("Value 'RouteResponse.ModelSelectionExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Response models for the route response.
         /// </summary>
-        [Input("responseModels")]
+        [PolicyResourceProperty("responseModels", "_mUnknown_ResponseModels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
-
-        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
+        private Dictionary<string, string>? _mValue_ResponseModels;
+        private bool _mUnknown_ResponseModels;
+        public Dictionary<string, string>? ResponseModels
+        {
+            get
+            {
+                if (!_mUnknown_ResponseModels) return _mValue_ResponseModels;
+                throw new UndeferrableValueException("Value 'RouteResponse.ResponseModels' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
-        [Input("routeId")]
+        [PolicyResourceProperty("routeId", "_mUnknown_RouteId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteId;
-
-        public string? RouteId => _mRouteId.GetValue("routeId");
+        private string? _mValue_RouteId;
+        private bool _mUnknown_RouteId;
+        public string? RouteId
+        {
+            get
+            {
+                if (!_mUnknown_RouteId) return _mValue_RouteId;
+                throw new UndeferrableValueException("Value 'RouteResponse.RouteId' is not present");
+            }
+        }
 
         /// <summary>
         /// Route response key.
         /// </summary>
-        [Input("routeResponseKey")]
+        [PolicyResourceProperty("routeResponseKey", "_mUnknown_RouteResponseKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteResponseKey;
-
-        public string? RouteResponseKey => _mRouteResponseKey.GetValue("routeResponseKey");
+        private string? _mValue_RouteResponseKey;
+        private bool _mUnknown_RouteResponseKey;
+        public string? RouteResponseKey
+        {
+            get
+            {
+                if (!_mUnknown_RouteResponseKey) return _mValue_RouteResponseKey;
+                throw new UndeferrableValueException("Value 'RouteResponse.RouteResponseKey' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:apigatewayv2/routeResponse:RouteResponse")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.ApiGatewayV2
         /// <summary>
         /// API identifier.
         /// </summary>
-        [Input("apiId")]
+        [PolicyResourceProperty("apiId", "_mUnknown_ApiId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiId;
-
-        public string? ApiId => _mApiId.GetValue("apiId");
+        private string? _mValue_ApiId;
+        private bool _mUnknown_ApiId;
+        public string? ApiId
+        {
+            get
+            {
+                if (!_mUnknown_ApiId) return _mValue_ApiId;
+                throw new UndeferrableValueException("Value 'RouteResponseArgs.ApiId' is not present");
+            }
+        }
 
         /// <summary>
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         /// </summary>
-        [Input("modelSelectionExpression")]
+        [PolicyResourceProperty("modelSelectionExpression", "_mUnknown_ModelSelectionExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mModelSelectionExpression;
-
-        public string? ModelSelectionExpression => _mModelSelectionExpression.GetValue("modelSelectionExpression");
+        private string? _mValue_ModelSelectionExpression;
+        private bool _mUnknown_ModelSelectionExpression;
+        public string? ModelSelectionExpression
+        {
+            get
+            {
+                if (!_mUnknown_ModelSelectionExpression) return _mValue_ModelSelectionExpression;
+                throw new UndeferrableValueException("Value 'RouteResponseArgs.ModelSelectionExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// Response models for the route response.
         /// </summary>
-        [Input("responseModels")]
+        [PolicyResourceProperty("responseModels", "_mUnknown_ResponseModels")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mResponseModels;
-
-        public Dictionary<string, string>? ResponseModels => _mResponseModels.GetValue("responseModels");
+        private Dictionary<string, string>? _mValue_ResponseModels;
+        private bool _mUnknown_ResponseModels;
+        public Dictionary<string, string>? ResponseModels
+        {
+            get
+            {
+                if (!_mUnknown_ResponseModels) return _mValue_ResponseModels;
+                throw new UndeferrableValueException("Value 'RouteResponseArgs.ResponseModels' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier of the `aws.apigatewayv2.Route`.
         /// </summary>
-        [Input("routeId")]
+        [PolicyResourceProperty("routeId", "_mUnknown_RouteId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteId;
-
-        public string? RouteId => _mRouteId.GetValue("routeId");
+        private string? _mValue_RouteId;
+        private bool _mUnknown_RouteId;
+        public string? RouteId
+        {
+            get
+            {
+                if (!_mUnknown_RouteId) return _mValue_RouteId;
+                throw new UndeferrableValueException("Value 'RouteResponseArgs.RouteId' is not present");
+            }
+        }
 
         /// <summary>
         /// Route response key.
         /// </summary>
-        [Input("routeResponseKey")]
+        [PolicyResourceProperty("routeResponseKey", "_mUnknown_RouteResponseKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRouteResponseKey;
-
-        public string? RouteResponseKey => _mRouteResponseKey.GetValue("routeResponseKey");
+        private string? _mValue_RouteResponseKey;
+        private bool _mUnknown_RouteResponseKey;
+        public string? RouteResponseKey
+        {
+            get
+            {
+                if (!_mUnknown_RouteResponseKey) return _mValue_RouteResponseKey;
+                throw new UndeferrableValueException("Value 'RouteResponseArgs.RouteResponseKey' is not present");
+            }
+        }
     }
 }

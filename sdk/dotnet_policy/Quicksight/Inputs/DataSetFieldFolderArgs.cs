@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// An array of column names to add to the folder. A column can only be in one folder.
         /// </summary>
-        [Input("columns")]
+        [PolicyResourceProperty("columns", "_mUnknown_Columns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mColumns;
-
-        public List<string>? Columns => _mColumns.GetValue("columns");
+        private List<string>? _mValue_Columns;
+        private bool _mUnknown_Columns;
+        public List<string>? Columns
+        {
+            get
+            {
+                if (!_mUnknown_Columns) return _mValue_Columns;
+                throw new UndeferrableValueException("Value 'DataSetFieldFolderArgs.Columns' is not present");
+            }
+        }
 
         /// <summary>
         /// Field folder description.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'DataSetFieldFolderArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Key of the field folder map.
         /// </summary>
-        [Input("fieldFoldersId")]
+        [PolicyResourceProperty("fieldFoldersId", "_mUnknown_FieldFoldersId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFieldFoldersId;
-
-        public string? FieldFoldersId => _mFieldFoldersId.GetValue("fieldFoldersId");
+        private string? _mValue_FieldFoldersId;
+        private bool _mUnknown_FieldFoldersId;
+        public string? FieldFoldersId
+        {
+            get
+            {
+                if (!_mUnknown_FieldFoldersId) return _mValue_FieldFoldersId;
+                throw new UndeferrableValueException("Value 'DataSetFieldFolderArgs.FieldFoldersId' is not present");
+            }
+        }
     }
 }

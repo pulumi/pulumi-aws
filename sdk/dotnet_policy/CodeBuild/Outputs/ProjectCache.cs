@@ -16,30 +16,51 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// Location where the AWS CodeBuild project stores cached resources. For
         /// type `S3`, the value must be a valid S3 bucket name/prefix.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'ProjectCache.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies settings that AWS CodeBuild uses to store and reuse build
         /// dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
         /// </summary>
-        [Input("modes")]
+        [PolicyResourceProperty("modes", "_mUnknown_Modes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mModes;
-
-        public List<string>? Modes => _mModes.GetValue("modes");
+        private List<string>? _mValue_Modes;
+        private bool _mUnknown_Modes;
+        public List<string>? Modes
+        {
+            get
+            {
+                if (!_mUnknown_Modes) return _mValue_Modes;
+                throw new UndeferrableValueException("Value 'ProjectCache.Modes' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of storage that will be used for the AWS CodeBuild project cache. Valid values: `NO_CACHE`,
         /// `LOCAL`, `S3`. Defaults to `NO_CACHE`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProjectCache.Type' is not present");
+            }
+        }
     }
 }

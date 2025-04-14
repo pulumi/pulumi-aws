@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// ARN for the Lambda function to use as the Conflict Handler.
         /// </summary>
-        [Input("lambdaConflictHandlerArn")]
+        [PolicyResourceProperty("lambdaConflictHandlerArn", "_mUnknown_LambdaConflictHandlerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLambdaConflictHandlerArn;
-
-        public string? LambdaConflictHandlerArn => _mLambdaConflictHandlerArn.GetValue("lambdaConflictHandlerArn");
+        private string? _mValue_LambdaConflictHandlerArn;
+        private bool _mUnknown_LambdaConflictHandlerArn;
+        public string? LambdaConflictHandlerArn
+        {
+            get
+            {
+                if (!_mUnknown_LambdaConflictHandlerArn) return _mValue_LambdaConflictHandlerArn;
+                throw new UndeferrableValueException("Value 'ResolverSyncConfigLambdaConflictHandlerConfigArgs.LambdaConflictHandlerArn' is not present");
+            }
+        }
     }
 }

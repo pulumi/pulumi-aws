@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Outputs
         /// <summary>
         /// Number of I/O operations per second (IOPS) that the volume supports.
         /// </summary>
-        [Input("iops")]
+        [PolicyResourceProperty("iops", "_mUnknown_Iops")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIops;
-
-        public int? Iops => _mIops.GetValue("iops");
+        private int? _mValue_Iops;
+        private bool _mUnknown_Iops;
+        public int? Iops
+        {
+            get
+            {
+                if (!_mUnknown_Iops) return _mValue_Iops;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroupEbsConfig.Iops' is not present");
+            }
+        }
 
         /// <summary>
         /// Volume size, in gibibytes (GiB).
         /// </summary>
-        [Input("size")]
+        [PolicyResourceProperty("size", "_mUnknown_Size")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSize;
-
-        public int? Size => _mSize.GetValue("size");
+        private int? _mValue_Size;
+        private bool _mUnknown_Size;
+        public int? Size
+        {
+            get
+            {
+                if (!_mUnknown_Size) return _mValue_Size;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroupEbsConfig.Size' is not present");
+            }
+        }
 
         /// <summary>
         /// The throughput, in mebibyte per second (MiB/s).
         /// </summary>
-        [Input("throughput")]
+        [PolicyResourceProperty("throughput", "_mUnknown_Throughput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThroughput;
-
-        public int? Throughput => _mThroughput.GetValue("throughput");
+        private int? _mValue_Throughput;
+        private bool _mUnknown_Throughput;
+        public int? Throughput
+        {
+            get
+            {
+                if (!_mUnknown_Throughput) return _mValue_Throughput;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroupEbsConfig.Throughput' is not present");
+            }
+        }
 
         /// <summary>
         /// Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroupEbsConfig.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         /// </summary>
-        [Input("volumesPerInstance")]
+        [PolicyResourceProperty("volumesPerInstance", "_mUnknown_VolumesPerInstance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mVolumesPerInstance;
-
-        public int? VolumesPerInstance => _mVolumesPerInstance.GetValue("volumesPerInstance");
+        private int? _mValue_VolumesPerInstance;
+        private bool _mUnknown_VolumesPerInstance;
+        public int? VolumesPerInstance
+        {
+            get
+            {
+                if (!_mUnknown_VolumesPerInstance) return _mValue_VolumesPerInstance;
+                throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroupEbsConfig.VolumesPerInstance' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// The updated note text.
         /// </summary>
-        [Input("text")]
+        [PolicyResourceProperty("text", "_mUnknown_Text")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mText;
-
-        public string? Text => _mText.GetValue("text");
+        private string? _mValue_Text;
+        private bool _mUnknown_Text;
+        public string? Text
+        {
+            get
+            {
+                if (!_mUnknown_Text) return _mValue_Text;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateNoteArgs.Text' is not present");
+            }
+        }
 
         /// <summary>
         /// The principal that updated the note.
         /// </summary>
-        [Input("updatedBy")]
+        [PolicyResourceProperty("updatedBy", "_mUnknown_UpdatedBy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUpdatedBy;
-
-        public string? UpdatedBy => _mUpdatedBy.GetValue("updatedBy");
+        private string? _mValue_UpdatedBy;
+        private bool _mUnknown_UpdatedBy;
+        public string? UpdatedBy
+        {
+            get
+            {
+                if (!_mUnknown_UpdatedBy) return _mValue_UpdatedBy;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateNoteArgs.UpdatedBy' is not present");
+            }
+        }
     }
 }

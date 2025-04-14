@@ -16,172 +16,305 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// ARN of the agent.
         /// </summary>
-        [Input("agentArn")]
+        [PolicyResourceProperty("agentArn", "_mUnknown_AgentArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentArn;
-
-        public string? AgentArn => _mAgentArn.GetValue("agentArn");
+        private string? _mValue_AgentArn;
+        private bool _mUnknown_AgentArn;
+        public string? AgentArn
+        {
+            get
+            {
+                if (!_mUnknown_AgentArn) return _mValue_AgentArn;
+                throw new UndeferrableValueException("Value 'AgentAgent.AgentArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         /// </summary>
-        [Input("agentCollaboration")]
+        [PolicyResourceProperty("agentCollaboration", "_mUnknown_AgentCollaboration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentCollaboration;
-
-        public string? AgentCollaboration => _mAgentCollaboration.GetValue("agentCollaboration");
+        private string? _mValue_AgentCollaboration;
+        private bool _mUnknown_AgentCollaboration;
+        public string? AgentCollaboration
+        {
+            get
+            {
+                if (!_mUnknown_AgentCollaboration) return _mValue_AgentCollaboration;
+                throw new UndeferrableValueException("Value 'AgentAgent.AgentCollaboration' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the agent.
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
-
-        public string? AgentId => _mAgentId.GetValue("agentId");
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgent.AgentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the agent.
         /// </summary>
-        [Input("agentName")]
+        [PolicyResourceProperty("agentName", "_mUnknown_AgentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentName;
-
-        public string? AgentName => _mAgentName.GetValue("agentName");
+        private string? _mValue_AgentName;
+        private bool _mUnknown_AgentName;
+        public string? AgentName
+        {
+            get
+            {
+                if (!_mUnknown_AgentName) return _mValue_AgentName;
+                throw new UndeferrableValueException("Value 'AgentAgent.AgentName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the agent.
         /// </summary>
-        [Input("agentResourceRoleArn")]
+        [PolicyResourceProperty("agentResourceRoleArn", "_mUnknown_AgentResourceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentResourceRoleArn;
-
-        public string? AgentResourceRoleArn => _mAgentResourceRoleArn.GetValue("agentResourceRoleArn");
+        private string? _mValue_AgentResourceRoleArn;
+        private bool _mUnknown_AgentResourceRoleArn;
+        public string? AgentResourceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AgentResourceRoleArn) return _mValue_AgentResourceRoleArn;
+                throw new UndeferrableValueException("Value 'AgentAgent.AgentResourceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the agent.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgent.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AWS KMS key that encrypts the agent.
         /// </summary>
-        [Input("customerEncryptionKeyArn")]
+        [PolicyResourceProperty("customerEncryptionKeyArn", "_mUnknown_CustomerEncryptionKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerEncryptionKeyArn;
-
-        public string? CustomerEncryptionKeyArn => _mCustomerEncryptionKeyArn.GetValue("customerEncryptionKeyArn");
+        private string? _mValue_CustomerEncryptionKeyArn;
+        private bool _mUnknown_CustomerEncryptionKeyArn;
+        public string? CustomerEncryptionKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomerEncryptionKeyArn) return _mValue_CustomerEncryptionKeyArn;
+                throw new UndeferrableValueException("Value 'AgentAgent.CustomerEncryptionKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the agent.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgent.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Foundation model used for orchestration by the agent.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("foundationModel")]
+        [PolicyResourceProperty("foundationModel", "_mUnknown_FoundationModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFoundationModel;
-
-        public string? FoundationModel => _mFoundationModel.GetValue("foundationModel");
+        private string? _mValue_FoundationModel;
+        private bool _mUnknown_FoundationModel;
+        public string? FoundationModel
+        {
+            get
+            {
+                if (!_mUnknown_FoundationModel) return _mValue_FoundationModel;
+                throw new UndeferrableValueException("Value 'AgentAgent.FoundationModel' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         /// </summary>
-        [Input("guardrailConfigurations")]
+        [PolicyResourceProperty("guardrailConfigurations", "_mUnknown_GuardrailConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentGuardrailConfiguration>> _mGuardrailConfigurations;
-
-        public List<Outputs.AgentAgentGuardrailConfiguration>? GuardrailConfigurations => _mGuardrailConfigurations.GetValue("guardrailConfigurations");
+        private List<Outputs.AgentAgentGuardrailConfiguration>? _mValue_GuardrailConfigurations;
+        private bool _mUnknown_GuardrailConfigurations;
+        public List<Outputs.AgentAgentGuardrailConfiguration>? GuardrailConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailConfigurations) return _mValue_GuardrailConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgent.GuardrailConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
-        [Input("idleSessionTtlInSeconds")]
+        [PolicyResourceProperty("idleSessionTtlInSeconds", "_mUnknown_IdleSessionTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
-
-        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+        private int? _mValue_IdleSessionTtlInSeconds;
+        private bool _mUnknown_IdleSessionTtlInSeconds;
+        public int? IdleSessionTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleSessionTtlInSeconds) return _mValue_IdleSessionTtlInSeconds;
+                throw new UndeferrableValueException("Value 'AgentAgent.IdleSessionTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         /// </summary>
-        [Input("instruction")]
+        [PolicyResourceProperty("instruction", "_mUnknown_Instruction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstruction;
-
-        public string? Instruction => _mInstruction.GetValue("instruction");
+        private string? _mValue_Instruction;
+        private bool _mUnknown_Instruction;
+        public string? Instruction
+        {
+            get
+            {
+                if (!_mUnknown_Instruction) return _mValue_Instruction;
+                throw new UndeferrableValueException("Value 'AgentAgent.Instruction' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for the agent's ability to retain the conversational context.
         /// </summary>
-        [Input("memoryConfigurations")]
+        [PolicyResourceProperty("memoryConfigurations", "_mUnknown_MemoryConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentMemoryConfiguration>> _mMemoryConfigurations;
-
-        public List<Outputs.AgentAgentMemoryConfiguration>? MemoryConfigurations => _mMemoryConfigurations.GetValue("memoryConfigurations");
+        private List<Outputs.AgentAgentMemoryConfiguration>? _mValue_MemoryConfigurations;
+        private bool _mUnknown_MemoryConfigurations;
+        public List<Outputs.AgentAgentMemoryConfiguration>? MemoryConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_MemoryConfigurations) return _mValue_MemoryConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgent.MemoryConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
-        [Input("prepareAgent")]
+        [PolicyResourceProperty("prepareAgent", "_mUnknown_PrepareAgent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
-
-        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+        private bool? _mValue_PrepareAgent;
+        private bool _mUnknown_PrepareAgent;
+        public bool? PrepareAgent
+        {
+            get
+            {
+                if (!_mUnknown_PrepareAgent) return _mValue_PrepareAgent;
+                throw new UndeferrableValueException("Value 'AgentAgent.PrepareAgent' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         /// </summary>
-        [Input("promptOverrideConfigurations")]
+        [PolicyResourceProperty("promptOverrideConfigurations", "_mUnknown_PromptOverrideConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AgentAgentPromptOverrideConfiguration>> _mPromptOverrideConfigurations;
-
-        public List<Outputs.AgentAgentPromptOverrideConfiguration>? PromptOverrideConfigurations => _mPromptOverrideConfigurations.GetValue("promptOverrideConfigurations");
+        private List<Outputs.AgentAgentPromptOverrideConfiguration>? _mValue_PromptOverrideConfigurations;
+        private bool _mUnknown_PromptOverrideConfigurations;
+        public List<Outputs.AgentAgentPromptOverrideConfiguration>? PromptOverrideConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_PromptOverrideConfigurations) return _mValue_PromptOverrideConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgent.PromptOverrideConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the agent.
         /// </summary>
-        [Input("skipResourceInUseCheck")]
+        [PolicyResourceProperty("skipResourceInUseCheck", "_mUnknown_SkipResourceInUseCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
-
-        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
+        private bool? _mValue_SkipResourceInUseCheck;
+        private bool _mUnknown_SkipResourceInUseCheck;
+        public bool? SkipResourceInUseCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipResourceInUseCheck) return _mValue_SkipResourceInUseCheck;
+                throw new UndeferrableValueException("Value 'AgentAgent.SkipResourceInUseCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgentAgent.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'AgentAgent.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentTimeouts> _mTimeouts;
-
-        public Outputs.AgentAgentTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AgentAgentTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AgentAgentTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgent.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/agentAgent:AgentAgent")]
@@ -190,135 +323,240 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         /// </summary>
-        [Input("agentCollaboration")]
+        [PolicyResourceProperty("agentCollaboration", "_mUnknown_AgentCollaboration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentCollaboration;
-
-        public string? AgentCollaboration => _mAgentCollaboration.GetValue("agentCollaboration");
+        private string? _mValue_AgentCollaboration;
+        private bool _mUnknown_AgentCollaboration;
+        public string? AgentCollaboration
+        {
+            get
+            {
+                if (!_mUnknown_AgentCollaboration) return _mValue_AgentCollaboration;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.AgentCollaboration' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the agent.
         /// </summary>
-        [Input("agentName")]
+        [PolicyResourceProperty("agentName", "_mUnknown_AgentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentName;
-
-        public string? AgentName => _mAgentName.GetValue("agentName");
+        private string? _mValue_AgentName;
+        private bool _mUnknown_AgentName;
+        public string? AgentName
+        {
+            get
+            {
+                if (!_mUnknown_AgentName) return _mValue_AgentName;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.AgentName' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role with permissions to invoke API operations on the agent.
         /// </summary>
-        [Input("agentResourceRoleArn")]
+        [PolicyResourceProperty("agentResourceRoleArn", "_mUnknown_AgentResourceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentResourceRoleArn;
-
-        public string? AgentResourceRoleArn => _mAgentResourceRoleArn.GetValue("agentResourceRoleArn");
+        private string? _mValue_AgentResourceRoleArn;
+        private bool _mUnknown_AgentResourceRoleArn;
+        public string? AgentResourceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AgentResourceRoleArn) return _mValue_AgentResourceRoleArn;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.AgentResourceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the AWS KMS key that encrypts the agent.
         /// </summary>
-        [Input("customerEncryptionKeyArn")]
+        [PolicyResourceProperty("customerEncryptionKeyArn", "_mUnknown_CustomerEncryptionKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCustomerEncryptionKeyArn;
-
-        public string? CustomerEncryptionKeyArn => _mCustomerEncryptionKeyArn.GetValue("customerEncryptionKeyArn");
+        private string? _mValue_CustomerEncryptionKeyArn;
+        private bool _mUnknown_CustomerEncryptionKeyArn;
+        public string? CustomerEncryptionKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_CustomerEncryptionKeyArn) return _mValue_CustomerEncryptionKeyArn;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.CustomerEncryptionKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the agent.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Foundation model used for orchestration by the agent.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("foundationModel")]
+        [PolicyResourceProperty("foundationModel", "_mUnknown_FoundationModel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFoundationModel;
-
-        public string? FoundationModel => _mFoundationModel.GetValue("foundationModel");
+        private string? _mValue_FoundationModel;
+        private bool _mUnknown_FoundationModel;
+        public string? FoundationModel
+        {
+            get
+            {
+                if (!_mUnknown_FoundationModel) return _mValue_FoundationModel;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.FoundationModel' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         /// </summary>
-        [Input("guardrailConfigurations")]
+        [PolicyResourceProperty("guardrailConfigurations", "_mUnknown_GuardrailConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentGuardrailConfigurationArgs>> _mGuardrailConfigurations;
-
-        public List<Inputs.AgentAgentGuardrailConfigurationArgs>? GuardrailConfigurations => _mGuardrailConfigurations.GetValue("guardrailConfigurations");
+        private List<Inputs.AgentAgentGuardrailConfigurationArgs>? _mValue_GuardrailConfigurations;
+        private bool _mUnknown_GuardrailConfigurations;
+        public List<Inputs.AgentAgentGuardrailConfigurationArgs>? GuardrailConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_GuardrailConfigurations) return _mValue_GuardrailConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.GuardrailConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         /// </summary>
-        [Input("idleSessionTtlInSeconds")]
+        [PolicyResourceProperty("idleSessionTtlInSeconds", "_mUnknown_IdleSessionTtlInSeconds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleSessionTtlInSeconds;
-
-        public int? IdleSessionTtlInSeconds => _mIdleSessionTtlInSeconds.GetValue("idleSessionTtlInSeconds");
+        private int? _mValue_IdleSessionTtlInSeconds;
+        private bool _mUnknown_IdleSessionTtlInSeconds;
+        public int? IdleSessionTtlInSeconds
+        {
+            get
+            {
+                if (!_mUnknown_IdleSessionTtlInSeconds) return _mValue_IdleSessionTtlInSeconds;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.IdleSessionTtlInSeconds' is not present");
+            }
+        }
 
         /// <summary>
         /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         /// </summary>
-        [Input("instruction")]
+        [PolicyResourceProperty("instruction", "_mUnknown_Instruction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstruction;
-
-        public string? Instruction => _mInstruction.GetValue("instruction");
+        private string? _mValue_Instruction;
+        private bool _mUnknown_Instruction;
+        public string? Instruction
+        {
+            get
+            {
+                if (!_mUnknown_Instruction) return _mValue_Instruction;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.Instruction' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for the agent's ability to retain the conversational context.
         /// </summary>
-        [Input("memoryConfigurations")]
+        [PolicyResourceProperty("memoryConfigurations", "_mUnknown_MemoryConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentMemoryConfigurationArgs>> _mMemoryConfigurations;
-
-        public List<Inputs.AgentAgentMemoryConfigurationArgs>? MemoryConfigurations => _mMemoryConfigurations.GetValue("memoryConfigurations");
+        private List<Inputs.AgentAgentMemoryConfigurationArgs>? _mValue_MemoryConfigurations;
+        private bool _mUnknown_MemoryConfigurations;
+        public List<Inputs.AgentAgentMemoryConfigurationArgs>? MemoryConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_MemoryConfigurations) return _mValue_MemoryConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.MemoryConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         /// </summary>
-        [Input("prepareAgent")]
+        [PolicyResourceProperty("prepareAgent", "_mUnknown_PrepareAgent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPrepareAgent;
-
-        public bool? PrepareAgent => _mPrepareAgent.GetValue("prepareAgent");
+        private bool? _mValue_PrepareAgent;
+        private bool _mUnknown_PrepareAgent;
+        public bool? PrepareAgent
+        {
+            get
+            {
+                if (!_mUnknown_PrepareAgent) return _mValue_PrepareAgent;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.PrepareAgent' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         /// </summary>
-        [Input("promptOverrideConfigurations")]
+        [PolicyResourceProperty("promptOverrideConfigurations", "_mUnknown_PromptOverrideConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.AgentAgentPromptOverrideConfigurationArgs>> _mPromptOverrideConfigurations;
-
-        public List<Inputs.AgentAgentPromptOverrideConfigurationArgs>? PromptOverrideConfigurations => _mPromptOverrideConfigurations.GetValue("promptOverrideConfigurations");
+        private List<Inputs.AgentAgentPromptOverrideConfigurationArgs>? _mValue_PromptOverrideConfigurations;
+        private bool _mUnknown_PromptOverrideConfigurations;
+        public List<Inputs.AgentAgentPromptOverrideConfigurationArgs>? PromptOverrideConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_PromptOverrideConfigurations) return _mValue_PromptOverrideConfigurations;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.PromptOverrideConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the agent.
         /// </summary>
-        [Input("skipResourceInUseCheck")]
+        [PolicyResourceProperty("skipResourceInUseCheck", "_mUnknown_SkipResourceInUseCheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSkipResourceInUseCheck;
-
-        public bool? SkipResourceInUseCheck => _mSkipResourceInUseCheck.GetValue("skipResourceInUseCheck");
+        private bool? _mValue_SkipResourceInUseCheck;
+        private bool _mUnknown_SkipResourceInUseCheck;
+        public bool? SkipResourceInUseCheck
+        {
+            get
+            {
+                if (!_mUnknown_SkipResourceInUseCheck) return _mValue_SkipResourceInUseCheck;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.SkipResourceInUseCheck' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AgentAgentTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AgentAgentTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AgentAgentTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentArgs.Timeouts' is not present");
+            }
+        }
     }
 }

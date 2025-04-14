@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Outputs
         /// <summary>
         /// Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
         /// </summary>
-        [Input("deliveryStreamArn")]
+        [PolicyResourceProperty("deliveryStreamArn", "_mUnknown_DeliveryStreamArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeliveryStreamArn;
-
-        public string? DeliveryStreamArn => _mDeliveryStreamArn.GetValue("deliveryStreamArn");
+        private string? _mValue_DeliveryStreamArn;
+        private bool _mUnknown_DeliveryStreamArn;
+        public string? DeliveryStreamArn
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryStreamArn) return _mValue_DeliveryStreamArn;
+                throw new UndeferrableValueException("Value 'PipeLogConfigurationFirehoseLogDestination.DeliveryStreamArn' is not present");
+            }
+        }
     }
 }

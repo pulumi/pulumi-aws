@@ -16,55 +16,97 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Unique identifier of the agent with which you want to associate the knowledge base.
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
-
-        public string? AgentId => _mAgentId.GetValue("agentId");
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociation.AgentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociation.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of what the agent should use the knowledge base for.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociation.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the knowledge base to associate with the agent.
         /// </summary>
-        [Input("knowledgeBaseId")]
+        [PolicyResourceProperty("knowledgeBaseId", "_mUnknown_KnowledgeBaseId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
-
-        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
+        private string? _mValue_KnowledgeBaseId;
+        private bool _mUnknown_KnowledgeBaseId;
+        public string? KnowledgeBaseId
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseId) return _mValue_KnowledgeBaseId;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociation.KnowledgeBaseId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("knowledgeBaseState")]
+        [PolicyResourceProperty("knowledgeBaseState", "_mUnknown_KnowledgeBaseState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseState;
+        private string? _mValue_KnowledgeBaseState;
+        private bool _mUnknown_KnowledgeBaseState;
+        public string? KnowledgeBaseState
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseState) return _mValue_KnowledgeBaseState;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociation.KnowledgeBaseState' is not present");
+            }
+        }
 
-        public string? KnowledgeBaseState => _mKnowledgeBaseState.GetValue("knowledgeBaseState");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AgentAgentKnowledgeBaseAssociationTimeouts> _mTimeouts;
-
-        public Outputs.AgentAgentKnowledgeBaseAssociationTimeouts? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Outputs.AgentAgentKnowledgeBaseAssociationTimeouts? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Outputs.AgentAgentKnowledgeBaseAssociationTimeouts? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociation.Timeouts' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation")]
@@ -73,54 +115,96 @@ namespace Pulumi.PolicyPacks.Aws.Bedrock
         /// <summary>
         /// Unique identifier of the agent with which you want to associate the knowledge base.
         /// </summary>
-        [Input("agentId")]
+        [PolicyResourceProperty("agentId", "_mUnknown_AgentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentId;
-
-        public string? AgentId => _mAgentId.GetValue("agentId");
+        private string? _mValue_AgentId;
+        private bool _mUnknown_AgentId;
+        public string? AgentId
+        {
+            get
+            {
+                if (!_mUnknown_AgentId) return _mValue_AgentId;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.AgentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
         /// </summary>
-        [Input("agentVersion")]
+        [PolicyResourceProperty("agentVersion", "_mUnknown_AgentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAgentVersion;
-
-        public string? AgentVersion => _mAgentVersion.GetValue("agentVersion");
+        private string? _mValue_AgentVersion;
+        private bool _mUnknown_AgentVersion;
+        public string? AgentVersion
+        {
+            get
+            {
+                if (!_mUnknown_AgentVersion) return _mValue_AgentVersion;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.AgentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of what the agent should use the knowledge base for.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier of the knowledge base to associate with the agent.
         /// </summary>
-        [Input("knowledgeBaseId")]
+        [PolicyResourceProperty("knowledgeBaseId", "_mUnknown_KnowledgeBaseId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseId;
-
-        public string? KnowledgeBaseId => _mKnowledgeBaseId.GetValue("knowledgeBaseId");
+        private string? _mValue_KnowledgeBaseId;
+        private bool _mUnknown_KnowledgeBaseId;
+        public string? KnowledgeBaseId
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseId) return _mValue_KnowledgeBaseId;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.KnowledgeBaseId' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("knowledgeBaseState")]
+        [PolicyResourceProperty("knowledgeBaseState", "_mUnknown_KnowledgeBaseState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKnowledgeBaseState;
+        private string? _mValue_KnowledgeBaseState;
+        private bool _mUnknown_KnowledgeBaseState;
+        public string? KnowledgeBaseState
+        {
+            get
+            {
+                if (!_mUnknown_KnowledgeBaseState) return _mValue_KnowledgeBaseState;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.KnowledgeBaseState' is not present");
+            }
+        }
 
-        public string? KnowledgeBaseState => _mKnowledgeBaseState.GetValue("knowledgeBaseState");
-
-        [Input("timeouts")]
+        [PolicyResourceProperty("timeouts", "_mUnknown_Timeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs> _mTimeouts;
-
-        public Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs? Timeouts => _mTimeouts.GetValue("timeouts");
+        private Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs? _mValue_Timeouts;
+        private bool _mUnknown_Timeouts;
+        public Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs? Timeouts
+        {
+            get
+            {
+                if (!_mUnknown_Timeouts) return _mValue_Timeouts;
+                throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.Timeouts' is not present");
+            }
+        }
     }
 }

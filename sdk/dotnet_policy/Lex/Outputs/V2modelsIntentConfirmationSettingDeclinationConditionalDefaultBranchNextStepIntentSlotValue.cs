@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
         /// </summary>
-        [Input("interpretedValue")]
+        [PolicyResourceProperty("interpretedValue", "_mUnknown_InterpretedValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInterpretedValue;
-
-        public string? InterpretedValue => _mInterpretedValue.GetValue("interpretedValue");
+        private string? _mValue_InterpretedValue;
+        private bool _mUnknown_InterpretedValue;
+        public string? InterpretedValue
+        {
+            get
+            {
+                if (!_mUnknown_InterpretedValue) return _mValue_InterpretedValue;
+                throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValue.InterpretedValue' is not present");
+            }
+        }
     }
 }

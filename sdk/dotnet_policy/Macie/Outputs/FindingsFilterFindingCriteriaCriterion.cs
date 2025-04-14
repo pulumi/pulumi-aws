@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Macie.Outputs
         /// <summary>
         /// The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
         /// </summary>
-        [Input("eqExactMatches")]
+        [PolicyResourceProperty("eqExactMatches", "_mUnknown_EqExactMatches")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEqExactMatches;
-
-        public List<string>? EqExactMatches => _mEqExactMatches.GetValue("eqExactMatches");
+        private List<string>? _mValue_EqExactMatches;
+        private bool _mUnknown_EqExactMatches;
+        public List<string>? EqExactMatches
+        {
+            get
+            {
+                if (!_mUnknown_EqExactMatches) return _mValue_EqExactMatches;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.EqExactMatches' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         /// </summary>
-        [Input("eqs")]
+        [PolicyResourceProperty("eqs", "_mUnknown_Eqs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mEqs;
-
-        public List<string>? Eqs => _mEqs.GetValue("eqs");
+        private List<string>? _mValue_Eqs;
+        private bool _mUnknown_Eqs;
+        public List<string>? Eqs
+        {
+            get
+            {
+                if (!_mUnknown_Eqs) return _mValue_Eqs;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.Eqs' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the field to be evaluated.
         /// </summary>
-        [Input("field")]
+        [PolicyResourceProperty("field", "_mUnknown_Field")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mField;
-
-        public string? Field => _mField.GetValue("field");
+        private string? _mValue_Field;
+        private bool _mUnknown_Field;
+        public string? Field
+        {
+            get
+            {
+                if (!_mUnknown_Field) return _mValue_Field;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.Field' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the property is greater than the specified value.
         /// </summary>
-        [Input("gt")]
+        [PolicyResourceProperty("gt", "_mUnknown_Gt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGt;
-
-        public string? Gt => _mGt.GetValue("gt");
+        private string? _mValue_Gt;
+        private bool _mUnknown_Gt;
+        public string? Gt
+        {
+            get
+            {
+                if (!_mUnknown_Gt) return _mValue_Gt;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.Gt' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the property is greater than or equal to the specified value.
         /// </summary>
-        [Input("gte")]
+        [PolicyResourceProperty("gte", "_mUnknown_Gte")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGte;
-
-        public string? Gte => _mGte.GetValue("gte");
+        private string? _mValue_Gte;
+        private bool _mUnknown_Gte;
+        public string? Gte
+        {
+            get
+            {
+                if (!_mUnknown_Gte) return _mValue_Gte;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.Gte' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the property is less than the specified value.
         /// </summary>
-        [Input("lt")]
+        [PolicyResourceProperty("lt", "_mUnknown_Lt")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLt;
-
-        public string? Lt => _mLt.GetValue("lt");
+        private string? _mValue_Lt;
+        private bool _mUnknown_Lt;
+        public string? Lt
+        {
+            get
+            {
+                if (!_mUnknown_Lt) return _mValue_Lt;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.Lt' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the property is less than or equal to the specified value.
         /// </summary>
-        [Input("lte")]
+        [PolicyResourceProperty("lte", "_mUnknown_Lte")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLte;
-
-        public string? Lte => _mLte.GetValue("lte");
+        private string? _mValue_Lte;
+        private bool _mUnknown_Lte;
+        public string? Lte
+        {
+            get
+            {
+                if (!_mUnknown_Lte) return _mValue_Lte;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.Lte' is not present");
+            }
+        }
 
         /// <summary>
         /// The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
         /// </summary>
-        [Input("neqs")]
+        [PolicyResourceProperty("neqs", "_mUnknown_Neqs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNeqs;
-
-        public List<string>? Neqs => _mNeqs.GetValue("neqs");
+        private List<string>? _mValue_Neqs;
+        private bool _mUnknown_Neqs;
+        public List<string>? Neqs
+        {
+            get
+            {
+                if (!_mUnknown_Neqs) return _mValue_Neqs;
+                throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterion.Neqs' is not present");
+            }
+        }
     }
 }

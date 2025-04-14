@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// Name of the Amazon S3 bucket.
         /// </summary>
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
-
-        public string? BucketName => _mBucketName.GetValue("bucketName");
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig.BucketName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon S3 bucket prefix.
         /// </summary>
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
-
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig.BucketPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// If the flow should fail after the first instance of a failure when attempting to place data in the destination.
         /// </summary>
-        [Input("failOnFirstDestinationError")]
+        [PolicyResourceProperty("failOnFirstDestinationError", "_mUnknown_FailOnFirstDestinationError")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mFailOnFirstDestinationError;
-
-        public bool? FailOnFirstDestinationError => _mFailOnFirstDestinationError.GetValue("failOnFirstDestinationError");
+        private bool? _mValue_FailOnFirstDestinationError;
+        private bool _mUnknown_FailOnFirstDestinationError;
+        public bool? FailOnFirstDestinationError
+        {
+            get
+            {
+                if (!_mUnknown_FailOnFirstDestinationError) return _mValue_FailOnFirstDestinationError;
+                throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig.FailOnFirstDestinationError' is not present");
+            }
+        }
     }
 }

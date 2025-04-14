@@ -16,155 +16,281 @@ namespace Pulumi.PolicyPacks.Aws.Sfn
         /// <summary>
         /// The ARN of the state machine.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'StateMachine.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The date the state machine was created.
         /// </summary>
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'StateMachine.CreationDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
+        private string? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public string? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'StateMachine.Definition' is not present");
+            }
+        }
 
-        public string? Definition => _mDefinition.GetValue("definition");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'StateMachine.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StateMachineEncryptionConfiguration> _mEncryptionConfiguration;
-
-        public Outputs.StateMachineEncryptionConfiguration? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Outputs.StateMachineEncryptionConfiguration? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Outputs.StateMachineEncryptionConfiguration? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'StateMachine.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StateMachineLoggingConfiguration> _mLoggingConfiguration;
-
-        public Outputs.StateMachineLoggingConfiguration? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
+        private Outputs.StateMachineLoggingConfiguration? _mValue_LoggingConfiguration;
+        private bool _mUnknown_LoggingConfiguration;
+        public Outputs.StateMachineLoggingConfiguration? LoggingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfiguration) return _mValue_LoggingConfiguration;
+                throw new UndeferrableValueException("Value 'StateMachine.LoggingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StateMachine.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'StateMachine.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to publish a version of the state machine during creation. Default: false.
         /// </summary>
-        [Input("publish")]
+        [PolicyResourceProperty("publish", "_mUnknown_Publish")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
+        private bool? _mValue_Publish;
+        private bool _mUnknown_Publish;
+        public bool? Publish
+        {
+            get
+            {
+                if (!_mUnknown_Publish) return _mValue_Publish;
+                throw new UndeferrableValueException("Value 'StateMachine.Publish' is not present");
+            }
+        }
 
-        public bool? Publish => _mPublish.GetValue("publish");
-
-        [Input("revisionId")]
+        [PolicyResourceProperty("revisionId", "_mUnknown_RevisionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRevisionId;
-
-        public string? RevisionId => _mRevisionId.GetValue("revisionId");
+        private string? _mValue_RevisionId;
+        private bool _mUnknown_RevisionId;
+        public string? RevisionId
+        {
+            get
+            {
+                if (!_mUnknown_RevisionId) return _mValue_RevisionId;
+                throw new UndeferrableValueException("Value 'StateMachine.RevisionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'StateMachine.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the state machine version.
         /// </summary>
-        [Input("stateMachineVersionArn")]
+        [PolicyResourceProperty("stateMachineVersionArn", "_mUnknown_StateMachineVersionArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStateMachineVersionArn;
-
-        public string? StateMachineVersionArn => _mStateMachineVersionArn.GetValue("stateMachineVersionArn");
+        private string? _mValue_StateMachineVersionArn;
+        private bool _mUnknown_StateMachineVersionArn;
+        public string? StateMachineVersionArn
+        {
+            get
+            {
+                if (!_mUnknown_StateMachineVersionArn) return _mValue_StateMachineVersionArn;
+                throw new UndeferrableValueException("Value 'StateMachine.StateMachineVersionArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the state machine. Either `ACTIVE` or `DELETING`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'StateMachine.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StateMachine.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'StateMachine.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Selects whether AWS X-Ray tracing is enabled.
         /// </summary>
-        [Input("tracingConfiguration")]
+        [PolicyResourceProperty("tracingConfiguration", "_mUnknown_TracingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.StateMachineTracingConfiguration> _mTracingConfiguration;
-
-        public Outputs.StateMachineTracingConfiguration? TracingConfiguration => _mTracingConfiguration.GetValue("tracingConfiguration");
+        private Outputs.StateMachineTracingConfiguration? _mValue_TracingConfiguration;
+        private bool _mUnknown_TracingConfiguration;
+        public Outputs.StateMachineTracingConfiguration? TracingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TracingConfiguration) return _mValue_TracingConfiguration;
+                throw new UndeferrableValueException("Value 'StateMachine.TracingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'StateMachine.Type' is not present");
+            }
+        }
 
-        public string? Type => _mType.GetValue("type");
-
-        [Input("versionDescription")]
+        [PolicyResourceProperty("versionDescription", "_mUnknown_VersionDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersionDescription;
-
-        public string? VersionDescription => _mVersionDescription.GetValue("versionDescription");
+        private string? _mValue_VersionDescription;
+        private bool _mUnknown_VersionDescription;
+        public string? VersionDescription
+        {
+            get
+            {
+                if (!_mUnknown_VersionDescription) return _mValue_VersionDescription;
+                throw new UndeferrableValueException("Value 'StateMachine.VersionDescription' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:sfn/stateMachine:StateMachine")]
@@ -173,91 +299,161 @@ namespace Pulumi.PolicyPacks.Aws.Sfn
         /// <summary>
         /// The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         /// </summary>
-        [Input("definition")]
+        [PolicyResourceProperty("definition", "_mUnknown_Definition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefinition;
-
-        public string? Definition => _mDefinition.GetValue("definition");
+        private string? _mValue_Definition;
+        private bool _mUnknown_Definition;
+        public string? Definition
+        {
+            get
+            {
+                if (!_mUnknown_Definition) return _mValue_Definition;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.Definition' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
         /// </summary>
-        [Input("encryptionConfiguration")]
+        [PolicyResourceProperty("encryptionConfiguration", "_mUnknown_EncryptionConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StateMachineEncryptionConfigurationArgs> _mEncryptionConfiguration;
-
-        public Inputs.StateMachineEncryptionConfigurationArgs? EncryptionConfiguration => _mEncryptionConfiguration.GetValue("encryptionConfiguration");
+        private Inputs.StateMachineEncryptionConfigurationArgs? _mValue_EncryptionConfiguration;
+        private bool _mUnknown_EncryptionConfiguration;
+        public Inputs.StateMachineEncryptionConfigurationArgs? EncryptionConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionConfiguration) return _mValue_EncryptionConfiguration;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.EncryptionConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
         /// </summary>
-        [Input("loggingConfiguration")]
+        [PolicyResourceProperty("loggingConfiguration", "_mUnknown_LoggingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StateMachineLoggingConfigurationArgs> _mLoggingConfiguration;
-
-        public Inputs.StateMachineLoggingConfigurationArgs? LoggingConfiguration => _mLoggingConfiguration.GetValue("loggingConfiguration");
+        private Inputs.StateMachineLoggingConfigurationArgs? _mValue_LoggingConfiguration;
+        private bool _mUnknown_LoggingConfiguration;
+        public Inputs.StateMachineLoggingConfigurationArgs? LoggingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_LoggingConfiguration) return _mValue_LoggingConfiguration;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.LoggingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.NamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Set to true to publish a version of the state machine during creation. Default: false.
         /// </summary>
-        [Input("publish")]
+        [PolicyResourceProperty("publish", "_mUnknown_Publish")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPublish;
-
-        public bool? Publish => _mPublish.GetValue("publish");
+        private bool? _mValue_Publish;
+        private bool _mUnknown_Publish;
+        public bool? Publish
+        {
+            get
+            {
+                if (!_mUnknown_Publish) return _mValue_Publish;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.Publish' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Selects whether AWS X-Ray tracing is enabled.
         /// </summary>
-        [Input("tracingConfiguration")]
+        [PolicyResourceProperty("tracingConfiguration", "_mUnknown_TracingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.StateMachineTracingConfigurationArgs> _mTracingConfiguration;
-
-        public Inputs.StateMachineTracingConfigurationArgs? TracingConfiguration => _mTracingConfiguration.GetValue("tracingConfiguration");
+        private Inputs.StateMachineTracingConfigurationArgs? _mValue_TracingConfiguration;
+        private bool _mUnknown_TracingConfiguration;
+        public Inputs.StateMachineTracingConfigurationArgs? TracingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_TracingConfiguration) return _mValue_TracingConfiguration;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.TracingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'StateMachineArgs.Type' is not present");
+            }
+        }
     }
 }

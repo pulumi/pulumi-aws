@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Outputs
         /// <summary>
         /// The input key.
         /// </summary>
-        [Input("parameterName")]
+        [PolicyResourceProperty("parameterName", "_mUnknown_ParameterName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterName;
-
-        public string? ParameterName => _mParameterName.GetValue("parameterName");
+        private string? _mValue_ParameterName;
+        private bool _mUnknown_ParameterName;
+        public string? ParameterName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterName) return _mValue_ParameterName;
+                throw new UndeferrableValueException("Value 'OrganizationConformancePackInputParameter.ParameterName' is not present");
+            }
+        }
 
         /// <summary>
         /// The input value.
         /// </summary>
-        [Input("parameterValue")]
+        [PolicyResourceProperty("parameterValue", "_mUnknown_ParameterValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterValue;
-
-        public string? ParameterValue => _mParameterValue.GetValue("parameterValue");
+        private string? _mValue_ParameterValue;
+        private bool _mUnknown_ParameterValue;
+        public string? ParameterValue
+        {
+            get
+            {
+                if (!_mUnknown_ParameterValue) return _mValue_ParameterValue;
+                throw new UndeferrableValueException("Value 'OrganizationConformancePackInputParameter.ParameterValue' is not present");
+            }
+        }
     }
 }

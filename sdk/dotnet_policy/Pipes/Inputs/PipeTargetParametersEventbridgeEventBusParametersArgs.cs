@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.Pipes.Inputs
         /// <summary>
         /// A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
         /// </summary>
-        [Input("detailType")]
+        [PolicyResourceProperty("detailType", "_mUnknown_DetailType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDetailType;
-
-        public string? DetailType => _mDetailType.GetValue("detailType");
+        private string? _mValue_DetailType;
+        private bool _mUnknown_DetailType;
+        public string? DetailType
+        {
+            get
+            {
+                if (!_mUnknown_DetailType) return _mValue_DetailType;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParametersArgs.DetailType' is not present");
+            }
+        }
 
         /// <summary>
         /// The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
         /// </summary>
-        [Input("endpointId")]
+        [PolicyResourceProperty("endpointId", "_mUnknown_EndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpointId;
-
-        public string? EndpointId => _mEndpointId.GetValue("endpointId");
+        private string? _mValue_EndpointId;
+        private bool _mUnknown_EndpointId;
+        public string? EndpointId
+        {
+            get
+            {
+                if (!_mUnknown_EndpointId) return _mValue_EndpointId;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParametersArgs.EndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
         /// </summary>
-        [Input("resources")]
+        [PolicyResourceProperty("resources", "_mUnknown_Resources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mResources;
-
-        public List<string>? Resources => _mResources.GetValue("resources");
+        private List<string>? _mValue_Resources;
+        private bool _mUnknown_Resources;
+        public List<string>? Resources
+        {
+            get
+            {
+                if (!_mUnknown_Resources) return _mValue_Resources;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParametersArgs.Resources' is not present");
+            }
+        }
 
         /// <summary>
         /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSource;
-
-        public string? Source => _mSource.GetValue("source");
+        private string? _mValue_Source;
+        private bool _mUnknown_Source;
+        public string? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParametersArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
         /// </summary>
-        [Input("time")]
+        [PolicyResourceProperty("time", "_mUnknown_Time")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTime;
-
-        public string? Time => _mTime.GetValue("time");
+        private string? _mValue_Time;
+        private bool _mUnknown_Time;
+        public string? Time
+        {
+            get
+            {
+                if (!_mUnknown_Time) return _mValue_Time;
+                throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParametersArgs.Time' is not present");
+            }
+        }
     }
 }

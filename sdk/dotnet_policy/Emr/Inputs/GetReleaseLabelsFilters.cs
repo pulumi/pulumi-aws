@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Emr.Inputs
         /// <summary>
         /// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
         /// </summary>
-        [Input("application")]
+        [PolicyResourceProperty("application", "_mUnknown_Application")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApplication;
-
-        public string? Application => _mApplication.GetValue("application");
+        private string? _mValue_Application;
+        private bool _mUnknown_Application;
+        public string? Application
+        {
+            get
+            {
+                if (!_mUnknown_Application) return _mValue_Application;
+                throw new UndeferrableValueException("Value 'GetReleaseLabelsFiltersArgs.Application' is not present");
+            }
+        }
 
         /// <summary>
         /// Optional release label version prefix filter. For example, `emr-5`.
         /// </summary>
-        [Input("prefix")]
+        [PolicyResourceProperty("prefix", "_mUnknown_Prefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrefix;
-
-        public string? Prefix => _mPrefix.GetValue("prefix");
+        private string? _mValue_Prefix;
+        private bool _mUnknown_Prefix;
+        public string? Prefix
+        {
+            get
+            {
+                if (!_mUnknown_Prefix) return _mValue_Prefix;
+                throw new UndeferrableValueException("Value 'GetReleaseLabelsFiltersArgs.Prefix' is not present");
+            }
+        }
     }
 }

@@ -16,67 +16,116 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Assignment ID.
         /// </summary>
-        [Input("assignmentId")]
+        [PolicyResourceProperty("assignmentId", "_mUnknown_AssignmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentId;
-
-        public string? AssignmentId => _mAssignmentId.GetValue("assignmentId");
+        private string? _mValue_AssignmentId;
+        private bool _mUnknown_AssignmentId;
+        public string? AssignmentId
+        {
+            get
+            {
+                if (!_mUnknown_AssignmentId) return _mValue_AssignmentId;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignment.AssignmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the assignment.
         /// </summary>
-        [Input("assignmentName")]
+        [PolicyResourceProperty("assignmentName", "_mUnknown_AssignmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentName;
-
-        public string? AssignmentName => _mAssignmentName.GetValue("assignmentName");
+        private string? _mValue_AssignmentName;
+        private bool _mUnknown_AssignmentName;
+        public string? AssignmentName
+        {
+            get
+            {
+                if (!_mUnknown_AssignmentName) return _mValue_AssignmentName;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignment.AssignmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("assignmentStatus")]
+        [PolicyResourceProperty("assignmentStatus", "_mUnknown_AssignmentStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentStatus;
-
-        public string? AssignmentStatus => _mAssignmentStatus.GetValue("assignmentStatus");
+        private string? _mValue_AssignmentStatus;
+        private bool _mUnknown_AssignmentStatus;
+        public string? AssignmentStatus
+        {
+            get
+            {
+                if (!_mUnknown_AssignmentStatus) return _mValue_AssignmentStatus;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignment.AssignmentStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignment.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         /// </summary>
-        [Input("identities")]
+        [PolicyResourceProperty("identities", "_mUnknown_Identities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.IamPolicyAssignmentIdentities> _mIdentities;
-
-        public Outputs.IamPolicyAssignmentIdentities? Identities => _mIdentities.GetValue("identities");
+        private Outputs.IamPolicyAssignmentIdentities? _mValue_Identities;
+        private bool _mUnknown_Identities;
+        public Outputs.IamPolicyAssignmentIdentities? Identities
+        {
+            get
+            {
+                if (!_mUnknown_Identities) return _mValue_Identities;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignment.Identities' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace that contains the assignment. Defaults to `default`.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignment.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignment.PolicyArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")]
@@ -85,57 +134,99 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Name of the assignment.
         /// </summary>
-        [Input("assignmentName")]
+        [PolicyResourceProperty("assignmentName", "_mUnknown_AssignmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentName;
-
-        public string? AssignmentName => _mAssignmentName.GetValue("assignmentName");
+        private string? _mValue_AssignmentName;
+        private bool _mUnknown_AssignmentName;
+        public string? AssignmentName
+        {
+            get
+            {
+                if (!_mUnknown_AssignmentName) return _mValue_AssignmentName;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentArgs.AssignmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("assignmentStatus")]
+        [PolicyResourceProperty("assignmentStatus", "_mUnknown_AssignmentStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssignmentStatus;
-
-        public string? AssignmentStatus => _mAssignmentStatus.GetValue("assignmentStatus");
+        private string? _mValue_AssignmentStatus;
+        private bool _mUnknown_AssignmentStatus;
+        public string? AssignmentStatus
+        {
+            get
+            {
+                if (!_mUnknown_AssignmentStatus) return _mValue_AssignmentStatus;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentArgs.AssignmentStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         /// </summary>
-        [Input("identities")]
+        [PolicyResourceProperty("identities", "_mUnknown_Identities")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.IamPolicyAssignmentIdentitiesArgs> _mIdentities;
-
-        public Inputs.IamPolicyAssignmentIdentitiesArgs? Identities => _mIdentities.GetValue("identities");
+        private Inputs.IamPolicyAssignmentIdentitiesArgs? _mValue_Identities;
+        private bool _mUnknown_Identities;
+        public Inputs.IamPolicyAssignmentIdentitiesArgs? Identities
+        {
+            get
+            {
+                if (!_mUnknown_Identities) return _mValue_Identities;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentArgs.Identities' is not present");
+            }
+        }
 
         /// <summary>
         /// Namespace that contains the assignment. Defaults to `default`.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentArgs.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         /// </summary>
-        [Input("policyArn")]
+        [PolicyResourceProperty("policyArn", "_mUnknown_PolicyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicyArn;
-
-        public string? PolicyArn => _mPolicyArn.GetValue("policyArn");
+        private string? _mValue_PolicyArn;
+        private bool _mUnknown_PolicyArn;
+        public string? PolicyArn
+        {
+            get
+            {
+                if (!_mUnknown_PolicyArn) return _mValue_PolicyArn;
+                throw new UndeferrableValueException("Value 'IamPolicyAssignmentArgs.PolicyArn' is not present");
+            }
+        }
     }
 }

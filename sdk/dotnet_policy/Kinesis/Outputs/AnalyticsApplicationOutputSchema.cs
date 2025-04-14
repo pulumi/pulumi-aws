@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Outputs
         /// <summary>
         /// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
         /// </summary>
-        [Input("recordFormatType")]
+        [PolicyResourceProperty("recordFormatType", "_mUnknown_RecordFormatType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRecordFormatType;
-
-        public string? RecordFormatType => _mRecordFormatType.GetValue("recordFormatType");
+        private string? _mValue_RecordFormatType;
+        private bool _mUnknown_RecordFormatType;
+        public string? RecordFormatType
+        {
+            get
+            {
+                if (!_mUnknown_RecordFormatType) return _mValue_RecordFormatType;
+                throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputSchema.RecordFormatType' is not present");
+            }
+        }
     }
 }

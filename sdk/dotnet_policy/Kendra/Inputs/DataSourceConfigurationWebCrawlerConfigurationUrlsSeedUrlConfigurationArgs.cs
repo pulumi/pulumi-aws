@@ -15,11 +15,18 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// <summary>
         /// The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
         /// </summary>
-        [Input("seedUrls")]
+        [PolicyResourceProperty("seedUrls", "_mUnknown_SeedUrls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSeedUrls;
-
-        public List<string>? SeedUrls => _mSeedUrls.GetValue("seedUrls");
+        private List<string>? _mValue_SeedUrls;
+        private bool _mUnknown_SeedUrls;
+        public List<string>? SeedUrls
+        {
+            get
+            {
+                if (!_mUnknown_SeedUrls) return _mValue_SeedUrls;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.SeedUrls' is not present");
+            }
+        }
 
         /// <summary>
         /// The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
@@ -27,10 +34,17 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Inputs
         /// * `SUBDOMAINS` – crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
         /// * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
         /// </summary>
-        [Input("webCrawlerMode")]
+        [PolicyResourceProperty("webCrawlerMode", "_mUnknown_WebCrawlerMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWebCrawlerMode;
-
-        public string? WebCrawlerMode => _mWebCrawlerMode.GetValue("webCrawlerMode");
+        private string? _mValue_WebCrawlerMode;
+        private bool _mUnknown_WebCrawlerMode;
+        public string? WebCrawlerMode
+        {
+            get
+            {
+                if (!_mUnknown_WebCrawlerMode) return _mValue_WebCrawlerMode;
+                throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.WebCrawlerMode' is not present");
+            }
+        }
     }
 }

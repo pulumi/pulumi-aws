@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
         /// </summary>
-        [Input("audioSilenceSettings")]
+        [PolicyResourceProperty("audioSilenceSettings", "_mUnknown_AudioSilenceSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings> _mAudioSilenceSettings;
-
-        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings? AudioSilenceSettings => _mAudioSilenceSettings.GetValue("audioSilenceSettings");
+        private Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings? _mValue_AudioSilenceSettings;
+        private bool _mUnknown_AudioSilenceSettings;
+        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings? AudioSilenceSettings
+        {
+            get
+            {
+                if (!_mUnknown_AudioSilenceSettings) return _mValue_AudioSilenceSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings.AudioSilenceSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
         /// </summary>
-        [Input("inputLossSettings")]
+        [PolicyResourceProperty("inputLossSettings", "_mUnknown_InputLossSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings> _mInputLossSettings;
-
-        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings? InputLossSettings => _mInputLossSettings.GetValue("inputLossSettings");
+        private Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings? _mValue_InputLossSettings;
+        private bool _mUnknown_InputLossSettings;
+        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings? InputLossSettings
+        {
+            get
+            {
+                if (!_mUnknown_InputLossSettings) return _mValue_InputLossSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings.InputLossSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
         /// </summary>
-        [Input("videoBlackSettings")]
+        [PolicyResourceProperty("videoBlackSettings", "_mUnknown_VideoBlackSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings> _mVideoBlackSettings;
-
-        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings? VideoBlackSettings => _mVideoBlackSettings.GetValue("videoBlackSettings");
+        private Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings? _mValue_VideoBlackSettings;
+        private bool _mUnknown_VideoBlackSettings;
+        public Outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings? VideoBlackSettings
+        {
+            get
+            {
+                if (!_mUnknown_VideoBlackSettings) return _mValue_VideoBlackSettings;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings.VideoBlackSettings' is not present");
+            }
+        }
     }
 }

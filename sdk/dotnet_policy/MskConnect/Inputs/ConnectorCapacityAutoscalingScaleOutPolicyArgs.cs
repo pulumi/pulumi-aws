@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Inputs
         /// <summary>
         /// The CPU utilization percentage threshold at which you want connector scale out to be triggered.
         /// </summary>
-        [Input("cpuUtilizationPercentage")]
+        [PolicyResourceProperty("cpuUtilizationPercentage", "_mUnknown_CpuUtilizationPercentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCpuUtilizationPercentage;
-
-        public int? CpuUtilizationPercentage => _mCpuUtilizationPercentage.GetValue("cpuUtilizationPercentage");
+        private int? _mValue_CpuUtilizationPercentage;
+        private bool _mUnknown_CpuUtilizationPercentage;
+        public int? CpuUtilizationPercentage
+        {
+            get
+            {
+                if (!_mUnknown_CpuUtilizationPercentage) return _mValue_CpuUtilizationPercentage;
+                throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscalingScaleOutPolicyArgs.CpuUtilizationPercentage' is not present");
+            }
+        }
     }
 }

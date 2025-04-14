@@ -16,11 +16,18 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The Voice Connector settings. See voice_connector.
         /// </summary>
-        [Input("voiceConnector")]
+        [PolicyResourceProperty("voiceConnector", "_mUnknown_VoiceConnector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SdkvoiceGlobalSettingsVoiceConnector> _mVoiceConnector;
-
-        public Outputs.SdkvoiceGlobalSettingsVoiceConnector? VoiceConnector => _mVoiceConnector.GetValue("voiceConnector");
+        private Outputs.SdkvoiceGlobalSettingsVoiceConnector? _mValue_VoiceConnector;
+        private bool _mUnknown_VoiceConnector;
+        public Outputs.SdkvoiceGlobalSettingsVoiceConnector? VoiceConnector
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnector) return _mValue_VoiceConnector;
+                throw new UndeferrableValueException("Value 'SdkvoiceGlobalSettings.VoiceConnector' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")]
@@ -29,10 +36,17 @@ namespace Pulumi.PolicyPacks.Aws.Chime
         /// <summary>
         /// The Voice Connector settings. See voice_connector.
         /// </summary>
-        [Input("voiceConnector")]
+        [PolicyResourceProperty("voiceConnector", "_mUnknown_VoiceConnector")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs> _mVoiceConnector;
-
-        public Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs? VoiceConnector => _mVoiceConnector.GetValue("voiceConnector");
+        private Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs? _mValue_VoiceConnector;
+        private bool _mUnknown_VoiceConnector;
+        public Inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs? VoiceConnector
+        {
+            get
+            {
+                if (!_mUnknown_VoiceConnector) return _mValue_VoiceConnector;
+                throw new UndeferrableValueException("Value 'SdkvoiceGlobalSettingsArgs.VoiceConnector' is not present");
+            }
+        }
     }
 }

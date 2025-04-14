@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualServiceSpecProviderVirtualNodeResult
     {
-        [Input("virtualNodeName")]
+        [PolicyResourceProperty("virtualNodeName", "_mUnknown_VirtualNodeName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVirtualNodeName;
-
-        public string? VirtualNodeName => _mVirtualNodeName.GetValue("virtualNodeName");
+        private string? _mValue_VirtualNodeName;
+        private bool _mUnknown_VirtualNodeName;
+        public string? VirtualNodeName
+        {
+            get
+            {
+                if (!_mUnknown_VirtualNodeName) return _mValue_VirtualNodeName;
+                throw new UndeferrableValueException("Value 'GetVirtualServiceSpecProviderVirtualNodeResult.VirtualNodeName' is not present");
+            }
+        }
     }
 }

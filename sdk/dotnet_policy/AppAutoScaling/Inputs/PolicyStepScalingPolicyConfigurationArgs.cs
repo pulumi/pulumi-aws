@@ -15,38 +15,66 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling.Inputs
         /// <summary>
         /// Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         /// </summary>
-        [Input("adjustmentType")]
+        [PolicyResourceProperty("adjustmentType", "_mUnknown_AdjustmentType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdjustmentType;
-
-        public string? AdjustmentType => _mAdjustmentType.GetValue("adjustmentType");
+        private string? _mValue_AdjustmentType;
+        private bool _mUnknown_AdjustmentType;
+        public string? AdjustmentType
+        {
+            get
+            {
+                if (!_mUnknown_AdjustmentType) return _mValue_AdjustmentType;
+                throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.AdjustmentType' is not present");
+            }
+        }
 
         /// <summary>
         /// Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         /// </summary>
-        [Input("cooldown")]
+        [PolicyResourceProperty("cooldown", "_mUnknown_Cooldown")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCooldown;
-
-        public int? Cooldown => _mCooldown.GetValue("cooldown");
+        private int? _mValue_Cooldown;
+        private bool _mUnknown_Cooldown;
+        public int? Cooldown
+        {
+            get
+            {
+                if (!_mUnknown_Cooldown) return _mValue_Cooldown;
+                throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.Cooldown' is not present");
+            }
+        }
 
         /// <summary>
         /// Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         /// </summary>
-        [Input("metricAggregationType")]
+        [PolicyResourceProperty("metricAggregationType", "_mUnknown_MetricAggregationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMetricAggregationType;
-
-        public string? MetricAggregationType => _mMetricAggregationType.GetValue("metricAggregationType");
+        private string? _mValue_MetricAggregationType;
+        private bool _mUnknown_MetricAggregationType;
+        public string? MetricAggregationType
+        {
+            get
+            {
+                if (!_mUnknown_MetricAggregationType) return _mValue_MetricAggregationType;
+                throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.MetricAggregationType' is not present");
+            }
+        }
 
         /// <summary>
         /// Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
         /// </summary>
-        [Input("minAdjustmentMagnitude")]
+        [PolicyResourceProperty("minAdjustmentMagnitude", "_mUnknown_MinAdjustmentMagnitude")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinAdjustmentMagnitude;
-
-        public int? MinAdjustmentMagnitude => _mMinAdjustmentMagnitude.GetValue("minAdjustmentMagnitude");
+        private int? _mValue_MinAdjustmentMagnitude;
+        private bool _mUnknown_MinAdjustmentMagnitude;
+        public int? MinAdjustmentMagnitude
+        {
+            get
+            {
+                if (!_mUnknown_MinAdjustmentMagnitude) return _mValue_MinAdjustmentMagnitude;
+                throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.MinAdjustmentMagnitude' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of adjustments that manage scaling. These have the following structure:
@@ -84,10 +112,17 @@ namespace Pulumi.PolicyPacks.Aws.AppAutoScaling.Inputs
         /// });
         /// ```
         /// </summary>
-        [Input("stepAdjustments")]
+        [PolicyResourceProperty("stepAdjustments", "_mUnknown_StepAdjustments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>> _mStepAdjustments;
-
-        public List<Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>? StepAdjustments => _mStepAdjustments.GetValue("stepAdjustments");
+        private List<Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>? _mValue_StepAdjustments;
+        private bool _mUnknown_StepAdjustments;
+        public List<Inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>? StepAdjustments
+        {
+            get
+            {
+                if (!_mUnknown_StepAdjustments) return _mValue_StepAdjustments;
+                throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.StepAdjustments' is not present");
+            }
+        }
     }
 }

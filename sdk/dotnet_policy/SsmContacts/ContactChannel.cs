@@ -16,56 +16,98 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts
         /// <summary>
         /// Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
         /// </summary>
-        [Input("activationStatus")]
+        [PolicyResourceProperty("activationStatus", "_mUnknown_ActivationStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActivationStatus;
-
-        public string? ActivationStatus => _mActivationStatus.GetValue("activationStatus");
+        private string? _mValue_ActivationStatus;
+        private bool _mUnknown_ActivationStatus;
+        public string? ActivationStatus
+        {
+            get
+            {
+                if (!_mUnknown_ActivationStatus) return _mValue_ActivationStatus;
+                throw new UndeferrableValueException("Value 'ContactChannel.ActivationStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the contact channel.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ContactChannel.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         /// </summary>
-        [Input("contactId")]
+        [PolicyResourceProperty("contactId", "_mUnknown_ContactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
-
-        public string? ContactId => _mContactId.GetValue("contactId");
+        private string? _mValue_ContactId;
+        private bool _mUnknown_ContactId;
+        public string? ContactId
+        {
+            get
+            {
+                if (!_mUnknown_ContactId) return _mValue_ContactId;
+                throw new UndeferrableValueException("Value 'ContactChannel.ContactId' is not present");
+            }
+        }
 
         /// <summary>
         /// Block that contains contact engagement details. See details below.
         /// </summary>
-        [Input("deliveryAddress")]
+        [PolicyResourceProperty("deliveryAddress", "_mUnknown_DeliveryAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ContactChannelDeliveryAddress> _mDeliveryAddress;
-
-        public Outputs.ContactChannelDeliveryAddress? DeliveryAddress => _mDeliveryAddress.GetValue("deliveryAddress");
+        private Outputs.ContactChannelDeliveryAddress? _mValue_DeliveryAddress;
+        private bool _mUnknown_DeliveryAddress;
+        public Outputs.ContactChannelDeliveryAddress? DeliveryAddress
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryAddress) return _mValue_DeliveryAddress;
+                throw new UndeferrableValueException("Value 'ContactChannel.DeliveryAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContactChannel.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ContactChannel.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssmcontacts/contactChannel:ContactChannel")]
@@ -74,37 +116,65 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts
         /// <summary>
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         /// </summary>
-        [Input("contactId")]
+        [PolicyResourceProperty("contactId", "_mUnknown_ContactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
-
-        public string? ContactId => _mContactId.GetValue("contactId");
+        private string? _mValue_ContactId;
+        private bool _mUnknown_ContactId;
+        public string? ContactId
+        {
+            get
+            {
+                if (!_mUnknown_ContactId) return _mValue_ContactId;
+                throw new UndeferrableValueException("Value 'ContactChannelArgs.ContactId' is not present");
+            }
+        }
 
         /// <summary>
         /// Block that contains contact engagement details. See details below.
         /// </summary>
-        [Input("deliveryAddress")]
+        [PolicyResourceProperty("deliveryAddress", "_mUnknown_DeliveryAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ContactChannelDeliveryAddressArgs> _mDeliveryAddress;
-
-        public Inputs.ContactChannelDeliveryAddressArgs? DeliveryAddress => _mDeliveryAddress.GetValue("deliveryAddress");
+        private Inputs.ContactChannelDeliveryAddressArgs? _mValue_DeliveryAddress;
+        private bool _mUnknown_DeliveryAddress;
+        public Inputs.ContactChannelDeliveryAddressArgs? DeliveryAddress
+        {
+            get
+            {
+                if (!_mUnknown_DeliveryAddress) return _mValue_DeliveryAddress;
+                throw new UndeferrableValueException("Value 'ContactChannelArgs.DeliveryAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ContactChannelArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ContactChannelArgs.Type' is not present");
+            }
+        }
     }
 }

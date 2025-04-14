@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.MskConnect.Inputs
         /// <summary>
         /// Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
         /// </summary>
-        [Input("cloudwatchLogs")]
+        [PolicyResourceProperty("cloudwatchLogs", "_mUnknown_CloudwatchLogs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs> _mCloudwatchLogs;
-
-        public Inputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs? CloudwatchLogs => _mCloudwatchLogs.GetValue("cloudwatchLogs");
+        private Inputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs? _mValue_CloudwatchLogs;
+        private bool _mUnknown_CloudwatchLogs;
+        public Inputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs? CloudwatchLogs
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchLogs) return _mValue_CloudwatchLogs;
+                throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryArgs.CloudwatchLogs' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
         /// </summary>
-        [Input("firehose")]
+        [PolicyResourceProperty("firehose", "_mUnknown_Firehose")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs> _mFirehose;
-
-        public Inputs.ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs? Firehose => _mFirehose.GetValue("firehose");
+        private Inputs.ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs? _mValue_Firehose;
+        private bool _mUnknown_Firehose;
+        public Inputs.ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs? Firehose
+        {
+            get
+            {
+                if (!_mUnknown_Firehose) return _mValue_Firehose;
+                throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryArgs.Firehose' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about delivering logs to Amazon S3. See `s3` Block for deetails.
         /// </summary>
-        [Input("s3")]
+        [PolicyResourceProperty("s3", "_mUnknown_S3")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ConnectorLogDeliveryWorkerLogDeliveryS3Args> _mS3;
-
-        public Inputs.ConnectorLogDeliveryWorkerLogDeliveryS3Args? S3 => _mS3.GetValue("s3");
+        private Inputs.ConnectorLogDeliveryWorkerLogDeliveryS3Args? _mValue_S3;
+        private bool _mUnknown_S3;
+        public Inputs.ConnectorLogDeliveryWorkerLogDeliveryS3Args? S3
+        {
+            get
+            {
+                if (!_mUnknown_S3) return _mValue_S3;
+                throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryArgs.S3' is not present");
+            }
+        }
     }
 }

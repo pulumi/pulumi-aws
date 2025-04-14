@@ -16,83 +16,160 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline
         /// <summary>
         /// The action ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'CustomActionType.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         /// </summary>
-        [Input("category")]
+        [PolicyResourceProperty("category", "_mUnknown_Category")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCategory;
-
-        public string? Category => _mCategory.GetValue("category");
+        private string? _mValue_Category;
+        private bool _mUnknown_Category;
+        public string? Category
+        {
+            get
+            {
+                if (!_mUnknown_Category) return _mValue_Category;
+                throw new UndeferrableValueException("Value 'CustomActionType.Category' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration properties for the custom action. Max 10 items.
         /// </summary>
-        [Input("configurationProperties")]
+        [PolicyResourceProperty("configurationProperties", "_mUnknown_ConfigurationProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.CustomActionTypeConfigurationProperty>> _mConfigurationProperties;
+        private List<Outputs.CustomActionTypeConfigurationProperty>? _mValue_ConfigurationProperties;
+        private bool _mUnknown_ConfigurationProperties;
+        public List<Outputs.CustomActionTypeConfigurationProperty>? ConfigurationProperties
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationProperties) return _mValue_ConfigurationProperties;
+                throw new UndeferrableValueException("Value 'CustomActionType.ConfigurationProperties' is not present");
+            }
+        }
 
-        public List<Outputs.CustomActionTypeConfigurationProperty>? ConfigurationProperties => _mConfigurationProperties.GetValue("configurationProperties");
-
-        [Input("inputArtifactDetails")]
+        [PolicyResourceProperty("inputArtifactDetails", "_mUnknown_InputArtifactDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomActionTypeInputArtifactDetails> _mInputArtifactDetails;
+        private Outputs.CustomActionTypeInputArtifactDetails? _mValue_InputArtifactDetails;
+        private bool _mUnknown_InputArtifactDetails;
+        public Outputs.CustomActionTypeInputArtifactDetails? InputArtifactDetails
+        {
+            get
+            {
+                if (!_mUnknown_InputArtifactDetails) return _mValue_InputArtifactDetails;
+                throw new UndeferrableValueException("Value 'CustomActionType.InputArtifactDetails' is not present");
+            }
+        }
 
-        public Outputs.CustomActionTypeInputArtifactDetails? InputArtifactDetails => _mInputArtifactDetails.GetValue("inputArtifactDetails");
-
-        [Input("outputArtifactDetails")]
+        [PolicyResourceProperty("outputArtifactDetails", "_mUnknown_OutputArtifactDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomActionTypeOutputArtifactDetails> _mOutputArtifactDetails;
-
-        public Outputs.CustomActionTypeOutputArtifactDetails? OutputArtifactDetails => _mOutputArtifactDetails.GetValue("outputArtifactDetails");
+        private Outputs.CustomActionTypeOutputArtifactDetails? _mValue_OutputArtifactDetails;
+        private bool _mUnknown_OutputArtifactDetails;
+        public Outputs.CustomActionTypeOutputArtifactDetails? OutputArtifactDetails
+        {
+            get
+            {
+                if (!_mUnknown_OutputArtifactDetails) return _mValue_OutputArtifactDetails;
+                throw new UndeferrableValueException("Value 'CustomActionType.OutputArtifactDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// The creator of the action being called.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'CustomActionType.Owner' is not present");
+            }
+        }
 
-        public string? Owner => _mOwner.GetValue("owner");
-
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'CustomActionType.ProviderName' is not present");
+            }
+        }
 
-        public string? ProviderName => _mProviderName.GetValue("providerName");
-
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.CustomActionTypeSettings> _mSettings;
+        private Outputs.CustomActionTypeSettings? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public Outputs.CustomActionTypeSettings? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'CustomActionType.Settings' is not present");
+            }
+        }
 
-        public Outputs.CustomActionTypeSettings? Settings => _mSettings.GetValue("settings");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomActionType.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'CustomActionType.TagsAll' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
-
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'CustomActionType.Version' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codepipeline/customActionType:CustomActionType")]
@@ -101,55 +178,111 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline
         /// <summary>
         /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         /// </summary>
-        [Input("category")]
+        [PolicyResourceProperty("category", "_mUnknown_Category")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCategory;
-
-        public string? Category => _mCategory.GetValue("category");
+        private string? _mValue_Category;
+        private bool _mUnknown_Category;
+        public string? Category
+        {
+            get
+            {
+                if (!_mUnknown_Category) return _mValue_Category;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.Category' is not present");
+            }
+        }
 
         /// <summary>
         /// The configuration properties for the custom action. Max 10 items.
         /// </summary>
-        [Input("configurationProperties")]
+        [PolicyResourceProperty("configurationProperties", "_mUnknown_ConfigurationProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.CustomActionTypeConfigurationPropertyArgs>> _mConfigurationProperties;
+        private List<Inputs.CustomActionTypeConfigurationPropertyArgs>? _mValue_ConfigurationProperties;
+        private bool _mUnknown_ConfigurationProperties;
+        public List<Inputs.CustomActionTypeConfigurationPropertyArgs>? ConfigurationProperties
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationProperties) return _mValue_ConfigurationProperties;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.ConfigurationProperties' is not present");
+            }
+        }
 
-        public List<Inputs.CustomActionTypeConfigurationPropertyArgs>? ConfigurationProperties => _mConfigurationProperties.GetValue("configurationProperties");
-
-        [Input("inputArtifactDetails")]
+        [PolicyResourceProperty("inputArtifactDetails", "_mUnknown_InputArtifactDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomActionTypeInputArtifactDetailsArgs> _mInputArtifactDetails;
+        private Inputs.CustomActionTypeInputArtifactDetailsArgs? _mValue_InputArtifactDetails;
+        private bool _mUnknown_InputArtifactDetails;
+        public Inputs.CustomActionTypeInputArtifactDetailsArgs? InputArtifactDetails
+        {
+            get
+            {
+                if (!_mUnknown_InputArtifactDetails) return _mValue_InputArtifactDetails;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.InputArtifactDetails' is not present");
+            }
+        }
 
-        public Inputs.CustomActionTypeInputArtifactDetailsArgs? InputArtifactDetails => _mInputArtifactDetails.GetValue("inputArtifactDetails");
-
-        [Input("outputArtifactDetails")]
+        [PolicyResourceProperty("outputArtifactDetails", "_mUnknown_OutputArtifactDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomActionTypeOutputArtifactDetailsArgs> _mOutputArtifactDetails;
+        private Inputs.CustomActionTypeOutputArtifactDetailsArgs? _mValue_OutputArtifactDetails;
+        private bool _mUnknown_OutputArtifactDetails;
+        public Inputs.CustomActionTypeOutputArtifactDetailsArgs? OutputArtifactDetails
+        {
+            get
+            {
+                if (!_mUnknown_OutputArtifactDetails) return _mValue_OutputArtifactDetails;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.OutputArtifactDetails' is not present");
+            }
+        }
 
-        public Inputs.CustomActionTypeOutputArtifactDetailsArgs? OutputArtifactDetails => _mOutputArtifactDetails.GetValue("outputArtifactDetails");
-
-        [Input("providerName")]
+        [PolicyResourceProperty("providerName", "_mUnknown_ProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderName;
+        private string? _mValue_ProviderName;
+        private bool _mUnknown_ProviderName;
+        public string? ProviderName
+        {
+            get
+            {
+                if (!_mUnknown_ProviderName) return _mValue_ProviderName;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.ProviderName' is not present");
+            }
+        }
 
-        public string? ProviderName => _mProviderName.GetValue("providerName");
-
-        [Input("settings")]
+        [PolicyResourceProperty("settings", "_mUnknown_Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.CustomActionTypeSettingsArgs> _mSettings;
+        private Inputs.CustomActionTypeSettingsArgs? _mValue_Settings;
+        private bool _mUnknown_Settings;
+        public Inputs.CustomActionTypeSettingsArgs? Settings
+        {
+            get
+            {
+                if (!_mUnknown_Settings) return _mValue_Settings;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.Settings' is not present");
+            }
+        }
 
-        public Inputs.CustomActionTypeSettingsArgs? Settings => _mSettings.GetValue("settings");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'CustomActionTypeArgs.Version' is not present");
+            }
+        }
     }
 }

@@ -12,82 +12,152 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Inputs
 {
     public sealed class LifecyclePolicyPolicyDetailsScheduleArgs
     {
-        [Input("copyTags")]
+        [PolicyResourceProperty("copyTags", "_mUnknown_CopyTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mCopyTags;
-
-        public bool? CopyTags => _mCopyTags.GetValue("copyTags");
+        private bool? _mValue_CopyTags;
+        private bool _mUnknown_CopyTags;
+        public bool? CopyTags
+        {
+            get
+            {
+                if (!_mUnknown_CopyTags) return _mValue_CopyTags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.CopyTags' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `create_rule` block. Max of 1 per schedule.
         /// </summary>
-        [Input("createRule")]
+        [PolicyResourceProperty("createRule", "_mUnknown_CreateRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> _mCreateRule;
-
-        public Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs? CreateRule => _mCreateRule.GetValue("createRule");
+        private Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs? _mValue_CreateRule;
+        private bool _mUnknown_CreateRule;
+        public Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs? CreateRule
+        {
+            get
+            {
+                if (!_mUnknown_CreateRule) return _mValue_CreateRule;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.CreateRule' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `cross_region_copy_rule` block. Max of 3 per schedule.
         /// </summary>
-        [Input("crossRegionCopyRules")]
+        [PolicyResourceProperty("crossRegionCopyRules", "_mUnknown_CrossRegionCopyRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>> _mCrossRegionCopyRules;
+        private List<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>? _mValue_CrossRegionCopyRules;
+        private bool _mUnknown_CrossRegionCopyRules;
+        public List<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>? CrossRegionCopyRules
+        {
+            get
+            {
+                if (!_mUnknown_CrossRegionCopyRules) return _mValue_CrossRegionCopyRules;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.CrossRegionCopyRules' is not present");
+            }
+        }
 
-        public List<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>? CrossRegionCopyRules => _mCrossRegionCopyRules.GetValue("crossRegionCopyRules");
-
-        [Input("deprecateRule")]
+        [PolicyResourceProperty("deprecateRule", "_mUnknown_DeprecateRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs> _mDeprecateRule;
-
-        public Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs? DeprecateRule => _mDeprecateRule.GetValue("deprecateRule");
+        private Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs? _mValue_DeprecateRule;
+        private bool _mUnknown_DeprecateRule;
+        public Inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs? DeprecateRule
+        {
+            get
+            {
+                if (!_mUnknown_DeprecateRule) return _mValue_DeprecateRule;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.DeprecateRule' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `fast_restore_rule` block. Max of 1 per schedule.
         /// </summary>
-        [Input("fastRestoreRule")]
+        [PolicyResourceProperty("fastRestoreRule", "_mUnknown_FastRestoreRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs> _mFastRestoreRule;
+        private Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs? _mValue_FastRestoreRule;
+        private bool _mUnknown_FastRestoreRule;
+        public Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs? FastRestoreRule
+        {
+            get
+            {
+                if (!_mUnknown_FastRestoreRule) return _mValue_FastRestoreRule;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.FastRestoreRule' is not present");
+            }
+        }
 
-        public Inputs.LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs? FastRestoreRule => _mFastRestoreRule.GetValue("fastRestoreRule");
-
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("retainRule")]
+        [PolicyResourceProperty("retainRule", "_mUnknown_RetainRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs> _mRetainRule;
-
-        public Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs? RetainRule => _mRetainRule.GetValue("retainRule");
+        private Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs? _mValue_RetainRule;
+        private bool _mUnknown_RetainRule;
+        public Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs? RetainRule
+        {
+            get
+            {
+                if (!_mUnknown_RetainRule) return _mValue_RetainRule;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.RetainRule' is not present");
+            }
+        }
 
         /// <summary>
         /// See the `share_rule` block. Max of 1 per schedule.
         /// </summary>
-        [Input("shareRule")]
+        [PolicyResourceProperty("shareRule", "_mUnknown_ShareRule")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleArgs> _mShareRule;
-
-        public Inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleArgs? ShareRule => _mShareRule.GetValue("shareRule");
+        private Inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleArgs? _mValue_ShareRule;
+        private bool _mUnknown_ShareRule;
+        public Inputs.LifecyclePolicyPolicyDetailsScheduleShareRuleArgs? ShareRule
+        {
+            get
+            {
+                if (!_mUnknown_ShareRule) return _mValue_ShareRule;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.ShareRule' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
         /// </summary>
-        [Input("tagsToAdd")]
+        [PolicyResourceProperty("tagsToAdd", "_mUnknown_TagsToAdd")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsToAdd;
-
-        public Dictionary<string, string>? TagsToAdd => _mTagsToAdd.GetValue("tagsToAdd");
+        private Dictionary<string, string>? _mValue_TagsToAdd;
+        private bool _mUnknown_TagsToAdd;
+        public Dictionary<string, string>? TagsToAdd
+        {
+            get
+            {
+                if (!_mUnknown_TagsToAdd) return _mValue_TagsToAdd;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.TagsToAdd' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
         /// </summary>
-        [Input("variableTags")]
+        [PolicyResourceProperty("variableTags", "_mUnknown_VariableTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mVariableTags;
-
-        public Dictionary<string, string>? VariableTags => _mVariableTags.GetValue("variableTags");
+        private Dictionary<string, string>? _mValue_VariableTags;
+        private bool _mUnknown_VariableTags;
+        public Dictionary<string, string>? VariableTags
+        {
+            get
+            {
+                if (!_mUnknown_VariableTags) return _mValue_VariableTags;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.VariableTags' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail.Outputs
         /// <summary>
         /// The specific cookies to forward to your distribution's origin.
         /// </summary>
-        [Input("cookiesAllowLists")]
+        [PolicyResourceProperty("cookiesAllowLists", "_mUnknown_CookiesAllowLists")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCookiesAllowLists;
-
-        public List<string>? CookiesAllowLists => _mCookiesAllowLists.GetValue("cookiesAllowLists");
+        private List<string>? _mValue_CookiesAllowLists;
+        private bool _mUnknown_CookiesAllowLists;
+        public List<string>? CookiesAllowLists
+        {
+            get
+            {
+                if (!_mUnknown_CookiesAllowLists) return _mValue_CookiesAllowLists;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedCookies.CookiesAllowLists' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
         /// </summary>
-        [Input("option")]
+        [PolicyResourceProperty("option", "_mUnknown_Option")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOption;
-
-        public string? Option => _mOption.GetValue("option");
+        private string? _mValue_Option;
+        private bool _mUnknown_Option;
+        public string? Option
+        {
+            get
+            {
+                if (!_mUnknown_Option) return _mValue_Option;
+                throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedCookies.Option' is not present");
+            }
+        }
     }
 }

@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
         /// </summary>
-        [Input("amazonForecastRoleArn")]
+        [PolicyResourceProperty("amazonForecastRoleArn", "_mUnknown_AmazonForecastRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAmazonForecastRoleArn;
-
-        public string? AmazonForecastRoleArn => _mAmazonForecastRoleArn.GetValue("amazonForecastRoleArn");
+        private string? _mValue_AmazonForecastRoleArn;
+        private bool _mUnknown_AmazonForecastRoleArn;
+        public string? AmazonForecastRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_AmazonForecastRoleArn) return _mValue_AmazonForecastRoleArn;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings.AmazonForecastRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings.Status' is not present");
+            }
+        }
     }
 }

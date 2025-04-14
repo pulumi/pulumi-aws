@@ -16,80 +16,143 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'Partition.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// The time at which the partition was created.
         /// </summary>
-        [Input("creationTime")]
+        [PolicyResourceProperty("creationTime", "_mUnknown_CreationTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationTime;
-
-        public string? CreationTime => _mCreationTime.GetValue("creationTime");
+        private string? _mValue_CreationTime;
+        private bool _mUnknown_CreationTime;
+        public string? CreationTime
+        {
+            get
+            {
+                if (!_mUnknown_CreationTime) return _mValue_CreationTime;
+                throw new UndeferrableValueException("Value 'Partition.CreationTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'Partition.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// The last time at which the partition was accessed.
         /// </summary>
-        [Input("lastAccessedTime")]
+        [PolicyResourceProperty("lastAccessedTime", "_mUnknown_LastAccessedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastAccessedTime;
-
-        public string? LastAccessedTime => _mLastAccessedTime.GetValue("lastAccessedTime");
+        private string? _mValue_LastAccessedTime;
+        private bool _mUnknown_LastAccessedTime;
+        public string? LastAccessedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastAccessedTime) return _mValue_LastAccessedTime;
+                throw new UndeferrableValueException("Value 'Partition.LastAccessedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The last time at which column statistics were computed for this partition.
         /// </summary>
-        [Input("lastAnalyzedTime")]
+        [PolicyResourceProperty("lastAnalyzedTime", "_mUnknown_LastAnalyzedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastAnalyzedTime;
-
-        public string? LastAnalyzedTime => _mLastAnalyzedTime.GetValue("lastAnalyzedTime");
+        private string? _mValue_LastAnalyzedTime;
+        private bool _mUnknown_LastAnalyzedTime;
+        public string? LastAnalyzedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastAnalyzedTime) return _mValue_LastAnalyzedTime;
+                throw new UndeferrableValueException("Value 'Partition.LastAnalyzedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'Partition.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The values that define the partition.
         /// </summary>
-        [Input("partitionValues")]
+        [PolicyResourceProperty("partitionValues", "_mUnknown_PartitionValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPartitionValues;
-
-        public List<string>? PartitionValues => _mPartitionValues.GetValue("partitionValues");
+        private List<string>? _mValue_PartitionValues;
+        private bool _mUnknown_PartitionValues;
+        public List<string>? PartitionValues
+        {
+            get
+            {
+                if (!_mUnknown_PartitionValues) return _mValue_PartitionValues;
+                throw new UndeferrableValueException("Value 'Partition.PartitionValues' is not present");
+            }
+        }
 
         /// <summary>
         /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         /// </summary>
-        [Input("storageDescriptor")]
+        [PolicyResourceProperty("storageDescriptor", "_mUnknown_StorageDescriptor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.PartitionStorageDescriptor> _mStorageDescriptor;
+        private Outputs.PartitionStorageDescriptor? _mValue_StorageDescriptor;
+        private bool _mUnknown_StorageDescriptor;
+        public Outputs.PartitionStorageDescriptor? StorageDescriptor
+        {
+            get
+            {
+                if (!_mUnknown_StorageDescriptor) return _mValue_StorageDescriptor;
+                throw new UndeferrableValueException("Value 'Partition.StorageDescriptor' is not present");
+            }
+        }
 
-        public Outputs.PartitionStorageDescriptor? StorageDescriptor => _mStorageDescriptor.GetValue("storageDescriptor");
-
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'Partition.TableName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:glue/partition:Partition")]
@@ -98,52 +161,94 @@ namespace Pulumi.PolicyPacks.Aws.Glue
         /// <summary>
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         /// </summary>
-        [Input("catalogId")]
+        [PolicyResourceProperty("catalogId", "_mUnknown_CatalogId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCatalogId;
-
-        public string? CatalogId => _mCatalogId.GetValue("catalogId");
+        private string? _mValue_CatalogId;
+        private bool _mUnknown_CatalogId;
+        public string? CatalogId
+        {
+            get
+            {
+                if (!_mUnknown_CatalogId) return _mValue_CatalogId;
+                throw new UndeferrableValueException("Value 'PartitionArgs.CatalogId' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'PartitionArgs.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Properties associated with this table, as a list of key-value pairs.
         /// </summary>
-        [Input("parameters")]
+        [PolicyResourceProperty("parameters", "_mUnknown_Parameters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mParameters;
-
-        public Dictionary<string, string>? Parameters => _mParameters.GetValue("parameters");
+        private Dictionary<string, string>? _mValue_Parameters;
+        private bool _mUnknown_Parameters;
+        public Dictionary<string, string>? Parameters
+        {
+            get
+            {
+                if (!_mUnknown_Parameters) return _mValue_Parameters;
+                throw new UndeferrableValueException("Value 'PartitionArgs.Parameters' is not present");
+            }
+        }
 
         /// <summary>
         /// The values that define the partition.
         /// </summary>
-        [Input("partitionValues")]
+        [PolicyResourceProperty("partitionValues", "_mUnknown_PartitionValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPartitionValues;
-
-        public List<string>? PartitionValues => _mPartitionValues.GetValue("partitionValues");
+        private List<string>? _mValue_PartitionValues;
+        private bool _mUnknown_PartitionValues;
+        public List<string>? PartitionValues
+        {
+            get
+            {
+                if (!_mUnknown_PartitionValues) return _mValue_PartitionValues;
+                throw new UndeferrableValueException("Value 'PartitionArgs.PartitionValues' is not present");
+            }
+        }
 
         /// <summary>
         /// A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         /// </summary>
-        [Input("storageDescriptor")]
+        [PolicyResourceProperty("storageDescriptor", "_mUnknown_StorageDescriptor")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.PartitionStorageDescriptorArgs> _mStorageDescriptor;
+        private Inputs.PartitionStorageDescriptorArgs? _mValue_StorageDescriptor;
+        private bool _mUnknown_StorageDescriptor;
+        public Inputs.PartitionStorageDescriptorArgs? StorageDescriptor
+        {
+            get
+            {
+                if (!_mUnknown_StorageDescriptor) return _mValue_StorageDescriptor;
+                throw new UndeferrableValueException("Value 'PartitionArgs.StorageDescriptor' is not present");
+            }
+        }
 
-        public Inputs.PartitionStorageDescriptorArgs? StorageDescriptor => _mStorageDescriptor.GetValue("storageDescriptor");
-
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'PartitionArgs.TableName' is not present");
+            }
+        }
     }
 }

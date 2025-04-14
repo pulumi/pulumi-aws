@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// Post filter sharpening.
         /// </summary>
-        [Input("postFilterSharpening")]
+        [PolicyResourceProperty("postFilterSharpening", "_mUnknown_PostFilterSharpening")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPostFilterSharpening;
-
-        public string? PostFilterSharpening => _mPostFilterSharpening.GetValue("postFilterSharpening");
+        private string? _mValue_PostFilterSharpening;
+        private bool _mUnknown_PostFilterSharpening;
+        public string? PostFilterSharpening
+        {
+            get
+            {
+                if (!_mUnknown_PostFilterSharpening) return _mValue_PostFilterSharpening;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.PostFilterSharpening' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter strength.
         /// </summary>
-        [Input("strength")]
+        [PolicyResourceProperty("strength", "_mUnknown_Strength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStrength;
-
-        public string? Strength => _mStrength.GetValue("strength");
+        private string? _mValue_Strength;
+        private bool _mUnknown_Strength;
+        public string? Strength
+        {
+            get
+            {
+                if (!_mUnknown_Strength) return _mValue_Strength;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.Strength' is not present");
+            }
+        }
     }
 }

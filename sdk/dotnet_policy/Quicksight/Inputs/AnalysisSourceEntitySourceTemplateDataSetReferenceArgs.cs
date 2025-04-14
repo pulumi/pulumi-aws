@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Inputs
         /// <summary>
         /// Dataset Amazon Resource Name (ARN).
         /// </summary>
-        [Input("dataSetArn")]
+        [PolicyResourceProperty("dataSetArn", "_mUnknown_DataSetArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetArn;
-
-        public string? DataSetArn => _mDataSetArn.GetValue("dataSetArn");
+        private string? _mValue_DataSetArn;
+        private bool _mUnknown_DataSetArn;
+        public string? DataSetArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSetArn) return _mValue_DataSetArn;
+                throw new UndeferrableValueException("Value 'AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.DataSetArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Dataset placeholder.
         /// </summary>
-        [Input("dataSetPlaceholder")]
+        [PolicyResourceProperty("dataSetPlaceholder", "_mUnknown_DataSetPlaceholder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSetPlaceholder;
-
-        public string? DataSetPlaceholder => _mDataSetPlaceholder.GetValue("dataSetPlaceholder");
+        private string? _mValue_DataSetPlaceholder;
+        private bool _mUnknown_DataSetPlaceholder;
+        public string? DataSetPlaceholder
+        {
+            get
+            {
+                if (!_mUnknown_DataSetPlaceholder) return _mValue_DataSetPlaceholder;
+                throw new UndeferrableValueException("Value 'AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.DataSetPlaceholder' is not present");
+            }
+        }
     }
 }

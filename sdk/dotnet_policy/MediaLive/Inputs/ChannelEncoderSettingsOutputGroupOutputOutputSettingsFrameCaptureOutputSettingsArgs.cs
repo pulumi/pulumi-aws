@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         /// </summary>
-        [Input("nameModifier")]
+        [PolicyResourceProperty("nameModifier", "_mUnknown_NameModifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNameModifier;
-
-        public string? NameModifier => _mNameModifier.GetValue("nameModifier");
+        private string? _mValue_NameModifier;
+        private bool _mUnknown_NameModifier;
+        public string? NameModifier
+        {
+            get
+            {
+                if (!_mUnknown_NameModifier) return _mValue_NameModifier;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs.NameModifier' is not present");
+            }
+        }
     }
 }

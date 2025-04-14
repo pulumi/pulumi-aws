@@ -15,43 +15,78 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// The bitrate is specified in bits per second, as in an HLS manifest.
         /// </summary>
-        [Input("bandwidth")]
+        [PolicyResourceProperty("bandwidth", "_mUnknown_Bandwidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBandwidth;
-
-        public int? Bandwidth => _mBandwidth.GetValue("bandwidth");
+        private int? _mValue_Bandwidth;
+        private bool _mUnknown_Bandwidth;
+        public int? Bandwidth
+        {
+            get
+            {
+                if (!_mUnknown_Bandwidth) return _mValue_Bandwidth;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.Bandwidth' is not present");
+            }
+        }
 
         /// <summary>
         /// Buffer segments.
         /// </summary>
-        [Input("bufferSegments")]
+        [PolicyResourceProperty("bufferSegments", "_mUnknown_BufferSegments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferSegments;
-
-        public int? BufferSegments => _mBufferSegments.GetValue("bufferSegments");
+        private int? _mValue_BufferSegments;
+        private bool _mUnknown_BufferSegments;
+        public int? BufferSegments
+        {
+            get
+            {
+                if (!_mUnknown_BufferSegments) return _mValue_BufferSegments;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.BufferSegments' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
         /// </summary>
-        [Input("retries")]
+        [PolicyResourceProperty("retries", "_mUnknown_Retries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetries;
-
-        public int? Retries => _mRetries.GetValue("retries");
+        private int? _mValue_Retries;
+        private bool _mUnknown_Retries;
+        public int? Retries
+        {
+            get
+            {
+                if (!_mUnknown_Retries) return _mValue_Retries;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.Retries' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds between retries when an attempt to read a manifest or segment fails.
         /// </summary>
-        [Input("retryInterval")]
+        [PolicyResourceProperty("retryInterval", "_mUnknown_RetryInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetryInterval;
+        private int? _mValue_RetryInterval;
+        private bool _mUnknown_RetryInterval;
+        public int? RetryInterval
+        {
+            get
+            {
+                if (!_mUnknown_RetryInterval) return _mValue_RetryInterval;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.RetryInterval' is not present");
+            }
+        }
 
-        public int? RetryInterval => _mRetryInterval.GetValue("retryInterval");
-
-        [Input("scte35Source")]
+        [PolicyResourceProperty("scte35Source", "_mUnknown_Scte35Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScte35Source;
-
-        public string? Scte35Source => _mScte35Source.GetValue("scte35Source");
+        private string? _mValue_Scte35Source;
+        private bool _mUnknown_Scte35Source;
+        public string? Scte35Source
+        {
+            get
+            {
+                if (!_mUnknown_Scte35Source) return _mValue_Scte35Source;
+                throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.Scte35Source' is not present");
+            }
+        }
     }
 }

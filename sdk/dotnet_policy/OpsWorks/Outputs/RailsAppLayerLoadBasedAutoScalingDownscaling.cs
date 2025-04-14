@@ -12,46 +12,95 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Outputs
 {
     public sealed class RailsAppLayerLoadBasedAutoScalingDownscaling
     {
-        [Input("alarms")]
+        [PolicyResourceProperty("alarms", "_mUnknown_Alarms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarms;
+        private List<string>? _mValue_Alarms;
+        private bool _mUnknown_Alarms;
+        public List<string>? Alarms
+        {
+            get
+            {
+                if (!_mUnknown_Alarms) return _mValue_Alarms;
+                throw new UndeferrableValueException("Value 'RailsAppLayerLoadBasedAutoScalingDownscaling.Alarms' is not present");
+            }
+        }
 
-        public List<string>? Alarms => _mAlarms.GetValue("alarms");
-
-        [Input("cpuThreshold")]
+        [PolicyResourceProperty("cpuThreshold", "_mUnknown_CpuThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mCpuThreshold;
+        private double? _mValue_CpuThreshold;
+        private bool _mUnknown_CpuThreshold;
+        public double? CpuThreshold
+        {
+            get
+            {
+                if (!_mUnknown_CpuThreshold) return _mValue_CpuThreshold;
+                throw new UndeferrableValueException("Value 'RailsAppLayerLoadBasedAutoScalingDownscaling.CpuThreshold' is not present");
+            }
+        }
 
-        public double? CpuThreshold => _mCpuThreshold.GetValue("cpuThreshold");
-
-        [Input("ignoreMetricsTime")]
+        [PolicyResourceProperty("ignoreMetricsTime", "_mUnknown_IgnoreMetricsTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIgnoreMetricsTime;
+        private int? _mValue_IgnoreMetricsTime;
+        private bool _mUnknown_IgnoreMetricsTime;
+        public int? IgnoreMetricsTime
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreMetricsTime) return _mValue_IgnoreMetricsTime;
+                throw new UndeferrableValueException("Value 'RailsAppLayerLoadBasedAutoScalingDownscaling.IgnoreMetricsTime' is not present");
+            }
+        }
 
-        public int? IgnoreMetricsTime => _mIgnoreMetricsTime.GetValue("ignoreMetricsTime");
-
-        [Input("instanceCount")]
+        [PolicyResourceProperty("instanceCount", "_mUnknown_InstanceCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInstanceCount;
+        private int? _mValue_InstanceCount;
+        private bool _mUnknown_InstanceCount;
+        public int? InstanceCount
+        {
+            get
+            {
+                if (!_mUnknown_InstanceCount) return _mValue_InstanceCount;
+                throw new UndeferrableValueException("Value 'RailsAppLayerLoadBasedAutoScalingDownscaling.InstanceCount' is not present");
+            }
+        }
 
-        public int? InstanceCount => _mInstanceCount.GetValue("instanceCount");
-
-        [Input("loadThreshold")]
+        [PolicyResourceProperty("loadThreshold", "_mUnknown_LoadThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mLoadThreshold;
+        private double? _mValue_LoadThreshold;
+        private bool _mUnknown_LoadThreshold;
+        public double? LoadThreshold
+        {
+            get
+            {
+                if (!_mUnknown_LoadThreshold) return _mValue_LoadThreshold;
+                throw new UndeferrableValueException("Value 'RailsAppLayerLoadBasedAutoScalingDownscaling.LoadThreshold' is not present");
+            }
+        }
 
-        public double? LoadThreshold => _mLoadThreshold.GetValue("loadThreshold");
-
-        [Input("memoryThreshold")]
+        [PolicyResourceProperty("memoryThreshold", "_mUnknown_MemoryThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<double> _mMemoryThreshold;
+        private double? _mValue_MemoryThreshold;
+        private bool _mUnknown_MemoryThreshold;
+        public double? MemoryThreshold
+        {
+            get
+            {
+                if (!_mUnknown_MemoryThreshold) return _mValue_MemoryThreshold;
+                throw new UndeferrableValueException("Value 'RailsAppLayerLoadBasedAutoScalingDownscaling.MemoryThreshold' is not present");
+            }
+        }
 
-        public double? MemoryThreshold => _mMemoryThreshold.GetValue("memoryThreshold");
-
-        [Input("thresholdsWaitTime")]
+        [PolicyResourceProperty("thresholdsWaitTime", "_mUnknown_ThresholdsWaitTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mThresholdsWaitTime;
-
-        public int? ThresholdsWaitTime => _mThresholdsWaitTime.GetValue("thresholdsWaitTime");
+        private int? _mValue_ThresholdsWaitTime;
+        private bool _mUnknown_ThresholdsWaitTime;
+        public int? ThresholdsWaitTime
+        {
+            get
+            {
+                if (!_mUnknown_ThresholdsWaitTime) return _mValue_ThresholdsWaitTime;
+                throw new UndeferrableValueException("Value 'RailsAppLayerLoadBasedAutoScalingDownscaling.ThresholdsWaitTime' is not present");
+            }
+        }
     }
 }

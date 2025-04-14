@@ -16,128 +16,226 @@ namespace Pulumi.PolicyPacks.Aws.Batch
         /// <summary>
         /// The Amazon Resource Name (ARN) of the compute environment.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("computeEnvironmentName")]
+        [PolicyResourceProperty("computeEnvironmentName", "_mUnknown_ComputeEnvironmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentName;
-
-        public string? ComputeEnvironmentName => _mComputeEnvironmentName.GetValue("computeEnvironmentName");
+        private string? _mValue_ComputeEnvironmentName;
+        private bool _mUnknown_ComputeEnvironmentName;
+        public string? ComputeEnvironmentName
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironmentName) return _mValue_ComputeEnvironmentName;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.ComputeEnvironmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         /// </summary>
-        [Input("computeEnvironmentNamePrefix")]
+        [PolicyResourceProperty("computeEnvironmentNamePrefix", "_mUnknown_ComputeEnvironmentNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentNamePrefix;
-
-        public string? ComputeEnvironmentNamePrefix => _mComputeEnvironmentNamePrefix.GetValue("computeEnvironmentNamePrefix");
+        private string? _mValue_ComputeEnvironmentNamePrefix;
+        private bool _mUnknown_ComputeEnvironmentNamePrefix;
+        public string? ComputeEnvironmentNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironmentNamePrefix) return _mValue_ComputeEnvironmentNamePrefix;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.ComputeEnvironmentNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         /// </summary>
-        [Input("computeResources")]
+        [PolicyResourceProperty("computeResources", "_mUnknown_ComputeResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ComputeEnvironmentComputeResources> _mComputeResources;
-
-        public Outputs.ComputeEnvironmentComputeResources? ComputeResources => _mComputeResources.GetValue("computeResources");
+        private Outputs.ComputeEnvironmentComputeResources? _mValue_ComputeResources;
+        private bool _mUnknown_ComputeResources;
+        public Outputs.ComputeEnvironmentComputeResources? ComputeResources
+        {
+            get
+            {
+                if (!_mUnknown_ComputeResources) return _mValue_ComputeResources;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.ComputeResources' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
-        [Input("ecsClusterArn")]
+        [PolicyResourceProperty("ecsClusterArn", "_mUnknown_EcsClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEcsClusterArn;
-
-        public string? EcsClusterArn => _mEcsClusterArn.GetValue("ecsClusterArn");
+        private string? _mValue_EcsClusterArn;
+        private bool _mUnknown_EcsClusterArn;
+        public string? EcsClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_EcsClusterArn) return _mValue_EcsClusterArn;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.EcsClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
         /// </summary>
-        [Input("eksConfiguration")]
+        [PolicyResourceProperty("eksConfiguration", "_mUnknown_EksConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ComputeEnvironmentEksConfiguration> _mEksConfiguration;
-
-        public Outputs.ComputeEnvironmentEksConfiguration? EksConfiguration => _mEksConfiguration.GetValue("eksConfiguration");
+        private Outputs.ComputeEnvironmentEksConfiguration? _mValue_EksConfiguration;
+        private bool _mUnknown_EksConfiguration;
+        public Outputs.ComputeEnvironmentEksConfiguration? EksConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EksConfiguration) return _mValue_EksConfiguration;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.EksConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
-        [Input("serviceRole")]
+        [PolicyResourceProperty("serviceRole", "_mUnknown_ServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
-
-        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+        private string? _mValue_ServiceRole;
+        private bool _mUnknown_ServiceRole;
+        public string? ServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRole) return _mValue_ServiceRole;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.ServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the compute environment (for example, CREATING or VALID).
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.Status' is not present");
+            }
+        }
 
         /// <summary>
         /// A short, human-readable string to provide additional details about the current status of the compute environment.
         /// </summary>
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.StatusReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the infrastructure update policy for the compute environment. See details below.
         /// </summary>
-        [Input("updatePolicy")]
+        [PolicyResourceProperty("updatePolicy", "_mUnknown_UpdatePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ComputeEnvironmentUpdatePolicy> _mUpdatePolicy;
-
-        public Outputs.ComputeEnvironmentUpdatePolicy? UpdatePolicy => _mUpdatePolicy.GetValue("updatePolicy");
+        private Outputs.ComputeEnvironmentUpdatePolicy? _mValue_UpdatePolicy;
+        private bool _mUnknown_UpdatePolicy;
+        public Outputs.ComputeEnvironmentUpdatePolicy? UpdatePolicy
+        {
+            get
+            {
+                if (!_mUnknown_UpdatePolicy) return _mValue_UpdatePolicy;
+                throw new UndeferrableValueException("Value 'ComputeEnvironment.UpdatePolicy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]
@@ -146,82 +244,145 @@ namespace Pulumi.PolicyPacks.Aws.Batch
         /// <summary>
         /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         /// </summary>
-        [Input("computeEnvironmentName")]
+        [PolicyResourceProperty("computeEnvironmentName", "_mUnknown_ComputeEnvironmentName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentName;
-
-        public string? ComputeEnvironmentName => _mComputeEnvironmentName.GetValue("computeEnvironmentName");
+        private string? _mValue_ComputeEnvironmentName;
+        private bool _mUnknown_ComputeEnvironmentName;
+        public string? ComputeEnvironmentName
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironmentName) return _mValue_ComputeEnvironmentName;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.ComputeEnvironmentName' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         /// </summary>
-        [Input("computeEnvironmentNamePrefix")]
+        [PolicyResourceProperty("computeEnvironmentNamePrefix", "_mUnknown_ComputeEnvironmentNamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComputeEnvironmentNamePrefix;
-
-        public string? ComputeEnvironmentNamePrefix => _mComputeEnvironmentNamePrefix.GetValue("computeEnvironmentNamePrefix");
+        private string? _mValue_ComputeEnvironmentNamePrefix;
+        private bool _mUnknown_ComputeEnvironmentNamePrefix;
+        public string? ComputeEnvironmentNamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_ComputeEnvironmentNamePrefix) return _mValue_ComputeEnvironmentNamePrefix;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.ComputeEnvironmentNamePrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         /// </summary>
-        [Input("computeResources")]
+        [PolicyResourceProperty("computeResources", "_mUnknown_ComputeResources")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ComputeEnvironmentComputeResourcesArgs> _mComputeResources;
-
-        public Inputs.ComputeEnvironmentComputeResourcesArgs? ComputeResources => _mComputeResources.GetValue("computeResources");
+        private Inputs.ComputeEnvironmentComputeResourcesArgs? _mValue_ComputeResources;
+        private bool _mUnknown_ComputeResources;
+        public Inputs.ComputeEnvironmentComputeResourcesArgs? ComputeResources
+        {
+            get
+            {
+                if (!_mUnknown_ComputeResources) return _mValue_ComputeResources;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.ComputeResources' is not present");
+            }
+        }
 
         /// <summary>
         /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
         /// </summary>
-        [Input("eksConfiguration")]
+        [PolicyResourceProperty("eksConfiguration", "_mUnknown_EksConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ComputeEnvironmentEksConfigurationArgs> _mEksConfiguration;
-
-        public Inputs.ComputeEnvironmentEksConfigurationArgs? EksConfiguration => _mEksConfiguration.GetValue("eksConfiguration");
+        private Inputs.ComputeEnvironmentEksConfigurationArgs? _mValue_EksConfiguration;
+        private bool _mUnknown_EksConfiguration;
+        public Inputs.ComputeEnvironmentEksConfigurationArgs? EksConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_EksConfiguration) return _mValue_EksConfiguration;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.EksConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
-        [Input("serviceRole")]
+        [PolicyResourceProperty("serviceRole", "_mUnknown_ServiceRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceRole;
-
-        public string? ServiceRole => _mServiceRole.GetValue("serviceRole");
+        private string? _mValue_ServiceRole;
+        private bool _mUnknown_ServiceRole;
+        public string? ServiceRole
+        {
+            get
+            {
+                if (!_mUnknown_ServiceRole) return _mValue_ServiceRole;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.ServiceRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
-        [Input("state")]
+        [PolicyResourceProperty("state", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("state");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.State' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the infrastructure update policy for the compute environment. See details below.
         /// </summary>
-        [Input("updatePolicy")]
+        [PolicyResourceProperty("updatePolicy", "_mUnknown_UpdatePolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ComputeEnvironmentUpdatePolicyArgs> _mUpdatePolicy;
-
-        public Inputs.ComputeEnvironmentUpdatePolicyArgs? UpdatePolicy => _mUpdatePolicy.GetValue("updatePolicy");
+        private Inputs.ComputeEnvironmentUpdatePolicyArgs? _mValue_UpdatePolicy;
+        private bool _mUnknown_UpdatePolicy;
+        public Inputs.ComputeEnvironmentUpdatePolicyArgs? UpdatePolicy
+        {
+            get
+            {
+                if (!_mUnknown_UpdatePolicy) return _mValue_UpdatePolicy;
+                throw new UndeferrableValueException("Value 'ComputeEnvironmentArgs.UpdatePolicy' is not present");
+            }
+        }
     }
 }

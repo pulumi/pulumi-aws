@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Font family name.
         /// </summary>
-        [Input("fontFamily")]
+        [PolicyResourceProperty("fontFamily", "_mUnknown_FontFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFontFamily;
-
-        public string? FontFamily => _mFontFamily.GetValue("fontFamily");
+        private string? _mValue_FontFamily;
+        private bool _mUnknown_FontFamily;
+        public string? FontFamily
+        {
+            get
+            {
+                if (!_mUnknown_FontFamily) return _mValue_FontFamily;
+                throw new UndeferrableValueException("Value 'GetThemeConfigurationTypographyFontFamilyResult.FontFamily' is not present");
+            }
+        }
     }
 }

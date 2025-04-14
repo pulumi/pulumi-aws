@@ -16,49 +16,84 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Display name of the template alias.
         /// </summary>
-        [Input("aliasName")]
+        [PolicyResourceProperty("aliasName", "_mUnknown_AliasName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
-
-        public string? AliasName => _mAliasName.GetValue("aliasName");
+        private string? _mValue_AliasName;
+        private bool _mUnknown_AliasName;
+        public string? AliasName
+        {
+            get
+            {
+                if (!_mUnknown_AliasName) return _mValue_AliasName;
+                throw new UndeferrableValueException("Value 'TemplateAlias.AliasName' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the template alias.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TemplateAlias.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'TemplateAlias.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the template.
         /// </summary>
-        [Input("templateId")]
+        [PolicyResourceProperty("templateId", "_mUnknown_TemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateId;
-
-        public string? TemplateId => _mTemplateId.GetValue("templateId");
+        private string? _mValue_TemplateId;
+        private bool _mUnknown_TemplateId;
+        public string? TemplateId
+        {
+            get
+            {
+                if (!_mUnknown_TemplateId) return _mValue_TemplateId;
+                throw new UndeferrableValueException("Value 'TemplateAlias.TemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the template.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("templateVersionNumber")]
+        [PolicyResourceProperty("templateVersionNumber", "_mUnknown_TemplateVersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTemplateVersionNumber;
-
-        public int? TemplateVersionNumber => _mTemplateVersionNumber.GetValue("templateVersionNumber");
+        private int? _mValue_TemplateVersionNumber;
+        private bool _mUnknown_TemplateVersionNumber;
+        public int? TemplateVersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_TemplateVersionNumber) return _mValue_TemplateVersionNumber;
+                throw new UndeferrableValueException("Value 'TemplateAlias.TemplateVersionNumber' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/templateAlias:TemplateAlias")]
@@ -67,39 +102,67 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// Display name of the template alias.
         /// </summary>
-        [Input("aliasName")]
+        [PolicyResourceProperty("aliasName", "_mUnknown_AliasName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAliasName;
-
-        public string? AliasName => _mAliasName.GetValue("aliasName");
+        private string? _mValue_AliasName;
+        private bool _mUnknown_AliasName;
+        public string? AliasName
+        {
+            get
+            {
+                if (!_mUnknown_AliasName) return _mValue_AliasName;
+                throw new UndeferrableValueException("Value 'TemplateAliasArgs.AliasName' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'TemplateAliasArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// ID of the template.
         /// </summary>
-        [Input("templateId")]
+        [PolicyResourceProperty("templateId", "_mUnknown_TemplateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateId;
-
-        public string? TemplateId => _mTemplateId.GetValue("templateId");
+        private string? _mValue_TemplateId;
+        private bool _mUnknown_TemplateId;
+        public string? TemplateId
+        {
+            get
+            {
+                if (!_mUnknown_TemplateId) return _mValue_TemplateId;
+                throw new UndeferrableValueException("Value 'TemplateAliasArgs.TemplateId' is not present");
+            }
+        }
 
         /// <summary>
         /// Version number of the template.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("templateVersionNumber")]
+        [PolicyResourceProperty("templateVersionNumber", "_mUnknown_TemplateVersionNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTemplateVersionNumber;
-
-        public int? TemplateVersionNumber => _mTemplateVersionNumber.GetValue("templateVersionNumber");
+        private int? _mValue_TemplateVersionNumber;
+        private bool _mUnknown_TemplateVersionNumber;
+        public int? TemplateVersionNumber
+        {
+            get
+            {
+                if (!_mUnknown_TemplateVersionNumber) return _mValue_TemplateVersionNumber;
+                throw new UndeferrableValueException("Value 'TemplateAliasArgs.TemplateVersionNumber' is not present");
+            }
+        }
     }
 }

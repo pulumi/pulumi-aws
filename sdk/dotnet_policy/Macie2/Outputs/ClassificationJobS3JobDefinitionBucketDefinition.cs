@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Outputs
         /// <summary>
         /// The unique identifier for the AWS account that owns the buckets.
         /// </summary>
-        [Input("accountId")]
+        [PolicyResourceProperty("accountId", "_mUnknown_AccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountId;
-
-        public string? AccountId => _mAccountId.GetValue("accountId");
+        private string? _mValue_AccountId;
+        private bool _mUnknown_AccountId;
+        public string? AccountId
+        {
+            get
+            {
+                if (!_mUnknown_AccountId) return _mValue_AccountId;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketDefinition.AccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// An array that lists the names of the buckets.
         /// </summary>
-        [Input("buckets")]
+        [PolicyResourceProperty("buckets", "_mUnknown_Buckets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mBuckets;
-
-        public List<string>? Buckets => _mBuckets.GetValue("buckets");
+        private List<string>? _mValue_Buckets;
+        private bool _mUnknown_Buckets;
+        public List<string>? Buckets
+        {
+            get
+            {
+                if (!_mUnknown_Buckets) return _mValue_Buckets;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketDefinition.Buckets' is not present");
+            }
+        }
     }
 }

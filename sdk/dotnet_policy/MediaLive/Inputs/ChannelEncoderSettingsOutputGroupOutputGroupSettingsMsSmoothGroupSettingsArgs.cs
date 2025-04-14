@@ -12,130 +12,263 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs
     {
-        [Input("acquisitionPointId")]
+        [PolicyResourceProperty("acquisitionPointId", "_mUnknown_AcquisitionPointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAcquisitionPointId;
+        private string? _mValue_AcquisitionPointId;
+        private bool _mUnknown_AcquisitionPointId;
+        public string? AcquisitionPointId
+        {
+            get
+            {
+                if (!_mUnknown_AcquisitionPointId) return _mValue_AcquisitionPointId;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.AcquisitionPointId' is not present");
+            }
+        }
 
-        public string? AcquisitionPointId => _mAcquisitionPointId.GetValue("acquisitionPointId");
-
-        [Input("audioOnlyTimecodeControl")]
+        [PolicyResourceProperty("audioOnlyTimecodeControl", "_mUnknown_AudioOnlyTimecodeControl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioOnlyTimecodeControl;
-
-        public string? AudioOnlyTimecodeControl => _mAudioOnlyTimecodeControl.GetValue("audioOnlyTimecodeControl");
+        private string? _mValue_AudioOnlyTimecodeControl;
+        private bool _mUnknown_AudioOnlyTimecodeControl;
+        public string? AudioOnlyTimecodeControl
+        {
+            get
+            {
+                if (!_mUnknown_AudioOnlyTimecodeControl) return _mValue_AudioOnlyTimecodeControl;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.AudioOnlyTimecodeControl' is not present");
+            }
+        }
 
         /// <summary>
         /// Setting to allow self signed or verified RTMP certificates.
         /// </summary>
-        [Input("certificateMode")]
+        [PolicyResourceProperty("certificateMode", "_mUnknown_CertificateMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateMode;
-
-        public string? CertificateMode => _mCertificateMode.GetValue("certificateMode");
+        private string? _mValue_CertificateMode;
+        private bool _mUnknown_CertificateMode;
+        public string? CertificateMode
+        {
+            get
+            {
+                if (!_mUnknown_CertificateMode) return _mValue_CertificateMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.CertificateMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         /// </summary>
-        [Input("connectionRetryInterval")]
+        [PolicyResourceProperty("connectionRetryInterval", "_mUnknown_ConnectionRetryInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConnectionRetryInterval;
+        private int? _mValue_ConnectionRetryInterval;
+        private bool _mUnknown_ConnectionRetryInterval;
+        public int? ConnectionRetryInterval
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionRetryInterval) return _mValue_ConnectionRetryInterval;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.ConnectionRetryInterval' is not present");
+            }
+        }
 
-        public int? ConnectionRetryInterval => _mConnectionRetryInterval.GetValue("connectionRetryInterval");
-
-        [Input("destination")]
+        [PolicyResourceProperty("destination", "_mUnknown_Destination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> _mDestination;
+        private Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs? _mValue_Destination;
+        private bool _mUnknown_Destination;
+        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs? Destination
+        {
+            get
+            {
+                if (!_mUnknown_Destination) return _mValue_Destination;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.Destination' is not present");
+            }
+        }
 
-        public Inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs? Destination => _mDestination.GetValue("destination");
-
-        [Input("eventId")]
+        [PolicyResourceProperty("eventId", "_mUnknown_EventId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventId;
+        private string? _mValue_EventId;
+        private bool _mUnknown_EventId;
+        public string? EventId
+        {
+            get
+            {
+                if (!_mUnknown_EventId) return _mValue_EventId;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.EventId' is not present");
+            }
+        }
 
-        public string? EventId => _mEventId.GetValue("eventId");
-
-        [Input("eventIdMode")]
+        [PolicyResourceProperty("eventIdMode", "_mUnknown_EventIdMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventIdMode;
+        private string? _mValue_EventIdMode;
+        private bool _mUnknown_EventIdMode;
+        public string? EventIdMode
+        {
+            get
+            {
+                if (!_mUnknown_EventIdMode) return _mValue_EventIdMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.EventIdMode' is not present");
+            }
+        }
 
-        public string? EventIdMode => _mEventIdMode.GetValue("eventIdMode");
-
-        [Input("eventStopBehavior")]
+        [PolicyResourceProperty("eventStopBehavior", "_mUnknown_EventStopBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEventStopBehavior;
+        private string? _mValue_EventStopBehavior;
+        private bool _mUnknown_EventStopBehavior;
+        public string? EventStopBehavior
+        {
+            get
+            {
+                if (!_mUnknown_EventStopBehavior) return _mValue_EventStopBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.EventStopBehavior' is not present");
+            }
+        }
 
-        public string? EventStopBehavior => _mEventStopBehavior.GetValue("eventStopBehavior");
-
-        [Input("filecacheDuration")]
+        [PolicyResourceProperty("filecacheDuration", "_mUnknown_FilecacheDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFilecacheDuration;
+        private int? _mValue_FilecacheDuration;
+        private bool _mUnknown_FilecacheDuration;
+        public int? FilecacheDuration
+        {
+            get
+            {
+                if (!_mUnknown_FilecacheDuration) return _mValue_FilecacheDuration;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.FilecacheDuration' is not present");
+            }
+        }
 
-        public int? FilecacheDuration => _mFilecacheDuration.GetValue("filecacheDuration");
-
-        [Input("fragmentLength")]
+        [PolicyResourceProperty("fragmentLength", "_mUnknown_FragmentLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFragmentLength;
+        private int? _mValue_FragmentLength;
+        private bool _mUnknown_FragmentLength;
+        public int? FragmentLength
+        {
+            get
+            {
+                if (!_mUnknown_FragmentLength) return _mValue_FragmentLength;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.FragmentLength' is not present");
+            }
+        }
 
-        public int? FragmentLength => _mFragmentLength.GetValue("fragmentLength");
-
-        [Input("inputLossAction")]
+        [PolicyResourceProperty("inputLossAction", "_mUnknown_InputLossAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputLossAction;
-
-        public string? InputLossAction => _mInputLossAction.GetValue("inputLossAction");
+        private string? _mValue_InputLossAction;
+        private bool _mUnknown_InputLossAction;
+        public string? InputLossAction
+        {
+            get
+            {
+                if (!_mUnknown_InputLossAction) return _mValue_InputLossAction;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.InputLossAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of retry attempts.
         /// </summary>
-        [Input("numRetries")]
+        [PolicyResourceProperty("numRetries", "_mUnknown_NumRetries")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumRetries;
-
-        public int? NumRetries => _mNumRetries.GetValue("numRetries");
+        private int? _mValue_NumRetries;
+        private bool _mUnknown_NumRetries;
+        public int? NumRetries
+        {
+            get
+            {
+                if (!_mUnknown_NumRetries) return _mValue_NumRetries;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.NumRetries' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds to wait until a restart is initiated.
         /// </summary>
-        [Input("restartDelay")]
+        [PolicyResourceProperty("restartDelay", "_mUnknown_RestartDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRestartDelay;
+        private int? _mValue_RestartDelay;
+        private bool _mUnknown_RestartDelay;
+        public int? RestartDelay
+        {
+            get
+            {
+                if (!_mUnknown_RestartDelay) return _mValue_RestartDelay;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.RestartDelay' is not present");
+            }
+        }
 
-        public int? RestartDelay => _mRestartDelay.GetValue("restartDelay");
-
-        [Input("segmentationMode")]
+        [PolicyResourceProperty("segmentationMode", "_mUnknown_SegmentationMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSegmentationMode;
+        private string? _mValue_SegmentationMode;
+        private bool _mUnknown_SegmentationMode;
+        public string? SegmentationMode
+        {
+            get
+            {
+                if (!_mUnknown_SegmentationMode) return _mValue_SegmentationMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.SegmentationMode' is not present");
+            }
+        }
 
-        public string? SegmentationMode => _mSegmentationMode.GetValue("segmentationMode");
-
-        [Input("sendDelayMs")]
+        [PolicyResourceProperty("sendDelayMs", "_mUnknown_SendDelayMs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSendDelayMs;
+        private int? _mValue_SendDelayMs;
+        private bool _mUnknown_SendDelayMs;
+        public int? SendDelayMs
+        {
+            get
+            {
+                if (!_mUnknown_SendDelayMs) return _mValue_SendDelayMs;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.SendDelayMs' is not present");
+            }
+        }
 
-        public int? SendDelayMs => _mSendDelayMs.GetValue("sendDelayMs");
-
-        [Input("sparseTrackType")]
+        [PolicyResourceProperty("sparseTrackType", "_mUnknown_SparseTrackType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSparseTrackType;
+        private string? _mValue_SparseTrackType;
+        private bool _mUnknown_SparseTrackType;
+        public string? SparseTrackType
+        {
+            get
+            {
+                if (!_mUnknown_SparseTrackType) return _mValue_SparseTrackType;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.SparseTrackType' is not present");
+            }
+        }
 
-        public string? SparseTrackType => _mSparseTrackType.GetValue("sparseTrackType");
-
-        [Input("streamManifestBehavior")]
+        [PolicyResourceProperty("streamManifestBehavior", "_mUnknown_StreamManifestBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamManifestBehavior;
+        private string? _mValue_StreamManifestBehavior;
+        private bool _mUnknown_StreamManifestBehavior;
+        public string? StreamManifestBehavior
+        {
+            get
+            {
+                if (!_mUnknown_StreamManifestBehavior) return _mValue_StreamManifestBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.StreamManifestBehavior' is not present");
+            }
+        }
 
-        public string? StreamManifestBehavior => _mStreamManifestBehavior.GetValue("streamManifestBehavior");
-
-        [Input("timestampOffset")]
+        [PolicyResourceProperty("timestampOffset", "_mUnknown_TimestampOffset")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestampOffset;
+        private string? _mValue_TimestampOffset;
+        private bool _mUnknown_TimestampOffset;
+        public string? TimestampOffset
+        {
+            get
+            {
+                if (!_mUnknown_TimestampOffset) return _mValue_TimestampOffset;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.TimestampOffset' is not present");
+            }
+        }
 
-        public string? TimestampOffset => _mTimestampOffset.GetValue("timestampOffset");
-
-        [Input("timestampOffsetMode")]
+        [PolicyResourceProperty("timestampOffsetMode", "_mUnknown_TimestampOffsetMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimestampOffsetMode;
-
-        public string? TimestampOffsetMode => _mTimestampOffsetMode.GetValue("timestampOffsetMode");
+        private string? _mValue_TimestampOffsetMode;
+        private bool _mUnknown_TimestampOffsetMode;
+        public string? TimestampOffsetMode
+        {
+            get
+            {
+                if (!_mUnknown_TimestampOffsetMode) return _mValue_TimestampOffsetMode;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.TimestampOffsetMode' is not present");
+            }
+        }
     }
 }

@@ -12,130 +12,277 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetLaunchTemplateNetworkInterfaceResult
     {
-        [Input("associateCarrierIpAddress")]
+        [PolicyResourceProperty("associateCarrierIpAddress", "_mUnknown_AssociateCarrierIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociateCarrierIpAddress;
+        private string? _mValue_AssociateCarrierIpAddress;
+        private bool _mUnknown_AssociateCarrierIpAddress;
+        public string? AssociateCarrierIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_AssociateCarrierIpAddress) return _mValue_AssociateCarrierIpAddress;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.AssociateCarrierIpAddress' is not present");
+            }
+        }
 
-        public string? AssociateCarrierIpAddress => _mAssociateCarrierIpAddress.GetValue("associateCarrierIpAddress");
-
-        [Input("associatePublicIpAddress")]
+        [PolicyResourceProperty("associatePublicIpAddress", "_mUnknown_AssociatePublicIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssociatePublicIpAddress;
+        private bool? _mValue_AssociatePublicIpAddress;
+        private bool _mUnknown_AssociatePublicIpAddress;
+        public bool? AssociatePublicIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_AssociatePublicIpAddress) return _mValue_AssociatePublicIpAddress;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.AssociatePublicIpAddress' is not present");
+            }
+        }
 
-        public bool? AssociatePublicIpAddress => _mAssociatePublicIpAddress.GetValue("associatePublicIpAddress");
-
-        [Input("connectionTrackingSpecifications")]
+        [PolicyResourceProperty("connectionTrackingSpecifications", "_mUnknown_ConnectionTrackingSpecifications")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult>> _mConnectionTrackingSpecifications;
+        private List<Outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult>? _mValue_ConnectionTrackingSpecifications;
+        private bool _mUnknown_ConnectionTrackingSpecifications;
+        public List<Outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult>? ConnectionTrackingSpecifications
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionTrackingSpecifications) return _mValue_ConnectionTrackingSpecifications;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.ConnectionTrackingSpecifications' is not present");
+            }
+        }
 
-        public List<Outputs.GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationResult>? ConnectionTrackingSpecifications => _mConnectionTrackingSpecifications.GetValue("connectionTrackingSpecifications");
-
-        [Input("deleteOnTermination")]
+        [PolicyResourceProperty("deleteOnTermination", "_mUnknown_DeleteOnTermination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDeleteOnTermination;
+        private bool? _mValue_DeleteOnTermination;
+        private bool _mUnknown_DeleteOnTermination;
+        public bool? DeleteOnTermination
+        {
+            get
+            {
+                if (!_mUnknown_DeleteOnTermination) return _mValue_DeleteOnTermination;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.DeleteOnTermination' is not present");
+            }
+        }
 
-        public bool? DeleteOnTermination => _mDeleteOnTermination.GetValue("deleteOnTermination");
-
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Description' is not present");
+            }
+        }
 
-        public string? Description => _mDescription.GetValue("description");
-
-        [Input("deviceIndex")]
+        [PolicyResourceProperty("deviceIndex", "_mUnknown_DeviceIndex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDeviceIndex;
+        private int? _mValue_DeviceIndex;
+        private bool _mUnknown_DeviceIndex;
+        public int? DeviceIndex
+        {
+            get
+            {
+                if (!_mUnknown_DeviceIndex) return _mValue_DeviceIndex;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.DeviceIndex' is not present");
+            }
+        }
 
-        public int? DeviceIndex => _mDeviceIndex.GetValue("deviceIndex");
-
-        [Input("interfaceType")]
+        [PolicyResourceProperty("interfaceType", "_mUnknown_InterfaceType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInterfaceType;
+        private string? _mValue_InterfaceType;
+        private bool _mUnknown_InterfaceType;
+        public string? InterfaceType
+        {
+            get
+            {
+                if (!_mUnknown_InterfaceType) return _mValue_InterfaceType;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.InterfaceType' is not present");
+            }
+        }
 
-        public string? InterfaceType => _mInterfaceType.GetValue("interfaceType");
-
-        [Input("ipv4AddressCount")]
+        [PolicyResourceProperty("ipv4AddressCount", "_mUnknown_Ipv4AddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4AddressCount;
+        private int? _mValue_Ipv4AddressCount;
+        private bool _mUnknown_Ipv4AddressCount;
+        public int? Ipv4AddressCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4AddressCount) return _mValue_Ipv4AddressCount;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv4AddressCount' is not present");
+            }
+        }
 
-        public int? Ipv4AddressCount => _mIpv4AddressCount.GetValue("ipv4AddressCount");
-
-        [Input("ipv4Addresses")]
+        [PolicyResourceProperty("ipv4Addresses", "_mUnknown_Ipv4Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv4Addresses;
+        private List<string>? _mValue_Ipv4Addresses;
+        private bool _mUnknown_Ipv4Addresses;
+        public List<string>? Ipv4Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4Addresses) return _mValue_Ipv4Addresses;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv4Addresses' is not present");
+            }
+        }
 
-        public List<string>? Ipv4Addresses => _mIpv4Addresses.GetValue("ipv4Addresses");
-
-        [Input("ipv4PrefixCount")]
+        [PolicyResourceProperty("ipv4PrefixCount", "_mUnknown_Ipv4PrefixCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv4PrefixCount;
+        private int? _mValue_Ipv4PrefixCount;
+        private bool _mUnknown_Ipv4PrefixCount;
+        public int? Ipv4PrefixCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4PrefixCount) return _mValue_Ipv4PrefixCount;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv4PrefixCount' is not present");
+            }
+        }
 
-        public int? Ipv4PrefixCount => _mIpv4PrefixCount.GetValue("ipv4PrefixCount");
-
-        [Input("ipv4Prefixes")]
+        [PolicyResourceProperty("ipv4Prefixes", "_mUnknown_Ipv4Prefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv4Prefixes;
+        private List<string>? _mValue_Ipv4Prefixes;
+        private bool _mUnknown_Ipv4Prefixes;
+        public List<string>? Ipv4Prefixes
+        {
+            get
+            {
+                if (!_mUnknown_Ipv4Prefixes) return _mValue_Ipv4Prefixes;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv4Prefixes' is not present");
+            }
+        }
 
-        public List<string>? Ipv4Prefixes => _mIpv4Prefixes.GetValue("ipv4Prefixes");
-
-        [Input("ipv6AddressCount")]
+        [PolicyResourceProperty("ipv6AddressCount", "_mUnknown_Ipv6AddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6AddressCount;
+        private int? _mValue_Ipv6AddressCount;
+        private bool _mUnknown_Ipv6AddressCount;
+        public int? Ipv6AddressCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AddressCount) return _mValue_Ipv6AddressCount;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv6AddressCount' is not present");
+            }
+        }
 
-        public int? Ipv6AddressCount => _mIpv6AddressCount.GetValue("ipv6AddressCount");
-
-        [Input("ipv6Addresses")]
+        [PolicyResourceProperty("ipv6Addresses", "_mUnknown_Ipv6Addresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Addresses;
+        private List<string>? _mValue_Ipv6Addresses;
+        private bool _mUnknown_Ipv6Addresses;
+        public List<string>? Ipv6Addresses
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Addresses) return _mValue_Ipv6Addresses;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv6Addresses' is not present");
+            }
+        }
 
-        public List<string>? Ipv6Addresses => _mIpv6Addresses.GetValue("ipv6Addresses");
-
-        [Input("ipv6PrefixCount")]
+        [PolicyResourceProperty("ipv6PrefixCount", "_mUnknown_Ipv6PrefixCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6PrefixCount;
+        private int? _mValue_Ipv6PrefixCount;
+        private bool _mUnknown_Ipv6PrefixCount;
+        public int? Ipv6PrefixCount
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6PrefixCount) return _mValue_Ipv6PrefixCount;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv6PrefixCount' is not present");
+            }
+        }
 
-        public int? Ipv6PrefixCount => _mIpv6PrefixCount.GetValue("ipv6PrefixCount");
-
-        [Input("ipv6Prefixes")]
+        [PolicyResourceProperty("ipv6Prefixes", "_mUnknown_Ipv6Prefixes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6Prefixes;
+        private List<string>? _mValue_Ipv6Prefixes;
+        private bool _mUnknown_Ipv6Prefixes;
+        public List<string>? Ipv6Prefixes
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6Prefixes) return _mValue_Ipv6Prefixes;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.Ipv6Prefixes' is not present");
+            }
+        }
 
-        public List<string>? Ipv6Prefixes => _mIpv6Prefixes.GetValue("ipv6Prefixes");
-
-        [Input("networkCardIndex")]
+        [PolicyResourceProperty("networkCardIndex", "_mUnknown_NetworkCardIndex")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNetworkCardIndex;
+        private int? _mValue_NetworkCardIndex;
+        private bool _mUnknown_NetworkCardIndex;
+        public int? NetworkCardIndex
+        {
+            get
+            {
+                if (!_mUnknown_NetworkCardIndex) return _mValue_NetworkCardIndex;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.NetworkCardIndex' is not present");
+            }
+        }
 
-        public int? NetworkCardIndex => _mNetworkCardIndex.GetValue("networkCardIndex");
-
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.NetworkInterfaceId' is not present");
+            }
+        }
 
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
-
-        [Input("primaryIpv6")]
+        [PolicyResourceProperty("primaryIpv6", "_mUnknown_PrimaryIpv6")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryIpv6;
+        private string? _mValue_PrimaryIpv6;
+        private bool _mUnknown_PrimaryIpv6;
+        public string? PrimaryIpv6
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryIpv6) return _mValue_PrimaryIpv6;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.PrimaryIpv6' is not present");
+            }
+        }
 
-        public string? PrimaryIpv6 => _mPrimaryIpv6.GetValue("primaryIpv6");
-
-        [Input("privateIpAddress")]
+        [PolicyResourceProperty("privateIpAddress", "_mUnknown_PrivateIpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIpAddress;
+        private string? _mValue_PrivateIpAddress;
+        private bool _mUnknown_PrivateIpAddress;
+        public string? PrivateIpAddress
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIpAddress) return _mValue_PrivateIpAddress;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.PrivateIpAddress' is not present");
+            }
+        }
 
-        public string? PrivateIpAddress => _mPrivateIpAddress.GetValue("privateIpAddress");
-
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.SecurityGroups' is not present");
+            }
+        }
 
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
-
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'GetLaunchTemplateNetworkInterfaceResult.SubnetId' is not present");
+            }
+        }
     }
 }

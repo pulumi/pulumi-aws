@@ -16,62 +16,111 @@ namespace Pulumi.PolicyPacks.Aws.RolesAnywhere
         /// <summary>
         /// Amazon Resource Name (ARN) of the Trust Anchor
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'TrustAnchor.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether or not the Trust Anchor should be enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'TrustAnchor.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Trust Anchor.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrustAnchor.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("notificationSettings")]
+        [PolicyResourceProperty("notificationSettings", "_mUnknown_NotificationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.TrustAnchorNotificationSetting>> _mNotificationSettings;
-
-        public List<Outputs.TrustAnchorNotificationSetting>? NotificationSettings => _mNotificationSettings.GetValue("notificationSettings");
+        private List<Outputs.TrustAnchorNotificationSetting>? _mValue_NotificationSettings;
+        private bool _mUnknown_NotificationSettings;
+        public List<Outputs.TrustAnchorNotificationSetting>? NotificationSettings
+        {
+            get
+            {
+                if (!_mUnknown_NotificationSettings) return _mValue_NotificationSettings;
+                throw new UndeferrableValueException("Value 'TrustAnchor.NotificationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The source of trust, documented below
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.TrustAnchorSource> _mSource;
-
-        public Outputs.TrustAnchorSource? Source => _mSource.GetValue("source");
+        private Outputs.TrustAnchorSource? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Outputs.TrustAnchorSource? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'TrustAnchor.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustAnchor.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'TrustAnchor.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rolesanywhere/trustAnchor:TrustAnchor")]
@@ -80,43 +129,78 @@ namespace Pulumi.PolicyPacks.Aws.RolesAnywhere
         /// <summary>
         /// Whether or not the Trust Anchor should be enabled.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'TrustAnchorArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Trust Anchor.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'TrustAnchorArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("notificationSettings")]
+        [PolicyResourceProperty("notificationSettings", "_mUnknown_NotificationSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.TrustAnchorNotificationSettingArgs>> _mNotificationSettings;
-
-        public List<Inputs.TrustAnchorNotificationSettingArgs>? NotificationSettings => _mNotificationSettings.GetValue("notificationSettings");
+        private List<Inputs.TrustAnchorNotificationSettingArgs>? _mValue_NotificationSettings;
+        private bool _mUnknown_NotificationSettings;
+        public List<Inputs.TrustAnchorNotificationSettingArgs>? NotificationSettings
+        {
+            get
+            {
+                if (!_mUnknown_NotificationSettings) return _mValue_NotificationSettings;
+                throw new UndeferrableValueException("Value 'TrustAnchorArgs.NotificationSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The source of trust, documented below
         /// </summary>
-        [Input("source")]
+        [PolicyResourceProperty("source", "_mUnknown_Source")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.TrustAnchorSourceArgs> _mSource;
-
-        public Inputs.TrustAnchorSourceArgs? Source => _mSource.GetValue("source");
+        private Inputs.TrustAnchorSourceArgs? _mValue_Source;
+        private bool _mUnknown_Source;
+        public Inputs.TrustAnchorSourceArgs? Source
+        {
+            get
+            {
+                if (!_mUnknown_Source) return _mValue_Source;
+                throw new UndeferrableValueException("Value 'TrustAnchorArgs.Source' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'TrustAnchorArgs.Tags' is not present");
+            }
+        }
     }
 }

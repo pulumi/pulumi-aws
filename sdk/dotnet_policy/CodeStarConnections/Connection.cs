@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.CodeStarConnections
         /// <summary>
         /// The codestar connection ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Connection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
         /// </summary>
-        [Input("connectionStatus")]
+        [PolicyResourceProperty("connectionStatus", "_mUnknown_ConnectionStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectionStatus;
-
-        public string? ConnectionStatus => _mConnectionStatus.GetValue("connectionStatus");
+        private string? _mValue_ConnectionStatus;
+        private bool _mUnknown_ConnectionStatus;
+        public string? ConnectionStatus
+        {
+            get
+            {
+                if (!_mUnknown_ConnectionStatus) return _mValue_ConnectionStatus;
+                throw new UndeferrableValueException("Value 'Connection.ConnectionStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         /// </summary>
-        [Input("hostArn")]
+        [PolicyResourceProperty("hostArn", "_mUnknown_HostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostArn;
-
-        public string? HostArn => _mHostArn.GetValue("hostArn");
+        private string? _mValue_HostArn;
+        private bool _mUnknown_HostArn;
+        public string? HostArn
+        {
+            get
+            {
+                if (!_mUnknown_HostArn) return _mValue_HostArn;
+                throw new UndeferrableValueException("Value 'Connection.HostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Connection.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'Connection.ProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Connection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Connection.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:codestarconnections/connection:Connection")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.CodeStarConnections
         /// <summary>
         /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         /// </summary>
-        [Input("hostArn")]
+        [PolicyResourceProperty("hostArn", "_mUnknown_HostArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHostArn;
-
-        public string? HostArn => _mHostArn.GetValue("hostArn");
+        private string? _mValue_HostArn;
+        private bool _mUnknown_HostArn;
+        public string? HostArn
+        {
+            get
+            {
+                if (!_mUnknown_HostArn) return _mValue_HostArn;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.HostArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         /// </summary>
-        [Input("providerType")]
+        [PolicyResourceProperty("providerType", "_mUnknown_ProviderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProviderType;
-
-        public string? ProviderType => _mProviderType.GetValue("providerType");
+        private string? _mValue_ProviderType;
+        private bool _mUnknown_ProviderType;
+        public string? ProviderType
+        {
+            get
+            {
+                if (!_mUnknown_ProviderType) return _mValue_ProviderType;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.ProviderType' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Tags' is not present");
+            }
+        }
     }
 }

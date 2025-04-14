@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.AutoScalingPlans.Inputs
         /// <summary>
         /// Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
         /// </summary>
-        [Input("predefinedLoadMetricType")]
+        [PolicyResourceProperty("predefinedLoadMetricType", "_mUnknown_PredefinedLoadMetricType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPredefinedLoadMetricType;
-
-        public string? PredefinedLoadMetricType => _mPredefinedLoadMetricType.GetValue("predefinedLoadMetricType");
+        private string? _mValue_PredefinedLoadMetricType;
+        private bool _mUnknown_PredefinedLoadMetricType;
+        public string? PredefinedLoadMetricType
+        {
+            get
+            {
+                if (!_mUnknown_PredefinedLoadMetricType) return _mValue_PredefinedLoadMetricType;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.PredefinedLoadMetricType' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies the resource associated with the metric type.
         /// </summary>
-        [Input("resourceLabel")]
+        [PolicyResourceProperty("resourceLabel", "_mUnknown_ResourceLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourceLabel;
-
-        public string? ResourceLabel => _mResourceLabel.GetValue("resourceLabel");
+        private string? _mValue_ResourceLabel;
+        private bool _mUnknown_ResourceLabel;
+        public string? ResourceLabel
+        {
+            get
+            {
+                if (!_mUnknown_ResourceLabel) return _mValue_ResourceLabel;
+                throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.ResourceLabel' is not present");
+            }
+        }
     }
 }

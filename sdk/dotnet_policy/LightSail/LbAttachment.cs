@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the instance to attach to the load balancer.
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'LbAttachment.InstanceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail load balancer.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbAttachment.LbName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:lightsail/lbAttachment:LbAttachment")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.LightSail
         /// <summary>
         /// The name of the instance to attach to the load balancer.
         /// </summary>
-        [Input("instanceName")]
+        [PolicyResourceProperty("instanceName", "_mUnknown_InstanceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceName;
-
-        public string? InstanceName => _mInstanceName.GetValue("instanceName");
+        private string? _mValue_InstanceName;
+        private bool _mUnknown_InstanceName;
+        public string? InstanceName
+        {
+            get
+            {
+                if (!_mUnknown_InstanceName) return _mValue_InstanceName;
+                throw new UndeferrableValueException("Value 'LbAttachmentArgs.InstanceName' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Lightsail load balancer.
         /// </summary>
-        [Input("lbName")]
+        [PolicyResourceProperty("lbName", "_mUnknown_LbName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLbName;
-
-        public string? LbName => _mLbName.GetValue("lbName");
+        private string? _mValue_LbName;
+        private bool _mUnknown_LbName;
+        public string? LbName
+        {
+            get
+            {
+                if (!_mUnknown_LbName) return _mValue_LbName;
+                throw new UndeferrableValueException("Value 'LbAttachmentArgs.LbName' is not present");
+            }
+        }
     }
 }

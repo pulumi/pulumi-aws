@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact or escalation plan.
         /// </summary>
-        [Input("contactId")]
+        [PolicyResourceProperty("contactId", "_mUnknown_ContactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
-
-        public string? ContactId => _mContactId.GetValue("contactId");
+        private string? _mValue_ContactId;
+        private bool _mUnknown_ContactId;
+        public string? ContactId
+        {
+            get
+            {
+                if (!_mUnknown_ContactId) return _mValue_ContactId;
+                throw new UndeferrableValueException("Value 'Plan.ContactId' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         /// </summary>
-        [Input("stages")]
+        [PolicyResourceProperty("stages", "_mUnknown_Stages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.PlanStage>> _mStages;
-
-        public List<Outputs.PlanStage>? Stages => _mStages.GetValue("stages");
+        private List<Outputs.PlanStage>? _mValue_Stages;
+        private bool _mUnknown_Stages;
+        public List<Outputs.PlanStage>? Stages
+        {
+            get
+            {
+                if (!_mUnknown_Stages) return _mValue_Stages;
+                throw new UndeferrableValueException("Value 'Plan.Stages' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ssmcontacts/plan:Plan")]
@@ -38,19 +52,33 @@ namespace Pulumi.PolicyPacks.Aws.SsmContacts
         /// <summary>
         /// The Amazon Resource Name (ARN) of the contact or escalation plan.
         /// </summary>
-        [Input("contactId")]
+        [PolicyResourceProperty("contactId", "_mUnknown_ContactId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mContactId;
-
-        public string? ContactId => _mContactId.GetValue("contactId");
+        private string? _mValue_ContactId;
+        private bool _mUnknown_ContactId;
+        public string? ContactId
+        {
+            get
+            {
+                if (!_mUnknown_ContactId) return _mValue_ContactId;
+                throw new UndeferrableValueException("Value 'PlanArgs.ContactId' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         /// </summary>
-        [Input("stages")]
+        [PolicyResourceProperty("stages", "_mUnknown_Stages")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.PlanStageArgs>> _mStages;
-
-        public List<Inputs.PlanStageArgs>? Stages => _mStages.GetValue("stages");
+        private List<Inputs.PlanStageArgs>? _mValue_Stages;
+        private bool _mUnknown_Stages;
+        public List<Inputs.PlanStageArgs>? Stages
+        {
+            get
+            {
+                if (!_mUnknown_Stages) return _mValue_Stages;
+                throw new UndeferrableValueException("Value 'PlanArgs.Stages' is not present");
+            }
+        }
     }
 }

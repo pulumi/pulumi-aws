@@ -17,22 +17,43 @@ namespace Pulumi.PolicyPacks.Aws.ResourceGroupsTaggingApi.Outputs
         /// * `keys_with_noncompliant_values ` - Set of tag keys with non-compliant tag values.
         /// * `non_compliant_keys ` - Set of non-compliant tag keys.
         /// </summary>
-        [Input("complianceStatus")]
+        [PolicyResourceProperty("complianceStatus", "_mUnknown_ComplianceStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mComplianceStatus;
+        private bool? _mValue_ComplianceStatus;
+        private bool _mUnknown_ComplianceStatus;
+        public bool? ComplianceStatus
+        {
+            get
+            {
+                if (!_mUnknown_ComplianceStatus) return _mValue_ComplianceStatus;
+                throw new UndeferrableValueException("Value 'GetResourcesResourceTagMappingListComplianceDetailResult.ComplianceStatus' is not present");
+            }
+        }
 
-        public bool? ComplianceStatus => _mComplianceStatus.GetValue("complianceStatus");
-
-        [Input("keysWithNoncompliantValues")]
+        [PolicyResourceProperty("keysWithNoncompliantValues", "_mUnknown_KeysWithNoncompliantValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mKeysWithNoncompliantValues;
+        private List<string>? _mValue_KeysWithNoncompliantValues;
+        private bool _mUnknown_KeysWithNoncompliantValues;
+        public List<string>? KeysWithNoncompliantValues
+        {
+            get
+            {
+                if (!_mUnknown_KeysWithNoncompliantValues) return _mValue_KeysWithNoncompliantValues;
+                throw new UndeferrableValueException("Value 'GetResourcesResourceTagMappingListComplianceDetailResult.KeysWithNoncompliantValues' is not present");
+            }
+        }
 
-        public List<string>? KeysWithNoncompliantValues => _mKeysWithNoncompliantValues.GetValue("keysWithNoncompliantValues");
-
-        [Input("nonCompliantKeys")]
+        [PolicyResourceProperty("nonCompliantKeys", "_mUnknown_NonCompliantKeys")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNonCompliantKeys;
-
-        public List<string>? NonCompliantKeys => _mNonCompliantKeys.GetValue("nonCompliantKeys");
+        private List<string>? _mValue_NonCompliantKeys;
+        private bool _mUnknown_NonCompliantKeys;
+        public List<string>? NonCompliantKeys
+        {
+            get
+            {
+                if (!_mUnknown_NonCompliantKeys) return _mValue_NonCompliantKeys;
+                throw new UndeferrableValueException("Value 'GetResourcesResourceTagMappingListComplianceDetailResult.NonCompliantKeys' is not present");
+            }
+        }
     }
 }

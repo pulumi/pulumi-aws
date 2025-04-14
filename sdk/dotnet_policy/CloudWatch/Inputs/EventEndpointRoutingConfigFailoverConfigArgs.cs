@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Parameters used for the primary Region. Documented below.
         /// </summary>
-        [Input("primary")]
+        [PolicyResourceProperty("primary", "_mUnknown_Primary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs> _mPrimary;
-
-        public Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs? Primary => _mPrimary.GetValue("primary");
+        private Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs? _mValue_Primary;
+        private bool _mUnknown_Primary;
+        public Inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs? Primary
+        {
+            get
+            {
+                if (!_mUnknown_Primary) return _mValue_Primary;
+                throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfigArgs.Primary' is not present");
+            }
+        }
 
         /// <summary>
         /// Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
         /// </summary>
-        [Input("secondary")]
+        [PolicyResourceProperty("secondary", "_mUnknown_Secondary")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs> _mSecondary;
-
-        public Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs? Secondary => _mSecondary.GetValue("secondary");
+        private Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs? _mValue_Secondary;
+        private bool _mUnknown_Secondary;
+        public Inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs? Secondary
+        {
+            get
+            {
+                if (!_mUnknown_Secondary) return _mValue_Secondary;
+                throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfigArgs.Secondary' is not present");
+            }
+        }
     }
 }

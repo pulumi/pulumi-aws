@@ -16,39 +16,67 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// <summary>
         /// The ARN of the ElastiCache Global Replication Group.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// A flag that indicate whether the encryption at rest is enabled.
         /// </summary>
-        [Input("atRestEncryptionEnabled")]
+        [PolicyResourceProperty("atRestEncryptionEnabled", "_mUnknown_AtRestEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAtRestEncryptionEnabled;
-
-        public bool? AtRestEncryptionEnabled => _mAtRestEncryptionEnabled.GetValue("atRestEncryptionEnabled");
+        private bool? _mValue_AtRestEncryptionEnabled;
+        private bool _mUnknown_AtRestEncryptionEnabled;
+        public bool? AtRestEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AtRestEncryptionEnabled) return _mValue_AtRestEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.AtRestEncryptionEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A flag that indicate whether AuthToken (password) is enabled.
         /// </summary>
-        [Input("authTokenEnabled")]
+        [PolicyResourceProperty("authTokenEnabled", "_mUnknown_AuthTokenEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthTokenEnabled;
-
-        public bool? AuthTokenEnabled => _mAuthTokenEnabled.GetValue("authTokenEnabled");
+        private bool? _mValue_AuthTokenEnabled;
+        private bool _mUnknown_AuthTokenEnabled;
+        public bool? AuthTokenEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AuthTokenEnabled) return _mValue_AuthTokenEnabled;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.AuthTokenEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
         /// </summary>
-        [Input("automaticFailoverEnabled")]
+        [PolicyResourceProperty("automaticFailoverEnabled", "_mUnknown_AutomaticFailoverEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticFailoverEnabled;
-
-        public bool? AutomaticFailoverEnabled => _mAutomaticFailoverEnabled.GetValue("automaticFailoverEnabled");
+        private bool? _mValue_AutomaticFailoverEnabled;
+        private bool _mUnknown_AutomaticFailoverEnabled;
+        public bool? AutomaticFailoverEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticFailoverEnabled) return _mValue_AutomaticFailoverEnabled;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.AutomaticFailoverEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance class used.
@@ -56,29 +84,50 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         /// </summary>
-        [Input("cacheNodeType")]
+        [PolicyResourceProperty("cacheNodeType", "_mUnknown_CacheNodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNodeType;
-
-        public string? CacheNodeType => _mCacheNodeType.GetValue("cacheNodeType");
+        private string? _mValue_CacheNodeType;
+        private bool _mUnknown_CacheNodeType;
+        public string? CacheNodeType
+        {
+            get
+            {
+                if (!_mUnknown_CacheNodeType) return _mValue_CacheNodeType;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.CacheNodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the Global Datastore is cluster enabled.
         /// </summary>
-        [Input("clusterEnabled")]
+        [PolicyResourceProperty("clusterEnabled", "_mUnknown_ClusterEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mClusterEnabled;
-
-        public bool? ClusterEnabled => _mClusterEnabled.GetValue("clusterEnabled");
+        private bool? _mValue_ClusterEnabled;
+        private bool _mUnknown_ClusterEnabled;
+        public bool? ClusterEnabled
+        {
+            get
+            {
+                if (!_mUnknown_ClusterEnabled) return _mValue_ClusterEnabled;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.ClusterEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the cache engine to be used for the clusters in this global replication group.
         /// </summary>
-        [Input("engine")]
+        [PolicyResourceProperty("engine", "_mUnknown_Engine")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngine;
-
-        public string? Engine => _mEngine.GetValue("engine");
+        private string? _mValue_Engine;
+        private bool _mUnknown_Engine;
+        public string? Engine
+        {
+            get
+            {
+                if (!_mUnknown_Engine) return _mValue_Engine;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.Engine' is not present");
+            }
+        }
 
         /// <summary>
         /// Redis version to use for the Global Replication Group.
@@ -90,66 +139,115 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// The full version number of the cache engine running on the members of this global replication group.
         /// </summary>
-        [Input("engineVersionActual")]
+        [PolicyResourceProperty("engineVersionActual", "_mUnknown_EngineVersionActual")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersionActual;
-
-        public string? EngineVersionActual => _mEngineVersionActual.GetValue("engineVersionActual");
+        private string? _mValue_EngineVersionActual;
+        private bool _mUnknown_EngineVersionActual;
+        public string? EngineVersionActual
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersionActual) return _mValue_EngineVersionActual;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.EngineVersionActual' is not present");
+            }
+        }
 
         /// <summary>
         /// Set of node groups (shards) on the global replication group.
         /// Has the values:
         /// </summary>
-        [Input("globalNodeGroups")]
+        [PolicyResourceProperty("globalNodeGroups", "_mUnknown_GlobalNodeGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GlobalReplicationGroupGlobalNodeGroup>> _mGlobalNodeGroups;
-
-        public List<Outputs.GlobalReplicationGroupGlobalNodeGroup>? GlobalNodeGroups => _mGlobalNodeGroups.GetValue("globalNodeGroups");
+        private List<Outputs.GlobalReplicationGroupGlobalNodeGroup>? _mValue_GlobalNodeGroups;
+        private bool _mUnknown_GlobalNodeGroups;
+        public List<Outputs.GlobalReplicationGroupGlobalNodeGroup>? GlobalNodeGroups
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNodeGroups) return _mValue_GlobalNodeGroups;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.GlobalNodeGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// A user-created description for the global replication group.
         /// </summary>
-        [Input("globalReplicationGroupDescription")]
+        [PolicyResourceProperty("globalReplicationGroupDescription", "_mUnknown_GlobalReplicationGroupDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupDescription;
-
-        public string? GlobalReplicationGroupDescription => _mGlobalReplicationGroupDescription.GetValue("globalReplicationGroupDescription");
+        private string? _mValue_GlobalReplicationGroupDescription;
+        private bool _mUnknown_GlobalReplicationGroupDescription;
+        public string? GlobalReplicationGroupDescription
+        {
+            get
+            {
+                if (!_mUnknown_GlobalReplicationGroupDescription) return _mValue_GlobalReplicationGroupDescription;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.GlobalReplicationGroupDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The full ID of the global replication group.
         /// </summary>
-        [Input("globalReplicationGroupId")]
+        [PolicyResourceProperty("globalReplicationGroupId", "_mUnknown_GlobalReplicationGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupId;
-
-        public string? GlobalReplicationGroupId => _mGlobalReplicationGroupId.GetValue("globalReplicationGroupId");
+        private string? _mValue_GlobalReplicationGroupId;
+        private bool _mUnknown_GlobalReplicationGroupId;
+        public string? GlobalReplicationGroupId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalReplicationGroupId) return _mValue_GlobalReplicationGroupId;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.GlobalReplicationGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         /// </summary>
-        [Input("globalReplicationGroupIdSuffix")]
+        [PolicyResourceProperty("globalReplicationGroupIdSuffix", "_mUnknown_GlobalReplicationGroupIdSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupIdSuffix;
-
-        public string? GlobalReplicationGroupIdSuffix => _mGlobalReplicationGroupIdSuffix.GetValue("globalReplicationGroupIdSuffix");
+        private string? _mValue_GlobalReplicationGroupIdSuffix;
+        private bool _mUnknown_GlobalReplicationGroupIdSuffix;
+        public string? GlobalReplicationGroupIdSuffix
+        {
+            get
+            {
+                if (!_mUnknown_GlobalReplicationGroupIdSuffix) return _mValue_GlobalReplicationGroupIdSuffix;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.GlobalReplicationGroupIdSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of node groups (shards) on the global replication group.
         /// </summary>
-        [Input("numNodeGroups")]
+        [PolicyResourceProperty("numNodeGroups", "_mUnknown_NumNodeGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumNodeGroups;
-
-        public int? NumNodeGroups => _mNumNodeGroups.GetValue("numNodeGroups");
+        private int? _mValue_NumNodeGroups;
+        private bool _mUnknown_NumNodeGroups;
+        public int? NumNodeGroups
+        {
+            get
+            {
+                if (!_mUnknown_NumNodeGroups) return _mValue_NumNodeGroups;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.NumNodeGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -157,29 +255,50 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         /// </summary>
-        [Input("primaryReplicationGroupId")]
+        [PolicyResourceProperty("primaryReplicationGroupId", "_mUnknown_PrimaryReplicationGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryReplicationGroupId;
-
-        public string? PrimaryReplicationGroupId => _mPrimaryReplicationGroupId.GetValue("primaryReplicationGroupId");
+        private string? _mValue_PrimaryReplicationGroupId;
+        private bool _mUnknown_PrimaryReplicationGroupId;
+        public string? PrimaryReplicationGroupId
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryReplicationGroupId) return _mValue_PrimaryReplicationGroupId;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.PrimaryReplicationGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// A flag that indicates whether the encryption in transit is enabled.
         /// </summary>
-        [Input("transitEncryptionEnabled")]
+        [PolicyResourceProperty("transitEncryptionEnabled", "_mUnknown_TransitEncryptionEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mTransitEncryptionEnabled;
-
-        public bool? TransitEncryptionEnabled => _mTransitEncryptionEnabled.GetValue("transitEncryptionEnabled");
+        private bool? _mValue_TransitEncryptionEnabled;
+        private bool _mUnknown_TransitEncryptionEnabled;
+        public bool? TransitEncryptionEnabled
+        {
+            get
+            {
+                if (!_mUnknown_TransitEncryptionEnabled) return _mValue_TransitEncryptionEnabled;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroup.TransitEncryptionEnabled' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")]
@@ -189,11 +308,18 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
         /// </summary>
-        [Input("automaticFailoverEnabled")]
+        [PolicyResourceProperty("automaticFailoverEnabled", "_mUnknown_AutomaticFailoverEnabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAutomaticFailoverEnabled;
-
-        public bool? AutomaticFailoverEnabled => _mAutomaticFailoverEnabled.GetValue("automaticFailoverEnabled");
+        private bool? _mValue_AutomaticFailoverEnabled;
+        private bool _mUnknown_AutomaticFailoverEnabled;
+        public bool? AutomaticFailoverEnabled
+        {
+            get
+            {
+                if (!_mUnknown_AutomaticFailoverEnabled) return _mValue_AutomaticFailoverEnabled;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.AutomaticFailoverEnabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The instance class used.
@@ -201,11 +327,18 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         /// </summary>
-        [Input("cacheNodeType")]
+        [PolicyResourceProperty("cacheNodeType", "_mUnknown_CacheNodeType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheNodeType;
-
-        public string? CacheNodeType => _mCacheNodeType.GetValue("cacheNodeType");
+        private string? _mValue_CacheNodeType;
+        private bool _mUnknown_CacheNodeType;
+        public string? CacheNodeType
+        {
+            get
+            {
+                if (!_mUnknown_CacheNodeType) return _mValue_CacheNodeType;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.CacheNodeType' is not present");
+            }
+        }
 
         /// <summary>
         /// Redis version to use for the Global Replication Group.
@@ -217,38 +350,66 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
-        [Input("engineVersion")]
+        [PolicyResourceProperty("engineVersion", "_mUnknown_EngineVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineVersion;
-
-        public string? EngineVersion => _mEngineVersion.GetValue("engineVersion");
+        private string? _mValue_EngineVersion;
+        private bool _mUnknown_EngineVersion;
+        public string? EngineVersion
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersion) return _mValue_EngineVersion;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.EngineVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// A user-created description for the global replication group.
         /// </summary>
-        [Input("globalReplicationGroupDescription")]
+        [PolicyResourceProperty("globalReplicationGroupDescription", "_mUnknown_GlobalReplicationGroupDescription")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupDescription;
-
-        public string? GlobalReplicationGroupDescription => _mGlobalReplicationGroupDescription.GetValue("globalReplicationGroupDescription");
+        private string? _mValue_GlobalReplicationGroupDescription;
+        private bool _mUnknown_GlobalReplicationGroupDescription;
+        public string? GlobalReplicationGroupDescription
+        {
+            get
+            {
+                if (!_mUnknown_GlobalReplicationGroupDescription) return _mValue_GlobalReplicationGroupDescription;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.GlobalReplicationGroupDescription' is not present");
+            }
+        }
 
         /// <summary>
         /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         /// </summary>
-        [Input("globalReplicationGroupIdSuffix")]
+        [PolicyResourceProperty("globalReplicationGroupIdSuffix", "_mUnknown_GlobalReplicationGroupIdSuffix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalReplicationGroupIdSuffix;
-
-        public string? GlobalReplicationGroupIdSuffix => _mGlobalReplicationGroupIdSuffix.GetValue("globalReplicationGroupIdSuffix");
+        private string? _mValue_GlobalReplicationGroupIdSuffix;
+        private bool _mUnknown_GlobalReplicationGroupIdSuffix;
+        public string? GlobalReplicationGroupIdSuffix
+        {
+            get
+            {
+                if (!_mUnknown_GlobalReplicationGroupIdSuffix) return _mValue_GlobalReplicationGroupIdSuffix;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.GlobalReplicationGroupIdSuffix' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of node groups (shards) on the global replication group.
         /// </summary>
-        [Input("numNodeGroups")]
+        [PolicyResourceProperty("numNodeGroups", "_mUnknown_NumNodeGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mNumNodeGroups;
-
-        public int? NumNodeGroups => _mNumNodeGroups.GetValue("numNodeGroups");
+        private int? _mValue_NumNodeGroups;
+        private bool _mUnknown_NumNodeGroups;
+        public int? NumNodeGroups
+        {
+            get
+            {
+                if (!_mUnknown_NumNodeGroups) return _mValue_NumNodeGroups;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.NumNodeGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
@@ -256,19 +417,33 @@ namespace Pulumi.PolicyPacks.Aws.ElastiCache
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         /// </summary>
-        [Input("parameterGroupName")]
+        [PolicyResourceProperty("parameterGroupName", "_mUnknown_ParameterGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParameterGroupName;
-
-        public string? ParameterGroupName => _mParameterGroupName.GetValue("parameterGroupName");
+        private string? _mValue_ParameterGroupName;
+        private bool _mUnknown_ParameterGroupName;
+        public string? ParameterGroupName
+        {
+            get
+            {
+                if (!_mUnknown_ParameterGroupName) return _mValue_ParameterGroupName;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.ParameterGroupName' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         /// </summary>
-        [Input("primaryReplicationGroupId")]
+        [PolicyResourceProperty("primaryReplicationGroupId", "_mUnknown_PrimaryReplicationGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrimaryReplicationGroupId;
-
-        public string? PrimaryReplicationGroupId => _mPrimaryReplicationGroupId.GetValue("primaryReplicationGroupId");
+        private string? _mValue_PrimaryReplicationGroupId;
+        private bool _mUnknown_PrimaryReplicationGroupId;
+        public string? PrimaryReplicationGroupId
+        {
+            get
+            {
+                if (!_mUnknown_PrimaryReplicationGroupId) return _mValue_PrimaryReplicationGroupId;
+                throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.PrimaryReplicationGroupId' is not present");
+            }
+        }
     }
 }

@@ -17,30 +17,51 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
         /// See `advanced_recognition_setting` argument reference below.
         /// </summary>
-        [Input("advancedRecognitionSettings")]
+        [PolicyResourceProperty("advancedRecognitionSettings", "_mUnknown_AdvancedRecognitionSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting>> _mAdvancedRecognitionSettings;
-
-        public List<Outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting>? AdvancedRecognitionSettings => _mAdvancedRecognitionSettings.GetValue("advancedRecognitionSettings");
+        private List<Outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting>? _mValue_AdvancedRecognitionSettings;
+        private bool _mUnknown_AdvancedRecognitionSettings;
+        public List<Outputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetting>? AdvancedRecognitionSettings
+        {
+            get
+            {
+                if (!_mUnknown_AdvancedRecognitionSettings) return _mValue_AdvancedRecognitionSettings;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSetting.AdvancedRecognitionSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// Used to validate the value of the slot.
         /// See `regex_filter` argument reference below.
         /// </summary>
-        [Input("regexFilters")]
+        [PolicyResourceProperty("regexFilters", "_mUnknown_RegexFilters")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter>> _mRegexFilters;
-
-        public List<Outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter>? RegexFilters => _mRegexFilters.GetValue("regexFilters");
+        private List<Outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter>? _mValue_RegexFilters;
+        private bool _mUnknown_RegexFilters;
+        public List<Outputs.V2modelsSlotTypeValueSelectionSettingRegexFilter>? RegexFilters
+        {
+            get
+            {
+                if (!_mUnknown_RegexFilters) return _mValue_RegexFilters;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSetting.RegexFilters' is not present");
+            }
+        }
 
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
         /// Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
         /// </summary>
-        [Input("resolutionStrategy")]
+        [PolicyResourceProperty("resolutionStrategy", "_mUnknown_ResolutionStrategy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolutionStrategy;
-
-        public string? ResolutionStrategy => _mResolutionStrategy.GetValue("resolutionStrategy");
+        private string? _mValue_ResolutionStrategy;
+        private bool _mUnknown_ResolutionStrategy;
+        public string? ResolutionStrategy
+        {
+            get
+            {
+                if (!_mUnknown_ResolutionStrategy) return _mValue_ResolutionStrategy;
+                throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSetting.ResolutionStrategy' is not present");
+            }
+        }
     }
 }

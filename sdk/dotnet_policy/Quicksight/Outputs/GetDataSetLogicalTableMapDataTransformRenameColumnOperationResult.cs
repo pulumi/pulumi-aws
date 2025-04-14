@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult
     {
-        [Input("columnName")]
+        [PolicyResourceProperty("columnName", "_mUnknown_ColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mColumnName;
+        private string? _mValue_ColumnName;
+        private bool _mUnknown_ColumnName;
+        public string? ColumnName
+        {
+            get
+            {
+                if (!_mUnknown_ColumnName) return _mValue_ColumnName;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult.ColumnName' is not present");
+            }
+        }
 
-        public string? ColumnName => _mColumnName.GetValue("columnName");
-
-        [Input("newColumnName")]
+        [PolicyResourceProperty("newColumnName", "_mUnknown_NewColumnName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNewColumnName;
-
-        public string? NewColumnName => _mNewColumnName.GetValue("newColumnName");
+        private string? _mValue_NewColumnName;
+        private bool _mUnknown_NewColumnName;
+        public string? NewColumnName
+        {
+            get
+            {
+                if (!_mUnknown_NewColumnName) return _mValue_NewColumnName;
+                throw new UndeferrableValueException("Value 'GetDataSetLogicalTableMapDataTransformRenameColumnOperationResult.NewColumnName' is not present");
+            }
+        }
     }
 }

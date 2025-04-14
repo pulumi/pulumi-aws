@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the device.
         /// </summary>
-        [Input("deviceId")]
+        [PolicyResourceProperty("deviceId", "_mUnknown_DeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
-
-        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+        private string? _mValue_DeviceId;
+        private bool _mUnknown_DeviceId;
+        public string? DeviceId
+        {
+            get
+            {
+                if (!_mUnknown_DeviceId) return _mValue_DeviceId;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.DeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
-        [Input("linkId")]
+        [PolicyResourceProperty("linkId", "_mUnknown_LinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
-
-        public string? LinkId => _mLinkId.GetValue("linkId");
+        private string? _mValue_LinkId;
+        private bool _mUnknown_LinkId;
+        public string? LinkId
+        {
+            get
+            {
+                if (!_mUnknown_LinkId) return _mValue_LinkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.LinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Connect peer.
         /// </summary>
-        [Input("transitGatewayConnectPeerArn")]
+        [PolicyResourceProperty("transitGatewayConnectPeerArn", "_mUnknown_TransitGatewayConnectPeerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayConnectPeerArn;
-
-        public string? TransitGatewayConnectPeerArn => _mTransitGatewayConnectPeerArn.GetValue("transitGatewayConnectPeerArn");
+        private string? _mValue_TransitGatewayConnectPeerArn;
+        private bool _mUnknown_TransitGatewayConnectPeerArn;
+        public string? TransitGatewayConnectPeerArn
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayConnectPeerArn) return _mValue_TransitGatewayConnectPeerArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.TransitGatewayConnectPeerArn' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the device.
         /// </summary>
-        [Input("deviceId")]
+        [PolicyResourceProperty("deviceId", "_mUnknown_DeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
-
-        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+        private string? _mValue_DeviceId;
+        private bool _mUnknown_DeviceId;
+        public string? DeviceId
+        {
+            get
+            {
+                if (!_mUnknown_DeviceId) return _mValue_DeviceId;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociationArgs.DeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociationArgs.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link.
         /// </summary>
-        [Input("linkId")]
+        [PolicyResourceProperty("linkId", "_mUnknown_LinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
-
-        public string? LinkId => _mLinkId.GetValue("linkId");
+        private string? _mValue_LinkId;
+        private bool _mUnknown_LinkId;
+        public string? LinkId
+        {
+            get
+            {
+                if (!_mUnknown_LinkId) return _mValue_LinkId;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociationArgs.LinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Connect peer.
         /// </summary>
-        [Input("transitGatewayConnectPeerArn")]
+        [PolicyResourceProperty("transitGatewayConnectPeerArn", "_mUnknown_TransitGatewayConnectPeerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTransitGatewayConnectPeerArn;
-
-        public string? TransitGatewayConnectPeerArn => _mTransitGatewayConnectPeerArn.GetValue("transitGatewayConnectPeerArn");
+        private string? _mValue_TransitGatewayConnectPeerArn;
+        private bool _mUnknown_TransitGatewayConnectPeerArn;
+        public string? TransitGatewayConnectPeerArn
+        {
+            get
+            {
+                if (!_mUnknown_TransitGatewayConnectPeerArn) return _mValue_TransitGatewayConnectPeerArn;
+                throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociationArgs.TransitGatewayConnectPeerArn' is not present");
+            }
+        }
     }
 }

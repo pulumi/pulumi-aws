@@ -16,65 +16,114 @@ namespace Pulumi.PolicyPacks.Aws.CloudHsmV2
         /// <summary>
         /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'Hsm.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of Cloud HSM v2 cluster to which HSM will be added.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'Hsm.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the ENI interface allocated for HSM module.
         /// </summary>
-        [Input("hsmEniId")]
+        [PolicyResourceProperty("hsmEniId", "_mUnknown_HsmEniId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmEniId;
-
-        public string? HsmEniId => _mHsmEniId.GetValue("hsmEniId");
+        private string? _mValue_HsmEniId;
+        private bool _mUnknown_HsmEniId;
+        public string? HsmEniId
+        {
+            get
+            {
+                if (!_mUnknown_HsmEniId) return _mValue_HsmEniId;
+                throw new UndeferrableValueException("Value 'Hsm.HsmEniId' is not present");
+            }
+        }
 
         /// <summary>
         /// The id of the HSM module.
         /// </summary>
-        [Input("hsmId")]
+        [PolicyResourceProperty("hsmId", "_mUnknown_HsmId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHsmId;
-
-        public string? HsmId => _mHsmId.GetValue("hsmId");
+        private string? _mValue_HsmId;
+        private bool _mUnknown_HsmId;
+        public string? HsmId
+        {
+            get
+            {
+                if (!_mUnknown_HsmId) return _mValue_HsmId;
+                throw new UndeferrableValueException("Value 'Hsm.HsmId' is not present");
+            }
+        }
 
         /// <summary>
         /// The state of the HSM module.
         /// </summary>
-        [Input("hsmState")]
+        [PolicyResourceProperty("hsmState", "_mUnknown_State")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mState;
-
-        public string? State => _mState.GetValue("hsmState");
+        private string? _mValue_State;
+        private bool _mUnknown_State;
+        public string? State
+        {
+            get
+            {
+                if (!_mUnknown_State) return _mValue_State;
+                throw new UndeferrableValueException("Value 'Hsm.State' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'Hsm.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'Hsm.SubnetId' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cloudhsmv2/hsm:Hsm")]
@@ -83,37 +132,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudHsmV2
         /// <summary>
         /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         /// </summary>
-        [Input("availabilityZone")]
+        [PolicyResourceProperty("availabilityZone", "_mUnknown_AvailabilityZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZone;
-
-        public string? AvailabilityZone => _mAvailabilityZone.GetValue("availabilityZone");
+        private string? _mValue_AvailabilityZone;
+        private bool _mUnknown_AvailabilityZone;
+        public string? AvailabilityZone
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZone) return _mValue_AvailabilityZone;
+                throw new UndeferrableValueException("Value 'HsmArgs.AvailabilityZone' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of Cloud HSM v2 cluster to which HSM will be added.
         /// </summary>
-        [Input("clusterId")]
+        [PolicyResourceProperty("clusterId", "_mUnknown_ClusterId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterId;
-
-        public string? ClusterId => _mClusterId.GetValue("clusterId");
+        private string? _mValue_ClusterId;
+        private bool _mUnknown_ClusterId;
+        public string? ClusterId
+        {
+            get
+            {
+                if (!_mUnknown_ClusterId) return _mValue_ClusterId;
+                throw new UndeferrableValueException("Value 'HsmArgs.ClusterId' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'HsmArgs.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'HsmArgs.SubnetId' is not present");
+            }
+        }
     }
 }

@@ -12,70 +12,147 @@ namespace Pulumi.PolicyPacks.Aws.OpsWorks.Inputs
 {
     public sealed class RailsAppLayerCloudwatchConfigurationLogStreamArgs
     {
-        [Input("batchCount")]
+        [PolicyResourceProperty("batchCount", "_mUnknown_BatchCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchCount;
+        private int? _mValue_BatchCount;
+        private bool _mUnknown_BatchCount;
+        public int? BatchCount
+        {
+            get
+            {
+                if (!_mUnknown_BatchCount) return _mValue_BatchCount;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.BatchCount' is not present");
+            }
+        }
 
-        public int? BatchCount => _mBatchCount.GetValue("batchCount");
-
-        [Input("batchSize")]
+        [PolicyResourceProperty("batchSize", "_mUnknown_BatchSize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBatchSize;
+        private int? _mValue_BatchSize;
+        private bool _mUnknown_BatchSize;
+        public int? BatchSize
+        {
+            get
+            {
+                if (!_mUnknown_BatchSize) return _mValue_BatchSize;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.BatchSize' is not present");
+            }
+        }
 
-        public int? BatchSize => _mBatchSize.GetValue("batchSize");
-
-        [Input("bufferDuration")]
+        [PolicyResourceProperty("bufferDuration", "_mUnknown_BufferDuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mBufferDuration;
+        private int? _mValue_BufferDuration;
+        private bool _mUnknown_BufferDuration;
+        public int? BufferDuration
+        {
+            get
+            {
+                if (!_mUnknown_BufferDuration) return _mValue_BufferDuration;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.BufferDuration' is not present");
+            }
+        }
 
-        public int? BufferDuration => _mBufferDuration.GetValue("bufferDuration");
-
-        [Input("datetimeFormat")]
+        [PolicyResourceProperty("datetimeFormat", "_mUnknown_DatetimeFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatetimeFormat;
+        private string? _mValue_DatetimeFormat;
+        private bool _mUnknown_DatetimeFormat;
+        public string? DatetimeFormat
+        {
+            get
+            {
+                if (!_mUnknown_DatetimeFormat) return _mValue_DatetimeFormat;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.DatetimeFormat' is not present");
+            }
+        }
 
-        public string? DatetimeFormat => _mDatetimeFormat.GetValue("datetimeFormat");
-
-        [Input("encoding")]
+        [PolicyResourceProperty("encoding", "_mUnknown_Encoding")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEncoding;
+        private string? _mValue_Encoding;
+        private bool _mUnknown_Encoding;
+        public string? Encoding
+        {
+            get
+            {
+                if (!_mUnknown_Encoding) return _mValue_Encoding;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.Encoding' is not present");
+            }
+        }
 
-        public string? Encoding => _mEncoding.GetValue("encoding");
-
-        [Input("file")]
+        [PolicyResourceProperty("file", "_mUnknown_File")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFile;
+        private string? _mValue_File;
+        private bool _mUnknown_File;
+        public string? File
+        {
+            get
+            {
+                if (!_mUnknown_File) return _mValue_File;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.File' is not present");
+            }
+        }
 
-        public string? File => _mFile.GetValue("file");
-
-        [Input("fileFingerprintLines")]
+        [PolicyResourceProperty("fileFingerprintLines", "_mUnknown_FileFingerprintLines")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFileFingerprintLines;
+        private string? _mValue_FileFingerprintLines;
+        private bool _mUnknown_FileFingerprintLines;
+        public string? FileFingerprintLines
+        {
+            get
+            {
+                if (!_mUnknown_FileFingerprintLines) return _mValue_FileFingerprintLines;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.FileFingerprintLines' is not present");
+            }
+        }
 
-        public string? FileFingerprintLines => _mFileFingerprintLines.GetValue("fileFingerprintLines");
-
-        [Input("initialPosition")]
+        [PolicyResourceProperty("initialPosition", "_mUnknown_InitialPosition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInitialPosition;
+        private string? _mValue_InitialPosition;
+        private bool _mUnknown_InitialPosition;
+        public string? InitialPosition
+        {
+            get
+            {
+                if (!_mUnknown_InitialPosition) return _mValue_InitialPosition;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.InitialPosition' is not present");
+            }
+        }
 
-        public string? InitialPosition => _mInitialPosition.GetValue("initialPosition");
-
-        [Input("logGroupName")]
+        [PolicyResourceProperty("logGroupName", "_mUnknown_LogGroupName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLogGroupName;
+        private string? _mValue_LogGroupName;
+        private bool _mUnknown_LogGroupName;
+        public string? LogGroupName
+        {
+            get
+            {
+                if (!_mUnknown_LogGroupName) return _mValue_LogGroupName;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.LogGroupName' is not present");
+            }
+        }
 
-        public string? LogGroupName => _mLogGroupName.GetValue("logGroupName");
-
-        [Input("multilineStartPattern")]
+        [PolicyResourceProperty("multilineStartPattern", "_mUnknown_MultilineStartPattern")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMultilineStartPattern;
+        private string? _mValue_MultilineStartPattern;
+        private bool _mUnknown_MultilineStartPattern;
+        public string? MultilineStartPattern
+        {
+            get
+            {
+                if (!_mUnknown_MultilineStartPattern) return _mValue_MultilineStartPattern;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.MultilineStartPattern' is not present");
+            }
+        }
 
-        public string? MultilineStartPattern => _mMultilineStartPattern.GetValue("multilineStartPattern");
-
-        [Input("timeZone")]
+        [PolicyResourceProperty("timeZone", "_mUnknown_TimeZone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeZone;
-
-        public string? TimeZone => _mTimeZone.GetValue("timeZone");
+        private string? _mValue_TimeZone;
+        private bool _mUnknown_TimeZone;
+        public string? TimeZone
+        {
+            get
+            {
+                if (!_mUnknown_TimeZone) return _mValue_TimeZone;
+                throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStreamArgs.TimeZone' is not present");
+            }
+        }
     }
 }

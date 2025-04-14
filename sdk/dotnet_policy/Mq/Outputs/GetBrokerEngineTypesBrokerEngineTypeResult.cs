@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Mq.Outputs
         /// <summary>
         /// The MQ engine type to return version details for.
         /// </summary>
-        [Input("engineType")]
+        [PolicyResourceProperty("engineType", "_mUnknown_EngineType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineType;
-
-        public string? EngineType => _mEngineType.GetValue("engineType");
+        private string? _mValue_EngineType;
+        private bool _mUnknown_EngineType;
+        public string? EngineType
+        {
+            get
+            {
+                if (!_mUnknown_EngineType) return _mValue_EngineType;
+                throw new UndeferrableValueException("Value 'GetBrokerEngineTypesBrokerEngineTypeResult.EngineType' is not present");
+            }
+        }
 
         /// <summary>
         /// The list of engine versions.
         /// </summary>
-        [Input("engineVersions")]
+        [PolicyResourceProperty("engineVersions", "_mUnknown_EngineVersions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult>> _mEngineVersions;
-
-        public List<Outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult>? EngineVersions => _mEngineVersions.GetValue("engineVersions");
+        private List<Outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult>? _mValue_EngineVersions;
+        private bool _mUnknown_EngineVersions;
+        public List<Outputs.GetBrokerEngineTypesBrokerEngineTypeEngineVersionResult>? EngineVersions
+        {
+            get
+            {
+                if (!_mUnknown_EngineVersions) return _mValue_EngineVersions;
+                throw new UndeferrableValueException("Value 'GetBrokerEngineTypesBrokerEngineTypeResult.EngineVersions' is not present");
+            }
+        }
     }
 }

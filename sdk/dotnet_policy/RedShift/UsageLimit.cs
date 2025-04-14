@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
         /// </summary>
-        [Input("amount")]
+        [PolicyResourceProperty("amount", "_mUnknown_Amount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAmount;
-
-        public int? Amount => _mAmount.GetValue("amount");
+        private int? _mValue_Amount;
+        private bool _mUnknown_Amount;
+        public int? Amount
+        {
+            get
+            {
+                if (!_mUnknown_Amount) return _mValue_Amount;
+                throw new UndeferrableValueException("Value 'UsageLimit.Amount' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Redshift Usage Limit.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'UsageLimit.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
         /// </summary>
-        [Input("breachAction")]
+        [PolicyResourceProperty("breachAction", "_mUnknown_BreachAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBreachAction;
-
-        public string? BreachAction => _mBreachAction.GetValue("breachAction");
+        private string? _mValue_BreachAction;
+        private bool _mUnknown_BreachAction;
+        public string? BreachAction
+        {
+            get
+            {
+                if (!_mUnknown_BreachAction) return _mValue_BreachAction;
+                throw new UndeferrableValueException("Value 'UsageLimit.BreachAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the cluster that you want to limit usage.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'UsageLimit.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
         /// </summary>
-        [Input("featureType")]
+        [PolicyResourceProperty("featureType", "_mUnknown_FeatureType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureType;
-
-        public string? FeatureType => _mFeatureType.GetValue("featureType");
+        private string? _mValue_FeatureType;
+        private bool _mUnknown_FeatureType;
+        public string? FeatureType
+        {
+            get
+            {
+                if (!_mUnknown_FeatureType) return _mValue_FeatureType;
+                throw new UndeferrableValueException("Value 'UsageLimit.FeatureType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
         /// </summary>
-        [Input("limitType")]
+        [PolicyResourceProperty("limitType", "_mUnknown_LimitType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLimitType;
-
-        public string? LimitType => _mLimitType.GetValue("limitType");
+        private string? _mValue_LimitType;
+        private bool _mUnknown_LimitType;
+        public string? LimitType
+        {
+            get
+            {
+                if (!_mUnknown_LimitType) return _mValue_LimitType;
+                throw new UndeferrableValueException("Value 'UsageLimit.LimitType' is not present");
+            }
+        }
 
         /// <summary>
         /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
-
-        public string? Period => _mPeriod.GetValue("period");
+        private string? _mValue_Period;
+        private bool _mUnknown_Period;
+        public string? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'UsageLimit.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UsageLimit.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'UsageLimit.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:redshift/usageLimit:UsageLimit")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.RedShift
         /// <summary>
         /// The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
         /// </summary>
-        [Input("amount")]
+        [PolicyResourceProperty("amount", "_mUnknown_Amount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mAmount;
-
-        public int? Amount => _mAmount.GetValue("amount");
+        private int? _mValue_Amount;
+        private bool _mUnknown_Amount;
+        public int? Amount
+        {
+            get
+            {
+                if (!_mUnknown_Amount) return _mValue_Amount;
+                throw new UndeferrableValueException("Value 'UsageLimitArgs.Amount' is not present");
+            }
+        }
 
         /// <summary>
         /// The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
         /// </summary>
-        [Input("breachAction")]
+        [PolicyResourceProperty("breachAction", "_mUnknown_BreachAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBreachAction;
-
-        public string? BreachAction => _mBreachAction.GetValue("breachAction");
+        private string? _mValue_BreachAction;
+        private bool _mUnknown_BreachAction;
+        public string? BreachAction
+        {
+            get
+            {
+                if (!_mUnknown_BreachAction) return _mValue_BreachAction;
+                throw new UndeferrableValueException("Value 'UsageLimitArgs.BreachAction' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the cluster that you want to limit usage.
         /// </summary>
-        [Input("clusterIdentifier")]
+        [PolicyResourceProperty("clusterIdentifier", "_mUnknown_ClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterIdentifier;
-
-        public string? ClusterIdentifier => _mClusterIdentifier.GetValue("clusterIdentifier");
+        private string? _mValue_ClusterIdentifier;
+        private bool _mUnknown_ClusterIdentifier;
+        public string? ClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_ClusterIdentifier) return _mValue_ClusterIdentifier;
+                throw new UndeferrableValueException("Value 'UsageLimitArgs.ClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
         /// </summary>
-        [Input("featureType")]
+        [PolicyResourceProperty("featureType", "_mUnknown_FeatureType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFeatureType;
-
-        public string? FeatureType => _mFeatureType.GetValue("featureType");
+        private string? _mValue_FeatureType;
+        private bool _mUnknown_FeatureType;
+        public string? FeatureType
+        {
+            get
+            {
+                if (!_mUnknown_FeatureType) return _mValue_FeatureType;
+                throw new UndeferrableValueException("Value 'UsageLimitArgs.FeatureType' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
         /// </summary>
-        [Input("limitType")]
+        [PolicyResourceProperty("limitType", "_mUnknown_LimitType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLimitType;
-
-        public string? LimitType => _mLimitType.GetValue("limitType");
+        private string? _mValue_LimitType;
+        private bool _mUnknown_LimitType;
+        public string? LimitType
+        {
+            get
+            {
+                if (!_mUnknown_LimitType) return _mValue_LimitType;
+                throw new UndeferrableValueException("Value 'UsageLimitArgs.LimitType' is not present");
+            }
+        }
 
         /// <summary>
         /// The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
         /// </summary>
-        [Input("period")]
+        [PolicyResourceProperty("period", "_mUnknown_Period")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPeriod;
-
-        public string? Period => _mPeriod.GetValue("period");
+        private string? _mValue_Period;
+        private bool _mUnknown_Period;
+        public string? Period
+        {
+            get
+            {
+                if (!_mUnknown_Period) return _mValue_Period;
+                throw new UndeferrableValueException("Value 'UsageLimitArgs.Period' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'UsageLimitArgs.Tags' is not present");
+            }
+        }
     }
 }

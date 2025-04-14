@@ -13,212 +13,436 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
     [PolicyResourceType("aws:ec2/defaultVpc:DefaultVpc")]
     public sealed class DefaultVpc : global::Pulumi.PolicyResourceOutput
     {
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'DefaultVpc.Arn' is not present");
+            }
+        }
 
-        public string? Arn => _mArn.GetValue("arn");
-
-        [Input("assignGeneratedIpv6CidrBlock")]
+        [PolicyResourceProperty("assignGeneratedIpv6CidrBlock", "_mUnknown_AssignGeneratedIpv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignGeneratedIpv6CidrBlock;
-
-        public bool? AssignGeneratedIpv6CidrBlock => _mAssignGeneratedIpv6CidrBlock.GetValue("assignGeneratedIpv6CidrBlock");
+        private bool? _mValue_AssignGeneratedIpv6CidrBlock;
+        private bool _mUnknown_AssignGeneratedIpv6CidrBlock;
+        public bool? AssignGeneratedIpv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_AssignGeneratedIpv6CidrBlock) return _mValue_AssignGeneratedIpv6CidrBlock;
+                throw new UndeferrableValueException("Value 'DefaultVpc.AssignGeneratedIpv6CidrBlock' is not present");
+            }
+        }
 
         /// <summary>
         /// The primary IPv4 CIDR block for the VPC
         /// </summary>
-        [Input("cidrBlock")]
+        [PolicyResourceProperty("cidrBlock", "_mUnknown_CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidrBlock;
+        private string? _mValue_CidrBlock;
+        private bool _mUnknown_CidrBlock;
+        public string? CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlock) return _mValue_CidrBlock;
+                throw new UndeferrableValueException("Value 'DefaultVpc.CidrBlock' is not present");
+            }
+        }
 
-        public string? CidrBlock => _mCidrBlock.GetValue("cidrBlock");
-
-        [Input("defaultNetworkAclId")]
+        [PolicyResourceProperty("defaultNetworkAclId", "_mUnknown_DefaultNetworkAclId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultNetworkAclId;
+        private string? _mValue_DefaultNetworkAclId;
+        private bool _mUnknown_DefaultNetworkAclId;
+        public string? DefaultNetworkAclId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultNetworkAclId) return _mValue_DefaultNetworkAclId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.DefaultNetworkAclId' is not present");
+            }
+        }
 
-        public string? DefaultNetworkAclId => _mDefaultNetworkAclId.GetValue("defaultNetworkAclId");
-
-        [Input("defaultRouteTableId")]
+        [PolicyResourceProperty("defaultRouteTableId", "_mUnknown_DefaultRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultRouteTableId;
+        private string? _mValue_DefaultRouteTableId;
+        private bool _mUnknown_DefaultRouteTableId;
+        public string? DefaultRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultRouteTableId) return _mValue_DefaultRouteTableId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.DefaultRouteTableId' is not present");
+            }
+        }
 
-        public string? DefaultRouteTableId => _mDefaultRouteTableId.GetValue("defaultRouteTableId");
-
-        [Input("defaultSecurityGroupId")]
+        [PolicyResourceProperty("defaultSecurityGroupId", "_mUnknown_DefaultSecurityGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultSecurityGroupId;
+        private string? _mValue_DefaultSecurityGroupId;
+        private bool _mUnknown_DefaultSecurityGroupId;
+        public string? DefaultSecurityGroupId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultSecurityGroupId) return _mValue_DefaultSecurityGroupId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.DefaultSecurityGroupId' is not present");
+            }
+        }
 
-        public string? DefaultSecurityGroupId => _mDefaultSecurityGroupId.GetValue("defaultSecurityGroupId");
-
-        [Input("dhcpOptionsId")]
+        [PolicyResourceProperty("dhcpOptionsId", "_mUnknown_DhcpOptionsId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDhcpOptionsId;
+        private string? _mValue_DhcpOptionsId;
+        private bool _mUnknown_DhcpOptionsId;
+        public string? DhcpOptionsId
+        {
+            get
+            {
+                if (!_mUnknown_DhcpOptionsId) return _mValue_DhcpOptionsId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.DhcpOptionsId' is not present");
+            }
+        }
 
-        public string? DhcpOptionsId => _mDhcpOptionsId.GetValue("dhcpOptionsId");
-
-        [Input("enableDnsHostnames")]
+        [PolicyResourceProperty("enableDnsHostnames", "_mUnknown_EnableDnsHostnames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsHostnames;
+        private bool? _mValue_EnableDnsHostnames;
+        private bool _mUnknown_EnableDnsHostnames;
+        public bool? EnableDnsHostnames
+        {
+            get
+            {
+                if (!_mUnknown_EnableDnsHostnames) return _mValue_EnableDnsHostnames;
+                throw new UndeferrableValueException("Value 'DefaultVpc.EnableDnsHostnames' is not present");
+            }
+        }
 
-        public bool? EnableDnsHostnames => _mEnableDnsHostnames.GetValue("enableDnsHostnames");
-
-        [Input("enableDnsSupport")]
+        [PolicyResourceProperty("enableDnsSupport", "_mUnknown_EnableDnsSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsSupport;
+        private bool? _mValue_EnableDnsSupport;
+        private bool _mUnknown_EnableDnsSupport;
+        public bool? EnableDnsSupport
+        {
+            get
+            {
+                if (!_mUnknown_EnableDnsSupport) return _mValue_EnableDnsSupport;
+                throw new UndeferrableValueException("Value 'DefaultVpc.EnableDnsSupport' is not present");
+            }
+        }
 
-        public bool? EnableDnsSupport => _mEnableDnsSupport.GetValue("enableDnsSupport");
-
-        [Input("enableNetworkAddressUsageMetrics")]
+        [PolicyResourceProperty("enableNetworkAddressUsageMetrics", "_mUnknown_EnableNetworkAddressUsageMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkAddressUsageMetrics;
+        private bool? _mValue_EnableNetworkAddressUsageMetrics;
+        private bool _mUnknown_EnableNetworkAddressUsageMetrics;
+        public bool? EnableNetworkAddressUsageMetrics
+        {
+            get
+            {
+                if (!_mUnknown_EnableNetworkAddressUsageMetrics) return _mValue_EnableNetworkAddressUsageMetrics;
+                throw new UndeferrableValueException("Value 'DefaultVpc.EnableNetworkAddressUsageMetrics' is not present");
+            }
+        }
 
-        public bool? EnableNetworkAddressUsageMetrics => _mEnableNetworkAddressUsageMetrics.GetValue("enableNetworkAddressUsageMetrics");
-
-        [Input("existingDefaultVpc")]
+        [PolicyResourceProperty("existingDefaultVpc", "_mUnknown_ExistingDefaultVpc")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mExistingDefaultVpc;
-
-        public bool? ExistingDefaultVpc => _mExistingDefaultVpc.GetValue("existingDefaultVpc");
+        private bool? _mValue_ExistingDefaultVpc;
+        private bool _mUnknown_ExistingDefaultVpc;
+        public bool? ExistingDefaultVpc
+        {
+            get
+            {
+                if (!_mUnknown_ExistingDefaultVpc) return _mValue_ExistingDefaultVpc;
+                throw new UndeferrableValueException("Value 'DefaultVpc.ExistingDefaultVpc' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether destroying the resource deletes the default VPC. Default: `false`
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
-
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'DefaultVpc.ForceDestroy' is not present");
+            }
+        }
 
         /// <summary>
         /// The allowed tenancy of instances launched into the VPC
         /// </summary>
-        [Input("instanceTenancy")]
+        [PolicyResourceProperty("instanceTenancy", "_mUnknown_InstanceTenancy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceTenancy;
+        private string? _mValue_InstanceTenancy;
+        private bool _mUnknown_InstanceTenancy;
+        public string? InstanceTenancy
+        {
+            get
+            {
+                if (!_mUnknown_InstanceTenancy) return _mValue_InstanceTenancy;
+                throw new UndeferrableValueException("Value 'DefaultVpc.InstanceTenancy' is not present");
+            }
+        }
 
-        public string? InstanceTenancy => _mInstanceTenancy.GetValue("instanceTenancy");
-
-        [Input("ipv6AssociationId")]
+        [PolicyResourceProperty("ipv6AssociationId", "_mUnknown_Ipv6AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6AssociationId;
+        private string? _mValue_Ipv6AssociationId;
+        private bool _mUnknown_Ipv6AssociationId;
+        public string? Ipv6AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6AssociationId) return _mValue_Ipv6AssociationId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.Ipv6AssociationId' is not present");
+            }
+        }
 
-        public string? Ipv6AssociationId => _mIpv6AssociationId.GetValue("ipv6AssociationId");
-
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'DefaultVpc.Ipv6CidrBlock' is not present");
+            }
+        }
 
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
-
-        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        [PolicyResourceProperty("ipv6CidrBlockNetworkBorderGroup", "_mUnknown_Ipv6CidrBlockNetworkBorderGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlockNetworkBorderGroup;
+        private string? _mValue_Ipv6CidrBlockNetworkBorderGroup;
+        private bool _mUnknown_Ipv6CidrBlockNetworkBorderGroup;
+        public string? Ipv6CidrBlockNetworkBorderGroup
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlockNetworkBorderGroup) return _mValue_Ipv6CidrBlockNetworkBorderGroup;
+                throw new UndeferrableValueException("Value 'DefaultVpc.Ipv6CidrBlockNetworkBorderGroup' is not present");
+            }
+        }
 
-        public string? Ipv6CidrBlockNetworkBorderGroup => _mIpv6CidrBlockNetworkBorderGroup.GetValue("ipv6CidrBlockNetworkBorderGroup");
-
-        [Input("ipv6IpamPoolId")]
+        [PolicyResourceProperty("ipv6IpamPoolId", "_mUnknown_Ipv6IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6IpamPoolId;
+        private string? _mValue_Ipv6IpamPoolId;
+        private bool _mUnknown_Ipv6IpamPoolId;
+        public string? Ipv6IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6IpamPoolId) return _mValue_Ipv6IpamPoolId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.Ipv6IpamPoolId' is not present");
+            }
+        }
 
-        public string? Ipv6IpamPoolId => _mIpv6IpamPoolId.GetValue("ipv6IpamPoolId");
-
-        [Input("ipv6NetmaskLength")]
+        [PolicyResourceProperty("ipv6NetmaskLength", "_mUnknown_Ipv6NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6NetmaskLength;
+        private int? _mValue_Ipv6NetmaskLength;
+        private bool _mUnknown_Ipv6NetmaskLength;
+        public int? Ipv6NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6NetmaskLength) return _mValue_Ipv6NetmaskLength;
+                throw new UndeferrableValueException("Value 'DefaultVpc.Ipv6NetmaskLength' is not present");
+            }
+        }
 
-        public int? Ipv6NetmaskLength => _mIpv6NetmaskLength.GetValue("ipv6NetmaskLength");
-
-        [Input("mainRouteTableId")]
+        [PolicyResourceProperty("mainRouteTableId", "_mUnknown_MainRouteTableId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMainRouteTableId;
+        private string? _mValue_MainRouteTableId;
+        private bool _mUnknown_MainRouteTableId;
+        public string? MainRouteTableId
+        {
+            get
+            {
+                if (!_mUnknown_MainRouteTableId) return _mValue_MainRouteTableId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.MainRouteTableId' is not present");
+            }
+        }
 
-        public string? MainRouteTableId => _mMainRouteTableId.GetValue("mainRouteTableId");
-
-        [Input("ownerId")]
+        [PolicyResourceProperty("ownerId", "_mUnknown_OwnerId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwnerId;
+        private string? _mValue_OwnerId;
+        private bool _mUnknown_OwnerId;
+        public string? OwnerId
+        {
+            get
+            {
+                if (!_mUnknown_OwnerId) return _mValue_OwnerId;
+                throw new UndeferrableValueException("Value 'DefaultVpc.OwnerId' is not present");
+            }
+        }
 
-        public string? OwnerId => _mOwnerId.GetValue("ownerId");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultVpc.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'DefaultVpc.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/defaultVpc:DefaultVpc")]
     public sealed class DefaultVpcArgs : global::Pulumi.PolicyResourceInput
     {
-        [Input("assignGeneratedIpv6CidrBlock")]
+        [PolicyResourceProperty("assignGeneratedIpv6CidrBlock", "_mUnknown_AssignGeneratedIpv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAssignGeneratedIpv6CidrBlock;
+        private bool? _mValue_AssignGeneratedIpv6CidrBlock;
+        private bool _mUnknown_AssignGeneratedIpv6CidrBlock;
+        public bool? AssignGeneratedIpv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_AssignGeneratedIpv6CidrBlock) return _mValue_AssignGeneratedIpv6CidrBlock;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.AssignGeneratedIpv6CidrBlock' is not present");
+            }
+        }
 
-        public bool? AssignGeneratedIpv6CidrBlock => _mAssignGeneratedIpv6CidrBlock.GetValue("assignGeneratedIpv6CidrBlock");
-
-        [Input("enableDnsHostnames")]
+        [PolicyResourceProperty("enableDnsHostnames", "_mUnknown_EnableDnsHostnames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsHostnames;
+        private bool? _mValue_EnableDnsHostnames;
+        private bool _mUnknown_EnableDnsHostnames;
+        public bool? EnableDnsHostnames
+        {
+            get
+            {
+                if (!_mUnknown_EnableDnsHostnames) return _mValue_EnableDnsHostnames;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.EnableDnsHostnames' is not present");
+            }
+        }
 
-        public bool? EnableDnsHostnames => _mEnableDnsHostnames.GetValue("enableDnsHostnames");
-
-        [Input("enableDnsSupport")]
+        [PolicyResourceProperty("enableDnsSupport", "_mUnknown_EnableDnsSupport")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableDnsSupport;
+        private bool? _mValue_EnableDnsSupport;
+        private bool _mUnknown_EnableDnsSupport;
+        public bool? EnableDnsSupport
+        {
+            get
+            {
+                if (!_mUnknown_EnableDnsSupport) return _mValue_EnableDnsSupport;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.EnableDnsSupport' is not present");
+            }
+        }
 
-        public bool? EnableDnsSupport => _mEnableDnsSupport.GetValue("enableDnsSupport");
-
-        [Input("enableNetworkAddressUsageMetrics")]
+        [PolicyResourceProperty("enableNetworkAddressUsageMetrics", "_mUnknown_EnableNetworkAddressUsageMetrics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkAddressUsageMetrics;
-
-        public bool? EnableNetworkAddressUsageMetrics => _mEnableNetworkAddressUsageMetrics.GetValue("enableNetworkAddressUsageMetrics");
+        private bool? _mValue_EnableNetworkAddressUsageMetrics;
+        private bool _mUnknown_EnableNetworkAddressUsageMetrics;
+        public bool? EnableNetworkAddressUsageMetrics
+        {
+            get
+            {
+                if (!_mUnknown_EnableNetworkAddressUsageMetrics) return _mValue_EnableNetworkAddressUsageMetrics;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.EnableNetworkAddressUsageMetrics' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether destroying the resource deletes the default VPC. Default: `false`
         /// </summary>
-        [Input("forceDestroy")]
+        [PolicyResourceProperty("forceDestroy", "_mUnknown_ForceDestroy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mForceDestroy;
+        private bool? _mValue_ForceDestroy;
+        private bool _mUnknown_ForceDestroy;
+        public bool? ForceDestroy
+        {
+            get
+            {
+                if (!_mUnknown_ForceDestroy) return _mValue_ForceDestroy;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.ForceDestroy' is not present");
+            }
+        }
 
-        public bool? ForceDestroy => _mForceDestroy.GetValue("forceDestroy");
-
-        [Input("ipv6CidrBlock")]
+        [PolicyResourceProperty("ipv6CidrBlock", "_mUnknown_Ipv6CidrBlock")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlock;
+        private string? _mValue_Ipv6CidrBlock;
+        private bool _mUnknown_Ipv6CidrBlock;
+        public string? Ipv6CidrBlock
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlock) return _mValue_Ipv6CidrBlock;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.Ipv6CidrBlock' is not present");
+            }
+        }
 
-        public string? Ipv6CidrBlock => _mIpv6CidrBlock.GetValue("ipv6CidrBlock");
-
-        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        [PolicyResourceProperty("ipv6CidrBlockNetworkBorderGroup", "_mUnknown_Ipv6CidrBlockNetworkBorderGroup")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6CidrBlockNetworkBorderGroup;
+        private string? _mValue_Ipv6CidrBlockNetworkBorderGroup;
+        private bool _mUnknown_Ipv6CidrBlockNetworkBorderGroup;
+        public string? Ipv6CidrBlockNetworkBorderGroup
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlockNetworkBorderGroup) return _mValue_Ipv6CidrBlockNetworkBorderGroup;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.Ipv6CidrBlockNetworkBorderGroup' is not present");
+            }
+        }
 
-        public string? Ipv6CidrBlockNetworkBorderGroup => _mIpv6CidrBlockNetworkBorderGroup.GetValue("ipv6CidrBlockNetworkBorderGroup");
-
-        [Input("ipv6IpamPoolId")]
+        [PolicyResourceProperty("ipv6IpamPoolId", "_mUnknown_Ipv6IpamPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpv6IpamPoolId;
+        private string? _mValue_Ipv6IpamPoolId;
+        private bool _mUnknown_Ipv6IpamPoolId;
+        public string? Ipv6IpamPoolId
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6IpamPoolId) return _mValue_Ipv6IpamPoolId;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.Ipv6IpamPoolId' is not present");
+            }
+        }
 
-        public string? Ipv6IpamPoolId => _mIpv6IpamPoolId.GetValue("ipv6IpamPoolId");
-
-        [Input("ipv6NetmaskLength")]
+        [PolicyResourceProperty("ipv6NetmaskLength", "_mUnknown_Ipv6NetmaskLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIpv6NetmaskLength;
+        private int? _mValue_Ipv6NetmaskLength;
+        private bool _mUnknown_Ipv6NetmaskLength;
+        public int? Ipv6NetmaskLength
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6NetmaskLength) return _mValue_Ipv6NetmaskLength;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.Ipv6NetmaskLength' is not present");
+            }
+        }
 
-        public int? Ipv6NetmaskLength => _mIpv6NetmaskLength.GetValue("ipv6NetmaskLength");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'DefaultVpcArgs.Tags' is not present");
+            }
+        }
     }
 }

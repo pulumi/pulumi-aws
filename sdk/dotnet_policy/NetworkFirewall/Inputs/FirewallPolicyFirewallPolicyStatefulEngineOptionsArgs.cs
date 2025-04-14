@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
         /// </summary>
-        [Input("flowTimeouts")]
+        [PolicyResourceProperty("flowTimeouts", "_mUnknown_FlowTimeouts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs> _mFlowTimeouts;
-
-        public Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs? FlowTimeouts => _mFlowTimeouts.GetValue("flowTimeouts");
+        private Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs? _mValue_FlowTimeouts;
+        private bool _mUnknown_FlowTimeouts;
+        public Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs? FlowTimeouts
+        {
+            get
+            {
+                if (!_mUnknown_FlowTimeouts) return _mValue_FlowTimeouts;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.FlowTimeouts' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         /// </summary>
-        [Input("ruleOrder")]
+        [PolicyResourceProperty("ruleOrder", "_mUnknown_RuleOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleOrder;
-
-        public string? RuleOrder => _mRuleOrder.GetValue("ruleOrder");
+        private string? _mValue_RuleOrder;
+        private bool _mUnknown_RuleOrder;
+        public string? RuleOrder
+        {
+            get
+            {
+                if (!_mUnknown_RuleOrder) return _mValue_RuleOrder;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.RuleOrder' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
         /// </summary>
-        [Input("streamExceptionPolicy")]
+        [PolicyResourceProperty("streamExceptionPolicy", "_mUnknown_StreamExceptionPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamExceptionPolicy;
-
-        public string? StreamExceptionPolicy => _mStreamExceptionPolicy.GetValue("streamExceptionPolicy");
+        private string? _mValue_StreamExceptionPolicy;
+        private bool _mUnknown_StreamExceptionPolicy;
+        public string? StreamExceptionPolicy
+        {
+            get
+            {
+                if (!_mUnknown_StreamExceptionPolicy) return _mValue_StreamExceptionPolicy;
+                throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.StreamExceptionPolicy' is not present");
+            }
+        }
     }
 }

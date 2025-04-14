@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Outputs
         /// <summary>
         /// A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
         /// </summary>
-        [Input("category")]
+        [PolicyResourceProperty("category", "_mUnknown_Category")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCategory;
-
-        public string? Category => _mCategory.GetValue("category");
+        private string? _mValue_Category;
+        private bool _mUnknown_Category;
+        public string? Category
+        {
+            get
+            {
+                if (!_mUnknown_Category) return _mValue_Category;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Category' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
         /// </summary>
-        [Input("configuration")]
+        [PolicyResourceProperty("configuration", "_mUnknown_Configuration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mConfiguration;
-
-        public Dictionary<string, string>? Configuration => _mConfiguration.GetValue("configuration");
+        private Dictionary<string, string>? _mValue_Configuration;
+        private bool _mUnknown_Configuration;
+        public Dictionary<string, string>? Configuration
+        {
+            get
+            {
+                if (!_mUnknown_Configuration) return _mValue_Configuration;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Configuration' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of artifact names to be worked on.
         /// </summary>
-        [Input("inputArtifacts")]
+        [PolicyResourceProperty("inputArtifacts", "_mUnknown_InputArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInputArtifacts;
-
-        public List<string>? InputArtifacts => _mInputArtifacts.GetValue("inputArtifacts");
+        private List<string>? _mValue_InputArtifacts;
+        private bool _mUnknown_InputArtifacts;
+        public List<string>? InputArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_InputArtifacts) return _mValue_InputArtifacts;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.InputArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// The action declaration's name.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The namespace all output variables will be accessed from.
         /// </summary>
-        [Input("namespace")]
+        [PolicyResourceProperty("namespace", "_mUnknown_Namespace")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamespace;
-
-        public string? Namespace => _mNamespace.GetValue("namespace");
+        private string? _mValue_Namespace;
+        private bool _mUnknown_Namespace;
+        public string? Namespace
+        {
+            get
+            {
+                if (!_mUnknown_Namespace) return _mValue_Namespace;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Namespace' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of artifact names to output. Output artifact names must be unique within a pipeline.
         /// </summary>
-        [Input("outputArtifacts")]
+        [PolicyResourceProperty("outputArtifacts", "_mUnknown_OutputArtifacts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mOutputArtifacts;
-
-        public List<string>? OutputArtifacts => _mOutputArtifacts.GetValue("outputArtifacts");
+        private List<string>? _mValue_OutputArtifacts;
+        private bool _mUnknown_OutputArtifacts;
+        public List<string>? OutputArtifacts
+        {
+            get
+            {
+                if (!_mUnknown_OutputArtifacts) return _mValue_OutputArtifacts;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.OutputArtifacts' is not present");
+            }
+        }
 
         /// <summary>
         /// The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
         /// </summary>
-        [Input("owner")]
+        [PolicyResourceProperty("owner", "_mUnknown_Owner")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOwner;
-
-        public string? Owner => _mOwner.GetValue("owner");
+        private string? _mValue_Owner;
+        private bool _mUnknown_Owner;
+        public string? Owner
+        {
+            get
+            {
+                if (!_mUnknown_Owner) return _mValue_Owner;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Owner' is not present");
+            }
+        }
 
         /// <summary>
         /// The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
         /// </summary>
-        [Input("provider")]
+        [PolicyResourceProperty("provider", "_mUnknown_Provider")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvider;
-
-        public string? Provider => _mProvider.GetValue("provider");
+        private string? _mValue_Provider;
+        private bool _mUnknown_Provider;
+        public string? Provider
+        {
+            get
+            {
+                if (!_mUnknown_Provider) return _mValue_Provider;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Provider' is not present");
+            }
+        }
 
         /// <summary>
         /// The region in which to run the action.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The order in which actions are run.
         /// </summary>
-        [Input("runOrder")]
+        [PolicyResourceProperty("runOrder", "_mUnknown_RunOrder")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRunOrder;
-
-        public int? RunOrder => _mRunOrder.GetValue("runOrder");
+        private int? _mValue_RunOrder;
+        private bool _mUnknown_RunOrder;
+        public int? RunOrder
+        {
+            get
+            {
+                if (!_mUnknown_RunOrder) return _mValue_RunOrder;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.RunOrder' is not present");
+            }
+        }
 
         /// <summary>
         /// The action timeout for the rule.
         /// </summary>
-        [Input("timeoutInMinutes")]
+        [PolicyResourceProperty("timeoutInMinutes", "_mUnknown_TimeoutInMinutes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mTimeoutInMinutes;
-
-        public int? TimeoutInMinutes => _mTimeoutInMinutes.GetValue("timeoutInMinutes");
+        private int? _mValue_TimeoutInMinutes;
+        private bool _mUnknown_TimeoutInMinutes;
+        public int? TimeoutInMinutes
+        {
+            get
+            {
+                if (!_mUnknown_TimeoutInMinutes) return _mValue_TimeoutInMinutes;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.TimeoutInMinutes' is not present");
+            }
+        }
 
         /// <summary>
         /// A string that identifies the action type.
         /// </summary>
-        [Input("version")]
+        [PolicyResourceProperty("version", "_mUnknown_Version")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVersion;
-
-        public string? Version => _mVersion.GetValue("version");
+        private string? _mValue_Version;
+        private bool _mUnknown_Version;
+        public string? Version
+        {
+            get
+            {
+                if (!_mUnknown_Version) return _mValue_Version;
+                throw new UndeferrableValueException("Value 'PipelineStageAction.Version' is not present");
+            }
+        }
     }
 }

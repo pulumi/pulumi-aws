@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Kinesis.Inputs
         /// <summary>
         /// Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
         /// </summary>
-        [Input("streamMode")]
+        [PolicyResourceProperty("streamMode", "_mUnknown_StreamMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStreamMode;
-
-        public string? StreamMode => _mStreamMode.GetValue("streamMode");
+        private string? _mValue_StreamMode;
+        private bool _mUnknown_StreamMode;
+        public string? StreamMode
+        {
+            get
+            {
+                if (!_mUnknown_StreamMode) return _mValue_StreamMode;
+                throw new UndeferrableValueException("Value 'StreamStreamModeDetailsArgs.StreamMode' is not present");
+            }
+        }
     }
 }

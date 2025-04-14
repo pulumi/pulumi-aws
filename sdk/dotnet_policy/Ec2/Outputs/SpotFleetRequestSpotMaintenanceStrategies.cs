@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
         /// <summary>
         /// Nested argument containing the capacity rebalance for your fleet request. Defined below.
         /// </summary>
-        [Input("capacityRebalance")]
+        [PolicyResourceProperty("capacityRebalance", "_mUnknown_CapacityRebalance")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance> _mCapacityRebalance;
-
-        public Outputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance? CapacityRebalance => _mCapacityRebalance.GetValue("capacityRebalance");
+        private Outputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance? _mValue_CapacityRebalance;
+        private bool _mUnknown_CapacityRebalance;
+        public Outputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance? CapacityRebalance
+        {
+            get
+            {
+                if (!_mUnknown_CapacityRebalance) return _mValue_CapacityRebalance;
+                throw new UndeferrableValueException("Value 'SpotFleetRequestSpotMaintenanceStrategies.CapacityRebalance' is not present");
+            }
+        }
     }
 }

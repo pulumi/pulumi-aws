@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodePipeline.Inputs
         /// <summary>
         /// The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
         /// </summary>
-        [Input("maximumCount")]
+        [PolicyResourceProperty("maximumCount", "_mUnknown_MaximumCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaximumCount;
-
-        public int? MaximumCount => _mMaximumCount.GetValue("maximumCount");
+        private int? _mValue_MaximumCount;
+        private bool _mUnknown_MaximumCount;
+        public int? MaximumCount
+        {
+            get
+            {
+                if (!_mUnknown_MaximumCount) return _mValue_MaximumCount;
+                throw new UndeferrableValueException("Value 'CustomActionTypeOutputArtifactDetailsArgs.MaximumCount' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
         /// </summary>
-        [Input("minimumCount")]
+        [PolicyResourceProperty("minimumCount", "_mUnknown_MinimumCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinimumCount;
-
-        public int? MinimumCount => _mMinimumCount.GetValue("minimumCount");
+        private int? _mValue_MinimumCount;
+        private bool _mUnknown_MinimumCount;
+        public int? MinimumCount
+        {
+            get
+            {
+                if (!_mUnknown_MinimumCount) return _mValue_MinimumCount;
+                throw new UndeferrableValueException("Value 'CustomActionTypeOutputArtifactDetailsArgs.MinimumCount' is not present");
+            }
+        }
     }
 }

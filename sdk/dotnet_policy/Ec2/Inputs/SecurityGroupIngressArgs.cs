@@ -15,47 +15,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// <summary>
         /// List of CIDR blocks.
         /// </summary>
-        [Input("cidrBlocks")]
+        [PolicyResourceProperty("cidrBlocks", "_mUnknown_CidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mCidrBlocks;
-
-        public List<string>? CidrBlocks => _mCidrBlocks.GetValue("cidrBlocks");
+        private List<string>? _mValue_CidrBlocks;
+        private bool _mUnknown_CidrBlocks;
+        public List<string>? CidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_CidrBlocks) return _mValue_CidrBlocks;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.CidrBlocks' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of this ingress rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
         /// </summary>
-        [Input("fromPort")]
+        [PolicyResourceProperty("fromPort", "_mUnknown_FromPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFromPort;
-
-        public int? FromPort => _mFromPort.GetValue("fromPort");
+        private int? _mValue_FromPort;
+        private bool _mUnknown_FromPort;
+        public int? FromPort
+        {
+            get
+            {
+                if (!_mUnknown_FromPort) return _mValue_FromPort;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.FromPort' is not present");
+            }
+        }
 
         /// <summary>
         /// List of IPv6 CIDR blocks.
         /// </summary>
-        [Input("ipv6CidrBlocks")]
+        [PolicyResourceProperty("ipv6CidrBlocks", "_mUnknown_Ipv6CidrBlocks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mIpv6CidrBlocks;
-
-        public List<string>? Ipv6CidrBlocks => _mIpv6CidrBlocks.GetValue("ipv6CidrBlocks");
+        private List<string>? _mValue_Ipv6CidrBlocks;
+        private bool _mUnknown_Ipv6CidrBlocks;
+        public List<string>? Ipv6CidrBlocks
+        {
+            get
+            {
+                if (!_mUnknown_Ipv6CidrBlocks) return _mValue_Ipv6CidrBlocks;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.Ipv6CidrBlocks' is not present");
+            }
+        }
 
         /// <summary>
         /// List of Prefix List IDs.
         /// </summary>
-        [Input("prefixListIds")]
+        [PolicyResourceProperty("prefixListIds", "_mUnknown_PrefixListIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mPrefixListIds;
-
-        public List<string>? PrefixListIds => _mPrefixListIds.GetValue("prefixListIds");
+        private List<string>? _mValue_PrefixListIds;
+        private bool _mUnknown_PrefixListIds;
+        public List<string>? PrefixListIds
+        {
+            get
+            {
+                if (!_mUnknown_PrefixListIds) return _mValue_PrefixListIds;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.PrefixListIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
@@ -64,37 +99,65 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Inputs
         /// 
         /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
-
-        public string? Protocol => _mProtocol.GetValue("protocol");
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.Protocol' is not present");
+            }
+        }
 
         /// <summary>
         /// List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the security group itself will be added as a source to this ingress rule.
         /// </summary>
-        [Input("self")]
+        [PolicyResourceProperty("self", "_mUnknown_Self")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mSelf;
-
-        public bool? Self => _mSelf.GetValue("self");
+        private bool? _mValue_Self;
+        private bool _mUnknown_Self;
+        public bool? Self
+        {
+            get
+            {
+                if (!_mUnknown_Self) return _mValue_Self;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.Self' is not present");
+            }
+        }
 
         /// <summary>
         /// End range port (or ICMP code if protocol is `icmp`).
         /// </summary>
-        [Input("toPort")]
+        [PolicyResourceProperty("toPort", "_mUnknown_ToPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mToPort;
-
-        public int? ToPort => _mToPort.GetValue("toPort");
+        private int? _mValue_ToPort;
+        private bool _mUnknown_ToPort;
+        public int? ToPort
+        {
+            get
+            {
+                if (!_mUnknown_ToPort) return _mValue_ToPort;
+                throw new UndeferrableValueException("Value 'SecurityGroupIngressArgs.ToPort' is not present");
+            }
+        }
     }
 }

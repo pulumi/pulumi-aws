@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
         /// </summary>
-        [Input("active")]
+        [PolicyResourceProperty("active", "_mUnknown_Active")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mActive;
-
-        public bool? Active => _mActive.GetValue("active");
+        private bool? _mValue_Active;
+        private bool _mUnknown_Active;
+        public bool? Active
+        {
+            get
+            {
+                if (!_mUnknown_Active) return _mValue_Active;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.Active' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closing_response`.
         /// </summary>
-        [Input("closingResponse")]
+        [PolicyResourceProperty("closingResponse", "_mUnknown_ClosingResponse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSettingClosingResponse> _mClosingResponse;
-
-        public Outputs.V2modelsIntentClosingSettingClosingResponse? ClosingResponse => _mClosingResponse.GetValue("closingResponse");
+        private Outputs.V2modelsIntentClosingSettingClosingResponse? _mValue_ClosingResponse;
+        private bool _mUnknown_ClosingResponse;
+        public Outputs.V2modelsIntentClosingSettingClosingResponse? ClosingResponse
+        {
+            get
+            {
+                if (!_mUnknown_ClosingResponse) return _mValue_ClosingResponse;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.ClosingResponse' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `next_step` attribute is set to `EvalutateConditional`. See `conditional`.
         /// </summary>
-        [Input("conditional")]
+        [PolicyResourceProperty("conditional", "_mUnknown_Conditional")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSettingConditional> _mConditional;
-
-        public Outputs.V2modelsIntentClosingSettingConditional? Conditional => _mConditional.GetValue("conditional");
+        private Outputs.V2modelsIntentClosingSettingConditional? _mValue_Conditional;
+        private bool _mUnknown_Conditional;
+        public Outputs.V2modelsIntentClosingSettingConditional? Conditional
+        {
+            get
+            {
+                if (!_mUnknown_Conditional) return _mValue_Conditional;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.Conditional' is not present");
+            }
+        }
 
         /// <summary>
         /// Next step that the bot executes after playing the intent's closing response. See `next_step`.
         /// </summary>
-        [Input("nextStep")]
+        [PolicyResourceProperty("nextStep", "_mUnknown_NextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSettingNextStep> _mNextStep;
-
-        public Outputs.V2modelsIntentClosingSettingNextStep? NextStep => _mNextStep.GetValue("nextStep");
+        private Outputs.V2modelsIntentClosingSettingNextStep? _mValue_NextStep;
+        private bool _mUnknown_NextStep;
+        public Outputs.V2modelsIntentClosingSettingNextStep? NextStep
+        {
+            get
+            {
+                if (!_mUnknown_NextStep) return _mValue_NextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.NextStep' is not present");
+            }
+        }
     }
 }

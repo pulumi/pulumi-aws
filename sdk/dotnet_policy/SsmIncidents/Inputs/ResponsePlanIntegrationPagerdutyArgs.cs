@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.SsmIncidents.Inputs
         /// <summary>
         /// The name of the response plan.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ResponsePlanIntegrationPagerdutyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the AWS Secrets Manager secret that stores your PagerDuty key &amp;mdash; either a General Access REST API Key or User Token REST API Key &amp;mdash; and other user credentials.
         /// 
         /// For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
         /// </summary>
-        [Input("secretId")]
+        [PolicyResourceProperty("secretId", "_mUnknown_SecretId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecretId;
-
-        public string? SecretId => _mSecretId.GetValue("secretId");
+        private string? _mValue_SecretId;
+        private bool _mUnknown_SecretId;
+        public string? SecretId
+        {
+            get
+            {
+                if (!_mUnknown_SecretId) return _mValue_SecretId;
+                throw new UndeferrableValueException("Value 'ResponsePlanIntegrationPagerdutyArgs.SecretId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the PagerDuty service that the response plan associated with the incident at launch.
         /// </summary>
-        [Input("serviceId")]
+        [PolicyResourceProperty("serviceId", "_mUnknown_ServiceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mServiceId;
-
-        public string? ServiceId => _mServiceId.GetValue("serviceId");
+        private string? _mValue_ServiceId;
+        private bool _mUnknown_ServiceId;
+        public string? ServiceId
+        {
+            get
+            {
+                if (!_mUnknown_ServiceId) return _mValue_ServiceId;
+                throw new UndeferrableValueException("Value 'ResponsePlanIntegrationPagerdutyArgs.ServiceId' is not present");
+            }
+        }
     }
 }

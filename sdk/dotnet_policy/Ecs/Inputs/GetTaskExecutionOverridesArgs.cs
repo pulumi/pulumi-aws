@@ -15,55 +15,97 @@ namespace Pulumi.PolicyPacks.Aws.Ecs.Inputs
         /// <summary>
         /// One or more container overrides that are sent to a task. See below.
         /// </summary>
-        [Input("containerOverrides")]
+        [PolicyResourceProperty("containerOverrides", "_mUnknown_ContainerOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetTaskExecutionOverridesContainerOverrideInputArgs>> _mContainerOverrides;
-
-        public List<Inputs.GetTaskExecutionOverridesContainerOverrideInputArgs>? ContainerOverrides => _mContainerOverrides.GetValue("containerOverrides");
+        private List<Inputs.GetTaskExecutionOverridesContainerOverrideInputArgs>? _mValue_ContainerOverrides;
+        private bool _mUnknown_ContainerOverrides;
+        public List<Inputs.GetTaskExecutionOverridesContainerOverrideInputArgs>? ContainerOverrides
+        {
+            get
+            {
+                if (!_mUnknown_ContainerOverrides) return _mValue_ContainerOverrides;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInputArgs.ContainerOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// The CPU override for the task.
         /// </summary>
-        [Input("cpu")]
+        [PolicyResourceProperty("cpu", "_mUnknown_Cpu")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCpu;
-
-        public string? Cpu => _mCpu.GetValue("cpu");
+        private string? _mValue_Cpu;
+        private bool _mUnknown_Cpu;
+        public string? Cpu
+        {
+            get
+            {
+                if (!_mUnknown_Cpu) return _mValue_Cpu;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInputArgs.Cpu' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the task execution role override for the task.
         /// </summary>
-        [Input("executionRoleArn")]
+        [PolicyResourceProperty("executionRoleArn", "_mUnknown_ExecutionRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRoleArn;
-
-        public string? ExecutionRoleArn => _mExecutionRoleArn.GetValue("executionRoleArn");
+        private string? _mValue_ExecutionRoleArn;
+        private bool _mUnknown_ExecutionRoleArn;
+        public string? ExecutionRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRoleArn) return _mValue_ExecutionRoleArn;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInputArgs.ExecutionRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         /// </summary>
-        [Input("inferenceAcceleratorOverrides")]
+        [PolicyResourceProperty("inferenceAcceleratorOverrides", "_mUnknown_InferenceAcceleratorOverrides")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideInputArgs>> _mInferenceAcceleratorOverrides;
-
-        public List<Inputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideInputArgs>? InferenceAcceleratorOverrides => _mInferenceAcceleratorOverrides.GetValue("inferenceAcceleratorOverrides");
+        private List<Inputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideInputArgs>? _mValue_InferenceAcceleratorOverrides;
+        private bool _mUnknown_InferenceAcceleratorOverrides;
+        public List<Inputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideInputArgs>? InferenceAcceleratorOverrides
+        {
+            get
+            {
+                if (!_mUnknown_InferenceAcceleratorOverrides) return _mValue_InferenceAcceleratorOverrides;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInputArgs.InferenceAcceleratorOverrides' is not present");
+            }
+        }
 
         /// <summary>
         /// The memory override for the task.
         /// </summary>
-        [Input("memory")]
+        [PolicyResourceProperty("memory", "_mUnknown_Memory")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMemory;
-
-        public string? Memory => _mMemory.GetValue("memory");
+        private string? _mValue_Memory;
+        private bool _mUnknown_Memory;
+        public string? Memory
+        {
+            get
+            {
+                if (!_mUnknown_Memory) return _mValue_Memory;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInputArgs.Memory' is not present");
+            }
+        }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the role that containers in this task can assume.
         /// </summary>
-        [Input("taskRoleArn")]
+        [PolicyResourceProperty("taskRoleArn", "_mUnknown_TaskRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTaskRoleArn;
-
-        public string? TaskRoleArn => _mTaskRoleArn.GetValue("taskRoleArn");
+        private string? _mValue_TaskRoleArn;
+        private bool _mUnknown_TaskRoleArn;
+        public string? TaskRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_TaskRoleArn) return _mValue_TaskRoleArn;
+                throw new UndeferrableValueException("Value 'GetTaskExecutionOverridesInputArgs.TaskRoleArn' is not present");
+            }
+        }
     }
 }

@@ -15,172 +15,305 @@ namespace Pulumi.PolicyPacks.Aws.Dms.Outputs
         /// <summary>
         /// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
         /// </summary>
-        [Input("broker")]
+        [PolicyResourceProperty("broker", "_mUnknown_Broker")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBroker;
-
-        public string? Broker => _mBroker.GetValue("broker");
+        private string? _mValue_Broker;
+        private bool _mUnknown_Broker;
+        public string? Broker
+        {
+            get
+            {
+                if (!_mUnknown_Broker) return _mValue_Broker;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.Broker' is not present");
+            }
+        }
 
         /// <summary>
         /// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
         /// </summary>
-        [Input("includeControlDetails")]
+        [PolicyResourceProperty("includeControlDetails", "_mUnknown_IncludeControlDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeControlDetails;
-
-        public bool? IncludeControlDetails => _mIncludeControlDetails.GetValue("includeControlDetails");
+        private bool? _mValue_IncludeControlDetails;
+        private bool _mUnknown_IncludeControlDetails;
+        public bool? IncludeControlDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeControlDetails) return _mValue_IncludeControlDetails;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.IncludeControlDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
         /// </summary>
-        [Input("includeNullAndEmpty")]
+        [PolicyResourceProperty("includeNullAndEmpty", "_mUnknown_IncludeNullAndEmpty")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeNullAndEmpty;
-
-        public bool? IncludeNullAndEmpty => _mIncludeNullAndEmpty.GetValue("includeNullAndEmpty");
+        private bool? _mValue_IncludeNullAndEmpty;
+        private bool _mUnknown_IncludeNullAndEmpty;
+        public bool? IncludeNullAndEmpty
+        {
+            get
+            {
+                if (!_mUnknown_IncludeNullAndEmpty) return _mValue_IncludeNullAndEmpty;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.IncludeNullAndEmpty' is not present");
+            }
+        }
 
         /// <summary>
         /// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
         /// </summary>
-        [Input("includePartitionValue")]
+        [PolicyResourceProperty("includePartitionValue", "_mUnknown_IncludePartitionValue")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludePartitionValue;
-
-        public bool? IncludePartitionValue => _mIncludePartitionValue.GetValue("includePartitionValue");
+        private bool? _mValue_IncludePartitionValue;
+        private bool _mUnknown_IncludePartitionValue;
+        public bool? IncludePartitionValue
+        {
+            get
+            {
+                if (!_mUnknown_IncludePartitionValue) return _mValue_IncludePartitionValue;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.IncludePartitionValue' is not present");
+            }
+        }
 
         /// <summary>
         /// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
         /// </summary>
-        [Input("includeTableAlterOperations")]
+        [PolicyResourceProperty("includeTableAlterOperations", "_mUnknown_IncludeTableAlterOperations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTableAlterOperations;
-
-        public bool? IncludeTableAlterOperations => _mIncludeTableAlterOperations.GetValue("includeTableAlterOperations");
+        private bool? _mValue_IncludeTableAlterOperations;
+        private bool _mUnknown_IncludeTableAlterOperations;
+        public bool? IncludeTableAlterOperations
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTableAlterOperations) return _mValue_IncludeTableAlterOperations;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.IncludeTableAlterOperations' is not present");
+            }
+        }
 
         /// <summary>
         /// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
         /// </summary>
-        [Input("includeTransactionDetails")]
+        [PolicyResourceProperty("includeTransactionDetails", "_mUnknown_IncludeTransactionDetails")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIncludeTransactionDetails;
-
-        public bool? IncludeTransactionDetails => _mIncludeTransactionDetails.GetValue("includeTransactionDetails");
+        private bool? _mValue_IncludeTransactionDetails;
+        private bool _mUnknown_IncludeTransactionDetails;
+        public bool? IncludeTransactionDetails
+        {
+            get
+            {
+                if (!_mUnknown_IncludeTransactionDetails) return _mValue_IncludeTransactionDetails;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.IncludeTransactionDetails' is not present");
+            }
+        }
 
         /// <summary>
         /// Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
         /// </summary>
-        [Input("messageFormat")]
+        [PolicyResourceProperty("messageFormat", "_mUnknown_MessageFormat")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMessageFormat;
-
-        public string? MessageFormat => _mMessageFormat.GetValue("messageFormat");
+        private string? _mValue_MessageFormat;
+        private bool _mUnknown_MessageFormat;
+        public string? MessageFormat
+        {
+            get
+            {
+                if (!_mUnknown_MessageFormat) return _mValue_MessageFormat;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.MessageFormat' is not present");
+            }
+        }
 
         /// <summary>
         /// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         /// </summary>
-        [Input("messageMaxBytes")]
+        [PolicyResourceProperty("messageMaxBytes", "_mUnknown_MessageMaxBytes")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMessageMaxBytes;
-
-        public int? MessageMaxBytes => _mMessageMaxBytes.GetValue("messageMaxBytes");
+        private int? _mValue_MessageMaxBytes;
+        private bool _mUnknown_MessageMaxBytes;
+        public int? MessageMaxBytes
+        {
+            get
+            {
+                if (!_mUnknown_MessageMaxBytes) return _mValue_MessageMaxBytes;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.MessageMaxBytes' is not present");
+            }
+        }
 
         /// <summary>
         /// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
         /// </summary>
-        [Input("noHexPrefix")]
+        [PolicyResourceProperty("noHexPrefix", "_mUnknown_NoHexPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mNoHexPrefix;
-
-        public bool? NoHexPrefix => _mNoHexPrefix.GetValue("noHexPrefix");
+        private bool? _mValue_NoHexPrefix;
+        private bool _mUnknown_NoHexPrefix;
+        public bool? NoHexPrefix
+        {
+            get
+            {
+                if (!_mUnknown_NoHexPrefix) return _mValue_NoHexPrefix;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.NoHexPrefix' is not present");
+            }
+        }
 
         /// <summary>
         /// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
         /// </summary>
-        [Input("partitionIncludeSchemaTable")]
+        [PolicyResourceProperty("partitionIncludeSchemaTable", "_mUnknown_PartitionIncludeSchemaTable")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mPartitionIncludeSchemaTable;
-
-        public bool? PartitionIncludeSchemaTable => _mPartitionIncludeSchemaTable.GetValue("partitionIncludeSchemaTable");
+        private bool? _mValue_PartitionIncludeSchemaTable;
+        private bool _mUnknown_PartitionIncludeSchemaTable;
+        public bool? PartitionIncludeSchemaTable
+        {
+            get
+            {
+                if (!_mUnknown_PartitionIncludeSchemaTable) return _mValue_PartitionIncludeSchemaTable;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.PartitionIncludeSchemaTable' is not present");
+            }
+        }
 
         /// <summary>
         /// For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
         /// </summary>
-        [Input("saslMechanism")]
+        [PolicyResourceProperty("saslMechanism", "_mUnknown_SaslMechanism")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslMechanism;
-
-        public string? SaslMechanism => _mSaslMechanism.GetValue("saslMechanism");
+        private string? _mValue_SaslMechanism;
+        private bool _mUnknown_SaslMechanism;
+        public string? SaslMechanism
+        {
+            get
+            {
+                if (!_mUnknown_SaslMechanism) return _mValue_SaslMechanism;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SaslMechanism' is not present");
+            }
+        }
 
         /// <summary>
         /// Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         /// </summary>
-        [Input("saslPassword")]
+        [PolicyResourceProperty("saslPassword", "_mUnknown_SaslPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslPassword;
-
-        public string? SaslPassword => _mSaslPassword.GetValue("saslPassword");
+        private string? _mValue_SaslPassword;
+        private bool _mUnknown_SaslPassword;
+        public string? SaslPassword
+        {
+            get
+            {
+                if (!_mUnknown_SaslPassword) return _mValue_SaslPassword;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SaslPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         /// </summary>
-        [Input("saslUsername")]
+        [PolicyResourceProperty("saslUsername", "_mUnknown_SaslUsername")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSaslUsername;
-
-        public string? SaslUsername => _mSaslUsername.GetValue("saslUsername");
+        private string? _mValue_SaslUsername;
+        private bool _mUnknown_SaslUsername;
+        public string? SaslUsername
+        {
+            get
+            {
+                if (!_mUnknown_SaslUsername) return _mValue_SaslUsername;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SaslUsername' is not present");
+            }
+        }
 
         /// <summary>
         /// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
         /// </summary>
-        [Input("securityProtocol")]
+        [PolicyResourceProperty("securityProtocol", "_mUnknown_SecurityProtocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSecurityProtocol;
-
-        public string? SecurityProtocol => _mSecurityProtocol.GetValue("securityProtocol");
+        private string? _mValue_SecurityProtocol;
+        private bool _mUnknown_SecurityProtocol;
+        public string? SecurityProtocol
+        {
+            get
+            {
+                if (!_mUnknown_SecurityProtocol) return _mValue_SecurityProtocol;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SecurityProtocol' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         /// </summary>
-        [Input("sslCaCertificateArn")]
+        [PolicyResourceProperty("sslCaCertificateArn", "_mUnknown_SslCaCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslCaCertificateArn;
-
-        public string? SslCaCertificateArn => _mSslCaCertificateArn.GetValue("sslCaCertificateArn");
+        private string? _mValue_SslCaCertificateArn;
+        private bool _mUnknown_SslCaCertificateArn;
+        public string? SslCaCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_SslCaCertificateArn) return _mValue_SslCaCertificateArn;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SslCaCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the client certificate used to securely connect to a Kafka target endpoint.
         /// </summary>
-        [Input("sslClientCertificateArn")]
+        [PolicyResourceProperty("sslClientCertificateArn", "_mUnknown_SslClientCertificateArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslClientCertificateArn;
-
-        public string? SslClientCertificateArn => _mSslClientCertificateArn.GetValue("sslClientCertificateArn");
+        private string? _mValue_SslClientCertificateArn;
+        private bool _mUnknown_SslClientCertificateArn;
+        public string? SslClientCertificateArn
+        {
+            get
+            {
+                if (!_mUnknown_SslClientCertificateArn) return _mValue_SslClientCertificateArn;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SslClientCertificateArn' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN for the client private key used to securely connect to a Kafka target endpoint.
         /// </summary>
-        [Input("sslClientKeyArn")]
+        [PolicyResourceProperty("sslClientKeyArn", "_mUnknown_SslClientKeyArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslClientKeyArn;
-
-        public string? SslClientKeyArn => _mSslClientKeyArn.GetValue("sslClientKeyArn");
+        private string? _mValue_SslClientKeyArn;
+        private bool _mUnknown_SslClientKeyArn;
+        public string? SslClientKeyArn
+        {
+            get
+            {
+                if (!_mUnknown_SslClientKeyArn) return _mValue_SslClientKeyArn;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SslClientKeyArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Password for the client private key used to securely connect to a Kafka target endpoint.
         /// </summary>
-        [Input("sslClientKeyPassword")]
+        [PolicyResourceProperty("sslClientKeyPassword", "_mUnknown_SslClientKeyPassword")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSslClientKeyPassword;
-
-        public string? SslClientKeyPassword => _mSslClientKeyPassword.GetValue("sslClientKeyPassword");
+        private string? _mValue_SslClientKeyPassword;
+        private bool _mUnknown_SslClientKeyPassword;
+        public string? SslClientKeyPassword
+        {
+            get
+            {
+                if (!_mUnknown_SslClientKeyPassword) return _mValue_SslClientKeyPassword;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.SslClientKeyPassword' is not present");
+            }
+        }
 
         /// <summary>
         /// Kafka topic for migration. Default is `kafka-default-topic`.
         /// </summary>
-        [Input("topic")]
+        [PolicyResourceProperty("topic", "_mUnknown_Topic")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTopic;
-
-        public string? Topic => _mTopic.GetValue("topic");
+        private string? _mValue_Topic;
+        private bool _mUnknown_Topic;
+        public string? Topic
+        {
+            get
+            {
+                if (!_mUnknown_Topic) return _mValue_Topic;
+                throw new UndeferrableValueException("Value 'EndpointKafkaSettings.Topic' is not present");
+            }
+        }
     }
 }

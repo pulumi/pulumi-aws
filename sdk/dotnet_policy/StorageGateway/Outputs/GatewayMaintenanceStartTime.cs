@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.StorageGateway.Outputs
         /// <summary>
         /// The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
         /// </summary>
-        [Input("dayOfMonth")]
+        [PolicyResourceProperty("dayOfMonth", "_mUnknown_DayOfMonth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfMonth;
-
-        public string? DayOfMonth => _mDayOfMonth.GetValue("dayOfMonth");
+        private string? _mValue_DayOfMonth;
+        private bool _mUnknown_DayOfMonth;
+        public string? DayOfMonth
+        {
+            get
+            {
+                if (!_mUnknown_DayOfMonth) return _mValue_DayOfMonth;
+                throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTime.DayOfMonth' is not present");
+            }
+        }
 
         /// <summary>
         /// The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
         /// </summary>
-        [Input("dayOfWeek")]
+        [PolicyResourceProperty("dayOfWeek", "_mUnknown_DayOfWeek")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDayOfWeek;
-
-        public string? DayOfWeek => _mDayOfWeek.GetValue("dayOfWeek");
+        private string? _mValue_DayOfWeek;
+        private bool _mUnknown_DayOfWeek;
+        public string? DayOfWeek
+        {
+            get
+            {
+                if (!_mUnknown_DayOfWeek) return _mValue_DayOfWeek;
+                throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTime.DayOfWeek' is not present");
+            }
+        }
 
         /// <summary>
         /// The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
         /// </summary>
-        [Input("hourOfDay")]
+        [PolicyResourceProperty("hourOfDay", "_mUnknown_HourOfDay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mHourOfDay;
-
-        public int? HourOfDay => _mHourOfDay.GetValue("hourOfDay");
+        private int? _mValue_HourOfDay;
+        private bool _mUnknown_HourOfDay;
+        public int? HourOfDay
+        {
+            get
+            {
+                if (!_mUnknown_HourOfDay) return _mValue_HourOfDay;
+                throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTime.HourOfDay' is not present");
+            }
+        }
 
         /// <summary>
         /// The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
         /// </summary>
-        [Input("minuteOfHour")]
+        [PolicyResourceProperty("minuteOfHour", "_mUnknown_MinuteOfHour")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMinuteOfHour;
-
-        public int? MinuteOfHour => _mMinuteOfHour.GetValue("minuteOfHour");
+        private int? _mValue_MinuteOfHour;
+        private bool _mUnknown_MinuteOfHour;
+        public int? MinuteOfHour
+        {
+            get
+            {
+                if (!_mUnknown_MinuteOfHour) return _mValue_MinuteOfHour;
+                throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTime.MinuteOfHour' is not present");
+            }
+        }
     }
 }

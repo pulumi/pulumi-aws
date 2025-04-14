@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
         /// </summary>
-        [Input("interval")]
+        [PolicyResourceProperty("interval", "_mUnknown_Interval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mInterval;
-
-        public int? Interval => _mInterval.GetValue("interval");
+        private int? _mValue_Interval;
+        private bool _mUnknown_Interval;
+        public int? Interval
+        {
+            get
+            {
+                if (!_mUnknown_Interval) return _mValue_Interval;
+                throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs.Interval' is not present");
+            }
+        }
 
         /// <summary>
         /// The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
         /// </summary>
-        [Input("percentage")]
+        [PolicyResourceProperty("percentage", "_mUnknown_Percentage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPercentage;
-
-        public int? Percentage => _mPercentage.GetValue("percentage");
+        private int? _mValue_Percentage;
+        private bool _mUnknown_Percentage;
+        public int? Percentage
+        {
+            get
+            {
+                if (!_mUnknown_Percentage) return _mValue_Percentage;
+                throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs.Percentage' is not present");
+            }
+        }
     }
 }

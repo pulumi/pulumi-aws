@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.OpenSearchIngest.Inputs
         /// <summary>
         /// A list of security groups associated with the VPC endpoint.
         /// </summary>
-        [Input("securityGroupIds")]
+        [PolicyResourceProperty("securityGroupIds", "_mUnknown_SecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroupIds;
-
-        public List<string>? SecurityGroupIds => _mSecurityGroupIds.GetValue("securityGroupIds");
+        private List<string>? _mValue_SecurityGroupIds;
+        private bool _mUnknown_SecurityGroupIds;
+        public List<string>? SecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroupIds) return _mValue_SecurityGroupIds;
+                throw new UndeferrableValueException("Value 'PipelineVpcOptionsArgs.SecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of subnet IDs associated with the VPC endpoint.
         /// </summary>
-        [Input("subnetIds")]
+        [PolicyResourceProperty("subnetIds", "_mUnknown_SubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSubnetIds;
-
-        public List<string>? SubnetIds => _mSubnetIds.GetValue("subnetIds");
+        private List<string>? _mValue_SubnetIds;
+        private bool _mUnknown_SubnetIds;
+        public List<string>? SubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_SubnetIds) return _mValue_SubnetIds;
+                throw new UndeferrableValueException("Value 'PipelineVpcOptionsArgs.SubnetIds' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
         /// </summary>
-        [Input("vpcEndpointManagement")]
+        [PolicyResourceProperty("vpcEndpointManagement", "_mUnknown_VpcEndpointManagement")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVpcEndpointManagement;
-
-        public string? VpcEndpointManagement => _mVpcEndpointManagement.GetValue("vpcEndpointManagement");
+        private string? _mValue_VpcEndpointManagement;
+        private bool _mUnknown_VpcEndpointManagement;
+        public string? VpcEndpointManagement
+        {
+            get
+            {
+                if (!_mUnknown_VpcEndpointManagement) return _mValue_VpcEndpointManagement;
+                throw new UndeferrableValueException("Value 'PipelineVpcOptionsArgs.VpcEndpointManagement' is not present");
+            }
+        }
     }
 }

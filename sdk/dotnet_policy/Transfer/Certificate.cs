@@ -16,98 +16,175 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// An date when the certificate becomes active
         /// </summary>
-        [Input("activeDate")]
+        [PolicyResourceProperty("activeDate", "_mUnknown_ActiveDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mActiveDate;
-
-        public string? ActiveDate => _mActiveDate.GetValue("activeDate");
+        private string? _mValue_ActiveDate;
+        private bool _mUnknown_ActiveDate;
+        public string? ActiveDate
+        {
+            get
+            {
+                if (!_mUnknown_ActiveDate) return _mValue_ActiveDate;
+                throw new UndeferrableValueException("Value 'Certificate.ActiveDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the certificate
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Certificate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The valid certificate file required for the transfer.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_CertificateFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateFile;
-
-        public string? CertificateFile => _mCertificateFile.GetValue("certificate");
+        private string? _mValue_CertificateFile;
+        private bool _mUnknown_CertificateFile;
+        public string? CertificateFile
+        {
+            get
+            {
+                if (!_mUnknown_CertificateFile) return _mValue_CertificateFile;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateFile' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional list of certificate that make up the chain for the certificate that is being imported.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// The unique identifier for the AS2 certificate
         /// </summary>
-        [Input("certificateId")]
+        [PolicyResourceProperty("certificateId", "_mUnknown_CertificateId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateId;
-
-        public string? CertificateId => _mCertificateId.GetValue("certificateId");
+        private string? _mValue_CertificateId;
+        private bool _mUnknown_CertificateId;
+        public string? CertificateId
+        {
+            get
+            {
+                if (!_mUnknown_CertificateId) return _mValue_CertificateId;
+                throw new UndeferrableValueException("Value 'Certificate.CertificateId' is not present");
+            }
+        }
 
         /// <summary>
         /// A short description that helps identify the certificate.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Certificate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// An date when the certificate becomes inactive
         /// </summary>
-        [Input("inactiveDate")]
+        [PolicyResourceProperty("inactiveDate", "_mUnknown_InactiveDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInactiveDate;
-
-        public string? InactiveDate => _mInactiveDate.GetValue("inactiveDate");
+        private string? _mValue_InactiveDate;
+        private bool _mUnknown_InactiveDate;
+        public string? InactiveDate
+        {
+            get
+            {
+                if (!_mUnknown_InactiveDate) return _mValue_InactiveDate;
+                throw new UndeferrableValueException("Value 'Certificate.InactiveDate' is not present");
+            }
+        }
 
         /// <summary>
         /// The private key associated with the certificate being imported.
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'Certificate.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Certificate.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Certificate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         /// </summary>
-        [Input("usage")]
+        [PolicyResourceProperty("usage", "_mUnknown_Usage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsage;
-
-        public string? Usage => _mUsage.GetValue("usage");
+        private string? _mValue_Usage;
+        private bool _mUnknown_Usage;
+        public string? Usage
+        {
+            get
+            {
+                if (!_mUnknown_Usage) return _mValue_Usage;
+                throw new UndeferrableValueException("Value 'Certificate.Usage' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transfer/certificate:Certificate")]
@@ -116,55 +193,97 @@ namespace Pulumi.PolicyPacks.Aws.Transfer
         /// <summary>
         /// The valid certificate file required for the transfer.
         /// </summary>
-        [Input("certificate")]
+        [PolicyResourceProperty("certificate", "_mUnknown_CertificateFile")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateFile;
-
-        public string? CertificateFile => _mCertificateFile.GetValue("certificate");
+        private string? _mValue_CertificateFile;
+        private bool _mUnknown_CertificateFile;
+        public string? CertificateFile
+        {
+            get
+            {
+                if (!_mUnknown_CertificateFile) return _mValue_CertificateFile;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateFile' is not present");
+            }
+        }
 
         /// <summary>
         /// The optional list of certificate that make up the chain for the certificate that is being imported.
         /// </summary>
-        [Input("certificateChain")]
+        [PolicyResourceProperty("certificateChain", "_mUnknown_CertificateChain")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCertificateChain;
-
-        public string? CertificateChain => _mCertificateChain.GetValue("certificateChain");
+        private string? _mValue_CertificateChain;
+        private bool _mUnknown_CertificateChain;
+        public string? CertificateChain
+        {
+            get
+            {
+                if (!_mUnknown_CertificateChain) return _mValue_CertificateChain;
+                throw new UndeferrableValueException("Value 'CertificateArgs.CertificateChain' is not present");
+            }
+        }
 
         /// <summary>
         /// A short description that helps identify the certificate.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The private key associated with the certificate being imported.
         /// </summary>
-        [Input("privateKey")]
+        [PolicyResourceProperty("privateKey", "_mUnknown_PrivateKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateKey;
-
-        public string? PrivateKey => _mPrivateKey.GetValue("privateKey");
+        private string? _mValue_PrivateKey;
+        private bool _mUnknown_PrivateKey;
+        public string? PrivateKey
+        {
+            get
+            {
+                if (!_mUnknown_PrivateKey) return _mValue_PrivateKey;
+                throw new UndeferrableValueException("Value 'CertificateArgs.PrivateKey' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         /// </summary>
-        [Input("usage")]
+        [PolicyResourceProperty("usage", "_mUnknown_Usage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUsage;
-
-        public string? Usage => _mUsage.GetValue("usage");
+        private string? _mValue_Usage;
+        private bool _mUnknown_Usage;
+        public string? Usage
+        {
+            get
+            {
+                if (!_mUnknown_Usage) return _mValue_Usage;
+                throw new UndeferrableValueException("Value 'CertificateArgs.Usage' is not present");
+            }
+        }
     }
 }

@@ -15,30 +15,51 @@ namespace Pulumi.PolicyPacks.Aws.Cfg.Inputs
         /// <summary>
         /// If true, aggregate existing AWS Config regions and future regions.
         /// </summary>
-        [Input("allRegions")]
+        [PolicyResourceProperty("allRegions", "_mUnknown_AllRegions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllRegions;
-
-        public bool? AllRegions => _mAllRegions.GetValue("allRegions");
+        private bool? _mValue_AllRegions;
+        private bool _mUnknown_AllRegions;
+        public bool? AllRegions
+        {
+            get
+            {
+                if (!_mUnknown_AllRegions) return _mValue_AllRegions;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorOrganizationAggregationSourceArgs.AllRegions' is not present");
+            }
+        }
 
         /// <summary>
         /// List of source regions being aggregated.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorOrganizationAggregationSourceArgs.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
         /// 
         /// Either `regions` or `all_regions` (as true) must be specified.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ConfigurationAggregatorOrganizationAggregationSourceArgs.RoleArn' is not present");
+            }
+        }
     }
 }

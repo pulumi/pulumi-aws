@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
         /// </summary>
-        [Input("enableInterContainerTrafficEncryption")]
+        [PolicyResourceProperty("enableInterContainerTrafficEncryption", "_mUnknown_EnableInterContainerTrafficEncryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableInterContainerTrafficEncryption;
-
-        public bool? EnableInterContainerTrafficEncryption => _mEnableInterContainerTrafficEncryption.GetValue("enableInterContainerTrafficEncryption");
+        private bool? _mValue_EnableInterContainerTrafficEncryption;
+        private bool _mUnknown_EnableInterContainerTrafficEncryption;
+        public bool? EnableInterContainerTrafficEncryption
+        {
+            get
+            {
+                if (!_mUnknown_EnableInterContainerTrafficEncryption) return _mValue_EnableInterContainerTrafficEncryption;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionNetworkConfigArgs.EnableInterContainerTrafficEncryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
         /// </summary>
-        [Input("enableNetworkIsolation")]
+        [PolicyResourceProperty("enableNetworkIsolation", "_mUnknown_EnableNetworkIsolation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableNetworkIsolation;
-
-        public bool? EnableNetworkIsolation => _mEnableNetworkIsolation.GetValue("enableNetworkIsolation");
+        private bool? _mValue_EnableNetworkIsolation;
+        private bool _mUnknown_EnableNetworkIsolation;
+        public bool? EnableNetworkIsolation
+        {
+            get
+            {
+                if (!_mUnknown_EnableNetworkIsolation) return _mValue_EnableNetworkIsolation;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionNetworkConfigArgs.EnableNetworkIsolation' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
         /// </summary>
-        [Input("vpcConfig")]
+        [PolicyResourceProperty("vpcConfig", "_mUnknown_VpcConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DataQualityJobDefinitionNetworkConfigVpcConfigArgs> _mVpcConfig;
-
-        public Inputs.DataQualityJobDefinitionNetworkConfigVpcConfigArgs? VpcConfig => _mVpcConfig.GetValue("vpcConfig");
+        private Inputs.DataQualityJobDefinitionNetworkConfigVpcConfigArgs? _mValue_VpcConfig;
+        private bool _mUnknown_VpcConfig;
+        public Inputs.DataQualityJobDefinitionNetworkConfigVpcConfigArgs? VpcConfig
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfig) return _mValue_VpcConfig;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionNetworkConfigArgs.VpcConfig' is not present");
+            }
+        }
     }
 }

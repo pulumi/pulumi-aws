@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
-
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'NatGateway.AllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         /// </summary>
-        [Input("associationId")]
+        [PolicyResourceProperty("associationId", "_mUnknown_AssociationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAssociationId;
-
-        public string? AssociationId => _mAssociationId.GetValue("associationId");
+        private string? _mValue_AssociationId;
+        private bool _mUnknown_AssociationId;
+        public string? AssociationId
+        {
+            get
+            {
+                if (!_mUnknown_AssociationId) return _mValue_AssociationId;
+                throw new UndeferrableValueException("Value 'NatGateway.AssociationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         /// </summary>
-        [Input("connectivityType")]
+        [PolicyResourceProperty("connectivityType", "_mUnknown_ConnectivityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectivityType;
-
-        public string? ConnectivityType => _mConnectivityType.GetValue("connectivityType");
+        private string? _mValue_ConnectivityType;
+        private bool _mUnknown_ConnectivityType;
+        public string? ConnectivityType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectivityType) return _mValue_ConnectivityType;
+                throw new UndeferrableValueException("Value 'NatGateway.ConnectivityType' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the network interface associated with the NAT Gateway.
         /// </summary>
-        [Input("networkInterfaceId")]
+        [PolicyResourceProperty("networkInterfaceId", "_mUnknown_NetworkInterfaceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNetworkInterfaceId;
-
-        public string? NetworkInterfaceId => _mNetworkInterfaceId.GetValue("networkInterfaceId");
+        private string? _mValue_NetworkInterfaceId;
+        private bool _mUnknown_NetworkInterfaceId;
+        public string? NetworkInterfaceId
+        {
+            get
+            {
+                if (!_mUnknown_NetworkInterfaceId) return _mValue_NetworkInterfaceId;
+                throw new UndeferrableValueException("Value 'NatGateway.NetworkInterfaceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
-        [Input("privateIp")]
+        [PolicyResourceProperty("privateIp", "_mUnknown_PrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
-
-        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+        private string? _mValue_PrivateIp;
+        private bool _mUnknown_PrivateIp;
+        public string? PrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIp) return _mValue_PrivateIp;
+                throw new UndeferrableValueException("Value 'NatGateway.PrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// The Elastic IP address associated with the NAT Gateway.
         /// </summary>
-        [Input("publicIp")]
+        [PolicyResourceProperty("publicIp", "_mUnknown_PublicIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPublicIp;
-
-        public string? PublicIp => _mPublicIp.GetValue("publicIp");
+        private string? _mValue_PublicIp;
+        private bool _mUnknown_PublicIp;
+        public string? PublicIp
+        {
+            get
+            {
+                if (!_mUnknown_PublicIp) return _mValue_PublicIp;
+                throw new UndeferrableValueException("Value 'NatGateway.PublicIp' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of secondary allocation EIP IDs for this NAT Gateway.
         /// </summary>
-        [Input("secondaryAllocationIds")]
+        [PolicyResourceProperty("secondaryAllocationIds", "_mUnknown_SecondaryAllocationIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryAllocationIds;
-
-        public List<string>? SecondaryAllocationIds => _mSecondaryAllocationIds.GetValue("secondaryAllocationIds");
+        private List<string>? _mValue_SecondaryAllocationIds;
+        private bool _mUnknown_SecondaryAllocationIds;
+        public List<string>? SecondaryAllocationIds
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryAllocationIds) return _mValue_SecondaryAllocationIds;
+                throw new UndeferrableValueException("Value 'NatGateway.SecondaryAllocationIds' is not present");
+            }
+        }
 
         /// <summary>
         /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         /// </summary>
-        [Input("secondaryPrivateIpAddressCount")]
+        [PolicyResourceProperty("secondaryPrivateIpAddressCount", "_mUnknown_SecondaryPrivateIpAddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondaryPrivateIpAddressCount;
-
-        public int? SecondaryPrivateIpAddressCount => _mSecondaryPrivateIpAddressCount.GetValue("secondaryPrivateIpAddressCount");
+        private int? _mValue_SecondaryPrivateIpAddressCount;
+        private bool _mUnknown_SecondaryPrivateIpAddressCount;
+        public int? SecondaryPrivateIpAddressCount
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryPrivateIpAddressCount) return _mValue_SecondaryPrivateIpAddressCount;
+                throw new UndeferrableValueException("Value 'NatGateway.SecondaryPrivateIpAddressCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         /// </summary>
-        [Input("secondaryPrivateIpAddresses")]
+        [PolicyResourceProperty("secondaryPrivateIpAddresses", "_mUnknown_SecondaryPrivateIpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryPrivateIpAddresses;
-
-        public List<string>? SecondaryPrivateIpAddresses => _mSecondaryPrivateIpAddresses.GetValue("secondaryPrivateIpAddresses");
+        private List<string>? _mValue_SecondaryPrivateIpAddresses;
+        private bool _mUnknown_SecondaryPrivateIpAddresses;
+        public List<string>? SecondaryPrivateIpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryPrivateIpAddresses) return _mValue_SecondaryPrivateIpAddresses;
+                throw new UndeferrableValueException("Value 'NatGateway.SecondaryPrivateIpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The Subnet ID of the subnet in which to place the NAT Gateway.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NatGateway.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NatGateway.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'NatGateway.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2/natGateway:NatGateway")]
@@ -128,73 +212,129 @@ namespace Pulumi.PolicyPacks.Aws.Ec2
         /// <summary>
         /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         /// </summary>
-        [Input("allocationId")]
+        [PolicyResourceProperty("allocationId", "_mUnknown_AllocationId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAllocationId;
-
-        public string? AllocationId => _mAllocationId.GetValue("allocationId");
+        private string? _mValue_AllocationId;
+        private bool _mUnknown_AllocationId;
+        public string? AllocationId
+        {
+            get
+            {
+                if (!_mUnknown_AllocationId) return _mValue_AllocationId;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.AllocationId' is not present");
+            }
+        }
 
         /// <summary>
         /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         /// </summary>
-        [Input("connectivityType")]
+        [PolicyResourceProperty("connectivityType", "_mUnknown_ConnectivityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectivityType;
-
-        public string? ConnectivityType => _mConnectivityType.GetValue("connectivityType");
+        private string? _mValue_ConnectivityType;
+        private bool _mUnknown_ConnectivityType;
+        public string? ConnectivityType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectivityType) return _mValue_ConnectivityType;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.ConnectivityType' is not present");
+            }
+        }
 
         /// <summary>
         /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         /// </summary>
-        [Input("privateIp")]
+        [PolicyResourceProperty("privateIp", "_mUnknown_PrivateIp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateIp;
-
-        public string? PrivateIp => _mPrivateIp.GetValue("privateIp");
+        private string? _mValue_PrivateIp;
+        private bool _mUnknown_PrivateIp;
+        public string? PrivateIp
+        {
+            get
+            {
+                if (!_mUnknown_PrivateIp) return _mValue_PrivateIp;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.PrivateIp' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of secondary allocation EIP IDs for this NAT Gateway.
         /// </summary>
-        [Input("secondaryAllocationIds")]
+        [PolicyResourceProperty("secondaryAllocationIds", "_mUnknown_SecondaryAllocationIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryAllocationIds;
-
-        public List<string>? SecondaryAllocationIds => _mSecondaryAllocationIds.GetValue("secondaryAllocationIds");
+        private List<string>? _mValue_SecondaryAllocationIds;
+        private bool _mUnknown_SecondaryAllocationIds;
+        public List<string>? SecondaryAllocationIds
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryAllocationIds) return _mValue_SecondaryAllocationIds;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.SecondaryAllocationIds' is not present");
+            }
+        }
 
         /// <summary>
         /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         /// </summary>
-        [Input("secondaryPrivateIpAddressCount")]
+        [PolicyResourceProperty("secondaryPrivateIpAddressCount", "_mUnknown_SecondaryPrivateIpAddressCount")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mSecondaryPrivateIpAddressCount;
-
-        public int? SecondaryPrivateIpAddressCount => _mSecondaryPrivateIpAddressCount.GetValue("secondaryPrivateIpAddressCount");
+        private int? _mValue_SecondaryPrivateIpAddressCount;
+        private bool _mUnknown_SecondaryPrivateIpAddressCount;
+        public int? SecondaryPrivateIpAddressCount
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryPrivateIpAddressCount) return _mValue_SecondaryPrivateIpAddressCount;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.SecondaryPrivateIpAddressCount' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         /// </summary>
-        [Input("secondaryPrivateIpAddresses")]
+        [PolicyResourceProperty("secondaryPrivateIpAddresses", "_mUnknown_SecondaryPrivateIpAddresses")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecondaryPrivateIpAddresses;
-
-        public List<string>? SecondaryPrivateIpAddresses => _mSecondaryPrivateIpAddresses.GetValue("secondaryPrivateIpAddresses");
+        private List<string>? _mValue_SecondaryPrivateIpAddresses;
+        private bool _mUnknown_SecondaryPrivateIpAddresses;
+        public List<string>? SecondaryPrivateIpAddresses
+        {
+            get
+            {
+                if (!_mUnknown_SecondaryPrivateIpAddresses) return _mValue_SecondaryPrivateIpAddresses;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.SecondaryPrivateIpAddresses' is not present");
+            }
+        }
 
         /// <summary>
         /// The Subnet ID of the subnet in which to place the NAT Gateway.
         /// </summary>
-        [Input("subnetId")]
+        [PolicyResourceProperty("subnetId", "_mUnknown_SubnetId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSubnetId;
-
-        public string? SubnetId => _mSubnetId.GetValue("subnetId");
+        private string? _mValue_SubnetId;
+        private bool _mUnknown_SubnetId;
+        public string? SubnetId
+        {
+            get
+            {
+                if (!_mUnknown_SubnetId) return _mValue_SubnetId;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.SubnetId' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'NatGatewayArgs.Tags' is not present");
+            }
+        }
     }
 }

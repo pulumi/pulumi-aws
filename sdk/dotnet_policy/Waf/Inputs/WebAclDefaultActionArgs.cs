@@ -16,10 +16,17 @@ namespace Pulumi.PolicyPacks.Aws.Waf.Inputs
         /// Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
         /// e.g., `ALLOW` or `BLOCK`
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'WebAclDefaultActionArgs.Type' is not present");
+            }
+        }
     }
 }

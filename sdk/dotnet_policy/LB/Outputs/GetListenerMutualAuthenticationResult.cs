@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
 {
     public sealed class GetListenerMutualAuthenticationResult
     {
-        [Input("advertiseTrustStoreCaNames")]
+        [PolicyResourceProperty("advertiseTrustStoreCaNames", "_mUnknown_AdvertiseTrustStoreCaNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAdvertiseTrustStoreCaNames;
+        private string? _mValue_AdvertiseTrustStoreCaNames;
+        private bool _mUnknown_AdvertiseTrustStoreCaNames;
+        public string? AdvertiseTrustStoreCaNames
+        {
+            get
+            {
+                if (!_mUnknown_AdvertiseTrustStoreCaNames) return _mValue_AdvertiseTrustStoreCaNames;
+                throw new UndeferrableValueException("Value 'GetListenerMutualAuthenticationResult.AdvertiseTrustStoreCaNames' is not present");
+            }
+        }
 
-        public string? AdvertiseTrustStoreCaNames => _mAdvertiseTrustStoreCaNames.GetValue("advertiseTrustStoreCaNames");
-
-        [Input("ignoreClientCertificateExpiry")]
+        [PolicyResourceProperty("ignoreClientCertificateExpiry", "_mUnknown_IgnoreClientCertificateExpiry")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnoreClientCertificateExpiry;
+        private bool? _mValue_IgnoreClientCertificateExpiry;
+        private bool _mUnknown_IgnoreClientCertificateExpiry;
+        public bool? IgnoreClientCertificateExpiry
+        {
+            get
+            {
+                if (!_mUnknown_IgnoreClientCertificateExpiry) return _mValue_IgnoreClientCertificateExpiry;
+                throw new UndeferrableValueException("Value 'GetListenerMutualAuthenticationResult.IgnoreClientCertificateExpiry' is not present");
+            }
+        }
 
-        public bool? IgnoreClientCertificateExpiry => _mIgnoreClientCertificateExpiry.GetValue("ignoreClientCertificateExpiry");
-
-        [Input("mode")]
+        [PolicyResourceProperty("mode", "_mUnknown_Mode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMode;
+        private string? _mValue_Mode;
+        private bool _mUnknown_Mode;
+        public string? Mode
+        {
+            get
+            {
+                if (!_mUnknown_Mode) return _mValue_Mode;
+                throw new UndeferrableValueException("Value 'GetListenerMutualAuthenticationResult.Mode' is not present");
+            }
+        }
 
-        public string? Mode => _mMode.GetValue("mode");
-
-        [Input("trustStoreArn")]
+        [PolicyResourceProperty("trustStoreArn", "_mUnknown_TrustStoreArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTrustStoreArn;
-
-        public string? TrustStoreArn => _mTrustStoreArn.GetValue("trustStoreArn");
+        private string? _mValue_TrustStoreArn;
+        private bool _mUnknown_TrustStoreArn;
+        public string? TrustStoreArn
+        {
+            get
+            {
+                if (!_mUnknown_TrustStoreArn) return _mValue_TrustStoreArn;
+                throw new UndeferrableValueException("Value 'GetListenerMutualAuthenticationResult.TrustStoreArn' is not present");
+            }
+        }
     }
 }

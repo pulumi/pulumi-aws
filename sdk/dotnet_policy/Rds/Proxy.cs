@@ -16,119 +16,210 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// The Amazon Resource Name (ARN) for the proxy.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Proxy.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         /// </summary>
-        [Input("auths")]
+        [PolicyResourceProperty("auths", "_mUnknown_Auths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ProxyAuth>> _mAuths;
-
-        public List<Outputs.ProxyAuth>? Auths => _mAuths.GetValue("auths");
+        private List<Outputs.ProxyAuth>? _mValue_Auths;
+        private bool _mUnknown_Auths;
+        public List<Outputs.ProxyAuth>? Auths
+        {
+            get
+            {
+                if (!_mUnknown_Auths) return _mValue_Auths;
+                throw new UndeferrableValueException("Value 'Proxy.Auths' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         /// </summary>
-        [Input("debugLogging")]
+        [PolicyResourceProperty("debugLogging", "_mUnknown_DebugLogging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDebugLogging;
-
-        public bool? DebugLogging => _mDebugLogging.GetValue("debugLogging");
+        private bool? _mValue_DebugLogging;
+        private bool _mUnknown_DebugLogging;
+        public bool? DebugLogging
+        {
+            get
+            {
+                if (!_mUnknown_DebugLogging) return _mValue_DebugLogging;
+                throw new UndeferrableValueException("Value 'Proxy.DebugLogging' is not present");
+            }
+        }
 
         /// <summary>
         /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
-        [Input("endpoint")]
+        [PolicyResourceProperty("endpoint", "_mUnknown_Endpoint")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEndpoint;
-
-        public string? Endpoint => _mEndpoint.GetValue("endpoint");
+        private string? _mValue_Endpoint;
+        private bool _mUnknown_Endpoint;
+        public string? Endpoint
+        {
+            get
+            {
+                if (!_mUnknown_Endpoint) return _mValue_Endpoint;
+                throw new UndeferrableValueException("Value 'Proxy.Endpoint' is not present");
+            }
+        }
 
         /// <summary>
         /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
-        [Input("engineFamily")]
+        [PolicyResourceProperty("engineFamily", "_mUnknown_EngineFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineFamily;
-
-        public string? EngineFamily => _mEngineFamily.GetValue("engineFamily");
+        private string? _mValue_EngineFamily;
+        private bool _mUnknown_EngineFamily;
+        public string? EngineFamily
+        {
+            get
+            {
+                if (!_mUnknown_EngineFamily) return _mValue_EngineFamily;
+                throw new UndeferrableValueException("Value 'Proxy.EngineFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         /// </summary>
-        [Input("idleClientTimeout")]
+        [PolicyResourceProperty("idleClientTimeout", "_mUnknown_IdleClientTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleClientTimeout;
-
-        public int? IdleClientTimeout => _mIdleClientTimeout.GetValue("idleClientTimeout");
+        private int? _mValue_IdleClientTimeout;
+        private bool _mUnknown_IdleClientTimeout;
+        public int? IdleClientTimeout
+        {
+            get
+            {
+                if (!_mUnknown_IdleClientTimeout) return _mValue_IdleClientTimeout;
+                throw new UndeferrableValueException("Value 'Proxy.IdleClientTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Proxy.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
         /// </summary>
-        [Input("requireTls")]
+        [PolicyResourceProperty("requireTls", "_mUnknown_RequireTls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireTls;
-
-        public bool? RequireTls => _mRequireTls.GetValue("requireTls");
+        private bool? _mValue_RequireTls;
+        private bool _mUnknown_RequireTls;
+        public bool? RequireTls
+        {
+            get
+            {
+                if (!_mUnknown_RequireTls) return _mValue_RequireTls;
+                throw new UndeferrableValueException("Value 'Proxy.RequireTls' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'Proxy.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Proxy.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Proxy.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security group IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'Proxy.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSubnetIds")]
+        [PolicyResourceProperty("vpcSubnetIds", "_mUnknown_VpcSubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
-
-        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
+        private List<string>? _mValue_VpcSubnetIds;
+        private bool _mUnknown_VpcSubnetIds;
+        public List<string>? VpcSubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnetIds) return _mValue_VpcSubnetIds;
+                throw new UndeferrableValueException("Value 'Proxy.VpcSubnetIds' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:rds/proxy:Proxy")]
@@ -137,91 +228,161 @@ namespace Pulumi.PolicyPacks.Aws.Rds
         /// <summary>
         /// Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
         /// </summary>
-        [Input("auths")]
+        [PolicyResourceProperty("auths", "_mUnknown_Auths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ProxyAuthArgs>> _mAuths;
-
-        public List<Inputs.ProxyAuthArgs>? Auths => _mAuths.GetValue("auths");
+        private List<Inputs.ProxyAuthArgs>? _mValue_Auths;
+        private bool _mUnknown_Auths;
+        public List<Inputs.ProxyAuthArgs>? Auths
+        {
+            get
+            {
+                if (!_mUnknown_Auths) return _mValue_Auths;
+                throw new UndeferrableValueException("Value 'ProxyArgs.Auths' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         /// </summary>
-        [Input("debugLogging")]
+        [PolicyResourceProperty("debugLogging", "_mUnknown_DebugLogging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDebugLogging;
-
-        public bool? DebugLogging => _mDebugLogging.GetValue("debugLogging");
+        private bool? _mValue_DebugLogging;
+        private bool _mUnknown_DebugLogging;
+        public bool? DebugLogging
+        {
+            get
+            {
+                if (!_mUnknown_DebugLogging) return _mValue_DebugLogging;
+                throw new UndeferrableValueException("Value 'ProxyArgs.DebugLogging' is not present");
+            }
+        }
 
         /// <summary>
         /// The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
         /// </summary>
-        [Input("engineFamily")]
+        [PolicyResourceProperty("engineFamily", "_mUnknown_EngineFamily")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEngineFamily;
-
-        public string? EngineFamily => _mEngineFamily.GetValue("engineFamily");
+        private string? _mValue_EngineFamily;
+        private bool _mUnknown_EngineFamily;
+        public string? EngineFamily
+        {
+            get
+            {
+                if (!_mUnknown_EngineFamily) return _mValue_EngineFamily;
+                throw new UndeferrableValueException("Value 'ProxyArgs.EngineFamily' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
         /// </summary>
-        [Input("idleClientTimeout")]
+        [PolicyResourceProperty("idleClientTimeout", "_mUnknown_IdleClientTimeout")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mIdleClientTimeout;
-
-        public int? IdleClientTimeout => _mIdleClientTimeout.GetValue("idleClientTimeout");
+        private int? _mValue_IdleClientTimeout;
+        private bool _mUnknown_IdleClientTimeout;
+        public int? IdleClientTimeout
+        {
+            get
+            {
+                if (!_mUnknown_IdleClientTimeout) return _mValue_IdleClientTimeout;
+                throw new UndeferrableValueException("Value 'ProxyArgs.IdleClientTimeout' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProxyArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
         /// </summary>
-        [Input("requireTls")]
+        [PolicyResourceProperty("requireTls", "_mUnknown_RequireTls")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequireTls;
-
-        public bool? RequireTls => _mRequireTls.GetValue("requireTls");
+        private bool? _mValue_RequireTls;
+        private bool _mUnknown_RequireTls;
+        public bool? RequireTls
+        {
+            get
+            {
+                if (!_mUnknown_RequireTls) return _mValue_RequireTls;
+                throw new UndeferrableValueException("Value 'ProxyArgs.RequireTls' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ProxyArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProxyArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC security group IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSecurityGroupIds")]
+        [PolicyResourceProperty("vpcSecurityGroupIds", "_mUnknown_VpcSecurityGroupIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSecurityGroupIds;
-
-        public List<string>? VpcSecurityGroupIds => _mVpcSecurityGroupIds.GetValue("vpcSecurityGroupIds");
+        private List<string>? _mValue_VpcSecurityGroupIds;
+        private bool _mUnknown_VpcSecurityGroupIds;
+        public List<string>? VpcSecurityGroupIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSecurityGroupIds) return _mValue_VpcSecurityGroupIds;
+                throw new UndeferrableValueException("Value 'ProxyArgs.VpcSecurityGroupIds' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more VPC subnet IDs to associate with the new proxy.
         /// </summary>
-        [Input("vpcSubnetIds")]
+        [PolicyResourceProperty("vpcSubnetIds", "_mUnknown_VpcSubnetIds")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mVpcSubnetIds;
-
-        public List<string>? VpcSubnetIds => _mVpcSubnetIds.GetValue("vpcSubnetIds");
+        private List<string>? _mValue_VpcSubnetIds;
+        private bool _mUnknown_VpcSubnetIds;
+        public List<string>? VpcSubnetIds
+        {
+            get
+            {
+                if (!_mUnknown_VpcSubnetIds) return _mValue_VpcSubnetIds;
+                throw new UndeferrableValueException("Value 'ProxyArgs.VpcSubnetIds' is not present");
+            }
+        }
     }
 }

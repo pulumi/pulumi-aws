@@ -15,82 +15,145 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Outputs
         /// <summary>
         /// The rule action updates the `Confidence` field of a finding.
         /// </summary>
-        [Input("confidence")]
+        [PolicyResourceProperty("confidence", "_mUnknown_Confidence")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mConfidence;
-
-        public int? Confidence => _mConfidence.GetValue("confidence");
+        private int? _mValue_Confidence;
+        private bool _mUnknown_Confidence;
+        public int? Confidence
+        {
+            get
+            {
+                if (!_mUnknown_Confidence) return _mValue_Confidence;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.Confidence' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule action updates the `Criticality` field of a finding.
         /// </summary>
-        [Input("criticality")]
+        [PolicyResourceProperty("criticality", "_mUnknown_Criticality")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCriticality;
-
-        public int? Criticality => _mCriticality.GetValue("criticality");
+        private int? _mValue_Criticality;
+        private bool _mUnknown_Criticality;
+        public int? Criticality
+        {
+            get
+            {
+                if (!_mUnknown_Criticality) return _mValue_Criticality;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.Criticality' is not present");
+            }
+        }
 
         /// <summary>
         /// A resource block that updates the note. Documented below.
         /// </summary>
-        [Input("note")]
+        [PolicyResourceProperty("note", "_mUnknown_Note")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AutomationRuleActionFindingFieldsUpdateNote> _mNote;
-
-        public Outputs.AutomationRuleActionFindingFieldsUpdateNote? Note => _mNote.GetValue("note");
+        private Outputs.AutomationRuleActionFindingFieldsUpdateNote? _mValue_Note;
+        private bool _mUnknown_Note;
+        public Outputs.AutomationRuleActionFindingFieldsUpdateNote? Note
+        {
+            get
+            {
+                if (!_mUnknown_Note) return _mValue_Note;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.Note' is not present");
+            }
+        }
 
         /// <summary>
         /// A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
         /// </summary>
-        [Input("relatedFindings")]
+        [PolicyResourceProperty("relatedFindings", "_mUnknown_RelatedFindings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding>> _mRelatedFindings;
-
-        public List<Outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding>? RelatedFindings => _mRelatedFindings.GetValue("relatedFindings");
+        private List<Outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding>? _mValue_RelatedFindings;
+        private bool _mUnknown_RelatedFindings;
+        public List<Outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding>? RelatedFindings
+        {
+            get
+            {
+                if (!_mUnknown_RelatedFindings) return _mValue_RelatedFindings;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.RelatedFindings' is not present");
+            }
+        }
 
         /// <summary>
         /// A resource block that updates to the severity information for a finding. Documented below.
         /// </summary>
-        [Input("severity")]
+        [PolicyResourceProperty("severity", "_mUnknown_Severity")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AutomationRuleActionFindingFieldsUpdateSeverity> _mSeverity;
-
-        public Outputs.AutomationRuleActionFindingFieldsUpdateSeverity? Severity => _mSeverity.GetValue("severity");
+        private Outputs.AutomationRuleActionFindingFieldsUpdateSeverity? _mValue_Severity;
+        private bool _mUnknown_Severity;
+        public Outputs.AutomationRuleActionFindingFieldsUpdateSeverity? Severity
+        {
+            get
+            {
+                if (!_mUnknown_Severity) return _mValue_Severity;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.Severity' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule action updates the `Types` field of a finding.
         /// </summary>
-        [Input("types")]
+        [PolicyResourceProperty("types", "_mUnknown_Types")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTypes;
-
-        public List<string>? Types => _mTypes.GetValue("types");
+        private List<string>? _mValue_Types;
+        private bool _mUnknown_Types;
+        public List<string>? Types
+        {
+            get
+            {
+                if (!_mUnknown_Types) return _mValue_Types;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.Types' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule action updates the `UserDefinedFields` field of a finding.
         /// </summary>
-        [Input("userDefinedFields")]
+        [PolicyResourceProperty("userDefinedFields", "_mUnknown_UserDefinedFields")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mUserDefinedFields;
-
-        public Dictionary<string, string>? UserDefinedFields => _mUserDefinedFields.GetValue("userDefinedFields");
+        private Dictionary<string, string>? _mValue_UserDefinedFields;
+        private bool _mUnknown_UserDefinedFields;
+        public Dictionary<string, string>? UserDefinedFields
+        {
+            get
+            {
+                if (!_mUnknown_UserDefinedFields) return _mValue_UserDefinedFields;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.UserDefinedFields' is not present");
+            }
+        }
 
         /// <summary>
         /// The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
         /// </summary>
-        [Input("verificationState")]
+        [PolicyResourceProperty("verificationState", "_mUnknown_VerificationState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVerificationState;
-
-        public string? VerificationState => _mVerificationState.GetValue("verificationState");
+        private string? _mValue_VerificationState;
+        private bool _mUnknown_VerificationState;
+        public string? VerificationState
+        {
+            get
+            {
+                if (!_mUnknown_VerificationState) return _mValue_VerificationState;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.VerificationState' is not present");
+            }
+        }
 
         /// <summary>
         /// A resource block that is used to update information about the investigation into the finding. Documented below.
         /// </summary>
-        [Input("workflow")]
+        [PolicyResourceProperty("workflow", "_mUnknown_Workflow")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.AutomationRuleActionFindingFieldsUpdateWorkflow> _mWorkflow;
-
-        public Outputs.AutomationRuleActionFindingFieldsUpdateWorkflow? Workflow => _mWorkflow.GetValue("workflow");
+        private Outputs.AutomationRuleActionFindingFieldsUpdateWorkflow? _mValue_Workflow;
+        private bool _mUnknown_Workflow;
+        public Outputs.AutomationRuleActionFindingFieldsUpdateWorkflow? Workflow
+        {
+            get
+            {
+                if (!_mUnknown_Workflow) return _mValue_Workflow;
+                throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.Workflow' is not present");
+            }
+        }
     }
 }

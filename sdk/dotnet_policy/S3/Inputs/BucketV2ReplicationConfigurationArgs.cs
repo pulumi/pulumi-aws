@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
-        [Input("role")]
+        [PolicyResourceProperty("role", "_mUnknown_Role")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRole;
-
-        public string? Role => _mRole.GetValue("role");
+        private string? _mValue_Role;
+        private bool _mUnknown_Role;
+        public string? Role
+        {
+            get
+            {
+                if (!_mUnknown_Role) return _mValue_Role;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationArgs.Role' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the rules managing the replication (documented below).
         /// </summary>
-        [Input("rules")]
+        [PolicyResourceProperty("rules", "_mUnknown_Rules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BucketV2ReplicationConfigurationRuleArgs>> _mRules;
-
-        public List<Inputs.BucketV2ReplicationConfigurationRuleArgs>? Rules => _mRules.GetValue("rules");
+        private List<Inputs.BucketV2ReplicationConfigurationRuleArgs>? _mValue_Rules;
+        private bool _mUnknown_Rules;
+        public List<Inputs.BucketV2ReplicationConfigurationRuleArgs>? Rules
+        {
+            get
+            {
+                if (!_mUnknown_Rules) return _mValue_Rules;
+                throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationArgs.Rules' is not present");
+            }
+        }
     }
 }

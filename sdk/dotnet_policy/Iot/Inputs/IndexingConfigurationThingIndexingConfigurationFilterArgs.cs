@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// List of shadow names that you select to index.
         /// </summary>
-        [Input("namedShadowNames")]
+        [PolicyResourceProperty("namedShadowNames", "_mUnknown_NamedShadowNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mNamedShadowNames;
-
-        public List<string>? NamedShadowNames => _mNamedShadowNames.GetValue("namedShadowNames");
+        private List<string>? _mValue_NamedShadowNames;
+        private bool _mUnknown_NamedShadowNames;
+        public List<string>? NamedShadowNames
+        {
+            get
+            {
+                if (!_mUnknown_NamedShadowNames) return _mValue_NamedShadowNames;
+                throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationFilterArgs.NamedShadowNames' is not present");
+            }
+        }
     }
 }

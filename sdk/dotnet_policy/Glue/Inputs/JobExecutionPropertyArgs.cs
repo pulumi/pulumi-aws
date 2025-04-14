@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Glue.Inputs
         /// <summary>
         /// The maximum number of concurrent runs allowed for a job. The default is 1.
         /// </summary>
-        [Input("maxConcurrentRuns")]
+        [PolicyResourceProperty("maxConcurrentRuns", "_mUnknown_MaxConcurrentRuns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxConcurrentRuns;
-
-        public int? MaxConcurrentRuns => _mMaxConcurrentRuns.GetValue("maxConcurrentRuns");
+        private int? _mValue_MaxConcurrentRuns;
+        private bool _mUnknown_MaxConcurrentRuns;
+        public int? MaxConcurrentRuns
+        {
+            get
+            {
+                if (!_mUnknown_MaxConcurrentRuns) return _mValue_MaxConcurrentRuns;
+                throw new UndeferrableValueException("Value 'JobExecutionPropertyArgs.MaxConcurrentRuns' is not present");
+            }
+        }
     }
 }

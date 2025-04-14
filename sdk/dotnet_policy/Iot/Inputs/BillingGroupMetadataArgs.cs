@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
 {
     public sealed class BillingGroupMetadataArgs
     {
-        [Input("creationDate")]
+        [PolicyResourceProperty("creationDate", "_mUnknown_CreationDate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreationDate;
-
-        public string? CreationDate => _mCreationDate.GetValue("creationDate");
+        private string? _mValue_CreationDate;
+        private bool _mUnknown_CreationDate;
+        public string? CreationDate
+        {
+            get
+            {
+                if (!_mUnknown_CreationDate) return _mValue_CreationDate;
+                throw new UndeferrableValueException("Value 'BillingGroupMetadataArgs.CreationDate' is not present");
+            }
+        }
     }
 }

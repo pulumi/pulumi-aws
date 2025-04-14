@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Inputs
         /// <summary>
         /// Default client policy for virtual gateway backends.
         /// </summary>
-        [Input("clientPolicy")]
+        [PolicyResourceProperty("clientPolicy", "_mUnknown_ClientPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyArgs> _mClientPolicy;
-
-        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyArgs? ClientPolicy => _mClientPolicy.GetValue("clientPolicy");
+        private Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyArgs? _mValue_ClientPolicy;
+        private bool _mUnknown_ClientPolicy;
+        public Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyArgs? ClientPolicy
+        {
+            get
+            {
+                if (!_mUnknown_ClientPolicy) return _mValue_ClientPolicy;
+                throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsArgs.ClientPolicy' is not present");
+            }
+        }
     }
 }

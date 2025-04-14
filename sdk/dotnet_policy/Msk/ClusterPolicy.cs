@@ -16,26 +16,47 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
         /// </summary>
-        [Input("clusterArn")]
+        [PolicyResourceProperty("clusterArn", "_mUnknown_ClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
+        private string? _mValue_ClusterArn;
+        private bool _mUnknown_ClusterArn;
+        public string? ClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_ClusterArn) return _mValue_ClusterArn;
+                throw new UndeferrableValueException("Value 'ClusterPolicy.ClusterArn' is not present");
+            }
+        }
 
-        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
-
-        [Input("currentVersion")]
+        [PolicyResourceProperty("currentVersion", "_mUnknown_CurrentVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCurrentVersion;
-
-        public string? CurrentVersion => _mCurrentVersion.GetValue("currentVersion");
+        private string? _mValue_CurrentVersion;
+        private bool _mUnknown_CurrentVersion;
+        public string? CurrentVersion
+        {
+            get
+            {
+                if (!_mUnknown_CurrentVersion) return _mValue_CurrentVersion;
+                throw new UndeferrableValueException("Value 'ClusterPolicy.CurrentVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource policy for cluster.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ClusterPolicy.Policy' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:msk/clusterPolicy:ClusterPolicy")]
@@ -44,19 +65,33 @@ namespace Pulumi.PolicyPacks.Aws.Msk
         /// <summary>
         /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
         /// </summary>
-        [Input("clusterArn")]
+        [PolicyResourceProperty("clusterArn", "_mUnknown_ClusterArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClusterArn;
-
-        public string? ClusterArn => _mClusterArn.GetValue("clusterArn");
+        private string? _mValue_ClusterArn;
+        private bool _mUnknown_ClusterArn;
+        public string? ClusterArn
+        {
+            get
+            {
+                if (!_mUnknown_ClusterArn) return _mValue_ClusterArn;
+                throw new UndeferrableValueException("Value 'ClusterPolicyArgs.ClusterArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Resource policy for cluster.
         /// </summary>
-        [Input("policy")]
+        [PolicyResourceProperty("policy", "_mUnknown_Policy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPolicy;
-
-        public string? Policy => _mPolicy.GetValue("policy");
+        private string? _mValue_Policy;
+        private bool _mUnknown_Policy;
+        public string? Policy
+        {
+            get
+            {
+                if (!_mUnknown_Policy) return _mValue_Policy;
+                throw new UndeferrableValueException("Value 'ClusterPolicyArgs.Policy' is not present");
+            }
+        }
     }
 }

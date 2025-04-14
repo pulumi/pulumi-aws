@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.Lambda.Outputs
 {
     public sealed class GetFunctionUrlCorResult
     {
-        [Input("allowCredentials")]
+        [PolicyResourceProperty("allowCredentials", "_mUnknown_AllowCredentials")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowCredentials;
+        private bool? _mValue_AllowCredentials;
+        private bool _mUnknown_AllowCredentials;
+        public bool? AllowCredentials
+        {
+            get
+            {
+                if (!_mUnknown_AllowCredentials) return _mValue_AllowCredentials;
+                throw new UndeferrableValueException("Value 'GetFunctionUrlCorResult.AllowCredentials' is not present");
+            }
+        }
 
-        public bool? AllowCredentials => _mAllowCredentials.GetValue("allowCredentials");
-
-        [Input("allowHeaders")]
+        [PolicyResourceProperty("allowHeaders", "_mUnknown_AllowHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowHeaders;
+        private List<string>? _mValue_AllowHeaders;
+        private bool _mUnknown_AllowHeaders;
+        public List<string>? AllowHeaders
+        {
+            get
+            {
+                if (!_mUnknown_AllowHeaders) return _mValue_AllowHeaders;
+                throw new UndeferrableValueException("Value 'GetFunctionUrlCorResult.AllowHeaders' is not present");
+            }
+        }
 
-        public List<string>? AllowHeaders => _mAllowHeaders.GetValue("allowHeaders");
-
-        [Input("allowMethods")]
+        [PolicyResourceProperty("allowMethods", "_mUnknown_AllowMethods")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowMethods;
+        private List<string>? _mValue_AllowMethods;
+        private bool _mUnknown_AllowMethods;
+        public List<string>? AllowMethods
+        {
+            get
+            {
+                if (!_mUnknown_AllowMethods) return _mValue_AllowMethods;
+                throw new UndeferrableValueException("Value 'GetFunctionUrlCorResult.AllowMethods' is not present");
+            }
+        }
 
-        public List<string>? AllowMethods => _mAllowMethods.GetValue("allowMethods");
-
-        [Input("allowOrigins")]
+        [PolicyResourceProperty("allowOrigins", "_mUnknown_AllowOrigins")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAllowOrigins;
+        private List<string>? _mValue_AllowOrigins;
+        private bool _mUnknown_AllowOrigins;
+        public List<string>? AllowOrigins
+        {
+            get
+            {
+                if (!_mUnknown_AllowOrigins) return _mValue_AllowOrigins;
+                throw new UndeferrableValueException("Value 'GetFunctionUrlCorResult.AllowOrigins' is not present");
+            }
+        }
 
-        public List<string>? AllowOrigins => _mAllowOrigins.GetValue("allowOrigins");
-
-        [Input("exposeHeaders")]
+        [PolicyResourceProperty("exposeHeaders", "_mUnknown_ExposeHeaders")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mExposeHeaders;
+        private List<string>? _mValue_ExposeHeaders;
+        private bool _mUnknown_ExposeHeaders;
+        public List<string>? ExposeHeaders
+        {
+            get
+            {
+                if (!_mUnknown_ExposeHeaders) return _mValue_ExposeHeaders;
+                throw new UndeferrableValueException("Value 'GetFunctionUrlCorResult.ExposeHeaders' is not present");
+            }
+        }
 
-        public List<string>? ExposeHeaders => _mExposeHeaders.GetValue("exposeHeaders");
-
-        [Input("maxAge")]
+        [PolicyResourceProperty("maxAge", "_mUnknown_MaxAge")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxAge;
-
-        public int? MaxAge => _mMaxAge.GetValue("maxAge");
+        private int? _mValue_MaxAge;
+        private bool _mUnknown_MaxAge;
+        public int? MaxAge
+        {
+            get
+            {
+                if (!_mUnknown_MaxAge) return _mValue_MaxAge;
+                throw new UndeferrableValueException("Value 'GetFunctionUrlCorResult.MaxAge' is not present");
+            }
+        }
     }
 }

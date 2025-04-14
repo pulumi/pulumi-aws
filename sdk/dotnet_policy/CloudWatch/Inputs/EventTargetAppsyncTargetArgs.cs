@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// Contains the GraphQL mutation to be parsed and executed.
         /// </summary>
-        [Input("graphqlOperation")]
+        [PolicyResourceProperty("graphqlOperation", "_mUnknown_GraphqlOperation")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGraphqlOperation;
-
-        public string? GraphqlOperation => _mGraphqlOperation.GetValue("graphqlOperation");
+        private string? _mValue_GraphqlOperation;
+        private bool _mUnknown_GraphqlOperation;
+        public string? GraphqlOperation
+        {
+            get
+            {
+                if (!_mUnknown_GraphqlOperation) return _mValue_GraphqlOperation;
+                throw new UndeferrableValueException("Value 'EventTargetAppsyncTargetArgs.GraphqlOperation' is not present");
+            }
+        }
     }
 }

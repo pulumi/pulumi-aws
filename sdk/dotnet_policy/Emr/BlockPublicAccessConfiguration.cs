@@ -18,20 +18,34 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("blockPublicSecurityGroupRules")]
+        [PolicyResourceProperty("blockPublicSecurityGroupRules", "_mUnknown_BlockPublicSecurityGroupRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicSecurityGroupRules;
-
-        public bool? BlockPublicSecurityGroupRules => _mBlockPublicSecurityGroupRules.GetValue("blockPublicSecurityGroupRules");
+        private bool? _mValue_BlockPublicSecurityGroupRules;
+        private bool _mUnknown_BlockPublicSecurityGroupRules;
+        public bool? BlockPublicSecurityGroupRules
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicSecurityGroupRules) return _mValue_BlockPublicSecurityGroupRules;
+                throw new UndeferrableValueException("Value 'BlockPublicAccessConfiguration.BlockPublicSecurityGroupRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         /// </summary>
-        [Input("permittedPublicSecurityGroupRuleRanges")]
+        [PolicyResourceProperty("permittedPublicSecurityGroupRuleRanges", "_mUnknown_PermittedPublicSecurityGroupRuleRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> _mPermittedPublicSecurityGroupRuleRanges;
-
-        public List<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>? PermittedPublicSecurityGroupRuleRanges => _mPermittedPublicSecurityGroupRuleRanges.GetValue("permittedPublicSecurityGroupRuleRanges");
+        private List<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>? _mValue_PermittedPublicSecurityGroupRuleRanges;
+        private bool _mUnknown_PermittedPublicSecurityGroupRuleRanges;
+        public List<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>? PermittedPublicSecurityGroupRuleRanges
+        {
+            get
+            {
+                if (!_mUnknown_PermittedPublicSecurityGroupRuleRanges) return _mValue_PermittedPublicSecurityGroupRuleRanges;
+                throw new UndeferrableValueException("Value 'BlockPublicAccessConfiguration.PermittedPublicSecurityGroupRuleRanges' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")]
@@ -42,19 +56,33 @@ namespace Pulumi.PolicyPacks.Aws.Emr
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("blockPublicSecurityGroupRules")]
+        [PolicyResourceProperty("blockPublicSecurityGroupRules", "_mUnknown_BlockPublicSecurityGroupRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mBlockPublicSecurityGroupRules;
-
-        public bool? BlockPublicSecurityGroupRules => _mBlockPublicSecurityGroupRules.GetValue("blockPublicSecurityGroupRules");
+        private bool? _mValue_BlockPublicSecurityGroupRules;
+        private bool _mUnknown_BlockPublicSecurityGroupRules;
+        public bool? BlockPublicSecurityGroupRules
+        {
+            get
+            {
+                if (!_mUnknown_BlockPublicSecurityGroupRules) return _mValue_BlockPublicSecurityGroupRules;
+                throw new UndeferrableValueException("Value 'BlockPublicAccessConfigurationArgs.BlockPublicSecurityGroupRules' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         /// </summary>
-        [Input("permittedPublicSecurityGroupRuleRanges")]
+        [PolicyResourceProperty("permittedPublicSecurityGroupRuleRanges", "_mUnknown_PermittedPublicSecurityGroupRuleRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>> _mPermittedPublicSecurityGroupRuleRanges;
-
-        public List<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>? PermittedPublicSecurityGroupRuleRanges => _mPermittedPublicSecurityGroupRuleRanges.GetValue("permittedPublicSecurityGroupRuleRanges");
+        private List<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>? _mValue_PermittedPublicSecurityGroupRuleRanges;
+        private bool _mUnknown_PermittedPublicSecurityGroupRuleRanges;
+        public List<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs>? PermittedPublicSecurityGroupRuleRanges
+        {
+            get
+            {
+                if (!_mUnknown_PermittedPublicSecurityGroupRuleRanges) return _mValue_PermittedPublicSecurityGroupRuleRanges;
+                throw new UndeferrableValueException("Value 'BlockPublicAccessConfigurationArgs.PermittedPublicSecurityGroupRuleRanges' is not present");
+            }
+        }
     }
 }

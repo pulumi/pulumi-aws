@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Outputs
         /// <summary>
         /// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
         /// </summary>
-        [Input("humanLoopActivationConditions")]
+        [PolicyResourceProperty("humanLoopActivationConditions", "_mUnknown_HumanLoopActivationConditions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mHumanLoopActivationConditions;
-
-        public string? HumanLoopActivationConditions => _mHumanLoopActivationConditions.GetValue("humanLoopActivationConditions");
+        private string? _mValue_HumanLoopActivationConditions;
+        private bool _mUnknown_HumanLoopActivationConditions;
+        public string? HumanLoopActivationConditions
+        {
+            get
+            {
+                if (!_mUnknown_HumanLoopActivationConditions) return _mValue_HumanLoopActivationConditions;
+                throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig.HumanLoopActivationConditions' is not present");
+            }
+        }
     }
 }

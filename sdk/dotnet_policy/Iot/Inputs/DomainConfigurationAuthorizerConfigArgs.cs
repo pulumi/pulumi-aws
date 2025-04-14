@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// A Boolean that specifies whether the domain configuration's authorization service can be overridden.
         /// </summary>
-        [Input("allowAuthorizerOverride")]
+        [PolicyResourceProperty("allowAuthorizerOverride", "_mUnknown_AllowAuthorizerOverride")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAllowAuthorizerOverride;
-
-        public bool? AllowAuthorizerOverride => _mAllowAuthorizerOverride.GetValue("allowAuthorizerOverride");
+        private bool? _mValue_AllowAuthorizerOverride;
+        private bool _mUnknown_AllowAuthorizerOverride;
+        public bool? AllowAuthorizerOverride
+        {
+            get
+            {
+                if (!_mUnknown_AllowAuthorizerOverride) return _mValue_AllowAuthorizerOverride;
+                throw new UndeferrableValueException("Value 'DomainConfigurationAuthorizerConfigArgs.AllowAuthorizerOverride' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the authorization service for a domain configuration.
         /// </summary>
-        [Input("defaultAuthorizerName")]
+        [PolicyResourceProperty("defaultAuthorizerName", "_mUnknown_DefaultAuthorizerName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDefaultAuthorizerName;
-
-        public string? DefaultAuthorizerName => _mDefaultAuthorizerName.GetValue("defaultAuthorizerName");
+        private string? _mValue_DefaultAuthorizerName;
+        private bool _mUnknown_DefaultAuthorizerName;
+        public string? DefaultAuthorizerName
+        {
+            get
+            {
+                if (!_mUnknown_DefaultAuthorizerName) return _mValue_DefaultAuthorizerName;
+                throw new UndeferrableValueException("Value 'DomainConfigurationAuthorizerConfigArgs.DefaultAuthorizerName' is not present");
+            }
+        }
     }
 }

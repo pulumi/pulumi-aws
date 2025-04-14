@@ -16,38 +16,66 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// An identity pool ID.
         /// </summary>
-        [Input("identityPoolId")]
+        [PolicyResourceProperty("identityPoolId", "_mUnknown_IdentityPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
-
-        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
+        private string? _mValue_IdentityPoolId;
+        private bool _mUnknown_IdentityPoolId;
+        public string? IdentityPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityPoolId) return _mValue_IdentityPoolId;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTag.IdentityPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the identity provider.
         /// </summary>
-        [Input("identityProviderName")]
+        [PolicyResourceProperty("identityProviderName", "_mUnknown_IdentityProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProviderName;
-
-        public string? IdentityProviderName => _mIdentityProviderName.GetValue("identityProviderName");
+        private string? _mValue_IdentityProviderName;
+        private bool _mUnknown_IdentityProviderName;
+        public string? IdentityProviderName
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProviderName) return _mValue_IdentityProviderName;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTag.IdentityProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// String to string map of variables.
         /// </summary>
-        [Input("principalTags")]
+        [PolicyResourceProperty("principalTags", "_mUnknown_PrincipalTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPrincipalTags;
-
-        public Dictionary<string, string>? PrincipalTags => _mPrincipalTags.GetValue("principalTags");
+        private Dictionary<string, string>? _mValue_PrincipalTags;
+        private bool _mUnknown_PrincipalTags;
+        public Dictionary<string, string>? PrincipalTags
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalTags) return _mValue_PrincipalTags;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTag.PrincipalTags' is not present");
+            }
+        }
 
         /// <summary>
         /// use default (username and clientID) attribute mappings.
         /// </summary>
-        [Input("useDefaults")]
+        [PolicyResourceProperty("useDefaults", "_mUnknown_UseDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseDefaults;
-
-        public bool? UseDefaults => _mUseDefaults.GetValue("useDefaults");
+        private bool? _mValue_UseDefaults;
+        private bool _mUnknown_UseDefaults;
+        public bool? UseDefaults
+        {
+            get
+            {
+                if (!_mUnknown_UseDefaults) return _mValue_UseDefaults;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTag.UseDefaults' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")]
@@ -56,37 +84,65 @@ namespace Pulumi.PolicyPacks.Aws.Cognito
         /// <summary>
         /// An identity pool ID.
         /// </summary>
-        [Input("identityPoolId")]
+        [PolicyResourceProperty("identityPoolId", "_mUnknown_IdentityPoolId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityPoolId;
-
-        public string? IdentityPoolId => _mIdentityPoolId.GetValue("identityPoolId");
+        private string? _mValue_IdentityPoolId;
+        private bool _mUnknown_IdentityPoolId;
+        public string? IdentityPoolId
+        {
+            get
+            {
+                if (!_mUnknown_IdentityPoolId) return _mValue_IdentityPoolId;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.IdentityPoolId' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the identity provider.
         /// </summary>
-        [Input("identityProviderName")]
+        [PolicyResourceProperty("identityProviderName", "_mUnknown_IdentityProviderName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIdentityProviderName;
-
-        public string? IdentityProviderName => _mIdentityProviderName.GetValue("identityProviderName");
+        private string? _mValue_IdentityProviderName;
+        private bool _mUnknown_IdentityProviderName;
+        public string? IdentityProviderName
+        {
+            get
+            {
+                if (!_mUnknown_IdentityProviderName) return _mValue_IdentityProviderName;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.IdentityProviderName' is not present");
+            }
+        }
 
         /// <summary>
         /// String to string map of variables.
         /// </summary>
-        [Input("principalTags")]
+        [PolicyResourceProperty("principalTags", "_mUnknown_PrincipalTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPrincipalTags;
-
-        public Dictionary<string, string>? PrincipalTags => _mPrincipalTags.GetValue("principalTags");
+        private Dictionary<string, string>? _mValue_PrincipalTags;
+        private bool _mUnknown_PrincipalTags;
+        public Dictionary<string, string>? PrincipalTags
+        {
+            get
+            {
+                if (!_mUnknown_PrincipalTags) return _mValue_PrincipalTags;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.PrincipalTags' is not present");
+            }
+        }
 
         /// <summary>
         /// use default (username and clientID) attribute mappings.
         /// </summary>
-        [Input("useDefaults")]
+        [PolicyResourceProperty("useDefaults", "_mUnknown_UseDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseDefaults;
-
-        public bool? UseDefaults => _mUseDefaults.GetValue("useDefaults");
+        private bool? _mValue_UseDefaults;
+        private bool _mUnknown_UseDefaults;
+        public bool? UseDefaults
+        {
+            get
+            {
+                if (!_mUnknown_UseDefaults) return _mValue_UseDefaults;
+                throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.UseDefaults' is not present");
+            }
+        }
     }
 }

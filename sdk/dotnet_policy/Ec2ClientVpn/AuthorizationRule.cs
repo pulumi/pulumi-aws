@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
         /// <summary>
         /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         /// </summary>
-        [Input("accessGroupId")]
+        [PolicyResourceProperty("accessGroupId", "_mUnknown_AccessGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGroupId;
-
-        public string? AccessGroupId => _mAccessGroupId.GetValue("accessGroupId");
+        private string? _mValue_AccessGroupId;
+        private bool _mUnknown_AccessGroupId;
+        public string? AccessGroupId
+        {
+            get
+            {
+                if (!_mUnknown_AccessGroupId) return _mValue_AccessGroupId;
+                throw new UndeferrableValueException("Value 'AuthorizationRule.AccessGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         /// </summary>
-        [Input("authorizeAllGroups")]
+        [PolicyResourceProperty("authorizeAllGroups", "_mUnknown_AuthorizeAllGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthorizeAllGroups;
-
-        public bool? AuthorizeAllGroups => _mAuthorizeAllGroups.GetValue("authorizeAllGroups");
+        private bool? _mValue_AuthorizeAllGroups;
+        private bool _mUnknown_AuthorizeAllGroups;
+        public bool? AuthorizeAllGroups
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizeAllGroups) return _mValue_AuthorizeAllGroups;
+                throw new UndeferrableValueException("Value 'AuthorizationRule.AuthorizeAllGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
-        [Input("clientVpnEndpointId")]
+        [PolicyResourceProperty("clientVpnEndpointId", "_mUnknown_ClientVpnEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
-
-        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+        private string? _mValue_ClientVpnEndpointId;
+        private bool _mUnknown_ClientVpnEndpointId;
+        public string? ClientVpnEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ClientVpnEndpointId) return _mValue_ClientVpnEndpointId;
+                throw new UndeferrableValueException("Value 'AuthorizationRule.ClientVpnEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// A brief description of the authorization rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AuthorizationRule.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         /// </summary>
-        [Input("targetNetworkCidr")]
+        [PolicyResourceProperty("targetNetworkCidr", "_mUnknown_TargetNetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetNetworkCidr;
-
-        public string? TargetNetworkCidr => _mTargetNetworkCidr.GetValue("targetNetworkCidr");
+        private string? _mValue_TargetNetworkCidr;
+        private bool _mUnknown_TargetNetworkCidr;
+        public string? TargetNetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_TargetNetworkCidr) return _mValue_TargetNetworkCidr;
+                throw new UndeferrableValueException("Value 'AuthorizationRule.TargetNetworkCidr' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:ec2clientvpn/authorizationRule:AuthorizationRule")]
@@ -65,46 +100,81 @@ namespace Pulumi.PolicyPacks.Aws.Ec2ClientVpn
         /// <summary>
         /// The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
         /// </summary>
-        [Input("accessGroupId")]
+        [PolicyResourceProperty("accessGroupId", "_mUnknown_AccessGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccessGroupId;
-
-        public string? AccessGroupId => _mAccessGroupId.GetValue("accessGroupId");
+        private string? _mValue_AccessGroupId;
+        private bool _mUnknown_AccessGroupId;
+        public string? AccessGroupId
+        {
+            get
+            {
+                if (!_mUnknown_AccessGroupId) return _mValue_AccessGroupId;
+                throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.AccessGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
         /// </summary>
-        [Input("authorizeAllGroups")]
+        [PolicyResourceProperty("authorizeAllGroups", "_mUnknown_AuthorizeAllGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mAuthorizeAllGroups;
-
-        public bool? AuthorizeAllGroups => _mAuthorizeAllGroups.GetValue("authorizeAllGroups");
+        private bool? _mValue_AuthorizeAllGroups;
+        private bool _mUnknown_AuthorizeAllGroups;
+        public bool? AuthorizeAllGroups
+        {
+            get
+            {
+                if (!_mUnknown_AuthorizeAllGroups) return _mValue_AuthorizeAllGroups;
+                throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.AuthorizeAllGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the Client VPN endpoint.
         /// </summary>
-        [Input("clientVpnEndpointId")]
+        [PolicyResourceProperty("clientVpnEndpointId", "_mUnknown_ClientVpnEndpointId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mClientVpnEndpointId;
-
-        public string? ClientVpnEndpointId => _mClientVpnEndpointId.GetValue("clientVpnEndpointId");
+        private string? _mValue_ClientVpnEndpointId;
+        private bool _mUnknown_ClientVpnEndpointId;
+        public string? ClientVpnEndpointId
+        {
+            get
+            {
+                if (!_mUnknown_ClientVpnEndpointId) return _mValue_ClientVpnEndpointId;
+                throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.ClientVpnEndpointId' is not present");
+            }
+        }
 
         /// <summary>
         /// A brief description of the authorization rule.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
         /// </summary>
-        [Input("targetNetworkCidr")]
+        [PolicyResourceProperty("targetNetworkCidr", "_mUnknown_TargetNetworkCidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetNetworkCidr;
-
-        public string? TargetNetworkCidr => _mTargetNetworkCidr.GetValue("targetNetworkCidr");
+        private string? _mValue_TargetNetworkCidr;
+        private bool _mUnknown_TargetNetworkCidr;
+        public string? TargetNetworkCidr
+        {
+            get
+            {
+                if (!_mUnknown_TargetNetworkCidr) return _mValue_TargetNetworkCidr;
+                throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.TargetNetworkCidr' is not present");
+            }
+        }
     }
 }

@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
 {
     public sealed class GetVirtualNodeSpecListenerOutlierDetectionResult
     {
-        [Input("baseEjectionDurations")]
+        [PolicyResourceProperty("baseEjectionDurations", "_mUnknown_BaseEjectionDurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult>> _mBaseEjectionDurations;
+        private List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult>? _mValue_BaseEjectionDurations;
+        private bool _mUnknown_BaseEjectionDurations;
+        public List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult>? BaseEjectionDurations
+        {
+            get
+            {
+                if (!_mUnknown_BaseEjectionDurations) return _mValue_BaseEjectionDurations;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerOutlierDetectionResult.BaseEjectionDurations' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult>? BaseEjectionDurations => _mBaseEjectionDurations.GetValue("baseEjectionDurations");
-
-        [Input("intervals")]
+        [PolicyResourceProperty("intervals", "_mUnknown_Intervals")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult>> _mIntervals;
+        private List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult>? _mValue_Intervals;
+        private bool _mUnknown_Intervals;
+        public List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult>? Intervals
+        {
+            get
+            {
+                if (!_mUnknown_Intervals) return _mValue_Intervals;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerOutlierDetectionResult.Intervals' is not present");
+            }
+        }
 
-        public List<Outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult>? Intervals => _mIntervals.GetValue("intervals");
-
-        [Input("maxEjectionPercent")]
+        [PolicyResourceProperty("maxEjectionPercent", "_mUnknown_MaxEjectionPercent")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxEjectionPercent;
+        private int? _mValue_MaxEjectionPercent;
+        private bool _mUnknown_MaxEjectionPercent;
+        public int? MaxEjectionPercent
+        {
+            get
+            {
+                if (!_mUnknown_MaxEjectionPercent) return _mValue_MaxEjectionPercent;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerOutlierDetectionResult.MaxEjectionPercent' is not present");
+            }
+        }
 
-        public int? MaxEjectionPercent => _mMaxEjectionPercent.GetValue("maxEjectionPercent");
-
-        [Input("maxServerErrors")]
+        [PolicyResourceProperty("maxServerErrors", "_mUnknown_MaxServerErrors")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxServerErrors;
-
-        public int? MaxServerErrors => _mMaxServerErrors.GetValue("maxServerErrors");
+        private int? _mValue_MaxServerErrors;
+        private bool _mUnknown_MaxServerErrors;
+        public int? MaxServerErrors
+        {
+            get
+            {
+                if (!_mUnknown_MaxServerErrors) return _mValue_MaxServerErrors;
+                throw new UndeferrableValueException("Value 'GetVirtualNodeSpecListenerOutlierDetectionResult.MaxServerErrors' is not present");
+            }
+        }
     }
 }

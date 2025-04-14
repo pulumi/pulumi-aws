@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.S3.Inputs
         /// <summary>
         /// Override the provider `default_tags` configuration block.
         /// </summary>
-        [Input("defaultTags")]
+        [PolicyResourceProperty("defaultTags", "_mUnknown_DefaultTags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.BucketObjectv2OverrideProviderDefaultTagsArgs> _mDefaultTags;
-
-        public Inputs.BucketObjectv2OverrideProviderDefaultTagsArgs? DefaultTags => _mDefaultTags.GetValue("defaultTags");
+        private Inputs.BucketObjectv2OverrideProviderDefaultTagsArgs? _mValue_DefaultTags;
+        private bool _mUnknown_DefaultTags;
+        public Inputs.BucketObjectv2OverrideProviderDefaultTagsArgs? DefaultTags
+        {
+            get
+            {
+                if (!_mUnknown_DefaultTags) return _mValue_DefaultTags;
+                throw new UndeferrableValueException("Value 'BucketObjectv2OverrideProviderArgs.DefaultTags' is not present");
+            }
+        }
     }
 }

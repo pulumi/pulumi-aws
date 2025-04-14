@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Amp.Inputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
         /// </summary>
-        [Input("sourceRoleArn")]
+        [PolicyResourceProperty("sourceRoleArn", "_mUnknown_SourceRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceRoleArn;
-
-        public string? SourceRoleArn => _mSourceRoleArn.GetValue("sourceRoleArn");
+        private string? _mValue_SourceRoleArn;
+        private bool _mUnknown_SourceRoleArn;
+        public string? SourceRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_SourceRoleArn) return _mValue_SourceRoleArn;
+                throw new UndeferrableValueException("Value 'ScraperRoleConfigurationArgs.SourceRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
         /// </summary>
-        [Input("targetRoleArn")]
+        [PolicyResourceProperty("targetRoleArn", "_mUnknown_TargetRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTargetRoleArn;
-
-        public string? TargetRoleArn => _mTargetRoleArn.GetValue("targetRoleArn");
+        private string? _mValue_TargetRoleArn;
+        private bool _mUnknown_TargetRoleArn;
+        public string? TargetRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_TargetRoleArn) return _mValue_TargetRoleArn;
+                throw new UndeferrableValueException("Value 'ScraperRoleConfigurationArgs.TargetRoleArn' is not present");
+            }
+        }
     }
 }

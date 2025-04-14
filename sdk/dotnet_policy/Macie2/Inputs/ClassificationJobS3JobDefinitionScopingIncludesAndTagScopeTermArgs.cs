@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Macie2.Inputs
         /// <summary>
         /// The operator to use in the condition.
         /// </summary>
-        [Input("comparator")]
+        [PolicyResourceProperty("comparator", "_mUnknown_Comparator")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mComparator;
-
-        public string? Comparator => _mComparator.GetValue("comparator");
+        private string? _mValue_Comparator;
+        private bool _mUnknown_Comparator;
+        public string? Comparator
+        {
+            get
+            {
+                if (!_mUnknown_Comparator) return _mValue_Comparator;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs.Comparator' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag key to use in the condition. The only valid value is `TAG`.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// The tag keys or tag key and value pairs to use in the condition.
         /// </summary>
-        [Input("tagValues")]
+        [PolicyResourceProperty("tagValues", "_mUnknown_TagValues")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs>> _mTagValues;
-
-        public List<Inputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs>? TagValues => _mTagValues.GetValue("tagValues");
+        private List<Inputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs>? _mValue_TagValues;
+        private bool _mUnknown_TagValues;
+        public List<Inputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs>? TagValues
+        {
+            get
+            {
+                if (!_mUnknown_TagValues) return _mValue_TagValues;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs.TagValues' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
         /// </summary>
-        [Input("target")]
+        [PolicyResourceProperty("target", "_mUnknown_Target")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTarget;
-
-        public string? Target => _mTarget.GetValue("target");
+        private string? _mValue_Target;
+        private bool _mUnknown_Target;
+        public string? Target
+        {
+            get
+            {
+                if (!_mUnknown_Target) return _mValue_Target;
+                throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs.Target' is not present");
+            }
+        }
     }
 }

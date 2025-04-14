@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.GameLift.Inputs
         /// <summary>
         /// Name of your S3 bucket.
         /// </summary>
-        [Input("bucket")]
+        [PolicyResourceProperty("bucket", "_mUnknown_Bucket")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucket;
-
-        public string? Bucket => _mBucket.GetValue("bucket");
+        private string? _mValue_Bucket;
+        private bool _mUnknown_Bucket;
+        public string? Bucket
+        {
+            get
+            {
+                if (!_mUnknown_Bucket) return _mValue_Bucket;
+                throw new UndeferrableValueException("Value 'ScriptStorageLocationArgs.Bucket' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the zip file containing your script files.
         /// </summary>
-        [Input("key")]
+        [PolicyResourceProperty("key", "_mUnknown_Key")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKey;
-
-        public string? Key => _mKey.GetValue("key");
+        private string? _mValue_Key;
+        private bool _mUnknown_Key;
+        public string? Key
+        {
+            get
+            {
+                if (!_mUnknown_Key) return _mValue_Key;
+                throw new UndeferrableValueException("Value 'ScriptStorageLocationArgs.Key' is not present");
+            }
+        }
 
         /// <summary>
         /// A specific version of the file. If not set, the latest version of the file is retrieved.
         /// </summary>
-        [Input("objectVersion")]
+        [PolicyResourceProperty("objectVersion", "_mUnknown_ObjectVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mObjectVersion;
-
-        public string? ObjectVersion => _mObjectVersion.GetValue("objectVersion");
+        private string? _mValue_ObjectVersion;
+        private bool _mUnknown_ObjectVersion;
+        public string? ObjectVersion
+        {
+            get
+            {
+                if (!_mUnknown_ObjectVersion) return _mValue_ObjectVersion;
+                throw new UndeferrableValueException("Value 'ScriptStorageLocationArgs.ObjectVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'ScriptStorageLocationArgs.RoleArn' is not present");
+            }
+        }
     }
 }

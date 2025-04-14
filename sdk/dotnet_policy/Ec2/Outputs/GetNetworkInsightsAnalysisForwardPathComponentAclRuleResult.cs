@@ -12,40 +12,82 @@ namespace Pulumi.PolicyPacks.Aws.Ec2.Outputs
 {
     public sealed class GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult
     {
-        [Input("cidr")]
+        [PolicyResourceProperty("cidr", "_mUnknown_Cidr")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCidr;
+        private string? _mValue_Cidr;
+        private bool _mUnknown_Cidr;
+        public string? Cidr
+        {
+            get
+            {
+                if (!_mUnknown_Cidr) return _mValue_Cidr;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult.Cidr' is not present");
+            }
+        }
 
-        public string? Cidr => _mCidr.GetValue("cidr");
-
-        [Input("egress")]
+        [PolicyResourceProperty("egress", "_mUnknown_Egress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEgress;
+        private bool? _mValue_Egress;
+        private bool _mUnknown_Egress;
+        public bool? Egress
+        {
+            get
+            {
+                if (!_mUnknown_Egress) return _mValue_Egress;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult.Egress' is not present");
+            }
+        }
 
-        public bool? Egress => _mEgress.GetValue("egress");
-
-        [Input("portRanges")]
+        [PolicyResourceProperty("portRanges", "_mUnknown_PortRanges")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult>> _mPortRanges;
+        private List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult>? _mValue_PortRanges;
+        private bool _mUnknown_PortRanges;
+        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult>? PortRanges
+        {
+            get
+            {
+                if (!_mUnknown_PortRanges) return _mValue_PortRanges;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult.PortRanges' is not present");
+            }
+        }
 
-        public List<Outputs.GetNetworkInsightsAnalysisForwardPathComponentAclRulePortRangeResult>? PortRanges => _mPortRanges.GetValue("portRanges");
-
-        [Input("protocol")]
+        [PolicyResourceProperty("protocol", "_mUnknown_Protocol")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProtocol;
+        private string? _mValue_Protocol;
+        private bool _mUnknown_Protocol;
+        public string? Protocol
+        {
+            get
+            {
+                if (!_mUnknown_Protocol) return _mValue_Protocol;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult.Protocol' is not present");
+            }
+        }
 
-        public string? Protocol => _mProtocol.GetValue("protocol");
-
-        [Input("ruleAction")]
+        [PolicyResourceProperty("ruleAction", "_mUnknown_RuleAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRuleAction;
+        private string? _mValue_RuleAction;
+        private bool _mUnknown_RuleAction;
+        public string? RuleAction
+        {
+            get
+            {
+                if (!_mUnknown_RuleAction) return _mValue_RuleAction;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult.RuleAction' is not present");
+            }
+        }
 
-        public string? RuleAction => _mRuleAction.GetValue("ruleAction");
-
-        [Input("ruleNumber")]
+        [PolicyResourceProperty("ruleNumber", "_mUnknown_RuleNumber")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRuleNumber;
-
-        public int? RuleNumber => _mRuleNumber.GetValue("ruleNumber");
+        private int? _mValue_RuleNumber;
+        private bool _mUnknown_RuleNumber;
+        public int? RuleNumber
+        {
+            get
+            {
+                if (!_mUnknown_RuleNumber) return _mValue_RuleNumber;
+                throw new UndeferrableValueException("Value 'GetNetworkInsightsAnalysisForwardPathComponentAclRuleResult.RuleNumber' is not present");
+            }
+        }
     }
 }

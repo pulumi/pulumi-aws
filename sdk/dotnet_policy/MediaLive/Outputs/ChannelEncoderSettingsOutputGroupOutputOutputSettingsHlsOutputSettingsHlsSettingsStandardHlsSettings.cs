@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
 {
     public sealed class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings
     {
-        [Input("audioRenditionSets")]
+        [PolicyResourceProperty("audioRenditionSets", "_mUnknown_AudioRenditionSets")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAudioRenditionSets;
+        private string? _mValue_AudioRenditionSets;
+        private bool _mUnknown_AudioRenditionSets;
+        public string? AudioRenditionSets
+        {
+            get
+            {
+                if (!_mUnknown_AudioRenditionSets) return _mValue_AudioRenditionSets;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings.AudioRenditionSets' is not present");
+            }
+        }
 
-        public string? AudioRenditionSets => _mAudioRenditionSets.GetValue("audioRenditionSets");
-
-        [Input("m3u8Settings")]
+        [PolicyResourceProperty("m3u8Settings", "_mUnknown_M3u8Settings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings> _mM3u8Settings;
-
-        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings? M3u8Settings => _mM3u8Settings.GetValue("m3u8Settings");
+        private Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings? _mValue_M3u8Settings;
+        private bool _mUnknown_M3u8Settings;
+        public Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings? M3u8Settings
+        {
+            get
+            {
+                if (!_mUnknown_M3u8Settings) return _mValue_M3u8Settings;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings.M3u8Settings' is not present");
+            }
+        }
     }
 }

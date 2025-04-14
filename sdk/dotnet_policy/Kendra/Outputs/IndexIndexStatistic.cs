@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.Kendra.Outputs
         /// <summary>
         /// A block that specifies the number of question and answer topics in the index. Detailed below.
         /// </summary>
-        [Input("faqStatistics")]
+        [PolicyResourceProperty("faqStatistics", "_mUnknown_FaqStatistics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IndexIndexStatisticFaqStatistic>> _mFaqStatistics;
-
-        public List<Outputs.IndexIndexStatisticFaqStatistic>? FaqStatistics => _mFaqStatistics.GetValue("faqStatistics");
+        private List<Outputs.IndexIndexStatisticFaqStatistic>? _mValue_FaqStatistics;
+        private bool _mUnknown_FaqStatistics;
+        public List<Outputs.IndexIndexStatisticFaqStatistic>? FaqStatistics
+        {
+            get
+            {
+                if (!_mUnknown_FaqStatistics) return _mValue_FaqStatistics;
+                throw new UndeferrableValueException("Value 'IndexIndexStatistic.FaqStatistics' is not present");
+            }
+        }
 
         /// <summary>
         /// A block that specifies the number of text documents indexed. Detailed below.
         /// </summary>
-        [Input("textDocumentStatistics")]
+        [PolicyResourceProperty("textDocumentStatistics", "_mUnknown_TextDocumentStatistics")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.IndexIndexStatisticTextDocumentStatistic>> _mTextDocumentStatistics;
-
-        public List<Outputs.IndexIndexStatisticTextDocumentStatistic>? TextDocumentStatistics => _mTextDocumentStatistics.GetValue("textDocumentStatistics");
+        private List<Outputs.IndexIndexStatisticTextDocumentStatistic>? _mValue_TextDocumentStatistics;
+        private bool _mUnknown_TextDocumentStatistics;
+        public List<Outputs.IndexIndexStatisticTextDocumentStatistic>? TextDocumentStatistics
+        {
+            get
+            {
+                if (!_mUnknown_TextDocumentStatistics) return _mValue_TextDocumentStatistics;
+                throw new UndeferrableValueException("Value 'IndexIndexStatistic.TextDocumentStatistics' is not present");
+            }
+        }
     }
 }

@@ -16,83 +16,146 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The Amazon Resource Name (ARN) of the connection.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Connection.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the second device in the connection.
         /// </summary>
-        [Input("connectedDeviceId")]
+        [PolicyResourceProperty("connectedDeviceId", "_mUnknown_ConnectedDeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectedDeviceId;
-
-        public string? ConnectedDeviceId => _mConnectedDeviceId.GetValue("connectedDeviceId");
+        private string? _mValue_ConnectedDeviceId;
+        private bool _mUnknown_ConnectedDeviceId;
+        public string? ConnectedDeviceId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectedDeviceId) return _mValue_ConnectedDeviceId;
+                throw new UndeferrableValueException("Value 'Connection.ConnectedDeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link for the second device.
         /// </summary>
-        [Input("connectedLinkId")]
+        [PolicyResourceProperty("connectedLinkId", "_mUnknown_ConnectedLinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectedLinkId;
-
-        public string? ConnectedLinkId => _mConnectedLinkId.GetValue("connectedLinkId");
+        private string? _mValue_ConnectedLinkId;
+        private bool _mUnknown_ConnectedLinkId;
+        public string? ConnectedLinkId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectedLinkId) return _mValue_ConnectedLinkId;
+                throw new UndeferrableValueException("Value 'Connection.ConnectedLinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the connection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Connection.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the first device in the connection.
         /// </summary>
-        [Input("deviceId")]
+        [PolicyResourceProperty("deviceId", "_mUnknown_DeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
-
-        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+        private string? _mValue_DeviceId;
+        private bool _mUnknown_DeviceId;
+        public string? DeviceId
+        {
+            get
+            {
+                if (!_mUnknown_DeviceId) return _mValue_DeviceId;
+                throw new UndeferrableValueException("Value 'Connection.DeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'Connection.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link for the first device.
         /// </summary>
-        [Input("linkId")]
+        [PolicyResourceProperty("linkId", "_mUnknown_LinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
-
-        public string? LinkId => _mLinkId.GetValue("linkId");
+        private string? _mValue_LinkId;
+        private bool _mUnknown_LinkId;
+        public string? LinkId
+        {
+            get
+            {
+                if (!_mUnknown_LinkId) return _mValue_LinkId;
+                throw new UndeferrableValueException("Value 'Connection.LinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Connection.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Connection.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:networkmanager/connection:Connection")]
@@ -101,64 +164,113 @@ namespace Pulumi.PolicyPacks.Aws.NetworkManager
         /// <summary>
         /// The ID of the second device in the connection.
         /// </summary>
-        [Input("connectedDeviceId")]
+        [PolicyResourceProperty("connectedDeviceId", "_mUnknown_ConnectedDeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectedDeviceId;
-
-        public string? ConnectedDeviceId => _mConnectedDeviceId.GetValue("connectedDeviceId");
+        private string? _mValue_ConnectedDeviceId;
+        private bool _mUnknown_ConnectedDeviceId;
+        public string? ConnectedDeviceId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectedDeviceId) return _mValue_ConnectedDeviceId;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.ConnectedDeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link for the second device.
         /// </summary>
-        [Input("connectedLinkId")]
+        [PolicyResourceProperty("connectedLinkId", "_mUnknown_ConnectedLinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectedLinkId;
-
-        public string? ConnectedLinkId => _mConnectedLinkId.GetValue("connectedLinkId");
+        private string? _mValue_ConnectedLinkId;
+        private bool _mUnknown_ConnectedLinkId;
+        public string? ConnectedLinkId
+        {
+            get
+            {
+                if (!_mUnknown_ConnectedLinkId) return _mValue_ConnectedLinkId;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.ConnectedLinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// A description of the connection.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the first device in the connection.
         /// </summary>
-        [Input("deviceId")]
+        [PolicyResourceProperty("deviceId", "_mUnknown_DeviceId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDeviceId;
-
-        public string? DeviceId => _mDeviceId.GetValue("deviceId");
+        private string? _mValue_DeviceId;
+        private bool _mUnknown_DeviceId;
+        public string? DeviceId
+        {
+            get
+            {
+                if (!_mUnknown_DeviceId) return _mValue_DeviceId;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.DeviceId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the global network.
         /// </summary>
-        [Input("globalNetworkId")]
+        [PolicyResourceProperty("globalNetworkId", "_mUnknown_GlobalNetworkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGlobalNetworkId;
-
-        public string? GlobalNetworkId => _mGlobalNetworkId.GetValue("globalNetworkId");
+        private string? _mValue_GlobalNetworkId;
+        private bool _mUnknown_GlobalNetworkId;
+        public string? GlobalNetworkId
+        {
+            get
+            {
+                if (!_mUnknown_GlobalNetworkId) return _mValue_GlobalNetworkId;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.GlobalNetworkId' is not present");
+            }
+        }
 
         /// <summary>
         /// The ID of the link for the first device.
         /// </summary>
-        [Input("linkId")]
+        [PolicyResourceProperty("linkId", "_mUnknown_LinkId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLinkId;
-
-        public string? LinkId => _mLinkId.GetValue("linkId");
+        private string? _mValue_LinkId;
+        private bool _mUnknown_LinkId;
+        public string? LinkId
+        {
+            get
+            {
+                if (!_mUnknown_LinkId) return _mValue_LinkId;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.LinkId' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ConnectionArgs.Tags' is not present");
+            }
+        }
     }
 }

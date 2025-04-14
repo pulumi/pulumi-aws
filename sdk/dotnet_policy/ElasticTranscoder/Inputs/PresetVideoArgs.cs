@@ -15,118 +15,209 @@ namespace Pulumi.PolicyPacks.Aws.ElasticTranscoder.Inputs
         /// <summary>
         /// The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
         /// </summary>
-        [Input("aspectRatio")]
+        [PolicyResourceProperty("aspectRatio", "_mUnknown_AspectRatio")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAspectRatio;
-
-        public string? AspectRatio => _mAspectRatio.GetValue("aspectRatio");
+        private string? _mValue_AspectRatio;
+        private bool _mUnknown_AspectRatio;
+        public string? AspectRatio
+        {
+            get
+            {
+                if (!_mUnknown_AspectRatio) return _mValue_AspectRatio;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.AspectRatio' is not present");
+            }
+        }
 
         /// <summary>
         /// The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
         /// </summary>
-        [Input("bitRate")]
+        [PolicyResourceProperty("bitRate", "_mUnknown_BitRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBitRate;
-
-        public string? BitRate => _mBitRate.GetValue("bitRate");
+        private string? _mValue_BitRate;
+        private bool _mUnknown_BitRate;
+        public string? BitRate
+        {
+            get
+            {
+                if (!_mUnknown_BitRate) return _mValue_BitRate;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.BitRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
         /// </summary>
-        [Input("codec")]
+        [PolicyResourceProperty("codec", "_mUnknown_Codec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodec;
-
-        public string? Codec => _mCodec.GetValue("codec");
+        private string? _mValue_Codec;
+        private bool _mUnknown_Codec;
+        public string? Codec
+        {
+            get
+            {
+                if (!_mUnknown_Codec) return _mValue_Codec;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.Codec' is not present");
+            }
+        }
 
         /// <summary>
         /// The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
         /// </summary>
-        [Input("displayAspectRatio")]
+        [PolicyResourceProperty("displayAspectRatio", "_mUnknown_DisplayAspectRatio")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDisplayAspectRatio;
-
-        public string? DisplayAspectRatio => _mDisplayAspectRatio.GetValue("displayAspectRatio");
+        private string? _mValue_DisplayAspectRatio;
+        private bool _mUnknown_DisplayAspectRatio;
+        public string? DisplayAspectRatio
+        {
+            get
+            {
+                if (!_mUnknown_DisplayAspectRatio) return _mValue_DisplayAspectRatio;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.DisplayAspectRatio' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
         /// </summary>
-        [Input("fixedGop")]
+        [PolicyResourceProperty("fixedGop", "_mUnknown_FixedGop")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFixedGop;
-
-        public string? FixedGop => _mFixedGop.GetValue("fixedGop");
+        private string? _mValue_FixedGop;
+        private bool _mUnknown_FixedGop;
+        public string? FixedGop
+        {
+            get
+            {
+                if (!_mUnknown_FixedGop) return _mValue_FixedGop;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.FixedGop' is not present");
+            }
+        }
 
         /// <summary>
         /// The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
         /// </summary>
-        [Input("frameRate")]
+        [PolicyResourceProperty("frameRate", "_mUnknown_FrameRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFrameRate;
-
-        public string? FrameRate => _mFrameRate.GetValue("frameRate");
+        private string? _mValue_FrameRate;
+        private bool _mUnknown_FrameRate;
+        public string? FrameRate
+        {
+            get
+            {
+                if (!_mUnknown_FrameRate) return _mValue_FrameRate;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.FrameRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum number of frames between key frames. Not applicable for containers of type gif.
         /// </summary>
-        [Input("keyframesMaxDist")]
+        [PolicyResourceProperty("keyframesMaxDist", "_mUnknown_KeyframesMaxDist")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKeyframesMaxDist;
-
-        public string? KeyframesMaxDist => _mKeyframesMaxDist.GetValue("keyframesMaxDist");
+        private string? _mValue_KeyframesMaxDist;
+        private bool _mUnknown_KeyframesMaxDist;
+        public string? KeyframesMaxDist
+        {
+            get
+            {
+                if (!_mUnknown_KeyframesMaxDist) return _mValue_KeyframesMaxDist;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.KeyframesMaxDist' is not present");
+            }
+        }
 
         /// <summary>
         /// If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
         /// </summary>
-        [Input("maxFrameRate")]
+        [PolicyResourceProperty("maxFrameRate", "_mUnknown_MaxFrameRate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxFrameRate;
-
-        public string? MaxFrameRate => _mMaxFrameRate.GetValue("maxFrameRate");
+        private string? _mValue_MaxFrameRate;
+        private bool _mUnknown_MaxFrameRate;
+        public string? MaxFrameRate
+        {
+            get
+            {
+                if (!_mUnknown_MaxFrameRate) return _mValue_MaxFrameRate;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.MaxFrameRate' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
         /// </summary>
-        [Input("maxHeight")]
+        [PolicyResourceProperty("maxHeight", "_mUnknown_MaxHeight")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxHeight;
-
-        public string? MaxHeight => _mMaxHeight.GetValue("maxHeight");
+        private string? _mValue_MaxHeight;
+        private bool _mUnknown_MaxHeight;
+        public string? MaxHeight
+        {
+            get
+            {
+                if (!_mUnknown_MaxHeight) return _mValue_MaxHeight;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.MaxHeight' is not present");
+            }
+        }
 
         /// <summary>
         /// The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
         /// </summary>
-        [Input("maxWidth")]
+        [PolicyResourceProperty("maxWidth", "_mUnknown_MaxWidth")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaxWidth;
-
-        public string? MaxWidth => _mMaxWidth.GetValue("maxWidth");
+        private string? _mValue_MaxWidth;
+        private bool _mUnknown_MaxWidth;
+        public string? MaxWidth
+        {
+            get
+            {
+                if (!_mUnknown_MaxWidth) return _mValue_MaxWidth;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.MaxWidth' is not present");
+            }
+        }
 
         /// <summary>
         /// When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
         /// </summary>
-        [Input("paddingPolicy")]
+        [PolicyResourceProperty("paddingPolicy", "_mUnknown_PaddingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPaddingPolicy;
-
-        public string? PaddingPolicy => _mPaddingPolicy.GetValue("paddingPolicy");
+        private string? _mValue_PaddingPolicy;
+        private bool _mUnknown_PaddingPolicy;
+        public string? PaddingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_PaddingPolicy) return _mValue_PaddingPolicy;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.PaddingPolicy' is not present");
+            }
+        }
 
         /// <summary>
         /// The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
         /// </summary>
-        [Input("resolution")]
+        [PolicyResourceProperty("resolution", "_mUnknown_Resolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResolution;
-
-        public string? Resolution => _mResolution.GetValue("resolution");
+        private string? _mValue_Resolution;
+        private bool _mUnknown_Resolution;
+        public string? Resolution
+        {
+            get
+            {
+                if (!_mUnknown_Resolution) return _mValue_Resolution;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.Resolution' is not present");
+            }
+        }
 
         /// <summary>
         /// A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
         /// </summary>
-        [Input("sizingPolicy")]
+        [PolicyResourceProperty("sizingPolicy", "_mUnknown_SizingPolicy")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSizingPolicy;
-
-        public string? SizingPolicy => _mSizingPolicy.GetValue("sizingPolicy");
+        private string? _mValue_SizingPolicy;
+        private bool _mUnknown_SizingPolicy;
+        public string? SizingPolicy
+        {
+            get
+            {
+                if (!_mUnknown_SizingPolicy) return _mValue_SizingPolicy;
+                throw new UndeferrableValueException("Value 'PresetVideoArgs.SizingPolicy' is not present");
+            }
+        }
     }
 }

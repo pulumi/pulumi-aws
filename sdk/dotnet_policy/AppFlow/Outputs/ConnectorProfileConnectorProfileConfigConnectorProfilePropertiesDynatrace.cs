@@ -12,10 +12,17 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
 {
     public sealed class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace
     {
-        [Input("instanceUrl")]
+        [PolicyResourceProperty("instanceUrl", "_mUnknown_InstanceUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInstanceUrl;
-
-        public string? InstanceUrl => _mInstanceUrl.GetValue("instanceUrl");
+        private string? _mValue_InstanceUrl;
+        private bool _mUnknown_InstanceUrl;
+        public string? InstanceUrl
+        {
+            get
+            {
+                if (!_mUnknown_InstanceUrl) return _mValue_InstanceUrl;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace.InstanceUrl' is not present");
+            }
+        }
     }
 }

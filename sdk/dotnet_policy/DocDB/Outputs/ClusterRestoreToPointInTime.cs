@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.DocDB.Outputs
         /// <summary>
         /// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
         /// </summary>
-        [Input("restoreToTime")]
+        [PolicyResourceProperty("restoreToTime", "_mUnknown_RestoreToTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreToTime;
-
-        public string? RestoreToTime => _mRestoreToTime.GetValue("restoreToTime");
+        private string? _mValue_RestoreToTime;
+        private bool _mUnknown_RestoreToTime;
+        public string? RestoreToTime
+        {
+            get
+            {
+                if (!_mUnknown_RestoreToTime) return _mValue_RestoreToTime;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.RestoreToTime' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
         /// </summary>
-        [Input("restoreType")]
+        [PolicyResourceProperty("restoreType", "_mUnknown_RestoreType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRestoreType;
-
-        public string? RestoreType => _mRestoreType.GetValue("restoreType");
+        private string? _mValue_RestoreType;
+        private bool _mUnknown_RestoreType;
+        public string? RestoreType
+        {
+            get
+            {
+                if (!_mUnknown_RestoreType) return _mValue_RestoreType;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.RestoreType' is not present");
+            }
+        }
 
         /// <summary>
         /// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
         /// </summary>
-        [Input("sourceClusterIdentifier")]
+        [PolicyResourceProperty("sourceClusterIdentifier", "_mUnknown_SourceClusterIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSourceClusterIdentifier;
-
-        public string? SourceClusterIdentifier => _mSourceClusterIdentifier.GetValue("sourceClusterIdentifier");
+        private string? _mValue_SourceClusterIdentifier;
+        private bool _mUnknown_SourceClusterIdentifier;
+        public string? SourceClusterIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_SourceClusterIdentifier) return _mValue_SourceClusterIdentifier;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.SourceClusterIdentifier' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
         /// </summary>
-        [Input("useLatestRestorableTime")]
+        [PolicyResourceProperty("useLatestRestorableTime", "_mUnknown_UseLatestRestorableTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseLatestRestorableTime;
-
-        public bool? UseLatestRestorableTime => _mUseLatestRestorableTime.GetValue("useLatestRestorableTime");
+        private bool? _mValue_UseLatestRestorableTime;
+        private bool _mUnknown_UseLatestRestorableTime;
+        public bool? UseLatestRestorableTime
+        {
+            get
+            {
+                if (!_mUnknown_UseLatestRestorableTime) return _mValue_UseLatestRestorableTime;
+                throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.UseLatestRestorableTime' is not present");
+            }
+        }
     }
 }

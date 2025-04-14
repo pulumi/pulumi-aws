@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.AppSync.Inputs
         /// <summary>
         /// A list of Function objects.
         /// </summary>
-        [Input("functions")]
+        [PolicyResourceProperty("functions", "_mUnknown_Functions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFunctions;
-
-        public List<string>? Functions => _mFunctions.GetValue("functions");
+        private List<string>? _mValue_Functions;
+        private bool _mUnknown_Functions;
+        public List<string>? Functions
+        {
+            get
+            {
+                if (!_mUnknown_Functions) return _mValue_Functions;
+                throw new UndeferrableValueException("Value 'ResolverPipelineConfigArgs.Functions' is not present");
+            }
+        }
     }
 }

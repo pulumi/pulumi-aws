@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// Indicates if the file should be read as a json object per line.
         /// </summary>
-        [Input("line")]
+        [PolicyResourceProperty("line", "_mUnknown_Line")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mLine;
-
-        public bool? Line => _mLine.GetValue("line");
+        private bool? _mValue_Line;
+        private bool _mUnknown_Line;
+        public bool? Line
+        {
+            get
+            {
+                if (!_mUnknown_Line) return _mValue_Line;
+                throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs.Line' is not present");
+            }
+        }
     }
 }

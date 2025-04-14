@@ -15,55 +15,104 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Inputs
         /// <summary>
         /// The name of the account.
         /// </summary>
-        [Input("accountName")]
+        [PolicyResourceProperty("accountName", "_mUnknown_AccountName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAccountName;
+        private string? _mValue_AccountName;
+        private bool _mUnknown_AccountName;
+        public string? AccountName
+        {
+            get
+            {
+                if (!_mUnknown_AccountName) return _mValue_AccountName;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs.AccountName' is not present");
+            }
+        }
 
-        public string? AccountName => _mAccountName.GetValue("accountName");
-
-        [Input("bucketName")]
+        [PolicyResourceProperty("bucketName", "_mUnknown_BucketName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketName;
+        private string? _mValue_BucketName;
+        private bool _mUnknown_BucketName;
+        public string? BucketName
+        {
+            get
+            {
+                if (!_mUnknown_BucketName) return _mValue_BucketName;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs.BucketName' is not present");
+            }
+        }
 
-        public string? BucketName => _mBucketName.GetValue("bucketName");
-
-        [Input("bucketPrefix")]
+        [PolicyResourceProperty("bucketPrefix", "_mUnknown_BucketPrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketPrefix;
+        private string? _mValue_BucketPrefix;
+        private bool _mUnknown_BucketPrefix;
+        public string? BucketPrefix
+        {
+            get
+            {
+                if (!_mUnknown_BucketPrefix) return _mValue_BucketPrefix;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs.BucketPrefix' is not present");
+            }
+        }
 
-        public string? BucketPrefix => _mBucketPrefix.GetValue("bucketPrefix");
-
-        [Input("privateLinkServiceName")]
+        [PolicyResourceProperty("privateLinkServiceName", "_mUnknown_PrivateLinkServiceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPrivateLinkServiceName;
-
-        public string? PrivateLinkServiceName => _mPrivateLinkServiceName.GetValue("privateLinkServiceName");
+        private string? _mValue_PrivateLinkServiceName;
+        private bool _mUnknown_PrivateLinkServiceName;
+        public string? PrivateLinkServiceName
+        {
+            get
+            {
+                if (!_mUnknown_PrivateLinkServiceName) return _mValue_PrivateLinkServiceName;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs.PrivateLinkServiceName' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS Region of the Snowflake account.
         /// </summary>
-        [Input("region")]
+        [PolicyResourceProperty("region", "_mUnknown_Region")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRegion;
-
-        public string? Region => _mRegion.GetValue("region");
+        private string? _mValue_Region;
+        private bool _mUnknown_Region;
+        public string? Region
+        {
+            get
+            {
+                if (!_mUnknown_Region) return _mValue_Region;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs.Region' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
         /// </summary>
-        [Input("stage")]
+        [PolicyResourceProperty("stage", "_mUnknown_Stage")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStage;
-
-        public string? Stage => _mStage.GetValue("stage");
+        private string? _mValue_Stage;
+        private bool _mUnknown_Stage;
+        public string? Stage
+        {
+            get
+            {
+                if (!_mUnknown_Stage) return _mValue_Stage;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs.Stage' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Snowflake warehouse.
         /// </summary>
-        [Input("warehouse")]
+        [PolicyResourceProperty("warehouse", "_mUnknown_Warehouse")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mWarehouse;
-
-        public string? Warehouse => _mWarehouse.GetValue("warehouse");
+        private string? _mValue_Warehouse;
+        private bool _mUnknown_Warehouse;
+        public string? Warehouse
+        {
+            get
+            {
+                if (!_mUnknown_Warehouse) return _mValue_Warehouse;
+                throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs.Warehouse' is not present");
+            }
+        }
     }
 }

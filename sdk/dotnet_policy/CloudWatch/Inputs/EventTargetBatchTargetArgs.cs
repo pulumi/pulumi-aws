@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.CloudWatch.Inputs
         /// <summary>
         /// The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
         /// </summary>
-        [Input("arraySize")]
+        [PolicyResourceProperty("arraySize", "_mUnknown_ArraySize")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mArraySize;
-
-        public int? ArraySize => _mArraySize.GetValue("arraySize");
+        private int? _mValue_ArraySize;
+        private bool _mUnknown_ArraySize;
+        public int? ArraySize
+        {
+            get
+            {
+                if (!_mUnknown_ArraySize) return _mValue_ArraySize;
+                throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.ArraySize' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
         /// </summary>
-        [Input("jobAttempts")]
+        [PolicyResourceProperty("jobAttempts", "_mUnknown_JobAttempts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mJobAttempts;
-
-        public int? JobAttempts => _mJobAttempts.GetValue("jobAttempts");
+        private int? _mValue_JobAttempts;
+        private bool _mUnknown_JobAttempts;
+        public int? JobAttempts
+        {
+            get
+            {
+                if (!_mUnknown_JobAttempts) return _mValue_JobAttempts;
+                throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.JobAttempts' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
         /// </summary>
-        [Input("jobDefinition")]
+        [PolicyResourceProperty("jobDefinition", "_mUnknown_JobDefinition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobDefinition;
-
-        public string? JobDefinition => _mJobDefinition.GetValue("jobDefinition");
+        private string? _mValue_JobDefinition;
+        private bool _mUnknown_JobDefinition;
+        public string? JobDefinition
+        {
+            get
+            {
+                if (!_mUnknown_JobDefinition) return _mValue_JobDefinition;
+                throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.JobDefinition' is not present");
+            }
+        }
 
         /// <summary>
         /// The name to use for this execution of the job, if the target is an AWS Batch job.
         /// </summary>
-        [Input("jobName")]
+        [PolicyResourceProperty("jobName", "_mUnknown_JobName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mJobName;
-
-        public string? JobName => _mJobName.GetValue("jobName");
+        private string? _mValue_JobName;
+        private bool _mUnknown_JobName;
+        public string? JobName
+        {
+            get
+            {
+                if (!_mUnknown_JobName) return _mValue_JobName;
+                throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.JobName' is not present");
+            }
+        }
     }
 }

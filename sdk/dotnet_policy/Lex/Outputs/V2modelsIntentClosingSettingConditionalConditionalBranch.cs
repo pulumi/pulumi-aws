@@ -15,37 +15,65 @@ namespace Pulumi.PolicyPacks.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         /// </summary>
-        [Input("condition")]
+        [PolicyResourceProperty("condition", "_mUnknown_Condition")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition> _mCondition;
-
-        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition? Condition => _mCondition.GetValue("condition");
+        private Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition? _mValue_Condition;
+        private bool _mUnknown_Condition;
+        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition? Condition
+        {
+            get
+            {
+                if (!_mUnknown_Condition) return _mValue_Condition;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranch.Condition' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the branch.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranch.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for the next step in the conversation. See `next_step`.
         /// </summary>
-        [Input("nextStep")]
+        [PolicyResourceProperty("nextStep", "_mUnknown_NextStep")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep> _mNextStep;
-
-        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep? NextStep => _mNextStep.GetValue("nextStep");
+        private Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep? _mValue_NextStep;
+        private bool _mUnknown_NextStep;
+        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep? NextStep
+        {
+            get
+            {
+                if (!_mUnknown_NextStep) return _mValue_NextStep;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranch.NextStep' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         /// </summary>
-        [Input("response")]
+        [PolicyResourceProperty("response", "_mUnknown_Response")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponse> _mResponse;
-
-        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponse? Response => _mResponse.GetValue("response");
+        private Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponse? _mValue_Response;
+        private bool _mUnknown_Response;
+        public Outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponse? Response
+        {
+            get
+            {
+                if (!_mUnknown_Response) return _mValue_Response;
+                throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranch.Response' is not present");
+            }
+        }
     }
 }

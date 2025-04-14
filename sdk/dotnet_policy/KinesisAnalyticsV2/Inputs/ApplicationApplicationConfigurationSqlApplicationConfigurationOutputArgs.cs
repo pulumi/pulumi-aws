@@ -15,52 +15,94 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// Describes the data format when records are written to the destination.
         /// </summary>
-        [Input("destinationSchema")]
+        [PolicyResourceProperty("destinationSchema", "_mUnknown_DestinationSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs> _mDestinationSchema;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs? DestinationSchema => _mDestinationSchema.GetValue("destinationSchema");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs? _mValue_DestinationSchema;
+        private bool _mUnknown_DestinationSchema;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs? DestinationSchema
+        {
+            get
+            {
+                if (!_mUnknown_DestinationSchema) return _mValue_DestinationSchema;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.DestinationSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies a Kinesis Data Firehose delivery stream as the destination.
         /// </summary>
-        [Input("kinesisFirehoseOutput")]
+        [PolicyResourceProperty("kinesisFirehoseOutput", "_mUnknown_KinesisFirehoseOutput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs> _mKinesisFirehoseOutput;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs? KinesisFirehoseOutput => _mKinesisFirehoseOutput.GetValue("kinesisFirehoseOutput");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs? _mValue_KinesisFirehoseOutput;
+        private bool _mUnknown_KinesisFirehoseOutput;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs? KinesisFirehoseOutput
+        {
+            get
+            {
+                if (!_mUnknown_KinesisFirehoseOutput) return _mValue_KinesisFirehoseOutput;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.KinesisFirehoseOutput' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies a Kinesis data stream as the destination.
         /// </summary>
-        [Input("kinesisStreamsOutput")]
+        [PolicyResourceProperty("kinesisStreamsOutput", "_mUnknown_KinesisStreamsOutput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs> _mKinesisStreamsOutput;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs? KinesisStreamsOutput => _mKinesisStreamsOutput.GetValue("kinesisStreamsOutput");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs? _mValue_KinesisStreamsOutput;
+        private bool _mUnknown_KinesisStreamsOutput;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs? KinesisStreamsOutput
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamsOutput) return _mValue_KinesisStreamsOutput;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.KinesisStreamsOutput' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifies a Lambda function as the destination.
         /// </summary>
-        [Input("lambdaOutput")]
+        [PolicyResourceProperty("lambdaOutput", "_mUnknown_LambdaOutput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs> _mLambdaOutput;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs? LambdaOutput => _mLambdaOutput.GetValue("lambdaOutput");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs? _mValue_LambdaOutput;
+        private bool _mUnknown_LambdaOutput;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs? LambdaOutput
+        {
+            get
+            {
+                if (!_mUnknown_LambdaOutput) return _mValue_LambdaOutput;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.LambdaOutput' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the in-application stream.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.Name' is not present");
+            }
+        }
 
-        public string? Name => _mName.GetValue("name");
-
-        [Input("outputId")]
+        [PolicyResourceProperty("outputId", "_mUnknown_OutputId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mOutputId;
-
-        public string? OutputId => _mOutputId.GetValue("outputId");
+        private string? _mValue_OutputId;
+        private bool _mUnknown_OutputId;
+        public string? OutputId
+        {
+            get
+            {
+                if (!_mUnknown_OutputId) return _mValue_OutputId;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs.OutputId' is not present");
+            }
+        }
     }
 }

@@ -12,22 +12,43 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
 {
     public sealed class ChannelInputSpecificationArgs
     {
-        [Input("codec")]
+        [PolicyResourceProperty("codec", "_mUnknown_Codec")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCodec;
+        private string? _mValue_Codec;
+        private bool _mUnknown_Codec;
+        public string? Codec
+        {
+            get
+            {
+                if (!_mUnknown_Codec) return _mValue_Codec;
+                throw new UndeferrableValueException("Value 'ChannelInputSpecificationArgs.Codec' is not present");
+            }
+        }
 
-        public string? Codec => _mCodec.GetValue("codec");
-
-        [Input("inputResolution")]
+        [PolicyResourceProperty("inputResolution", "_mUnknown_InputResolution")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputResolution;
+        private string? _mValue_InputResolution;
+        private bool _mUnknown_InputResolution;
+        public string? InputResolution
+        {
+            get
+            {
+                if (!_mUnknown_InputResolution) return _mValue_InputResolution;
+                throw new UndeferrableValueException("Value 'ChannelInputSpecificationArgs.InputResolution' is not present");
+            }
+        }
 
-        public string? InputResolution => _mInputResolution.GetValue("inputResolution");
-
-        [Input("maximumBitrate")]
+        [PolicyResourceProperty("maximumBitrate", "_mUnknown_MaximumBitrate")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMaximumBitrate;
-
-        public string? MaximumBitrate => _mMaximumBitrate.GetValue("maximumBitrate");
+        private string? _mValue_MaximumBitrate;
+        private bool _mUnknown_MaximumBitrate;
+        public string? MaximumBitrate
+        {
+            get
+            {
+                if (!_mUnknown_MaximumBitrate) return _mValue_MaximumBitrate;
+                throw new UndeferrableValueException("Value 'ChannelInputSpecificationArgs.MaximumBitrate' is not present");
+            }
+        }
     }
 }

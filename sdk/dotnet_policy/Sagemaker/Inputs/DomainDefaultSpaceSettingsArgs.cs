@@ -15,73 +15,129 @@ namespace Pulumi.PolicyPacks.Aws.Sagemaker.Inputs
         /// <summary>
         /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
         /// </summary>
-        [Input("customFileSystemConfigs")]
+        [PolicyResourceProperty("customFileSystemConfigs", "_mUnknown_CustomFileSystemConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>> _mCustomFileSystemConfigs;
-
-        public List<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>? CustomFileSystemConfigs => _mCustomFileSystemConfigs.GetValue("customFileSystemConfigs");
+        private List<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>? _mValue_CustomFileSystemConfigs;
+        private bool _mUnknown_CustomFileSystemConfigs;
+        public List<Inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>? CustomFileSystemConfigs
+        {
+            get
+            {
+                if (!_mUnknown_CustomFileSystemConfigs) return _mValue_CustomFileSystemConfigs;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.CustomFileSystemConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
         /// </summary>
-        [Input("customPosixUserConfig")]
+        [PolicyResourceProperty("customPosixUserConfig", "_mUnknown_CustomPosixUserConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigArgs> _mCustomPosixUserConfig;
-
-        public Inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigArgs? CustomPosixUserConfig => _mCustomPosixUserConfig.GetValue("customPosixUserConfig");
+        private Inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigArgs? _mValue_CustomPosixUserConfig;
+        private bool _mUnknown_CustomPosixUserConfig;
+        public Inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigArgs? CustomPosixUserConfig
+        {
+            get
+            {
+                if (!_mUnknown_CustomPosixUserConfig) return _mValue_CustomPosixUserConfig;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.CustomPosixUserConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// The execution role for the space.
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
         /// </summary>
-        [Input("jupyterLabAppSettings")]
+        [PolicyResourceProperty("jupyterLabAppSettings", "_mUnknown_JupyterLabAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs> _mJupyterLabAppSettings;
-
-        public Inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs? JupyterLabAppSettings => _mJupyterLabAppSettings.GetValue("jupyterLabAppSettings");
+        private Inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs? _mValue_JupyterLabAppSettings;
+        private bool _mUnknown_JupyterLabAppSettings;
+        public Inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs? JupyterLabAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_JupyterLabAppSettings) return _mValue_JupyterLabAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.JupyterLabAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
         /// </summary>
-        [Input("jupyterServerAppSettings")]
+        [PolicyResourceProperty("jupyterServerAppSettings", "_mUnknown_JupyterServerAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs> _mJupyterServerAppSettings;
-
-        public Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs? JupyterServerAppSettings => _mJupyterServerAppSettings.GetValue("jupyterServerAppSettings");
+        private Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs? _mValue_JupyterServerAppSettings;
+        private bool _mUnknown_JupyterServerAppSettings;
+        public Inputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs? JupyterServerAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_JupyterServerAppSettings) return _mValue_JupyterServerAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.JupyterServerAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
         /// </summary>
-        [Input("kernelGatewayAppSettings")]
+        [PolicyResourceProperty("kernelGatewayAppSettings", "_mUnknown_KernelGatewayAppSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs> _mKernelGatewayAppSettings;
-
-        public Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs? KernelGatewayAppSettings => _mKernelGatewayAppSettings.GetValue("kernelGatewayAppSettings");
+        private Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs? _mValue_KernelGatewayAppSettings;
+        private bool _mUnknown_KernelGatewayAppSettings;
+        public Inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs? KernelGatewayAppSettings
+        {
+            get
+            {
+                if (!_mUnknown_KernelGatewayAppSettings) return _mValue_KernelGatewayAppSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.KernelGatewayAppSettings' is not present");
+            }
+        }
 
         /// <summary>
         /// The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         /// </summary>
-        [Input("securityGroups")]
+        [PolicyResourceProperty("securityGroups", "_mUnknown_SecurityGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mSecurityGroups;
-
-        public List<string>? SecurityGroups => _mSecurityGroups.GetValue("securityGroups");
+        private List<string>? _mValue_SecurityGroups;
+        private bool _mUnknown_SecurityGroups;
+        public List<string>? SecurityGroups
+        {
+            get
+            {
+                if (!_mUnknown_SecurityGroups) return _mValue_SecurityGroups;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.SecurityGroups' is not present");
+            }
+        }
 
         /// <summary>
         /// The storage settings for a private space. See `space_storage_settings` Block below.
         /// </summary>
-        [Input("spaceStorageSettings")]
+        [PolicyResourceProperty("spaceStorageSettings", "_mUnknown_SpaceStorageSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsArgs> _mSpaceStorageSettings;
-
-        public Inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsArgs? SpaceStorageSettings => _mSpaceStorageSettings.GetValue("spaceStorageSettings");
+        private Inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsArgs? _mValue_SpaceStorageSettings;
+        private bool _mUnknown_SpaceStorageSettings;
+        public Inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsArgs? SpaceStorageSettings
+        {
+            get
+            {
+                if (!_mUnknown_SpaceStorageSettings) return _mValue_SpaceStorageSettings;
+                throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.SpaceStorageSettings' is not present");
+            }
+        }
     }
 }

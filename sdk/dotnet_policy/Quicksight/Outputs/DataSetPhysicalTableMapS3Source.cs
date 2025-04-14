@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// ARN of the data source.
         /// </summary>
-        [Input("dataSourceArn")]
+        [PolicyResourceProperty("dataSourceArn", "_mUnknown_DataSourceArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDataSourceArn;
-
-        public string? DataSourceArn => _mDataSourceArn.GetValue("dataSourceArn");
+        private string? _mValue_DataSourceArn;
+        private bool _mUnknown_DataSourceArn;
+        public string? DataSourceArn
+        {
+            get
+            {
+                if (!_mUnknown_DataSourceArn) return _mValue_DataSourceArn;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3Source.DataSourceArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Column schema of the table. See input_columns.
         /// </summary>
-        [Input("inputColumns")]
+        [PolicyResourceProperty("inputColumns", "_mUnknown_InputColumns")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.DataSetPhysicalTableMapS3SourceInputColumn>> _mInputColumns;
-
-        public List<Outputs.DataSetPhysicalTableMapS3SourceInputColumn>? InputColumns => _mInputColumns.GetValue("inputColumns");
+        private List<Outputs.DataSetPhysicalTableMapS3SourceInputColumn>? _mValue_InputColumns;
+        private bool _mUnknown_InputColumns;
+        public List<Outputs.DataSetPhysicalTableMapS3SourceInputColumn>? InputColumns
+        {
+            get
+            {
+                if (!_mUnknown_InputColumns) return _mValue_InputColumns;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3Source.InputColumns' is not present");
+            }
+        }
 
         /// <summary>
         /// Information about the format for the S3 source file or files. See upload_settings.
         /// </summary>
-        [Input("uploadSettings")]
+        [PolicyResourceProperty("uploadSettings", "_mUnknown_UploadSettings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.DataSetPhysicalTableMapS3SourceUploadSettings> _mUploadSettings;
-
-        public Outputs.DataSetPhysicalTableMapS3SourceUploadSettings? UploadSettings => _mUploadSettings.GetValue("uploadSettings");
+        private Outputs.DataSetPhysicalTableMapS3SourceUploadSettings? _mValue_UploadSettings;
+        private bool _mUnknown_UploadSettings;
+        public Outputs.DataSetPhysicalTableMapS3SourceUploadSettings? UploadSettings
+        {
+            get
+            {
+                if (!_mUnknown_UploadSettings) return _mValue_UploadSettings;
+                throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3Source.UploadSettings' is not present");
+            }
+        }
     }
 }

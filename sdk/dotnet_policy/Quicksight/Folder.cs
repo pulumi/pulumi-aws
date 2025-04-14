@@ -16,112 +16,196 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// ARN of the folder.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Folder.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'Folder.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the folder was created.
         /// </summary>
-        [Input("createdTime")]
+        [PolicyResourceProperty("createdTime", "_mUnknown_CreatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTime;
-
-        public string? CreatedTime => _mCreatedTime.GetValue("createdTime");
+        private string? _mValue_CreatedTime;
+        private bool _mUnknown_CreatedTime;
+        public string? CreatedTime
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTime) return _mValue_CreatedTime;
+                throw new UndeferrableValueException("Value 'Folder.CreatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the folder.
         /// </summary>
-        [Input("folderId")]
+        [PolicyResourceProperty("folderId", "_mUnknown_FolderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
-
-        public string? FolderId => _mFolderId.GetValue("folderId");
+        private string? _mValue_FolderId;
+        private bool _mUnknown_FolderId;
+        public string? FolderId
+        {
+            get
+            {
+                if (!_mUnknown_FolderId) return _mValue_FolderId;
+                throw new UndeferrableValueException("Value 'Folder.FolderId' is not present");
+            }
+        }
 
         /// <summary>
         /// An array of ancestor ARN strings for the folder. Empty for root-level folders.
         /// </summary>
-        [Input("folderPaths")]
+        [PolicyResourceProperty("folderPaths", "_mUnknown_FolderPaths")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mFolderPaths;
-
-        public List<string>? FolderPaths => _mFolderPaths.GetValue("folderPaths");
+        private List<string>? _mValue_FolderPaths;
+        private bool _mUnknown_FolderPaths;
+        public List<string>? FolderPaths
+        {
+            get
+            {
+                if (!_mUnknown_FolderPaths) return _mValue_FolderPaths;
+                throw new UndeferrableValueException("Value 'Folder.FolderPaths' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         /// </summary>
-        [Input("folderType")]
+        [PolicyResourceProperty("folderType", "_mUnknown_FolderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFolderType;
-
-        public string? FolderType => _mFolderType.GetValue("folderType");
+        private string? _mValue_FolderType;
+        private bool _mUnknown_FolderType;
+        public string? FolderType
+        {
+            get
+            {
+                if (!_mUnknown_FolderType) return _mValue_FolderType;
+                throw new UndeferrableValueException("Value 'Folder.FolderType' is not present");
+            }
+        }
 
         /// <summary>
         /// The time that the folder was last updated.
         /// </summary>
-        [Input("lastUpdatedTime")]
+        [PolicyResourceProperty("lastUpdatedTime", "_mUnknown_LastUpdatedTime")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastUpdatedTime;
-
-        public string? LastUpdatedTime => _mLastUpdatedTime.GetValue("lastUpdatedTime");
+        private string? _mValue_LastUpdatedTime;
+        private bool _mUnknown_LastUpdatedTime;
+        public string? LastUpdatedTime
+        {
+            get
+            {
+                if (!_mUnknown_LastUpdatedTime) return _mValue_LastUpdatedTime;
+                throw new UndeferrableValueException("Value 'Folder.LastUpdatedTime' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the folder.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Folder.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         /// </summary>
-        [Input("parentFolderArn")]
+        [PolicyResourceProperty("parentFolderArn", "_mUnknown_ParentFolderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentFolderArn;
-
-        public string? ParentFolderArn => _mParentFolderArn.GetValue("parentFolderArn");
+        private string? _mValue_ParentFolderArn;
+        private bool _mUnknown_ParentFolderArn;
+        public string? ParentFolderArn
+        {
+            get
+            {
+                if (!_mUnknown_ParentFolderArn) return _mValue_ParentFolderArn;
+                throw new UndeferrableValueException("Value 'Folder.ParentFolderArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FolderPermission>> _mPermissions;
-
-        public List<Outputs.FolderPermission>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Outputs.FolderPermission>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Outputs.FolderPermission>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'Folder.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Folder.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Folder.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:quicksight/folder:Folder")]
@@ -130,66 +214,115 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight
         /// <summary>
         /// AWS account ID.
         /// </summary>
-        [Input("awsAccountId")]
+        [PolicyResourceProperty("awsAccountId", "_mUnknown_AwsAccountId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAwsAccountId;
-
-        public string? AwsAccountId => _mAwsAccountId.GetValue("awsAccountId");
+        private string? _mValue_AwsAccountId;
+        private bool _mUnknown_AwsAccountId;
+        public string? AwsAccountId
+        {
+            get
+            {
+                if (!_mUnknown_AwsAccountId) return _mValue_AwsAccountId;
+                throw new UndeferrableValueException("Value 'FolderArgs.AwsAccountId' is not present");
+            }
+        }
 
         /// <summary>
         /// Identifier for the folder.
         /// </summary>
-        [Input("folderId")]
+        [PolicyResourceProperty("folderId", "_mUnknown_FolderId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFolderId;
-
-        public string? FolderId => _mFolderId.GetValue("folderId");
+        private string? _mValue_FolderId;
+        private bool _mUnknown_FolderId;
+        public string? FolderId
+        {
+            get
+            {
+                if (!_mUnknown_FolderId) return _mValue_FolderId;
+                throw new UndeferrableValueException("Value 'FolderArgs.FolderId' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         /// </summary>
-        [Input("folderType")]
+        [PolicyResourceProperty("folderType", "_mUnknown_FolderType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFolderType;
-
-        public string? FolderType => _mFolderType.GetValue("folderType");
+        private string? _mValue_FolderType;
+        private bool _mUnknown_FolderType;
+        public string? FolderType
+        {
+            get
+            {
+                if (!_mUnknown_FolderType) return _mValue_FolderType;
+                throw new UndeferrableValueException("Value 'FolderArgs.FolderType' is not present");
+            }
+        }
 
         /// <summary>
         /// Display name for the folder.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FolderArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         /// </summary>
-        [Input("parentFolderArn")]
+        [PolicyResourceProperty("parentFolderArn", "_mUnknown_ParentFolderArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mParentFolderArn;
-
-        public string? ParentFolderArn => _mParentFolderArn.GetValue("parentFolderArn");
+        private string? _mValue_ParentFolderArn;
+        private bool _mUnknown_ParentFolderArn;
+        public string? ParentFolderArn
+        {
+            get
+            {
+                if (!_mUnknown_ParentFolderArn) return _mValue_ParentFolderArn;
+                throw new UndeferrableValueException("Value 'FolderArgs.ParentFolderArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         /// </summary>
-        [Input("permissions")]
+        [PolicyResourceProperty("permissions", "_mUnknown_Permissions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FolderPermissionArgs>> _mPermissions;
-
-        public List<Inputs.FolderPermissionArgs>? Permissions => _mPermissions.GetValue("permissions");
+        private List<Inputs.FolderPermissionArgs>? _mValue_Permissions;
+        private bool _mUnknown_Permissions;
+        public List<Inputs.FolderPermissionArgs>? Permissions
+        {
+            get
+            {
+                if (!_mUnknown_Permissions) return _mValue_Permissions;
+                throw new UndeferrableValueException("Value 'FolderArgs.Permissions' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FolderArgs.Tags' is not present");
+            }
+        }
     }
 }

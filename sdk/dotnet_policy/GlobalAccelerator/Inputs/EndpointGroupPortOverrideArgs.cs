@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.GlobalAccelerator.Inputs
         /// <summary>
         /// The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
         /// </summary>
-        [Input("endpointPort")]
+        [PolicyResourceProperty("endpointPort", "_mUnknown_EndpointPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mEndpointPort;
-
-        public int? EndpointPort => _mEndpointPort.GetValue("endpointPort");
+        private int? _mValue_EndpointPort;
+        private bool _mUnknown_EndpointPort;
+        public int? EndpointPort
+        {
+            get
+            {
+                if (!_mUnknown_EndpointPort) return _mValue_EndpointPort;
+                throw new UndeferrableValueException("Value 'EndpointGroupPortOverrideArgs.EndpointPort' is not present");
+            }
+        }
 
         /// <summary>
         /// The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
         /// </summary>
-        [Input("listenerPort")]
+        [PolicyResourceProperty("listenerPort", "_mUnknown_ListenerPort")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mListenerPort;
-
-        public int? ListenerPort => _mListenerPort.GetValue("listenerPort");
+        private int? _mValue_ListenerPort;
+        private bool _mUnknown_ListenerPort;
+        public int? ListenerPort
+        {
+            get
+            {
+                if (!_mUnknown_ListenerPort) return _mValue_ListenerPort;
+                throw new UndeferrableValueException("Value 'EndpointGroupPortOverrideArgs.ListenerPort' is not present");
+            }
+        }
     }
 }

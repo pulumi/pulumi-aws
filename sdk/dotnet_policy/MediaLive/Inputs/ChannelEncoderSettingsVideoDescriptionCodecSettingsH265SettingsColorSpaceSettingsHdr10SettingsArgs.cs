@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Inputs
         /// <summary>
         /// Sets the MaxCLL value for HDR10.
         /// </summary>
-        [Input("maxCll")]
+        [PolicyResourceProperty("maxCll", "_mUnknown_MaxCll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxCll;
-
-        public int? MaxCll => _mMaxCll.GetValue("maxCll");
+        private int? _mValue_MaxCll;
+        private bool _mUnknown_MaxCll;
+        public int? MaxCll
+        {
+            get
+            {
+                if (!_mUnknown_MaxCll) return _mValue_MaxCll;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs.MaxCll' is not present");
+            }
+        }
 
         /// <summary>
         /// Sets the MaxFALL value for HDR10.
         /// </summary>
-        [Input("maxFall")]
+        [PolicyResourceProperty("maxFall", "_mUnknown_MaxFall")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mMaxFall;
-
-        public int? MaxFall => _mMaxFall.GetValue("maxFall");
+        private int? _mValue_MaxFall;
+        private bool _mUnknown_MaxFall;
+        public int? MaxFall
+        {
+            get
+            {
+                if (!_mUnknown_MaxFall) return _mValue_MaxFall;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs.MaxFall' is not present");
+            }
+        }
     }
 }

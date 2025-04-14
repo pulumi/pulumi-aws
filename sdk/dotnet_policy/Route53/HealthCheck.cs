@@ -16,47 +16,82 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Health Check.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'HealthCheck.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         /// </summary>
-        [Input("childHealthThreshold")]
+        [PolicyResourceProperty("childHealthThreshold", "_mUnknown_ChildHealthThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mChildHealthThreshold;
-
-        public int? ChildHealthThreshold => _mChildHealthThreshold.GetValue("childHealthThreshold");
+        private int? _mValue_ChildHealthThreshold;
+        private bool _mUnknown_ChildHealthThreshold;
+        public int? ChildHealthThreshold
+        {
+            get
+            {
+                if (!_mUnknown_ChildHealthThreshold) return _mValue_ChildHealthThreshold;
+                throw new UndeferrableValueException("Value 'HealthCheck.ChildHealthThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         /// </summary>
-        [Input("childHealthchecks")]
+        [PolicyResourceProperty("childHealthchecks", "_mUnknown_ChildHealthchecks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChildHealthchecks;
-
-        public List<string>? ChildHealthchecks => _mChildHealthchecks.GetValue("childHealthchecks");
+        private List<string>? _mValue_ChildHealthchecks;
+        private bool _mUnknown_ChildHealthchecks;
+        public List<string>? ChildHealthchecks
+        {
+            get
+            {
+                if (!_mUnknown_ChildHealthchecks) return _mValue_ChildHealthchecks;
+                throw new UndeferrableValueException("Value 'HealthCheck.ChildHealthchecks' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CloudWatch alarm.
         /// </summary>
-        [Input("cloudwatchAlarmName")]
+        [PolicyResourceProperty("cloudwatchAlarmName", "_mUnknown_CloudwatchAlarmName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmName;
-
-        public string? CloudwatchAlarmName => _mCloudwatchAlarmName.GetValue("cloudwatchAlarmName");
+        private string? _mValue_CloudwatchAlarmName;
+        private bool _mUnknown_CloudwatchAlarmName;
+        public string? CloudwatchAlarmName
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchAlarmName) return _mValue_CloudwatchAlarmName;
+                throw new UndeferrableValueException("Value 'HealthCheck.CloudwatchAlarmName' is not present");
+            }
+        }
 
         /// <summary>
         /// The region that the CloudWatch alarm was created in.
         /// </summary>
-        [Input("cloudwatchAlarmRegion")]
+        [PolicyResourceProperty("cloudwatchAlarmRegion", "_mUnknown_CloudwatchAlarmRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmRegion;
-
-        public string? CloudwatchAlarmRegion => _mCloudwatchAlarmRegion.GetValue("cloudwatchAlarmRegion");
+        private string? _mValue_CloudwatchAlarmRegion;
+        private bool _mUnknown_CloudwatchAlarmRegion;
+        public string? CloudwatchAlarmRegion
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchAlarmRegion) return _mValue_CloudwatchAlarmRegion;
+                throw new UndeferrableValueException("Value 'HealthCheck.CloudwatchAlarmRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
@@ -66,174 +101,307 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// 
         /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'HealthCheck.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         /// </summary>
-        [Input("enableSni")]
+        [PolicyResourceProperty("enableSni", "_mUnknown_EnableSni")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSni;
-
-        public bool? EnableSni => _mEnableSni.GetValue("enableSni");
+        private bool? _mValue_EnableSni;
+        private bool _mUnknown_EnableSni;
+        public bool? EnableSni
+        {
+            get
+            {
+                if (!_mUnknown_EnableSni) return _mValue_EnableSni;
+                throw new UndeferrableValueException("Value 'HealthCheck.EnableSni' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of consecutive health checks that an endpoint must pass or fail.
         /// </summary>
-        [Input("failureThreshold")]
+        [PolicyResourceProperty("failureThreshold", "_mUnknown_FailureThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureThreshold;
-
-        public int? FailureThreshold => _mFailureThreshold.GetValue("failureThreshold");
+        private int? _mValue_FailureThreshold;
+        private bool _mUnknown_FailureThreshold;
+        public int? FailureThreshold
+        {
+            get
+            {
+                if (!_mUnknown_FailureThreshold) return _mValue_FailureThreshold;
+                throw new UndeferrableValueException("Value 'HealthCheck.FailureThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
-        [Input("fqdn")]
+        [PolicyResourceProperty("fqdn", "_mUnknown_Fqdn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFqdn;
-
-        public string? Fqdn => _mFqdn.GetValue("fqdn");
+        private string? _mValue_Fqdn;
+        private bool _mUnknown_Fqdn;
+        public string? Fqdn
+        {
+            get
+            {
+                if (!_mUnknown_Fqdn) return _mValue_Fqdn;
+                throw new UndeferrableValueException("Value 'HealthCheck.Fqdn' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
         /// </summary>
-        [Input("insufficientDataHealthStatus")]
+        [PolicyResourceProperty("insufficientDataHealthStatus", "_mUnknown_InsufficientDataHealthStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInsufficientDataHealthStatus;
-
-        public string? InsufficientDataHealthStatus => _mInsufficientDataHealthStatus.GetValue("insufficientDataHealthStatus");
+        private string? _mValue_InsufficientDataHealthStatus;
+        private bool _mUnknown_InsufficientDataHealthStatus;
+        public string? InsufficientDataHealthStatus
+        {
+            get
+            {
+                if (!_mUnknown_InsufficientDataHealthStatus) return _mValue_InsufficientDataHealthStatus;
+                throw new UndeferrableValueException("Value 'HealthCheck.InsufficientDataHealthStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
         /// </summary>
-        [Input("invertHealthcheck")]
+        [PolicyResourceProperty("invertHealthcheck", "_mUnknown_InvertHealthcheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvertHealthcheck;
-
-        public bool? InvertHealthcheck => _mInvertHealthcheck.GetValue("invertHealthcheck");
+        private bool? _mValue_InvertHealthcheck;
+        private bool _mUnknown_InvertHealthcheck;
+        public bool? InvertHealthcheck
+        {
+            get
+            {
+                if (!_mUnknown_InvertHealthcheck) return _mValue_InvertHealthcheck;
+                throw new UndeferrableValueException("Value 'HealthCheck.InvertHealthcheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of the endpoint to be checked.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'HealthCheck.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
         /// </summary>
-        [Input("measureLatency")]
+        [PolicyResourceProperty("measureLatency", "_mUnknown_MeasureLatency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMeasureLatency;
-
-        public bool? MeasureLatency => _mMeasureLatency.GetValue("measureLatency");
+        private bool? _mValue_MeasureLatency;
+        private bool _mUnknown_MeasureLatency;
+        public bool? MeasureLatency
+        {
+            get
+            {
+                if (!_mUnknown_MeasureLatency) return _mValue_MeasureLatency;
+                throw new UndeferrableValueException("Value 'HealthCheck.MeasureLatency' is not present");
+            }
+        }
 
         /// <summary>
         /// The port of the endpoint to be checked.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'HealthCheck.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// This is a reference name used in Caller Reference
         /// (helpful for identifying single health_check set amongst others)
         /// </summary>
-        [Input("referenceName")]
+        [PolicyResourceProperty("referenceName", "_mUnknown_ReferenceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
-
-        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
+        private string? _mValue_ReferenceName;
+        private bool _mUnknown_ReferenceName;
+        public string? ReferenceName
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceName) return _mValue_ReferenceName;
+                throw new UndeferrableValueException("Value 'HealthCheck.ReferenceName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'HealthCheck.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         /// </summary>
-        [Input("requestInterval")]
+        [PolicyResourceProperty("requestInterval", "_mUnknown_RequestInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRequestInterval;
-
-        public int? RequestInterval => _mRequestInterval.GetValue("requestInterval");
+        private int? _mValue_RequestInterval;
+        private bool _mUnknown_RequestInterval;
+        public int? RequestInterval
+        {
+            get
+            {
+                if (!_mUnknown_RequestInterval) return _mValue_RequestInterval;
+                throw new UndeferrableValueException("Value 'HealthCheck.RequestInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// The path that you want Amazon Route 53 to request when performing health checks.
         /// </summary>
-        [Input("resourcePath")]
+        [PolicyResourceProperty("resourcePath", "_mUnknown_ResourcePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePath;
-
-        public string? ResourcePath => _mResourcePath.GetValue("resourcePath");
+        private string? _mValue_ResourcePath;
+        private bool _mUnknown_ResourcePath;
+        public string? ResourcePath
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePath) return _mValue_ResourcePath;
+                throw new UndeferrableValueException("Value 'HealthCheck.ResourcePath' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         /// </summary>
-        [Input("routingControlArn")]
+        [PolicyResourceProperty("routingControlArn", "_mUnknown_RoutingControlArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingControlArn;
-
-        public string? RoutingControlArn => _mRoutingControlArn.GetValue("routingControlArn");
+        private string? _mValue_RoutingControlArn;
+        private bool _mUnknown_RoutingControlArn;
+        public string? RoutingControlArn
+        {
+            get
+            {
+                if (!_mUnknown_RoutingControlArn) return _mValue_RoutingControlArn;
+                throw new UndeferrableValueException("Value 'HealthCheck.RoutingControlArn' is not present");
+            }
+        }
 
         /// <summary>
         /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         /// </summary>
-        [Input("searchString")]
+        [PolicyResourceProperty("searchString", "_mUnknown_SearchString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSearchString;
-
-        public string? SearchString => _mSearchString.GetValue("searchString");
+        private string? _mValue_SearchString;
+        private bool _mUnknown_SearchString;
+        public string? SearchString
+        {
+            get
+            {
+                if (!_mUnknown_SearchString) return _mValue_SearchString;
+                throw new UndeferrableValueException("Value 'HealthCheck.SearchString' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HealthCheck.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'HealthCheck.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'HealthCheck.Triggers' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'HealthCheck.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:route53/healthCheck:HealthCheck")]
@@ -242,38 +410,66 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// <summary>
         /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         /// </summary>
-        [Input("childHealthThreshold")]
+        [PolicyResourceProperty("childHealthThreshold", "_mUnknown_ChildHealthThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mChildHealthThreshold;
-
-        public int? ChildHealthThreshold => _mChildHealthThreshold.GetValue("childHealthThreshold");
+        private int? _mValue_ChildHealthThreshold;
+        private bool _mUnknown_ChildHealthThreshold;
+        public int? ChildHealthThreshold
+        {
+            get
+            {
+                if (!_mUnknown_ChildHealthThreshold) return _mValue_ChildHealthThreshold;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.ChildHealthThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         /// </summary>
-        [Input("childHealthchecks")]
+        [PolicyResourceProperty("childHealthchecks", "_mUnknown_ChildHealthchecks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mChildHealthchecks;
-
-        public List<string>? ChildHealthchecks => _mChildHealthchecks.GetValue("childHealthchecks");
+        private List<string>? _mValue_ChildHealthchecks;
+        private bool _mUnknown_ChildHealthchecks;
+        public List<string>? ChildHealthchecks
+        {
+            get
+            {
+                if (!_mUnknown_ChildHealthchecks) return _mValue_ChildHealthchecks;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.ChildHealthchecks' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the CloudWatch alarm.
         /// </summary>
-        [Input("cloudwatchAlarmName")]
+        [PolicyResourceProperty("cloudwatchAlarmName", "_mUnknown_CloudwatchAlarmName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmName;
-
-        public string? CloudwatchAlarmName => _mCloudwatchAlarmName.GetValue("cloudwatchAlarmName");
+        private string? _mValue_CloudwatchAlarmName;
+        private bool _mUnknown_CloudwatchAlarmName;
+        public string? CloudwatchAlarmName
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchAlarmName) return _mValue_CloudwatchAlarmName;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.CloudwatchAlarmName' is not present");
+            }
+        }
 
         /// <summary>
         /// The region that the CloudWatch alarm was created in.
         /// </summary>
-        [Input("cloudwatchAlarmRegion")]
+        [PolicyResourceProperty("cloudwatchAlarmRegion", "_mUnknown_CloudwatchAlarmRegion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCloudwatchAlarmRegion;
-
-        public string? CloudwatchAlarmRegion => _mCloudwatchAlarmRegion.GetValue("cloudwatchAlarmRegion");
+        private string? _mValue_CloudwatchAlarmRegion;
+        private bool _mUnknown_CloudwatchAlarmRegion;
+        public string? CloudwatchAlarmRegion
+        {
+            get
+            {
+                if (!_mUnknown_CloudwatchAlarmRegion) return _mValue_CloudwatchAlarmRegion;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.CloudwatchAlarmRegion' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that stops Route 53 from performing health checks. When set to true, Route 53 will do the following depending on the type of health check:
@@ -283,164 +479,290 @@ namespace Pulumi.PolicyPacks.Aws.Route53
         /// 
         /// &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
         /// </summary>
-        [Input("disabled")]
+        [PolicyResourceProperty("disabled", "_mUnknown_Disabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mDisabled;
-
-        public bool? Disabled => _mDisabled.GetValue("disabled");
+        private bool? _mValue_Disabled;
+        private bool _mUnknown_Disabled;
+        public bool? Disabled
+        {
+            get
+            {
+                if (!_mUnknown_Disabled) return _mValue_Disabled;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.Disabled' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
         /// </summary>
-        [Input("enableSni")]
+        [PolicyResourceProperty("enableSni", "_mUnknown_EnableSni")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnableSni;
-
-        public bool? EnableSni => _mEnableSni.GetValue("enableSni");
+        private bool? _mValue_EnableSni;
+        private bool _mUnknown_EnableSni;
+        public bool? EnableSni
+        {
+            get
+            {
+                if (!_mUnknown_EnableSni) return _mValue_EnableSni;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.EnableSni' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of consecutive health checks that an endpoint must pass or fail.
         /// </summary>
-        [Input("failureThreshold")]
+        [PolicyResourceProperty("failureThreshold", "_mUnknown_FailureThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureThreshold;
-
-        public int? FailureThreshold => _mFailureThreshold.GetValue("failureThreshold");
+        private int? _mValue_FailureThreshold;
+        private bool _mUnknown_FailureThreshold;
+        public int? FailureThreshold
+        {
+            get
+            {
+                if (!_mUnknown_FailureThreshold) return _mValue_FailureThreshold;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.FailureThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
         /// </summary>
-        [Input("fqdn")]
+        [PolicyResourceProperty("fqdn", "_mUnknown_Fqdn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFqdn;
-
-        public string? Fqdn => _mFqdn.GetValue("fqdn");
+        private string? _mValue_Fqdn;
+        private bool _mUnknown_Fqdn;
+        public string? Fqdn
+        {
+            get
+            {
+                if (!_mUnknown_Fqdn) return _mValue_Fqdn;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.Fqdn' is not present");
+            }
+        }
 
         /// <summary>
         /// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
         /// </summary>
-        [Input("insufficientDataHealthStatus")]
+        [PolicyResourceProperty("insufficientDataHealthStatus", "_mUnknown_InsufficientDataHealthStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInsufficientDataHealthStatus;
-
-        public string? InsufficientDataHealthStatus => _mInsufficientDataHealthStatus.GetValue("insufficientDataHealthStatus");
+        private string? _mValue_InsufficientDataHealthStatus;
+        private bool _mUnknown_InsufficientDataHealthStatus;
+        public string? InsufficientDataHealthStatus
+        {
+            get
+            {
+                if (!_mUnknown_InsufficientDataHealthStatus) return _mValue_InsufficientDataHealthStatus;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.InsufficientDataHealthStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
         /// </summary>
-        [Input("invertHealthcheck")]
+        [PolicyResourceProperty("invertHealthcheck", "_mUnknown_InvertHealthcheck")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mInvertHealthcheck;
-
-        public bool? InvertHealthcheck => _mInvertHealthcheck.GetValue("invertHealthcheck");
+        private bool? _mValue_InvertHealthcheck;
+        private bool _mUnknown_InvertHealthcheck;
+        public bool? InvertHealthcheck
+        {
+            get
+            {
+                if (!_mUnknown_InvertHealthcheck) return _mValue_InvertHealthcheck;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.InvertHealthcheck' is not present");
+            }
+        }
 
         /// <summary>
         /// The IP address of the endpoint to be checked.
         /// </summary>
-        [Input("ipAddress")]
+        [PolicyResourceProperty("ipAddress", "_mUnknown_IpAddress")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mIpAddress;
-
-        public string? IpAddress => _mIpAddress.GetValue("ipAddress");
+        private string? _mValue_IpAddress;
+        private bool _mUnknown_IpAddress;
+        public string? IpAddress
+        {
+            get
+            {
+                if (!_mUnknown_IpAddress) return _mValue_IpAddress;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.IpAddress' is not present");
+            }
+        }
 
         /// <summary>
         /// A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
         /// </summary>
-        [Input("measureLatency")]
+        [PolicyResourceProperty("measureLatency", "_mUnknown_MeasureLatency")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mMeasureLatency;
-
-        public bool? MeasureLatency => _mMeasureLatency.GetValue("measureLatency");
+        private bool? _mValue_MeasureLatency;
+        private bool _mUnknown_MeasureLatency;
+        public bool? MeasureLatency
+        {
+            get
+            {
+                if (!_mUnknown_MeasureLatency) return _mValue_MeasureLatency;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.MeasureLatency' is not present");
+            }
+        }
 
         /// <summary>
         /// The port of the endpoint to be checked.
         /// </summary>
-        [Input("port")]
+        [PolicyResourceProperty("port", "_mUnknown_Port")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mPort;
-
-        public int? Port => _mPort.GetValue("port");
+        private int? _mValue_Port;
+        private bool _mUnknown_Port;
+        public int? Port
+        {
+            get
+            {
+                if (!_mUnknown_Port) return _mValue_Port;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.Port' is not present");
+            }
+        }
 
         /// <summary>
         /// This is a reference name used in Caller Reference
         /// (helpful for identifying single health_check set amongst others)
         /// </summary>
-        [Input("referenceName")]
+        [PolicyResourceProperty("referenceName", "_mUnknown_ReferenceName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReferenceName;
-
-        public string? ReferenceName => _mReferenceName.GetValue("referenceName");
+        private string? _mValue_ReferenceName;
+        private bool _mUnknown_ReferenceName;
+        public string? ReferenceName
+        {
+            get
+            {
+                if (!_mUnknown_ReferenceName) return _mValue_ReferenceName;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.ReferenceName' is not present");
+            }
+        }
 
         /// <summary>
         /// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         /// </summary>
-        [Input("regions")]
+        [PolicyResourceProperty("regions", "_mUnknown_Regions")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mRegions;
-
-        public List<string>? Regions => _mRegions.GetValue("regions");
+        private List<string>? _mValue_Regions;
+        private bool _mUnknown_Regions;
+        public List<string>? Regions
+        {
+            get
+            {
+                if (!_mUnknown_Regions) return _mValue_Regions;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.Regions' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         /// </summary>
-        [Input("requestInterval")]
+        [PolicyResourceProperty("requestInterval", "_mUnknown_RequestInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRequestInterval;
-
-        public int? RequestInterval => _mRequestInterval.GetValue("requestInterval");
+        private int? _mValue_RequestInterval;
+        private bool _mUnknown_RequestInterval;
+        public int? RequestInterval
+        {
+            get
+            {
+                if (!_mUnknown_RequestInterval) return _mValue_RequestInterval;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.RequestInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// The path that you want Amazon Route 53 to request when performing health checks.
         /// </summary>
-        [Input("resourcePath")]
+        [PolicyResourceProperty("resourcePath", "_mUnknown_ResourcePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePath;
-
-        public string? ResourcePath => _mResourcePath.GetValue("resourcePath");
+        private string? _mValue_ResourcePath;
+        private bool _mUnknown_ResourcePath;
+        public string? ResourcePath
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePath) return _mValue_ResourcePath;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.ResourcePath' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         /// </summary>
-        [Input("routingControlArn")]
+        [PolicyResourceProperty("routingControlArn", "_mUnknown_RoutingControlArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoutingControlArn;
-
-        public string? RoutingControlArn => _mRoutingControlArn.GetValue("routingControlArn");
+        private string? _mValue_RoutingControlArn;
+        private bool _mUnknown_RoutingControlArn;
+        public string? RoutingControlArn
+        {
+            get
+            {
+                if (!_mUnknown_RoutingControlArn) return _mValue_RoutingControlArn;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.RoutingControlArn' is not present");
+            }
+        }
 
         /// <summary>
         /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         /// </summary>
-        [Input("searchString")]
+        [PolicyResourceProperty("searchString", "_mUnknown_SearchString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mSearchString;
-
-        public string? SearchString => _mSearchString.GetValue("searchString");
+        private string? _mValue_SearchString;
+        private bool _mUnknown_SearchString;
+        public string? SearchString
+        {
+            get
+            {
+                if (!_mUnknown_SearchString) return _mValue_SearchString;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.SearchString' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
         /// </summary>
-        [Input("triggers")]
+        [PolicyResourceProperty("triggers", "_mUnknown_Triggers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTriggers;
-
-        public Dictionary<string, string>? Triggers => _mTriggers.GetValue("triggers");
+        private Dictionary<string, string>? _mValue_Triggers;
+        private bool _mUnknown_Triggers;
+        public Dictionary<string, string>? Triggers
+        {
+            get
+            {
+                if (!_mUnknown_Triggers) return _mValue_Triggers;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.Triggers' is not present");
+            }
+        }
 
         /// <summary>
         /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'HealthCheckArgs.Type' is not present");
+            }
+        }
     }
 }

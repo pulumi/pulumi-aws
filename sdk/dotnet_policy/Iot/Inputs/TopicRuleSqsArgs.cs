@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Iot.Inputs
         /// <summary>
         /// The URL of the Amazon SQS queue.
         /// </summary>
-        [Input("queueUrl")]
+        [PolicyResourceProperty("queueUrl", "_mUnknown_QueueUrl")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mQueueUrl;
-
-        public string? QueueUrl => _mQueueUrl.GetValue("queueUrl");
+        private string? _mValue_QueueUrl;
+        private bool _mUnknown_QueueUrl;
+        public string? QueueUrl
+        {
+            get
+            {
+                if (!_mUnknown_QueueUrl) return _mValue_QueueUrl;
+                throw new UndeferrableValueException("Value 'TopicRuleSqsArgs.QueueUrl' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        [Input("roleArn")]
+        [PolicyResourceProperty("roleArn", "_mUnknown_RoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mRoleArn;
-
-        public string? RoleArn => _mRoleArn.GetValue("roleArn");
+        private string? _mValue_RoleArn;
+        private bool _mUnknown_RoleArn;
+        public string? RoleArn
+        {
+            get
+            {
+                if (!_mUnknown_RoleArn) return _mValue_RoleArn;
+                throw new UndeferrableValueException("Value 'TopicRuleSqsArgs.RoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies whether to use Base64 encoding.
         /// </summary>
-        [Input("useBase64")]
+        [PolicyResourceProperty("useBase64", "_mUnknown_UseBase64")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mUseBase64;
-
-        public bool? UseBase64 => _mUseBase64.GetValue("useBase64");
+        private bool? _mValue_UseBase64;
+        private bool _mUnknown_UseBase64;
+        public bool? UseBase64
+        {
+            get
+            {
+                if (!_mUnknown_UseBase64) return _mValue_UseBase64;
+                throw new UndeferrableValueException("Value 'TopicRuleSqsArgs.UseBase64' is not present");
+            }
+        }
     }
 }

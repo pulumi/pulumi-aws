@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.Dlm.Inputs
         /// <summary>
         /// The IDs of the AWS accounts with which to share the snapshots.
         /// </summary>
-        [Input("targetAccounts")]
+        [PolicyResourceProperty("targetAccounts", "_mUnknown_TargetAccounts")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mTargetAccounts;
-
-        public List<string>? TargetAccounts => _mTargetAccounts.GetValue("targetAccounts");
+        private List<string>? _mValue_TargetAccounts;
+        private bool _mUnknown_TargetAccounts;
+        public List<string>? TargetAccounts
+        {
+            get
+            {
+                if (!_mUnknown_TargetAccounts) return _mValue_TargetAccounts;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.TargetAccounts' is not present");
+            }
+        }
 
         /// <summary>
         /// The period after which snapshots that are shared with other AWS accounts are automatically unshared.
         /// </summary>
-        [Input("unshareInterval")]
+        [PolicyResourceProperty("unshareInterval", "_mUnknown_UnshareInterval")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mUnshareInterval;
-
-        public int? UnshareInterval => _mUnshareInterval.GetValue("unshareInterval");
+        private int? _mValue_UnshareInterval;
+        private bool _mUnknown_UnshareInterval;
+        public int? UnshareInterval
+        {
+            get
+            {
+                if (!_mUnknown_UnshareInterval) return _mValue_UnshareInterval;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.UnshareInterval' is not present");
+            }
+        }
 
         /// <summary>
         /// The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
         /// </summary>
-        [Input("unshareIntervalUnit")]
+        [PolicyResourceProperty("unshareIntervalUnit", "_mUnknown_UnshareIntervalUnit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnshareIntervalUnit;
-
-        public string? UnshareIntervalUnit => _mUnshareIntervalUnit.GetValue("unshareIntervalUnit");
+        private string? _mValue_UnshareIntervalUnit;
+        private bool _mUnknown_UnshareIntervalUnit;
+        public string? UnshareIntervalUnit
+        {
+            get
+            {
+                if (!_mUnknown_UnshareIntervalUnit) return _mValue_UnshareIntervalUnit;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.UnshareIntervalUnit' is not present");
+            }
+        }
     }
 }

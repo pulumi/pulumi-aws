@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Inputs
         /// <summary>
         /// The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
         /// </summary>
-        [Input("filterType")]
+        [PolicyResourceProperty("filterType", "_mUnknown_FilterType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterType;
-
-        public string? FilterType => _mFilterType.GetValue("filterType");
+        private string? _mValue_FilterType;
+        private bool _mUnknown_FilterType;
+        public string? FilterType
+        {
+            get
+            {
+                if (!_mUnknown_FilterType) return _mValue_FilterType;
+                throw new UndeferrableValueException("Value 'TaskIncludesArgs.FilterType' is not present");
+            }
+        }
 
         /// <summary>
         /// A single filter string that consists of the patterns to include. The patterns are delimited by "|" (that is, a pipe), for example: `/folder1|/folder2`
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mValue;
-
-        public string? Value => _mValue.GetValue("value");
+        private string? _mValue_Value;
+        private bool _mUnknown_Value;
+        public string? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'TaskIncludesArgs.Value' is not present");
+            }
+        }
     }
 }

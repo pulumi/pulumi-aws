@@ -16,20 +16,34 @@ namespace Pulumi.PolicyPacks.Aws.DataExchange.Inputs
         /// Configures server-side encryption of the exported revision.
         /// Described in `encryption` Configuration Block below.
         /// </summary>
-        [Input("encryption")]
+        [PolicyResourceProperty("encryption", "_mUnknown_Encryption")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventActionActionExportRevisionToS3EncryptionArgs> _mEncryption;
-
-        public Inputs.EventActionActionExportRevisionToS3EncryptionArgs? Encryption => _mEncryption.GetValue("encryption");
+        private Inputs.EventActionActionExportRevisionToS3EncryptionArgs? _mValue_Encryption;
+        private bool _mUnknown_Encryption;
+        public Inputs.EventActionActionExportRevisionToS3EncryptionArgs? Encryption
+        {
+            get
+            {
+                if (!_mUnknown_Encryption) return _mValue_Encryption;
+                throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3Args.Encryption' is not present");
+            }
+        }
 
         /// <summary>
         /// Configures the S3 destination of the exported revision.
         /// Described in `revision_destination` Configuration Block below.
         /// </summary>
-        [Input("revisionDestination")]
+        [PolicyResourceProperty("revisionDestination", "_mUnknown_RevisionDestination")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs> _mRevisionDestination;
-
-        public Inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs? RevisionDestination => _mRevisionDestination.GetValue("revisionDestination");
+        private Inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs? _mValue_RevisionDestination;
+        private bool _mUnknown_RevisionDestination;
+        public Inputs.EventActionActionExportRevisionToS3RevisionDestinationArgs? RevisionDestination
+        {
+            get
+            {
+                if (!_mUnknown_RevisionDestination) return _mValue_RevisionDestination;
+                throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3Args.RevisionDestination' is not present");
+            }
+        }
     }
 }

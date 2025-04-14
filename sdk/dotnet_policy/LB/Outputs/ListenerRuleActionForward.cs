@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.LB.Outputs
         /// <summary>
         /// The target group stickiness for the rule.
         /// </summary>
-        [Input("stickiness")]
+        [PolicyResourceProperty("stickiness", "_mUnknown_Stickiness")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ListenerRuleActionForwardStickiness> _mStickiness;
-
-        public Outputs.ListenerRuleActionForwardStickiness? Stickiness => _mStickiness.GetValue("stickiness");
+        private Outputs.ListenerRuleActionForwardStickiness? _mValue_Stickiness;
+        private bool _mUnknown_Stickiness;
+        public Outputs.ListenerRuleActionForwardStickiness? Stickiness
+        {
+            get
+            {
+                if (!_mUnknown_Stickiness) return _mValue_Stickiness;
+                throw new UndeferrableValueException("Value 'ListenerRuleActionForward.Stickiness' is not present");
+            }
+        }
 
         /// <summary>
         /// One or more target group blocks.
         /// </summary>
-        [Input("targetGroups")]
+        [PolicyResourceProperty("targetGroups", "_mUnknown_TargetGroups")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ListenerRuleActionForwardTargetGroup>> _mTargetGroups;
-
-        public List<Outputs.ListenerRuleActionForwardTargetGroup>? TargetGroups => _mTargetGroups.GetValue("targetGroups");
+        private List<Outputs.ListenerRuleActionForwardTargetGroup>? _mValue_TargetGroups;
+        private bool _mUnknown_TargetGroups;
+        public List<Outputs.ListenerRuleActionForwardTargetGroup>? TargetGroups
+        {
+            get
+            {
+                if (!_mUnknown_TargetGroups) return _mValue_TargetGroups;
+                throw new UndeferrableValueException("Value 'ListenerRuleActionForward.TargetGroups' is not present");
+            }
+        }
     }
 }

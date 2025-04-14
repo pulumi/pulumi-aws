@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.MediaLive.Outputs
         /// <summary>
         /// The ad marker type for this output group.
         /// </summary>
-        [Input("adMarkers")]
+        [PolicyResourceProperty("adMarkers", "_mUnknown_AdMarkers")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAdMarkers;
-
-        public List<string>? AdMarkers => _mAdMarkers.GetValue("adMarkers");
+        private List<string>? _mValue_AdMarkers;
+        private bool _mUnknown_AdMarkers;
+        public List<string>? AdMarkers
+        {
+            get
+            {
+                if (!_mUnknown_AdMarkers) return _mValue_AdMarkers;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.AdMarkers' is not present");
+            }
+        }
 
         /// <summary>
         /// Authentication scheme to use when connecting with CDN.
         /// </summary>
-        [Input("authenticationScheme")]
+        [PolicyResourceProperty("authenticationScheme", "_mUnknown_AuthenticationScheme")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAuthenticationScheme;
-
-        public string? AuthenticationScheme => _mAuthenticationScheme.GetValue("authenticationScheme");
+        private string? _mValue_AuthenticationScheme;
+        private bool _mUnknown_AuthenticationScheme;
+        public string? AuthenticationScheme
+        {
+            get
+            {
+                if (!_mUnknown_AuthenticationScheme) return _mValue_AuthenticationScheme;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.AuthenticationScheme' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls behavior when content cache fills up.
         /// </summary>
-        [Input("cacheFullBehavior")]
+        [PolicyResourceProperty("cacheFullBehavior", "_mUnknown_CacheFullBehavior")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCacheFullBehavior;
-
-        public string? CacheFullBehavior => _mCacheFullBehavior.GetValue("cacheFullBehavior");
+        private string? _mValue_CacheFullBehavior;
+        private bool _mUnknown_CacheFullBehavior;
+        public string? CacheFullBehavior
+        {
+            get
+            {
+                if (!_mUnknown_CacheFullBehavior) return _mValue_CacheFullBehavior;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.CacheFullBehavior' is not present");
+            }
+        }
 
         /// <summary>
         /// Cache length in seconds, is used to calculate buffer size.
         /// </summary>
-        [Input("cacheLength")]
+        [PolicyResourceProperty("cacheLength", "_mUnknown_CacheLength")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mCacheLength;
-
-        public int? CacheLength => _mCacheLength.GetValue("cacheLength");
+        private int? _mValue_CacheLength;
+        private bool _mUnknown_CacheLength;
+        public int? CacheLength
+        {
+            get
+            {
+                if (!_mUnknown_CacheLength) return _mValue_CacheLength;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.CacheLength' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls the types of data that passes to onCaptionInfo outputs.
         /// </summary>
-        [Input("captionData")]
+        [PolicyResourceProperty("captionData", "_mUnknown_CaptionData")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCaptionData;
-
-        public string? CaptionData => _mCaptionData.GetValue("captionData");
+        private string? _mValue_CaptionData;
+        private bool _mUnknown_CaptionData;
+        public string? CaptionData
+        {
+            get
+            {
+                if (!_mUnknown_CaptionData) return _mValue_CaptionData;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.CaptionData' is not present");
+            }
+        }
 
         /// <summary>
         /// Controls the behavior of the RTMP group if input becomes unavailable.
         /// </summary>
-        [Input("inputLossAction")]
+        [PolicyResourceProperty("inputLossAction", "_mUnknown_InputLossAction")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputLossAction;
-
-        public string? InputLossAction => _mInputLossAction.GetValue("inputLossAction");
+        private string? _mValue_InputLossAction;
+        private bool _mUnknown_InputLossAction;
+        public string? InputLossAction
+        {
+            get
+            {
+                if (!_mUnknown_InputLossAction) return _mValue_InputLossAction;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.InputLossAction' is not present");
+            }
+        }
 
         /// <summary>
         /// Number of seconds to wait until a restart is initiated.
         /// </summary>
-        [Input("restartDelay")]
+        [PolicyResourceProperty("restartDelay", "_mUnknown_RestartDelay")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRestartDelay;
-
-        public int? RestartDelay => _mRestartDelay.GetValue("restartDelay");
+        private int? _mValue_RestartDelay;
+        private bool _mUnknown_RestartDelay;
+        public int? RestartDelay
+        {
+            get
+            {
+                if (!_mUnknown_RestartDelay) return _mValue_RestartDelay;
+                throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.RestartDelay' is not present");
+            }
+        }
     }
 }

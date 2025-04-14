@@ -15,64 +15,113 @@ namespace Pulumi.PolicyPacks.Aws.TimestreamQuery.Outputs
         /// <summary>
         /// Name of Timestream database to which the query result will be written.
         /// </summary>
-        [Input("databaseName")]
+        [PolicyResourceProperty("databaseName", "_mUnknown_DatabaseName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseName;
-
-        public string? DatabaseName => _mDatabaseName.GetValue("databaseName");
+        private string? _mValue_DatabaseName;
+        private bool _mUnknown_DatabaseName;
+        public string? DatabaseName
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseName) return _mValue_DatabaseName;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfiguration.DatabaseName' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
         /// </summary>
-        [Input("dimensionMappings")]
+        [PolicyResourceProperty("dimensionMappings", "_mUnknown_DimensionMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping>> _mDimensionMappings;
-
-        public List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping>? DimensionMappings => _mDimensionMappings.GetValue("dimensionMappings");
+        private List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping>? _mValue_DimensionMappings;
+        private bool _mUnknown_DimensionMappings;
+        public List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMapping>? DimensionMappings
+        {
+            get
+            {
+                if (!_mUnknown_DimensionMappings) return _mValue_DimensionMappings;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfiguration.DimensionMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the measure column.
         /// </summary>
-        [Input("measureNameColumn")]
+        [PolicyResourceProperty("measureNameColumn", "_mUnknown_MeasureNameColumn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMeasureNameColumn;
-
-        public string? MeasureNameColumn => _mMeasureNameColumn.GetValue("measureNameColumn");
+        private string? _mValue_MeasureNameColumn;
+        private bool _mUnknown_MeasureNameColumn;
+        public string? MeasureNameColumn
+        {
+            get
+            {
+                if (!_mUnknown_MeasureNameColumn) return _mValue_MeasureNameColumn;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfiguration.MeasureNameColumn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for how to map measures to multi-measure records. See below.
         /// </summary>
-        [Input("mixedMeasureMappings")]
+        [PolicyResourceProperty("mixedMeasureMappings", "_mUnknown_MixedMeasureMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping>> _mMixedMeasureMappings;
-
-        public List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping>? MixedMeasureMappings => _mMixedMeasureMappings.GetValue("mixedMeasureMappings");
+        private List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping>? _mValue_MixedMeasureMappings;
+        private bool _mUnknown_MixedMeasureMappings;
+        public List<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMapping>? MixedMeasureMappings
+        {
+            get
+            {
+                if (!_mUnknown_MixedMeasureMappings) return _mValue_MixedMeasureMappings;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfiguration.MixedMeasureMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
         /// </summary>
-        [Input("multiMeasureMappings")]
+        [PolicyResourceProperty("multiMeasureMappings", "_mUnknown_MultiMeasureMappings")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings> _mMultiMeasureMappings;
-
-        public Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings? MultiMeasureMappings => _mMultiMeasureMappings.GetValue("multiMeasureMappings");
+        private Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings? _mValue_MultiMeasureMappings;
+        private bool _mUnknown_MultiMeasureMappings;
+        public Outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings? MultiMeasureMappings
+        {
+            get
+            {
+                if (!_mUnknown_MultiMeasureMappings) return _mValue_MultiMeasureMappings;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfiguration.MultiMeasureMappings' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
         /// </summary>
-        [Input("tableName")]
+        [PolicyResourceProperty("tableName", "_mUnknown_TableName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableName;
-
-        public string? TableName => _mTableName.GetValue("tableName");
+        private string? _mValue_TableName;
+        private bool _mUnknown_TableName;
+        public string? TableName
+        {
+            get
+            {
+                if (!_mUnknown_TableName) return _mValue_TableName;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfiguration.TableName' is not present");
+            }
+        }
 
         /// <summary>
         /// Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
         /// </summary>
-        [Input("timeColumn")]
+        [PolicyResourceProperty("timeColumn", "_mUnknown_TimeColumn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTimeColumn;
-
-        public string? TimeColumn => _mTimeColumn.GetValue("timeColumn");
+        private string? _mValue_TimeColumn;
+        private bool _mUnknown_TimeColumn;
+        public string? TimeColumn
+        {
+            get
+            {
+                if (!_mUnknown_TimeColumn) return _mValue_TimeColumn;
+                throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfiguration.TimeColumn' is not present");
+            }
+        }
     }
 }

@@ -16,71 +16,127 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// ARN of the Restore Testing Plan.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         /// </summary>
-        [Input("recoveryPointSelection")]
+        [PolicyResourceProperty("recoveryPointSelection", "_mUnknown_RecoveryPointSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.RestoreTestingPlanRecoveryPointSelection> _mRecoveryPointSelection;
-
-        public Outputs.RestoreTestingPlanRecoveryPointSelection? RecoveryPointSelection => _mRecoveryPointSelection.GetValue("recoveryPointSelection");
+        private Outputs.RestoreTestingPlanRecoveryPointSelection? _mValue_RecoveryPointSelection;
+        private bool _mUnknown_RecoveryPointSelection;
+        public Outputs.RestoreTestingPlanRecoveryPointSelection? RecoveryPointSelection
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryPointSelection) return _mValue_RecoveryPointSelection;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.RecoveryPointSelection' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule expression for the restore testing plan.
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// The timezone for the schedule expression. If not provided, the state value will be used.
         /// </summary>
-        [Input("scheduleExpressionTimezone")]
+        [PolicyResourceProperty("scheduleExpressionTimezone", "_mUnknown_ScheduleExpressionTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpressionTimezone;
-
-        public string? ScheduleExpressionTimezone => _mScheduleExpressionTimezone.GetValue("scheduleExpressionTimezone");
+        private string? _mValue_ScheduleExpressionTimezone;
+        private bool _mUnknown_ScheduleExpressionTimezone;
+        public string? ScheduleExpressionTimezone
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpressionTimezone) return _mValue_ScheduleExpressionTimezone;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.ScheduleExpressionTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         /// </summary>
-        [Input("startWindowHours")]
+        [PolicyResourceProperty("startWindowHours", "_mUnknown_StartWindowHours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartWindowHours;
+        private int? _mValue_StartWindowHours;
+        private bool _mUnknown_StartWindowHours;
+        public int? StartWindowHours
+        {
+            get
+            {
+                if (!_mUnknown_StartWindowHours) return _mValue_StartWindowHours;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.StartWindowHours' is not present");
+            }
+        }
 
-        public int? StartWindowHours => _mStartWindowHours.GetValue("startWindowHours");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlan.TagsAll' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:backup/restoreTestingPlan:RestoreTestingPlan")]
@@ -89,52 +145,94 @@ namespace Pulumi.PolicyPacks.Aws.Backup
         /// <summary>
         /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         /// </summary>
-        [Input("recoveryPointSelection")]
+        [PolicyResourceProperty("recoveryPointSelection", "_mUnknown_RecoveryPointSelection")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.RestoreTestingPlanRecoveryPointSelectionArgs> _mRecoveryPointSelection;
-
-        public Inputs.RestoreTestingPlanRecoveryPointSelectionArgs? RecoveryPointSelection => _mRecoveryPointSelection.GetValue("recoveryPointSelection");
+        private Inputs.RestoreTestingPlanRecoveryPointSelectionArgs? _mValue_RecoveryPointSelection;
+        private bool _mUnknown_RecoveryPointSelection;
+        public Inputs.RestoreTestingPlanRecoveryPointSelectionArgs? RecoveryPointSelection
+        {
+            get
+            {
+                if (!_mUnknown_RecoveryPointSelection) return _mValue_RecoveryPointSelection;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.RecoveryPointSelection' is not present");
+            }
+        }
 
         /// <summary>
         /// The schedule expression for the restore testing plan.
         /// </summary>
-        [Input("scheduleExpression")]
+        [PolicyResourceProperty("scheduleExpression", "_mUnknown_ScheduleExpression")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpression;
-
-        public string? ScheduleExpression => _mScheduleExpression.GetValue("scheduleExpression");
+        private string? _mValue_ScheduleExpression;
+        private bool _mUnknown_ScheduleExpression;
+        public string? ScheduleExpression
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpression) return _mValue_ScheduleExpression;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.ScheduleExpression' is not present");
+            }
+        }
 
         /// <summary>
         /// The timezone for the schedule expression. If not provided, the state value will be used.
         /// </summary>
-        [Input("scheduleExpressionTimezone")]
+        [PolicyResourceProperty("scheduleExpressionTimezone", "_mUnknown_ScheduleExpressionTimezone")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mScheduleExpressionTimezone;
-
-        public string? ScheduleExpressionTimezone => _mScheduleExpressionTimezone.GetValue("scheduleExpressionTimezone");
+        private string? _mValue_ScheduleExpressionTimezone;
+        private bool _mUnknown_ScheduleExpressionTimezone;
+        public string? ScheduleExpressionTimezone
+        {
+            get
+            {
+                if (!_mUnknown_ScheduleExpressionTimezone) return _mValue_ScheduleExpressionTimezone;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.ScheduleExpressionTimezone' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         /// </summary>
-        [Input("startWindowHours")]
+        [PolicyResourceProperty("startWindowHours", "_mUnknown_StartWindowHours")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mStartWindowHours;
+        private int? _mValue_StartWindowHours;
+        private bool _mUnknown_StartWindowHours;
+        public int? StartWindowHours
+        {
+            get
+            {
+                if (!_mUnknown_StartWindowHours) return _mValue_StartWindowHours;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.StartWindowHours' is not present");
+            }
+        }
 
-        public int? StartWindowHours => _mStartWindowHours.GetValue("startWindowHours");
-
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.Tags' is not present");
+            }
+        }
     }
 }

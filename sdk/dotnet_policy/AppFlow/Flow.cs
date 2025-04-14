@@ -16,110 +16,194 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow
         /// <summary>
         /// Flow's ARN.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'Flow.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the flow you want to create.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'Flow.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         /// </summary>
-        [Input("destinationFlowConfigs")]
+        [PolicyResourceProperty("destinationFlowConfigs", "_mUnknown_DestinationFlowConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FlowDestinationFlowConfig>> _mDestinationFlowConfigs;
-
-        public List<Outputs.FlowDestinationFlowConfig>? DestinationFlowConfigs => _mDestinationFlowConfigs.GetValue("destinationFlowConfigs");
+        private List<Outputs.FlowDestinationFlowConfig>? _mValue_DestinationFlowConfigs;
+        private bool _mUnknown_DestinationFlowConfigs;
+        public List<Outputs.FlowDestinationFlowConfig>? DestinationFlowConfigs
+        {
+            get
+            {
+                if (!_mUnknown_DestinationFlowConfigs) return _mValue_DestinationFlowConfigs;
+                throw new UndeferrableValueException("Value 'Flow.DestinationFlowConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// The current status of the flow.
         /// </summary>
-        [Input("flowStatus")]
+        [PolicyResourceProperty("flowStatus", "_mUnknown_FlowStatus")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFlowStatus;
-
-        public string? FlowStatus => _mFlowStatus.GetValue("flowStatus");
+        private string? _mValue_FlowStatus;
+        private bool _mUnknown_FlowStatus;
+        public string? FlowStatus
+        {
+            get
+            {
+                if (!_mUnknown_FlowStatus) return _mValue_FlowStatus;
+                throw new UndeferrableValueException("Value 'Flow.FlowStatus' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
-        [Input("kmsArn")]
+        [PolicyResourceProperty("kmsArn", "_mUnknown_KmsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
-
-        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
+        private string? _mValue_KmsArn;
+        private bool _mUnknown_KmsArn;
+        public string? KmsArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsArn) return _mValue_KmsArn;
+                throw new UndeferrableValueException("Value 'Flow.KmsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         /// </summary>
-        [Input("metadataCatalogConfig")]
+        [PolicyResourceProperty("metadataCatalogConfig", "_mUnknown_MetadataCatalogConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowMetadataCatalogConfig> _mMetadataCatalogConfig;
-
-        public Outputs.FlowMetadataCatalogConfig? MetadataCatalogConfig => _mMetadataCatalogConfig.GetValue("metadataCatalogConfig");
+        private Outputs.FlowMetadataCatalogConfig? _mValue_MetadataCatalogConfig;
+        private bool _mUnknown_MetadataCatalogConfig;
+        public Outputs.FlowMetadataCatalogConfig? MetadataCatalogConfig
+        {
+            get
+            {
+                if (!_mUnknown_MetadataCatalogConfig) return _mValue_MetadataCatalogConfig;
+                throw new UndeferrableValueException("Value 'Flow.MetadataCatalogConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the flow.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'Flow.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         /// </summary>
-        [Input("sourceFlowConfig")]
+        [PolicyResourceProperty("sourceFlowConfig", "_mUnknown_SourceFlowConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowSourceFlowConfig> _mSourceFlowConfig;
-
-        public Outputs.FlowSourceFlowConfig? SourceFlowConfig => _mSourceFlowConfig.GetValue("sourceFlowConfig");
+        private Outputs.FlowSourceFlowConfig? _mValue_SourceFlowConfig;
+        private bool _mUnknown_SourceFlowConfig;
+        public Outputs.FlowSourceFlowConfig? SourceFlowConfig
+        {
+            get
+            {
+                if (!_mUnknown_SourceFlowConfig) return _mValue_SourceFlowConfig;
+                throw new UndeferrableValueException("Value 'Flow.SourceFlowConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'Flow.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'Flow.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A Task that Amazon AppFlow performs while transferring the data in the flow run.
         /// </summary>
-        [Input("tasks")]
+        [PolicyResourceProperty("tasks", "_mUnknown_Tasks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.FlowTask>> _mTasks;
-
-        public List<Outputs.FlowTask>? Tasks => _mTasks.GetValue("tasks");
+        private List<Outputs.FlowTask>? _mValue_Tasks;
+        private bool _mUnknown_Tasks;
+        public List<Outputs.FlowTask>? Tasks
+        {
+            get
+            {
+                if (!_mUnknown_Tasks) return _mValue_Tasks;
+                throw new UndeferrableValueException("Value 'Flow.Tasks' is not present");
+            }
+        }
 
         /// <summary>
         /// A Trigger that determine how and when the flow runs.
         /// </summary>
-        [Input("triggerConfig")]
+        [PolicyResourceProperty("triggerConfig", "_mUnknown_TriggerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowTriggerConfig> _mTriggerConfig;
-
-        public Outputs.FlowTriggerConfig? TriggerConfig => _mTriggerConfig.GetValue("triggerConfig");
+        private Outputs.FlowTriggerConfig? _mValue_TriggerConfig;
+        private bool _mUnknown_TriggerConfig;
+        public Outputs.FlowTriggerConfig? TriggerConfig
+        {
+            get
+            {
+                if (!_mUnknown_TriggerConfig) return _mValue_TriggerConfig;
+                throw new UndeferrableValueException("Value 'Flow.TriggerConfig' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:appflow/flow:Flow")]
@@ -128,82 +212,145 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow
         /// <summary>
         /// Description of the flow you want to create.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'FlowArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         /// </summary>
-        [Input("destinationFlowConfigs")]
+        [PolicyResourceProperty("destinationFlowConfigs", "_mUnknown_DestinationFlowConfigs")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FlowDestinationFlowConfigArgs>> _mDestinationFlowConfigs;
-
-        public List<Inputs.FlowDestinationFlowConfigArgs>? DestinationFlowConfigs => _mDestinationFlowConfigs.GetValue("destinationFlowConfigs");
+        private List<Inputs.FlowDestinationFlowConfigArgs>? _mValue_DestinationFlowConfigs;
+        private bool _mUnknown_DestinationFlowConfigs;
+        public List<Inputs.FlowDestinationFlowConfigArgs>? DestinationFlowConfigs
+        {
+            get
+            {
+                if (!_mUnknown_DestinationFlowConfigs) return _mValue_DestinationFlowConfigs;
+                throw new UndeferrableValueException("Value 'FlowArgs.DestinationFlowConfigs' is not present");
+            }
+        }
 
         /// <summary>
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         /// </summary>
-        [Input("kmsArn")]
+        [PolicyResourceProperty("kmsArn", "_mUnknown_KmsArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mKmsArn;
-
-        public string? KmsArn => _mKmsArn.GetValue("kmsArn");
+        private string? _mValue_KmsArn;
+        private bool _mUnknown_KmsArn;
+        public string? KmsArn
+        {
+            get
+            {
+                if (!_mUnknown_KmsArn) return _mValue_KmsArn;
+                throw new UndeferrableValueException("Value 'FlowArgs.KmsArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         /// </summary>
-        [Input("metadataCatalogConfig")]
+        [PolicyResourceProperty("metadataCatalogConfig", "_mUnknown_MetadataCatalogConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowMetadataCatalogConfigArgs> _mMetadataCatalogConfig;
-
-        public Inputs.FlowMetadataCatalogConfigArgs? MetadataCatalogConfig => _mMetadataCatalogConfig.GetValue("metadataCatalogConfig");
+        private Inputs.FlowMetadataCatalogConfigArgs? _mValue_MetadataCatalogConfig;
+        private bool _mUnknown_MetadataCatalogConfig;
+        public Inputs.FlowMetadataCatalogConfigArgs? MetadataCatalogConfig
+        {
+            get
+            {
+                if (!_mUnknown_MetadataCatalogConfig) return _mValue_MetadataCatalogConfig;
+                throw new UndeferrableValueException("Value 'FlowArgs.MetadataCatalogConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the flow.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'FlowArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         /// </summary>
-        [Input("sourceFlowConfig")]
+        [PolicyResourceProperty("sourceFlowConfig", "_mUnknown_SourceFlowConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowSourceFlowConfigArgs> _mSourceFlowConfig;
-
-        public Inputs.FlowSourceFlowConfigArgs? SourceFlowConfig => _mSourceFlowConfig.GetValue("sourceFlowConfig");
+        private Inputs.FlowSourceFlowConfigArgs? _mValue_SourceFlowConfig;
+        private bool _mUnknown_SourceFlowConfig;
+        public Inputs.FlowSourceFlowConfigArgs? SourceFlowConfig
+        {
+            get
+            {
+                if (!_mUnknown_SourceFlowConfig) return _mValue_SourceFlowConfig;
+                throw new UndeferrableValueException("Value 'FlowArgs.SourceFlowConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'FlowArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A Task that Amazon AppFlow performs while transferring the data in the flow run.
         /// </summary>
-        [Input("tasks")]
+        [PolicyResourceProperty("tasks", "_mUnknown_Tasks")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.FlowTaskArgs>> _mTasks;
-
-        public List<Inputs.FlowTaskArgs>? Tasks => _mTasks.GetValue("tasks");
+        private List<Inputs.FlowTaskArgs>? _mValue_Tasks;
+        private bool _mUnknown_Tasks;
+        public List<Inputs.FlowTaskArgs>? Tasks
+        {
+            get
+            {
+                if (!_mUnknown_Tasks) return _mValue_Tasks;
+                throw new UndeferrableValueException("Value 'FlowArgs.Tasks' is not present");
+            }
+        }
 
         /// <summary>
         /// A Trigger that determine how and when the flow runs.
         /// </summary>
-        [Input("triggerConfig")]
+        [PolicyResourceProperty("triggerConfig", "_mUnknown_TriggerConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.FlowTriggerConfigArgs> _mTriggerConfig;
-
-        public Inputs.FlowTriggerConfigArgs? TriggerConfig => _mTriggerConfig.GetValue("triggerConfig");
+        private Inputs.FlowTriggerConfigArgs? _mValue_TriggerConfig;
+        private bool _mUnknown_TriggerConfig;
+        public Inputs.FlowTriggerConfigArgs? TriggerConfig
+        {
+            get
+            {
+                if (!_mUnknown_TriggerConfig) return _mValue_TriggerConfig;
+                throw new UndeferrableValueException("Value 'FlowArgs.TriggerConfig' is not present");
+            }
+        }
     }
 }

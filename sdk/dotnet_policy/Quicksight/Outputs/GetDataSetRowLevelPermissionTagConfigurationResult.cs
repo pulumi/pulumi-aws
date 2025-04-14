@@ -12,16 +12,30 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
 {
     public sealed class GetDataSetRowLevelPermissionTagConfigurationResult
     {
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionTagConfigurationResult.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("tagRules")]
+        [PolicyResourceProperty("tagRules", "_mUnknown_TagRules")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult>> _mTagRules;
-
-        public List<Outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult>? TagRules => _mTagRules.GetValue("tagRules");
+        private List<Outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult>? _mValue_TagRules;
+        private bool _mUnknown_TagRules;
+        public List<Outputs.GetDataSetRowLevelPermissionTagConfigurationTagRuleResult>? TagRules
+        {
+            get
+            {
+                if (!_mUnknown_TagRules) return _mValue_TagRules;
+                throw new UndeferrableValueException("Value 'GetDataSetRowLevelPermissionTagConfigurationResult.TagRules' is not present");
+            }
+        }
     }
 }

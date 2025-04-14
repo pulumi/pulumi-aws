@@ -12,80 +12,143 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
 {
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs
     {
-        [Input("inAppStreamNames")]
+        [PolicyResourceProperty("inAppStreamNames", "_mUnknown_InAppStreamNames")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mInAppStreamNames;
+        private List<string>? _mValue_InAppStreamNames;
+        private bool _mUnknown_InAppStreamNames;
+        public List<string>? InAppStreamNames
+        {
+            get
+            {
+                if (!_mUnknown_InAppStreamNames) return _mValue_InAppStreamNames;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.InAppStreamNames' is not present");
+            }
+        }
 
-        public List<string>? InAppStreamNames => _mInAppStreamNames.GetValue("inAppStreamNames");
-
-        [Input("inputId")]
+        [PolicyResourceProperty("inputId", "_mUnknown_InputId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInputId;
-
-        public string? InputId => _mInputId.GetValue("inputId");
+        private string? _mValue_InputId;
+        private bool _mUnknown_InputId;
+        public string? InputId
+        {
+            get
+            {
+                if (!_mUnknown_InputId) return _mValue_InputId;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.InputId' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the number of in-application streams to create.
         /// </summary>
-        [Input("inputParallelism")]
+        [PolicyResourceProperty("inputParallelism", "_mUnknown_InputParallelism")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs> _mInputParallelism;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs? InputParallelism => _mInputParallelism.GetValue("inputParallelism");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs? _mValue_InputParallelism;
+        private bool _mUnknown_InputParallelism;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs? InputParallelism
+        {
+            get
+            {
+                if (!_mUnknown_InputParallelism) return _mValue_InputParallelism;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.InputParallelism' is not present");
+            }
+        }
 
         /// <summary>
         /// The input processing configuration for the input.
         /// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
         /// </summary>
-        [Input("inputProcessingConfiguration")]
+        [PolicyResourceProperty("inputProcessingConfiguration", "_mUnknown_InputProcessingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs> _mInputProcessingConfiguration;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs? InputProcessingConfiguration => _mInputProcessingConfiguration.GetValue("inputProcessingConfiguration");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs? _mValue_InputProcessingConfiguration;
+        private bool _mUnknown_InputProcessingConfiguration;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs? InputProcessingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_InputProcessingConfiguration) return _mValue_InputProcessingConfiguration;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.InputProcessingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
         /// </summary>
-        [Input("inputSchema")]
+        [PolicyResourceProperty("inputSchema", "_mUnknown_InputSchema")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs> _mInputSchema;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs? InputSchema => _mInputSchema.GetValue("inputSchema");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs? _mValue_InputSchema;
+        private bool _mUnknown_InputSchema;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs? InputSchema
+        {
+            get
+            {
+                if (!_mUnknown_InputSchema) return _mValue_InputSchema;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.InputSchema' is not present");
+            }
+        }
 
         /// <summary>
         /// The point at which the application starts processing records from the streaming source.
         /// </summary>
-        [Input("inputStartingPositionConfigurations")]
+        [PolicyResourceProperty("inputStartingPositionConfigurations", "_mUnknown_InputStartingPositionConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>> _mInputStartingPositionConfigurations;
-
-        public List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>? InputStartingPositionConfigurations => _mInputStartingPositionConfigurations.GetValue("inputStartingPositionConfigurations");
+        private List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>? _mValue_InputStartingPositionConfigurations;
+        private bool _mUnknown_InputStartingPositionConfigurations;
+        public List<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs>? InputStartingPositionConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_InputStartingPositionConfigurations) return _mValue_InputStartingPositionConfigurations;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.InputStartingPositionConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
         /// </summary>
-        [Input("kinesisFirehoseInput")]
+        [PolicyResourceProperty("kinesisFirehoseInput", "_mUnknown_KinesisFirehoseInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs> _mKinesisFirehoseInput;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs? KinesisFirehoseInput => _mKinesisFirehoseInput.GetValue("kinesisFirehoseInput");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs? _mValue_KinesisFirehoseInput;
+        private bool _mUnknown_KinesisFirehoseInput;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs? KinesisFirehoseInput
+        {
+            get
+            {
+                if (!_mUnknown_KinesisFirehoseInput) return _mValue_KinesisFirehoseInput;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.KinesisFirehoseInput' is not present");
+            }
+        }
 
         /// <summary>
         /// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         /// </summary>
-        [Input("kinesisStreamsInput")]
+        [PolicyResourceProperty("kinesisStreamsInput", "_mUnknown_KinesisStreamsInput")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs> _mKinesisStreamsInput;
-
-        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs? KinesisStreamsInput => _mKinesisStreamsInput.GetValue("kinesisStreamsInput");
+        private Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs? _mValue_KinesisStreamsInput;
+        private bool _mUnknown_KinesisStreamsInput;
+        public Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs? KinesisStreamsInput
+        {
+            get
+            {
+                if (!_mUnknown_KinesisStreamsInput) return _mValue_KinesisStreamsInput;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.KinesisStreamsInput' is not present");
+            }
+        }
 
         /// <summary>
         /// The name prefix to use when creating an in-application stream.
         /// </summary>
-        [Input("namePrefix")]
+        [PolicyResourceProperty("namePrefix", "_mUnknown_NamePrefix")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mNamePrefix;
-
-        public string? NamePrefix => _mNamePrefix.GetValue("namePrefix");
+        private string? _mValue_NamePrefix;
+        private bool _mUnknown_NamePrefix;
+        public string? NamePrefix
+        {
+            get
+            {
+                if (!_mUnknown_NamePrefix) return _mValue_NamePrefix;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs.NamePrefix' is not present");
+            }
+        }
     }
 }

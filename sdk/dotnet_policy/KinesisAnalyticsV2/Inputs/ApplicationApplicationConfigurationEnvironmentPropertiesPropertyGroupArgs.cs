@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.KinesisAnalyticsV2.Inputs
         /// <summary>
         /// The key of the application execution property key-value map.
         /// </summary>
-        [Input("propertyGroupId")]
+        [PolicyResourceProperty("propertyGroupId", "_mUnknown_PropertyGroupId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mPropertyGroupId;
-
-        public string? PropertyGroupId => _mPropertyGroupId.GetValue("propertyGroupId");
+        private string? _mValue_PropertyGroupId;
+        private bool _mUnknown_PropertyGroupId;
+        public string? PropertyGroupId
+        {
+            get
+            {
+                if (!_mUnknown_PropertyGroupId) return _mValue_PropertyGroupId;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.PropertyGroupId' is not present");
+            }
+        }
 
         /// <summary>
         /// Application execution property key-value map.
         /// </summary>
-        [Input("propertyMap")]
+        [PolicyResourceProperty("propertyMap", "_mUnknown_PropertyMap")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mPropertyMap;
-
-        public Dictionary<string, string>? PropertyMap => _mPropertyMap.GetValue("propertyMap");
+        private Dictionary<string, string>? _mValue_PropertyMap;
+        private bool _mUnknown_PropertyMap;
+        public Dictionary<string, string>? PropertyMap
+        {
+            get
+            {
+                if (!_mUnknown_PropertyMap) return _mValue_PropertyMap;
+                throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.PropertyMap' is not present");
+            }
+        }
     }
 }

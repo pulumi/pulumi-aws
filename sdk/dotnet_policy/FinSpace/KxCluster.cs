@@ -16,214 +16,382 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// <summary>
         /// Amazon Resource Name (ARN) identifier of the KX cluster.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'KxCluster.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         /// </summary>
-        [Input("autoScalingConfiguration")]
+        [PolicyResourceProperty("autoScalingConfiguration", "_mUnknown_AutoScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterAutoScalingConfiguration> _mAutoScalingConfiguration;
-
-        public Outputs.KxClusterAutoScalingConfiguration? AutoScalingConfiguration => _mAutoScalingConfiguration.GetValue("autoScalingConfiguration");
+        private Outputs.KxClusterAutoScalingConfiguration? _mValue_AutoScalingConfiguration;
+        private bool _mUnknown_AutoScalingConfiguration;
+        public Outputs.KxClusterAutoScalingConfiguration? AutoScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfiguration) return _mValue_AutoScalingConfiguration;
+                throw new UndeferrableValueException("Value 'KxCluster.AutoScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         /// </summary>
-        [Input("availabilityZoneId")]
+        [PolicyResourceProperty("availabilityZoneId", "_mUnknown_AvailabilityZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
-
-        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+        private string? _mValue_AvailabilityZoneId;
+        private bool _mUnknown_AvailabilityZoneId;
+        public string? AvailabilityZoneId
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneId) return _mValue_AvailabilityZoneId;
+                throw new UndeferrableValueException("Value 'KxCluster.AvailabilityZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
         /// * SINGLE - Assigns one availability zone per cluster.
         /// * MULTI - Assigns all the availability zones per cluster.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'KxCluster.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         /// </summary>
-        [Input("cacheStorageConfigurations")]
+        [PolicyResourceProperty("cacheStorageConfigurations", "_mUnknown_CacheStorageConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxClusterCacheStorageConfiguration>> _mCacheStorageConfigurations;
-
-        public List<Outputs.KxClusterCacheStorageConfiguration>? CacheStorageConfigurations => _mCacheStorageConfigurations.GetValue("cacheStorageConfigurations");
+        private List<Outputs.KxClusterCacheStorageConfiguration>? _mValue_CacheStorageConfigurations;
+        private bool _mUnknown_CacheStorageConfigurations;
+        public List<Outputs.KxClusterCacheStorageConfiguration>? CacheStorageConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_CacheStorageConfigurations) return _mValue_CacheStorageConfigurations;
+                throw new UndeferrableValueException("Value 'KxCluster.CacheStorageConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         /// </summary>
-        [Input("capacityConfiguration")]
+        [PolicyResourceProperty("capacityConfiguration", "_mUnknown_CapacityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterCapacityConfiguration> _mCapacityConfiguration;
-
-        public Outputs.KxClusterCapacityConfiguration? CapacityConfiguration => _mCapacityConfiguration.GetValue("capacityConfiguration");
+        private Outputs.KxClusterCapacityConfiguration? _mValue_CapacityConfiguration;
+        private bool _mUnknown_CapacityConfiguration;
+        public Outputs.KxClusterCapacityConfiguration? CapacityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CapacityConfiguration) return _mValue_CapacityConfiguration;
+                throw new UndeferrableValueException("Value 'KxCluster.CapacityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterCode> _mCode;
-
-        public Outputs.KxClusterCode? Code => _mCode.GetValue("code");
+        private Outputs.KxClusterCode? _mValue_Code;
+        private bool _mUnknown_Code;
+        public Outputs.KxClusterCode? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'KxCluster.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// List of key-value pairs to make available inside the cluster.
         /// </summary>
-        [Input("commandLineArguments")]
+        [PolicyResourceProperty("commandLineArguments", "_mUnknown_CommandLineArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mCommandLineArguments;
-
-        public Dictionary<string, string>? CommandLineArguments => _mCommandLineArguments.GetValue("commandLineArguments");
+        private Dictionary<string, string>? _mValue_CommandLineArguments;
+        private bool _mUnknown_CommandLineArguments;
+        public Dictionary<string, string>? CommandLineArguments
+        {
+            get
+            {
+                if (!_mUnknown_CommandLineArguments) return _mValue_CommandLineArguments;
+                throw new UndeferrableValueException("Value 'KxCluster.CommandLineArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
-        [Input("createdTimestamp")]
+        [PolicyResourceProperty("createdTimestamp", "_mUnknown_CreatedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCreatedTimestamp;
-
-        public string? CreatedTimestamp => _mCreatedTimestamp.GetValue("createdTimestamp");
+        private string? _mValue_CreatedTimestamp;
+        private bool _mUnknown_CreatedTimestamp;
+        public string? CreatedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_CreatedTimestamp) return _mValue_CreatedTimestamp;
+                throw new UndeferrableValueException("Value 'KxCluster.CreatedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// KX database that will be available for querying. Defined below.
         /// </summary>
-        [Input("databases")]
+        [PolicyResourceProperty("databases", "_mUnknown_Databases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxClusterDatabase>> _mDatabases;
-
-        public List<Outputs.KxClusterDatabase>? Databases => _mDatabases.GetValue("databases");
+        private List<Outputs.KxClusterDatabase>? _mValue_Databases;
+        private bool _mUnknown_Databases;
+        public List<Outputs.KxClusterDatabase>? Databases
+        {
+            get
+            {
+                if (!_mUnknown_Databases) return _mValue_Databases;
+                throw new UndeferrableValueException("Value 'KxCluster.Databases' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the cluster.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'KxCluster.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the KX environment.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxCluster.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'KxCluster.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         /// </summary>
-        [Input("initializationScript")]
+        [PolicyResourceProperty("initializationScript", "_mUnknown_InitializationScript")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInitializationScript;
-
-        public string? InitializationScript => _mInitializationScript.GetValue("initializationScript");
+        private string? _mValue_InitializationScript;
+        private bool _mUnknown_InitializationScript;
+        public string? InitializationScript
+        {
+            get
+            {
+                if (!_mUnknown_InitializationScript) return _mValue_InitializationScript;
+                throw new UndeferrableValueException("Value 'KxCluster.InitializationScript' is not present");
+            }
+        }
 
         /// <summary>
         /// Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
-        [Input("lastModifiedTimestamp")]
+        [PolicyResourceProperty("lastModifiedTimestamp", "_mUnknown_LastModifiedTimestamp")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLastModifiedTimestamp;
-
-        public string? LastModifiedTimestamp => _mLastModifiedTimestamp.GetValue("lastModifiedTimestamp");
+        private string? _mValue_LastModifiedTimestamp;
+        private bool _mUnknown_LastModifiedTimestamp;
+        public string? LastModifiedTimestamp
+        {
+            get
+            {
+                if (!_mUnknown_LastModifiedTimestamp) return _mValue_LastModifiedTimestamp;
+                throw new UndeferrableValueException("Value 'KxCluster.LastModifiedTimestamp' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the cluster that you want to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxCluster.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of FinSpace Managed kdb to run.
         /// </summary>
-        [Input("releaseLabel")]
+        [PolicyResourceProperty("releaseLabel", "_mUnknown_ReleaseLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
-
-        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+        private string? _mValue_ReleaseLabel;
+        private bool _mUnknown_ReleaseLabel;
+        public string? ReleaseLabel
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseLabel) return _mValue_ReleaseLabel;
+                throw new UndeferrableValueException("Value 'KxCluster.ReleaseLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
-        [Input("savedownStorageConfiguration")]
+        [PolicyResourceProperty("savedownStorageConfiguration", "_mUnknown_SavedownStorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterSavedownStorageConfiguration> _mSavedownStorageConfiguration;
-
-        public Outputs.KxClusterSavedownStorageConfiguration? SavedownStorageConfiguration => _mSavedownStorageConfiguration.GetValue("savedownStorageConfiguration");
+        private Outputs.KxClusterSavedownStorageConfiguration? _mValue_SavedownStorageConfiguration;
+        private bool _mUnknown_SavedownStorageConfiguration;
+        public Outputs.KxClusterSavedownStorageConfiguration? SavedownStorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SavedownStorageConfiguration) return _mValue_SavedownStorageConfiguration;
+                throw new UndeferrableValueException("Value 'KxCluster.SavedownStorageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The structure that stores the configuration details of a scaling group.
         /// </summary>
-        [Input("scalingGroupConfiguration")]
+        [PolicyResourceProperty("scalingGroupConfiguration", "_mUnknown_ScalingGroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterScalingGroupConfiguration> _mScalingGroupConfiguration;
+        private Outputs.KxClusterScalingGroupConfiguration? _mValue_ScalingGroupConfiguration;
+        private bool _mUnknown_ScalingGroupConfiguration;
+        public Outputs.KxClusterScalingGroupConfiguration? ScalingGroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScalingGroupConfiguration) return _mValue_ScalingGroupConfiguration;
+                throw new UndeferrableValueException("Value 'KxCluster.ScalingGroupConfiguration' is not present");
+            }
+        }
 
-        public Outputs.KxClusterScalingGroupConfiguration? ScalingGroupConfiguration => _mScalingGroupConfiguration.GetValue("scalingGroupConfiguration");
-
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'KxCluster.Status' is not present");
+            }
+        }
 
-        public string? Status => _mStatus.GetValue("status");
-
-        [Input("statusReason")]
+        [PolicyResourceProperty("statusReason", "_mUnknown_StatusReason")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatusReason;
-
-        public string? StatusReason => _mStatusReason.GetValue("statusReason");
+        private string? _mValue_StatusReason;
+        private bool _mUnknown_StatusReason;
+        public string? StatusReason
+        {
+            get
+            {
+                if (!_mUnknown_StatusReason) return _mValue_StatusReason;
+                throw new UndeferrableValueException("Value 'KxCluster.StatusReason' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxCluster.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'KxCluster.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         /// </summary>
-        [Input("tickerplantLogConfigurations")]
+        [PolicyResourceProperty("tickerplantLogConfigurations", "_mUnknown_TickerplantLogConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.KxClusterTickerplantLogConfiguration>> _mTickerplantLogConfigurations;
-
-        public List<Outputs.KxClusterTickerplantLogConfiguration>? TickerplantLogConfigurations => _mTickerplantLogConfigurations.GetValue("tickerplantLogConfigurations");
+        private List<Outputs.KxClusterTickerplantLogConfiguration>? _mValue_TickerplantLogConfigurations;
+        private bool _mUnknown_TickerplantLogConfigurations;
+        public List<Outputs.KxClusterTickerplantLogConfiguration>? TickerplantLogConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_TickerplantLogConfigurations) return _mValue_TickerplantLogConfigurations;
+                throw new UndeferrableValueException("Value 'KxCluster.TickerplantLogConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of KDB database. The following types are available:
@@ -233,22 +401,36 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
         /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'KxCluster.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.KxClusterVpcConfiguration> _mVpcConfiguration;
-
-        public Outputs.KxClusterVpcConfiguration? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Outputs.KxClusterVpcConfiguration? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Outputs.KxClusterVpcConfiguration? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'KxCluster.VpcConfiguration' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:finspace/kxCluster:KxCluster")]
@@ -257,166 +439,292 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// <summary>
         /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         /// </summary>
-        [Input("autoScalingConfiguration")]
+        [PolicyResourceProperty("autoScalingConfiguration", "_mUnknown_AutoScalingConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterAutoScalingConfigurationArgs> _mAutoScalingConfiguration;
-
-        public Inputs.KxClusterAutoScalingConfigurationArgs? AutoScalingConfiguration => _mAutoScalingConfiguration.GetValue("autoScalingConfiguration");
+        private Inputs.KxClusterAutoScalingConfigurationArgs? _mValue_AutoScalingConfiguration;
+        private bool _mUnknown_AutoScalingConfiguration;
+        public Inputs.KxClusterAutoScalingConfigurationArgs? AutoScalingConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_AutoScalingConfiguration) return _mValue_AutoScalingConfiguration;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.AutoScalingConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         /// </summary>
-        [Input("availabilityZoneId")]
+        [PolicyResourceProperty("availabilityZoneId", "_mUnknown_AvailabilityZoneId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAvailabilityZoneId;
-
-        public string? AvailabilityZoneId => _mAvailabilityZoneId.GetValue("availabilityZoneId");
+        private string? _mValue_AvailabilityZoneId;
+        private bool _mUnknown_AvailabilityZoneId;
+        public string? AvailabilityZoneId
+        {
+            get
+            {
+                if (!_mUnknown_AvailabilityZoneId) return _mValue_AvailabilityZoneId;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.AvailabilityZoneId' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
         /// * SINGLE - Assigns one availability zone per cluster.
         /// * MULTI - Assigns all the availability zones per cluster.
         /// </summary>
-        [Input("azMode")]
+        [PolicyResourceProperty("azMode", "_mUnknown_AzMode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mAzMode;
-
-        public string? AzMode => _mAzMode.GetValue("azMode");
+        private string? _mValue_AzMode;
+        private bool _mUnknown_AzMode;
+        public string? AzMode
+        {
+            get
+            {
+                if (!_mUnknown_AzMode) return _mValue_AzMode;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.AzMode' is not present");
+            }
+        }
 
         /// <summary>
         /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         /// </summary>
-        [Input("cacheStorageConfigurations")]
+        [PolicyResourceProperty("cacheStorageConfigurations", "_mUnknown_CacheStorageConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxClusterCacheStorageConfigurationArgs>> _mCacheStorageConfigurations;
-
-        public List<Inputs.KxClusterCacheStorageConfigurationArgs>? CacheStorageConfigurations => _mCacheStorageConfigurations.GetValue("cacheStorageConfigurations");
+        private List<Inputs.KxClusterCacheStorageConfigurationArgs>? _mValue_CacheStorageConfigurations;
+        private bool _mUnknown_CacheStorageConfigurations;
+        public List<Inputs.KxClusterCacheStorageConfigurationArgs>? CacheStorageConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_CacheStorageConfigurations) return _mValue_CacheStorageConfigurations;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.CacheStorageConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         /// </summary>
-        [Input("capacityConfiguration")]
+        [PolicyResourceProperty("capacityConfiguration", "_mUnknown_CapacityConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterCapacityConfigurationArgs> _mCapacityConfiguration;
-
-        public Inputs.KxClusterCapacityConfigurationArgs? CapacityConfiguration => _mCapacityConfiguration.GetValue("capacityConfiguration");
+        private Inputs.KxClusterCapacityConfigurationArgs? _mValue_CapacityConfiguration;
+        private bool _mUnknown_CapacityConfiguration;
+        public Inputs.KxClusterCapacityConfigurationArgs? CapacityConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_CapacityConfiguration) return _mValue_CapacityConfiguration;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.CapacityConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         /// </summary>
-        [Input("code")]
+        [PolicyResourceProperty("code", "_mUnknown_Code")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterCodeArgs> _mCode;
-
-        public Inputs.KxClusterCodeArgs? Code => _mCode.GetValue("code");
+        private Inputs.KxClusterCodeArgs? _mValue_Code;
+        private bool _mUnknown_Code;
+        public Inputs.KxClusterCodeArgs? Code
+        {
+            get
+            {
+                if (!_mUnknown_Code) return _mValue_Code;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.Code' is not present");
+            }
+        }
 
         /// <summary>
         /// List of key-value pairs to make available inside the cluster.
         /// </summary>
-        [Input("commandLineArguments")]
+        [PolicyResourceProperty("commandLineArguments", "_mUnknown_CommandLineArguments")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mCommandLineArguments;
-
-        public Dictionary<string, string>? CommandLineArguments => _mCommandLineArguments.GetValue("commandLineArguments");
+        private Dictionary<string, string>? _mValue_CommandLineArguments;
+        private bool _mUnknown_CommandLineArguments;
+        public Dictionary<string, string>? CommandLineArguments
+        {
+            get
+            {
+                if (!_mUnknown_CommandLineArguments) return _mValue_CommandLineArguments;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.CommandLineArguments' is not present");
+            }
+        }
 
         /// <summary>
         /// KX database that will be available for querying. Defined below.
         /// </summary>
-        [Input("databases")]
+        [PolicyResourceProperty("databases", "_mUnknown_Databases")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxClusterDatabaseArgs>> _mDatabases;
-
-        public List<Inputs.KxClusterDatabaseArgs>? Databases => _mDatabases.GetValue("databases");
+        private List<Inputs.KxClusterDatabaseArgs>? _mValue_Databases;
+        private bool _mUnknown_Databases;
+        public List<Inputs.KxClusterDatabaseArgs>? Databases
+        {
+            get
+            {
+                if (!_mUnknown_Databases) return _mValue_Databases;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.Databases' is not present");
+            }
+        }
 
         /// <summary>
         /// Description of the cluster.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique identifier for the KX environment.
         /// </summary>
-        [Input("environmentId")]
+        [PolicyResourceProperty("environmentId", "_mUnknown_EnvironmentId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mEnvironmentId;
-
-        public string? EnvironmentId => _mEnvironmentId.GetValue("environmentId");
+        private string? _mValue_EnvironmentId;
+        private bool _mUnknown_EnvironmentId;
+        public string? EnvironmentId
+        {
+            get
+            {
+                if (!_mUnknown_EnvironmentId) return _mValue_EnvironmentId;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.EnvironmentId' is not present");
+            }
+        }
 
         /// <summary>
         /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         /// </summary>
-        [Input("executionRole")]
+        [PolicyResourceProperty("executionRole", "_mUnknown_ExecutionRole")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mExecutionRole;
-
-        public string? ExecutionRole => _mExecutionRole.GetValue("executionRole");
+        private string? _mValue_ExecutionRole;
+        private bool _mUnknown_ExecutionRole;
+        public string? ExecutionRole
+        {
+            get
+            {
+                if (!_mUnknown_ExecutionRole) return _mValue_ExecutionRole;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.ExecutionRole' is not present");
+            }
+        }
 
         /// <summary>
         /// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         /// </summary>
-        [Input("initializationScript")]
+        [PolicyResourceProperty("initializationScript", "_mUnknown_InitializationScript")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mInitializationScript;
-
-        public string? InitializationScript => _mInitializationScript.GetValue("initializationScript");
+        private string? _mValue_InitializationScript;
+        private bool _mUnknown_InitializationScript;
+        public string? InitializationScript
+        {
+            get
+            {
+                if (!_mUnknown_InitializationScript) return _mValue_InitializationScript;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.InitializationScript' is not present");
+            }
+        }
 
         /// <summary>
         /// Unique name for the cluster that you want to create.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Version of FinSpace Managed kdb to run.
         /// </summary>
-        [Input("releaseLabel")]
+        [PolicyResourceProperty("releaseLabel", "_mUnknown_ReleaseLabel")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mReleaseLabel;
-
-        public string? ReleaseLabel => _mReleaseLabel.GetValue("releaseLabel");
+        private string? _mValue_ReleaseLabel;
+        private bool _mUnknown_ReleaseLabel;
+        public string? ReleaseLabel
+        {
+            get
+            {
+                if (!_mUnknown_ReleaseLabel) return _mValue_ReleaseLabel;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.ReleaseLabel' is not present");
+            }
+        }
 
         /// <summary>
         /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         /// </summary>
-        [Input("savedownStorageConfiguration")]
+        [PolicyResourceProperty("savedownStorageConfiguration", "_mUnknown_SavedownStorageConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterSavedownStorageConfigurationArgs> _mSavedownStorageConfiguration;
-
-        public Inputs.KxClusterSavedownStorageConfigurationArgs? SavedownStorageConfiguration => _mSavedownStorageConfiguration.GetValue("savedownStorageConfiguration");
+        private Inputs.KxClusterSavedownStorageConfigurationArgs? _mValue_SavedownStorageConfiguration;
+        private bool _mUnknown_SavedownStorageConfiguration;
+        public Inputs.KxClusterSavedownStorageConfigurationArgs? SavedownStorageConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_SavedownStorageConfiguration) return _mValue_SavedownStorageConfiguration;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.SavedownStorageConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// The structure that stores the configuration details of a scaling group.
         /// </summary>
-        [Input("scalingGroupConfiguration")]
+        [PolicyResourceProperty("scalingGroupConfiguration", "_mUnknown_ScalingGroupConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterScalingGroupConfigurationArgs> _mScalingGroupConfiguration;
-
-        public Inputs.KxClusterScalingGroupConfigurationArgs? ScalingGroupConfiguration => _mScalingGroupConfiguration.GetValue("scalingGroupConfiguration");
+        private Inputs.KxClusterScalingGroupConfigurationArgs? _mValue_ScalingGroupConfiguration;
+        private bool _mUnknown_ScalingGroupConfiguration;
+        public Inputs.KxClusterScalingGroupConfigurationArgs? ScalingGroupConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_ScalingGroupConfiguration) return _mValue_ScalingGroupConfiguration;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.ScalingGroupConfiguration' is not present");
+            }
+        }
 
         /// <summary>
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         /// </summary>
-        [Input("tickerplantLogConfigurations")]
+        [PolicyResourceProperty("tickerplantLogConfigurations", "_mUnknown_TickerplantLogConfigurations")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Inputs.KxClusterTickerplantLogConfigurationArgs>> _mTickerplantLogConfigurations;
-
-        public List<Inputs.KxClusterTickerplantLogConfigurationArgs>? TickerplantLogConfigurations => _mTickerplantLogConfigurations.GetValue("tickerplantLogConfigurations");
+        private List<Inputs.KxClusterTickerplantLogConfigurationArgs>? _mValue_TickerplantLogConfigurations;
+        private bool _mUnknown_TickerplantLogConfigurations;
+        public List<Inputs.KxClusterTickerplantLogConfigurationArgs>? TickerplantLogConfigurations
+        {
+            get
+            {
+                if (!_mUnknown_TickerplantLogConfigurations) return _mValue_TickerplantLogConfigurations;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.TickerplantLogConfigurations' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of KDB database. The following types are available:
@@ -426,21 +734,35 @@ namespace Pulumi.PolicyPacks.Aws.FinSpace
         /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
         /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vpcConfiguration")]
+        [PolicyResourceProperty("vpcConfiguration", "_mUnknown_VpcConfiguration")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.KxClusterVpcConfigurationArgs> _mVpcConfiguration;
-
-        public Inputs.KxClusterVpcConfigurationArgs? VpcConfiguration => _mVpcConfiguration.GetValue("vpcConfiguration");
+        private Inputs.KxClusterVpcConfigurationArgs? _mValue_VpcConfiguration;
+        private bool _mUnknown_VpcConfiguration;
+        public Inputs.KxClusterVpcConfigurationArgs? VpcConfiguration
+        {
+            get
+            {
+                if (!_mUnknown_VpcConfiguration) return _mValue_VpcConfiguration;
+                throw new UndeferrableValueException("Value 'KxClusterArgs.VpcConfiguration' is not present");
+            }
+        }
     }
 }

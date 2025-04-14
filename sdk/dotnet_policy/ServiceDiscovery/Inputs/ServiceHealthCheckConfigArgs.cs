@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.ServiceDiscovery.Inputs
         /// <summary>
         /// The number of consecutive health checks. Maximum value of 10.
         /// </summary>
-        [Input("failureThreshold")]
+        [PolicyResourceProperty("failureThreshold", "_mUnknown_FailureThreshold")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mFailureThreshold;
-
-        public int? FailureThreshold => _mFailureThreshold.GetValue("failureThreshold");
+        private int? _mValue_FailureThreshold;
+        private bool _mUnknown_FailureThreshold;
+        public int? FailureThreshold
+        {
+            get
+            {
+                if (!_mUnknown_FailureThreshold) return _mValue_FailureThreshold;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfigArgs.FailureThreshold' is not present");
+            }
+        }
 
         /// <summary>
         /// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
         /// </summary>
-        [Input("resourcePath")]
+        [PolicyResourceProperty("resourcePath", "_mUnknown_ResourcePath")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mResourcePath;
-
-        public string? ResourcePath => _mResourcePath.GetValue("resourcePath");
+        private string? _mValue_ResourcePath;
+        private bool _mUnknown_ResourcePath;
+        public string? ResourcePath
+        {
+            get
+            {
+                if (!_mUnknown_ResourcePath) return _mValue_ResourcePath;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfigArgs.ResourcePath' is not present");
+            }
+        }
 
         /// <summary>
         /// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ServiceHealthCheckConfigArgs.Type' is not present");
+            }
+        }
     }
 }

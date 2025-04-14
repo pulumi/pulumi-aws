@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.CodeDeploy.Inputs
         /// <summary>
         /// A list of alarms configured for the deployment group.
         /// </summary>
-        [Input("alarms")]
+        [PolicyResourceProperty("alarms", "_mUnknown_Alarms")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<string>> _mAlarms;
-
-        public List<string>? Alarms => _mAlarms.GetValue("alarms");
+        private List<string>? _mValue_Alarms;
+        private bool _mUnknown_Alarms;
+        public List<string>? Alarms
+        {
+            get
+            {
+                if (!_mUnknown_Alarms) return _mValue_Alarms;
+                throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfigurationArgs.Alarms' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfigurationArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
         /// </summary>
-        [Input("ignorePollAlarmFailure")]
+        [PolicyResourceProperty("ignorePollAlarmFailure", "_mUnknown_IgnorePollAlarmFailure")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mIgnorePollAlarmFailure;
-
-        public bool? IgnorePollAlarmFailure => _mIgnorePollAlarmFailure.GetValue("ignorePollAlarmFailure");
+        private bool? _mValue_IgnorePollAlarmFailure;
+        private bool _mUnknown_IgnorePollAlarmFailure;
+        public bool? IgnorePollAlarmFailure
+        {
+            get
+            {
+                if (!_mUnknown_IgnorePollAlarmFailure) return _mValue_IgnorePollAlarmFailure;
+                throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfigurationArgs.IgnorePollAlarmFailure' is not present");
+            }
+        }
     }
 }

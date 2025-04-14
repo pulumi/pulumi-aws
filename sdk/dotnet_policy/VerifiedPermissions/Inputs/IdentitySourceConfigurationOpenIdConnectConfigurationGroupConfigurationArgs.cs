@@ -15,19 +15,33 @@ namespace Pulumi.PolicyPacks.Aws.VerifiedPermissions.Inputs
         /// <summary>
         /// The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
         /// </summary>
-        [Input("groupClaim")]
+        [PolicyResourceProperty("groupClaim", "_mUnknown_GroupClaim")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupClaim;
-
-        public string? GroupClaim => _mGroupClaim.GetValue("groupClaim");
+        private string? _mValue_GroupClaim;
+        private bool _mUnknown_GroupClaim;
+        public string? GroupClaim
+        {
+            get
+            {
+                if (!_mUnknown_GroupClaim) return _mValue_GroupClaim;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs.GroupClaim' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
         /// </summary>
-        [Input("groupEntityType")]
+        [PolicyResourceProperty("groupEntityType", "_mUnknown_GroupEntityType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mGroupEntityType;
-
-        public string? GroupEntityType => _mGroupEntityType.GetValue("groupEntityType");
+        private string? _mValue_GroupEntityType;
+        private bool _mUnknown_GroupEntityType;
+        public string? GroupEntityType
+        {
+            get
+            {
+                if (!_mUnknown_GroupEntityType) return _mValue_GroupEntityType;
+                throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs.GroupEntityType' is not present");
+            }
+        }
     }
 }

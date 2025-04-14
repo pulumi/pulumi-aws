@@ -19,39 +19,67 @@ namespace Pulumi.PolicyPacks.Aws.CodeBuild.Outputs
         /// `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission
         /// allows CodeBuild to modify the access control list for the bucket.
         /// </summary>
-        [Input("bucketOwnerAccess")]
+        [PolicyResourceProperty("bucketOwnerAccess", "_mUnknown_BucketOwnerAccess")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketOwnerAccess;
-
-        public string? BucketOwnerAccess => _mBucketOwnerAccess.GetValue("bucketOwnerAccess");
+        private string? _mValue_BucketOwnerAccess;
+        private bool _mUnknown_BucketOwnerAccess;
+        public string? BucketOwnerAccess
+        {
+            get
+            {
+                if (!_mUnknown_BucketOwnerAccess) return _mValue_BucketOwnerAccess;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigS3Logs.BucketOwnerAccess' is not present");
+            }
+        }
 
         /// <summary>
         /// Whether to disable encrypting S3 logs. Defaults to `false`.
         /// </summary>
-        [Input("encryptionDisabled")]
+        [PolicyResourceProperty("encryptionDisabled", "_mUnknown_EncryptionDisabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEncryptionDisabled;
-
-        public bool? EncryptionDisabled => _mEncryptionDisabled.GetValue("encryptionDisabled");
+        private bool? _mValue_EncryptionDisabled;
+        private bool _mUnknown_EncryptionDisabled;
+        public bool? EncryptionDisabled
+        {
+            get
+            {
+                if (!_mUnknown_EncryptionDisabled) return _mValue_EncryptionDisabled;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigS3Logs.EncryptionDisabled' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the S3 bucket and the path prefix for S3 logs. Must be set if status is `ENABLED`,
         /// otherwise it must be empty.
         /// </summary>
-        [Input("location")]
+        [PolicyResourceProperty("location", "_mUnknown_Location")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLocation;
-
-        public string? Location => _mLocation.GetValue("location");
+        private string? _mValue_Location;
+        private bool _mUnknown_Location;
+        public string? Location
+        {
+            get
+            {
+                if (!_mUnknown_Location) return _mValue_Location;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigS3Logs.Location' is not present");
+            }
+        }
 
         /// <summary>
         /// Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults
         /// to `DISABLED`.
         /// </summary>
-        [Input("status")]
+        [PolicyResourceProperty("status", "_mUnknown_Status")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mStatus;
-
-        public string? Status => _mStatus.GetValue("status");
+        private string? _mValue_Status;
+        private bool _mUnknown_Status;
+        public string? Status
+        {
+            get
+            {
+                if (!_mUnknown_Status) return _mValue_Status;
+                throw new UndeferrableValueException("Value 'ProjectLogsConfigS3Logs.Status' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AppFlow.Outputs
         /// <summary>
         /// API version that the destination connector uses.
         /// </summary>
-        [Input("apiVersion")]
+        [PolicyResourceProperty("apiVersion", "_mUnknown_ApiVersion")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mApiVersion;
-
-        public string? ApiVersion => _mApiVersion.GetValue("apiVersion");
+        private string? _mValue_ApiVersion;
+        private bool _mUnknown_ApiVersion;
+        public string? ApiVersion
+        {
+            get
+            {
+                if (!_mUnknown_ApiVersion) return _mValue_ApiVersion;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.ApiVersion' is not present");
+            }
+        }
 
         /// <summary>
         /// Name of the connector profile. This name must be unique for each connector profile in the AWS account.
         /// </summary>
-        [Input("connectorProfileName")]
+        [PolicyResourceProperty("connectorProfileName", "_mUnknown_ConnectorProfileName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorProfileName;
-
-        public string? ConnectorProfileName => _mConnectorProfileName.GetValue("connectorProfileName");
+        private string? _mValue_ConnectorProfileName;
+        private bool _mUnknown_ConnectorProfileName;
+        public string? ConnectorProfileName
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorProfileName) return _mValue_ConnectorProfileName;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.ConnectorProfileName' is not present");
+            }
+        }
 
         /// <summary>
         /// Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
         /// </summary>
-        [Input("connectorType")]
+        [PolicyResourceProperty("connectorType", "_mUnknown_ConnectorType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConnectorType;
-
-        public string? ConnectorType => _mConnectorType.GetValue("connectorType");
+        private string? _mValue_ConnectorType;
+        private bool _mUnknown_ConnectorType;
+        public string? ConnectorType
+        {
+            get
+            {
+                if (!_mUnknown_ConnectorType) return _mValue_ConnectorType;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.ConnectorType' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
         /// </summary>
-        [Input("incrementalPullConfig")]
+        [PolicyResourceProperty("incrementalPullConfig", "_mUnknown_IncrementalPullConfig")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowSourceFlowConfigIncrementalPullConfig> _mIncrementalPullConfig;
-
-        public Outputs.FlowSourceFlowConfigIncrementalPullConfig? IncrementalPullConfig => _mIncrementalPullConfig.GetValue("incrementalPullConfig");
+        private Outputs.FlowSourceFlowConfigIncrementalPullConfig? _mValue_IncrementalPullConfig;
+        private bool _mUnknown_IncrementalPullConfig;
+        public Outputs.FlowSourceFlowConfigIncrementalPullConfig? IncrementalPullConfig
+        {
+            get
+            {
+                if (!_mUnknown_IncrementalPullConfig) return _mValue_IncrementalPullConfig;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.IncrementalPullConfig' is not present");
+            }
+        }
 
         /// <summary>
         /// Information that is required to query a particular source connector. See Source Connector Properties for details.
         /// </summary>
-        [Input("sourceConnectorProperties")]
+        [PolicyResourceProperty("sourceConnectorProperties", "_mUnknown_SourceConnectorProperties")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.FlowSourceFlowConfigSourceConnectorProperties> _mSourceConnectorProperties;
-
-        public Outputs.FlowSourceFlowConfigSourceConnectorProperties? SourceConnectorProperties => _mSourceConnectorProperties.GetValue("sourceConnectorProperties");
+        private Outputs.FlowSourceFlowConfigSourceConnectorProperties? _mValue_SourceConnectorProperties;
+        private bool _mUnknown_SourceConnectorProperties;
+        public Outputs.FlowSourceFlowConfigSourceConnectorProperties? SourceConnectorProperties
+        {
+            get
+            {
+                if (!_mUnknown_SourceConnectorProperties) return _mValue_SourceConnectorProperties;
+                throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.SourceConnectorProperties' is not present");
+            }
+        }
     }
 }

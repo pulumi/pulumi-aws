@@ -16,101 +16,178 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The ARN that identifies the provisioning template.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// The default version of the fleet provisioning template.
         /// </summary>
-        [Input("defaultVersionId")]
+        [PolicyResourceProperty("defaultVersionId", "_mUnknown_DefaultVersionId")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mDefaultVersionId;
-
-        public int? DefaultVersionId => _mDefaultVersionId.GetValue("defaultVersionId");
+        private int? _mValue_DefaultVersionId;
+        private bool _mUnknown_DefaultVersionId;
+        public int? DefaultVersionId
+        {
+            get
+            {
+                if (!_mUnknown_DefaultVersionId) return _mValue_DefaultVersionId;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.DefaultVersionId' is not present");
+            }
+        }
 
         /// <summary>
         /// The description of the fleet provisioning template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// True to enable the fleet provisioning template, otherwise false.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the fleet provisioning template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a pre-provisioning hook template. Details below.
         /// </summary>
-        [Input("preProvisioningHook")]
+        [PolicyResourceProperty("preProvisioningHook", "_mUnknown_PreProvisioningHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.ProvisioningTemplatePreProvisioningHook> _mPreProvisioningHook;
-
-        public Outputs.ProvisioningTemplatePreProvisioningHook? PreProvisioningHook => _mPreProvisioningHook.GetValue("preProvisioningHook");
+        private Outputs.ProvisioningTemplatePreProvisioningHook? _mValue_PreProvisioningHook;
+        private bool _mUnknown_PreProvisioningHook;
+        public Outputs.ProvisioningTemplatePreProvisioningHook? PreProvisioningHook
+        {
+            get
+            {
+                if (!_mUnknown_PreProvisioningHook) return _mValue_PreProvisioningHook;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.PreProvisioningHook' is not present");
+            }
+        }
 
         /// <summary>
         /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         /// </summary>
-        [Input("provisioningRoleArn")]
+        [PolicyResourceProperty("provisioningRoleArn", "_mUnknown_ProvisioningRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningRoleArn;
-
-        public string? ProvisioningRoleArn => _mProvisioningRoleArn.GetValue("provisioningRoleArn");
+        private string? _mValue_ProvisioningRoleArn;
+        private bool _mUnknown_ProvisioningRoleArn;
+        public string? ProvisioningRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningRoleArn) return _mValue_ProvisioningRoleArn;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.ProvisioningRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON formatted contents of the fleet provisioning template.
         /// </summary>
-        [Input("templateBody")]
+        [PolicyResourceProperty("templateBody", "_mUnknown_TemplateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
-
-        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+        private string? _mValue_TemplateBody;
+        private bool _mUnknown_TemplateBody;
+        public string? TemplateBody
+        {
+            get
+            {
+                if (!_mUnknown_TemplateBody) return _mValue_TemplateBody;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.TemplateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The type you define in a provisioning template.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplate.Type' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:iot/provisioningTemplate:ProvisioningTemplate")]
@@ -119,73 +196,129 @@ namespace Pulumi.PolicyPacks.Aws.Iot
         /// <summary>
         /// The description of the fleet provisioning template.
         /// </summary>
-        [Input("description")]
+        [PolicyResourceProperty("description", "_mUnknown_Description")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDescription;
-
-        public string? Description => _mDescription.GetValue("description");
+        private string? _mValue_Description;
+        private bool _mUnknown_Description;
+        public string? Description
+        {
+            get
+            {
+                if (!_mUnknown_Description) return _mValue_Description;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.Description' is not present");
+            }
+        }
 
         /// <summary>
         /// True to enable the fleet provisioning template, otherwise false.
         /// </summary>
-        [Input("enabled")]
+        [PolicyResourceProperty("enabled", "_mUnknown_Enabled")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mEnabled;
-
-        public bool? Enabled => _mEnabled.GetValue("enabled");
+        private bool? _mValue_Enabled;
+        private bool _mUnknown_Enabled;
+        public bool? Enabled
+        {
+            get
+            {
+                if (!_mUnknown_Enabled) return _mValue_Enabled;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.Enabled' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the fleet provisioning template.
         /// </summary>
-        [Input("name")]
+        [PolicyResourceProperty("name", "_mUnknown_Name")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mName;
-
-        public string? Name => _mName.GetValue("name");
+        private string? _mValue_Name;
+        private bool _mUnknown_Name;
+        public string? Name
+        {
+            get
+            {
+                if (!_mUnknown_Name) return _mValue_Name;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.Name' is not present");
+            }
+        }
 
         /// <summary>
         /// Creates a pre-provisioning hook template. Details below.
         /// </summary>
-        [Input("preProvisioningHook")]
+        [PolicyResourceProperty("preProvisioningHook", "_mUnknown_PreProvisioningHook")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Inputs.ProvisioningTemplatePreProvisioningHookArgs> _mPreProvisioningHook;
-
-        public Inputs.ProvisioningTemplatePreProvisioningHookArgs? PreProvisioningHook => _mPreProvisioningHook.GetValue("preProvisioningHook");
+        private Inputs.ProvisioningTemplatePreProvisioningHookArgs? _mValue_PreProvisioningHook;
+        private bool _mUnknown_PreProvisioningHook;
+        public Inputs.ProvisioningTemplatePreProvisioningHookArgs? PreProvisioningHook
+        {
+            get
+            {
+                if (!_mUnknown_PreProvisioningHook) return _mValue_PreProvisioningHook;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.PreProvisioningHook' is not present");
+            }
+        }
 
         /// <summary>
         /// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
         /// </summary>
-        [Input("provisioningRoleArn")]
+        [PolicyResourceProperty("provisioningRoleArn", "_mUnknown_ProvisioningRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mProvisioningRoleArn;
-
-        public string? ProvisioningRoleArn => _mProvisioningRoleArn.GetValue("provisioningRoleArn");
+        private string? _mValue_ProvisioningRoleArn;
+        private bool _mUnknown_ProvisioningRoleArn;
+        public string? ProvisioningRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_ProvisioningRoleArn) return _mValue_ProvisioningRoleArn;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.ProvisioningRoleArn' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The JSON formatted contents of the fleet provisioning template.
         /// </summary>
-        [Input("templateBody")]
+        [PolicyResourceProperty("templateBody", "_mUnknown_TemplateBody")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTemplateBody;
-
-        public string? TemplateBody => _mTemplateBody.GetValue("templateBody");
+        private string? _mValue_TemplateBody;
+        private bool _mUnknown_TemplateBody;
+        public string? TemplateBody
+        {
+            get
+            {
+                if (!_mUnknown_TemplateBody) return _mValue_TemplateBody;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.TemplateBody' is not present");
+            }
+        }
 
         /// <summary>
         /// The type you define in a provisioning template.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'ProvisioningTemplateArgs.Type' is not present");
+            }
+        }
     }
 }

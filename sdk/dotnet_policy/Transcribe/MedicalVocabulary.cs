@@ -16,64 +16,113 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// <summary>
         /// ARN of the MedicalVocabulary.
         /// </summary>
-        [Input("arn")]
+        [PolicyResourceProperty("arn", "_mUnknown_Arn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mArn;
-
-        public string? Arn => _mArn.GetValue("arn");
+        private string? _mValue_Arn;
+        private bool _mUnknown_Arn;
+        public string? Arn
+        {
+            get
+            {
+                if (!_mUnknown_Arn) return _mValue_Arn;
+                throw new UndeferrableValueException("Value 'MedicalVocabulary.Arn' is not present");
+            }
+        }
 
         /// <summary>
         /// Generated download URI.
         /// </summary>
-        [Input("downloadUri")]
+        [PolicyResourceProperty("downloadUri", "_mUnknown_DownloadUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDownloadUri;
-
-        public string? DownloadUri => _mDownloadUri.GetValue("downloadUri");
+        private string? _mValue_DownloadUri;
+        private bool _mUnknown_DownloadUri;
+        public string? DownloadUri
+        {
+            get
+            {
+                if (!_mUnknown_DownloadUri) return _mValue_DownloadUri;
+                throw new UndeferrableValueException("Value 'MedicalVocabulary.DownloadUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'MedicalVocabulary.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MedicalVocabulary.Tags' is not present");
+            }
+        }
 
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
-
-        [Input("tagsAll")]
+        [PolicyResourceProperty("tagsAll", "_mUnknown_TagsAll")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTagsAll;
-
-        public Dictionary<string, string>? TagsAll => _mTagsAll.GetValue("tagsAll");
+        private Dictionary<string, string>? _mValue_TagsAll;
+        private bool _mUnknown_TagsAll;
+        public Dictionary<string, string>? TagsAll
+        {
+            get
+            {
+                if (!_mUnknown_TagsAll) return _mValue_TagsAll;
+                throw new UndeferrableValueException("Value 'MedicalVocabulary.TagsAll' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         /// </summary>
-        [Input("vocabularyFileUri")]
+        [PolicyResourceProperty("vocabularyFileUri", "_mUnknown_VocabularyFileUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFileUri;
-
-        public string? VocabularyFileUri => _mVocabularyFileUri.GetValue("vocabularyFileUri");
+        private string? _mValue_VocabularyFileUri;
+        private bool _mUnknown_VocabularyFileUri;
+        public string? VocabularyFileUri
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFileUri) return _mValue_VocabularyFileUri;
+                throw new UndeferrableValueException("Value 'MedicalVocabulary.VocabularyFileUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Medical Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vocabularyName")]
+        [PolicyResourceProperty("vocabularyName", "_mUnknown_VocabularyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyName;
-
-        public string? VocabularyName => _mVocabularyName.GetValue("vocabularyName");
+        private string? _mValue_VocabularyName;
+        private bool _mUnknown_VocabularyName;
+        public string? VocabularyName
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyName) return _mValue_VocabularyName;
+                throw new UndeferrableValueException("Value 'MedicalVocabulary.VocabularyName' is not present");
+            }
+        }
     }
 
     [PolicyResourceType("aws:transcribe/medicalVocabulary:MedicalVocabulary")]
@@ -82,39 +131,67 @@ namespace Pulumi.PolicyPacks.Aws.Transcribe
         /// <summary>
         /// The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
         /// </summary>
-        [Input("languageCode")]
+        [PolicyResourceProperty("languageCode", "_mUnknown_LanguageCode")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mLanguageCode;
-
-        public string? LanguageCode => _mLanguageCode.GetValue("languageCode");
+        private string? _mValue_LanguageCode;
+        private bool _mUnknown_LanguageCode;
+        public string? LanguageCode
+        {
+            get
+            {
+                if (!_mUnknown_LanguageCode) return _mValue_LanguageCode;
+                throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.LanguageCode' is not present");
+            }
+        }
 
         /// <summary>
         /// A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        [Input("tags")]
+        [PolicyResourceProperty("tags", "_mUnknown_Tags")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Dictionary<string, string>> _mTags;
-
-        public Dictionary<string, string>? Tags => _mTags.GetValue("tags");
+        private Dictionary<string, string>? _mValue_Tags;
+        private bool _mUnknown_Tags;
+        public Dictionary<string, string>? Tags
+        {
+            get
+            {
+                if (!_mUnknown_Tags) return _mValue_Tags;
+                throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.Tags' is not present");
+            }
+        }
 
         /// <summary>
         /// The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
         /// </summary>
-        [Input("vocabularyFileUri")]
+        [PolicyResourceProperty("vocabularyFileUri", "_mUnknown_VocabularyFileUri")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyFileUri;
-
-        public string? VocabularyFileUri => _mVocabularyFileUri.GetValue("vocabularyFileUri");
+        private string? _mValue_VocabularyFileUri;
+        private bool _mUnknown_VocabularyFileUri;
+        public string? VocabularyFileUri
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyFileUri) return _mValue_VocabularyFileUri;
+                throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.VocabularyFileUri' is not present");
+            }
+        }
 
         /// <summary>
         /// The name of the Medical Vocabulary.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("vocabularyName")]
+        [PolicyResourceProperty("vocabularyName", "_mUnknown_VocabularyName")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVocabularyName;
-
-        public string? VocabularyName => _mVocabularyName.GetValue("vocabularyName");
+        private string? _mValue_VocabularyName;
+        private bool _mUnknown_VocabularyName;
+        public string? VocabularyName
+        {
+            get
+            {
+                if (!_mUnknown_VocabularyName) return _mValue_VocabularyName;
+                throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.VocabularyName' is not present");
+            }
+        }
     }
 }

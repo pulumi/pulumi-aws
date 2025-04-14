@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.Quicksight.Outputs
         /// <summary>
         /// Visibility state. Possibles values: EXPANDED, COLLAPSED.
         /// </summary>
-        [Input("visibilityState")]
+        [PolicyResourceProperty("visibilityState", "_mUnknown_VisibilityState")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mVisibilityState;
-
-        public string? VisibilityState => _mVisibilityState.GetValue("visibilityState");
+        private string? _mValue_VisibilityState;
+        private bool _mUnknown_VisibilityState;
+        public string? VisibilityState
+        {
+            get
+            {
+                if (!_mUnknown_VisibilityState) return _mValue_VisibilityState;
+                throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptionsSheetControlsOption.VisibilityState' is not present");
+            }
+        }
     }
 }

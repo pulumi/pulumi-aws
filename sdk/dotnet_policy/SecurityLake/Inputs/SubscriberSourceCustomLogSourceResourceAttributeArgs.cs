@@ -15,28 +15,49 @@ namespace Pulumi.PolicyPacks.Aws.SecurityLake.Inputs
         /// <summary>
         /// The ARN of the AWS Glue crawler.
         /// </summary>
-        [Input("crawlerArn")]
+        [PolicyResourceProperty("crawlerArn", "_mUnknown_CrawlerArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mCrawlerArn;
-
-        public string? CrawlerArn => _mCrawlerArn.GetValue("crawlerArn");
+        private string? _mValue_CrawlerArn;
+        private bool _mUnknown_CrawlerArn;
+        public string? CrawlerArn
+        {
+            get
+            {
+                if (!_mUnknown_CrawlerArn) return _mValue_CrawlerArn;
+                throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceAttributeArgs.CrawlerArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS Glue database where results are written.
         /// </summary>
-        [Input("databaseArn")]
+        [PolicyResourceProperty("databaseArn", "_mUnknown_DatabaseArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mDatabaseArn;
-
-        public string? DatabaseArn => _mDatabaseArn.GetValue("databaseArn");
+        private string? _mValue_DatabaseArn;
+        private bool _mUnknown_DatabaseArn;
+        public string? DatabaseArn
+        {
+            get
+            {
+                if (!_mUnknown_DatabaseArn) return _mValue_DatabaseArn;
+                throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceAttributeArgs.DatabaseArn' is not present");
+            }
+        }
 
         /// <summary>
         /// The ARN of the AWS Glue table.
         /// </summary>
-        [Input("tableArn")]
+        [PolicyResourceProperty("tableArn", "_mUnknown_TableArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTableArn;
-
-        public string? TableArn => _mTableArn.GetValue("tableArn");
+        private string? _mValue_TableArn;
+        private bool _mUnknown_TableArn;
+        public string? TableArn
+        {
+            get
+            {
+                if (!_mUnknown_TableArn) return _mValue_TableArn;
+                throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceAttributeArgs.TableArn' is not present");
+            }
+        }
     }
 }

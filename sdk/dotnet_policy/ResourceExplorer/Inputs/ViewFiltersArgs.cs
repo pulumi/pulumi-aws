@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.ResourceExplorer.Inputs
         /// <summary>
         /// The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
         /// </summary>
-        [Input("filterString")]
+        [PolicyResourceProperty("filterString", "_mUnknown_FilterString")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mFilterString;
-
-        public string? FilterString => _mFilterString.GetValue("filterString");
+        private string? _mValue_FilterString;
+        private bool _mUnknown_FilterString;
+        public string? FilterString
+        {
+            get
+            {
+                if (!_mUnknown_FilterString) return _mValue_FilterString;
+                throw new UndeferrableValueException("Value 'ViewFiltersArgs.FilterString' is not present");
+            }
+        }
     }
 }

@@ -15,46 +15,81 @@ namespace Pulumi.PolicyPacks.Aws.AppMesh.Outputs
         /// <summary>
         /// Defaults for backends.
         /// </summary>
-        [Input("backendDefaults")]
+        [PolicyResourceProperty("backendDefaults", "_mUnknown_BackendDefaults")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecBackendDefaults> _mBackendDefaults;
-
-        public Outputs.VirtualNodeSpecBackendDefaults? BackendDefaults => _mBackendDefaults.GetValue("backendDefaults");
+        private Outputs.VirtualNodeSpecBackendDefaults? _mValue_BackendDefaults;
+        private bool _mUnknown_BackendDefaults;
+        public Outputs.VirtualNodeSpecBackendDefaults? BackendDefaults
+        {
+            get
+            {
+                if (!_mUnknown_BackendDefaults) return _mValue_BackendDefaults;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpec.BackendDefaults' is not present");
+            }
+        }
 
         /// <summary>
         /// Backends to which the virtual node is expected to send outbound traffic.
         /// </summary>
-        [Input("backends")]
+        [PolicyResourceProperty("backends", "_mUnknown_Backends")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VirtualNodeSpecBackend>> _mBackends;
-
-        public List<Outputs.VirtualNodeSpecBackend>? Backends => _mBackends.GetValue("backends");
+        private List<Outputs.VirtualNodeSpecBackend>? _mValue_Backends;
+        private bool _mUnknown_Backends;
+        public List<Outputs.VirtualNodeSpecBackend>? Backends
+        {
+            get
+            {
+                if (!_mUnknown_Backends) return _mValue_Backends;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpec.Backends' is not present");
+            }
+        }
 
         /// <summary>
         /// Listeners from which the virtual node is expected to receive inbound traffic.
         /// </summary>
-        [Input("listeners")]
+        [PolicyResourceProperty("listeners", "_mUnknown_Listeners")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<List<Outputs.VirtualNodeSpecListener>> _mListeners;
-
-        public List<Outputs.VirtualNodeSpecListener>? Listeners => _mListeners.GetValue("listeners");
+        private List<Outputs.VirtualNodeSpecListener>? _mValue_Listeners;
+        private bool _mUnknown_Listeners;
+        public List<Outputs.VirtualNodeSpecListener>? Listeners
+        {
+            get
+            {
+                if (!_mUnknown_Listeners) return _mValue_Listeners;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpec.Listeners' is not present");
+            }
+        }
 
         /// <summary>
         /// Inbound and outbound access logging information for the virtual node.
         /// </summary>
-        [Input("logging")]
+        [PolicyResourceProperty("logging", "_mUnknown_Logging")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecLogging> _mLogging;
-
-        public Outputs.VirtualNodeSpecLogging? Logging => _mLogging.GetValue("logging");
+        private Outputs.VirtualNodeSpecLogging? _mValue_Logging;
+        private bool _mUnknown_Logging;
+        public Outputs.VirtualNodeSpecLogging? Logging
+        {
+            get
+            {
+                if (!_mUnknown_Logging) return _mValue_Logging;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpec.Logging' is not present");
+            }
+        }
 
         /// <summary>
         /// Service discovery information for the virtual node.
         /// </summary>
-        [Input("serviceDiscovery")]
+        [PolicyResourceProperty("serviceDiscovery", "_mUnknown_ServiceDiscovery")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<Outputs.VirtualNodeSpecServiceDiscovery> _mServiceDiscovery;
-
-        public Outputs.VirtualNodeSpecServiceDiscovery? ServiceDiscovery => _mServiceDiscovery.GetValue("serviceDiscovery");
+        private Outputs.VirtualNodeSpecServiceDiscovery? _mValue_ServiceDiscovery;
+        private bool _mUnknown_ServiceDiscovery;
+        public Outputs.VirtualNodeSpecServiceDiscovery? ServiceDiscovery
+        {
+            get
+            {
+                if (!_mUnknown_ServiceDiscovery) return _mValue_ServiceDiscovery;
+                throw new UndeferrableValueException("Value 'VirtualNodeSpec.ServiceDiscovery' is not present");
+            }
+        }
     }
 }

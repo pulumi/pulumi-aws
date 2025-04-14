@@ -12,28 +12,56 @@ namespace Pulumi.PolicyPacks.Aws.DataZone.Inputs
 {
     public sealed class AssetTypeFormsInputArgs
     {
-        [Input("mapBlockKey")]
+        [PolicyResourceProperty("mapBlockKey", "_mUnknown_MapBlockKey")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mMapBlockKey;
+        private string? _mValue_MapBlockKey;
+        private bool _mUnknown_MapBlockKey;
+        public string? MapBlockKey
+        {
+            get
+            {
+                if (!_mUnknown_MapBlockKey) return _mValue_MapBlockKey;
+                throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.MapBlockKey' is not present");
+            }
+        }
 
-        public string? MapBlockKey => _mMapBlockKey.GetValue("mapBlockKey");
-
-        [Input("required")]
+        [PolicyResourceProperty("required", "_mUnknown_Required")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<bool> _mRequired;
+        private bool? _mValue_Required;
+        private bool _mUnknown_Required;
+        public bool? Required
+        {
+            get
+            {
+                if (!_mUnknown_Required) return _mValue_Required;
+                throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.Required' is not present");
+            }
+        }
 
-        public bool? Required => _mRequired.GetValue("required");
-
-        [Input("typeIdentifier")]
+        [PolicyResourceProperty("typeIdentifier", "_mUnknown_TypeIdentifier")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypeIdentifier;
+        private string? _mValue_TypeIdentifier;
+        private bool _mUnknown_TypeIdentifier;
+        public string? TypeIdentifier
+        {
+            get
+            {
+                if (!_mUnknown_TypeIdentifier) return _mValue_TypeIdentifier;
+                throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.TypeIdentifier' is not present");
+            }
+        }
 
-        public string? TypeIdentifier => _mTypeIdentifier.GetValue("typeIdentifier");
-
-        [Input("typeRevision")]
+        [PolicyResourceProperty("typeRevision", "_mUnknown_TypeRevision")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mTypeRevision;
-
-        public string? TypeRevision => _mTypeRevision.GetValue("typeRevision");
+        private string? _mValue_TypeRevision;
+        private bool _mUnknown_TypeRevision;
+        public string? TypeRevision
+        {
+            get
+            {
+                if (!_mUnknown_TypeRevision) return _mValue_TypeRevision;
+                throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.TypeRevision' is not present");
+            }
+        }
     }
 }

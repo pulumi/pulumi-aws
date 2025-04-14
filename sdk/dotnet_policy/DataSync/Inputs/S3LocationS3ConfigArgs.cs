@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.DataSync.Inputs
         /// <summary>
         /// ARN of the IAM Role used to connect to the S3 Bucket.
         /// </summary>
-        [Input("bucketAccessRoleArn")]
+        [PolicyResourceProperty("bucketAccessRoleArn", "_mUnknown_BucketAccessRoleArn")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mBucketAccessRoleArn;
-
-        public string? BucketAccessRoleArn => _mBucketAccessRoleArn.GetValue("bucketAccessRoleArn");
+        private string? _mValue_BucketAccessRoleArn;
+        private bool _mUnknown_BucketAccessRoleArn;
+        public string? BucketAccessRoleArn
+        {
+            get
+            {
+                if (!_mUnknown_BucketAccessRoleArn) return _mValue_BucketAccessRoleArn;
+                throw new UndeferrableValueException("Value 'S3LocationS3ConfigArgs.BucketAccessRoleArn' is not present");
+            }
+        }
     }
 }

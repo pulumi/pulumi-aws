@@ -15,10 +15,17 @@ namespace Pulumi.PolicyPacks.Aws.SecurityHub.Inputs
         /// <summary>
         /// Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
         /// </summary>
-        [Input("configurationType")]
+        [PolicyResourceProperty("configurationType", "_mUnknown_ConfigurationType")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mConfigurationType;
-
-        public string? ConfigurationType => _mConfigurationType.GetValue("configurationType");
+        private string? _mValue_ConfigurationType;
+        private bool _mUnknown_ConfigurationType;
+        public string? ConfigurationType
+        {
+            get
+            {
+                if (!_mUnknown_ConfigurationType) return _mValue_ConfigurationType;
+                throw new UndeferrableValueException("Value 'OrganizationConfigurationOrganizationConfigurationArgs.ConfigurationType' is not present");
+            }
+        }
     }
 }

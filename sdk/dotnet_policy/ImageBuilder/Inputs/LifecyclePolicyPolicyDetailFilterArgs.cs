@@ -15,39 +15,67 @@ namespace Pulumi.PolicyPacks.Aws.ImageBuilder.Inputs
         /// <summary>
         /// For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
         /// </summary>
-        [Input("retainAtLeast")]
+        [PolicyResourceProperty("retainAtLeast", "_mUnknown_RetainAtLeast")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mRetainAtLeast;
-
-        public int? RetainAtLeast => _mRetainAtLeast.GetValue("retainAtLeast");
+        private int? _mValue_RetainAtLeast;
+        private bool _mUnknown_RetainAtLeast;
+        public int? RetainAtLeast
+        {
+            get
+            {
+                if (!_mUnknown_RetainAtLeast) return _mValue_RetainAtLeast;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilterArgs.RetainAtLeast' is not present");
+            }
+        }
 
         /// <summary>
         /// Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
         /// </summary>
-        [Input("type")]
+        [PolicyResourceProperty("type", "_mUnknown_Type")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mType;
-
-        public string? Type => _mType.GetValue("type");
+        private string? _mValue_Type;
+        private bool _mUnknown_Type;
+        public string? Type
+        {
+            get
+            {
+                if (!_mUnknown_Type) return _mValue_Type;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilterArgs.Type' is not present");
+            }
+        }
 
         /// <summary>
         /// Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
         /// </summary>
-        [Input("unit")]
+        [PolicyResourceProperty("unit", "_mUnknown_Unit")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<string> _mUnit;
-
-        public string? Unit => _mUnit.GetValue("unit");
+        private string? _mValue_Unit;
+        private bool _mUnknown_Unit;
+        public string? Unit
+        {
+            get
+            {
+                if (!_mUnknown_Unit) return _mValue_Unit;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilterArgs.Unit' is not present");
+            }
+        }
 
         /// <summary>
         /// The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("value")]
+        [PolicyResourceProperty("value", "_mUnknown_Value")]
         #pragma warning disable CS0649 // Field is assigned through deserializer
-        private global::Pulumi.Core.UndeferrableValue<int> _mValue;
-
-        public int? Value => _mValue.GetValue("value");
+        private int? _mValue_Value;
+        private bool _mUnknown_Value;
+        public int? Value
+        {
+            get
+            {
+                if (!_mUnknown_Value) return _mValue_Value;
+                throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilterArgs.Value' is not present");
+            }
+        }
     }
 }
